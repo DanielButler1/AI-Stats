@@ -1,0 +1,40 @@
+{
+  "id": "grok-1",
+  "name": "Grok 1",
+  "provider": "x-ai",
+  "status": "Deprecated",
+  "previous_model_id": "grok-0",
+  "description": null,
+  "announced_date": "2023-11-03T00:00:00",
+  "release_date": null,
+  "input_context_length": null,
+  "output_context_length": null,
+  "license": null,
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": null,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": null,
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": "https://github.com/xai-org/grok-1",
+  "weights_link": null,
+  "parameter_count": 314000000000,
+  "training_tokens": null,
+  "benchmark_results": [],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

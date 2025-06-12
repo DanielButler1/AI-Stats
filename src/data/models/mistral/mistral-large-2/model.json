@@ -1,0 +1,40 @@
+{
+  "id": "mistral-large-2",
+  "name": "Mistral Large 2",
+  "provider": "mistral",
+  "status": null,
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": null,
+  "release_date": "2024-07-24T00:00:00",
+  "input_context_length": 128000.0,
+  "output_context_length": 128000.0,
+  "license": "Mistral Research License",
+  "multimodal": false,
+  "input_types": null,
+  "output_types": null,
+  "web_access": false,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": "https://docs.mistral.ai/",
+  "playground_link": "https://chat.mistral.ai/",
+  "paper_link": null,
+  "announcement_link": "https://mistral.ai/news/mistral-large-2407/",
+  "repository_link": null,
+  "weights_link": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2407",
+  "parameter_count": 123000000000,
+  "training_tokens": null,
+  "benchmark_results": [],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

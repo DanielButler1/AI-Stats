@@ -1,0 +1,48 @@
+{
+  "id": "claude-3-haiku-20240307",
+  "name": "Claude 3 Haiku",
+  "provider": "anthropic",
+  "status": "Available",
+  "previous_model_id": "claude-2.1",
+  "description": null,
+  "announced_date": "2024-03-04T00:00:00",
+  "release_date": "2024-03-13T00:00:00",
+  "input_context_length": 200000.0,
+  "output_context_length": 4096.0,
+  "license": "Proprietary",
+  "multimodal": true,
+  "input_types": "text,image",
+  "output_types": "text",
+  "web_access": null,
+  "reasoning": false,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": null,
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": null,
+  "weights_link": null,
+  "parameter_count": "",
+  "training_tokens": "",
+  "benchmark_results": [
+    {
+      "benchmark_id": "gpqa",
+      "score": "33.3%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://www.anthropic.com/news/claude-3-haiku"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": "anthropic",
+      "input_token_price": 2.5e-07,
+      "output_token_price": 1.25e-06,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

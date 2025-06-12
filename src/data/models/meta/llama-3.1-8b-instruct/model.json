@@ -1,0 +1,48 @@
+{
+  "id": "llama-3.1-8b-instruct",
+  "name": "Llama 3.1 8B Instruct",
+  "provider": "meta",
+  "status": null,
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": null,
+  "release_date": "2024-07-23T00:00:00",
+  "input_context_length": 16384.0,
+  "output_context_length": 16384.0,
+  "license": null,
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": null,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": null,
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": null,
+  "weights_link": null,
+  "parameter_count": null,
+  "training_tokens": null,
+  "benchmark_results": [
+    {
+      "benchmark_id": "gpqa",
+      "score": "30.4%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": 2e-08,
+      "output_token_price": 3e-08,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

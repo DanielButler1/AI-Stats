@@ -1,0 +1,48 @@
+{
+  "id": "phi-4",
+  "name": "Phi 4",
+  "provider": "microsoft",
+  "status": null,
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": null,
+  "release_date": "2024-12-12T00:00:00",
+  "input_context_length": 16000.0,
+  "output_context_length": 16000.0,
+  "license": "MIT",
+  "multimodal": false,
+  "input_types": null,
+  "output_types": null,
+  "web_access": false,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": "2024-06-01",
+  "api_reference_link": "https://huggingface.co/microsoft/phi-4",
+  "playground_link": null,
+  "paper_link": "https://arxiv.org/pdf/2412.08905",
+  "announcement_link": "https://techcommunity.microsoft.com/blog/aiplatformblog/introducing-phi-4-microsoft%E2%80%99s-newest-small-language-model-specializing-in-comple/4357090",
+  "repository_link": null,
+  "weights_link": "https://huggingface.co/microsoft/phi-4",
+  "parameter_count": 14700000000,
+  "training_tokens": 9800000000000,
+  "benchmark_results": [
+    {
+      "benchmark_id": "gpqa",
+      "score": "56.1%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://arxiv.org/pdf/2412.08905"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

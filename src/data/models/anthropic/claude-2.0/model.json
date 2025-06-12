@@ -1,0 +1,40 @@
+{
+  "id": "claude-2.0",
+  "name": "Claude 2.0",
+  "provider": "anthropic",
+  "status": "Deprecated",
+  "previous_model_id": "",
+  "description": null,
+  "announced_date": "2023-07-11T00:00:00",
+  "release_date": "2023-07-12T00:00:00",
+  "input_context_length": 100000.0,
+  "output_context_length": 4096.0,
+  "license": "Proprietary",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": false,
+  "reasoning": false,
+  "fine_tunable": false,
+  "knowledge_cutoff": "2023-01-01T00:00:00",
+  "api_reference_link": null,
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": "https://www.anthropic.com/news/claude-2",
+  "repository_link": null,
+  "weights_link": null,
+  "parameter_count": null,
+  "training_tokens": null,
+  "benchmark_results": [],
+  "prices": [
+    {
+      "api_provider": "anthropic",
+      "input_token_price": 8e-06,
+      "output_token_price": 2.4e-05,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

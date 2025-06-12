@@ -1,0 +1,155 @@
+{
+  "id": "o3-2025-04-16",
+  "name": "o3",
+  "provider": "openai",
+  "status": "Available",
+  "previous_model_id": "o1",
+  "description": null,
+  "announced_date": "2025-04-16T00:00:00",
+  "release_date": "2025-04-16T00:00:00",
+  "input_context_length": 200000.0,
+  "output_context_length": 100000.0,
+  "license": "Proprietary",
+  "multimodal": true,
+  "input_types": "image,text",
+  "output_types": "text",
+  "web_access": false,
+  "reasoning": true,
+  "fine_tunable": false,
+  "knowledge_cutoff": "2024-06-01",
+  "api_reference_link": "https://platform.openai.com/docs/models/o3",
+  "playground_link": "https://platform.openai.com/playground/prompts?models=o3",
+  "paper_link": "https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf",
+  "announcement_link": "https://openai.com/index/introducing-o3-and-o4-mini/",
+  "repository_link": null,
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
+  "benchmark_results": [
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "79.6%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "91.6%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "98.4%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "53.0%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "41.5%",
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "3.0%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "2.0%",
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "codeforces",
+      "score": 2517,
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GtG5biebMAIpBhq?format=png&name=4096x4096"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1500,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "83.3%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "20.3%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
+    },
+    {
+      "benchmark_id": "lisanbench",
+      "score": 1036,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "74.4%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://livebench.ai/#/"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "72.0%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://livebench.ai/#/"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1443,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": "openai",
+      "input_token_price": 2e-06,
+      "output_token_price": 8e-06,
+      "throughput": "",
+      "latency": "",
+      "source_link": "",
+      "other_info": ""
+    },
+    {
+      "api_provider": "azure",
+      "input_token_price": 1e-05,
+      "output_token_price": 4e-05,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "grok-3-mini-beta-think",
+  "name": "Grok 3 Mini Beta (Think)",
+  "provider": "x-ai",
+  "status": null,
+  "previous_model_id": "",
+  "description": null,
+  "announced_date": "2025-02-17T00:00:00",
+  "release_date": null,
+  "input_context_length": null,
+  "output_context_length": null,
+  "license": "Proprietary",
+  "multimodal": false,
+  "input_types": null,
+  "output_types": null,
+  "web_access": null,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": null,
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": "https://x.ai/news/grok-3",
+  "repository_link": null,
+  "weights_link": null,
+  "parameter_count": null,
+  "training_tokens": null,
+  "benchmark_results": [
+    {
+      "benchmark_id": "gpqa",
+      "score": "84%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://x.ai/news/grok-3"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

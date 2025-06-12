@@ -1,0 +1,9 @@
+{
+  "provider_id": "openai",
+  "name": "OpenAI",
+  "website": "https://openai.com",
+  "country_code": "US",
+  "description": "OpenAI is an AI research and deployment company. Our mission is to ensure that artificial general intelligence (AGI) benefits all of humanity.",
+  "colour": "#333333",
+  "twitter": "https://twitter.com/OpenAI"
+}

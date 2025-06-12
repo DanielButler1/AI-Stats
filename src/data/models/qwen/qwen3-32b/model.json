@@ -1,0 +1,55 @@
+{
+  "id": "qwen3-32b",
+  "name": "Qwen3 32B",
+  "provider": "qwen",
+  "status": null,
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": null,
+  "release_date": "2025-04-29T00:00:00",
+  "input_context_length": 128000.0,
+  "output_context_length": 128000.0,
+  "license": "Apache 2.0",
+  "multimodal": false,
+  "input_types": null,
+  "output_types": null,
+  "web_access": false,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": null,
+  "playground_link": "https://chat.qwen.ai/",
+  "paper_link": null,
+  "announcement_link": "https://qwenlm.github.io/blog/qwen3/",
+  "repository_link": "https://github.com/QwenLM/Qwen3",
+  "weights_link": "https://huggingface.co/Qwen/Qwen3-32B",
+  "parameter_count": 32800000000,
+  "training_tokens": null,
+  "benchmark_results": [
+    {
+      "benchmark_id": "aime-2024",
+      "score": "81.4%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://qwenlm.github.io/blog/qwen3/"
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "72.9%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://qwenlm.github.io/blog/qwen3/"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "gpt-4o-2024-08-06",
+  "name": "GPT-4o",
+  "provider": "openai",
+  "status": "Available",
+  "previous_model_id": "gpt-4o-2024-05-13",
+  "description": null,
+  "announced_date": null,
+  "release_date": "2024-11-20T00:00:00",
+  "input_context_length": 128000.0,
+  "output_context_length": 16384.0,
+  "license": "Proprietary",
+  "multimodal": true,
+  "input_types": "text,image",
+  "output_types": "text",
+  "web_access": true,
+  "reasoning": false,
+  "fine_tunable": true,
+  "knowledge_cutoff": "2023-10-01",
+  "api_reference_link": "https://platform.openai.com/docs/models/gpt-4o",
+  "playground_link": "https://platform.openai.com/playground/prompts?models=gpt-4o-2024-08-06",
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": null,
+  "weights_link": "",
+  "parameter_count": null,
+  "training_tokens": null,
+  "benchmark_results": [],
+  "prices": [
+    {
+      "api_provider": "openai",
+      "input_token_price": 2.5e-06,
+      "output_token_price": 1e-05,
+      "throughput": "",
+      "latency": "",
+      "source_link": "",
+      "other_info": ""
+    }
+  ]
+}

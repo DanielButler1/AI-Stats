@@ -1,0 +1,48 @@
+{
+  "id": "nova-micro-v1",
+  "name": "Nova Micro 1.0",
+  "provider": "amazon",
+  "status": null,
+  "previous_model_id": "",
+  "description": null,
+  "announced_date": null,
+  "release_date": "2024-12-05T00:00:00",
+  "input_context_length": 128000.0,
+  "output_context_length": 5120.0,
+  "license": "Proprietary",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": null,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": null,
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": null,
+  "weights_link": null,
+  "parameter_count": null,
+  "training_tokens": null,
+  "benchmark_results": [
+    {
+      "benchmark_id": "gpqa",
+      "score": "40.0%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://www.amazon.science/publications/the-amazon-nova-family-of-models-technical-report-and-model-card"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": 3.5e-08,
+      "output_token_price": 1.4e-07,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

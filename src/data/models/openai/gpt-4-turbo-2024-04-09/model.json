@@ -1,0 +1,40 @@
+{
+  "id": "gpt-4-turbo-2024-04-09",
+  "name": "GPT-4 Turbo",
+  "provider": "openai",
+  "status": "Available",
+  "previous_model_id": "",
+  "description": null,
+  "announced_date": null,
+  "release_date": "2023-03-14T00:00:00",
+  "input_context_length": 128000.0,
+  "output_context_length": 4096.0,
+  "license": "Proprietary",
+  "multimodal": true,
+  "input_types": "text,image",
+  "output_types": "text",
+  "web_access": true,
+  "reasoning": false,
+  "fine_tunable": false,
+  "knowledge_cutoff": "2023-12-01",
+  "api_reference_link": "https://platform.openai.com/docs/models/gpt-4-turbo",
+  "playground_link": "https://platform.openai.com/playground/prompts?models=gpt-4-turbo",
+  "paper_link": "https://arxiv.org/abs/2303.08774",
+  "announcement_link": "https://openai.com/research/gpt-4",
+  "repository_link": null,
+  "weights_link": "",
+  "parameter_count": null,
+  "training_tokens": null,
+  "benchmark_results": [],
+  "prices": [
+    {
+      "api_provider": "openai",
+      "input_token_price": 1e-05,
+      "output_token_price": 3e-05,
+      "throughput": "",
+      "latency": "",
+      "source_link": "",
+      "other_info": ""
+    }
+  ]
+}

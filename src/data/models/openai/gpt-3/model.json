@@ -1,0 +1,40 @@
+{
+  "id": "gpt-3",
+  "name": "GPT-3",
+  "provider": "openai",
+  "status": "Available",
+  "previous_model_id": "gpt-2",
+  "description": null,
+  "announced_date": "2020-05-29T00:00:00",
+  "release_date": "2020-06-11T00:00:00",
+  "input_context_length": 2048.0,
+  "output_context_length": 2048.0,
+  "license": "Proprietary",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": false,
+  "reasoning": false,
+  "fine_tunable": false,
+  "knowledge_cutoff": null,
+  "api_reference_link": "https://platform.openai.com/docs/models/gpt-4",
+  "playground_link": "https://platform.openai.com/playground/prompts?models=gpt-4",
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": "https://github.com/openai/gpt-3",
+  "weights_link": null,
+  "parameter_count": 175000000000,
+  "training_tokens": 499000000000,
+  "benchmark_results": [],
+  "prices": [
+    {
+      "api_provider": "openai",
+      "input_token_price": "",
+      "output_token_price": "",
+      "throughput": "",
+      "latency": "",
+      "source_link": "",
+      "other_info": ""
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "o3-mini-medium",
+  "name": "o3 Mini Medium",
+  "provider": "openai",
+  "status": "Available",
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": null,
+  "release_date": "2025-01-31T00:00:00",
+  "input_context_length": 200000.0,
+  "output_context_length": 100000.0,
+  "license": "Proprietary",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": null,
+  "reasoning": true,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": null,
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": null,
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
+  "benchmark_results": [
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "53.8%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "76.8%",
+      "is_self_reported": null,
+      "other_info": null,
+      "source_link": null
+    }
+  ],
+  "prices": []
+}

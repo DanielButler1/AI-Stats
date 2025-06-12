@@ -1,0 +1,90 @@
+{
+  "id": "gpt-4.1-mini-2025-04-14",
+  "name": "GPT-4.1 Mini",
+  "provider": "openai",
+  "status": "Available",
+  "previous_model_id": "gpt-4o",
+  "description": null,
+  "announced_date": null,
+  "release_date": "2025-04-14T00:00:00",
+  "input_context_length": 1047576.0,
+  "output_context_length": 32768.0,
+  "license": "Proprietary",
+  "multimodal": true,
+  "input_types": "image,text",
+  "output_types": "text",
+  "web_access": null,
+  "reasoning": false,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": null,
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": null,
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
+  "benchmark_results": [
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "32.4%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "49.6%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/gpt-4-1/"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "3.5%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "0.0%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1129.4,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "65.0%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/gpt-4-1/"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "51.6%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://livebench.ai/#/"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": "openai",
+      "input_token_price": 4e-07,
+      "output_token_price": 1.6e-06,
+      "throughput": "",
+      "latency": "",
+      "source_link": "",
+      "other_info": ""
+    }
+  ]
+}

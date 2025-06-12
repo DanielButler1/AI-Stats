@@ -1,0 +1,40 @@
+{
+  "id": "ministral-8b-instruct",
+  "name": "Ministral 8B Instruct",
+  "provider": "mistral",
+  "status": null,
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": null,
+  "release_date": "2024-10-16T00:00:00",
+  "input_context_length": 128000.0,
+  "output_context_length": 128000.0,
+  "license": "Mistral Research License",
+  "multimodal": false,
+  "input_types": null,
+  "output_types": null,
+  "web_access": false,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": "https://huggingface.co/mistralai/Ministral-8B-Instruct-2410",
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": "https://mistral.ai/news/ministraux/",
+  "repository_link": null,
+  "weights_link": "https://huggingface.co/mistralai/Ministral-8B-Instruct-2410",
+  "parameter_count": 8019808256,
+  "training_tokens": null,
+  "benchmark_results": [],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

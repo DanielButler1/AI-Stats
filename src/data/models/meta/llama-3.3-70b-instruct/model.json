@@ -1,0 +1,48 @@
+{
+  "id": "llama-3.3-70b-instruct",
+  "name": "Llama 3.3 70B Instruct",
+  "provider": "meta",
+  "status": null,
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": null,
+  "release_date": "2024-12-06T00:00:00",
+  "input_context_length": 128000.0,
+  "output_context_length": 16384.0,
+  "license": null,
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": null,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": null,
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": null,
+  "weights_link": null,
+  "parameter_count": null,
+  "training_tokens": null,
+  "benchmark_results": [
+    {
+      "benchmark_id": "gpqa",
+      "score": "50.5%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_3/MODEL_CARD.md"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": 1e-07,
+      "output_token_price": 2.5e-07,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

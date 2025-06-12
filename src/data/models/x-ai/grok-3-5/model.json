@@ -1,0 +1,40 @@
+{
+  "id": "grok-3-5",
+  "name": "Grok 3.5",
+  "provider": "x-ai",
+  "status": "Rumoured",
+  "previous_model_id": "",
+  "description": null,
+  "announced_date": null,
+  "release_date": null,
+  "input_context_length": null,
+  "output_context_length": null,
+  "license": "Proprietary",
+  "multimodal": false,
+  "input_types": null,
+  "output_types": null,
+  "web_access": null,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": null,
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": null,
+  "weights_link": null,
+  "parameter_count": null,
+  "training_tokens": null,
+  "benchmark_results": [],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

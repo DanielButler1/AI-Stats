@@ -1,0 +1,9 @@
+{
+  "provider_id": "amazon",
+  "name": "Amazon",
+  "website": "https://aws.amazon.com/ai/",
+  "country_code": "US",
+  "description": null,
+  "colour": "#FF9900",
+  "twitter": "https://x.com/amazon"
+}

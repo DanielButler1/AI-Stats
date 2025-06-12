@@ -1,0 +1,9 @@
+{
+  "provider_id": "google",
+  "name": "Google",
+  "website": "https://gemini.google.com/app?hl=en-GB",
+  "country_code": "US",
+  "description": null,
+  "colour": "#4285F4",
+  "twitter": "https://x.com/GoogleAI"
+}

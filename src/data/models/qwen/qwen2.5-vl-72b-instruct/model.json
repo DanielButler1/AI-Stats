@@ -1,0 +1,40 @@
+{
+  "id": "qwen2.5-vl-72b-instruct",
+  "name": "Qwen2.5 VL 72B Instruct",
+  "provider": "qwen",
+  "status": null,
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": null,
+  "release_date": "2025-01-26T00:00:00",
+  "input_context_length": 32768.0,
+  "output_context_length": 32768.0,
+  "license": "tongyi-qianwen",
+  "multimodal": true,
+  "input_types": null,
+  "output_types": null,
+  "web_access": false,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": null,
+  "playground_link": "https://chat.qwen.ai/",
+  "paper_link": "https://arxiv.org/pdf/2502.13923",
+  "announcement_link": "https://qwenlm.github.io/blog/qwen2.5-vl/",
+  "repository_link": "https://github.com/QwenLM/Qwen2.5-VL",
+  "weights_link": "https://huggingface.co/Qwen/Qwen2.5-VL-72B-Instruct",
+  "parameter_count": 72000000000,
+  "training_tokens": null,
+  "benchmark_results": [],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

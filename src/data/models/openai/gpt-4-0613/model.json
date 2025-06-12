@@ -1,0 +1,40 @@
+{
+  "id": "gpt-4-0613",
+  "name": "GPT-4",
+  "provider": "openai",
+  "status": "Available",
+  "previous_model_id": "gpt-4-0314",
+  "description": null,
+  "announced_date": null,
+  "release_date": "2023-06-13T00:00:00",
+  "input_context_length": 8192.0,
+  "output_context_length": 8192.0,
+  "license": "Proprietary",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": false,
+  "reasoning": false,
+  "fine_tunable": true,
+  "knowledge_cutoff": "2023-12-01T00:00:00",
+  "api_reference_link": "https://platform.openai.com/docs/models/gpt-4",
+  "playground_link": "https://platform.openai.com/playground/prompts?models=gpt-4-0613",
+  "paper_link": "https://arxiv.org/abs/2303.08774",
+  "announcement_link": null,
+  "repository_link": null,
+  "weights_link": "",
+  "parameter_count": null,
+  "training_tokens": null,
+  "benchmark_results": [],
+  "prices": [
+    {
+      "api_provider": "openai",
+      "input_token_price": 3e-05,
+      "output_token_price": 6e-05,
+      "throughput": "",
+      "latency": "",
+      "source_link": "",
+      "other_info": ""
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+defaults:
+    - label: documentation
+      assignees: []
+
+blank_issues_enabled: false
+contact_links:
+    - name: Raise an Issue On Discord
+      url: https://discord.gg/zDw73wamdX
+      about: Ask questions or start a discussion here.

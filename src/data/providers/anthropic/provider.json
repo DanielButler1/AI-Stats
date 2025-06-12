@@ -1,0 +1,9 @@
+{
+  "provider_id": "anthropic",
+  "name": "Anthropic",
+  "website": "https://www.anthropic.com",
+  "country_code": "US",
+  "description": null,
+  "colour": "#cc785c",
+  "twitter": "https://x.com/AnthropicAI"
+}

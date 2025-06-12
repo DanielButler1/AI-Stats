@@ -1,0 +1,118 @@
+{
+  "id": "gpt-4.1-2025-04-14",
+  "name": "GPT-4.1",
+  "provider": "openai",
+  "status": "Available",
+  "previous_model_id": "gpt-4o",
+  "description": null,
+  "announced_date": "2025-04-13T00:00:00",
+  "release_date": "2025-04-14T00:00:00",
+  "input_context_length": 1047576.0,
+  "output_context_length": 32768.0,
+  "license": "Proprietary",
+  "multimodal": true,
+  "input_types": "image,text",
+  "output_types": "text",
+  "web_access": null,
+  "reasoning": false,
+  "fine_tunable": null,
+  "knowledge_cutoff": "2024-05-31",
+  "api_reference_link": null,
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": null,
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
+  "benchmark_results": [
+    {
+      "benchmark_id": "aidanbench",
+      "score": 1379,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aidanbench.com/"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "52.4%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "48.1%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/gpt-4-1"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "5.5%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "0.4%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1212,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "66.3%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/gpt-4-1"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "55.9%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://livebench.ai/#/"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1402,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "swe-bench",
+      "score": "54.6%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/gpt-4-1/"
+    },
+    {
+      "benchmark_id": "swe-lancer",
+      "score": "35.1%",
+      "is_self_reported": true,
+      "other_info": "IC-Diamond",
+      "source_link": "https://openai.com/index/gpt-4-1/"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": "openai",
+      "input_token_price": 2e-06,
+      "output_token_price": 8e-06,
+      "throughput": "",
+      "latency": "",
+      "source_link": "",
+      "other_info": ""
+    }
+  ]
+}

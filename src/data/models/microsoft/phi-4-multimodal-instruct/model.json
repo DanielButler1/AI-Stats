@@ -1,0 +1,40 @@
+{
+  "id": "phi-4-multimodal-instruct",
+  "name": "Phi-4-multimodal-instruct",
+  "provider": "microsoft",
+  "status": null,
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": null,
+  "release_date": "2025-02-01T00:00:00",
+  "input_context_length": 128000.0,
+  "output_context_length": 128000.0,
+  "license": "MIT",
+  "multimodal": true,
+  "input_types": null,
+  "output_types": null,
+  "web_access": false,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": "2024-06-01",
+  "api_reference_link": null,
+  "playground_link": "https://ai.azure.com/explore/models?selectedCollection=phi&tid=72f988bf-86f1-41af-91ab-2d7cd011db47",
+  "paper_link": "https://arxiv.org/abs/2503.01743",
+  "announcement_link": "https://azure.microsoft.com/en-us/blog/empowering-innovation-the-next-generation-of-the-phi-family/",
+  "repository_link": null,
+  "weights_link": "https://huggingface.co/microsoft/Phi-4-multimodal-instruct",
+  "parameter_count": 5600000000,
+  "training_tokens": 5000000000000,
+  "benchmark_results": [],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

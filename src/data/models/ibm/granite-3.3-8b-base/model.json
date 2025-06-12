@@ -1,0 +1,48 @@
+{
+  "id": "granite-3.3-8b-base",
+  "name": "Granite 3.3 8B Base",
+  "provider": "ibm",
+  "status": null,
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": null,
+  "release_date": "2025-04-16T00:00:00",
+  "input_context_length": 128000.0,
+  "output_context_length": 128000.0,
+  "license": "Apache 2.0",
+  "multimodal": true,
+  "input_types": null,
+  "output_types": null,
+  "web_access": false,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": "2024-04-01",
+  "api_reference_link": "https://www.ibm.com/granite/docs/",
+  "playground_link": "https://www.ibm.com/granite/playground/",
+  "paper_link": null,
+  "announcement_link": "https://huggingface.co/ibm-granite/granite-3.3-8b-base",
+  "repository_link": "https://github.com/ibm-granite/granite-3.3-language-models",
+  "weights_link": "https://huggingface.co/ibm-granite/granite-3.3-8b-base",
+  "parameter_count": 8170000000,
+  "training_tokens": null,
+  "benchmark_results": [
+    {
+      "benchmark_id": "aime-2024",
+      "score": "81.2%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://huggingface.co/ibm-granite/granite-3.3-8b-base"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

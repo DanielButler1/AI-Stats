@@ -1,0 +1,38 @@
+name: "📘 Report Wrong Info"
+description: Report incorrect or outdated information on the website
+title: "[Incorrect Info] "
+labels: [incorrect info]
+assignees:
+    - DanielButler1
+body:
+    - type: textarea
+      id: incorrect_info
+      attributes:
+          label: Describe the incorrect information
+          placeholder: What on the page is wrong or outdated?
+      validations:
+          required: true
+
+    - type: textarea
+      id: correct_info
+      attributes:
+          label: Correct information
+          placeholder: What should the correct information be?
+      validations:
+          required: true
+
+    - type: textarea
+      id: source
+      attributes:
+          label: Source or reference
+          placeholder: Provide a link or explanation for the correct info (if available)
+      validations:
+          required: false
+
+    - type: textarea
+      id: additional_context
+      attributes:
+          label: Additional context
+          placeholder: Any other context that might be useful
+      validations:
+          required: false

@@ -1,0 +1,69 @@
+{
+  "id": "o3-preview",
+  "name": "o3 Preview",
+  "provider": "openai",
+  "status": "Available",
+  "previous_model_id": "o1-preview",
+  "description": null,
+  "announced_date": "2024-12-20T00:00:00",
+  "release_date": null,
+  "input_context_length": null,
+  "output_context_length": null,
+  "license": "Proprietary",
+  "multimodal": null,
+  "input_types": null,
+  "output_types": null,
+  "web_access": null,
+  "reasoning": true,
+  "fine_tunable": null,
+  "knowledge_cutoff": "2023-12-01",
+  "api_reference_link": null,
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": null,
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
+  "benchmark_results": [
+    {
+      "benchmark_id": "aime-2024",
+      "score": "96.7%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://www.youtube.com/live/SKBG1sqdyIU?si=lWccKHt8bnttuYta"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "75.7%",
+      "is_self_reported": false,
+      "other_info": "Preview Model & Low Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "4.0%",
+      "is_self_reported": false,
+      "other_info": "Preview Model & Low Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "87.7%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://www.youtube.com/live/SKBG1sqdyIU?si=lWccKHt8bnttuYta"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": "openai",
+      "input_token_price": "",
+      "output_token_price": "",
+      "throughput": "",
+      "latency": "",
+      "source_link": "",
+      "other_info": ""
+    }
+  ]
+}

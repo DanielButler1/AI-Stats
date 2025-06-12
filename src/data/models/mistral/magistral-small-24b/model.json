@@ -1,0 +1,66 @@
+{
+  "id": "magistral-small-24b",
+  "name": "Magistral Small",
+  "provider": "mistral",
+  "status": "Available",
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": "2025-06-10T00:00:00",
+  "release_date": "2025-06-10T00:00:00",
+  "input_context_length": null,
+  "output_context_length": null,
+  "license": "Apache 2.0",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": null,
+  "reasoning": true,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": "https://console.mistral.ai/home",
+  "playground_link": null,
+  "paper_link": "https://mistral.ai/static/research/magistral.pdf",
+  "announcement_link": "https://mistral.ai/news/magistral",
+  "repository_link": null,
+  "weights_link": "https://huggingface.co/mistralai/Magistral-Small-2506",
+  "parameter_count": 23600000000,
+  "training_tokens": null,
+  "benchmark_results": [
+    {
+      "benchmark_id": "aime-2024",
+      "score": "70.7%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://mistral.ai/static/research/magistral.pdf"
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "62.8%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://mistral.ai/static/research/magistral.pdf"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "68.2%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/static/research/magistral.pdf"
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "6.4%",
+      "is_self_reported": true,
+      "other_info": "Text Only Subset",
+      "source_link": "https://mistral.ai/static/research/magistral.pdf"
+    },
+    {
+      "benchmark_id": "mmmu",
+      "score": "66.0%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/static/research/magistral.pdf"
+    }
+  ],
+  "prices": []
+}

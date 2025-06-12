@@ -1,0 +1,48 @@
+{
+  "id": "kimi-k1.5",
+  "name": "Kimi-k1.5",
+  "provider": "moonshotai",
+  "status": null,
+  "previous_model_id": "",
+  "description": null,
+  "announced_date": null,
+  "release_date": "2025-01-20T00:00:00",
+  "input_context_length": 128000.0,
+  "output_context_length": 128000.0,
+  "license": "Proprietary",
+  "multimodal": true,
+  "input_types": null,
+  "output_types": null,
+  "web_access": true,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": "https://platform.moonshot.cn/docs/api-reference",
+  "playground_link": "https://kimi.ai/",
+  "paper_link": "https://arxiv.org/abs/2501.12599",
+  "announcement_link": null,
+  "repository_link": "https://github.com/MoonshotAI/Kimi-k1.5",
+  "weights_link": null,
+  "parameter_count": null,
+  "training_tokens": null,
+  "benchmark_results": [
+    {
+      "benchmark_id": "aime-2024",
+      "score": "77.5%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/MoonshotAI/Kimi-k1.5"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

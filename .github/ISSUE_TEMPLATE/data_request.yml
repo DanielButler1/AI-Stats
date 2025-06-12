@@ -1,0 +1,46 @@
+name: "🧠 New Data Request"
+description: Suggest a new piece of data to add to the database
+title: "[Data Request] "
+labels: [data request]
+assignees:
+    - DanielButler1
+body:
+    - type: input
+      id: data_name
+      attributes:
+          label: Data name
+          placeholder: e.g. GPT-4 by OpenAI, Benchmark Name
+      validations:
+          required: true
+
+    - type: input
+      id: link_to_info
+      attributes:
+          label: Link to information
+          placeholder: Paste a URL to the official page, documentation, or blog
+      validations:
+          required: true
+
+    - type: textarea
+      id: features_or_benchmarks
+      attributes:
+          label: Key features
+          placeholder: Mention any standout capabilities
+      validations:
+          required: false
+
+    - type: input
+      id: model_pricing
+      attributes:
+          label: Model Pricing (if known/applicable)
+          placeholder: e.g. $30/month, $0.002 per token, or "Free"
+      validations:
+          required: false
+
+    - type: textarea
+      id: additional_context
+      attributes:
+          label: Additional context
+          placeholder: Anything else we should know?
+      validations:
+          required: false

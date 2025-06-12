@@ -1,0 +1,62 @@
+{
+  "id": "deepseek-v3-0324",
+  "name": "DeepSeek-V3 0324",
+  "provider": "deepseek",
+  "status": "Available",
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": null,
+  "release_date": "2025-03-25T00:00:00",
+  "input_context_length": 131072.0,
+  "output_context_length": 131072.0,
+  "license": "MIT + Model License (Commercial use allowed)",
+  "multimodal": false,
+  "input_types": null,
+  "output_types": null,
+  "web_access": false,
+  "reasoning": null,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": "https://platform.deepseek.com",
+  "playground_link": "https://chat.deepseek.com",
+  "paper_link": "https://arxiv.org/abs/2412.19437",
+  "announcement_link": null,
+  "repository_link": "https://github.com/deepseek-ai/DeepSeek-V3",
+  "weights_link": "https://huggingface.co/deepseek-ai/DeepSeek-V3-0324",
+  "parameter_count": 671000000000,
+  "training_tokens": 14800000000000,
+  "benchmark_results": [
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "55.1%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "59.4%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://api-docs.deepseek.com/news/news250325"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "68.4%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://api-docs.deepseek.com/news/news250325"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}

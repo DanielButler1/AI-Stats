@@ -1,0 +1,9 @@
+{
+  "provider_id": "ibm",
+  "name": "IBM",
+  "website": "https://www.ibm.com/artificial-intelligence",
+  "country_code": "US",
+  "description": null,
+  "colour": "#415eb4",
+  "twitter": "https://x.com/IBMData"
+}

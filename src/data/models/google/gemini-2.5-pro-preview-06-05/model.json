@@ -1,0 +1,134 @@
+{
+  "id": "gemini-2.5-pro-preview-06-05",
+  "name": "Gemini 2.5 Pro Preview",
+  "provider": "google",
+  "status": "Available",
+  "previous_model_id": "gemini-2.5-pro-preview-05-06",
+  "description": null,
+  "announced_date": "2025-06-05T00:00:00",
+  "release_date": "2025-06-05T00:00:00",
+  "input_context_length": 1048576.0,
+  "output_context_length": 65536.0,
+  "license": "Proprietary",
+  "multimodal": true,
+  "input_types": "text,image,video,audio",
+  "output_types": "text",
+  "web_access": true,
+  "reasoning": true,
+  "fine_tunable": false,
+  "knowledge_cutoff": "2025-01-01T00:00:00",
+  "api_reference_link": "https://ai.google.dev/gemini-api/docs/models#gemini-2.5-pro-preview-06-05",
+  "playground_link": "https://aistudio.google.com/prompts/new_chat",
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": "",
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
+  "benchmark_results": [
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "82.2%",
+      "is_self_reported": false,
+      "other_info": "Diff-Fenced",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "88.0%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1476.6,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "86.4%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "21.6%",
+      "is_self_reported": true,
+      "other_info": "No Tools",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1470,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "mmlu",
+      "score": "89.2%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "mmmu",
+      "score": "82.0%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "62.4%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "simpleqa",
+      "score": "54.0%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "swe-bench",
+      "score": "59.6%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "swe-bench",
+      "score": "67.2%",
+      "is_self_reported": true,
+      "other_info": "Multiple Attempts",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": "google-ai-studio",
+      "input_token_price": 1.25e-06,
+      "output_token_price": 1e-05,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": "Prices for input/output <200k tokens. Rises to $2.50 and $15 per 1m tokens >200k tokens."
+    },
+    {
+      "api_provider": "google-vertex",
+      "input_token_price": 1.25e-06,
+      "output_token_price": 1e-05,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": "Prices for input/output <200k tokens. Rises to $2.50 and $15 per 1m tokens >200k tokens."
+    }
+  ]
+}
