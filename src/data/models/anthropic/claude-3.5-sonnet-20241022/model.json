@@ -13,25 +13,25 @@
   "multimodal": true,
   "input_types": "text,image",
   "output_types": "text",
-  "web_access": null,
+  "web_access": false,
   "reasoning": false,
   "fine_tunable": null,
-  "knowledge_cutoff": null,
-  "api_reference_link": null,
-  "playground_link": null,
-  "paper_link": null,
+  "knowledge_cutoff": "2024-04-01T00:00:00",
+  "api_reference_link": "https://docs.anthropic.com/en/docs/about-claude/models/overview#model-comparison-table",
+  "playground_link": "https://console.anthropic.com/",
+  "paper_link": "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf",
   "announcement_link": "https://www.anthropic.com/news/3-5-models-and-computer-use",
-  "repository_link": null,
-  "weights_link": null,
+  "repository_link": "",
+  "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "aidanbench",
-      "score": 2734,
-      "is_self_reported": false,
+      "benchmark_id": "aime-2024",
+      "score": "16.0%",
+      "is_self_reported": null,
       "other_info": null,
-      "source_link": "https://aidanbench.com/"
+      "source_link": null
     },
     {
       "benchmark_id": "aider-polyglot",
@@ -41,18 +41,11 @@
       "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
-      "benchmark_id": "aime-2024",
-      "score": "16.0%",
-      "is_self_reported": null,
-      "other_info": null,
-      "source_link": null
-    },
-    {
-      "benchmark_id": "eqbench",
-      "score": 1059.5,
+      "benchmark_id": "livebench",
+      "score": "51.8%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://eqbench.com/"
+      "source_link": "https://livebench.ai/#/"
     },
     {
       "benchmark_id": "gpqa",
@@ -69,11 +62,18 @@
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
     },
     {
-      "benchmark_id": "livebench",
-      "score": "51.8%",
+      "benchmark_id": "eqbench",
+      "score": 1059.5,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://livebench.ai/#/"
+      "source_link": "https://eqbench.com/"
+    },
+    {
+      "benchmark_id": "aidanbench",
+      "score": 2734,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aidanbench.com/"
     }
   ],
   "prices": [

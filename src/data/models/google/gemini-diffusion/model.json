@@ -27,15 +27,15 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "aime-2025",
-      "score": "23.3%",
+      "benchmark_id": "swe-bench",
+      "score": "22.9%",
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://deepmind.google/models/gemini-diffusion/#benchmarks"
     },
     {
-      "benchmark_id": "bigcodebench",
-      "score": "45.4%",
+      "benchmark_id": "aime-2025",
+      "score": "23.3%",
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://deepmind.google/models/gemini-diffusion/#benchmarks"
@@ -48,8 +48,8 @@
       "source_link": "https://deepmind.google/models/gemini-diffusion/#benchmarks"
     },
     {
-      "benchmark_id": "humaneval",
-      "score": "89.6%",
+      "benchmark_id": "bigcodebench",
+      "score": "45.4%",
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://deepmind.google/models/gemini-diffusion/#benchmarks"
@@ -62,8 +62,8 @@
       "source_link": "https://deepmind.google/models/gemini-diffusion/#benchmarks"
     },
     {
-      "benchmark_id": "swe-bench",
-      "score": "22.9%",
+      "benchmark_id": "humaneval",
+      "score": "89.6%",
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://deepmind.google/models/gemini-diffusion/#benchmarks"

@@ -27,67 +27,11 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "aider-polyglot",
-      "score": "82.2%",
-      "is_self_reported": false,
-      "other_info": "Diff-Fenced",
-      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
-    },
-    {
-      "benchmark_id": "aime-2025",
-      "score": "88.0%",
-      "is_self_reported": true,
-      "other_info": "Single Attempt",
-      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
-    },
-    {
-      "benchmark_id": "eqbench",
-      "score": 1476.6,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://eqbench.com/"
-    },
-    {
-      "benchmark_id": "gpqa",
-      "score": "86.4%",
-      "is_self_reported": true,
-      "other_info": "Single Attempt",
-      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
-    },
-    {
       "benchmark_id": "humanitys-last-exam",
       "score": "21.6%",
       "is_self_reported": true,
       "other_info": "No Tools",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
-    },
-    {
-      "benchmark_id": "lmarena-text",
-      "score": 1470,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
-    },
-    {
-      "benchmark_id": "mmlu",
-      "score": "89.2%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
-    },
-    {
-      "benchmark_id": "mmmu",
-      "score": "82.0%",
-      "is_self_reported": true,
-      "other_info": "Single Attempt",
-      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
-    },
-    {
-      "benchmark_id": "simplebench",
-      "score": "62.4%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://simple-bench.com/index.html"
     },
     {
       "benchmark_id": "simpleqa",
@@ -104,11 +48,67 @@
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
     },
     {
+      "benchmark_id": "simplebench",
+      "score": "62.4%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
+    },
+    {
       "benchmark_id": "swe-bench",
       "score": "67.2%",
       "is_self_reported": true,
       "other_info": "Multiple Attempts",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "mmmu",
+      "score": "82.0%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "82.2%",
+      "is_self_reported": false,
+      "other_info": "Diff-Fenced",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "86.4%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "88.0%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "mmlu",
+      "score": "89.2%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1470,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1476.6,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
     }
   ],
   "prices": [

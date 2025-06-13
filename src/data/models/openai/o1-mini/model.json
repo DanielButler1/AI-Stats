@@ -27,18 +27,11 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "aidanbench",
-      "score": 1488,
+      "benchmark_id": "arc-agi-2",
+      "score": "0.8%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://aidanbench.com/"
-    },
-    {
-      "benchmark_id": "aider-polyglot",
-      "score": "32.9%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://aider.chat/docs/leaderboards/"
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
@@ -48,11 +41,11 @@
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "0.8%",
+      "benchmark_id": "aider-polyglot",
+      "score": "32.9%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
+      "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
       "benchmark_id": "gpqa",
@@ -60,6 +53,13 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/"
+    },
+    {
+      "benchmark_id": "aidanbench",
+      "score": 1488,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aidanbench.com/"
     }
   ],
   "prices": [
@@ -69,7 +69,7 @@
       "output_token_price": 4.4e-06,
       "throughput": "",
       "latency": "",
-      "source_link": "",
+      "source_link": null,
       "other_info": ""
     }
   ]

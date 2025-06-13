@@ -48,15 +48,5 @@
       "source_link": "https://api-docs.deepseek.com/news/news250325"
     }
   ],
-  "prices": [
-    {
-      "api_provider": null,
-      "input_token_price": null,
-      "output_token_price": null,
-      "throughput": null,
-      "latency": null,
-      "source_link": null,
-      "other_info": null
-    }
-  ]
+  "prices": []
 }

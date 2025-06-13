@@ -41,15 +41,5 @@
       "source_link": "https://build.nvidia.com/nvidia/llama-3_1-nemotron-ultra-253b-v1/modelcard"
     }
   ],
-  "prices": [
-    {
-      "api_provider": null,
-      "input_token_price": null,
-      "output_token_price": null,
-      "throughput": null,
-      "latency": null,
-      "source_link": null,
-      "other_info": null
-    }
-  ]
+  "prices": []
 }

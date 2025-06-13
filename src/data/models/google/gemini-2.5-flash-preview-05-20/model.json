@@ -27,10 +27,17 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "aider-polyglot",
-      "score": "61.9%",
+      "benchmark_id": "humanitys-last-exam",
+      "score": "11.0%",
       "is_self_reported": true,
-      "other_info": "Whole",
+      "other_info": "No Tools",
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
+    },
+    {
+      "benchmark_id": "simpleqa",
+      "score": "26.9%",
+      "is_self_reported": true,
+      "other_info": null,
       "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
     },
     {
@@ -41,8 +48,29 @@
       "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
     },
     {
+      "benchmark_id": "swe-bench",
+      "score": "60.4%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "61.9%",
+      "is_self_reported": true,
+      "other_info": "Whole",
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
+    },
+    {
       "benchmark_id": "aime-2025",
       "score": "72.0%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
+    },
+    {
+      "benchmark_id": "mmmu",
+      "score": "79.7%",
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
@@ -55,38 +83,10 @@
       "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
     },
     {
-      "benchmark_id": "humanitys-last-exam",
-      "score": "11.0%",
-      "is_self_reported": true,
-      "other_info": "No Tools",
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
-    },
-    {
       "benchmark_id": "mmlu",
       "score": "88.4%",
       "is_self_reported": true,
       "other_info": "Lite",
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
-    },
-    {
-      "benchmark_id": "mmmu",
-      "score": "79.7%",
-      "is_self_reported": true,
-      "other_info": "Pass@1",
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
-    },
-    {
-      "benchmark_id": "simpleqa",
-      "score": "26.9%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
-    },
-    {
-      "benchmark_id": "swe-bench",
-      "score": "60.4%",
-      "is_self_reported": true,
-      "other_info": null,
       "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
     }
   ],

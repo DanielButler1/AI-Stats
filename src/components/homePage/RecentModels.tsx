@@ -205,26 +205,22 @@ export default function RecentModels({ models }: RecentModelsProps) {
 											<div className="flex justify-center w-full">
 												{mainDate && (
 													<Badge
-														className={`w-full flex justify-center rounded-full px-3 py-1 text-xs border ${(() => {
-															const diff =
-																mainDate
-																	? (Date.now() -
-																			new Date(
-																				mainDate
-																			).getTime()) /
-																	  1000
-																	: 0;
+														className={`flex justify-center rounded-full px-3 py-1 text-xs border ${(() => {
+															const idx =
+																recentModels.findIndex(
+																	(m) =>
+																		m.id ===
+																		model.id
+																);
 															if (
-																diff <
-																3 * 86400
+																idx === 0 ||
+																idx === 1 ||
+																idx === 2
 															)
-																return "bg-green-100 text-green-800 border-green-300 hover:bg-green-200";
-															if (
-																diff <
-																14 * 86400
-															)
-																return "bg-yellow-100 text-yellow-800 border-yellow-300 hover:bg-yellow-200";
-															return "bg-zinc-200 text-zinc-700 border-zinc-300 hover:bg-zinc-300";
+																return "bg-green-100 text-green-800 border-green-300 hover:bg-green-200 dark:bg-green-900 dark:text-green-100 dark:border-green-700 dark:hover:bg-green-800";
+															if (idx === 3)
+																return "bg-yellow-100 text-yellow-800 border-yellow-300 hover:bg-yellow-200 dark:bg-yellow-900 dark:text-yellow-100 dark:border-yellow-700 dark:hover:bg-yellow-800";
+															return "bg-zinc-200 text-zinc-700 border-zinc-300 hover:bg-zinc-300 dark:bg-zinc-800 dark:text-zinc-100 dark:border-zinc-600 dark:hover:bg-zinc-700";
 														})()}`}
 													>
 														{getRelativeTime(

@@ -34,15 +34,5 @@
       "source_link": "https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/"
     }
   ],
-  "prices": [
-    {
-      "api_provider": null,
-      "input_token_price": null,
-      "output_token_price": null,
-      "throughput": null,
-      "latency": null,
-      "source_link": null,
-      "other_info": null
-    }
-  ]
+  "prices": []
 }

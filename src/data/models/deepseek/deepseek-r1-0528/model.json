@@ -27,15 +27,15 @@
   "training_tokens": null,
   "benchmark_results": [
     {
-      "benchmark_id": "aime-2024",
-      "score": "91.4%",
-      "is_self_reported": true,
+      "benchmark_id": "arc-agi-2",
+      "score": "1.1%",
+      "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://api-docs.deepseek.com/news/news250528"
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "aime-2025",
-      "score": "85.5%",
+      "benchmark_id": "humanitys-last-exam",
+      "score": "17.7%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://api-docs.deepseek.com/news/news250528"
@@ -48,11 +48,11 @@
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "1.1%",
+      "benchmark_id": "livebench",
+      "score": "69.4%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
+      "source_link": "https://livebench.ai/#/"
     },
     {
       "benchmark_id": "gpqa",
@@ -62,18 +62,18 @@
       "source_link": "https://api-docs.deepseek.com/news/news250528"
     },
     {
-      "benchmark_id": "humanitys-last-exam",
-      "score": "17.7%",
+      "benchmark_id": "aime-2025",
+      "score": "85.5%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://api-docs.deepseek.com/news/news250528"
     },
     {
-      "benchmark_id": "livebench",
-      "score": "69.4%",
-      "is_self_reported": false,
+      "benchmark_id": "aime-2024",
+      "score": "91.4%",
+      "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://livebench.ai/#/"
+      "source_link": "https://api-docs.deepseek.com/news/news250528"
     }
   ],
   "prices": []

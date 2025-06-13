@@ -13,18 +13,28 @@
   "multimodal": true,
   "input_types": "text,image",
   "output_types": "text",
-  "web_access": null,
+  "web_access": false,
   "reasoning": false,
   "fine_tunable": null,
-  "knowledge_cutoff": null,
-  "api_reference_link": null,
-  "playground_link": null,
-  "paper_link": null,
-  "announcement_link": null,
-  "repository_link": null,
-  "weights_link": null,
+  "knowledge_cutoff": "2023-08-01T00:00:00",
+  "api_reference_link": "https://docs.anthropic.com/en/docs/about-claude/models/overview#model-comparison-table",
+  "playground_link": "",
+  "paper_link": "https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf",
+  "announcement_link": "https://www.anthropic.com/news/claude-3-family",
+  "repository_link": "",
+  "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
   "benchmark_results": [],
-  "prices": []
+  "prices": [
+    {
+      "api_provider": "anthropic",
+      "input_token_price": 3e-06,
+      "output_token_price": 1.5e-05,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
 }

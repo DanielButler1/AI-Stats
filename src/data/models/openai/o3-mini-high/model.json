@@ -27,13 +27,6 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "aidanbench",
-      "score": 4984,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://aidanbench.com/"
-    },
-    {
       "benchmark_id": "aider-polyglot",
       "score": "60.4%",
       "is_self_reported": false,
@@ -46,6 +39,13 @@
       "is_self_reported": null,
       "other_info": null,
       "source_link": null
+    },
+    {
+      "benchmark_id": "aidanbench",
+      "score": 4984,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aidanbench.com/"
     }
   ],
   "prices": []

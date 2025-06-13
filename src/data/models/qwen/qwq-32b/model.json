@@ -27,29 +27,19 @@
   "training_tokens": null,
   "benchmark_results": [
     {
-      "benchmark_id": "aime-2024",
-      "score": "79.5%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://qwenlm.github.io/blog/qwq-32b/"
-    },
-    {
       "benchmark_id": "gpqa",
       "score": "65.2%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://qwen-ai.com/qwq-32b/"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "79.5%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://qwenlm.github.io/blog/qwq-32b/"
     }
   ],
-  "prices": [
-    {
-      "api_provider": null,
-      "input_token_price": null,
-      "output_token_price": null,
-      "throughput": null,
-      "latency": null,
-      "source_link": null,
-      "other_info": null
-    }
-  ]
+  "prices": []
 }

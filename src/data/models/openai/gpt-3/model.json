@@ -22,7 +22,7 @@
   "paper_link": null,
   "announcement_link": null,
   "repository_link": "https://github.com/openai/gpt-3",
-  "weights_link": null,
+  "weights_link": "",
   "parameter_count": 175000000000,
   "training_tokens": 499000000000,
   "benchmark_results": [],

@@ -22,9 +22,9 @@
   "paper_link": null,
   "announcement_link": "https://x.ai/blog/grok-2",
   "repository_link": null,
-  "weights_link": null,
-  "parameter_count": null,
-  "training_tokens": null,
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
   "benchmark_results": [
     {
       "benchmark_id": "gpqa",
@@ -34,15 +34,5 @@
       "source_link": "https://x.ai/blog/grok-2"
     }
   ],
-  "prices": [
-    {
-      "api_provider": null,
-      "input_token_price": null,
-      "output_token_price": null,
-      "throughput": null,
-      "latency": null,
-      "source_link": null,
-      "other_info": null
-    }
-  ]
+  "prices": []
 }

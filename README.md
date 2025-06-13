@@ -1,123 +1,110 @@
 # 🤖 AI Stats
 
-> 🚧 Work in Progress
-> This project is still in its early stages - data is actively being gathered and there may be bugs, gaps, or inaccuracies. Please bear with us as we improve things.
-> Want to help? Contributions are welcome! See the "Get Involved" section below.
-
-## 🌟 What is AI Stats?
-
-With new AI models launching almost **every week**, it’s hard to keep up with what's out there. **AI Stats** solves that by providing a **clean, open, and collaborative** way to:
-
--   📊 View recently released models
--   🔍 Compare benchmarks and capabilities
--   📈 Track performance over time
--   🛠️ See improvements, context lengths, providers, and more
-
-And best of all?  
-The **entire project is community-driven**. The code and data are provided under a non-commercial license, so if something’s missing or incorrect, you’re empowered to help fix it.
-
-## 💡 Why This Project Exists
-
-This project was born out of frustration - there was **no single place** where you could quickly check:
-
--   What AI models have recently been released
--   How they compare to others on benchmarks
--   What their limitations or strengths are
-
-We wanted to build a site that **keeps pace with the rapid evolution** of this field, and now we invite the community to help us make it even better.
-
-## 🙌 Get Involved
-
-**We want your contributions. Yes, you.**
-
-Whether you’re a developer, researcher, hobbyist, or AI enthusiast - there’s a way for you to help:
-
-### 🧹 Add or Update Model Data
-
-Model missing? Benchmark result outdated? Context length recently increased?  
-➡️ **You can fix that.**
-
--   Fork the repo
--   Edit or add model data in the `models/` folder (JSON format)
--   Submit a pull request with a clear title and description
--   We’ll review it and merge it if everything looks good!
-
-### 💡 Suggest Features or Report Bugs
-
-Open a GitHub issue to:
-
--   Suggest improvements to the site or UI
--   Report incorrect or outdated data
--   Share ideas for new comparison features
-
-> We want this to become the **go-to platform** for AI model information - and that only happens if we build it together.
-
-### 🌐 Improve the Website
-
-If you're a developer and want to help enhance the frontend/backend:
-
--   Clone the repo
--   Set it up locally (see below)
--   Make your changes
--   Open a PR and we’ll check it out!
-
-## 🧰 Tech Stack
-
--   **Next.js** - For a fast, modern web experience
--   **Tailwind CSS** - For styling and responsiveness
-
-## ⚙️ Local Setup
-
-1. Clone the repo:
-
-    ```bash
-    git clone https://github.com/DanielButler1/AI-Stats.git
-    cd AI-Stats
-    ```
-
-2. Install dependencies:
-
-    ```bash
-    npm install
-    ```
-
-3. Run the dev server:
-
-    ```bash
-    npm run dev
-    ```
-
-4. Visit `http://localhost:3000`
-
-## 📬 Submitting Data
-
--   Add a new JSON file under `api_providers`, `benchmarks/`, `models/`, or `providers/` as needed
--   Follow the existing structure from the `types.ts` file
--   Submit a PR or open an issue and we will review the changes
--   Make sure to include clear sources for any data you add or update
-
-## 🌍 Community First
-
-This project is **not owned by any company or AI provider.** It’s made by and for the community.
-
-If you believe in:
-
--   **Open data**
--   **Transparency in AI**
--   **Collaborative knowledge-building**
-
-...then **this project is for you**.
-
-### 🗣️ Want to Chat?
-
-Join the conversation:
-
--   Github Wiki: [GitHub](https://github.com/DanielButler1/AI-Stats/wiki)
--   Twitter: [@DanielButler001](https://x.com/DanielButler001)
--   Discord: [Click Here](https://discord.gg/zDw73wamdX)
+> 🚧 **Work in Progress**  
+> This project is still in its early stages - data is actively being gathered and there may be bugs, gaps, or inaccuracies.  
+> Want to help? **Contributions are welcome!** See the [Get Involved](#get-involved) section below.
 
 ---
 
-## 📄 License
+## 🌟 What is AI Stats?
 
-View the [LICENSE](LICENSE) file for details.
+With new AI models launching almost **every week**, it’s hard to keep up.  
+**AI Stats** offers a **clean, open, and collaborative** platform to:
+
+-   📊 Explore recently released models
+-   🔍 Compare benchmarks and capabilities
+-   📈 Track performance over time
+-   🛠️ View context lengths, provider info, and more
+
+The **entire project is community-driven** and licensed for non-commercial use. If something’s missing or incorrect, you can help fix it!
+
+---
+
+## 💡 Why This Exists
+
+This project was born out of frustration:  
+There was **no central place** to quickly check:
+
+-   What models have recently launched
+-   How they compare on a wide range of benchmarks
+-   What their strengths and limitations are
+
+AI Stats is our answer - a platform that keeps pace with the rapid evolution of AI.
+
+---
+
+## 🙌 Get Involved
+
+**Yes, you can help.** Whether you're a developer, researcher, hobbyist, or AI enthusiast - we welcome you.
+
+### 🧹 Contribute Data
+
+Missing a model? Outdated prices? New benchmark results?
+
+➡️ You can fix that:
+
+```bash
+1. Fork the repo
+2. Add or update JSON files in the `/data` folder
+3. Submit a Pull Request with a clear title and description
+```
+
+## 💡 Suggest Features / Report Bugs
+
+Open a GitHub issue to:
+
+-   Suggest new features
+-   Report bugs or inaccuracies
+-   Recommend UI/UX improvements
+
+> We want to build the go-to AI stats platform - your feedback is invaluable!
+
+## 🌐 Improve the Website
+
+Want to contribute to the frontend?
+
+```bash
+1. Clone the repo: git clone https://github.com/DanielButler1/AI-Stats.git
+2. Install dependencies: npm install
+3. Run the dev server: npm run dev
+4. Visit http://localhost:3000
+
+```
+
+---
+
+🧰 Tech Stack
+
+-   ⚡ Next.js - Blazing-fast frontend
+-   🎨 Tailwind CSS - Clean, responsive styling
+-   🧩 Lucide Icons - Modern, consistent icon set
+
+---
+
+## 🌍 Community First
+
+AI Stats is not owned by any company or AI provider.
+It’s built by the community, for the community.
+We want to create a **neutral, unbiased resource** that anyone can use to:
+
+-   Make informed decisions
+-   Understand the AI landscape
+-   Track progress over time
+
+---
+
+## 🗣️ Join the Conversation
+
+-   [📘 GitHub Wiki](https://github.com/DanielButler1/AI-Stats/wiki)
+-   [🐦 Twitter / X](https://x.com/DanielButler001)
+-   [💬 Discord Server](https://discord.gg/zDw73wamdX)
+
+## 📜 License
+
+This project is licensed for non-commercial use.
+See the [LICENSE](LICENSE) file for details.
+
+## 🙏 Attributions
+
+This project builds upon open-source efforts from across the AI community.  
+Special thanks to the team behind [llm-stats](https://github.com/JonathanChavezTamales/llm-leaderboard) for laying the groundwork that inspired parts of our data structure and direction with this project.

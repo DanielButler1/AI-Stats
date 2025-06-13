@@ -27,11 +27,67 @@
   "training_tokens": "",
   "benchmark_results": [
     {
+      "benchmark_id": "arc-agi-2",
+      "score": "2.0%",
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "3.0%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "20.3%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "41.5%",
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "53.0%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "72.0%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://livebench.ai/#/"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "74.4%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://livebench.ai/#/"
+    },
+    {
       "benchmark_id": "aider-polyglot",
       "score": "79.6%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "83.3%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
     },
     {
       "benchmark_id": "aime-2024",
@@ -48,39 +104,18 @@
       "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
     },
     {
-      "benchmark_id": "arc-agi-1",
-      "score": "53.0%",
+      "benchmark_id": "lisanbench",
+      "score": 1036,
       "is_self_reported": false,
-      "other_info": "Medium Reasoning Effort",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "41.5%",
-      "is_self_reported": false,
-      "other_info": "Low Reasoning Effort",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-2",
-      "score": "3.0%",
-      "is_self_reported": false,
-      "other_info": "Medium Reasoning Effort",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-2",
-      "score": "2.0%",
-      "is_self_reported": false,
-      "other_info": "Low Reasoning Effort",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "codeforces",
-      "score": 2517,
-      "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://pbs.twimg.com/media/GtG5biebMAIpBhq?format=png&name=4096x4096"
+      "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1443,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
       "benchmark_id": "eqbench",
@@ -90,46 +125,11 @@
       "source_link": "https://eqbench.com/"
     },
     {
-      "benchmark_id": "gpqa",
-      "score": "83.3%",
+      "benchmark_id": "codeforces",
+      "score": 2517,
       "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
-    },
-    {
-      "benchmark_id": "humanitys-last-exam",
-      "score": "20.3%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
-    },
-    {
-      "benchmark_id": "lisanbench",
-      "score": 1036,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
-    },
-    {
-      "benchmark_id": "livebench",
-      "score": "74.4%",
-      "is_self_reported": false,
-      "other_info": "High Reasoning Effort",
-      "source_link": "https://livebench.ai/#/"
-    },
-    {
-      "benchmark_id": "livebench",
-      "score": "72.0%",
-      "is_self_reported": false,
-      "other_info": "Medium Reasoning Effort",
-      "source_link": "https://livebench.ai/#/"
-    },
-    {
-      "benchmark_id": "lmarena-text",
-      "score": 1443,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
+      "source_link": "https://pbs.twimg.com/media/GtG5biebMAIpBhq?format=png&name=4096x4096"
     }
   ],
   "prices": [
@@ -139,7 +139,7 @@
       "output_token_price": 8e-06,
       "throughput": "",
       "latency": "",
-      "source_link": "",
+      "source_link": null,
       "other_info": ""
     },
     {

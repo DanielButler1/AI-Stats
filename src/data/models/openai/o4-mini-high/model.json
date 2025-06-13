@@ -55,7 +55,7 @@
       "output_token_price": 4.4e-06,
       "throughput": "",
       "latency": "",
-      "source_link": "",
+      "source_link": null,
       "other_info": ""
     }
   ]

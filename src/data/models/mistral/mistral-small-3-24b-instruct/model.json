@@ -34,15 +34,5 @@
       "source_link": "https://huggingface.co/mistralai/Mistral-Small-24B-Instruct-2501"
     }
   ],
-  "prices": [
-    {
-      "api_provider": null,
-      "input_token_price": null,
-      "output_token_price": null,
-      "throughput": null,
-      "latency": null,
-      "source_link": null,
-      "other_info": null
-    }
-  ]
+  "prices": []
 }

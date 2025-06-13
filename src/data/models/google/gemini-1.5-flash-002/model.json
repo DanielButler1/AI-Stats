@@ -26,5 +26,15 @@
   "parameter_count": "",
   "training_tokens": "",
   "benchmark_results": [],
-  "prices": []
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": 7.5e-08,
+      "output_token_price": 3e-07,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
 }

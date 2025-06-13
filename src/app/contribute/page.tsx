@@ -91,8 +91,7 @@ export default async function ContributePage() {
 				</Card>{" "}
 				{/* Database stats cards */}
 				{!errorMsg && (
-					<DbStats models={models} />
-					// <DbStats models={models} allBenchmarks={allBenchmarks} />
+					<DbStats models={models} benchmarks={allBenchmarks} />
 				)}
 				{errorMsg ? (
 					<div className="text-red-600 font-bold">{errorMsg}</div>

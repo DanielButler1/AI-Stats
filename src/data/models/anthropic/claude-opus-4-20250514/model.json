@@ -17,71 +17,15 @@
   "reasoning": true,
   "fine_tunable": true,
   "knowledge_cutoff": "2025-03-01T00:00:00",
-  "api_reference_link": null,
-  "playground_link": null,
-  "paper_link": null,
-  "announcement_link": null,
-  "repository_link": null,
-  "weights_link": null,
+  "api_reference_link": "https://docs.anthropic.com/en/docs/about-claude/models/overview#model-comparison-table",
+  "playground_link": "https://console.anthropic.com/",
+  "paper_link": "https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf",
+  "announcement_link": "https://www.anthropic.com/news/claude-4",
+  "repository_link": "",
+  "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
   "benchmark_results": [
-    {
-      "benchmark_id": "aider-polyglot",
-      "score": "70.7%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://aider.chat/docs/leaderboards/"
-    },
-    {
-      "benchmark_id": "aider-polyglot",
-      "score": "72.0%",
-      "is_self_reported": false,
-      "other_info": "32k Thinking",
-      "source_link": "https://aider.chat/docs/leaderboards/"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "35.7%",
-      "is_self_reported": false,
-      "other_info": "16k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "30.7%",
-      "is_self_reported": false,
-      "other_info": "8k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "27.0%",
-      "is_self_reported": false,
-      "other_info": "1k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "22.5%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-2",
-      "score": "8.6%",
-      "is_self_reported": false,
-      "other_info": "16k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-2",
-      "score": "4.5%",
-      "is_self_reported": false,
-      "other_info": "8k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
     {
       "benchmark_id": "arc-agi-2",
       "score": "0.0%",
@@ -97,18 +41,67 @@
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "eqbench",
-      "score": 1282.8,
+      "benchmark_id": "arc-agi-2",
+      "score": "4.5%",
       "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://eqbench.com/"
+      "other_info": "8k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "gpqa",
-      "score": "83.3%",
-      "is_self_reported": true,
+      "benchmark_id": "arc-agi-2",
+      "score": "8.6%",
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "22.5%",
+      "is_self_reported": false,
       "other_info": null,
-      "source_link": null
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "27.0%",
+      "is_self_reported": false,
+      "other_info": "1k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "30.7%",
+      "is_self_reported": false,
+      "other_info": "8k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "35.7%",
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "65.9%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://livebench.ai/#/"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "70.7%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "72.0%",
+      "is_self_reported": false,
+      "other_info": "32k Thinking",
+      "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
       "benchmark_id": "livebench",
@@ -118,11 +111,18 @@
       "source_link": "https://livebench.ai/#/"
     },
     {
-      "benchmark_id": "livebench",
-      "score": "65.9%",
+      "benchmark_id": "gpqa",
+      "score": "83.3%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": null
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1282.8,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://livebench.ai/#/"
+      "source_link": "https://eqbench.com/"
     },
     {
       "benchmark_id": "lmarena-text",

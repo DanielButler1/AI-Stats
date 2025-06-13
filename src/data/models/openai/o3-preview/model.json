@@ -27,11 +27,11 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "aime-2024",
-      "score": "96.7%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://www.youtube.com/live/SKBG1sqdyIU?si=lWccKHt8bnttuYta"
+      "benchmark_id": "arc-agi-2",
+      "score": "4.0%",
+      "is_self_reported": false,
+      "other_info": "Preview Model & Low Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
@@ -41,15 +41,15 @@
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "4.0%",
-      "is_self_reported": false,
-      "other_info": "Preview Model & Low Reasoning Effort",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
       "benchmark_id": "gpqa",
       "score": "87.7%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://www.youtube.com/live/SKBG1sqdyIU?si=lWccKHt8bnttuYta"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "96.7%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://www.youtube.com/live/SKBG1sqdyIU?si=lWccKHt8bnttuYta"
@@ -62,7 +62,7 @@
       "output_token_price": "",
       "throughput": "",
       "latency": "",
-      "source_link": "",
+      "source_link": null,
       "other_info": ""
     }
   ]

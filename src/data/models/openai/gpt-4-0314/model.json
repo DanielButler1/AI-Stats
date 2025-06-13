@@ -23,22 +23,22 @@
   "announcement_link": "https://openai.com/research/gpt-4",
   "repository_link": null,
   "weights_link": "",
-  "parameter_count": null,
-  "training_tokens": null,
+  "parameter_count": "",
+  "training_tokens": "",
   "benchmark_results": [
-    {
-      "benchmark_id": "eqbench",
-      "score": 434.5,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://eqbench.com/"
-    },
     {
       "benchmark_id": "gpqa",
       "score": "35.7%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/hello-gpt-4o/"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 434.5,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
     }
   ],
   "prices": [
@@ -48,7 +48,7 @@
       "output_token_price": 6e-05,
       "throughput": "",
       "latency": "",
-      "source_link": "",
+      "source_link": null,
       "other_info": ""
     }
   ]

@@ -3,39 +3,39 @@
   "name": "Magistral Medium",
   "provider": "mistral",
   "status": "Available",
-  "previous_model_id": null,
+  "previous_model_id": "",
   "description": null,
   "announced_date": "2025-06-10T00:00:00",
   "release_date": "2025-06-10T00:00:00",
-  "input_context_length": null,
-  "output_context_length": null,
+  "input_context_length": 128000.0,
+  "output_context_length": 128000.0,
   "license": "Proprietary",
   "multimodal": false,
   "input_types": "text",
   "output_types": "text",
   "web_access": false,
   "reasoning": true,
-  "fine_tunable": null,
-  "knowledge_cutoff": null,
+  "fine_tunable": "",
+  "knowledge_cutoff": "",
   "api_reference_link": "https://console.mistral.ai/home",
-  "playground_link": null,
+  "playground_link": "https://chat.mistral.ai/",
   "paper_link": "https://mistral.ai/static/research/magistral.pdf",
   "announcement_link": "https://mistral.ai/news/magistral",
-  "repository_link": null,
-  "weights_link": null,
-  "parameter_count": null,
-  "training_tokens": null,
+  "repository_link": "",
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
   "benchmark_results": [
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "9.0%",
+      "is_self_reported": true,
+      "other_info": "Text Only Subset",
+      "source_link": "https://mistral.ai/static/research/magistral.pdf"
+    },
     {
       "benchmark_id": "aider-polyglot",
       "score": "47.1%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://mistral.ai/news/magistral"
-    },
-    {
-      "benchmark_id": "aime-2024",
-      "score": "73.6%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://mistral.ai/news/magistral"
@@ -48,6 +48,13 @@
       "source_link": "https://mistral.ai/news/magistral"
     },
     {
+      "benchmark_id": "mmmu",
+      "score": "70.0%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/static/research/magistral.pdf"
+    },
+    {
       "benchmark_id": "gpqa",
       "score": "70.8%",
       "is_self_reported": true,
@@ -55,18 +62,11 @@
       "source_link": "https://mistral.ai/news/magistral"
     },
     {
-      "benchmark_id": "humanitys-last-exam",
-      "score": "9.0%",
-      "is_self_reported": true,
-      "other_info": "Text Only Subset",
-      "source_link": "https://mistral.ai/static/research/magistral.pdf"
-    },
-    {
-      "benchmark_id": "mmmu",
-      "score": "70.0%",
+      "benchmark_id": "aime-2024",
+      "score": "73.6%",
       "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://mistral.ai/static/research/magistral.pdf"
+      "source_link": "https://mistral.ai/news/magistral"
     }
   ],
   "prices": [
@@ -76,7 +76,7 @@
       "output_token_price": 5e-06,
       "throughput": "",
       "latency": "",
-      "source_link": "",
+      "source_link": "https://mistral.ai/pricing#api-pricing",
       "other_info": ""
     }
   ]

@@ -27,11 +27,18 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "aidanbench",
-      "score": 729,
+      "benchmark_id": "arc-agi-1",
+      "score": "0.0%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://aidanbench.com/"
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "0.0%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "aider-polyglot",
@@ -48,25 +55,11 @@
       "source_link": "https://openai.com/index/gpt-4-1/"
     },
     {
-      "benchmark_id": "arc-agi-1",
-      "score": "0.0%",
+      "benchmark_id": "livebench",
+      "score": "40.4%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-2",
-      "score": "0.0%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "eqbench",
-      "score": 897.3,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://eqbench.com/"
+      "source_link": "https://livebench.ai/#/"
     },
     {
       "benchmark_id": "gpqa",
@@ -76,11 +69,18 @@
       "source_link": "https://openai.com/index/gpt-4-1/"
     },
     {
-      "benchmark_id": "livebench",
-      "score": "40.4%",
+      "benchmark_id": "aidanbench",
+      "score": 729,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://livebench.ai/#/"
+      "source_link": "https://aidanbench.com/"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 897.3,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
     }
   ],
   "prices": [
@@ -90,7 +90,7 @@
       "output_token_price": 4e-07,
       "throughput": "",
       "latency": "",
-      "source_link": "",
+      "source_link": null,
       "other_info": ""
     }
   ]

@@ -27,15 +27,15 @@
   "training_tokens": null,
   "benchmark_results": [
     {
-      "benchmark_id": "arc-agi-1",
-      "score": "4.4%",
+      "benchmark_id": "arc-agi-2",
+      "score": "0.0%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "0.0%",
+      "benchmark_id": "arc-agi-1",
+      "score": "4.4%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
