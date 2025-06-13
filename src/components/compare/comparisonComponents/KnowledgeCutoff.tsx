@@ -81,17 +81,13 @@ export default function KnowledgeCutoffTimeline({
 			.filter(Boolean)
 			.join(" ") || "0m";
 
-	const summary = modelsSorted
-		.map((m) => `${m.name} (${formatDate(m.knowledge_cutoff)})`)
-		.join(" → ");
-
 	const oldestDate = formatDate(oldest.knowledge_cutoff);
 	const newestDate = formatDate(newest.knowledge_cutoff);
 
 	const summarySection = (
 		<Card className="mb-4 bg-muted/60 border-none shadow-none">
 			<Card className="flex items-center gap-2 p-4 border-none mt-2">
-				<span className="relative flex h-4 w-4 items-center justify-center mr-4">
+				<span className="relative flex h-4 w-4 items-center justify-center mr-4 shrink-0">
 					<span className="absolute h-6 w-6 rounded-full bg-blue-400/30" />
 					<Book className="relative h-full w-full text-blue-500" />
 				</span>

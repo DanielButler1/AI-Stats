@@ -24,14 +24,7 @@ export default function DbStats({ models, benchmarks }: DbStatsProps) {
 			(m: ExtendedModel) => m.provider?.name || m.provider.provider_id
 		)
 	);
-
-	// Unique benchmarks from models
-	const modelBenchmarks = models.flatMap(
-		(m: ExtendedModel) =>
-			m.benchmark_results?.map((b: any) => b.benchmark.name) || []
-	);
-	const uniqueBenchmarks = new Set(modelBenchmarks);
-
+	// We now use the benchmarks prop directly instead of deriving from models
 	// Total benchmark results
 	const totalBenchmarkResults = models.reduce(
 		(acc: number, m: ExtendedModel) =>
@@ -92,9 +85,9 @@ export default function DbStats({ models, benchmarks }: DbStatsProps) {
 								Total Benchmarks
 							</span>
 						</CardTitle>
-					</CardHeader>
+					</CardHeader>{" "}
 					<CardContent className="text-3xl font-bold flex items-center justify-center min-h-[64px]">
-						{uniqueBenchmarks.size}
+						{benchmarks.length}
 					</CardContent>
 				</Card>
 				<Card className="p-0">

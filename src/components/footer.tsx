@@ -19,65 +19,6 @@ export default function Footer() {
 			<div className="container mx-auto py-4 text-xs text-muted-foreground relative flex flex-col sm:flex-row items-center sm:items-center justify-between gap-2 sm:gap-0">
 				<div className="order-1 sm:order-2 w-full sm:w-auto flex justify-center sm:justify-end mb-2 sm:mb-0 sm:ml-4">
 					<div className="flex flex-row gap-2">
-						{/* <TooltipProvider delayDuration={0}>
-							<Tooltip>
-								<TooltipTrigger asChild>
-									<a
-										href="#"
-										target="_blank"
-										rel="noopener noreferrer"
-										aria-label="iOS App Store (Coming Soon)"
-										className="h-9 w-9 rounded-full border border-border flex items-center justify-center transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-primary"
-									>
-										<span className="block dark:hidden">
-											<Image
-												src="/providers/apple_light.svg"
-												alt="iOS App Store"
-												width={20}
-												height={20}
-												className="h-5 w-5"
-											/>
-										</span>
-										<span className="hidden dark:block">
-											<Image
-												src="/providers/apple_dark.svg"
-												alt="iOS App Store"
-												width={20}
-												height={20}
-												className="h-5 w-5"
-											/>
-										</span>
-									</a>
-								</TooltipTrigger>
-								<TooltipContent side="top" align="center">
-									Coming Soon: iOS App
-								</TooltipContent>
-							</Tooltip>
-						</TooltipProvider>
-						<TooltipProvider delayDuration={0}>
-							<Tooltip>
-								<TooltipTrigger asChild>
-									<a
-										href="https://youtube.com"
-										target="_blank"
-										rel="noopener noreferrer"
-										aria-label="Google Play Store"
-										className="h-9 w-9 rounded-full border border-border flex items-center justify-center transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-primary"
-									>
-										<Image
-											src="/providers/google.svg"
-											alt="Google Play Store"
-											width={20}
-											height={20}
-											className="h-5 w-5"
-										/>
-									</a>
-								</TooltipTrigger>
-								<TooltipContent side="top" align="center">
-									Google Play Store
-								</TooltipContent>
-							</Tooltip>
-						</TooltipProvider> */}
 						<TooltipProvider delayDuration={0}>
 							<Tooltip>
 								<TooltipTrigger asChild>

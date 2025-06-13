@@ -58,12 +58,10 @@ export default function PricingBarChart({
 	const tickStep = Math.ceil(niceMax / tickCount);
 	const ticks = Array.from({ length: tickCount + 1 }, (_, i) => i * tickStep);
 
-	console.log(data);
-
 	return (
 		<ResponsiveContainer
 			width="100%"
-			height={Math.min(600, 200 + data.length * 120)} // Further increased row height for more spacing between pairs
+			height={300} // Match ContextWindowBarChart for consistent spacing
 		>
 			<BarChart
 				data={data}

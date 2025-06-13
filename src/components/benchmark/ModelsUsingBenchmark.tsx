@@ -18,6 +18,17 @@ interface ModelsUsingBenchmarkProps {
 	defaultAccordionValues: string[];
 }
 
+// Parse score function (same as ModelBenchmarkChart)
+function parseScore(score: string | number): number | null {
+	if (typeof score === "number") return score;
+	if (typeof score === "string") {
+		// Remove % and parse float
+		const match = score.match(/([\d.]+)/);
+		if (match) return parseFloat(match[1]);
+	}
+	return null;
+}
+
 export default function ModelsUsingBenchmark({
 	modelsWithBenchmark,
 	modelsByProvider,
@@ -50,16 +61,18 @@ export default function ModelsUsingBenchmark({
 								key={provider}
 								className="border-b border-zinc-200 dark:border-zinc-800"
 							>
+								{" "}
 								<AccordionTrigger className="hover:no-underline hover:bg-zinc-50 dark:hover:bg-zinc-900 px-3 py-2 rounded-md">
 									<div className="flex items-center gap-2">
-										<div className="h-6 w-6 relative flex items-center justify-center">
-											<Image
-												src={`/providers/${modelsByProvider[provider][0]?.provider?.provider_id}.svg`}
-												alt={provider}
-												width={24}
-												height={24}
-												className="object-contain bg-white p-0.5 rounded-full"
-											/>
+										<div className="h-6 w-6 relative flex items-center justify-center rounded-full border bg-white">
+											<div className="w-4 h-4 relative">
+												<Image
+													src={`/providers/${modelsByProvider[provider][0]?.provider?.provider_id}.svg`}
+													alt={provider}
+													className="object-contain"
+													fill
+												/>
+											</div>
 										</div>
 										<span className="font-semibold">
 											{provider}
@@ -89,8 +102,35 @@ export default function ModelsUsingBenchmark({
 																	.id ===
 																	benchmarkId)
 													);
-												const score =
+
+												// Parse and prepare the score for display
+												const rawScore =
 													result?.score || "N/A";
+												const isPercentage =
+													typeof rawScore ===
+														"string" &&
+													rawScore.includes("%");
+												const parsedScore =
+													rawScore !== "N/A"
+														? parseScore(rawScore)
+														: null;
+
+												// Format the display score
+												let displayScore;
+												if (parsedScore !== null) {
+													displayScore =
+														parsedScore.toFixed(2) +
+														(isPercentage
+															? "%"
+															: "");
+												} else if (
+													rawScore !== "N/A" &&
+													typeof rawScore === "string"
+												) {
+													displayScore = rawScore;
+												} else {
+													displayScore = rawScore;
+												}
 
 												return (
 													<Card
@@ -120,34 +160,9 @@ export default function ModelsUsingBenchmark({
 																	</div>
 																</div>
 																<div className="bg-primary/10 text-primary px-2.5 py-1 rounded-full text-xs font-semibold ml-2 flex-shrink-0">
-																	{(() => {
-																		if (
-																			typeof score ===
-																			"number"
-																		) {
-																			return (
-																				score.toFixed(
-																					1
-																				) +
-																				"%"
-																			);
-																		} else if (
-																			typeof score ===
-																				"string" &&
-																			score !==
-																				"N/A"
-																		) {
-																			// Handle percentage strings
-																			return score.includes(
-																				"%"
-																			)
-																				? score
-																				: score +
-																						"%";
-																		} else {
-																			return score;
-																		}
-																	})()}
+																	{
+																		displayScore
+																	}
 																</div>
 															</div>
 														</CardContent>

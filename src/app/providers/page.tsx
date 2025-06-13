@@ -159,6 +159,14 @@ export default async function ProvidersPage() {
 											size="icon"
 											variant="ghost"
 											tabIndex={-1}
+											className="group"
+											style={
+												{
+													"--provider-arrow-color":
+														provider.colour ??
+														"inherit",
+												} as React.CSSProperties
+											}
 										>
 											<Link
 												href={provider.twitter}
@@ -167,7 +175,11 @@ export default async function ProvidersPage() {
 												aria-label={`Visit ${provider.name} website`}
 												tabIndex={-1}
 											>
-												<Twitter className="w-5 h-5" />
+												<Twitter
+													className={cn(
+														"w-5 h-5 transition-colors group-hover:text-[color:var(--provider-arrow-color)]"
+													)}
+												/>
 											</Link>
 										</Button>
 									)}
@@ -177,6 +189,14 @@ export default async function ProvidersPage() {
 											size="icon"
 											variant="ghost"
 											tabIndex={-1}
+											className="group"
+											style={
+												{
+													"--provider-arrow-color":
+														provider.colour ??
+														"inherit",
+												} as React.CSSProperties
+											}
 										>
 											<Link
 												href={provider.website}
@@ -185,7 +205,11 @@ export default async function ProvidersPage() {
 												aria-label={`Visit ${provider.name} website`}
 												tabIndex={-1}
 											>
-												<Globe className="w-5 h-5" />
+												<Globe
+													className={cn(
+														"w-5 h-5 transition-colors group-hover:text-[color:var(--provider-arrow-color)]"
+													)}
+												/>
 											</Link>
 										</Button>
 									)}

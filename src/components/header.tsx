@@ -13,6 +13,7 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "./ui/tooltip";
+import React from "react";
 
 export default function Header() {
 	const pathname = usePathname();
@@ -163,24 +164,6 @@ export default function Header() {
 									</TooltipContent>
 								</Tooltip>
 							</TooltipProvider>
-							<TooltipProvider delayDuration={0}>
-								<Tooltip>
-									<TooltipTrigger asChild>
-										<a
-											href="https://coff.ee/phaseo"
-											target="_blank"
-											rel="noopener noreferrer"
-											aria-label="Buy me a coffee"
-											className="h-9 w-9 rounded-full border border-border flex items-center justify-center transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-primary"
-										>
-											<Coffee className="h-4 w-4" />
-										</a>
-									</TooltipTrigger>
-									<TooltipContent side="top" align="center">
-										Buy Me a Coffee
-									</TooltipContent>
-								</Tooltip>
-							</TooltipProvider>
 						</div>
 
 						{/* Hamburger, right-aligned, only on mobile */}
@@ -195,8 +178,8 @@ export default function Header() {
 									</Button>
 								</DrawerTrigger>
 								<DrawerContent>
-									<div className="pt-8">
-										<nav className="flex flex-col gap-2 px-6">
+									<div className="pt-4">
+										<nav className="flex flex-col gap-2 px-6 pb-4">
 											{navLinks}
 										</nav>{" "}
 										<div className="px-6 py-4 mt-auto border-t">
@@ -238,10 +221,18 @@ export default function Header() {
 					</div>
 				</div>
 			</header>
-			{/* Mobile warning: only visible on lg screens and below */}
-			<div className="block xl:hidden bg-yellow-100 text-yellow-900 text-center py-2 px-2 text-sm font-medium">
-				This website is not yet fully optimised for mobile viewing. Some
-				features may not display or function as intended.
+			{/* Support banner: visible on all screen sizes */}
+			<div className="bg-gray-50 text-gray-700 text-center py-1 text-xs border-b flex justify-center items-center gap-2">
+				<span>Enjoying AI Stats?</span>
+				<Link
+					href="https://coff.ee/phaseo"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="group flex items-center gap-1 text-gray-900 hover:text-primary font-medium transition-colors duration-200"
+				>
+					<Coffee className="h-4 w-4 transition-transform duration-300 group-hover:scale-125 group-hover:drop-shadow-md group-hover:animate-coffee-wiggle" />
+					Support us
+				</Link>
 			</div>
 		</>
 	);

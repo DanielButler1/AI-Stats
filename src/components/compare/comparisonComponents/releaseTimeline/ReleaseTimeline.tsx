@@ -78,7 +78,7 @@ export default function ReleaseTimeline({
 	const summarySection = (
 		<Card className="mb-4 bg-muted/60 border-none shadow-none">
 			<Card className="flex items-center gap-2 p-4 border-none mt-2">
-				<span className="relative flex h-4 w-4 items-center justify-center mr-4">
+				<span className="relative flex h-4 w-4 items-center justify-center mr-4 shrink-0">
 					<span className="absolute h-6 w-6 rounded-full bg-pink-400/30" />
 					<Calendar className="relative h-full w-full text-pink-500" />
 				</span>
@@ -112,11 +112,6 @@ export default function ReleaseTimeline({
 			</Card>
 		</Card>
 	);
-
-	// Build summary sentence
-	const summary = modelsSorted
-		.map((m) => `${m.name} (${formatDate(m.release_date)})`)
-		.join(" → ");
 
 	return (
 		<div className="mb-6">

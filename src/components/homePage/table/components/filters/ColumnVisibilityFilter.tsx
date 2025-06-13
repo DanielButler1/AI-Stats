@@ -30,23 +30,6 @@ const displayNames: { [key: string]: string } = {
 export function ColumnVisibilityFilter({ table }: ColumnVisibilityFilterProps) {
 	const [open, setOpen] = React.useState(false);
 
-	// Hide the parameters column by default on mount
-	React.useEffect(() => {
-		const paramCol = table
-			.getAllColumns()
-			.find((col) => col.id === "parameter_count");
-		if (paramCol && paramCol.getIsVisible()) {
-			paramCol.toggleVisibility(false);
-		}
-		// Only run on mount
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
-
-	const visibleColumns = table
-		.getAllColumns()
-		.filter((column) => column.getCanHide() && column.getIsVisible())
-		.map((column) => displayNames[column.id] || column.id);
-
 	return (
 		<div className="space-y-2">
 			<DropdownMenu open={open} onOpenChange={setOpen}>

@@ -1,6 +1,5 @@
 import Header from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Crown, Info } from "lucide-react";
 import Link from "next/link";
@@ -155,33 +154,40 @@ export default async function ModelPricePage(props: {
 			<main className="flex min-h-screen flex-col">
 				<Header />
 				<div className="container mx-auto px-4 py-8">
+					{" "}
 					{/* Model overview */}
 					<Card className="mb-8 shadow-lg">
 						<CardHeader>
 							<div className="flex items-start justify-between">
-								<div className="flex flex-col md:flex-row items-start gap-4 md:gap-8">
+								<div className="flex flex-col md:flex-row items-center md:items-start w-full gap-4 md:gap-8">
 									<div className="flex flex-col md:flex-row items-center w-full gap-2 md:gap-0">
-										{/* Provider logo */}
-										<div className="flex-shrink-0 flex flex-col items-center justify-center h-full mb-2 md:mb-0 md:mr-6">
-											<Image
-												src={`/providers/${model.provider.provider_id}.svg`}
-												alt={model.provider.name}
-												width={48}
-												height={48}
-												className="rounded-full border bg-white object-contain w-12 h-12 p-0.5 md:w-24 md:h-24"
-											/>
+										{" "}
+										{/* Provider logo */}{" "}
+										<div className="flex-shrink-0 flex flex-col items-center justify-center h-full mb-2 md:mb-0 md:mr-6 w-full md:w-auto">
+											<div className="w-12 h-12 md:w-24 md:h-24 relative flex items-center justify-center rounded-full border bg-white">
+												<div className="w-10 h-10 md:w-20 md:h-20 relative">
+													<Image
+														src={`/providers/${model.provider.provider_id}.svg`}
+														alt={
+															model.provider.name
+														}
+														className="object-contain"
+														fill
+													/>
+												</div>
+											</div>
 										</div>
 										{/* Model and provider info */}
-										<div className="flex flex-col items-center md:items-start justify-center flex-1">
+										<div className="flex flex-col items-center md:items-start justify-center flex-1 w-full md:w-auto text-center md:text-left">
 											<Link
 												href={`/models/${model.id}`}
-												className="text-3xl md:text-5xl font-bold mb-1 text-center md:text-left"
+												className="text-3xl md:text-5xl font-bold mb-1"
 											>
 												{model.name}
 											</Link>
 											<Link
 												href={`/providers/${model.provider.provider_id}`}
-												className="text-base md:text-lg font-semibold text-primary hover:font-bold flex items-center gap-2 w-fit text-center md:text-left"
+												className="text-base md:text-lg font-semibold text-primary hover:font-bold flex items-center gap-2 mx-auto md:mx-0"
 												aria-label={`View ${model.provider.name} details`}
 											>
 												{model.provider.name}
@@ -192,7 +198,6 @@ export default async function ModelPricePage(props: {
 							</div>
 						</CardHeader>
 					</Card>
-
 					{/* Provider pricing comparison */}
 					<Card className="shadow-lg">
 						<CardHeader>
@@ -201,7 +206,152 @@ export default async function ModelPricePage(props: {
 							</CardTitle>
 						</CardHeader>
 						<CardContent>
-							<div className="relative overflow-x-auto">
+							{/* Mobile View - Cards */}
+							<div className="block md:hidden space-y-4">
+								{providerPrices.map((price) => (
+									<Card
+										key={price.provider_id}
+										className="overflow-hidden"
+									>
+										<CardContent className="p-4">
+											{" "}
+											{/* Provider header with logo */}
+											<div className="flex items-center justify-between mb-3">
+												<Link
+													href={`/prices/${price.provider_id}`}
+													className="flex items-center gap-2 hover:text-primary"
+												>
+													<div className="h-6 w-6 relative flex items-center justify-center rounded-full border bg-white">
+														<div className="w-4 h-4 relative">
+															<Image
+																src={`/providers/${price.provider_id}.svg`}
+																alt={
+																	price.provider_name
+																}
+																className="object-contain"
+																fill
+															/>
+														</div>
+													</div>
+													<span className="flex items-center gap-2 font-medium">
+														{price.provider_name}
+														{price ===
+															cheapestProvider && (
+															<Crown className="h-4 w-4 text-yellow-400" />
+														)}
+													</span>
+												</Link>
+												<div className="flex items-center space-x-2">
+													{price.provider_link && (
+														<Link
+															href={
+																price.provider_link
+															}
+															target="_blank"
+															rel="noopener noreferrer"
+														>
+															<Button
+																variant="outline"
+																size="icon"
+																className="h-8 w-8"
+															>
+																<ExternalLink className="h-4 w-4" />
+															</Button>
+														</Link>
+													)}
+													{price.other_info && (
+														<TooltipProvider>
+															<Tooltip>
+																<TooltipTrigger
+																	asChild
+																>
+																	<Button
+																		variant="outline"
+																		size="icon"
+																		className="h-8 w-8"
+																	>
+																		<Info className="h-4 w-4 text-muted-foreground" />
+																	</Button>
+																</TooltipTrigger>
+																<TooltipContent className="max-w-xs whitespace-pre-line break-words">
+																	{
+																		price.other_info
+																	}
+																</TooltipContent>
+															</Tooltip>
+														</TooltipProvider>
+													)}
+												</div>
+											</div>
+											{/* Pricing information in grid */}
+											<div className="grid grid-cols-2 gap-3">
+												<div className="space-y-1">
+													<p className="text-xs text-zinc-500">
+														Input Cost
+													</p>
+													<p className="font-mono">
+														{price.input_token_price
+															? `$${(
+																	price.input_token_price *
+																	1_000_000
+															  ).toFixed(2)}`
+															: "-"}
+													</p>
+												</div>
+												<div className="space-y-1">
+													<p className="text-xs text-zinc-500">
+														Output Cost
+													</p>
+													<p className="font-mono">
+														{price.output_token_price
+															? `$${(
+																	price.output_token_price *
+																	1_000_000
+															  ).toFixed(2)}`
+															: "-"}
+													</p>
+												</div>
+												<div className="space-y-1">
+													<p className="text-xs text-zinc-500">
+														Blended Cost (1:3)
+													</p>
+													<p className="font-mono">
+														{price.total_cost_1m
+															? `$${price.total_cost_1m.toFixed(
+																	2
+															  )}`
+															: "-"}
+													</p>
+												</div>
+												<div className="space-y-1">
+													<p className="text-xs text-zinc-500">
+														Latency
+													</p>
+													<p className="font-mono">
+														{price.latency !== null
+															? `${price.latency}ms`
+															: "-"}
+													</p>
+												</div>
+												<div className="space-y-1 col-span-2">
+													<p className="text-xs text-zinc-500">
+														Throughput
+													</p>
+													<p className="font-mono">
+														{price.throughput !==
+														null
+															? `${price.throughput}/s`
+															: "-"}
+													</p>
+												</div>
+											</div>
+										</CardContent>
+									</Card>
+								))}
+							</div>
+
+							{/* Desktop View - Table */}
+							<div className="hidden md:block relative overflow-x-auto">
 								<table className="w-full text-sm">
 									<thead>
 										<tr className="border-b dark:border-zinc-700">
@@ -239,19 +389,22 @@ export default async function ModelPricePage(props: {
 												className="border-b dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800/50"
 											>
 												<td className="p-4">
+													{" "}
 													<Link
 														href={`/prices/${price.provider_id}`}
 														className="flex items-center gap-2 hover:text-primary"
 													>
-														<div className="h-6 w-6 relative">
-															<Image
-																src={`/providers/${price.provider_id}.svg`}
-																alt={
-																	price.provider_name
-																}
-																fill
-																className="object-contain bg-white rounded-full p-0.5"
-															/>
+														<div className="h-6 w-6 relative flex items-center justify-center rounded-full border bg-white">
+															<div className="w-4 h-4 relative">
+																<Image
+																	src={`/providers/${price.provider_id}.svg`}
+																	alt={
+																		price.provider_name
+																	}
+																	className="object-contain"
+																	fill
+																/>
+															</div>
 														</div>
 														<span className="flex items-center gap-2">
 															{

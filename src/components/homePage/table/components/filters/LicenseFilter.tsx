@@ -48,7 +48,7 @@ export function LicenseFilter({
 
 	return (
 		<div className="space-y-2">
-			<Popover open={open} onOpenChange={setOpen}>
+			<Popover open={open} onOpenChange={setOpen} modal={true}>
 				<PopoverTrigger asChild>
 					<Button
 						variant="outline"
@@ -61,7 +61,10 @@ export function LicenseFilter({
 						{renderSelectedBadges()}
 					</Button>
 				</PopoverTrigger>
-				<PopoverContent className="w-full p-0" align="start">
+				<PopoverContent
+					className=" w-[90vw] xl:w-full p-0"
+					align="start"
+				>
 					<Command>
 						<CommandInput placeholder="Search licenses..." />
 						<CommandList>

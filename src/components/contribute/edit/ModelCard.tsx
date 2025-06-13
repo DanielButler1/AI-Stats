@@ -48,21 +48,25 @@ export function ModelCard({
 			}
 		>
 			<CardHeader className="relative flex flex-row items-center gap-3 pb-2">
+				{" "}
 				<Link
 					href={`/providers/${model.provider?.provider_id}`}
-					className="shrink-0 group"
+					className="group"
 					tabIndex={-1}
 					aria-label={`Go to ${
 						model.provider?.name || model.provider.provider_id
 					} details`}
 				>
-					<Image
-						src={`/providers/${model.provider?.provider_id}.svg`}
-						alt={model.provider?.name}
-						width={32}
-						height={32}
-						className="rounded-full border bg-white object-contain w-8 h-8 group-hover:opacity-80 transition"
-					/>
+					<div className="w-10 h-10 relative flex items-center justify-center rounded-full border bg-white">
+						<div className="w-7 h-7 relative">
+							<Image
+								src={`/providers/${model.provider?.provider_id}.svg`}
+								alt={model.provider?.name}
+								className="group-hover:opacity-80 transition object-contain"
+								fill
+							/>
+						</div>
+					</div>
 				</Link>
 				<div className="flex-1 min-w-0">
 					<Tooltip delayDuration={0}>

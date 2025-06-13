@@ -27,7 +27,7 @@ export default function CompareMiniHeader({ models }: CompareMiniHeaderProps) {
 	const selectedModels = models.filter((m) => selected.includes(m.id));
 
 	return (
-		<div className="border-b bg-background/10 backdrop-blur-md sticky top-0 z-40">
+		<div className="border-b bg-background/10 backdrop-blur-md top-0 z-40">
 			<div className="container mx-auto py-4 px-4">
 				<div className="flex flex-col md:flex-row justify-between items-center gap-4">
 					<div className="flex flex-wrap gap-2 items-center">

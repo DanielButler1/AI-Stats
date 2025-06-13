@@ -31,6 +31,7 @@ interface BenchmarkDialogProps {
 		provider: string;
 		score: number;
 		isCurrent: boolean;
+		isPercentage?: boolean;
 		fill: string;
 		allResults?: Array<{
 			score: number;
@@ -72,12 +73,15 @@ export function BenchmarkDialog({
 			<DialogContent className="max-w-5xl w-[900px] sm:w-[95vw] overflow-visible">
 				<DialogHeader>
 					<DialogTitle className="flex items-center gap-2">
-						{benchmarkName}
+						{benchmarkName}{" "}
 						<Badge variant="secondary">
 							{current
 								? benchmarkName === "Codeforces"
 									? current.score.toFixed(0)
-									: current.score.toFixed(2) + "%"
+									: current.score.toFixed(2) +
+									  (current.isPercentage !== false
+											? "%"
+											: "")
 								: "-"}
 						</Badge>
 						{currentIdx >= 0 && (
@@ -163,7 +167,11 @@ export function BenchmarkDialog({
 												</div>
 											) : (
 												<div className="font-mono text-base">
-													{d.score.toFixed(2) + "%"}
+													{d.score.toFixed(2) +
+														(d.isPercentage !==
+														false
+															? "%"
+															: "")}
 												</div>
 											)}
 											{d.isCurrent && (

@@ -77,19 +77,31 @@ export function ModelCard({ model }: { model: ExtendedModel }) {
 					</Link>
 					<Link
 						href={`/providers/${model.provider.provider_id}`}
-						className="hover:bold text-xs text-muted-foreground truncate"
+						className="hover:bold text-xs text-muted-foreground truncate flex items-center gap-1"
 					>
 						{model.provider.name}
 					</Link>
 				</div>
-				<div className="ml-auto">
-					<Button asChild size="icon" variant="ghost" tabIndex={-1}>
+				<div className="ml-auto flex gap-1">
+					<Button
+						asChild
+						size="icon"
+						variant="ghost"
+						tabIndex={-1}
+						className="group"
+						style={
+							{
+								"--provider-color":
+									model.provider.colour ?? "inherit",
+							} as React.CSSProperties
+						}
+					>
 						<Link
 							href={`/models/${model.id}`}
 							aria-label={`Go to ${model.name} details`}
 							tabIndex={-1}
 						>
-							<ArrowRight className="w-5 h-5" />
+							<ArrowRight className="w-5 h-5 transition-colors group-hover:text-[color:var(--provider-color)]" />
 						</Link>
 					</Button>
 				</div>
@@ -218,15 +230,28 @@ export function ModelCard({ model }: { model: ExtendedModel }) {
 						return link.url ? (
 							<Tooltip key={link.key} delayDuration={0}>
 								<TooltipTrigger asChild>
-									<Link
-										href={link.url}
-										target="_blank"
-										rel="noopener noreferrer"
-										aria-label={link.label}
-										className="inline-flex items-center justify-center rounded-md border border-zinc-200 bg-white p-1.5 hover:bg-zinc-100 transition-colors text-zinc-700 dark:bg-black dark:border-zinc-800"
+									<Button
+										asChild
+										size="sm"
+										variant="outline"
+										className="group"
+										style={
+											{
+												"--provider-color":
+													model.provider.colour ??
+													"inherit",
+											} as React.CSSProperties
+										}
 									>
-										<Icon className="w-5 h-5 dark:text-white" />
-									</Link>
+										<Link
+											href={link.url}
+											target="_blank"
+											rel="noopener noreferrer"
+											aria-label={link.label}
+										>
+											<Icon className="w-5 h-5 transition-colors group-hover:text-[color:var(--provider-color)]" />
+										</Link>
+									</Button>
 								</TooltipTrigger>
 								<TooltipContent className="dark:bg-zinc-950 dark:text-white">
 									{link.label}

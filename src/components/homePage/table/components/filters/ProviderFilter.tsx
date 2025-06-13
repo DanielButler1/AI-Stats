@@ -19,7 +19,7 @@ import {
 import Image from "next/image";
 
 interface ProviderFilterProps {
-	providers: string[];
+	providers: { id: string; name: string }[];
 	selectedProviders: string[];
 	setSelectedProviders: (value: string[]) => void;
 }
@@ -34,11 +34,14 @@ export function ProviderFilter({
 	const renderSelectedBadges = () => {
 		if (selectedProviders.length === 0) return null;
 		if (selectedProviders.length <= 2) {
-			return selectedProviders.map((provider) => (
-				<Badge key={provider} variant="secondary">
-					{provider}
-				</Badge>
-			));
+			return selectedProviders.map((id) => {
+				const prov = providers.find((p) => p.id === id);
+				return (
+					<Badge key={id} variant="secondary">
+						{prov?.name || id}
+					</Badge>
+				);
+			});
 		}
 		return (
 			<Badge variant="secondary">
@@ -49,7 +52,7 @@ export function ProviderFilter({
 
 	return (
 		<div className="space-y-2">
-			<Popover open={open} onOpenChange={setOpen}>
+			<Popover open={open} onOpenChange={setOpen} modal={true}>
 				<PopoverTrigger asChild>
 					<Button
 						variant="outline"
@@ -62,7 +65,10 @@ export function ProviderFilter({
 						{renderSelectedBadges()}
 					</Button>
 				</PopoverTrigger>
-				<PopoverContent className="w-full p-0" align="start">
+				<PopoverContent
+					className="w-full p-0 pointer-events-auto"
+					align="start"
+				>
 					<Command>
 						<CommandInput placeholder="Search providers..." />
 						<CommandList>
@@ -70,20 +76,21 @@ export function ProviderFilter({
 							<CommandGroup>
 								{providers.map((provider) => (
 									<CommandItem
-										key={provider}
-										value={provider}
+										key={provider.id}
+										value={provider.id}
 										onSelect={() => {
 											setSelectedProviders(
 												selectedProviders.includes(
-													provider
+													provider.id
 												)
 													? selectedProviders.filter(
 															(p) =>
-																p !== provider
+																p !==
+																provider.id
 													  )
 													: [
 															...selectedProviders,
-															provider,
+															provider.id,
 													  ]
 											);
 										}}
@@ -92,22 +99,22 @@ export function ProviderFilter({
 											className={cn(
 												"mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary",
 												selectedProviders.includes(
-													provider
+													provider.id
 												)
 													? "bg-primary text-primary-foreground"
 													: "opacity-50"
 											)}
 										>
 											{selectedProviders.includes(
-												provider
+												provider.id
 											) && <Check className="h-4 w-4" />}
 										</div>
 										<span className="flex-1">
-											{provider}
+											{provider.name}
 										</span>
 										<Image
-											src={`/providers/${provider}.svg`}
-											alt={`${provider} logo`}
+											src={`/providers/${provider.id}.svg`}
+											alt={`${provider.name} logo`}
 											className="h-5 w-5 ml-2 object-contain"
 											width={20}
 											height={20}

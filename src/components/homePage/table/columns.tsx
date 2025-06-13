@@ -56,7 +56,7 @@ export const columns: ColumnDef<ExtendedModel>[] = [
 		cell: ({ row }) => (
 			<Link
 				href={`/models/${row.original.id}`}
-				className="text-center block hover:font-bold"
+				className="text-center block hover:underline"
 			>
 				{row.getValue("name")}
 			</Link>

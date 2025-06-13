@@ -18,7 +18,7 @@ import type { Metadata } from "next";
 import { fetchAggregateData } from "@/lib/fetchData";
 
 export async function generateMetadata(props: {
-        params: Promise<{ providerId: string }>;
+	params: Promise<{ providerId: string }>;
 }): Promise<Metadata> {
 	const params = await props.params;
 	const providerPath = path.join(
@@ -44,34 +44,48 @@ export async function generateMetadata(props: {
 }
 
 export async function generateStaticParams() {
-        const providersDir = path.join(process.cwd(), "src/data/providers");
-        try {
-                const providerFolders = await fs.readdir(providersDir);
-                return providerFolders.map((id) => ({ providerId: id }));
-        } catch {
-                return [];
-        }
+	const providersDir = path.join(process.cwd(), "src/data/providers");
+	try {
+		const providerFolders = await fs.readdir(providersDir);
+		return providerFolders.map((id) => ({ providerId: id }));
+	} catch {
+		return [];
+	}
 }
 
 export default async function ProviderPage(props: {
 	params: Promise<{ providerId: string }>;
 }) {
-        const params = await props.params;
+	const params = await props.params;
 
-        let models: ExtendedModel[] = [];
-        let provider: ExtendedModel["provider"] | null = null;
-        let errorMsg = "";
+	let models: ExtendedModel[] = [];
+	let provider: ExtendedModel["provider"] | null = null;
+	let errorMsg = "";
 
-        try {
-                models = (await fetchAggregateData()).filter(m => m.provider.provider_id === params.providerId);
-                if (!models.length) {
-                        errorMsg = "Provider not found";
-                } else {
-                        provider = models[0].provider;
-                }
-        } catch (e: any) {
-                errorMsg = e?.message || "Unknown error";
-        }
+	// Try to load provider.json directly
+	const providerPath = path.join(
+		process.cwd(),
+		"src/data/providers",
+		params.providerId,
+		"provider.json"
+	);
+	try {
+		const raw = await fs.readFile(providerPath, "utf-8");
+		provider = JSON.parse(raw);
+	} catch {
+		errorMsg = "Provider not found";
+	}
+
+	// Only fetch models if provider exists
+	if (provider) {
+		try {
+			models = (await fetchAggregateData()).filter(
+				(m) => m.provider.provider_id === params.providerId
+			);
+		} catch (e: any) {
+			errorMsg = e?.message || "Unknown error";
+		}
+	}
 
 	return (
 		<main className="flex min-h-screen flex-col">
@@ -103,15 +117,19 @@ export default async function ProviderPage(props: {
 									)}
 									{/* Layout around logo and info */}
 									<div className="flex flex-col md:flex-row items-center w-full gap-2 md:gap-0">
+										{" "}
 										{/* Provider logo */}
 										<div className="flex-shrink-0 flex flex-col items-center justify-center h-full mb-2 md:mb-0 md:mr-6">
-											<Image
-												src={`/providers/${provider.provider_id}.svg`}
-												alt={provider.name}
-												width={48}
-												height={48}
-												className="rounded-full border bg-white object-contain w-12 h-12 md:w-24 md:h-24"
-											/>
+											<div className="w-12 h-12 md:w-24 md:h-24 relative flex items-center justify-center rounded-full border bg-white">
+												<div className="w-10 h-10 md:w-20 md:h-20 relative">
+													<Image
+														src={`/providers/${provider.provider_id}.svg`}
+														alt={provider.name}
+														className="object-contain"
+														fill
+													/>
+												</div>
+											</div>
 										</div>
 										{/* Provider info: name and icons */}
 										<div className="flex flex-col items-center md:items-start justify-center flex-1">
@@ -126,7 +144,14 @@ export default async function ProviderPage(props: {
 																asChild
 																size="sm"
 																variant="outline"
-																className=""
+																className="group"
+																style={
+																	{
+																		"--provider-color":
+																			provider.colour ??
+																			"inherit",
+																	} as React.CSSProperties
+																}
 															>
 																<Link
 																	href={
@@ -137,7 +162,7 @@ export default async function ProviderPage(props: {
 																	rel="noopener noreferrer"
 																	aria-label={`Visit ${provider.name} twitter page`}
 																>
-																	<Twitter className="w-5 h-5 inline-block align-text-bottom" />
+																	<Twitter className="w-5 h-5 inline-block align-text-bottom transition-colors group-hover:text-[color:var(--provider-color)]" />
 																	<span className="sr-only">
 																		Twitter
 																	</span>
@@ -157,7 +182,14 @@ export default async function ProviderPage(props: {
 																asChild
 																size="sm"
 																variant="outline"
-																className=""
+																className="group"
+																style={
+																	{
+																		"--provider-color":
+																			provider.colour ??
+																			"inherit",
+																	} as React.CSSProperties
+																}
 															>
 																<Link
 																	href={
@@ -168,7 +200,7 @@ export default async function ProviderPage(props: {
 																	rel="noopener noreferrer"
 																	aria-label={`Visit ${provider.name} website`}
 																>
-																	<Globe className="w-5 h-5 inline-block align-text-bottom" />
+																	<Globe className="w-5 h-5 inline-block align-text-bottom transition-colors group-hover:text-[color:var(--provider-color)]" />
 																	<span className="sr-only">
 																		Website
 																	</span>

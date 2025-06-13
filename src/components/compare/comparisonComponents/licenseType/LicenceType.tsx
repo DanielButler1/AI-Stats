@@ -18,25 +18,28 @@ function getLicenseDescriptionCard(models: ExtendedModel[]) {
 	const [first, second] = models;
 	const firstLicense = first.license?.toLowerCase() ?? "unknown";
 	const secondLicense = second.license?.toLowerCase() ?? "unknown";
-	const bothProprietary =
-		firstLicense === "proprietary" && secondLicense === "proprietary";
+
+	// Check if all models have proprietary licenses
+	const allProprietary = models.every(
+		(model) => model.license?.toLowerCase() === "proprietary"
+	);
 
 	return (
 		<Card className="mb-4 bg-muted/60 border-none shadow-none">
 			<Card className="flex items-center gap-2 p-4 border-none mt-2">
-				<span className="relative flex h-4 w-4 items-center justify-center mr-4">
+				<span className="relative flex h-4 w-4 items-center justify-center mr-4 shrink-0">
 					<span className="absolute h-6 w-6 rounded-full bg-pink-400/30" />
 					<Scale className="relative h-full w-full text-pink-500" />
 				</span>
 				<div className="text-sm">
-					{bothProprietary ? (
+					{allProprietary ? (
 						<>
 							<span className="block font-medium">
-								Both models are licensed under proprietary
+								All models are licensed under proprietary
 								licenses.
 							</span>
 							<span className="block text-xs text-muted-foreground mt-1">
-								Both models have usage restrictions defined by
+								All models have usage restrictions defined by
 								their respective organizations.
 							</span>
 						</>
@@ -59,7 +62,7 @@ function getLicenseDescriptionCard(models: ExtendedModel[]) {
 									? "a proprietary license"
 									: second.license ?? "unknown"}
 								.
-							</span>
+							</span>{" "}
 							<span className="block text-xs text-muted-foreground mt-1">
 								License differences may affect how you can use
 								these models in commercial or open-source
@@ -96,7 +99,7 @@ function getLicenseIcon(license: string | null) {
 	);
 }
 
-const LicenseType: React.FC<LicenseTypeProps> = ({ selectedModels }) => {
+export default function LicenseType({ selectedModels }: LicenseTypeProps) {
 	if (!selectedModels || selectedModels.length === 0) return null;
 	return (
 		<Card className="mb-6 bg-white dark:bg-zinc-950 rounded-lg shadow relative">
@@ -107,13 +110,12 @@ const LicenseType: React.FC<LicenseTypeProps> = ({ selectedModels }) => {
 				</CardDescription>
 			</CardHeader>
 			<CardContent className="p-6">
-				{/* Summary message in a card, similar to ContextWindowComparison */}
 				{getLicenseDescriptionCard(selectedModels)}
-				<div className="flex gap-6 mt-2 w-full">
+				<div className="flex flex-col md:flex-row gap-6 mt-2 w-full">
 					{selectedModels.map((model) => (
 						<Card
 							key={model.id}
-							className="flex flex-col items-start p-6 border-none shadow-lg flex-1 min-w-0"
+							className="flex flex-col items-start p-6 border-none shadow-lg flex-1 min-w-0 mb-2 md:mb-0"
 						>
 							<div className="flex items-center mb-2">
 								{getLicenseIcon(model.license)}
@@ -130,6 +132,4 @@ const LicenseType: React.FC<LicenseTypeProps> = ({ selectedModels }) => {
 			</CardContent>
 		</Card>
 	);
-};
-
-export default LicenseType;
+}

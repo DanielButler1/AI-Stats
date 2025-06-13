@@ -159,7 +159,7 @@ export default function RecentModels({ models }: RecentModelsProps) {
 												href={`/models/${encodeURIComponent(
 													model.id
 												)}`}
-												className="hover:bold flex items-center"
+												className="hover:underline hover:decoration-2 hover:underline-offset-2 transition-colors  flex items-center"
 											>
 												{model.name}
 											</Link>
@@ -169,7 +169,7 @@ export default function RecentModels({ models }: RecentModelsProps) {
 												href={`/providers/${encodeURIComponent(
 													model.provider.provider_id
 												)}`}
-												className="flex items-center gap-2 hover:bold"
+												className="flex items-center gap-2 hover:underline hover:decoration-2 hover:underline-offset-2 transition-colors"
 											>
 												<div className="w-5 h-5 relative flex items-center justify-center rounded-full border bg-white">
 													<div className="w-4 h-4 relative">
@@ -264,6 +264,7 @@ export default function RecentModels({ models }: RecentModelsProps) {
 												href={`/models/${encodeURIComponent(
 													model.id
 												)}`}
+												className="hover:underline hover:decoration-2 hover:underline-offset-2 transition-colors hover:text-blue-700"
 											>
 												{model.name}
 											</Link>
@@ -273,6 +274,7 @@ export default function RecentModels({ models }: RecentModelsProps) {
 												href={`/providers/${encodeURIComponent(
 													model.provider.provider_id
 												)}`}
+												className="hover:underline hover:decoration-2 hover:underline-offset-2 transition-colors hover:text-blue-700"
 											>
 												{model.provider.name}
 											</Link>

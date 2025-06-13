@@ -46,7 +46,7 @@ export default function HomePage({ models }: HomePageProps) {
 				<KeyInsights models={models} />
 			</motion.section>
 			<motion.section
-				className="py-4 mx-auto px-4 w-[90vw]"
+				className="py-4 mx-auto md:px-4 w-[90vw]"
 				initial={{ opacity: 0, y: 40 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
@@ -54,42 +54,6 @@ export default function HomePage({ models }: HomePageProps) {
 			>
 				<TableWrapper models={models} />
 			</motion.section>
-			{/* <motion.section
-				className="py-4 mx-auto px-4 w-[90vw]"
-				initial={{ opacity: 0, y: 40 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
-				viewport={{ once: true, amount: 0.2 }}
-			>
-				<ScatterGPQACost models={models} />
-			</motion.section>
-			<motion.section
-				className="py-4 mx-auto px-4 w-[90vw]"
-				initial={{ opacity: 0, y: 40 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.6, ease: "easeOut", delay: 0.27 }}
-				viewport={{ once: true, amount: 0.2 }}
-			>
-				<ScatterGPQAContext models={models} />
-			</motion.section>
-			<motion.section
-				className="py-4 mx-auto px-4 w-[90vw]"
-				initial={{ opacity: 0, y: 40 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.6, ease: "easeOut", delay: 0.29 }}
-				viewport={{ once: true, amount: 0.2 }}
-			>
-				<ScatterParamsQuality models={models} />
-			</motion.section>
-			<motion.section
-				className="py-4 mx-auto px-4 w-[90vw]"
-				initial={{ opacity: 0, y: 40 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.6, ease: "easeOut", delay: 0.31 }}
-				viewport={{ once: true, amount: 0.2 }}
-			>
-				<ScatterCostContext models={models} />
-			</motion.section> */}
 		</main>
 	);
 }

@@ -14,7 +14,7 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { ChevronDown } from "lucide-react";
 
 interface AdvancedFiltersProps {
-	providers: string[];
+	providers: { id: string; name: string }[];
 	licenses: string[];
 	selectedProviders: string[];
 	setSelectedProviders: (value: string[]) => void;
@@ -57,8 +57,11 @@ export function AdvancedFilters({
 		selectedProviders.length > 0 ||
 		selectedLicenses.length > 0 ||
 		(featureFilters && featureFilters.includes("multimodal")) ||
-		Object.values(table.getState().columnVisibility || {}).some(
-			(v) => v === false
+		// If any column other than parameter_count is hidden, or if parameter_count is visible (since it's hidden by default)
+		Object.entries(table.getState().columnVisibility || {}).some(
+			([key, value]) =>
+				(key === "parameter_count" && value === true) ||
+				(key !== "parameter_count" && value === false)
 		);
 
 	const handleReset = () => {
@@ -67,7 +70,14 @@ export function AdvancedFilters({
 		setParameterRange(DEFAULT_PARAMETER_RANGE as [number, number]);
 		setContextLengthRange(DEFAULT_CONTEXT_LENGTH_RANGE);
 		setSelectedLicenses(DEFAULT_SELECTED_LICENSES);
-		table.resetColumnVisibility();
+		// Reset column visibility to default: hide 'parameter_count', show others
+		const defaultVisibility: Record<string, boolean> = table
+			.getAllLeafColumns()
+			.reduce((acc, column) => {
+				acc[column.id] = column.id !== "parameter_count";
+				return acc;
+			}, {} as Record<string, boolean>);
+		table.setColumnVisibility(defaultVisibility);
 	};
 
 	const isMobile = useIsMobile();
@@ -92,26 +102,38 @@ export function AdvancedFilters({
 						side="bottom"
 						className="max-h-[90vh] overflow-y-auto p-4 space-y-6"
 					>
-						<div className="flex flex-col gap-4">
-							<ProviderFilter
-								providers={providers}
-								selectedProviders={selectedProviders}
-								setSelectedProviders={setSelectedProviders}
-							/>
-							<ParameterRangeFilter
-								parameterRange={parameterRange}
-								setParameterRange={setParameterRange}
-							/>
-							<ContextLengthFilter
-								contextLengthRange={contextLengthRange}
-								setContextLengthRange={setContextLengthRange}
-							/>
-							<LicenseFilter
-								licenses={licenses}
-								selectedLicenses={selectedLicenses}
-								setSelectedLicenses={setSelectedLicenses}
-							/>
-							<ColumnVisibilityFilter table={table} />
+						<div className="grid grid-cols-2 gap-4">
+							<div>
+								<ProviderFilter
+									providers={providers}
+									selectedProviders={selectedProviders}
+									setSelectedProviders={setSelectedProviders}
+								/>
+							</div>
+							<div>
+								<ParameterRangeFilter
+									parameterRange={parameterRange}
+									setParameterRange={setParameterRange}
+								/>
+							</div>
+							<div>
+								<ContextLengthFilter
+									contextLengthRange={contextLengthRange}
+									setContextLengthRange={
+										setContextLengthRange
+									}
+								/>
+							</div>
+							<div>
+								<LicenseFilter
+									licenses={licenses}
+									selectedLicenses={selectedLicenses}
+									setSelectedLicenses={setSelectedLicenses}
+								/>
+							</div>
+							<div className="col-span-2">
+								<ColumnVisibilityFilter table={table} />
+							</div>
 						</div>
 					</SheetContent>
 				</Sheet>

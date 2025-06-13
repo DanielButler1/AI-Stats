@@ -15,6 +15,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Expand } from "lucide-react";
 import { BenchmarkDialog } from "../model/BenchmarkDialog";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // Custom tooltip component
 type TooltipProps = {
@@ -36,7 +37,7 @@ function BenchmarkTooltip({ active, payload }: TooltipProps) {
 			<CardContent className="p-0">
 				<div className="text-xs text-muted-foreground mb-1">
 					{model.provider}
-				</div>
+				</div>{" "}
 				{model.allResults && model.allResults.length > 1 ? (
 					<div className="space-y-1">
 						{model.allResults.map((r: any, i: number) => (
@@ -55,7 +56,8 @@ function BenchmarkTooltip({ active, payload }: TooltipProps) {
 					</div>
 				) : (
 					<div className="font-mono text-base">
-						{model.score?.toFixed(2) + "%"}
+						{model.score?.toFixed(2) +
+							(model.isPercentage !== false ? "%" : "")}
 					</div>
 				)}
 			</CardContent>
@@ -96,6 +98,7 @@ export default function ModelBenchmarkChart({
 }: ModelBenchmarkChartProps) {
 	// State for dialog
 	const [dialogOpen, setDialogOpen] = React.useState(false);
+	const isMobile = useIsMobile();
 
 	// Prepare data for the chart
 	const data = models
@@ -124,8 +127,7 @@ export default function ModelBenchmarkChart({
 					};
 				})
 				.filter((r) => typeof r.score === "number" && r.score !== null);
-			if (!parsedResults.length) return null;
-			// Guard: if parsedResults is empty, skip this model
+			if (!parsedResults.length) return null; // Guard: if parsedResults is empty, skip this model
 			if (!parsedResults[0]) return null;
 			const best =
 				parsedResults.length === 1
@@ -139,6 +141,7 @@ export default function ModelBenchmarkChart({
 				providerColor: model.provider?.colour || null,
 				score: best.score as number,
 				is_self_reported: best.is_self_reported,
+				isPercentage: best.isPercentage,
 				allResults: parsedResults,
 			};
 		})
@@ -148,6 +151,7 @@ export default function ModelBenchmarkChart({
 		providerColor: string | null;
 		score: number;
 		is_self_reported: boolean;
+		isPercentage: boolean;
 		allResults: Array<{
 			score: number;
 			isPercentage: boolean;
@@ -160,7 +164,7 @@ export default function ModelBenchmarkChart({
 	data.sort((a, b) => b.score - a.score);
 
 	// Limit to top 20 models for the main chart
-	const topModels = data.slice(0, 20);
+	const topModels = isMobile ? data.slice(0, 10) : data.slice(0, 20);
 
 	if (data.length === 0) {
 		return (
@@ -204,18 +208,22 @@ export default function ModelBenchmarkChart({
 					title="Expand benchmark comparison"
 				>
 					<Expand className="w-5 h-5 text-zinc-500 hover:text-indigo-600" />
-				</button>
+				</button>{" "}
 				<CardHeader className="pb-2">
 					<CardTitle className="text-lg font-semibold flex items-center gap-2">
 						{benchmarkName}
 						<Badge variant="secondary">
-							{data.length > 20
+							{isMobile
+								? data.length > 10
+									? `Top 10 of ${data.length}`
+									: `${data.length} models`
+								: data.length > 20
 								? `Top 20 of ${data.length}`
 								: `${data.length} models`}
 						</Badge>
 					</CardTitle>
 				</CardHeader>
-				<CardContent>
+				<CardContent className="p-0">
 					<ResponsiveContainer width="100%" height={400}>
 						<BarChart
 							data={topModels}
@@ -227,13 +235,14 @@ export default function ModelBenchmarkChart({
 								bottom: 40,
 							}}
 						>
+							{" "}
 							<XAxis
 								dataKey="name"
-								angle={-25}
+								angle={isMobile ? -60 : -25}
 								textAnchor="end"
-								tick={{ fontSize: 12 }}
+								tick={{ fontSize: isMobile ? 10 : 12 }}
 								interval={0}
-								height={80}
+								height={isMobile ? 100 : 80}
 								axisLine={true}
 								tickLine={false}
 							/>{" "}
@@ -285,6 +294,7 @@ export default function ModelBenchmarkChart({
 					provider: d.provider,
 					score: d.score,
 					isCurrent: false,
+					isPercentage: d.isPercentage,
 					fill:
 						d.providerColor ||
 						providerColors[d.provider] ||

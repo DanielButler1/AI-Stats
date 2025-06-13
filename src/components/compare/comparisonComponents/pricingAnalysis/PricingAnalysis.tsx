@@ -289,9 +289,9 @@ function BarChartTooltip({ active, payload, label }: any) {
 	);
 }
 
-const PricingAnalysis: React.FC<PricingAnalysisProps> = ({
+export default function PricingAnalysis({
 	selectedModels,
-}) => {
+}: PricingAnalysisProps) {
 	if (!selectedModels || selectedModels.length === 0) return null;
 	return (
 		<Card className="mb-6 bg-white dark:bg-zinc-950 rounded-lg shadow">
@@ -308,7 +308,7 @@ const PricingAnalysis: React.FC<PricingAnalysisProps> = ({
 			</CardHeader>
 			<CardContent className="p-6">
 				{getStatCards(selectedModels)}
-				<div className="bg-muted p-4 rounded-lg text-center">
+				<div className="hidden sm:block bg-muted p-4 rounded-lg text-center">
 					<PricingBarChart
 						chartData={getBarChartData(selectedModels)}
 						models={selectedModels.map((m) => ({
@@ -321,6 +321,4 @@ const PricingAnalysis: React.FC<PricingAnalysisProps> = ({
 			</CardContent>
 		</Card>
 	);
-};
-
-export default PricingAnalysis;
+}

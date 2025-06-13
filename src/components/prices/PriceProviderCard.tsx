@@ -29,13 +29,16 @@ export default function PriceProviderCard({
 						href={`/prices/${id}`}
 						className="hover:text-primary transition-colors flex items-center gap-2"
 					>
-						<div className="h-6 w-6 relative">
-							<Image
-								src={`/providers/${id}.svg`}
-								alt={name}
-								fill
-								className="object-contain bg-white rounded-full p-0.5"
-							/>
+						{" "}
+						<div className="h-6 w-6 relative flex items-center justify-center rounded-full border bg-white">
+							<div className="w-4 h-4 relative">
+								<Image
+									src={`/providers/${id}.svg`}
+									alt={name}
+									className="object-contain"
+									fill
+								/>
+							</div>
 						</div>
 						{name}
 						{isPopular && (

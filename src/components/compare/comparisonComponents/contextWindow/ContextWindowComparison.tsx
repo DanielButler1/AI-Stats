@@ -107,13 +107,10 @@ function getModelCountBadge(models: ExtendedModel[]) {
 	);
 }
 
-const ContextWindowComparison: React.FC<ContextWindowComparisonProps> = ({
+export default function ContextWindowComparison({
 	selectedModels,
-}) => {
+}: ContextWindowComparisonProps) {
 	if (!selectedModels || selectedModels.length === 0) return null;
-	const withInfo = selectedModels.filter(
-		(m) => m.input_context_length != null && m.output_context_length != null
-	);
 	const infoSentence = getInfoSentence(selectedModels);
 	return (
 		<Card className="mb-6 bg-white dark:bg-zinc-950 rounded-lg shadow">
@@ -131,20 +128,20 @@ const ContextWindowComparison: React.FC<ContextWindowComparisonProps> = ({
 					<div className="mb-4">
 						<Card className="border-none shadow-lg">
 							<CardContent className="py-4 text-sm text-left flex items-center justify-start">
-								<span className="relative flex h-4 w-4 items-center justify-center mr-4">
+								<span className="relative flex h-4 w-4 items-center justify-center mr-4 shrink-0">
 									<span className="absolute h-6 w-6 rounded-full bg-blue-400/30" />
-									<Info className="relative h-full w-full text-blue-500" />
+									<Info className="relative h-full w-full text-blue-500 shrink-0" />
 								</span>
 								<span>{infoSentence}</span>
 							</CardContent>
 						</Card>
 					</div>
 				)}
-				<div className="flex w-full gap-4 mb-6">
+				<div className="flex flex-col md:flex-row w-full gap-4 mb-6">
 					{selectedModels.map((model) => (
 						<Card
 							key={model.id}
-							className="shadow border-none flex flex-col justify-between flex-1 min-w-0"
+							className="shadow border-none flex flex-col justify-between flex-1 min-w-0 mb-4 md:mb-0"
 							style={{ minWidth: 0 }}
 						>
 							<CardHeader className="flex flex-row items-center gap-3 pb-2">
@@ -160,11 +157,11 @@ const ContextWindowComparison: React.FC<ContextWindowComparisonProps> = ({
 								</div>
 							</CardHeader>
 							<CardContent className="pt-0">
-								<div className="flex items-center justify-between text-sm mb-1">
+								<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-sm mb-1">
 									<span className="text-muted-foreground">
 										Input Context Length
 									</span>
-									<span className="font-mono font-bold">
+									<span className="font-mono font-bold mt-1 sm:mt-0">
 										{model.input_context_length != null
 											? formatTokens(
 													model.input_context_length
@@ -172,11 +169,11 @@ const ContextWindowComparison: React.FC<ContextWindowComparisonProps> = ({
 											: "-"}
 									</span>
 								</div>
-								<div className="flex items-center justify-between text-sm">
+								<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-sm">
 									<span className="text-muted-foreground">
 										Output Context Length
 									</span>
-									<span className="font-mono font-bold">
+									<span className="font-mono font-bold mt-1 sm:mt-0">
 										{model.output_context_length != null
 											? formatTokens(
 													model.output_context_length
@@ -188,7 +185,7 @@ const ContextWindowComparison: React.FC<ContextWindowComparisonProps> = ({
 						</Card>
 					))}
 				</div>
-				<div className="bg-muted p-4 rounded-lg text-center mb-4">
+				<div className="hidden sm:block bg-muted p-4 rounded-lg text-center mb-4">
 					<ContextWindowBarChart
 						chartData={getBarChartData(selectedModels)}
 						models={selectedModels.map((m) => ({
@@ -202,7 +199,7 @@ const ContextWindowComparison: React.FC<ContextWindowComparisonProps> = ({
 			</CardContent>
 		</Card>
 	);
-};
+}
 
 // Helper for K/M/B formatting
 function formatTokens(val: number | null | undefined): string {
@@ -214,5 +211,3 @@ function formatTokens(val: number | null | undefined): string {
 	if (val >= 1_000) return (val / 1_000).toFixed(1).replace(/\.0$/, "") + "K";
 	return val.toLocaleString();
 }
-
-export default ContextWindowComparison;

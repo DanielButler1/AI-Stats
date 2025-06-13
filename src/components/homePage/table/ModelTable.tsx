@@ -30,10 +30,15 @@ export function ModelTable({ models }: ModelTableProps) {
 			desc: true,
 		},
 	]);
+
+	const defaultColumnVisibility: VisibilityState = {
+		parameter_count: false,
+	};
+
 	const [columnFilters, setColumnFilters] =
 		React.useState<ColumnFiltersState>([]);
 	const [columnVisibility, setColumnVisibility] =
-		React.useState<VisibilityState>({});
+		React.useState<VisibilityState>(defaultColumnVisibility);
 
 	// Unified Filter State
 	const [filterState, setFilterState] = React.useState({
@@ -45,11 +50,17 @@ export function ModelTable({ models }: ModelTableProps) {
 		selectedLicenses: [] as string[],
 	});
 
-	// Get unique values for filters
-	const providers = React.useMemo(
-		() => Array.from(new Set(models.map((m) => m.provider.name))).sort(),
-		[models]
-	);
+	// Get unique provider objects for filters
+	const providers = React.useMemo(() => {
+		const map: Record<string, { id: string; name: string }> = {};
+		models.forEach((m) => {
+			map[m.provider.provider_id] = {
+				id: m.provider.provider_id,
+				name: m.provider.name,
+			};
+		});
+		return Object.values(map).sort((a, b) => a.name.localeCompare(b.name));
+	}, [models]);
 
 	const licenses = React.useMemo(
 		() =>
@@ -73,14 +84,16 @@ export function ModelTable({ models }: ModelTableProps) {
 
 				// Always sync selectedProviders with providerFilters
 				if (updates.providerFilters !== undefined) {
-					const matchingProviders = providers.filter((provider) =>
-						updates.providerFilters!.some((filter) =>
-							provider
-								.toLowerCase()
-								.includes(filter.toLowerCase())
+					const matchingIds = providers
+						.filter((provider) =>
+							updates.providerFilters!.some((filter) =>
+								provider.name
+									.toLowerCase()
+									.includes(filter.toLowerCase())
+							)
 						)
-					);
-					newState.selectedProviders = matchingProviders;
+						.map((p) => p.id);
+					newState.selectedProviders = matchingIds;
 				}
 
 				// Always sync providerFilters with selectedProviders

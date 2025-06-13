@@ -15,13 +15,13 @@ import ModelReleaseTimeline from "@/components/model/ModelReleaseTimeline";
 import ModelBenchmarksComparison from "@/components/model/ModelBenchmarksComparison";
 
 export async function generateMetadata(props: {
-        params: Promise<{ modelId: string }>;
+	params: Promise<{ modelId: string }>;
 }): Promise<Metadata> {
-        const params = await props.params;
+	const params = await props.params;
 
-        try {
-                const models = await fetchAggregateData();
-                const model = models.find((m: any) => m.id === params.modelId);
+	try {
+		const models = await fetchAggregateData();
+		const model = models.find((m: any) => m.id === params.modelId);
 		if (!model) throw new Error();
 		const title = `${model.name}`;
 		const description =
@@ -43,48 +43,48 @@ export async function generateMetadata(props: {
 }
 
 export async function generateStaticParams() {
-        const modelsDir = path.join(process.cwd(), "src/data/models");
-        const params: { modelId: string }[] = [];
-        const providerFolders = await fs.readdir(modelsDir);
-        for (const provider of providerFolders) {
-                const providerPath = path.join(modelsDir, provider);
-                const modelFolders = await fs.readdir(providerPath);
-                for (const m of modelFolders) {
-                        const modelPath = path.join(providerPath, m, "model.json");
-                        try {
-                                const file = await fs.readFile(modelPath, "utf-8");
-                                const model = JSON.parse(file);
-                                params.push({ modelId: model.id });
-                        } catch {
-                                continue;
-                        }
-                }
-        }
-        return params;
+	const modelsDir = path.join(process.cwd(), "src/data/models");
+	const params: { modelId: string }[] = [];
+	const providerFolders = await fs.readdir(modelsDir);
+	for (const provider of providerFolders) {
+		const providerPath = path.join(modelsDir, provider);
+		const modelFolders = await fs.readdir(providerPath);
+		for (const m of modelFolders) {
+			const modelPath = path.join(providerPath, m, "model.json");
+			try {
+				const file = await fs.readFile(modelPath, "utf-8");
+				const model = JSON.parse(file);
+				params.push({ modelId: model.id });
+			} catch {
+				continue;
+			}
+		}
+	}
+	return params;
 }
 
 export default async function ModelPage(props: {
 	params: Promise<{ modelId: string }>;
 }) {
-        const params = await props.params;
+	const params = await props.params;
 
-        let models: ExtendedModel[] = [];
-        let model: ExtendedModel | null = null;
-        let provider: ExtendedModel["provider"] | null = null;
-        let errorMsg = "";
+	let models: ExtendedModel[] = [];
+	let model: ExtendedModel | null = null;
+	let provider: ExtendedModel["provider"] | null = null;
+	let errorMsg = "";
 
-        try {
-                models = await fetchAggregateData();
-                if (!models.length) {
-                        errorMsg = "Model not found";
-                } else {
-                        // Find the current model by id
-                        model = models.find((m) => m.id === params.modelId) || null;
-                        provider = model ? model.provider : null;
-                        if (!model) {
-                                errorMsg = "Model not found";
-                        }
-                }
+	try {
+		models = await fetchAggregateData();
+		if (!models.length) {
+			errorMsg = "Model not found";
+		} else {
+			// Find the current model by id
+			model = models.find((m) => m.id === params.modelId) || null;
+			provider = model ? model.provider : null;
+			if (!model) {
+				errorMsg = "Model not found";
+			}
+		}
 	} catch (e: any) {
 		errorMsg = e?.message || "Unknown error";
 	}

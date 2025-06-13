@@ -11,11 +11,11 @@ import {
 	YAxis,
 	Tooltip,
 	ResponsiveContainer,
-	Cell,
 } from "recharts";
 import { Badge } from "@/components/ui/badge";
 import { BenchmarkDialog } from "./BenchmarkDialog";
 import { Expand } from "lucide-react";
+import Link from "next/link";
 
 interface BenchmarkPayload {
 	modelName: string;
@@ -257,7 +257,12 @@ export default function ModelBenchmarksComparison({
 										</button>{" "}
 										<CardHeader className="pb-2">
 											<CardTitle className="text-base font-semibold flex items-center gap-2">
-												{benchmarkName}{" "}
+												<Link
+													href={`/benchmarks/${benchmarkId}`}
+													className="hover:underline text-primary"
+												>
+													{benchmarkName}
+												</Link>
 												<Badge variant="secondary">
 													{current
 														? current.score.toFixed(

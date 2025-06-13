@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 
 interface QuickFiltersProps {
 	selectedFeatureFilters: string[];
@@ -36,10 +37,6 @@ export function QuickFilters({
 }: QuickFiltersProps) {
 	const isMobile = useIsMobile();
 	const [quickOpen, setQuickOpen] = React.useState(false);
-	const [advancedOpen, setAdvancedOpen] = React.useState(false);
-
-	const isFiltered =
-		selectedFeatureFilters.length > 0 || selectedProviderFilters.length > 0;
 
 	// Helper to handle quick filter logic
 	const handleFeatureFilterChange = (next: string[]) => {
@@ -79,12 +76,15 @@ export function QuickFilters({
 				<div>
 					<Sheet open={quickOpen} onOpenChange={setQuickOpen}>
 						<SheetTrigger asChild>
-							<button className="w-full rounded-md border px-4 py-2 bg-white dark:bg-zinc-900 shadow text-sm font-medium flex items-center justify-between">
+							<Button
+								className="w-full flex items-center justify-between"
+								variant="outline"
+							>
 								Quick Filters
 								<span className="ml-2">
 									<ChevronDown />
 								</span>
-							</button>
+							</Button>
 						</SheetTrigger>
 						<SheetContent
 							side="bottom"
@@ -98,7 +98,7 @@ export function QuickFilters({
 									type="multiple"
 									value={selectedFeatureFilters}
 									onValueChange={handleFeatureFilterChange}
-									className="flex flex-wrap gap-2 justify-center"
+									className="grid grid-cols-2 gap-2"
 								>
 									{FEATURED_QUICK_FILTERS.map((filter) => (
 										<ToggleGroupItem
@@ -141,7 +141,7 @@ export function QuickFilters({
 									type="multiple"
 									value={selectedProviderFilters}
 									onValueChange={setSelectedProviderFilters}
-									className="flex flex-wrap gap-2 justify-center"
+									className="grid grid-cols-2 gap-2"
 								>
 									{PROVIDER_QUICK_FILTERS.map((filter) => (
 										<ToggleGroupItem
