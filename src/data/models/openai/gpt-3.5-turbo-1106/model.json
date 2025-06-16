@@ -21,7 +21,7 @@
   "playground_link": "https://platform.openai.com/playground/prompts?models=gpt-3.5-turbo-1106",
   "paper_link": null,
   "announcement_link": null,
-  "repository_link": null,
+  "repository_link": "",
   "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
@@ -30,10 +30,11 @@
     {
       "api_provider": "openai",
       "input_token_price": 1e-06,
+      "cached_input_token_price": "",
       "output_token_price": 2e-06,
       "throughput": "",
       "latency": "",
-      "source_link": null,
+      "source_link": "https://platform.openai.com/docs/models/gpt-3.5-turbo",
       "other_info": ""
     }
   ]

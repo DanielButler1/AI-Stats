@@ -76,13 +76,21 @@ export default async function ContributePage() {
 									</Button>
 								</Link>
 							</div>
-							<div className="flex">
+							<div className="flex space-x-2">
 								<Link href="/contribute/benchmarks">
 									<Button
 										className="w-full sm:w-auto"
 										variant="secondary"
 									>
 										View Benchmark Coverage
+									</Button>
+								</Link>
+								<Link href="/contribute/prices">
+									<Button
+										className="w-full sm:w-auto"
+										variant="secondary"
+									>
+										View Pricing Coverage
 									</Button>
 								</Link>
 							</div>

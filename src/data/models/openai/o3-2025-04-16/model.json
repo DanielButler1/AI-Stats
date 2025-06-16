@@ -21,7 +21,7 @@
   "playground_link": "https://platform.openai.com/playground/prompts?models=o3",
   "paper_link": "https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf",
   "announcement_link": "https://openai.com/index/introducing-o3-and-o4-mini/",
-  "repository_link": null,
+  "repository_link": "",
   "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
@@ -130,26 +130,35 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GtG5biebMAIpBhq?format=png&name=4096x4096"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "53.1%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": [
     {
-      "api_provider": "openai",
-      "input_token_price": 2e-06,
-      "output_token_price": 8e-06,
+      "api_provider": "azure",
+      "input_token_price": 1e-05,
+      "cached_input_token_price": null,
+      "output_token_price": 4e-05,
       "throughput": "",
       "latency": "",
       "source_link": null,
-      "other_info": ""
+      "other_info": null
     },
     {
-      "api_provider": "azure",
-      "input_token_price": 1e-05,
-      "output_token_price": 4e-05,
-      "throughput": null,
-      "latency": null,
-      "source_link": null,
-      "other_info": null
+      "api_provider": "openai",
+      "input_token_price": 2e-06,
+      "cached_input_token_price": 5e-07,
+      "output_token_price": 8e-06,
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://platform.openai.com/docs/models/o3",
+      "other_info": ""
     }
   ]
 }

@@ -120,6 +120,9 @@ export function BenchmarkDialog({
 								type="number"
 								domain={[0, 100]}
 								tick={{ fontSize: 12 }}
+								tickFormatter={(value) =>
+									Math.round(value).toString()
+								}
 							/>
 							<Tooltip
 								wrapperStyle={{ zIndex: 10000 }}

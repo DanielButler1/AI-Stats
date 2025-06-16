@@ -21,7 +21,7 @@
   "playground_link": "https://platform.openai.com/playground/prompts?models=gpt-4",
   "paper_link": null,
   "announcement_link": "https://openai.com/research/gpt-4",
-  "repository_link": null,
+  "repository_link": "",
   "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
@@ -45,10 +45,11 @@
     {
       "api_provider": "openai",
       "input_token_price": 3e-05,
+      "cached_input_token_price": "",
       "output_token_price": 6e-05,
       "throughput": "",
       "latency": "",
-      "source_link": null,
+      "source_link": "https://platform.openai.com/docs/models/gpt-4",
       "other_info": ""
     }
   ]

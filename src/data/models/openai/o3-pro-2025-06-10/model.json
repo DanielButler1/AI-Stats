@@ -94,10 +94,11 @@
     {
       "api_provider": "openai",
       "input_token_price": 2e-05,
+      "cached_input_token_price": "",
       "output_token_price": 8e-05,
       "throughput": "",
       "latency": "",
-      "source_link": null,
+      "source_link": "https://platform.openai.com/docs/models/o3-pro",
       "other_info": ""
     }
   ]

@@ -130,10 +130,10 @@ export default function DbStats({ models, benchmarks }: DbStatsProps) {
 											className="max-w-sm"
 										>
 											<p className="font-semibold mb-1">
-												Data Completeness represents how
-												much of the expected data is
-												available across our entire
-												database.
+												Data Completeness approximately
+												tells us how much of the
+												expected data is available
+												across our entire database.
 											</p>
 											<p className="text-xs mt-1">
 												It measures the percentage of
@@ -143,6 +143,9 @@ export default function DbStats({ models, benchmarks }: DbStatsProps) {
 												progress as we work toward a
 												more complete and comprehensive
 												dataset.
+											</p>
+											<p className="font-bold mt-2">
+												It is an estimate.
 											</p>
 										</TooltipContent>
 									</Tooltip>

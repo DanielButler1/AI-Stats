@@ -38,18 +38,20 @@
     {
       "api_provider": "google-ai-studio",
       "input_token_price": 1.25e-05,
+      "cached_input_token_price": null,
       "output_token_price": 3.75e-05,
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": null
     },
     {
       "api_provider": "google-vertex",
       "input_token_price": 1.25e-05,
+      "cached_input_token_price": null,
       "output_token_price": 3.75e-05,
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": null
     }

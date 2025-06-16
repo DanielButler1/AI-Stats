@@ -21,7 +21,7 @@
   "playground_link": "https://platform.openai.com/playground/prompts?models=gpt-3.5-turbo-0125",
   "paper_link": null,
   "announcement_link": "https://openai.com/blog/new-models-and-developer-products-announced-at-devday",
-  "repository_link": null,
+  "repository_link": "",
   "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
@@ -38,10 +38,11 @@
     {
       "api_provider": "openai",
       "input_token_price": 5e-07,
+      "cached_input_token_price": "",
       "output_token_price": 1.5e-06,
       "throughput": "",
       "latency": "",
-      "source_link": null,
+      "source_link": "https://platform.openai.com/docs/models/gpt-3.5-turbo",
       "other_info": ""
     }
   ]

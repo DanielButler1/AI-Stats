@@ -21,7 +21,7 @@
   "playground_link": null,
   "paper_link": null,
   "announcement_link": null,
-  "repository_link": null,
+  "repository_link": "",
   "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
@@ -39,16 +39,24 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/blog/gpt-4o-mini-announcement"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "10.7%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": [
     {
       "api_provider": "openai",
       "input_token_price": 1.5e-07,
+      "cached_input_token_price": 7.5e-08,
       "output_token_price": 6e-07,
       "throughput": "",
       "latency": "",
-      "source_link": null,
+      "source_link": "https://platform.openai.com/docs/models/gpt-4o-mini",
       "other_info": ""
     }
   ]

@@ -25,6 +25,14 @@
   "weights_link": "https://huggingface.co/ai21labs/AI21-Jamba-1.5-Large",
   "parameter_count": 398000000000,
   "training_tokens": "",
-  "benchmark_results": [],
+  "benchmark_results": [
+    {
+      "benchmark_id": "gpqa",
+      "score": "36.9%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://huggingface.co/ai21labs/AI21-Jamba-1.5-Large"
+    }
+  ],
   "prices": []
 }

@@ -1,0 +1,38 @@
+{
+  "id": "command-r-plus-08-2024",
+  "name": "Command R+",
+  "provider": "cohere",
+  "status": "Available",
+  "previous_model_id": "command-r-03-2024",
+  "description": null,
+  "announced_date": "2024-08-30T00:00:00",
+  "release_date": "2024-08-30T00:00:00",
+  "input_context_length": 128000.0,
+  "output_context_length": 128000.0,
+  "license": "CC-BY-NC",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": false,
+  "reasoning": false,
+  "fine_tunable": true,
+  "knowledge_cutoff": "2023-02",
+  "api_reference_link": "https://docs.cohere.com/v2/docs/command-r-plus",
+  "playground_link": "https://dashboard.cohere.com/playground/chat",
+  "paper_link": null,
+  "announcement_link": "https://cohere.com/blog/command-series-0824",
+  "repository_link": null,
+  "weights_link": "https://huggingface.co/CohereLabs/c4ai-command-r-plus-08-2024",
+  "parameter_count": 104000000000,
+  "training_tokens": null,
+  "benchmark_results": [
+    {
+      "benchmark_id": "simplebench",
+      "score": "17.4%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
+    }
+  ],
+  "prices": []
+}

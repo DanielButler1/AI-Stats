@@ -21,7 +21,7 @@
   "playground_link": null,
   "paper_link": null,
   "announcement_link": null,
-  "repository_link": null,
+  "repository_link": "",
   "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
@@ -102,16 +102,24 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "27.0%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": [
     {
       "api_provider": "openai",
       "input_token_price": 2e-06,
+      "cached_input_token_price": 5e-07,
       "output_token_price": 8e-06,
       "throughput": "",
       "latency": "",
-      "source_link": null,
+      "source_link": "https://platform.openai.com/docs/models/gpt-4.1",
       "other_info": ""
     }
   ]

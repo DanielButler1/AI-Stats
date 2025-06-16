@@ -167,18 +167,18 @@ export default function SotaModel({ models }: SotAModelProps) {
 									href={`/models/${encodeURIComponent(
 										model.id
 									)}`}
-									className="hover:underline"
 								>
 									<h2 className="text-xl font-semibold">
-										{model.name}
+										<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+											{model.name}
+										</span>
 									</h2>
 								</Link>
-								<Link
-									href={`/providers/${model.provider_id}`}
-									className="hover:underline"
-								>
+								<Link href={`/providers/${model.provider_id}`}>
 									<p className="text-sm text-muted-foreground">
-										{model.provider}
+										<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+											{model.provider}
+										</span>
 									</p>
 								</Link>
 								<p className="font-bold mt-2">

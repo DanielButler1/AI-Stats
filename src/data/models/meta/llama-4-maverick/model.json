@@ -46,15 +46,23 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "27.7%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": [
     {
       "api_provider": null,
       "input_token_price": 1.7e-07,
+      "cached_input_token_price": null,
       "output_token_price": 8.5e-07,
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": null
     }

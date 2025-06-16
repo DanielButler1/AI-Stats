@@ -132,12 +132,15 @@ export default async function ProvidersPage() {
 									</div>
 								</Link>
 								<div className="flex flex-col flex-1 min-w-0">
+									{" "}
 									<CardTitle className="truncate flex flex-col items-start gap-1">
 										<Link
 											href={`/providers/${provider.provider_id}`}
-											className="hover:underline font-semibold"
+											className="font-semibold"
 										>
-											<span>{provider.name}</span>
+											<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+												{provider.name}
+											</span>
 										</Link>
 										{provider.country_code && (
 											<span className="mt-1">
@@ -248,11 +251,14 @@ export default async function ProvidersPage() {
 									</div>
 									{recent ? (
 										<div className="flex flex-col">
+											{" "}
 											<Link
 												href={`/models/${recent.id}`}
-												className="font-medium text-sm truncate hover:underline"
+												className="font-medium text-sm truncate"
 											>
-												{recent.name}
+												<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+													{recent.name}
+												</span>
 											</Link>
 											<span className="text-xs text-zinc-500">
 												Released{" "}

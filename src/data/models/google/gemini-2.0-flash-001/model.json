@@ -137,6 +137,13 @@
       "is_self_reported": true,
       "other_info": "Lite",
       "source_link": "gemini_2-5_flashcomp_benchmarks_dark2x.original.png (1920×2820)"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "30.7%",
+      "is_self_reported": false,
+      "other_info": "Thinking",
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": []

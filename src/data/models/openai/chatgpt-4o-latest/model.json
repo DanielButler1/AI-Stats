@@ -14,14 +14,14 @@
   "input_types": "text,image",
   "output_types": "text",
   "web_access": false,
-  "reasoning": true,
+  "reasoning": false,
   "fine_tunable": false,
   "knowledge_cutoff": "2023-10-01T00:00:00",
   "api_reference_link": "https://platform.openai.com/docs/models/chatgpt-4o-latest",
   "playground_link": "https://platform.openai.com/playground/prompts?models=chatgpt-4o-latest",
   "paper_link": null,
   "announcement_link": null,
-  "repository_link": null,
+  "repository_link": "",
   "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
@@ -30,10 +30,11 @@
     {
       "api_provider": "openai",
       "input_token_price": 5e-06,
+      "cached_input_token_price": "",
       "output_token_price": 1.5e-05,
       "throughput": "",
       "latency": "",
-      "source_link": null,
+      "source_link": "https://platform.openai.com/docs/models/chatgpt-4o-latest",
       "other_info": ""
     }
   ]

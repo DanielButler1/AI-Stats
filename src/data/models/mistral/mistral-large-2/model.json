@@ -14,7 +14,7 @@
   "input_types": null,
   "output_types": null,
   "web_access": false,
-  "reasoning": null,
+  "reasoning": false,
   "fine_tunable": null,
   "knowledge_cutoff": null,
   "api_reference_link": "https://docs.mistral.ai/",
@@ -25,6 +25,14 @@
   "weights_link": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2407",
   "parameter_count": 123000000000,
   "training_tokens": null,
-  "benchmark_results": [],
+  "benchmark_results": [
+    {
+      "benchmark_id": "simplebench",
+      "score": "22.5%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
+    }
+  ],
   "prices": []
 }

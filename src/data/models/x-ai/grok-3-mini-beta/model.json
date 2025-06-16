@@ -2,78 +2,106 @@
   "id": "grok-3-mini-beta",
   "name": "Grok 3 Mini Beta",
   "provider": "x-ai",
-  "status": "Available",
+  "status": "Deprecated",
   "previous_model_id": "grok-2-mini",
   "description": null,
-  "announced_date": null,
-  "release_date": "2025-02-17T00:00:00",
-  "input_context_length": 128000.0,
+  "announced_date": "2025-02-19T00:00:00",
+  "release_date": "2025-02-19T00:00:00",
+  "input_context_length": 131072.0,
   "output_context_length": 8000.0,
   "license": "Proprietary",
-  "multimodal": true,
-  "input_types": null,
-  "output_types": null,
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
   "web_access": true,
-  "reasoning": null,
-  "fine_tunable": null,
+  "reasoning": true,
+  "fine_tunable": "",
   "knowledge_cutoff": "2024-11-17",
-  "api_reference_link": "https://x.ai/api",
+  "api_reference_link": null,
   "playground_link": null,
   "paper_link": null,
-  "announcement_link": null,
-  "repository_link": null,
+  "announcement_link": "https://x.ai/news/grok-3",
+  "repository_link": "",
   "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "aider-polyglot",
-      "score": "49.3%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://aider.chat/docs/leaderboards/"
+      "benchmark_id": "aime-2025",
+      "score": "82.0%",
+      "is_self_reported": true,
+      "other_info": "Think",
+      "source_link": "https://x.ai/news/grok-3"
     },
     {
-      "benchmark_id": "livebench",
-      "score": "62.4%",
-      "is_self_reported": false,
-      "other_info": "High Reasoning Effort",
-      "source_link": "https://livebench.ai/#/"
+      "benchmark_id": "aime-2025",
+      "score": "90.8%",
+      "is_self_reported": true,
+      "other_info": "Think, Cons@64",
+      "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "89.5%",
+      "is_self_reported": true,
+      "other_info": "Think",
+      "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "95.8%",
+      "is_self_reported": true,
+      "other_info": "Think, Cons@64",
+      "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "80.3%",
+      "is_self_reported": true,
+      "other_info": "Think",
+      "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "84.0%",
+      "is_self_reported": true,
+      "other_info": "Think, Cons@64",
+      "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "39.7%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "gpqa",
       "score": "66.2%",
       "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://x.ai/blog/grok-3"
+      "source_link": "https://x.ai/news/grok-3"
     },
     {
-      "benchmark_id": "aime-2025",
-      "score": "90.3%",
+      "benchmark_id": "mmlu-pro",
+      "score": "78.9%",
       "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://x.ai/blog/grok-3"
+      "source_link": "https://x.ai/news/grok-3"
     },
     {
-      "benchmark_id": "aime-2024",
-      "score": "95.8%",
+      "benchmark_id": "simpleqa",
+      "score": "21.7%",
       "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://x.ai/blog/grok-3"
+      "source_link": "https://x.ai/news/grok-3"
     },
     {
-      "benchmark_id": "lisanbench",
-      "score": 151,
-      "is_self_reported": false,
+      "benchmark_id": "mmmu",
+      "score": "69.4%",
+      "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
-    },
-    {
-      "benchmark_id": "aidanbench",
-      "score": 2347,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://aidanbench.com/"
+      "source_link": "https://x.ai/news/grok-3"
     }
   ],
   "prices": []

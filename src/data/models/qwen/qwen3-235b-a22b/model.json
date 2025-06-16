@@ -46,6 +46,13 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://qwenlm.github.io/blog/qwen3/"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "31.0%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": []

@@ -14,7 +14,7 @@
   "input_types": null,
   "output_types": null,
   "web_access": false,
-  "reasoning": null,
+  "reasoning": false,
   "fine_tunable": null,
   "knowledge_cutoff": null,
   "api_reference_link": "https://huggingface.co/mistralai/Ministral-8B-Instruct-2410",

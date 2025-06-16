@@ -21,19 +21,28 @@
   "playground_link": "https://platform.openai.com/playground/prompts?models=gpt-4o-2024-08-06",
   "paper_link": null,
   "announcement_link": null,
-  "repository_link": null,
+  "repository_link": "",
   "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
-  "benchmark_results": [],
+  "benchmark_results": [
+    {
+      "benchmark_id": "simplebench",
+      "score": "17.8%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
+    }
+  ],
   "prices": [
     {
       "api_provider": "openai",
       "input_token_price": 2.5e-06,
+      "cached_input_token_price": 1.25e-06,
       "output_token_price": 1e-05,
       "throughput": "",
       "latency": "",
-      "source_link": null,
+      "source_link": "https://platform.openai.com/docs/models/gpt-4o",
       "other_info": ""
     }
   ]

@@ -30,9 +30,11 @@ export const columns: ColumnDef<ExtendedModel>[] = [
 		cell: ({ row }) => (
 			<Link
 				href={`/providers/${row.original.provider.name.toLowerCase()}`}
-				className="text-center block hover:underline"
+				className="text-center block"
 			>
-				{row.original.provider.name}
+				<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+					{row.original.provider.name}
+				</span>
 			</Link>
 		),
 		enableHiding: false,
@@ -56,9 +58,11 @@ export const columns: ColumnDef<ExtendedModel>[] = [
 		cell: ({ row }) => (
 			<Link
 				href={`/models/${row.original.id}`}
-				className="text-center block hover:underline"
+				className="text-center block"
 			>
-				{row.getValue("name")}
+				<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+					{row.getValue("name")}
+				</span>
 			</Link>
 		),
 		enableHiding: false,
@@ -281,6 +285,7 @@ export const columns: ColumnDef<ExtendedModel>[] = [
 			);
 		},
 	},
+
 	{
 		id: "gpqa_score",
 		accessorFn: (row) => {
@@ -311,6 +316,32 @@ export const columns: ColumnDef<ExtendedModel>[] = [
 			return (
 				<div className="text-center">
 					{score ? `${score.toFixed(1)}%` : "-"}
+				</div>
+			);
+		},
+	},
+	{
+		id: "ai_stats_score",
+		accessorFn: (row) => row.glickoRating?.rating ?? null,
+		header: ({ column }) => {
+			return (
+				<Button
+					variant="ghost"
+					onClick={() =>
+						column.toggleSorting(column.getIsSorted() === "asc")
+					}
+					className="w-full"
+				>
+					AI Stats Score
+					<ArrowUpDown className="ml-2 h-4 w-4" />
+				</Button>
+			);
+		},
+		cell: ({ row }) => {
+			const score = row.getValue("ai_stats_score") as number | null;
+			return (
+				<div className="text-center">
+					{score ? score.toFixed(2) : "-"}
 				</div>
 			);
 		},

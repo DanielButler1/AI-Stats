@@ -138,9 +138,38 @@ export default function ModelBenchmarksComparison({
 		).values()
 	);
 
+	// Add AI Stats Score as a synthetic benchmark
+	const aiStatsBenchmark = {
+		benchmark_id: "ai-stats-score",
+		benchmark: {
+			name: "AI Stats Score",
+			description: "AI Stats score derived from Glicko rating",
+		},
+		score: model.glickoRating?.rating || 0,
+		is_self_reported: false,
+		source_link: null,
+		model: model,
+	};
+
+	// Add AI Stats Score to uniqueBenchmarks if the model has a glicko rating
+	if (model.glickoRating) {
+		uniqueBenchmarks.push(aiStatsBenchmark);
+	}
+
+	// Sort benchmarks alphabetically by name
+	const sortedBenchmarks = uniqueBenchmarks.sort((a, b) => {
+		const nameA = isEnrichedBenchmarkResult(a)
+			? a.benchmark.name
+			: a.benchmark_id;
+		const nameB = isEnrichedBenchmarkResult(b)
+			? b.benchmark.name
+			: b.benchmark_id;
+		return nameA.localeCompare(nameB);
+	});
+
 	const [dialogOpen, setDialogOpen] = React.useState<string | null>(null);
 
-	if (uniqueBenchmarks.length === 0) {
+	if (sortedBenchmarks.length === 0) {
 		return null;
 	}
 
@@ -154,7 +183,7 @@ export default function ModelBenchmarksComparison({
 				</CardHeader>
 				<CardContent>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-						{uniqueBenchmarks.map((benchmark) => {
+						{sortedBenchmarks.map((benchmark) => {
 							const benchmarkId =
 								benchmark.benchmark_id || "unknown";
 							const benchmarkName = isEnrichedBenchmarkResult(
@@ -163,9 +192,38 @@ export default function ModelBenchmarksComparison({
 								? benchmark.benchmark.name
 								: benchmark.benchmark_id || "unknown";
 
+							// Handle AI Stats Score differently since it's using glicko rating
+							const isAiStatsScore =
+								benchmarkId === "ai-stats-score";
+
 							// For each model, collect all results for this benchmark
 							const modelsWithThisBenchmark = allModels
 								.map((m) => {
+									if (isAiStatsScore) {
+										if (!m.glickoRating) return null;
+										return {
+											modelName: m.name,
+											provider: m.provider.name,
+											score: m.glickoRating.rating,
+											benchmarkId: benchmarkId,
+											isCurrent: m.id === model.id,
+											fill:
+												m.provider.colour || "#6366f1",
+											isPercentage: false,
+											allResults: [
+												{
+													score: m.glickoRating
+														.rating,
+													isPercentage: false,
+													other_info: `RD: ${m.glickoRating.rd.toFixed(
+														2
+													)}`,
+													source_link: null,
+												},
+											],
+										};
+									}
+
 									const results = (
 										m.benchmark_results || []
 									).filter(
@@ -264,6 +322,7 @@ export default function ModelBenchmarksComparison({
 													{benchmarkName}
 												</Link>
 												<Badge variant="secondary">
+													{" "}
 													{current
 														? current.score.toFixed(
 																2
@@ -316,6 +375,7 @@ export default function ModelBenchmarksComparison({
 														bottom: 0,
 													}}
 												>
+													{" "}
 													<XAxis
 														dataKey="modelName"
 														tick={false}
@@ -324,6 +384,13 @@ export default function ModelBenchmarksComparison({
 													<YAxis
 														type="number"
 														domain={[0, 100]}
+														tickFormatter={(
+															value
+														) =>
+															Math.round(
+																value
+															).toString()
+														}
 													/>
 													<Tooltip
 														content={

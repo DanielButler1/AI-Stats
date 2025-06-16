@@ -73,6 +73,7 @@
     {
       "api_provider": "mistral",
       "input_token_price": 2e-06,
+      "cached_input_token_price": null,
       "output_token_price": 5e-06,
       "throughput": "",
       "latency": "",

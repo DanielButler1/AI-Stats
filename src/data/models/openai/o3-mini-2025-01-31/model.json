@@ -1,0 +1,154 @@
+{
+  "id": "o3-mini-2025-01-31",
+  "name": "o3-mini",
+  "provider": "openai",
+  "status": "Available",
+  "previous_model_id": "o1-mini",
+  "description": null,
+  "announced_date": null,
+  "release_date": "2025-01-30T00:00:00",
+  "input_context_length": 200000.0,
+  "output_context_length": 100000.0,
+  "license": "Proprietary",
+  "multimodal": false,
+  "input_types": null,
+  "output_types": null,
+  "web_access": false,
+  "reasoning": true,
+  "fine_tunable": null,
+  "knowledge_cutoff": "2023-09-30",
+  "api_reference_link": "https://platform.openai.com/docs/models",
+  "playground_link": null,
+  "paper_link": "https://cdn.openai.com/o3-mini-system-card.pdf",
+  "announcement_link": "https://openai.com/index/openai-o3-mini/",
+  "repository_link": "https://github.com/openai",
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
+  "benchmark_results": [
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "0.0%",
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "2.1%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "3.0%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "14.5%",
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "22.3%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "34.5%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "77.2%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/gpt-4-1/"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "87.3%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/openai-o3-mini/"
+    },
+    {
+      "benchmark_id": "lisanbench",
+      "score": 324,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "60.4%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "79.7%",
+      "is_self_reported": null,
+      "other_info": "High Reasoning Effort",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "aidanbench",
+      "score": 4984,
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://aidanbench.com/"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "70.6%",
+      "is_self_reported": null,
+      "other_info": "Low Reasoning Effort",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "53.8%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "76.8%",
+      "is_self_reported": null,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "22.8%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://simple-bench.com/index.html"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": "openai",
+      "input_token_price": 1.1e-06,
+      "cached_input_token_price": 5.5e-07,
+      "output_token_price": 4.4e-06,
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://platform.openai.com/docs/models/o3-mini",
+      "other_info": ""
+    }
+  ]
+}

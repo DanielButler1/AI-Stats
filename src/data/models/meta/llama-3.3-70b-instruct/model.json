@@ -32,15 +32,23 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_3/MODEL_CARD.md"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "19.9%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": [
     {
       "api_provider": null,
       "input_token_price": 1e-07,
+      "cached_input_token_price": null,
       "output_token_price": 2.5e-07,
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": null
     }

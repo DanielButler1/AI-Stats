@@ -14,7 +14,7 @@
   "input_types": "text",
   "output_types": "text",
   "web_access": null,
-  "reasoning": null,
+  "reasoning": false,
   "fine_tunable": null,
   "knowledge_cutoff": null,
   "api_reference_link": null,

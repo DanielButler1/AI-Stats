@@ -155,13 +155,16 @@ export default function RecentModels({ models }: RecentModelsProps) {
 											</span>
 										</TableCell>
 										<TableCell className="min-w-[130px] font-medium align-middle">
+											{" "}
 											<Link
 												href={`/models/${encodeURIComponent(
 													model.id
 												)}`}
-												className="hover:underline hover:decoration-2 hover:underline-offset-2 transition-colors  flex items-center"
+												className="flex items-center"
 											>
-												{model.name}
+												<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+													{model.name}
+												</span>
 											</Link>
 										</TableCell>
 										<TableCell className="min-w-[130px] align-middle">
@@ -169,7 +172,7 @@ export default function RecentModels({ models }: RecentModelsProps) {
 												href={`/providers/${encodeURIComponent(
 													model.provider.provider_id
 												)}`}
-												className="flex items-center gap-2 hover:underline hover:decoration-2 hover:underline-offset-2 transition-colors"
+												className="flex items-center gap-2"
 											>
 												<div className="w-5 h-5 relative flex items-center justify-center rounded-full border bg-white">
 													<div className="w-4 h-4 relative">
@@ -183,9 +186,11 @@ export default function RecentModels({ models }: RecentModelsProps) {
 															fill
 														/>
 													</div>
-												</div>
+												</div>{" "}
 												<span className="flex items-center">
-													{model.provider.name}
+													<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+														{model.provider.name}
+													</span>
 												</span>
 											</Link>
 										</TableCell>
@@ -264,9 +269,11 @@ export default function RecentModels({ models }: RecentModelsProps) {
 												href={`/models/${encodeURIComponent(
 													model.id
 												)}`}
-												className="hover:underline hover:decoration-2 hover:underline-offset-2 transition-colors hover:text-blue-700"
+												className="hover:text-blue-700"
 											>
-												{model.name}
+												<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-blue-700 after:transition-all after:duration-300 hover:after:w-full">
+													{model.name}
+												</span>
 											</Link>
 										</span>
 										<span className="text-xs text-zinc-500">
@@ -274,9 +281,11 @@ export default function RecentModels({ models }: RecentModelsProps) {
 												href={`/providers/${encodeURIComponent(
 													model.provider.provider_id
 												)}`}
-												className="hover:underline hover:decoration-2 hover:underline-offset-2 transition-colors hover:text-blue-700"
+												className="hover:text-blue-700"
 											>
-												{model.provider.name}
+												<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-blue-700 after:transition-all after:duration-300 hover:after:w-full">
+													{model.provider.name}
+												</span>
 											</Link>
 										</span>
 									</div>

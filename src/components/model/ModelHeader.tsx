@@ -10,7 +10,7 @@ interface ModelHeaderProps {
 
 export default function ModelHeader({ model, provider }: ModelHeaderProps) {
 	return (
-		<Card className="mb-4 relative flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-8">
+		<Card className="relative flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-8 shadow-lg">
 			<CardHeader className="w-full">
 				{/* Provider flag aligned vertically in the center */}
 				{provider.country_code && (

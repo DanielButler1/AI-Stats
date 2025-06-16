@@ -188,7 +188,7 @@ export const ChartControls = ({
 								: "opacity-0"
 						}`}
 					/>
-					Show Glicko Scores
+					Show AI Stats Scores
 				</DropdownMenuItem>
 				<DropdownMenuItem
 					onClick={() => setIsToScale(!isToScale)}

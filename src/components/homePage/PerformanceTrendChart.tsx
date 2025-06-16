@@ -154,19 +154,23 @@ export default function PerformanceTrendChart({
 				<CardTitle className={isMobile ? "text-lg" : "text-2xl"}>
 					{isMobile
 						? `Top AI Models - ${
-								scoringType === "gpqa" ? "GPQA" : "Glicko"
+								scoringType === "gpqa"
+									? "GPQA"
+									: "AI Stats Score"
 						  }`
 						: `Model Performance Over Time - ${
 								isToScale ? "To Scale" : "Condensed"
 						  } (${
-								scoringType === "gpqa" ? "GPQA" : "Glicko Score"
+								scoringType === "gpqa"
+									? "GPQA"
+									: "AI Stats Score"
 						  })`}
 				</CardTitle>
 				<CardDescription>
 					{isMobile
 						? "State of the Art Models Only"
 						: `${
-								scoringType === "gpqa" ? "GPQA" : "Glicko"
+								scoringType === "gpqa" ? "GPQA" : "AI Stats"
 						  } Scores Across Model Releases`}
 				</CardDescription>
 
@@ -293,7 +297,7 @@ export default function PerformanceTrendChart({
 								name={
 									scoringType === "gpqa"
 										? "GPQA Score"
-										: "Glicko Score"
+										: "AI Stats Score"
 								}
 								domain={
 									scoringType === "gpqa"

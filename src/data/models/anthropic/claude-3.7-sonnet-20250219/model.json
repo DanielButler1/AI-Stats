@@ -130,15 +130,72 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "61.3%",
+      "is_self_reported": null,
+      "other_info": "Thinking",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "64.9%",
+      "is_self_reported": false,
+      "other_info": "Thinking",
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "64.9%",
+      "is_self_reported": false,
+      "other_info": "32k Thinking",
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "67.4%",
+      "is_self_reported": false,
+      "other_info": "64k Thinking",
+      "source_link": "https://livebench.ai/#/"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "78.2%",
+      "is_self_reported": null,
+      "other_info": "Thinking",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "aidanbench",
+      "score": 2233,
+      "is_self_reported": false,
+      "other_info": "Thinking",
+      "source_link": "https://aidanbench.com/"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "46.4%",
+      "is_self_reported": false,
+      "other_info": "Thinking",
+      "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "44.9%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": [
     {
       "api_provider": "anthropic",
       "input_token_price": 3e-06,
+      "cached_input_token_price": null,
       "output_token_price": 1.5e-05,
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": null
     }

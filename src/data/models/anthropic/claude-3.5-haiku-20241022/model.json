@@ -59,9 +59,10 @@
     {
       "api_provider": "anthropic",
       "input_token_price": 8e-07,
+      "cached_input_token_price": null,
       "output_token_price": 4e-06,
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": null
     }

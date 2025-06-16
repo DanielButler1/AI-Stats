@@ -34,6 +34,7 @@ export interface Price {
     api_provider_id?: string | null; // ID reference to the API provider
     api_provider?: APIProvider | string; // Can be either the full API provider object or a string ID
     input_token_price: number | null;
+    cached_input_token_price: number | null;
     output_token_price: number | null;
     throughput: number | null;
     latency: number | null;

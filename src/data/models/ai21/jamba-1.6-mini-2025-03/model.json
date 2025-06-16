@@ -19,12 +19,20 @@
   "knowledge_cutoff": "2024-08-22T00:00:00",
   "api_reference_link": "https://docs.ai21.com/reference/jamba-1-6-api-ref",
   "playground_link": "https://studio.ai21.com/",
-  "paper_link": null,
+  "paper_link": "",
   "announcement_link": "https://www.ai21.com/blog/introducing-jamba-1-6/",
   "repository_link": "",
   "weights_link": "https://huggingface.co/ai21labs/AI21-Jamba-Mini-1.6",
   "parameter_count": 52000000000,
   "training_tokens": "",
-  "benchmark_results": [],
+  "benchmark_results": [
+    {
+      "benchmark_id": "gpqa",
+      "score": "30.0%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://artificialanalysis.ai/models/jamba-1-6-mini#intelligence-evaluations"
+    }
+  ],
   "prices": []
 }

@@ -15,14 +15,14 @@
   "output_types": "text",
   "web_access": false,
   "reasoning": true,
-  "fine_tunable": null,
-  "knowledge_cutoff": null,
-  "api_reference_link": null,
-  "playground_link": null,
-  "paper_link": null,
-  "announcement_link": null,
-  "repository_link": null,
-  "weights_link": null,
+  "fine_tunable": true,
+  "knowledge_cutoff": "",
+  "api_reference_link": "https://api-docs.deepseek.com/guides/reasoning_model",
+  "playground_link": "",
+  "paper_link": "https://github.com/deepseek-ai/DeepSeek-R1/blob/main/DeepSeek_R1.pdf",
+  "announcement_link": "https://api-docs.deepseek.com/news/news250120",
+  "repository_link": "https://github.com/deepseek-ai/DeepSeek-R1",
+  "weights_link": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
   "parameter_count": 671000000000,
   "training_tokens": 14800000000000,
   "benchmark_results": [
@@ -81,17 +81,35 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "30.9%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": [
     {
-      "api_provider": null,
-      "input_token_price": 5e-07,
-      "output_token_price": 3e-06,
-      "throughput": null,
-      "latency": null,
-      "source_link": null,
-      "other_info": null
+      "api_provider": "deepseek",
+      "input_token_price": 5.5e-07,
+      "cached_input_token_price": 1.4e-07,
+      "output_token_price": 2.1899999999999998e-06,
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://api-docs.deepseek.com/quick_start/pricing",
+      "other_info": "Standard Pricing"
+    },
+    {
+      "api_provider": "deepseek",
+      "input_token_price": 1.35e-07,
+      "cached_input_token_price": 3.5e-08,
+      "output_token_price": 5.5e-07,
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://api-docs.deepseek.com/quick_start/pricing",
+      "other_info": "Discount Pricing"
     }
   ]
 }

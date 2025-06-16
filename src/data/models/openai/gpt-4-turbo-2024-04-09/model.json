@@ -21,19 +21,28 @@
   "playground_link": "https://platform.openai.com/playground/prompts?models=gpt-4-turbo",
   "paper_link": "https://arxiv.org/abs/2303.08774",
   "announcement_link": "https://openai.com/research/gpt-4",
-  "repository_link": null,
+  "repository_link": "",
   "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
-  "benchmark_results": [],
+  "benchmark_results": [
+    {
+      "benchmark_id": "simplebench",
+      "score": "25.1%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
+    }
+  ],
   "prices": [
     {
       "api_provider": "openai",
       "input_token_price": 1e-05,
+      "cached_input_token_price": "",
       "output_token_price": 3e-05,
       "throughput": "",
       "latency": "",
-      "source_link": null,
+      "source_link": "https://platform.openai.com/docs/models/gpt-4-turbo",
       "other_info": ""
     }
   ]

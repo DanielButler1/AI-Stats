@@ -19,8 +19,8 @@
   "knowledge_cutoff": "2025-01-01T00:00:00",
   "api_reference_link": "https://ai.google.dev/gemini-api/docs/models#gemini-2.5-pro-preview-06-05",
   "playground_link": "https://aistudio.google.com/prompts/new_chat",
-  "paper_link": null,
-  "announcement_link": null,
+  "paper_link": "",
+  "announcement_link": "Gemini 2.5 Pro: Access Google’s latest preview AI model",
   "repository_link": "",
   "weights_link": "",
   "parameter_count": "",
@@ -115,18 +115,20 @@
     {
       "api_provider": "google-ai-studio",
       "input_token_price": 1.25e-06,
+      "cached_input_token_price": null,
       "output_token_price": 1e-05,
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": "Prices for input/output <200k tokens. Rises to $2.50 and $15 per 1m tokens >200k tokens."
     },
     {
       "api_provider": "google-vertex",
       "input_token_price": 1.25e-06,
+      "cached_input_token_price": null,
       "output_token_price": 1e-05,
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": "Prices for input/output <200k tokens. Rises to $2.50 and $15 per 1m tokens >200k tokens."
     }

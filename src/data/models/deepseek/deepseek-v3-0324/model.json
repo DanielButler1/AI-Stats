@@ -46,6 +46,13 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://api-docs.deepseek.com/news/news250325"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "27.2%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": []

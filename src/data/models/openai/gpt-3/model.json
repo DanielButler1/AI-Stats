@@ -30,6 +30,7 @@
     {
       "api_provider": "openai",
       "input_token_price": "",
+      "cached_input_token_price": "",
       "output_token_price": "",
       "throughput": "",
       "latency": "",

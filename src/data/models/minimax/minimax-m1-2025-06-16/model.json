@@ -1,0 +1,168 @@
+{
+  "id": "minimax-m1-2025-06-16",
+  "name": "MiniMax M1",
+  "provider": "minimax",
+  "status": "Available",
+  "previous_model_id": "",
+  "description": null,
+  "announced_date": "2025-06-16T00:00:00",
+  "release_date": "2025-06-16T00:00:00",
+  "input_context_length": 1000000.0,
+  "output_context_length": 80000.0,
+  "license": "Apache 2.0",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": false,
+  "reasoning": true,
+  "fine_tunable": true,
+  "knowledge_cutoff": null,
+  "api_reference_link": "https://www.minimax.io/platform",
+  "playground_link": "https://chat.minimax.io/",
+  "paper_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf",
+  "announcement_link": "",
+  "repository_link": "https://github.com/MiniMax-AI/MiniMax-M1",
+  "weights_link": "https://huggingface.co/collections/MiniMaxAI/minimax-m1-68502ad9634ec0eeac8cf094",
+  "parameter_count": 456000000000,
+  "training_tokens": "",
+  "benchmark_results": [
+    {
+      "benchmark_id": "aime-2024",
+      "score": "83.3%",
+      "is_self_reported": true,
+      "other_info": "40k",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "74.6%",
+      "is_self_reported": true,
+      "other_info": "40k",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "69.2%",
+      "is_self_reported": true,
+      "other_info": "40k",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "7.2%",
+      "is_self_reported": true,
+      "other_info": "40k, Text Only, No Tools",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "mmlu-pro",
+      "score": "80.6%",
+      "is_self_reported": true,
+      "other_info": "40k",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "swe-bench",
+      "score": "55.6%",
+      "is_self_reported": true,
+      "other_info": "40k",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "tau-bench",
+      "score": "60.0%",
+      "is_self_reported": true,
+      "other_info": "40k, Airline",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "tau-bench",
+      "score": "67.8%",
+      "is_self_reported": true,
+      "other_info": "40k, Retail",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "simpleqa",
+      "score": "17.9%",
+      "is_self_reported": true,
+      "other_info": "40k",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "86.0%",
+      "is_self_reported": true,
+      "other_info": "80k",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "76.9%",
+      "is_self_reported": true,
+      "other_info": "80k",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "70.0%",
+      "is_self_reported": true,
+      "other_info": "80k",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "8.4%",
+      "is_self_reported": true,
+      "other_info": "80k, Text Only, No Tools",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "mmlu-pro",
+      "score": "81.1%",
+      "is_self_reported": true,
+      "other_info": "80k",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "swe-bench",
+      "score": "56.0%",
+      "is_self_reported": true,
+      "other_info": "80k",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "tau-bench",
+      "score": "62.0%",
+      "is_self_reported": true,
+      "other_info": "80k, Airline",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "tau-bench",
+      "score": "63.5%",
+      "is_self_reported": true,
+      "other_info": "80k, Retail",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "simpleqa",
+      "score": "18.5%",
+      "is_self_reported": true,
+      "other_info": "80k",
+      "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": "minimax",
+      "input_token_price": 4.0000000000000003e-07,
+      "cached_input_token_price": "",
+      "output_token_price": 2.2e-06,
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://www.minimax.io/platform/document/Pricing%20Overview?key=67373ec8451eeff1a85b9e4c",
+      "other_info": "Prices for input <200k tokens. Rises to $1.30 per 1m tokens >200k tokens."
+    }
+  ]
+}

@@ -25,14 +25,23 @@
   "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
-  "benchmark_results": [],
+  "benchmark_results": [
+    {
+      "benchmark_id": "gpqa",
+      "score": "57.1%",
+      "is_self_reported": null,
+      "other_info": null,
+      "source_link": null
+    }
+  ],
   "prices": [
     {
       "api_provider": null,
       "input_token_price": 8e-07,
+      "cached_input_token_price": null,
       "output_token_price": 3.2e-06,
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": null
     }

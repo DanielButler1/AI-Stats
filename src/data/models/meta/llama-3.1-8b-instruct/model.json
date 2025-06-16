@@ -38,9 +38,10 @@
     {
       "api_provider": null,
       "input_token_price": 2e-08,
+      "cached_input_token_price": null,
       "output_token_price": 3e-08,
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": null
     }

@@ -95,12 +95,12 @@ export const ChartTooltip = ({
 						<span className="text-sm text-muted-foreground">
 							{scoringType === "gpqa"
 								? "GPQA Score:"
-								: "Glicko Score:"}
+								: "AI Stats Score:"}
 						</span>
 						<span className="font-medium">
 							{scoringType === "gpqa"
 								? `${data.score.toFixed(2)}%`
-								: data.score.toFixed(0)}
+								: data.score.toFixed(2)}
 						</span>
 					</div>
 					<div className="flex items-center justify-between gap-2">

@@ -39,6 +39,13 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/deepseek-ai/DeepSeek-V3"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "18.9%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": []

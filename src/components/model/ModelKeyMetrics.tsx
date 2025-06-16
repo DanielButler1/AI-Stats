@@ -6,6 +6,7 @@ import {
 	Gauge,
 	Timer,
 	Info,
+	Calculator,
 } from "lucide-react";
 import {
 	Tooltip,
@@ -22,7 +23,10 @@ export default function ModelKeyMetrics({ model }: ModelKeyMetricsProps) {
 	// Helper to get best price and info
 	function getBestPrice(
 		prices: any[],
-		key: "input_token_price" | "output_token_price"
+		key:
+			| "input_token_price"
+			| "output_token_price"
+			| "cached_input_token_price"
 	) {
 		if (!Array.isArray(prices) || prices.length === 0)
 			return { price: null, info: null };
@@ -39,6 +43,10 @@ export default function ModelKeyMetrics({ model }: ModelKeyMetricsProps) {
 
 	const inputPrice = getBestPrice(model.prices, "input_token_price");
 	const outputPrice = getBestPrice(model.prices, "output_token_price");
+	const cachedInputPrice = getBestPrice(
+		model.prices,
+		"cached_input_token_price"
+	);
 
 	// Helper to format large numbers with K, M, B suffixes
 	const metrics = [
@@ -60,26 +68,7 @@ export default function ModelKeyMetrics({ model }: ModelKeyMetricsProps) {
 					: "-",
 			unit: "Tokens",
 		},
-		{
-			icon: ArrowDownCircle,
-			title: "Input Price",
-			value:
-				inputPrice.price != null
-					? `$${(inputPrice.price * 1_000_000).toLocaleString()}`
-					: "-",
-			unit: "Per 1M Tokens",
-			info: inputPrice.info,
-		},
-		{
-			icon: ArrowUpCircle,
-			title: "Output Price",
-			value:
-				outputPrice.price != null
-					? `$${(outputPrice.price * 1_000_000).toLocaleString()}`
-					: "-",
-			unit: "Per 1M Tokens",
-			info: outputPrice.info,
-		},
+
 		{
 			icon: Gauge,
 			title: "Throughput",
@@ -95,6 +84,52 @@ export default function ModelKeyMetrics({ model }: ModelKeyMetricsProps) {
 			value: model.latency != null ? model.latency.toLocaleString() : "-",
 			unit: "ms",
 		},
+		{
+			icon: ArrowDownCircle,
+			title: "Input Price",
+			value:
+				inputPrice.price != null
+					? `$${(inputPrice.price * 1_000_000).toLocaleString()}`
+					: "-",
+			unit: "Per 1M Tokens",
+			info: inputPrice.info,
+		},
+		{
+			icon: ArrowDownCircle,
+			title: "Cached Input Price",
+			value:
+				cachedInputPrice.price != null
+					? `$${(
+							cachedInputPrice.price * 1_000_000
+					  ).toLocaleString()}`
+					: "-",
+			unit: "Per 1M Tokens",
+			info: cachedInputPrice.info,
+		},
+		{
+			icon: ArrowUpCircle,
+			title: "Output Price",
+			value:
+				outputPrice.price != null
+					? `$${(outputPrice.price * 1_000_000).toLocaleString()}`
+					: "-",
+			unit: "Per 1M Tokens",
+			info: outputPrice.info,
+		},
+		{
+			icon: Calculator,
+			title: "Blended Price",
+			value:
+				outputPrice.price != null && inputPrice.price != null
+					? `$${(
+							((inputPrice.price * 1 + outputPrice.price * 3) *
+								1_000_000) /
+							4
+					  ).toLocaleString()}`
+					: "-",
+			unit: "Per 1M Tokens",
+			info: "Weighted average: 1 input + 3 output tokens",
+		},
 	];
 
 	return (
@@ -104,7 +139,7 @@ export default function ModelKeyMetrics({ model }: ModelKeyMetricsProps) {
 					Key Metrics
 				</CardTitle>
 			</CardHeader>
-			<CardContent className="grid grid-cols-2 md:grid-cols-3 gap-4">
+			<CardContent className="grid grid-cols-2 lg:grid-cols-4 gap-4">
 				{metrics.map((metric) => (
 					<div
 						key={metric.title}
