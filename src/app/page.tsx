@@ -5,17 +5,29 @@ import HomePage from "@/components/homePage/homePage";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Home",
+	title: "AI Model Leaderboard & Comparison Tool | AI Stats",
 	description:
-		"Browse the latest state-of-the-art AI models and compare benchmarks, features, and pricing all in one place.",
+		"Compare state-of-the-art AI models with detailed benchmarks, features, and pricing. Track AI progress, find the best models for your needs, and stay updated on the latest releases.",
 	keywords: [
 		"AI models",
+		"AI leaderboard",
+		"model comparison",
 		"benchmarks",
-		"comparison",
 		"GPT",
+		"Claude",
+		"LLM",
+		"Gemini",
+		"Grok",
 		"machine learning",
 		"model tracker",
+		"AI pricing",
+		"AI features",
+		"SOTA models",
+		"AI performance",
 	],
+	alternates: {
+		canonical: "https://ai-stats.phaseo.app/",
+	},
 };
 
 export default async function Home() {

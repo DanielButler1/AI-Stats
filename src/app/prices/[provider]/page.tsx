@@ -19,31 +19,46 @@ export async function generateMetadata(props: {
 	params: Promise<{ provider: string }>;
 }): Promise<Metadata> {
 	const params = await props.params;
+	const providerId = params.provider;
+	const providerName =
+		providerId.charAt(0).toUpperCase() + providerId.slice(1);
+
 	return {
-		title: `${
-			params.provider.charAt(0).toUpperCase() + params.provider.slice(1)
-		} Pricing`,
-		description: `View all models and pricing information for ${params.provider}.`,
+		title: `${providerName} API Pricing & Model Costs | AI Stats`,
+		description: `Explore detailed pricing for ${providerName} API, including token costs and all available AI models. Compare ${providerName} with other AI API providers on AI Stats.`,
+		keywords: [
+			`${providerName} pricing`,
+			`${providerName} API`,
+			`${providerName} model costs`,
+			"AI API pricing",
+			"token pricing",
+			"AI model pricing",
+			"compare AI providers",
+			"AI Stats",
+		],
+		alternates: {
+			canonical: `https://ai-stats.phaseo.app/prices/${providerId}`,
+		},
 	};
 }
 
 export async function generateStaticParams() {
-        const apiDir = path.join(process.cwd(), "src/data/api_providers");
-        try {
-                const ids = await fs.readdir(apiDir);
-                return ids.map(id => ({ provider: id }));
-        } catch {
-                return [];
-        }
+	const apiDir = path.join(process.cwd(), "src/data/api_providers");
+	try {
+		const ids = await fs.readdir(apiDir);
+		return ids.map((id) => ({ provider: id }));
+	} catch {
+		return [];
+	}
 }
 
 export default async function ProviderPricePage(props: {
-        params: Promise<{ provider: string }>;
+	params: Promise<{ provider: string }>;
 }) {
-        const params = await props.params;
+	const params = await props.params;
 
-        try {
-                const allModels = (await fetchAggregateData()) as ExtendedModel[];
+	try {
+		const allModels = (await fetchAggregateData()) as ExtendedModel[];
 
 		// Helper function to check if a price belongs to the current provider
 		const isProviderPrice = (price: Price) => {

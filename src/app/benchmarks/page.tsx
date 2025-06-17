@@ -5,9 +5,21 @@ import type { Metadata } from "next";
 import { fetchBenchmarks } from "@/lib/fetchData";
 
 export const metadata: Metadata = {
-	title: "All Benchmarks",
+	title: "AI Model Benchmarks Directory | Compare Benchmark Scores & Usage - AI Stats",
 	description:
-		"Browse all unique benchmarks and see how commonly they're used across AI models.",
+		"Explore a comprehensive directory of AI model benchmarks. Compare benchmark scores, see usage statistics, and discover which benchmarks are most popular across state-of-the-art AI models. Make informed decisions with AI Stats.",
+	keywords: [
+		"AI benchmarks",
+		"AI model benchmarks",
+		"benchmark scores",
+		"compare AI models",
+		"AI model evaluation",
+		"machine learning benchmarks",
+		"AI Stats",
+	],
+	alternates: {
+		canonical: "https://ai-stats.phaseo.app/benchmarks",
+	},
 };
 
 export default async function BenchmarksPage() {

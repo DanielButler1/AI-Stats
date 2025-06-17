@@ -91,18 +91,55 @@ export async function generateMetadata(props: {
 		if (!model) {
 			return {
 				title: `${params.model} Pricing | AI Stats`,
-				description: `Compare pricing information across different providers`,
+				description: `Compare pricing for ${params.model} across all available AI API providers. Find the cheapest and best options for your use case.`,
+				keywords: [
+					`${params.model} pricing`,
+					"AI model pricing",
+					"compare AI providers",
+					"AI API cost",
+					"AI Stats",
+				],
 			};
 		}
 
+		const providerNames = model.prices
+			?.map((p) =>
+				typeof p.api_provider === "string"
+					? p.api_provider
+					: p.api_provider?.api_provider_name || p.api_provider_id
+			)
+			.filter(Boolean)
+			.join(", ");
+
 		return {
-			title: `${model.name} Pricing | AI Stats`,
-			description: `Compare pricing information for ${model.name} across different providers`,
+			title: `${model.name} Pricing & Cost Comparison | AI Stats`,
+			description: `Compare ${model.name} pricing across providers. Find the cheapest API, see input/output token costs, latency, and more.`,
+			keywords: [
+				`${model.name} pricing`,
+				`${model.name} cost`,
+				`${model.name} API price`,
+				"AI model pricing",
+				"compare AI providers",
+				"AI API cost",
+				"AI Stats",
+				model.provider?.name,
+				...(providerNames ? providerNames.split(", ") : []),
+			],
+			alternates: {
+				canonical: `https://ai-stats.phaseo.app/prices/models/${model.id}`,
+			},
 		};
 	} catch {
 		return {
 			title: `${params.model} Pricing | AI Stats`,
-			description: `Compare pricing information across different providers`,
+			description: `Compare pricing for ${params.model} across all available AI API providers. Find the cheapest and best options for your use case.`,
+			keywords: [
+				`${params.model} pricing`,
+				"AI model pricing",
+				"compare AI providers",
+				"AI API cost",
+				"AI Stats",
+			],
 		};
 	}
 }

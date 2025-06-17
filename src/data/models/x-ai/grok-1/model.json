@@ -25,6 +25,35 @@
   "weights_link": null,
   "parameter_count": 314000000000,
   "training_tokens": null,
-  "benchmark_results": [],
+  "benchmark_results": [
+    {
+      "benchmark_id": "gsm8k",
+      "score": "62.9%",
+      "is_self_reported": true,
+      "other_info": "8 Shot",
+      "source_link": "https://x.ai/news/grok"
+    },
+    {
+      "benchmark_id": "mmlu",
+      "score": "73.0%",
+      "is_self_reported": true,
+      "other_info": "5 Shot",
+      "source_link": "https://x.ai/news/grok"
+    },
+    {
+      "benchmark_id": "humaneval",
+      "score": "63.2%",
+      "is_self_reported": true,
+      "other_info": "0 Shot",
+      "source_link": "https://x.ai/news/grok"
+    },
+    {
+      "benchmark_id": "math",
+      "score": "23.9%",
+      "is_self_reported": true,
+      "other_info": "4 Shot",
+      "source_link": "https://x.ai/news/grok"
+    }
+  ],
   "prices": []
 }

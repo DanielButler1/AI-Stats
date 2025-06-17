@@ -6,7 +6,6 @@ import {
 	Table as TableInstance,
 } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
 	Table,
 	TableBody,
@@ -17,6 +16,12 @@ import {
 } from "@/components/ui/table";
 import { ExtendedModel } from "@/data/types";
 import Link from "next/link";
+import {
+	ChevronLeft,
+	ChevronRight,
+	ChevronsLeft,
+	ChevronsRight,
+} from "lucide-react";
 
 interface ModelDataTableProps {
 	table: TableInstance<ExtendedModel>;
@@ -117,23 +122,136 @@ export function ModelDataTable({ table, columns }: ModelDataTableProps) {
 					</TableBody>
 				</Table>
 			</div>
-			<div className="flex items-center justify-end space-x-2 py-4">
-				<div className="space-x-2">
+			<div className="flex items-center justify-between py-4">
+				<div className="text-sm text-muted-foreground">
+					{table.getFilteredRowModel().rows.length > 0 && (
+						<>
+							Showing{" "}
+							<strong>
+								{table.getState().pagination.pageIndex *
+									table.getState().pagination.pageSize +
+									1}
+							</strong>{" "}
+							to{" "}
+							<strong>
+								{Math.min(
+									(table.getState().pagination.pageIndex +
+										1) *
+										table.getState().pagination.pageSize,
+									table.getFilteredRowModel().rows.length
+								)}
+							</strong>{" "}
+							of{" "}
+							<strong>
+								{table.getFilteredRowModel().rows.length}
+							</strong>{" "}
+							entries
+						</>
+					)}
+				</div>
+				<div className="flex items-center space-x-2">
 					<Button
 						variant="outline"
-						size="sm"
-						onClick={() => table.previousPage()}
+						size="icon"
+						className="h-8 w-8"
+						onClick={() => table.setPageIndex(0)}
 						disabled={!table.getCanPreviousPage()}
+						title="First page"
 					>
-						Previous
+						<ChevronsLeft className="h-4 w-4" />
 					</Button>
 					<Button
 						variant="outline"
-						size="sm"
+						size="icon"
+						className="h-8 w-8"
+						onClick={() => table.previousPage()}
+						disabled={!table.getCanPreviousPage()}
+						title="Previous page"
+					>
+						<ChevronLeft className="h-4 w-4" />
+					</Button>
+
+					{/* Page number buttons */}
+					<div className="flex items-center space-x-1">
+						{Array.from(
+							{ length: table.getPageCount() },
+							(_, i) => {
+								// Show current page, first and last page, and 1 page before and after current
+								const shouldShow =
+									i === 0 ||
+									i === table.getPageCount() - 1 ||
+									Math.abs(
+										i -
+											table.getState().pagination
+												.pageIndex
+									) <= 1;
+
+								// Show ellipsis when there's a gap
+								if (!shouldShow) {
+									const prevShown =
+										i - 1 === 0 ||
+										Math.abs(
+											i -
+												1 -
+												table.getState().pagination
+													.pageIndex
+										) <= 1;
+
+									if (prevShown) {
+										return (
+											<span
+												key={`ellipsis-${i}`}
+												className="px-2 text-muted-foreground"
+											>
+												...
+											</span>
+										);
+									}
+									return null;
+								}
+
+								return (
+									<Button
+										key={i}
+										variant={
+											i ===
+											table.getState().pagination
+												.pageIndex
+												? "default"
+												: "outline"
+										}
+										size="icon"
+										className="h-8 w-8"
+										onClick={() => table.setPageIndex(i)}
+									>
+										{i + 1}
+									</Button>
+								);
+							}
+						).filter(Boolean)}
+					</div>
+
+					<Button
+						variant="outline"
+						size="icon"
+						className="h-8 w-8"
 						onClick={() => table.nextPage()}
 						disabled={!table.getCanNextPage()}
+						title="Next page"
 					>
-						Next
+						<ChevronRight className="h-4 w-4" />
+					</Button>
+					<Button
+						variant="outline"
+						size="icon"
+						className="h-8 w-8"
+						onClick={() =>
+							table.setPageIndex(table.getPageCount() - 1)
+						}
+						disabled={!table.getCanNextPage()}
+						title="Last page"
+					>
+						<ChevronsRight className="h-4 w-4" />
 					</Button>
 				</div>
 			</div>

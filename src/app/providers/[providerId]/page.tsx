@@ -30,15 +30,39 @@ export async function generateMetadata(props: {
 	try {
 		const raw = await fs.readFile(providerPath, "utf-8");
 		const provider = JSON.parse(raw);
-		const title = `${provider.name}`;
+		const title = `${provider.name} AI Models, Features & Pricing | AI Stats`;
 		const description =
-			provider.description ||
-			`Explore ${provider.name} and its AI models.`;
-		return { title, description };
+			provider.description
+				? `${provider.description} Discover ${provider.name} AI models, features, pricing, and compare with other providers on AI Stats.`
+				: `Explore ${provider.name} and its AI models, features, and pricing. Compare ${provider.name} to other AI providers on AI Stats.`;
+		const keywords = [
+			provider.name,
+			`${provider.name} AI`,
+			`${provider.name} models`,
+			`${provider.name} pricing`,
+			`${provider.name} features`,
+			"AI provider",
+			"AI model comparison",
+			"AI Stats",
+		];
+		return {
+			title,
+			description,
+			keywords,
+			alternates: {
+				canonical: `https://ai-stats.phaseo.app/providers/${provider.provider_id}`,
+			},
+		};
 	} catch {
 		return {
-			title: "Provider",
-			description: "Browse AI providers and their latest models.",
+			title: "AI Provider Overview | AI Stats",
+			description: "Browse AI providers and their latest models, features, and pricing on AI Stats.",
+			keywords: [
+				"AI provider",
+				"AI models",
+				"AI pricing",
+				"AI Stats",
+			],
 		};
 	}
 }

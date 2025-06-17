@@ -35,21 +35,39 @@ export async function generateMetadata(
 
 		if (!benchmark) {
 			return {
-				title: "Benchmark Not Found",
-				description: "The requested benchmark could not be found.",
+				title: "Benchmark Not Found | AI Stats",
+				description:
+					"The requested AI model benchmark could not be found on AI Stats.",
+				alternates: {
+					canonical: `https://ai-stats.phaseo.app/benchmarks/${params.id}`,
+				},
 			};
 		}
 
 		return {
-			title: `${benchmark.name} Benchmark`,
-			description:
-				benchmark.description ||
-				`Explore the ${benchmark.name} benchmark and see how different AI models perform.`,
+			title: `${benchmark.name} Benchmark | Scores, Usage & Model Performance - AI Stats`,
+			description: benchmark.description
+				? `${benchmark.description} See which AI models use the ${benchmark.name} benchmark, compare scores, and explore detailed performance data.`
+				: `Explore the ${benchmark.name} benchmark. See which AI models use it, compare scores, and view detailed performance data on AI Stats.`,
+			keywords: [
+				benchmark.name,
+				"AI benchmark",
+				"AI model benchmarks",
+				"benchmark scores",
+				"compare AI models",
+				"AI model evaluation",
+				"machine learning benchmarks",
+				"AI Stats",
+			],
+			alternates: {
+				canonical: `https://ai-stats.phaseo.app/benchmarks/${params.id}`,
+			},
 		};
 	} catch (error) {
 		return {
-			title: "Benchmark Error",
-			description: "There was an error loading the benchmark data.",
+			title: "Benchmark Error | AI Stats",
+			description:
+				"There was an error loading the benchmark data on AI Stats.",
 		};
 	}
 }

@@ -16,7 +16,7 @@
   "web_access": true,
   "reasoning": null,
   "fine_tunable": null,
-  "knowledge_cutoff": "2025-01-31",
+  "knowledge_cutoff": "2025-01-01T00:00:00",
   "api_reference_link": "https://ai.google.dev/gemini-api/docs/models?hl=en#gemini-2.5-flash-preview-04-17",
   "playground_link": "https://aistudio.google.com/?model=gemini-2.5-flash-preview-04-17",
   "paper_link": null,

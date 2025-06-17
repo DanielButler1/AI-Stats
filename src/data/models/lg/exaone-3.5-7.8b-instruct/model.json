@@ -21,7 +21,7 @@
   "playground_link": "",
   "paper_link": "https://arxiv.org/pdf/2412.04862",
   "announcement_link": "https://www.lgresearch.ai/blog/view?seq=507",
-  "repository_link": "https://github.com/LG-AI-EXAONE/EXAONE-3.5?utm_source=chatgpt.com",
+  "repository_link": "https://github.com/LG-AI-EXAONE/EXAONE-3.5",
   "weights_link": "https://huggingface.co/LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct",
   "parameter_count": 7820000000,
   "training_tokens": "",

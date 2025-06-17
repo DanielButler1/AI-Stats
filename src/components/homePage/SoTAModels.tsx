@@ -4,6 +4,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 import type { ExtendedModel } from "@/data/types";
 
 interface SotAModelProps {
@@ -17,45 +25,104 @@ type TopModel = {
 	provider: string;
 	provider_id: string;
 	releaseDate: string;
-	gpqaScore: number;
+	score: number;
+	rd?: number; // Rating Deviation for Glicko scores
 	description: string;
 	announcedDate?: string;
 };
 
-export function findTopGPQA(
+// Get the available benchmarks that have at least 3 models with scores
+function getAvailableBenchmarks(
+	models: ExtendedModel[]
+): { id: string; name: string }[] {
+	const benchmarks: Map<string, { id: string; name: string; count: number }> =
+		new Map();
+
+	// Add Glicko rating as a special benchmark
+	benchmarks.set("glicko", {
+		id: "glicko",
+		name: "AI Stats Score",
+		count: 0,
+	});
+
+	// Count models for each benchmark
+	models.forEach((model) => {
+		// Count Glicko ratings
+		if (model.glickoRating?.rating) {
+			const glicko = benchmarks.get("glicko")!;
+			glicko.count++;
+		}
+
+		// Count benchmark scores
+		model.benchmark_results?.forEach((result) => {
+			const benchmarkId = result.benchmark_id.toLowerCase();
+			if (!benchmarks.has(benchmarkId)) {
+				benchmarks.set(benchmarkId, {
+					id: benchmarkId,
+					name: result.benchmark.name,
+					count: 0,
+				});
+			}
+			const benchmark = benchmarks.get(benchmarkId)!;
+			if (result.score) benchmark.count++;
+		});
+	});
+
+	// Filter benchmarks with at least 3 models and sort by count
+	return Array.from(benchmarks.values())
+		.filter((b) => b.count >= 3)
+		.sort((a, b) => b.count - a.count);
+}
+
+function findTopModels(
 	models: ExtendedModel[],
+	benchmarkId: string,
 	showReleased = true
 ): TopModel[] {
 	const currentDate = new Date();
 
 	const modelsWithScores = models
-		.map((model) => ({
-			id: model.id,
-			name: model.name,
-			provider: model.provider.name,
-			provider_id: model.provider.provider_id,
-			releaseDate: model.release_date || "TBA",
-			announcedDate: model.announced_date || "TBA",
-			gpqaScore: model.benchmark_results?.find(
-				(metric) => metric.benchmark_id.toLowerCase() === "gpqa"
-			)?.score
-				? parseFloat(
-						model.benchmark_results
-							.find(
-								(metric) =>
-									metric.benchmark_id.toLowerCase() === "gpqa"
-							)!
-							.score.toString()
-				  )
-				: 0,
-			description: model.description || "No description available",
-		}))
-		// Filter out models with no GPQA score
-		.filter((model) => model.gpqaScore > 0 && !!model.releaseDate)
+		.map((model) => {
+			let score = 0;
+			let rd: number | undefined;
+			let hasPercent = false;
+			if (benchmarkId === "glicko") {
+				score = model.glickoRating?.rating || 0;
+				rd = model.glickoRating?.rd;
+			} else {
+				const result = model.benchmark_results?.find(
+					(metric) =>
+						metric.benchmark_id.toLowerCase() ===
+						benchmarkId.toLowerCase()
+				);
+				if (result?.score) {
+					const scoreStr = result.score.toString();
+					hasPercent = scoreStr.includes("%");
+					score =
+						typeof result.score === "number"
+							? result.score
+							: parseFloat(scoreStr.replace("%", ""));
+				}
+			} // Store the hasPercent flag in the description field since we're not using it
+			const hasPercentStr = hasPercent ? "percent" : "nopercent";
+			return {
+				id: model.id,
+				name: model.name,
+				provider: model.provider.name,
+				provider_id: model.provider.provider_id,
+				releaseDate: model.release_date || "TBA",
+				announcedDate: model.announced_date || "TBA",
+				score,
+				rd,
+				description: hasPercentStr, // Using description field to store format info
+			};
+		})
+		// Filter out models with no score
+		.filter((model) => model.score > 0 && !!model.releaseDate)
 		// Filter based on release date if needed
 		.filter((model) => {
 			if (!showReleased) {
-				// For announced models, include all models with GPQA scores regardless of date
+				// For announced models, include all models with scores regardless of date
 				return true;
 			} else {
 				// For available models, only include models with past or present release dates
@@ -65,15 +132,28 @@ export function findTopGPQA(
 				);
 			}
 		})
-		.sort((a, b) => b.gpqaScore - a.gpqaScore);
+		.sort((a, b) => b.score - a.score);
 
 	return modelsWithScores.slice(0, 3);
 }
 
 export default function SotaModel({ models }: SotAModelProps) {
 	const [showAnnounced, setShowAnnounced] = useState(false);
-	const topAvailableModels = findTopGPQA(models, true);
-	const topAnnouncedModels = findTopGPQA(models, false);
+	const [selectedBenchmark, setSelectedBenchmark] = useState<{
+		id: string;
+		name: string;
+	}>({ id: "glicko", name: "AI Stats Score" });
+	const availableBenchmarks = getAvailableBenchmarks(models);
+	const topAvailableModels = findTopModels(
+		models,
+		selectedBenchmark.id,
+		true
+	);
+	const topAnnouncedModels = findTopModels(
+		models,
+		selectedBenchmark.id,
+		false
+	);
 
 	// Explicit toggle handler
 	const toggleShow = () => setShowAnnounced((prev) => !prev);
@@ -85,7 +165,7 @@ export default function SotaModel({ models }: SotAModelProps) {
 					<CardTitle>Current State of the Art</CardTitle>
 				</CardHeader>
 				<CardContent>
-					<p className="text-muted-foreground">No GPQA data found.</p>
+					<p className="text-muted-foreground">No data found.</p>
 				</CardContent>
 			</Card>
 		);
@@ -180,9 +260,27 @@ export default function SotaModel({ models }: SotAModelProps) {
 											{model.provider}
 										</span>
 									</p>
-								</Link>
+								</Link>{" "}
 								<p className="font-bold mt-2">
-									{model.gpqaScore.toFixed(2)}%
+									{selectedBenchmark.id === "glicko" ? (
+										<span className="flex items-center justify-center gap-1">
+											{model.score.toFixed(2)}{" "}
+											{/* {model.rd !== undefined && (
+												<>
+													<span className="text-muted-foreground mx-1">
+														±
+													</span>
+													<span className="text-muted-foreground">
+														{model.rd.toFixed(2)}
+													</span>
+												</>
+											)} */}
+										</span>
+									) : model.description === "percent" ? (
+										model.score.toFixed(2) + "%"
+									) : (
+										Math.round(model.score)
+									)}
 								</p>
 								<p className="text-xs text-muted-foreground mt-1">
 									{model.releaseDate &&
@@ -215,13 +313,39 @@ export default function SotaModel({ models }: SotAModelProps) {
 	return (
 		<Card className="shadow-lg">
 			<CardHeader className="pb-2">
-				<CardTitle className="text-2xl">
-					The Best{" "}
-					<button onClick={toggleShow} className="font-bold">
-						{showAnnounced ? "Announced" : "Available"}
-					</button>{" "}
-					Models
-				</CardTitle>
+				<div className="flex justify-between items-center">
+					<CardTitle className="text-2xl">
+						The Best{" "}
+						<button onClick={toggleShow} className="font-bold">
+							{showAnnounced ? "Announced" : "Available"}
+						</button>{" "}
+						Models
+					</CardTitle>
+					<DropdownMenu>
+						<DropdownMenuTrigger asChild>
+							<Button
+								variant="outline"
+								className="whitespace-nowrap ml-4"
+							>
+								{selectedBenchmark.name}{" "}
+								<ChevronDown className="ml-2 h-4 w-4" />
+							</Button>
+						</DropdownMenuTrigger>
+						<DropdownMenuContent align="end">
+							{availableBenchmarks.map((benchmark) => (
+								<DropdownMenuItem
+									key={benchmark.id}
+									onSelect={() =>
+										setSelectedBenchmark(benchmark)
+									}
+									className="capitalize"
+								>
+									{benchmark.name}
+								</DropdownMenuItem>
+							))}
+						</DropdownMenuContent>
+					</DropdownMenu>
+				</div>
 			</CardHeader>
 			<CardContent>
 				<div className="flex justify-center items-end gap-4">

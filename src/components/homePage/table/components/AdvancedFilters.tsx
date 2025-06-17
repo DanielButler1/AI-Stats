@@ -47,6 +47,7 @@ export function AdvancedFilters({
 	const DEFAULT_CONTEXT_LENGTH_RANGE = ["all"];
 	const DEFAULT_SELECTED_PROVIDERS: string[] = [];
 	const DEFAULT_SELECTED_LICENSES: string[] = [];
+	const DEFAULT_SORT_STATE = [{ id: "gpqa_score", desc: true }];
 
 	// Check if any filters or column visibility are not default
 	const isFiltered =
@@ -57,6 +58,9 @@ export function AdvancedFilters({
 		selectedProviders.length > 0 ||
 		selectedLicenses.length > 0 ||
 		(featureFilters && featureFilters.includes("multimodal")) ||
+		// Check if sort state is different from default (GPQA descending)
+		JSON.stringify(table.getState().sorting) !==
+			JSON.stringify(DEFAULT_SORT_STATE) ||
 		// If any column other than parameter_count is hidden, or if parameter_count is visible (since it's hidden by default)
 		Object.entries(table.getState().columnVisibility || {}).some(
 			([key, value]) =>
@@ -70,6 +74,10 @@ export function AdvancedFilters({
 		setParameterRange(DEFAULT_PARAMETER_RANGE as [number, number]);
 		setContextLengthRange(DEFAULT_CONTEXT_LENGTH_RANGE);
 		setSelectedLicenses(DEFAULT_SELECTED_LICENSES);
+
+		// Reset sort order to default (GPQA descending)
+		table.setSorting([{ id: "gpqa_score", desc: true }]);
+
 		// Reset column visibility to default: hide 'parameter_count', show others
 		const defaultVisibility: Record<string, boolean> = table
 			.getAllLeafColumns()

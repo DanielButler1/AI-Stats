@@ -102,12 +102,15 @@ export default function RecentModels({ models }: RecentModelsProps) {
 								</TableHead>
 								<TableHead className="min-w-[130px]">
 									Provider
-								</TableHead>
+								</TableHead>{" "}
 								<TableHead className="min-w-[120px]">
 									Announced Date
 								</TableHead>
 								<TableHead className="min-w-[120px]">
 									Release Date
+								</TableHead>
+								<TableHead className="min-w-[100px] text-center">
+									AI Stats Score
 								</TableHead>
 								<TableHead className="min-w-[120px] text-right">
 									&nbsp;
@@ -200,11 +203,38 @@ export default function RecentModels({ models }: RecentModelsProps) {
 													model.announced_date
 												)}
 											</span>
-										</TableCell>
+										</TableCell>{" "}
 										<TableCell className="min-w-[120px] align-middle">
 											<span className="flex items-center">
 												{formatDate(model.release_date)}
 											</span>
+										</TableCell>
+										<TableCell className="min-w-[100px] align-middle flex justify-center font-mono text-sm">
+											{model.benchmark_results?.length &&
+											model.benchmark_results.length >=
+												3 ? (
+												<span className="flex items-center gap-1">
+													{model.glickoRating ? (
+														<>
+															{model.glickoRating.rating.toFixed(
+																2
+															)}
+															{/* <span className="text-muted-foreground">
+																±
+																{model.glickoRating.rd.toFixed(
+																	2
+																)}
+															</span> */}
+														</>
+													) : (
+														"Processing..."
+													)}
+												</span>
+											) : (
+												<span className="text-muted-foreground">
+													Awaiting...
+												</span>
+											)}
 										</TableCell>
 										<TableCell className="min-w-[120px] text-right align-middle">
 											<div className="flex justify-center w-full">
@@ -275,7 +305,7 @@ export default function RecentModels({ models }: RecentModelsProps) {
 													{model.name}
 												</span>
 											</Link>
-										</span>
+										</span>{" "}
 										<span className="text-xs text-zinc-500">
 											<Link
 												href={`/providers/${encodeURIComponent(
@@ -287,6 +317,27 @@ export default function RecentModels({ models }: RecentModelsProps) {
 													{model.provider.name}
 												</span>
 											</Link>
+											{model.benchmark_results?.length &&
+												model.benchmark_results
+													.length >= 3 && (
+													<span className="ml-2 font-mono">
+														{model.glickoRating ? (
+															<>
+																{model.glickoRating.rating.toFixed(
+																	2
+																)}
+																{/* <span className="text-muted-foreground">
+																	±
+																	{model.glickoRating.rd.toFixed(
+																		2
+																	)}
+																</span> */}
+															</>
+														) : (
+															"Processing..."
+														)}
+													</span>
+												)}
 										</span>
 									</div>
 									{mainDate && (

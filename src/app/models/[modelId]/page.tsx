@@ -23,22 +23,50 @@ export async function generateMetadata(props: {
 		const models = await fetchAggregateData();
 		const model = models.find((m: any) => m.id === params.modelId);
 		if (!model) throw new Error();
-		const title = `${model.name}`;
-		const description =
-			model.description ||
-			`Learn about ${model.name}, its benchmarks, features, and pricing.`;
+
+		const providerName = model.provider?.name || "";
+		const benchmarks =
+			model.benchmark_results?.map(
+				(b: any) => b.benchmark?.name || b.name
+			) || [];
+		const title = `${model.name} Overview, Benchmarks, Features & Pricing | AI Stats`;
+		const description = model.description
+			? `${model.description} Compare ${model.name} benchmarks, features, release timeline, and pricing across providers.`
+			: `Learn about ${model.name} AI model: benchmarks, features, release timeline, and pricing. Compare ${model.name} to other models on AI Stats.`;
 		const keywords = [
 			model.name,
-			model.provider?.name,
-			...(model.benchmark_results || []).map((b: any) => b.name),
+			`${model.name} benchmarks`,
+			`${model.name} features`,
+			`${model.name} pricing`,
+			`${model.name} release date`,
+			`${model.name} API`,
+			providerName,
+			"AI model comparison",
+			"AI Stats",
+			...benchmarks,
 		];
+
 		return {
 			title,
 			description,
 			keywords,
+			alternates: {
+				canonical: `https://ai-stats.phaseo.app/models/${model.id}`,
+			},
 		};
 	} catch {
-		return { title: "Model" };
+		return {
+			title: "AI Model Overview | AI Stats",
+			description:
+				"Explore AI model benchmarks, features, release timeline, and pricing on AI Stats.",
+			keywords: [
+				"AI model",
+				"AI benchmarks",
+				"AI features",
+				"AI pricing",
+				"AI Stats",
+			],
+		};
 	}
 }
 

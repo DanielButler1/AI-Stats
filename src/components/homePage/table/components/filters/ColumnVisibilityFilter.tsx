@@ -25,6 +25,7 @@ const displayNames: { [key: string]: string } = {
 	multimodal: "Multimodal",
 	release_date: "Release Date",
 	knowledge_cutoff: "Knowledge Cutoff",
+	ai_stats_score: "AI Stats Score",
 };
 
 export function ColumnVisibilityFilter({ table }: ColumnVisibilityFilterProps) {

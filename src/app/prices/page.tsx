@@ -5,10 +5,21 @@ import type { Metadata } from "next";
 import { fetchAggregateData } from "@/lib/fetchData";
 
 export const metadata: Metadata = {
-	title: "All Price Providers | AI Stats",
+	title: "AI Price Providers Directory | Compare API Pricing & Usage - AI Stats",
 	description:
-		"Browse all unique price providers and see how commonly they're used across AI models.",
-	keywords: ["AI price providers", "model pricing", "token pricing"],
+		"Explore a comprehensive directory of AI price providers. Compare API pricing, token costs, and provider usage across AI models. Find the best API provider for your needs on AI Stats.",
+	keywords: [
+		"AI price providers",
+		"API pricing",
+		"token pricing",
+		"AI model pricing",
+		"AI API providers",
+		"compare AI providers",
+		"AI Stats",
+	],
+	alternates: {
+		canonical: "https://ai-stats.phaseo.app/prices",
+	},
 };
 
 // Helper function to extract provider info from price object

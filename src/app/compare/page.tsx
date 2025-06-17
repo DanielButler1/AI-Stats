@@ -6,15 +6,22 @@ import { fetchAggregateData } from "@/lib/fetchData";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Compare Models",
+	title: "Compare AI Models Side-by-Side | Benchmarks, Features & Pricing - AI Stats",
 	description:
-		"Compare AI models side-by-side, explore benchmarks and key metrics.",
+		"Compare state-of-the-art AI models side-by-side. Explore detailed benchmarks, features, providers, and pricing to find the best AI model for your needs. Make informed decisions with AI Stats.",
 	keywords: [
 		"AI model comparison",
-		"benchmarks",
 		"compare AI models",
-		"machine learning",
+		"AI benchmarks",
+		"AI model pricing",
+		"machine learning models",
+		"AI providers",
+		"state-of-the-art models",
+		"AI Stats",
 	],
+	alternates: {
+		canonical: "https://ai-stats.phaseo.app/compare",
+	},
 };
 
 export default async function Page() {

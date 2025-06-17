@@ -48,7 +48,7 @@ export const columns: ColumnDef<ExtendedModel>[] = [
 					onClick={() =>
 						column.toggleSorting(column.getIsSorted() === "asc")
 					}
-					className="w-48"
+					className="w-60"
 				>
 					Model
 					<ArrowUpDown className="ml-2 h-4 w-4" />
@@ -60,9 +60,14 @@ export const columns: ColumnDef<ExtendedModel>[] = [
 				href={`/models/${row.original.id}`}
 				className="text-center block"
 			>
-				<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
-					{row.getValue("name")}
-				</span>
+				<Tooltip delayDuration={0}>
+					<TooltipTrigger asChild>
+						<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+							{row.getValue("name")}
+						</span>
+					</TooltipTrigger>
+					<TooltipContent>ID: {row.original.id}</TooltipContent>
+				</Tooltip>
 			</Link>
 		),
 		enableHiding: false,

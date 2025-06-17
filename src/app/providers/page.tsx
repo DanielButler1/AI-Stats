@@ -12,10 +12,23 @@ import { cn } from "@/lib/utils";
 
 // Static SEO metadata for providers listing
 export const metadata: Metadata = {
-	title: "All Providers",
+	title: "AI Providers Directory | Compare AI Companies & Their Models - AI Stats",
 	description:
-		"Browse all AI providers and explore their models and benchmarks.",
-	keywords: ["AI providers", "machine learning providers", "model providers"],
+		"Explore a comprehensive directory of AI providers. Compare top AI companies, their models, features, benchmarks, and pricing. Find the best AI provider for your needs on AI Stats.",
+	keywords: [
+		"AI providers",
+		"AI companies",
+		"AI models",
+		"machine learning providers",
+		"AI benchmarks",
+		"AI pricing",
+		"AI directory",
+		"compare AI providers",
+		"AI Stats",
+	],
+	alternates: {
+		canonical: "https://ai-stats.phaseo.app/providers",
+	},
 };
 
 async function getAllProviders(): Promise<Provider[]> {

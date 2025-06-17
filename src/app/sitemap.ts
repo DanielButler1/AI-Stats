@@ -107,6 +107,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/providers',
         '/compare',
         '/contribute',
+        '/contribute/benchmarks',
+        '/contribute/prices',
         '/sources',
         '/benchmarks',
         '/prices'
@@ -126,7 +128,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         getAllBenchmarkSlugs(),
         getAllAPIProviderSlugs()
     ]);
-    
+
     const modelItems: SitemapItem[] = modelSlugs.map(slug => ({
         url: `${baseUrl}/models/${slug}`,
         lastModified: new Date().toISOString(),
