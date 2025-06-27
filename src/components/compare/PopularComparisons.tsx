@@ -10,7 +10,7 @@ import Image from "next/image";
 
 function getGPQAScore(model: ExtendedModel): number | null {
 	const gpqaResult = model.benchmark_results?.find(
-		(b) => b.benchmark_id.toLowerCase() === "gpqa"
+		(b) => b.benchmark_id.toLowerCase() === "gpqa-diamond"
 	);
 	if (!gpqaResult) return null;
 	const score = gpqaResult.score.toString();

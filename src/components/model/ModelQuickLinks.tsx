@@ -31,7 +31,7 @@ export default function ModelQuickLinks({ model }: ModelQuickLinksProps) {
 		{
 			key: "contribute_link",
 			label: "Suggest Edits",
-			url: "/contribute/" + model.id,
+			url: `https://github.com/DanielButler1/AI-Stats/blob/main/src/data/models/${model.provider?.provider_id}/${model.id}/model.json`,
 		},
 		{
 			key: "announcement_link",

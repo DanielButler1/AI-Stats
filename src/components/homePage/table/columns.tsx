@@ -290,12 +290,37 @@ export const columns: ColumnDef<ExtendedModel>[] = [
 			);
 		},
 	},
-
+	{
+		id: "ai_stats_score",
+		accessorFn: (row) => row.glickoRating?.rating ?? null,
+		header: ({ column }) => {
+			return (
+				<Button
+					variant="ghost"
+					onClick={() =>
+						column.toggleSorting(column.getIsSorted() === "asc")
+					}
+					className="w-full"
+				>
+					AI Stats Score
+					<ArrowUpDown className="ml-2 h-4 w-4" />
+				</Button>
+			);
+		},
+		cell: ({ row }) => {
+			const score = row.getValue("ai_stats_score") as number | null;
+			return (
+				<div className="text-center">
+					{score ? score.toFixed(2) : "-"}
+				</div>
+			);
+		},
+	},
 	{
 		id: "gpqa_score",
 		accessorFn: (row) => {
 			const gpqaResult = row.benchmark_results?.find(
-				(b) => b.benchmark_id === "gpqa"
+				(b) => b.benchmark_id === "gpqa-diamond"
 			);
 			if (!gpqaResult?.score) return null;
 			// Handle both number and string (percentage) formats
@@ -321,32 +346,6 @@ export const columns: ColumnDef<ExtendedModel>[] = [
 			return (
 				<div className="text-center">
 					{score ? `${score.toFixed(1)}%` : "-"}
-				</div>
-			);
-		},
-	},
-	{
-		id: "ai_stats_score",
-		accessorFn: (row) => row.glickoRating?.rating ?? null,
-		header: ({ column }) => {
-			return (
-				<Button
-					variant="ghost"
-					onClick={() =>
-						column.toggleSorting(column.getIsSorted() === "asc")
-					}
-					className="w-full"
-				>
-					AI Stats Score
-					<ArrowUpDown className="ml-2 h-4 w-4" />
-				</Button>
-			);
-		},
-		cell: ({ row }) => {
-			const score = row.getValue("ai_stats_score") as number | null;
-			return (
-				<div className="text-center">
-					{score ? score.toFixed(2) : "-"}
 				</div>
 			);
 		},

@@ -7,6 +7,7 @@
   "description": null,
   "announced_date": null,
   "release_date": null,
+  "deprecation_date": "",
   "input_context_length": null,
   "output_context_length": null,
   "license": null,
@@ -25,6 +26,14 @@
   "weights_link": "",
   "parameter_count": null,
   "training_tokens": null,
-  "benchmark_results": [],
+  "benchmark_results": [
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1309,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    }
+  ],
   "prices": []
 }

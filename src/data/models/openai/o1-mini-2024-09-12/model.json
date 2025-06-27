@@ -2,13 +2,14 @@
   "id": "o1-mini-2024-09-12",
   "name": "o1 mini",
   "provider": "openai",
-  "status": "Deprecated",
+  "status": "Available",
   "previous_model_id": "",
   "description": null,
   "announced_date": null,
   "release_date": "2024-09-12T00:00:00",
-  "input_context_length": 128000.0,
-  "output_context_length": 65536.0,
+  "deprecation_date": "2025-10-27T00:00:00",
+  "input_context_length": 128000,
+  "output_context_length": 65536,
   "license": "Proprietary",
   "multimodal": false,
   "input_types": "text",
@@ -48,7 +49,7 @@
       "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "60.0%",
       "is_self_reported": true,
       "other_info": null,
@@ -67,18 +68,63 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 18.55,
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.95,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "26.9%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "lmarena-webdev",
+      "score": 1041.86,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1333,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": [
     {
       "api_provider": "openai",
-      "input_token_price": 1.1e-06,
-      "cached_input_token_price": 5.5e-07,
-      "output_token_price": 4.4e-06,
+      "input_token_price": "0.0000011",
+      "cached_input_token_price": "0.00000055",
+      "output_token_price": "0.0000044",
       "throughput": "",
       "latency": "",
       "source_link": "https://platform.openai.com/docs/models/o1-mini",
       "other_info": ""
+    },
+    {
+      "api_provider": "azure",
+      "input_token_price": "0.0000011",
+      "cached_input_token_price": "0.00000055",
+      "output_token_price": "0.0000044",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
+      "other_info": "Global Pricing"
     }
   ]
 }

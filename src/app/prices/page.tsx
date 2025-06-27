@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { fetchAggregateData } from "@/lib/fetchData";
 
 export const metadata: Metadata = {
-	title: "AI Price Providers Directory | Compare API Pricing & Usage - AI Stats",
+	title: "AI Pricing | Compare API Pricing for Leading AI Models",
 	description:
 		"Explore a comprehensive directory of AI price providers. Compare API pricing, token costs, and provider usage across AI models. Find the best API provider for your needs on AI Stats.",
 	keywords: [
@@ -159,12 +159,12 @@ export default async function PricesPage() {
 				<Header />
 				<div className="container mx-auto px-4 py-8">
 					<Card className="mb-4 shadow-lg p-4">
-						<h2 className="text-3xl font-bold">
+						<h1 className="text-3xl font-bold">
 							All API Providers{" "}
 							<span className="text-muted-foreground text-xl font-normal">
 								({providers.length})
 							</span>
-						</h2>
+						</h1>
 					</Card>
 					<PriceProvidersDisplay
 						providers={providers}

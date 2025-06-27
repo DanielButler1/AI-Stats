@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": "2025-03-13T00:00:00",
   "release_date": "2025-03-13T00:00:00",
-  "input_context_length": 256000.0,
-  "output_context_length": 4000.0,
+  "deprecation_date": "",
+  "input_context_length": 256000,
+  "output_context_length": 4000,
   "license": "CC-BY-NC",
   "multimodal": false,
   "input_types": "text",
@@ -25,6 +26,32 @@
   "weights_link": "https://huggingface.co/CohereLabs/c4ai-command-a-03-2025",
   "parameter_count": 111000000000,
   "training_tokens": null,
-  "benchmark_results": [],
-  "prices": []
+  "benchmark_results": [
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "13.6%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1344,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": "cohere",
+      "input_token_price": "0.0000025",
+      "cached_input_token_price": "",
+      "output_token_price": "0.00001",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://cohere.com/pricing",
+      "other_info": null
+    }
+  ]
 }

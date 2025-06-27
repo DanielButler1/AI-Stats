@@ -1,6 +1,7 @@
 {
   "id": "phybench",
   "name": "PHYBench",
+  "order": null,
   "description": null,
   "link": "https://phybench-official.github.io/phybench-demo/"
 }

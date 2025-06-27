@@ -4,11 +4,12 @@
   "provider": "google",
   "status": "Available",
   "previous_model_id": "gemini-2.5-pro-preview-05-06",
-  "description": null,
+  "description": "The latest generally available version of Google's Gemini 2.5 Pro Model. Gemini 2.5 Pro is Google's Flagship multimodal model, offering the strongest performance across any of Google's models with complete multimodaliality, and a 1m input context length.",
   "announced_date": "2025-06-05T00:00:00",
   "release_date": "2025-06-05T00:00:00",
-  "input_context_length": 1048576.0,
-  "output_context_length": 65536.0,
+  "deprecation_date": "",
+  "input_context_length": 1048576,
+  "output_context_length": 65536,
   "license": "Proprietary",
   "multimodal": true,
   "input_types": "text,image,video,audio",
@@ -76,7 +77,7 @@
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "86.4%",
       "is_self_reported": true,
       "other_info": "Single Attempt",
@@ -109,28 +110,126 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com/"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 12.38,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.79,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "58.7%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 4.036,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "lmarena-webdev",
+      "score": 1433.16,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1470,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "16.0%",
+      "is_self_reported": false,
+      "other_info": "1k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "29.5%",
+      "is_self_reported": false,
+      "other_info": "8k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "41.0%",
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "37.0%",
+      "is_self_reported": false,
+      "other_info": "32k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "0.0%",
+      "is_self_reported": false,
+      "other_info": "1k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "2.9%",
+      "is_self_reported": false,
+      "other_info": "8k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "4.0%",
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "4.9%",
+      "is_self_reported": false,
+      "other_info": "32k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
     }
   ],
   "prices": [
     {
       "api_provider": "google-ai-studio",
-      "input_token_price": 1.25e-06,
-      "cached_input_token_price": null,
-      "output_token_price": 1e-05,
+      "input_token_price": "0.00000125",
+      "cached_input_token_price": "0.00000031",
+      "output_token_price": "0.00001",
       "throughput": "",
       "latency": "",
       "source_link": null,
-      "other_info": "Prices for input/output <200k tokens. Rises to $2.50 and $15 per 1m tokens >200k tokens."
+      "other_info": "Prices for input/output <200k tokens. Rises to $2.50 and $15 per 1m tokens >200k tokens. Cached Price rises to $0.625 per 1m tokens when prompts >200k tokens."
     },
     {
       "api_provider": "google-vertex",
-      "input_token_price": 1.25e-06,
-      "cached_input_token_price": null,
-      "output_token_price": 1e-05,
+      "input_token_price": "0.00000125",
+      "cached_input_token_price": "0.00000031",
+      "output_token_price": "0.00001",
       "throughput": "",
       "latency": "",
       "source_link": null,
-      "other_info": "Prices for input/output <200k tokens. Rises to $2.50 and $15 per 1m tokens >200k tokens."
+      "other_info": "Prices for input/output <200k tokens. Rises to $2.50 and $15 per 1m tokens >200k tokens. Cached Price rises to $0.625 per 1m tokens when prompts >200k tokens."
     }
   ]
 }

@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2025-04-05T00:00:00",
-  "input_context_length": 1048576.0,
-  "output_context_length": 1048576.0,
+  "deprecation_date": "",
+  "input_context_length": 1048576,
+  "output_context_length": 1048576,
   "license": null,
   "multimodal": true,
   "input_types": "text,image",
@@ -41,7 +42,7 @@
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "69.8%",
       "is_self_reported": true,
       "other_info": null,
@@ -53,14 +54,42 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 22.58,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 2.04,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "19.1%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 4.78,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/elimination_game"
     }
   ],
   "prices": [
     {
       "api_provider": null,
-      "input_token_price": 1.7e-07,
+      "input_token_price": "0.00000017",
       "cached_input_token_price": null,
-      "output_token_price": 8.5e-07,
+      "output_token_price": "0.00000085",
       "throughput": "",
       "latency": "",
       "source_link": null,

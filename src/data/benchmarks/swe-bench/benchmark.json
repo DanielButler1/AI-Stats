@@ -1,6 +1,7 @@
 {
   "id": "swe-bench",
   "name": "SWE-Bench",
+  "order": null,
   "description": null,
   "link": "https://www.swebench.com/"
 }

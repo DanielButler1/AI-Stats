@@ -53,25 +53,36 @@ function extractPriceInfo(
 			continue;
 		}
 
+		// Coerce string/number/empty to number|null for price fields
+		const parseNum = (val: unknown): number | null => {
+			if (typeof val === "number") return val;
+			if (typeof val === "string" && val.trim() !== "") {
+				const n = Number(val);
+				return isNaN(n) ? null : n;
+			}
+			return null;
+		};
+
+		const inputTokenPrice = parseNum(price.input_token_price);
+		const outputTokenPrice = parseNum(price.output_token_price);
+		const latency = parseNum(price.latency);
+		const throughput = parseNum(price.throughput);
+
 		// Calculate total cost for 1M tokens assuming 1:3 input:output ratio
 		const totalCost =
-			price.input_token_price !== null &&
-			price.output_token_price !== null
-				? ((price.input_token_price * 1 +
-						price.output_token_price * 3) *
-						1_000_000) /
-				  4
+			inputTokenPrice !== null && outputTokenPrice !== null
+				? ((inputTokenPrice * 1 + outputTokenPrice * 3) * 1_000_000) / 4
 				: null;
 
 		priceInfo.push({
 			provider_id: providerId,
 			provider_name: providerName,
 			provider_link: providerLink,
-			input_token_price: price.input_token_price,
-			output_token_price: price.output_token_price,
+			input_token_price: inputTokenPrice,
+			output_token_price: outputTokenPrice,
 			total_cost_1m: totalCost,
-			latency: price.latency ?? null,
-			throughput: price.throughput ?? null,
+			latency,
+			throughput,
 			other_info: price.other_info ?? null,
 		});
 	}
@@ -90,7 +101,7 @@ export async function generateMetadata(props: {
 
 		if (!model) {
 			return {
-				title: `${params.model} Pricing | AI Stats`,
+				title: `${params.model} Pricing`,
 				description: `Compare pricing for ${params.model} across all available AI API providers. Find the cheapest and best options for your use case.`,
 				keywords: [
 					`${params.model} pricing`,
@@ -112,7 +123,7 @@ export async function generateMetadata(props: {
 			.join(", ");
 
 		return {
-			title: `${model.name} Pricing & Cost Comparison | AI Stats`,
+			title: `${model.name} Pricing & Cost Comparison`,
 			description: `Compare ${model.name} pricing across providers. Find the cheapest API, see input/output token costs, latency, and more.`,
 			keywords: [
 				`${model.name} pricing`,
@@ -131,7 +142,7 @@ export async function generateMetadata(props: {
 		};
 	} catch {
 		return {
-			title: `${params.model} Pricing | AI Stats`,
+			title: `${params.model} Pricing`,
 			description: `Compare pricing for ${params.model} across all available AI API providers. Find the cheapest and best options for your use case.`,
 			keywords: [
 				`${params.model} pricing`,
@@ -538,8 +549,7 @@ export default async function ModelPricePage(props: {
 				</div>
 			</main>
 		);
-	} catch (error) {
-		console.error("Error loading model data:", error);
+	} catch {
 		return (
 			<main className="flex min-h-screen flex-col">
 				<Header />

@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": "2019-02-14T00:00:00",
   "release_date": "2019-11-05T00:00:00",
-  "input_context_length": 1024.0,
-  "output_context_length": 1024.0,
+  "deprecation_date": null,
+  "input_context_length": 1024,
+  "output_context_length": 1024,
   "license": "MIT",
   "multimodal": false,
   "input_types": "text",
@@ -26,5 +27,16 @@
   "parameter_count": null,
   "training_tokens": null,
   "benchmark_results": [],
-  "prices": []
+  "prices": [
+    {
+      "api_provider": "openai",
+      "input_token_price": "",
+      "cached_input_token_price": "",
+      "output_token_price": "",
+      "throughput": "",
+      "latency": "",
+      "source_link": "",
+      "other_info": ""
+    }
+  ]
 }

@@ -1,6 +1,7 @@
 {
   "id": "codeforces",
   "name": "Codeforces",
+  "order": null,
   "description": null,
   "link": null
 }

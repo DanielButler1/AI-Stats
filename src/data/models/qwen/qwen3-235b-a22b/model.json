@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2025-04-29T00:00:00",
-  "input_context_length": 128000.0,
-  "output_context_length": 128000.0,
+  "deprecation_date": "",
+  "input_context_length": 128000,
+  "output_context_length": 128000,
   "license": "Apache 2.0",
   "multimodal": false,
   "input_types": null,
@@ -27,7 +28,7 @@
   "training_tokens": 36000000000000,
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "47.5%",
       "is_self_reported": true,
       "other_info": null,
@@ -53,6 +54,55 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 15.41,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.9,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "55.6%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 4.48,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "lmarena-webdev",
+      "score": 1186.82,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1395,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1367,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": []

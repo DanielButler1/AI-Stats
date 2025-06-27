@@ -26,7 +26,7 @@ interface ModelTableProps {
 export function ModelTable({ models }: ModelTableProps) {
 	const [sorting, setSorting] = React.useState<SortingState>([
 		{
-			id: "gpqa_score",
+			id: "ai_stats_score",
 			desc: true,
 		},
 	]);

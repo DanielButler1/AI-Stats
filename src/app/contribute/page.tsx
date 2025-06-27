@@ -14,9 +14,9 @@ import type { Metadata } from "next";
 import { fetchAggregateData, fetchBenchmarks } from "@/lib/fetchData";
 
 export const metadata: Metadata = {
-	title: "Contribute",
+	title: "Contribute To The AI Stats Database",
 	description:
-		"Contribute to the AI model tracker by submitting new models or providers and suggesting edits.",
+		"Contribute to the AI Stats Database by submitting new models or providers and suggesting edits to the worlds largest and most accurate database of AI Data.",
 	keywords: [
 		"contribute AI",
 		"submit model",
@@ -76,8 +76,8 @@ export default async function ContributePage() {
 									</Button>
 								</Link>
 							</div>
-							<div className="flex space-x-2">
-								<Link href="/contribute/benchmarks">
+							<div className="flex flex-col sm:flex-row gap-2 w-full">
+								<Link href="/contribute/benchmarks" className="w-full sm:w-auto">
 									<Button
 										className="w-full sm:w-auto"
 										variant="secondary"
@@ -85,7 +85,7 @@ export default async function ContributePage() {
 										View Benchmark Coverage
 									</Button>
 								</Link>
-								<Link href="/contribute/prices">
+								<Link href="/contribute/prices" className="w-full sm:w-auto">
 									<Button
 										className="w-full sm:w-auto"
 										variant="secondary"

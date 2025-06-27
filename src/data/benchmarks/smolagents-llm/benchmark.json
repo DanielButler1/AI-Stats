@@ -1,6 +1,7 @@
 {
   "id": "smolagents-llm",
   "name": "SmolAgents LLM",
+  "order": null,
   "description": null,
   "link": "https://huggingface.co/spaces/smolagents/smolagents-leaderboard"
 }

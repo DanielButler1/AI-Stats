@@ -13,6 +13,7 @@ export interface ChartPoint {
     isReleased: boolean;
     originalDate?: number;
     isSota?: boolean;
+    rd?: number; // Rating deviation for error bars (Glicko only)
 }
 
 export interface TrendPoint extends ChartPoint {
@@ -23,11 +24,11 @@ export const processModelData = (
     models: ExtendedModel[],
     scoringType: "gpqa" | "glicko"
 ): ChartPoint[] => {
-    return models
+    const points = models
         .filter((model) => {
             if (scoringType === "gpqa") {
                 const gpqaScore = model.benchmark_results?.find(
-                    (metric) => metric.benchmark_id.toLowerCase() === "gpqa"
+                    (metric) => metric.benchmark_id.toLowerCase() === "gpqa-diamond"
                 )?.score;
                 return !!gpqaScore && !!(model.release_date || model.announced_date);
             } else {
@@ -46,10 +47,11 @@ export const processModelData = (
         })
         .map((model) => {
             let normalizedScore: number;
+            let rd: number | undefined = undefined;
 
             if (scoringType === "gpqa") {
                 const gpqaMetric = model.benchmark_results?.find(
-                    (metric) => metric.benchmark_id.toLowerCase() === "gpqa"
+                    (metric) => metric.benchmark_id.toLowerCase() === "gpqa-diamond"
                 );
                 const rawScore = gpqaMetric ? gpqaMetric.score : 0;
                 const scoreText =
@@ -62,6 +64,7 @@ export const processModelData = (
                     : numericValue * 100;
             } else {
                 normalizedScore = model.glickoRating?.rating ?? 0;
+                rd = model.glickoRating?.rd;
             }
 
             const dateToUse = model.release_date || model.announced_date;
@@ -83,10 +86,11 @@ export const processModelData = (
                 },
                 isAnnouncedOnly,
                 isReleased: !!model.release_date,
+                ...(rd !== undefined ? { rd } : {}), // Only add rd if defined
             };
         })
-        .filter((d): d is ChartPoint => d !== null) // Remove any nulls from mapping
-        .sort((a, b) => a.date - b.date);
+        .filter((d): d is ChartPoint => d !== null);
+    return points.sort((a, b) => a.date - b.date);
 };
 
 export const generateTrendLineData = (chartData: ChartPoint[]): TrendPoint[] => {

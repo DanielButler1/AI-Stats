@@ -1,6 +1,7 @@
 {
   "id": "arc-agi-1",
   "name": "ARC-AGI-1",
+  "order": null,
   "description": null,
   "link": "https://arcprize.org/leaderboard"
 }

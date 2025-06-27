@@ -1,0 +1,39 @@
+{
+  "id": "deepseek-r1",
+  "name": "R1",
+  "provider": "deepseek",
+  "status": "Available",
+  "previous_model_id": "",
+  "description": null,
+  "announced_date": "2025-01-20T00:00:00",
+  "release_date": "2025-01-20T00:00:00",
+  "deprecation_date": "",
+  "input_context_length": 128000,
+  "output_context_length": 131072,
+  "license": "MIT License",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": false,
+  "reasoning": true,
+  "fine_tunable": true,
+  "knowledge_cutoff": "",
+  "api_reference_link": "https://api-docs.deepseek.com/guides/reasoning_model",
+  "playground_link": "",
+  "paper_link": "https://github.com/deepseek-ai/DeepSeek-R1/blob/main/DeepSeek_R1.pdf",
+  "announcement_link": "https://api-docs.deepseek.com/news/news250120",
+  "repository_link": "https://github.com/deepseek-ai/DeepSeek-R1",
+  "weights_link": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
+  "parameter_count": 671000000000,
+  "training_tokens": 14800000000000,
+  "benchmark_results": [
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "56.9%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    }
+  ],
+  "prices": []
+}

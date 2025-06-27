@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2025-03-25T00:00:00",
-  "input_context_length": 131072.0,
-  "output_context_length": 131072.0,
+  "deprecation_date": "",
+  "input_context_length": 131072,
+  "output_context_length": 131072,
   "license": "MIT + Model License (Commercial use allowed)",
   "multimodal": false,
   "input_types": null,
@@ -41,7 +42,7 @@
       "source_link": "https://api-docs.deepseek.com/news/news250325"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "68.4%",
       "is_self_reported": true,
       "other_info": null,
@@ -53,6 +54,41 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 26.15,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.95,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "17.4%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "lmarena-webdev",
+      "score": 1206.74,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1396,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": []

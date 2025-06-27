@@ -12,7 +12,7 @@ import { Analytics } from "@vercel/analytics/next";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: { default: "AI Stats", template: "%s | AI Stats" },
+	title: { default: "AI Stats", template: "%s" },
 	description:
 		"Browse and compare state-of-the-art AI models, benchmarks, features, and pricing.",
 	authors: [{ name: "Daniel Butler" }],

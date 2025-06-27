@@ -3,23 +3,24 @@
   "name": "Grok 3 Beta",
   "provider": "x-ai",
   "status": "Deprecated",
-  "previous_model_id": "grok-2",
+  "previous_model_id": "grok-2-1212",
   "description": null,
   "announced_date": "2025-02-19T00:00:00",
   "release_date": "2025-02-19T00:00:00",
-  "input_context_length": 131072.0,
-  "output_context_length": 8000.0,
+  "deprecation_date": "",
+  "input_context_length": 131072,
+  "output_context_length": 8000,
   "license": "Proprietary",
   "multimodal": false,
   "input_types": "text",
   "output_types": "text",
-  "web_access": true,
+  "web_access": false,
   "reasoning": true,
   "fine_tunable": "",
   "knowledge_cutoff": "2024-11-17",
   "api_reference_link": null,
-  "playground_link": null,
-  "paper_link": null,
+  "playground_link": "",
+  "paper_link": "",
   "announcement_link": "https://x.ai/news/grok-3",
   "repository_link": "",
   "weights_link": "",
@@ -41,7 +42,7 @@
       "source_link": "https://livebench.ai/#/"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "75.4%",
       "is_self_reported": true,
       "other_info": null,
@@ -104,14 +105,14 @@
       "source_link": "https://x.ai/news/grok-3"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "80.2%",
       "is_self_reported": true,
       "other_info": "Think",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "84.6%",
       "is_self_reported": true,
       "other_info": "Think, Cons@64",
@@ -139,7 +140,7 @@
       "source_link": "https://x.ai/news/grok-3"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "75.4%",
       "is_self_reported": true,
       "other_info": null,
@@ -165,6 +166,41 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 14.19,
+      "is_self_reported": false,
+      "other_info": "No Reasoning",
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 2.07,
+      "is_self_reported": false,
+      "other_info": "No Reasoning",
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "20.3%",
+      "is_self_reported": false,
+      "other_info": "No Reasoning",
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 6.197,
+      "is_self_reported": false,
+      "other_info": "No Reasoning",
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1406,
+      "is_self_reported": false,
+      "other_info": "Early Grok-3",
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": []

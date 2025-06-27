@@ -1,6 +1,7 @@
 {
   "id": "galileo-agent",
   "name": "Galileo Agent",
+  "order": null,
   "description": null,
   "link": "https://huggingface.co/spaces/galileo-ai/agent-leaderboard"
 }

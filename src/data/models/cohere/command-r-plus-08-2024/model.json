@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": "2024-08-30T00:00:00",
   "release_date": "2024-08-30T00:00:00",
-  "input_context_length": 128000.0,
-  "output_context_length": 128000.0,
+  "deprecation_date": "",
+  "input_context_length": 128000,
+  "output_context_length": 128000,
   "license": "CC-BY-NC",
   "multimodal": false,
   "input_types": "text",
@@ -32,7 +33,25 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1275,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
-  "prices": []
+  "prices": [
+    {
+      "api_provider": "cohere",
+      "input_token_price": "0.0000025",
+      "cached_input_token_price": "",
+      "output_token_price": "0.00001",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://cohere.com/pricing",
+      "other_info": null
+    }
+  ]
 }

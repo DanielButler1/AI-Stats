@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": "2025-02-24T00:00:00",
   "release_date": "2025-02-24T00:00:00",
-  "input_context_length": 200000.0,
-  "output_context_length": 64000.0,
+  "deprecation_date": "",
+  "input_context_length": 200000,
+  "output_context_length": 64000,
   "license": "Proprietary",
   "multimodal": true,
   "input_types": "text,image",
@@ -104,7 +105,7 @@
       "source_link": "https://www.anthropic.com/news/claude-3-7-sonnet"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "84.8%",
       "is_self_reported": true,
       "other_info": null,
@@ -160,7 +161,7 @@
       "source_link": "https://livebench.ai/#/"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "78.2%",
       "is_self_reported": null,
       "other_info": "Thinking",
@@ -186,17 +187,94 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 14.71,
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 19.76,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.73,
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.88,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "33.6%",
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "19.2%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 6.311,
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 5.923,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "lmarena-webdev",
+      "score": 1357.03,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1385,
+      "is_self_reported": false,
+      "other_info": "32k Thinking",
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1374,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": [
     {
       "api_provider": "anthropic",
-      "input_token_price": 3e-06,
-      "cached_input_token_price": null,
-      "output_token_price": 1.5e-05,
+      "input_token_price": "0.000003",
+      "cached_input_token_price": "0.000006",
+      "output_token_price": "0.000015",
       "throughput": "",
       "latency": "",
-      "source_link": null,
+      "source_link": "https://docs.anthropic.com/en/docs/about-claude/pricing",
       "other_info": null
     }
   ]

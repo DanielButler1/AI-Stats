@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": "2025-05-20T00:00:00",
   "release_date": "2025-05-20T00:00:00",
-  "input_context_length": 1048576.0,
-  "output_context_length": 65536.0,
+  "deprecation_date": "",
+  "input_context_length": 1048576,
+  "output_context_length": 65536,
   "license": "Proprietary",
   "multimodal": true,
   "input_types": "text,image,video,audio",
@@ -76,7 +77,7 @@
       "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "82.8%",
       "is_self_reported": true,
       "other_info": "Pass@1",
@@ -88,7 +89,32 @@
       "is_self_reported": true,
       "other_info": "Lite",
       "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
+    },
+    {
+      "benchmark_id": "lmarena-webdev",
+      "score": 1304.86,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1417,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
-  "prices": []
+  "prices": [
+    {
+      "api_provider": "google-ai-studio",
+      "input_token_price": "0.0000003",
+      "cached_input_token_price": "0.000000075",
+      "output_token_price": "0.0000025",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://ai.google.dev/gemini-api/docs/pricing",
+      "other_info": ""
+    }
+  ]
 }

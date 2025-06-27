@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": "2025-05-20T00:00:00",
   "release_date": "2025-05-20T00:00:00",
-  "input_context_length": 32768.0,
-  "output_context_length": 32768.0,
+  "deprecation_date": "",
+  "input_context_length": 32768,
+  "output_context_length": 32768,
   "license": "Gemma",
   "multimodal": true,
   "input_types": "text,image,video",
@@ -25,6 +26,14 @@
   "weights_link": null,
   "parameter_count": null,
   "training_tokens": null,
-  "benchmark_results": [],
+  "benchmark_results": [
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1308,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    }
+  ],
   "prices": []
 }

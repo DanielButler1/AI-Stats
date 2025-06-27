@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2024-08-23T00:00:00",
-  "input_context_length": 128000.0,
-  "output_context_length": 128000.0,
+  "deprecation_date": "",
+  "input_context_length": 128000,
+  "output_context_length": 128000,
   "license": "MIT",
   "multimodal": false,
   "input_types": null,
@@ -27,7 +28,7 @@
   "training_tokens": 3400000000000,
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "30.4%",
       "is_self_reported": true,
       "other_info": null,

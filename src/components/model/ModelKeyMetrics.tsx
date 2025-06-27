@@ -30,11 +30,14 @@ export default function ModelKeyMetrics({ model }: ModelKeyMetricsProps) {
 	) {
 		if (!Array.isArray(prices) || prices.length === 0)
 			return { price: null, info: null };
-		let min = null;
+
+		let min: number | null = null;
 		let info: string | null = null;
+
 		for (const p of prices) {
-			if (typeof p[key] === "number" && (min === null || p[key] < min)) {
-				min = p[key];
+			const price = parseFloat(p[key]);
+			if (!isNaN(price) && (min === null || price < min)) {
+				min = price;
 				info = p.other_info || null;
 			}
 		}

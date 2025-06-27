@@ -7,19 +7,20 @@
   "description": null,
   "announced_date": "2025-02-19T00:00:00",
   "release_date": "2025-02-19T00:00:00",
-  "input_context_length": 131072.0,
-  "output_context_length": 8000.0,
+  "deprecation_date": "",
+  "input_context_length": 131072,
+  "output_context_length": 8000,
   "license": "Proprietary",
   "multimodal": false,
   "input_types": "text",
   "output_types": "text",
-  "web_access": true,
+  "web_access": false,
   "reasoning": true,
   "fine_tunable": "",
   "knowledge_cutoff": "2024-11-17",
   "api_reference_link": null,
-  "playground_link": null,
-  "paper_link": null,
+  "playground_link": "",
+  "paper_link": "",
   "announcement_link": "https://x.ai/news/grok-3",
   "repository_link": "",
   "weights_link": "",
@@ -55,14 +56,14 @@
       "source_link": "https://x.ai/news/grok-3"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "80.3%",
       "is_self_reported": true,
       "other_info": "Think",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "84.0%",
       "is_self_reported": true,
       "other_info": "Think, Cons@64",
@@ -76,7 +77,7 @@
       "source_link": "https://x.ai/news/grok-3"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "66.2%",
       "is_self_reported": true,
       "other_info": null,
@@ -102,6 +103,62 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 10.8,
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 14.04,
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.89,
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.9,
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "30.9%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "26.0%",
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 7.032,
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1355,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": []

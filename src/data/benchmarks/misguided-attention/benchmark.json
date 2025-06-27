@@ -1,6 +1,7 @@
 {
   "id": "misguided-attention",
   "name": "Misguided Attention",
+  "order": null,
   "description": null,
   "link": "https://github.com/cpldcpu/MisguidedAttention"
 }

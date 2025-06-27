@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2023-06-20T00:00:00",
-  "input_context_length": 4096.0,
-  "output_context_length": 2048.0,
+  "deprecation_date": "",
+  "input_context_length": 4096,
+  "output_context_length": 2048,
   "license": null,
   "multimodal": false,
   "input_types": "text",
@@ -29,9 +30,9 @@
   "prices": [
     {
       "api_provider": null,
-      "input_token_price": 2.2e-07,
+      "input_token_price": "0.00000022",
       "cached_input_token_price": null,
-      "output_token_price": 2.2e-07,
+      "output_token_price": "0.00000022",
       "throughput": "",
       "latency": "",
       "source_link": null,

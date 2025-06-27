@@ -7,6 +7,7 @@
   "description": null,
   "announced_date": null,
   "release_date": null,
+  "deprecation_date": "",
   "input_context_length": null,
   "output_context_length": null,
   "license": null,
@@ -17,14 +18,14 @@
   "reasoning": false,
   "fine_tunable": null,
   "knowledge_cutoff": null,
-  "api_reference_link": null,
-  "playground_link": null,
-  "paper_link": null,
-  "announcement_link": null,
-  "repository_link": null,
-  "weights_link": null,
-  "parameter_count": null,
-  "training_tokens": null,
+  "api_reference_link": "",
+  "playground_link": "",
+  "paper_link": "",
+  "announcement_link": "https://x.ai/news/grok",
+  "repository_link": "",
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
   "benchmark_results": [
     {
       "benchmark_id": "gsm8k",
@@ -55,5 +56,16 @@
       "source_link": "https://x.ai/news/grok"
     }
   ],
-  "prices": []
+  "prices": [
+    {
+      "api_provider": "x-ai",
+      "input_token_price": "",
+      "cached_input_token_price": "",
+      "output_token_price": "",
+      "throughput": "",
+      "latency": "",
+      "source_link": "",
+      "other_info": ""
+    }
+  ]
 }

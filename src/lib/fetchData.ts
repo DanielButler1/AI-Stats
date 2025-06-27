@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import type { Model, Provider, Benchmark, ExtendedModel, BenchmarkResult, APIProvider, Price } from '@/data/types';
+import { Glicko2Player } from './Glicko2Player';
 
 const MODELS_DIR = path.join(process.cwd(), 'src/data/models');
 const PROVIDERS_DIR = path.join(process.cwd(), 'src/data/providers');
@@ -11,14 +12,6 @@ const API_PROVIDERS_DIR = path.join(process.cwd(), 'src/data/api_providers');
 const INITIAL_RATING = 1500;
 const INITIAL_RD = 350;
 const INITIAL_VOL = 0.06;
-const TAU = 0.5;
-
-interface GlickoPlayer {
-    getRating(): number;
-    getRd(): number;
-    getVol(): number;
-    update(): void;
-}
 
 const providerCache = new Map<string, Provider>();
 const benchmarkCache = new Map<string, Benchmark>();
@@ -65,60 +58,104 @@ async function getAPIProvider(apiProviderId: string): Promise<APIProvider | null
     }
 }
 
-async function initGlicko() {
-    const settings = { tau: TAU, rating: INITIAL_RATING, rd: INITIAL_RD, vol: INITIAL_VOL };
-    const mod: any = await import('glicko2');
-    const Glicko2Class: any = mod.Glicko2 || mod.default?.Glicko2;
-    if (!Glicko2Class) throw new Error('Failed to load Glicko2 constructor');
-    return new Glicko2Class(settings);
+function computeEffectivePrice(prices: Price[] | null): number {
+    if (!prices || prices.length === 0) return Infinity;
+
+    const effectivePrices = prices.map(p => {
+        const input = p.input_token_price ?? 0;
+        const output = p.output_token_price ?? 0;
+        return ((input * 1) + (output * 3)) * 1000000;
+    });
+
+    return Math.min(...effectivePrices); // use lowest price across APIs
 }
 
 async function calculateGlickoRatings(models: ExtendedModel[]): Promise<void> {
     try {
-        const glicko2Instance = await initGlicko();
-        const modelPlayers = new Map<string, GlickoPlayer>();
-        models.forEach(model => { modelPlayers.set(model.id, glicko2Instance.makePlayer()); });
-        const benchmarksByName: Record<string, { model: ExtendedModel; score: number }[]> = {};
-        models.forEach(model => {
-            if (Array.isArray(model.benchmark_results)) {
-                model.benchmark_results.forEach(b => {
-                    let numericScore: number;
-                    if (typeof b.score === 'string') numericScore = parseFloat(b.score.replace('%', ''));
-                    else numericScore = b.score;
-                    if (isNaN(numericScore)) numericScore = 0;
-                    if (!benchmarksByName[b.benchmark.name]) benchmarksByName[b.benchmark.name] = [];
-                    benchmarksByName[b.benchmark.name].push({ model, score: numericScore });
-                });
+        const modelPlayers = new Map<string, Glicko2Player>();
+
+        // Initialise players
+        for (const model of models) {
+            modelPlayers.set(model.id, new Glicko2Player(INITIAL_RATING, INITIAL_RD, INITIAL_VOL));
+        }
+
+        // Keep best score per model per benchmark
+        const benchmarkScores: Record<string, Map<string, { model: ExtendedModel; score: number; isLowerBetter: boolean }>> = {};
+
+        for (const model of models) {
+            if (!Array.isArray(model.benchmark_results)) continue;
+
+            for (const result of model.benchmark_results) {
+                const score = typeof result.score === 'string' ? parseFloat(result.score.replace('%', '')) : result.score;
+                if (isNaN(score)) continue;
+
+                const benchmark = result.benchmark;
+                if (!benchmark) continue;
+
+                const benchmarkName = benchmark.name;
+                const isLowerBetter = benchmark.order === 'lower';
+
+                if (!benchmarkScores[benchmarkName]) {
+                    benchmarkScores[benchmarkName] = new Map();
+                }
+
+                const current = benchmarkScores[benchmarkName].get(model.id);
+                const isBetter = !current || (isLowerBetter ? score < current.score : score > current.score);
+
+                if (isBetter) {
+                    benchmarkScores[benchmarkName].set(model.id, { model, score, isLowerBetter });
+                }
             }
-        });
-        Object.values(benchmarksByName).forEach(entries => {
-            const matches: [GlickoPlayer, GlickoPlayer, number][] = [];
+        }
+
+        // Convert to flat matches and update players immediately (Python style)
+        for (const [, entriesMap] of Object.entries(benchmarkScores)) {
+            const entries = Array.from(entriesMap.values());
+
             for (let i = 0; i < entries.length; i++) {
                 for (let j = i + 1; j < entries.length; j++) {
-                    const e1 = entries[i];
-                    const e2 = entries[j];
-                    const p1 = modelPlayers.get(e1.model.id);
-                    const p2 = modelPlayers.get(e2.model.id);
-                    if (p1 && p2) {
-                        const score = e1.score > e2.score ? 1 : e1.score < e2.score ? 0 : 0.5;
-                        matches.push([p1, p2, score]);
+                    const a = entries[i];
+                    const b = entries[j];
+
+                    const aWins = a.score !== b.score
+                        ? (a.isLowerBetter ? a.score < b.score : a.score > b.score)
+                        : null;
+
+                    const aPlayer = modelPlayers.get(a.model.id)!;
+                    const bPlayer = modelPlayers.get(b.model.id)!;
+
+                    if (aWins === null) {
+                        // Draw
+                        aPlayer.updatePlayer([bPlayer.getRating()], [bPlayer.getRd()], [0.5]);
+                        bPlayer.updatePlayer([aPlayer.getRating()], [aPlayer.getRd()], [0.5]);
+                    } else {
+                        const scoreA = aWins ? 1.0 : 0.0;
+                        const scoreB = 1.0 - scoreA;
+
+                        aPlayer.updatePlayer([bPlayer.getRating()], [bPlayer.getRd()], [scoreA]);
+                        bPlayer.updatePlayer([aPlayer.getRating()], [aPlayer.getRd()], [scoreB]);
                     }
                 }
             }
-            if (matches.length) glicko2Instance.updateRatings(matches);
-        });
-        models.forEach(model => {
+        }
+
+        // Final assignment of ratings to models
+        for (const model of models) {
             const player = modelPlayers.get(model.id);
             if (player) {
                 model.glickoRating = {
                     rating: player.getRating(),
                     rd: player.getRd(),
-                    vol: player.getVol(),
+                    vol: player.vol,
                 };
+
+                const effectivePrice = computeEffectivePrice(model.prices);
+                model.valueScore = model.glickoRating.rating / (effectivePrice + 1);
             }
-        });
-    } catch {
-        // ignore glicko errors
+        }
+
+    } catch (err) {
+        console.error("Glicko rating calculation failed:", err);
     }
 }
 
@@ -146,7 +183,7 @@ export async function fetchAggregateData(): Promise<ExtendedModel[]> {
                                 }
                                 return {
                                     ...br,
-                                    benchmark: { id: br.benchmark_id, name: br.benchmark_id, description: null, link: null },
+                                    benchmark: { id: br.benchmark_id, name: br.benchmark_id, order: '', description: '', link: '' },
                                 };
                             })
                         );
@@ -175,6 +212,7 @@ export async function fetchAggregateData(): Promise<ExtendedModel[]> {
                             description: model.description,
                             announced_date: model.announced_date,
                             release_date: model.release_date,
+                            deprecation_date: model.deprecation_date,
                             input_context_length: model.input_context_length,
                             output_context_length: model.output_context_length,
                             license: model.license,

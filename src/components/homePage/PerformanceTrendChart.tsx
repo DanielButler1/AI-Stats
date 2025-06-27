@@ -10,6 +10,7 @@ import {
 	ResponsiveContainer,
 	CartesianGrid,
 	Area,
+	ErrorBar, // Add ErrorBar import
 } from "recharts";
 import {
 	Card,
@@ -37,7 +38,7 @@ export default function PerformanceTrendChart({
 	const [isMobile, setIsMobile] = useState(false);
 	const [selectedProviders, setSelectedProviders] = useState<string[]>([]);
 	const [selectedModels, setSelectedModels] = useState<string[]>([]);
-	const [scoringType, setScoringType] = useState<"gpqa" | "glicko">("gpqa");
+	const [scoringType, setScoringType] = useState<"gpqa" | "glicko">("glicko");
 	const router = useRouter();
 
 	// Mobile detection
@@ -369,7 +370,18 @@ export default function PerformanceTrendChart({
 										`/models/${encodeURIComponent(data.id)}`
 									);
 								}}
-							/>
+								isAnimationActive={false} // Disable animation to keep ErrorBar visible
+							>
+								{/* Conditionally render error bars for Glicko mode */}
+								{scoringType === "glicko" && (
+									<ErrorBar
+										dataKey="rd"
+										width={4}
+										stroke="#6366f1"
+										direction="y"
+									/>
+								)}
+							</Scatter>
 						</ComposedChart>
 					</ResponsiveContainer>
 				</div>

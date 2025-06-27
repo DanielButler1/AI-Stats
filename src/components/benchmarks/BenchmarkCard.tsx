@@ -40,11 +40,6 @@ export default function BenchmarkCard({
 				</CardTitle>
 			</CardHeader>
 			<CardContent className="flex flex-col flex-grow">
-				{description && (
-					<p className="text-sm text-muted-foreground mb-4">
-						{description}
-					</p>
-				)}
 				<div className="mt-auto">
 					<div className="flex items-center justify-between">
 						<Badge

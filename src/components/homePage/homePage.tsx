@@ -3,7 +3,7 @@
 import SoTAModel from "@/components/homePage/SoTAModels";
 import PerformanceTrendChart from "@/components/homePage/PerformanceTrendChart";
 import KeyInsights from "@/components/homePage/KeyInsights";
-import RecentModels from "@/components/homePage/RecentModels";
+import RecentModels from "@/components/homePage/ModelUpdates";
 import TableWrapper from "@/components/homePage/table/TableWrapper";
 import Header from "@/components/header";
 import type { ExtendedModel } from "@/data/types";

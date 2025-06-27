@@ -5,8 +5,12 @@ import { Card } from "@/components/ui/card";
 import { fetchAggregateData } from "@/lib/fetchData";
 import type { Metadata } from "next";
 
+const now = new Date();
+const month = now.toLocaleString("en-US", { month: "long" });
+const year = now.getFullYear();
+
 export const metadata: Metadata = {
-	title: "AI Models Directory | Compare State-of-the-Art Models, Benchmarks & Pricing - AI Stats",
+	title: `AI Models | Compare State-of-the-Art Models, Benchmarks & Pricing - ${month} ${year}`,
 	description:
 		"Explore a comprehensive directory of AI models. Compare state-of-the-art models by benchmarks, features, providers, and pricing. Find the best AI model for your needs on AI Stats.",
 	keywords: [

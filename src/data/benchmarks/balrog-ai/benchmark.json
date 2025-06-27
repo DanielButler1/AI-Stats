@@ -1,6 +1,7 @@
 {
   "id": "balrog-ai",
   "name": "Balrog-AI",
+  "order": null,
   "description": null,
   "link": "https://balrogai.com/"
 }

@@ -4,8 +4,25 @@ import { fetchAggregateData } from "@/lib/fetchData";
 import HomePage from "@/components/homePage/homePage";
 import type { Metadata } from "next";
 
+const now = new Date();
+const monthNames = [
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December",
+];
+const currentMonthYear = `${monthNames[now.getMonth()]} ${now.getFullYear()}`;
+
 export const metadata: Metadata = {
-	title: "AI Model Leaderboard & Comparison Tool | AI Stats",
+	title: `AI Leaderboard and Rankings - ${currentMonthYear}`,
 	description:
 		"Compare state-of-the-art AI models with detailed benchmarks, features, and pricing. Track AI progress, find the best models for your needs, and stay updated on the latest releases.",
 	keywords: [

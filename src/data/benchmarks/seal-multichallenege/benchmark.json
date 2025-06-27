@@ -1,6 +1,7 @@
 {
   "id": "seal-multichallenege",
   "name": "SEAL MultiChallenege",
+  "order": null,
   "description": null,
   "link": "https://scale.com/leaderboard/multichallenge"
 }

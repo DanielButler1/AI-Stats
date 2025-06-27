@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": null,
-  "input_context_length": 2097152.0,
-  "output_context_length": 8192.0,
+  "deprecation_date": "",
+  "input_context_length": 2097152,
+  "output_context_length": 8192,
   "license": "Proprietary",
   "multimodal": true,
   "input_types": "text,image,video,audio",
@@ -32,6 +33,20 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "lmarena-webdev",
+      "score": 892.55,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1346,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": []

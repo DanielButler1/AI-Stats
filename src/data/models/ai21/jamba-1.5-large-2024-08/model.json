@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": "2024-08-22T00:00:00",
   "release_date": "2024-08-22T00:00:00",
-  "input_context_length": 256000.0,
-  "output_context_length": 256000.0,
+  "deprecation_date": "2025-05-06T00:00:00",
+  "input_context_length": 256000,
+  "output_context_length": 256000,
   "license": "Jamba Open Model License",
   "multimodal": false,
   "input_types": "text",
@@ -27,11 +28,18 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "36.9%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/ai21labs/AI21-Jamba-1.5-Large"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1283,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": []

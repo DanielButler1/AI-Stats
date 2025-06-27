@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": "2025-06-10T00:00:00",
   "release_date": "2025-06-10T00:00:00",
-  "input_context_length": 128000.0,
-  "output_context_length": 128000.0,
+  "deprecation_date": "",
+  "input_context_length": 128000,
+  "output_context_length": 128000,
   "license": "Proprietary",
   "multimodal": false,
   "input_types": "text",
@@ -55,7 +56,7 @@
       "source_link": "https://mistral.ai/static/research/magistral.pdf"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "70.8%",
       "is_self_reported": true,
       "other_info": null,
@@ -67,14 +68,42 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://mistral.ai/news/magistral"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "5.9%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "6.1%",
+      "is_self_reported": false,
+      "other_info": "Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "0.0%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "0.0%",
+      "is_self_reported": false,
+      "other_info": "Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
     }
   ],
   "prices": [
     {
       "api_provider": "mistral",
-      "input_token_price": 2e-06,
+      "input_token_price": "0.000002",
       "cached_input_token_price": null,
-      "output_token_price": 5e-06,
+      "output_token_price": "0.000005",
       "throughput": "",
       "latency": "",
       "source_link": "https://mistral.ai/pricing#api-pricing",

@@ -1,6 +1,7 @@
 {
   "id": "dubesor-llm",
   "name": "Dubesor LLM",
+  "order": null,
   "description": null,
   "link": "https://dubesor.de/benchtable.html"
 }

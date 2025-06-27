@@ -196,6 +196,11 @@ export default function ModelBenchmarksComparison({
 							const isAiStatsScore =
 								benchmarkId === "ai-stats-score";
 
+							// Check if this benchmark prefers lower scores
+							const isLowerBetter =
+								benchmark.benchmark &&
+								benchmark.benchmark.order === "lower";
+
 							// For each model, collect all results for this benchmark
 							const modelsWithThisBenchmark = allModels
 								.map((m) => {
@@ -233,7 +238,7 @@ export default function ModelBenchmarksComparison({
 									);
 									if (!results.length) return null;
 
-									// For chart: pick the best score (highest)
+									// For chart: pick the best score (highest or lowest depending on order)
 									const parsedResults = results.map(
 										(result: any) => {
 											const score = parseScore(
@@ -243,7 +248,6 @@ export default function ModelBenchmarksComparison({
 												typeof result.score ===
 													"string" &&
 												result.score.includes("%");
-
 											return {
 												score,
 												isPercentage,
@@ -262,8 +266,13 @@ export default function ModelBenchmarksComparison({
 										validResults.length > 0
 											? validResults.reduce(
 													(a, b) =>
-														(a.score as number) >
-														(b.score as number)
+														isLowerBetter
+															? (a.score as number) <
+															  (b.score as number)
+																? a
+																: b
+															: (a.score as number) >
+															  (b.score as number)
 															? a
 															: b,
 													validResults[0]
@@ -292,7 +301,11 @@ export default function ModelBenchmarksComparison({
 										allResults: any[];
 									} => m !== null
 								)
-								.sort((a, b) => b.score - a.score);
+								.sort((a, b) =>
+									isLowerBetter
+										? a.score - b.score
+										: b.score - a.score
+								);
 
 							const currentIdx =
 								modelsWithThisBenchmark.findIndex(
@@ -322,7 +335,6 @@ export default function ModelBenchmarksComparison({
 													{benchmarkName}
 												</Link>
 												<Badge variant="secondary">
-													{" "}
 													{current
 														? current.score.toFixed(
 																2
@@ -332,6 +344,14 @@ export default function ModelBenchmarksComparison({
 																: "")
 														: "-"}
 												</Badge>
+												{isLowerBetter && (
+													<Badge
+														variant="outline"
+														className="ml-1 text-xs text-blue-600 border-blue-400"
+													>
+														Lower is better
+													</Badge>
+												)}
 												{currentIdx !== -1 && (
 													<Badge variant="outline">
 														#{currentIdx + 1}/
@@ -383,14 +403,86 @@ export default function ModelBenchmarksComparison({
 													/>
 													<YAxis
 														type="number"
-														domain={[0, 100]}
+														domain={(() => {
+															const scores =
+																modelsWithThisBenchmark.map(
+																	(m) =>
+																		m.score
+																);
+															if (!scores.length)
+																return isLowerBetter
+																	? [100, 0]
+																	: [0, 100];
+															const min =
+																Math.min(
+																	...scores
+																);
+															const max =
+																Math.max(
+																	...scores
+																);
+															const range =
+																max - min || 1;
+															const pad =
+																range * 0.1;
+															const lower =
+																Math.max(
+																	0,
+																	Math.floor(
+																		min -
+																			pad
+																	)
+																); // Ensure min is 0
+															const upper =
+																Math.ceil(
+																	max + pad
+																);
+															if (isLowerBetter) {
+																return [
+																	upper,
+																	lower,
+																];
+															} else {
+																return [
+																	lower,
+																	upper,
+																];
+															}
+														})()}
 														tickFormatter={(
 															value
-														) =>
-															Math.round(
-																value
-															).toString()
-														}
+														) => {
+															const scores =
+																modelsWithThisBenchmark.map(
+																	(m) =>
+																		m.score
+																);
+															const min =
+																Math.min(
+																	...scores
+																);
+															const max =
+																Math.max(
+																	...scores
+																);
+															const range =
+																max - min || 1;
+															if (range < 1) {
+																return value.toFixed(
+																	2
+																);
+															} else if (
+																range < 10
+															) {
+																return value.toFixed(
+																	1
+																);
+															} else {
+																return Math.round(
+																	value
+																).toString();
+															}
+														}}
 													/>
 													<Tooltip
 														content={

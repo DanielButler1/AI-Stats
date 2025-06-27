@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2025-04-07T00:00:00",
-  "input_context_length": 131072.0,
-  "output_context_length": 131072.0,
+  "deprecation_date": "",
+  "input_context_length": 131072,
+  "output_context_length": 131072,
   "license": "Llama 3.1 Community License",
   "multimodal": false,
   "input_types": null,
@@ -34,11 +35,18 @@
       "source_link": "https://build.nvidia.com/nvidia/llama-3_1-nemotron-ultra-253b-v1/modelcard"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "76.0%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://build.nvidia.com/nvidia/llama-3_1-nemotron-ultra-253b-v1/modelcard"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1326,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": []

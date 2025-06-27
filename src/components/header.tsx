@@ -222,13 +222,13 @@ export default function Header() {
 				</div>
 			</header>
 			{/* Support banner: visible on all screen sizes */}
-			<div className="bg-gray-50 text-gray-700 text-center py-1 text-xs border-b flex justify-center items-center gap-2">
+			<div className="bg-gray-50 dark:bg-zinc-900 text-gray-700 dark:text-gray-200 text-center py-1 text-xs border-b dark:border-zinc-800 flex justify-center items-center gap-2">
 				<span>Enjoying AI Stats?</span>
 				<Link
 					href="https://coff.ee/phaseo"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="group flex items-center gap-1 text-gray-900 hover:text-primary font-medium transition-colors duration-200"
+					className="group flex items-center gap-1 text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary font-medium transition-colors duration-200"
 				>
 					<Coffee className="h-4 w-4 transition-transform duration-300 group-hover:scale-125 group-hover:drop-shadow-md group-hover:animate-coffee-wiggle" />
 					Support us

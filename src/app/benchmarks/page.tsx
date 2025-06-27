@@ -2,10 +2,10 @@ import Header from "@/components/header";
 import BenchmarksDisplay from "@/components/benchmarks/BenchmarksDisplay";
 import { Card } from "@/components/ui/card";
 import type { Metadata } from "next";
-import { fetchBenchmarks } from "@/lib/fetchData";
+import { fetchBenchmarks, fetchAggregateData } from "@/lib/fetchData";
 
 export const metadata: Metadata = {
-	title: "AI Model Benchmarks Directory | Compare Benchmark Scores & Usage - AI Stats",
+	title: "AI Model Benchmarks | Compare Benchmark Scores Across Leading AI Models",
 	description:
 		"Explore a comprehensive directory of AI model benchmarks. Compare benchmark scores, see usage statistics, and discover which benchmarks are most popular across state-of-the-art AI models. Make informed decisions with AI Stats.",
 	keywords: [
@@ -25,6 +25,12 @@ export const metadata: Metadata = {
 export default async function BenchmarksPage() {
 	try {
 		const benchmarks = await fetchBenchmarks();
+		const models = await fetchAggregateData();
+
+		// Count models with a glickoRating that isn't 1500
+		const aiStatsScoreUsage = models.filter(
+			(model) => model.glickoRating && model.glickoRating.rating !== 1500
+		).length;
 
 		// Extract usage counts and source link information from the benchmarks data
 		const benchmarkUsage: Record<string, number> = {};
@@ -41,22 +47,41 @@ export default async function BenchmarksPage() {
 			}
 		);
 
+		// Insert a benchmark at the top of the benchmarks array with the title 'AI Stats Score'
+		const aiStatsScoreBenchmark = {
+			id: "ai-stats-score",
+			name: "AI Stats Score",
+			order: "0",
+			description:
+				"A composite score derived from Glicko-2 ratings across all benchmarks.",
+			link: "",
+			usage: aiStatsScoreUsage,
+			hasSourceLink: false,
+		};
+		const benchmarksWithAIStats = [aiStatsScoreBenchmark, ...benchmarks];
+
 		return (
 			<main className="flex min-h-screen flex-col">
 				<Header />
 				<div className="container mx-auto px-4 py-8">
 					<Card className="mb-4 shadow-lg p-4">
-						<h2 className="text-3xl font-bold">
+						<h1 className="text-3xl font-bold">
 							All Benchmarks{" "}
 							<span className="text-muted-foreground text-xl font-normal">
-								({benchmarks.length})
+								({benchmarksWithAIStats.length})
 							</span>
-						</h2>
+						</h1>
 					</Card>
 					<BenchmarksDisplay
-						benchmarks={benchmarks}
-						benchmarkUsage={benchmarkUsage}
-						benchmarkLinks={benchmarkLinks}
+						benchmarks={benchmarksWithAIStats}
+						benchmarkUsage={{
+							"ai-stats-score": aiStatsScoreUsage,
+							...benchmarkUsage,
+						}}
+						benchmarkLinks={{
+							"ai-stats-score": false,
+							...benchmarkLinks,
+						}}
 					/>
 				</div>
 			</main>

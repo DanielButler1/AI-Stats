@@ -20,11 +20,26 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
 	const params = await props.params;
 	const providerId = params.provider;
-	const providerName =
-		providerId.charAt(0).toUpperCase() + providerId.slice(1);
+
+	// Try to fetch the proper provider name from the provider's metadata JSON
+	let providerName: string | undefined;
+	try {
+		const providerJsonPath = path.join(
+			process.cwd(),
+			"src/data/api_providers",
+			providerId,
+			"api_provider.json"
+		);
+		const providerJsonRaw = await fs.readFile(providerJsonPath, "utf-8");
+		const providerJson = JSON.parse(providerJsonRaw);
+		providerName = providerJson.api_provider_name;
+	} catch {
+		// fallback if file or field is missing
+		providerName = providerId.charAt(0).toUpperCase() + providerId.slice(1);
+	}
 
 	return {
-		title: `${providerName} API Pricing & Model Costs | AI Stats`,
+		title: `${providerName} API Pricing & Model Costs`,
 		description: `Explore detailed pricing for ${providerName} API, including token costs and all available AI models. Compare ${providerName} with other AI API providers on AI Stats.`,
 		keywords: [
 			`${providerName} pricing`,

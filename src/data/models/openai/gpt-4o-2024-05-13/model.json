@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": "2024-05-13T00:00:00",
   "release_date": "2024-05-13T00:00:00",
-  "input_context_length": 128000.0,
-  "output_context_length": 4096.0,
+  "deprecation_date": "",
+  "input_context_length": 128000,
+  "output_context_length": 4096,
   "license": "Proprietary",
   "multimodal": true,
   "input_types": "text,image",
@@ -25,17 +26,35 @@
   "weights_link": "",
   "parameter_count": "",
   "training_tokens": "",
-  "benchmark_results": [],
+  "benchmark_results": [
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1341,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    }
+  ],
   "prices": [
     {
       "api_provider": "openai",
-      "input_token_price": 5e-06,
+      "input_token_price": "0.000005",
       "cached_input_token_price": "",
-      "output_token_price": 1.5e-05,
+      "output_token_price": "0.000015",
       "throughput": "",
       "latency": "",
       "source_link": "https://platform.openai.com/docs/models/gpt-4o",
       "other_info": ""
+    },
+    {
+      "api_provider": "azure",
+      "input_token_price": "0.000005",
+      "cached_input_token_price": "",
+      "output_token_price": "0.000015",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
+      "other_info": "Global Pricing"
     }
   ]
 }

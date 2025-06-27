@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": null,
-  "input_context_length": 4000.0,
-  "output_context_length": 4000.0,
+  "deprecation_date": "",
+  "input_context_length": 4000,
+  "output_context_length": 4000,
   "license": null,
   "multimodal": false,
   "input_types": "text",
@@ -26,5 +27,16 @@
   "parameter_count": null,
   "training_tokens": null,
   "benchmark_results": [],
-  "prices": []
+  "prices": [
+    {
+      "api_provider": "cohere",
+      "input_token_price": "0.0000003",
+      "cached_input_token_price": "",
+      "output_token_price": "0.0000006",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://cohere.com/pricing",
+      "other_info": null
+    }
+  ]
 }

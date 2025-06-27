@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2024-09-19T00:00:00",
-  "input_context_length": 131072.0,
-  "output_context_length": 8192.0,
+  "deprecation_date": "",
+  "input_context_length": 131072,
+  "output_context_length": 8192,
   "license": "Apache 2.0",
   "multimodal": false,
   "input_types": null,
@@ -27,7 +28,7 @@
   "training_tokens": 18000000000000,
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "49.5%",
       "is_self_reported": true,
       "other_info": null,

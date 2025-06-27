@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": "2024-06-27T00:00:00",
   "release_date": "2024-06-27T00:00:00",
-  "input_context_length": 8192.0,
-  "output_context_length": 8192.0,
+  "deprecation_date": "",
+  "input_context_length": 8192,
+  "output_context_length": 8192,
   "license": "Gemma",
   "multimodal": false,
   "input_types": "text",
@@ -25,6 +26,35 @@
   "weights_link": "https://huggingface.co/google/gemma-2-27b-it",
   "parameter_count": 27200000000,
   "training_tokens": 13000000000000,
-  "benchmark_results": [],
+  "benchmark_results": [
+    {
+      "benchmark_id": "confabulations",
+      "score": 27.24,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 2.6,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "12.2%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1285,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    }
+  ],
   "prices": []
 }

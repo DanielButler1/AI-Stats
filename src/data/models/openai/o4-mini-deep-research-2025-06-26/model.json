@@ -1,0 +1,42 @@
+{
+  "id": "o4-mini-deep-research-2025-06-26",
+  "name": "o4 mini Deep Research ",
+  "provider": "openai",
+  "status": "Available",
+  "previous_model_id": "",
+  "description": null,
+  "announced_date": "2025-06-26T00:00:00",
+  "release_date": "2025-06-26T00:00:00",
+  "deprecation_date": "",
+  "input_context_length": 200000,
+  "output_context_length": 100000,
+  "license": "Proprietary",
+  "multimodal": true,
+  "input_types": "text,image",
+  "output_types": "text",
+  "web_access": true,
+  "reasoning": true,
+  "fine_tunable": false,
+  "knowledge_cutoff": "2024-06-01T00:00:00",
+  "api_reference_link": "https://platform.openai.com/docs/models/o4-mini-deep-research",
+  "playground_link": "",
+  "paper_link": "",
+  "announcement_link": "https://x.com/OpenAIDevs/status/1938286734141493755",
+  "repository_link": "",
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
+  "benchmark_results": [],
+  "prices": [
+    {
+      "api_provider": "openai",
+      "input_token_price": "0.000002",
+      "cached_input_token_price": "0.0000005",
+      "output_token_price": "0.000008",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://platform.openai.com/docs/models/o4-mini-deep-research",
+      "other_info": ""
+    }
+  ]
+}

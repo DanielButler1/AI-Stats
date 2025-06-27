@@ -29,7 +29,10 @@ export async function generateMetadata(props: {
 			model.benchmark_results?.map(
 				(b: any) => b.benchmark?.name || b.name
 			) || [];
-		const title = `${model.name} Overview, Benchmarks, Features & Pricing | AI Stats`;
+		const now = new Date();
+		const month = now.toLocaleString("en-US", { month: "long" });
+		const year = now.getFullYear();
+		const title = `${model.name} Overview, Benchmarks, Features & Pricing - ${month} ${year}`;
 		const description = model.description
 			? `${model.description} Compare ${model.name} benchmarks, features, release timeline, and pricing across providers.`
 			: `Learn about ${model.name} AI model: benchmarks, features, release timeline, and pricing. Compare ${model.name} to other models on AI Stats.`;
@@ -56,7 +59,7 @@ export async function generateMetadata(props: {
 		};
 	} catch {
 		return {
-			title: "AI Model Overview | AI Stats",
+			title: "AI Model Overview",
 			description:
 				"Explore AI model benchmarks, features, release timeline, and pricing on AI Stats.",
 			keywords: [

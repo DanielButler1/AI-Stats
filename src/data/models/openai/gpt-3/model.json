@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": "2020-05-29T00:00:00",
   "release_date": "2020-06-11T00:00:00",
-  "input_context_length": 2048.0,
-  "output_context_length": 2048.0,
+  "deprecation_date": "",
+  "input_context_length": 2048,
+  "output_context_length": 2048,
   "license": "Proprietary",
   "multimodal": false,
   "input_types": "text",
@@ -36,6 +37,46 @@
       "latency": "",
       "source_link": "",
       "other_info": ""
+    },
+    {
+      "api_provider": "openai",
+      "input_token_price": null,
+      "cached_input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": "Ada"
+    },
+    {
+      "api_provider": "openai",
+      "input_token_price": null,
+      "cached_input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": "Babbage"
+    },
+    {
+      "api_provider": "openai",
+      "input_token_price": null,
+      "cached_input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": "Curie"
+    },
+    {
+      "api_provider": "openai",
+      "input_token_price": null,
+      "cached_input_token_price": null,
+      "output_token_price": null,
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": "Davinci"
     }
   ]
 }

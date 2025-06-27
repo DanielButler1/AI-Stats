@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2023-03-14T00:00:00",
-  "input_context_length": 8192.0,
-  "output_context_length": 8192.0,
+  "deprecation_date": "",
+  "input_context_length": 8192,
+  "output_context_length": 8192,
   "license": "Proprietary",
   "multimodal": false,
   "input_types": "text",
@@ -27,7 +28,7 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "35.7%",
       "is_self_reported": true,
       "other_info": null,
@@ -39,14 +40,21 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com/"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1278,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": [
     {
       "api_provider": "openai",
-      "input_token_price": 3e-05,
+      "input_token_price": "0.00003",
       "cached_input_token_price": "",
-      "output_token_price": 6e-05,
+      "output_token_price": "0.00006",
       "throughput": "",
       "latency": "",
       "source_link": "https://platform.openai.com/docs/models/gpt-4",

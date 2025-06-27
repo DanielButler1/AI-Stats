@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2024-07-23T00:00:00",
-  "input_context_length": 16384.0,
-  "output_context_length": 16384.0,
+  "deprecation_date": "",
+  "input_context_length": 16384,
+  "output_context_length": 16384,
   "license": null,
   "multimodal": false,
   "input_types": "text",
@@ -27,19 +28,26 @@
   "training_tokens": null,
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "30.4%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1211,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": [
     {
       "api_provider": null,
-      "input_token_price": 2e-08,
+      "input_token_price": "0.00000002",
       "cached_input_token_price": null,
-      "output_token_price": 3e-08,
+      "output_token_price": "0.00000003",
       "throughput": "",
       "latency": "",
       "source_link": null,

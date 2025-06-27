@@ -1,6 +1,7 @@
 {
   "id": "matharena",
   "name": "MathArena",
+  "order": null,
   "description": null,
   "link": "https://matharena.ai/"
 }

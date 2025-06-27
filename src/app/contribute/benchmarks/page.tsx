@@ -13,14 +13,16 @@ import { fetchAggregateData, fetchBenchmarks } from "@/lib/fetchData";
 import BenchmarkHeatmap from "@/components/contribute/benchmarks/BenchmarkHeatmap";
 
 export const metadata: Metadata = {
-	title: "Benchmark Coverage",
+	title: "AI Model Benchmark Coverage",
 	description:
-		"View which AI models have been evaluated on which benchmarks and identify gaps in benchmark coverage.",
+		"Explore comprehensive coverage of AI model benchmarks. Identify which models have been evaluated, spot missing data, and help improve benchmark completeness in the AI Stats Database.",
 	keywords: [
 		"AI benchmarks",
-		"benchmark coverage",
 		"model evaluation",
-		"AI model comparison",
+		"benchmark gaps",
+		"AI Stats",
+		"contribute benchmarks",
+		"model comparison",
 	],
 };
 

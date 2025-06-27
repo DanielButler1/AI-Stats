@@ -1,6 +1,7 @@
 {
   "id": "simpleqa",
   "name": "SimpleQA",
+  "order": null,
   "description": null,
   "link": "https://openai.com/index/introducing-simpleqa/"
 }

@@ -1,6 +1,7 @@
 {
   "id": "eqbench",
   "name": "EQ-Bench 3",
+  "order": null,
   "description": null,
   "link": "https://eqbench.com/index.html"
 }

@@ -1,0 +1,116 @@
+{
+  "id": "mistral-small-3.2-24b-instruct-2506",
+  "name": "Mistral Small 3.2",
+  "provider": "mistral",
+  "status": "Available",
+  "previous_model_id": "mistral-small-3.1-24b-instruct-2503",
+  "description": null,
+  "announced_date": "2025-06-20T00:00:00",
+  "release_date": "2025-06-20T00:00:00",
+  "deprecation_date": "",
+  "input_context_length": 128000,
+  "output_context_length": 128000,
+  "license": "Apache 2.0",
+  "multimodal": null,
+  "input_types": null,
+  "output_types": null,
+  "web_access": false,
+  "reasoning": false,
+  "fine_tunable": null,
+  "knowledge_cutoff": null,
+  "api_reference_link": null,
+  "playground_link": null,
+  "paper_link": null,
+  "announcement_link": null,
+  "repository_link": null,
+  "weights_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+  "parameter_count": 24000000000,
+  "training_tokens": null,
+  "benchmark_results": [
+    {
+      "benchmark_id": "mmlu",
+      "score": "80.5%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "benchmark_id": "mmlu-pro",
+      "score": "69.1%",
+      "is_self_reported": true,
+      "other_info": "5 Shot CoT",
+      "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "benchmark_id": "math",
+      "score": "69.4%",
+      "is_self_reported": true,
+      "other_info": "5 Shot CoT",
+      "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "benchmark_id": "gpqa",
+      "score": "44.2%",
+      "is_self_reported": true,
+      "other_info": "5 Shot CoT",
+      "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "46.1%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "benchmark_id": "humaneval",
+      "score": "92.9%",
+      "is_self_reported": true,
+      "other_info": "Pass@5",
+      "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "benchmark_id": "simpleqa",
+      "score": "12.1%",
+      "is_self_reported": true,
+      "other_info": "TotalAcc",
+      "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "benchmark_id": "mmmu",
+      "score": "62.5%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "benchmark_id": "mathvista",
+      "score": "67.1%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "benchmark_id": "chartqa",
+      "score": "87.4%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "benchmark_id": "docvqa",
+      "score": "94.9%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "benchmark_id": "ai2d",
+      "score": "92.9%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    }
+  ],
+  "prices": []
+}

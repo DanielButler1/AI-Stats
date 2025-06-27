@@ -2,8 +2,7 @@ import { ExtendedModel } from "@/data/types";
 import React from "react";
 import BenchmarkBarChart from "./BenchmarkBarChart";
 import { Badge } from "@/components/ui/badge";
-import { Dot, Star } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
+import { Star } from "lucide-react";
 import {
 	Card,
 	CardContent,
@@ -12,34 +11,51 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 
-function getCommonBenchmarks(selectedModels: ExtendedModel[]) {
+function getCommonBenchmarks(selectedModels: ExtendedModel[]): string[] {
 	if (!selectedModels || selectedModels.length === 0) return [];
-	const allBenchmarks = selectedModels.map((m) =>
-		(m.benchmark_results || []).map((b) => b.benchmark.name)
+	// Deduplicate each model's benchmarks and intersect across models
+	const setsOfNames = selectedModels.map((m) =>
+		Array.from(
+			new Set((m.benchmark_results || []).map((b) => b.benchmark.name))
+		)
 	);
-	// Find intersection
-	return allBenchmarks.reduce((a, b) => a.filter((x) => b.includes(x)));
+	// Preserve order from first model
+	return setsOfNames.reduce((a, b) => a.filter((x) => b.includes(x)));
 }
 
 function getScoresForBenchmarks(
 	selectedModels: ExtendedModel[],
 	benchmarks: string[]
 ) {
-	return selectedModels.map((model) => ({
-		name: model.name,
-		scores: benchmarks.reduce((acc, bench) => {
-			const result = model.benchmark_results?.find(
+	return selectedModels.map((model) => {
+		const scores: Record<string, number | null> = {};
+		benchmarks.forEach((bench) => {
+			// Filter all entries for this benchmark
+			const results = (model.benchmark_results || []).filter(
 				(b) => b.benchmark.name === bench
 			);
-			let score: number | null = null;
-			if (result) {
-				score = parseFloat(result.score.toString().replace("%", ""));
-				if (!result.score.toString().includes("%")) score = score * 100;
+			if (results.length === 0) {
+				scores[bench] = null;
+			} else {
+				// Determine ordering rule
+				const isLowerBetter = results[0].benchmark.order === "lower";
+				let bestScore: number | null = null;
+				results.forEach((r) => {
+					let val = parseFloat(r.score.toString().replace("%", ""));
+					if (!r.score.toString().includes("%")) val = val * 100;
+					if (bestScore === null) {
+						bestScore = val;
+					} else if (
+						isLowerBetter ? val < bestScore : val > bestScore
+					) {
+						bestScore = val;
+					}
+				});
+				scores[bench] = bestScore;
 			}
-			acc[bench] = score;
-			return acc;
-		}, {} as Record<string, number | null>),
-	}));
+		});
+		return { name: model.name, scores };
+	});
 }
 
 function getBarChartData(
@@ -57,25 +73,7 @@ function getBarChartData(
 	});
 }
 
-// Helper to get max value for each benchmark
-function getMaxScores(
-	chartData: { [key: string]: string | number | null }[],
-	models: { name: string }[]
-) {
-	const maxScores: Record<string, number> = {};
-	chartData.forEach((row) => {
-		let max = -Infinity;
-		models.forEach((model) => {
-			const val =
-				typeof row[model.name] === "number"
-					? (row[model.name] as number)
-					: -Infinity;
-			if (val > max) max = val;
-		});
-		maxScores[row.benchmark as string] = max;
-	});
-	return maxScores;
-}
+// Removed unused getMaxScores helper
 
 function CustomTooltip({
 	active,
@@ -272,12 +270,12 @@ export default function PerformanceBenchmarkGraph({
 						<Card className="border-none shadow-lg">
 							<CardContent className="py-4 text-sm text-center">
 								<div className="flex items-center justify-start">
-									<span className="relative flex h-4 w-4 items-center justify-center mr-4">
+									<span className="relative flex h-4 w-4 items-center justify-center mr-4 shrink-0">
 										{/* Soft background circle */}
 										<span className="absolute h-6 w-6 rounded-full bg-pink-400/30" />
 
 										{/* Star icon */}
-										<Star className="relative h-full w-full text-pink-500 fill-pink-500" />
+										<Star className="relative h-full w-full text-pink-500 fill-pink-500 " />
 									</span>
 									<span>{significance}</span>
 								</div>
@@ -285,14 +283,16 @@ export default function PerformanceBenchmarkGraph({
 						</Card>
 					</div>
 				)}
-				<div className="bg-muted p-4 rounded-lg text-center mb-4">
+				{/* Desktop bar chart rendered above the table */}
+				<div className="hidden md:block bg-muted p-4 rounded-lg text-center mb-4">
 					<BenchmarkBarChart
 						chartData={chartData}
 						models={models}
 						CustomTooltip={CustomTooltip}
 					/>
 				</div>
-				<div className="overflow-x-auto">
+				{/* Table for desktop */}
+				<div className="hidden md:block overflow-x-auto">
 					<table className="min-w-full text-sm border rounded">
 						<tbody>
 							{commonBenchmarks.map((bench) => (
@@ -301,59 +301,87 @@ export default function PerformanceBenchmarkGraph({
 										{bench}
 									</td>
 									<td className="px-3 py-2 text-right">
-										<div className="flex justify-end items-center gap-3">
-											{models
-												.map((model, idx) => {
-													const value =
-														model.scores[bench];
-													const color = [
-														"#f472b6",
-														"#60a5fa",
-														"#fb7185",
-														"#34d399",
-													][idx % 4];
-													return (
-														<span
-															key={model.name}
-															className="inline-flex items-center font-mono font-semibold px-3 py-0.5 rounded min-w-[56px] justify-end"
-															style={{
-																background:
-																	color,
-																color: "#fff",
-																textAlign:
-																	"right",
-															}}
-														>
-															{value != null
-																? `${value.toFixed(
-																		1
-																  )}%`
-																: "-"}
-														</span>
-													);
-												})
-												.reduce(
-													(prev, curr, idx) =>
-														idx === 0
-															? [curr]
-															: [
-																	...prev,
-																	<span
-																		key={`vs-${idx}`}
-																		className="mx-0 text-muted-foreground font-normal px-2"
-																	>
-																		vs
-																	</span>,
-																	curr,
-															  ],
-													[] as React.ReactNode[]
-												)}
-										</div>
+										{models.flatMap((model, idx) => {
+											const value = model.scores[bench];
+											const color = [
+												"#f472b6",
+												"#60a5fa",
+												"#fb7185",
+												"#34d399",
+											][idx % 4];
+											const span = (
+												<span
+													key={model.name}
+													className="inline-flex items-center font-mono font-semibold px-3 py-0.5 rounded min-w-[56px] justify-end"
+													style={{
+														background: color,
+														color: "#fff",
+														textAlign: "right",
+													}}
+												>
+													{value != null
+														? `${value.toFixed(1)}%`
+														: "-"}
+												</span>
+											);
+											if (idx > 0) {
+												return [
+													<span
+														key={`vs-${idx}`}
+														className="mx-0 text-muted-foreground font-normal px-2"
+													>
+														vs
+													</span>,
+													span,
+												];
+											}
+											return [span];
+										})}
 									</td>
 								</tr>
 							))}
 						</tbody>
 					</table>
+				</div>
+				<div className="md:hidden space-y-4">
+					{commonBenchmarks.map((bench) => (
+						<div
+							key={bench}
+							className="bg-white dark:bg-zinc-900 shadow rounded-lg p-4"
+						>
+							<div className="font-medium mb-2">{bench}</div>
+							{models.map((model, idx) => {
+								const value = model.scores[bench];
+								const color = [
+									"#f472b6",
+									"#60a5fa",
+									"#fb7185",
+									"#34d399",
+								][idx % 4];
+								return (
+									<div
+										key={model.name}
+										className="flex justify-between items-center mb-1"
+									>
+										<span className="font-medium text-sm">
+											{model.name}
+										</span>
+										<span
+											className="text-sm inline-flex items-center font-mono font-semibold px-3 py-0.5 rounded"
+											style={{
+												background: color,
+												color: "#fff",
+											}}
+										>
+											{value != null
+												? `${value.toFixed(1)}%`
+												: "-"}
+										</span>
+									</div>
+								);
+							})}
+						</div>
+					))}
 				</div>
 			</div>
 		</Card>

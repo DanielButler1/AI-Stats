@@ -13,21 +13,22 @@ import { fetchAggregateData } from "@/lib/fetchData";
 import PricingHeatmap from "@/components/contribute/prices/PricingHeatmap";
 
 export const metadata: Metadata = {
-	title: "Pricing Coverage",
+	title: "AI Model Pricing Coverage",
 	description:
-		"View which AI models have pricing and compute information available and identify gaps in coverage.",
+		"Discover which AI models have available pricing and compute cost data. Find gaps in pricing information and contribute to building the most complete AI model pricing database.",
 	keywords: [
 		"AI pricing",
-		"model prices",
-		"AI costs",
 		"model costs",
+		"compute pricing",
+		"AI Stats",
 		"pricing coverage",
-		"compute costs",
+		"contribute pricing",
 	],
 };
 
 async function getModels(): Promise<ExtendedModel[]> {
-	return fetchAggregateData();
+	const allModels = await fetchAggregateData();
+	return allModels.filter((model) => model.status !== "Rumoured");
 }
 
 export default async function PricesContributePage() {

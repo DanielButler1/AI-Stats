@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2024-07-18T00:00:00",
-  "input_context_length": 128000.0,
-  "output_context_length": 16384.0,
+  "deprecation_date": "",
+  "input_context_length": 128000,
+  "output_context_length": 16384,
   "license": "Proprietary",
   "multimodal": true,
   "input_types": "text,image",
@@ -34,7 +35,7 @@
       "source_link": "https://openai.com/index/gpt-4-1/"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "40.2%",
       "is_self_reported": true,
       "other_info": null,
@@ -46,18 +47,63 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 37.21,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 2.3,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "9.9%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 4.598,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1312,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": [
     {
       "api_provider": "openai",
-      "input_token_price": 1.5e-07,
-      "cached_input_token_price": 7.5e-08,
-      "output_token_price": 6e-07,
+      "input_token_price": "0.00000015",
+      "cached_input_token_price": "0.000000075",
+      "output_token_price": "0.0000006",
       "throughput": "",
       "latency": "",
       "source_link": "https://platform.openai.com/docs/models/gpt-4o-mini",
       "other_info": ""
+    },
+    {
+      "api_provider": "azure",
+      "input_token_price": "0.00000015",
+      "cached_input_token_price": "0.000000075",
+      "output_token_price": "0.0000006",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
+      "other_info": "Global Pricing"
     }
   ]
 }

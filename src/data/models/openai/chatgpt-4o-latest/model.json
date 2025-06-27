@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": null,
-  "input_context_length": 128000.0,
-  "output_context_length": 4096.0,
+  "deprecation_date": "",
+  "input_context_length": 128000,
+  "output_context_length": 4096,
   "license": "Proprietary",
   "multimodal": true,
   "input_types": "text,image",
@@ -29,9 +30,9 @@
   "prices": [
     {
       "api_provider": "openai",
-      "input_token_price": 5e-06,
+      "input_token_price": "0.000005",
       "cached_input_token_price": "",
-      "output_token_price": 1.5e-05,
+      "output_token_price": "0.000015",
       "throughput": "",
       "latency": "",
       "source_link": "https://platform.openai.com/docs/models/chatgpt-4o-latest",

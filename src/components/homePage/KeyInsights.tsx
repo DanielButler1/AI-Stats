@@ -22,16 +22,12 @@ export default function KeyInsights({ models }: KeyInsightsProps) {
 	const getSotaProgression = () => {
 		const sortedModels = models
 			.filter((model) => {
-				if (!model.benchmark_results || !model.release_date)
-					return false;
-				const gpqaScore = model.benchmark_results.find(
-					(metric) => metric.benchmark_id.toLowerCase() === "gpqa"
-				)?.score;
+				if (!model.glickoRating || !model.release_date) return false;
+				const aiStatsScore = model.glickoRating.rating;
 				const date = new Date(model.release_date);
-				return gpqaScore && !isNaN(date.getTime());
+				return aiStatsScore && !isNaN(date.getTime());
 			})
 			.sort((a, b) => {
-				// We can safely assert non-null here because we filtered out null values
 				const dateA = new Date(a.release_date!).getTime();
 				const dateB = new Date(b.release_date!).getTime();
 				return dateA - dateB;
@@ -41,17 +37,11 @@ export default function KeyInsights({ models }: KeyInsightsProps) {
 		const sotaJumps: SotaJump[] = [];
 
 		for (const model of sortedModels) {
-			// We can safely assert non-null because we filtered nulls above
-			const scoreObj = model.benchmark_results!.find(
-				(m) => m.benchmark_id.toLowerCase() === "gpqa"
-			);
+			const aiStatsScore = model.glickoRating?.rating;
 			const date = new Date(model.release_date!);
 
-			if (scoreObj) {
-				const numericScore =
-					typeof scoreObj.score === "string"
-						? parseFloat(scoreObj.score.replace("%", ""))
-						: scoreObj.score;
+			if (aiStatsScore !== undefined && aiStatsScore !== null) {
+				const numericScore = aiStatsScore;
 
 				if (numericScore > currentSota) {
 					sotaJumps.push({
@@ -125,47 +115,30 @@ export default function KeyInsights({ models }: KeyInsightsProps) {
 		);
 		const avgMonths = Math.round(weightedMonths / totalWeight);
 
-		// Calculate improvement rates between consecutive SOTA jumps (for acceleration)
-		const improvements: number[] = [];
-
-		for (let i = 1; i < sotaJumps.length; i++) {
-			const date1 = sotaJumps[i - 1].date;
-			const date2 = sotaJumps[i].date;
+		// New Progress Acceleration: gradient between lowest and highest SOTA
+		let acceleration = 0;
+		if (sotaJumps.length >= 2) {
+			// Find the jump with the lowest score (earliest SOTA)
+			const minJump = sotaJumps.reduce((min, curr) =>
+				curr.score < min.score ? curr : min
+			);
+			// Find the jump with the highest score (latest SOTA)
+			const maxJump = sotaJumps.reduce((max, curr) =>
+				curr.score > max.score ? curr : max
+			);
 			const monthsDiff =
-				(date2.getFullYear() - date1.getFullYear()) * 12 +
-				(date2.getMonth() - date1.getMonth());
-
-			// Skip if time difference is 0 to avoid division by zero
-			if (monthsDiff === 0) continue;
-
-			const scoreDiff = sotaJumps[i].score - sotaJumps[i - 1].score;
-			const rate = scoreDiff / monthsDiff; // Points per month
-			if (!isNaN(rate) && isFinite(rate)) {
-				improvements.push(rate);
+				(maxJump.date.getFullYear() - minJump.date.getFullYear()) * 12 +
+				(maxJump.date.getMonth() - minJump.date.getMonth());
+			if (monthsDiff > 0) {
+				acceleration = (maxJump.score - minJump.score) / monthsDiff;
 			}
 		}
-
-		// Calculate rate changes (acceleration)
-		const rateChanges: number[] = [];
-		for (let i = 1; i < improvements.length; i++) {
-			const change = improvements[i] - improvements[i - 1];
-			if (!isNaN(change) && isFinite(change)) {
-				rateChanges.push(change);
-			}
-		}
-
-		// Calculate average acceleration
-		const averageAcceleration =
-			rateChanges.length > 0
-				? rateChanges.reduce((sum, val) => sum + val, 0) /
-				  rateChanges.length
-				: 0;
 
 		return {
 			months: avgMonths,
 			acceleration:
-				!isNaN(averageAcceleration) && isFinite(averageAcceleration)
-					? averageAcceleration
+				!isNaN(acceleration) && isFinite(acceleration)
+					? acceleration
 					: 0,
 		};
 	};
@@ -185,11 +158,11 @@ export default function KeyInsights({ models }: KeyInsightsProps) {
 	})();
 	const statsList = [
 		{
-			title: "GPQA Growth",
+			title: "AI Stats Score Growth",
 			value: yoyGrowth === "N/A" ? "New Peak" : `${yoyGrowth}%`,
 			subtitle: "Year-over-year SOTA improvement",
 			description:
-				"Percentage improvement in GPQA score compared to the highest score from the previous year.",
+				"Percentage improvement in AI Stats Score compared to the highest score from the previous year.",
 		},
 		{
 			title: "Innovation Cycle",
@@ -199,7 +172,7 @@ export default function KeyInsights({ models }: KeyInsightsProps) {
 				"Weighted average time between State-of-the-Art (SOTA) achievements, with recent gaps weighted more heavily to better reflect the current pace of innovation. This reduces the impact of historically longer gaps between breakthroughs.",
 		},
 		{
-			title: "Progress Acceleration",
+			title: "Progress Acceleration (Beta)",
 			value:
 				acceleration === 0 || isNaN(acceleration)
 					? "N/A"
@@ -213,8 +186,10 @@ export default function KeyInsights({ models }: KeyInsightsProps) {
 		{
 			title: "Historical Progress",
 			value: improvement === "N/A" ? "N/A" : `${improvement}x`,
-			subtitle: `Total GPQA improvement since ${years[years.length - 1]}`,
-			description: `Total multiplication in GPQA performance from ${
+			subtitle: `Total AI Stats Score improvement since ${
+				years[years.length - 1]
+			}`,
+			description: `Total multiplication in AI Stats Score performance from ${
 				years[years.length - 1]
 			} to present. Shows overall progress made in the field.`,
 		},

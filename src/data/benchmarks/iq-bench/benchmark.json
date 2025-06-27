@@ -1,6 +1,7 @@
 {
   "id": "iq-bench",
   "name": "IQ Bench",
+  "order": null,
   "description": null,
   "link": "https://www.trackingai.org/home"
 }

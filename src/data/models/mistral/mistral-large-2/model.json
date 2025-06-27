@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2024-07-24T00:00:00",
-  "input_context_length": 128000.0,
-  "output_context_length": 128000.0,
+  "deprecation_date": "",
+  "input_context_length": 128000,
+  "output_context_length": 128000,
   "license": "Mistral Research License",
   "multimodal": false,
   "input_types": null,
@@ -32,6 +33,34 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 21.4,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 2.11,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "12.6%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 5.39,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/elimination_game"
     }
   ],
   "prices": []

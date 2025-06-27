@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { fetchAggregateData } from "@/lib/fetchData";
 
 export const metadata: Metadata = {
-	title: "Sources | AI Model Tracker",
+	title: "Sources & References - AI Stats",
 	description:
 		"View data sources and references powering the AI Model Tracker database.",
 	keywords: ["AI data sources", "model sources", "data references"],

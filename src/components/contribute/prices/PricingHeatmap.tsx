@@ -2,7 +2,12 @@
 
 import { useMemo, useState } from "react";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import {
+	TooltipProvider,
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
 import type { ExtendedModel } from "@/data/types";
 import { Badge } from "@/components/ui/badge";
 import { ListFilter } from "lucide-react";
@@ -101,12 +106,11 @@ export default function PricingHeatmap({ models }: PricingHeatmapProps) {
 	}, [models, searchQuery, sortMethod]); // Function to calculate overall coverage percentage
 	const getOverallCoverage = (model: ExtendedModel) => {
 		let covered = 0;
-		const total = 5; // input price, cached input price, output price, performance metrics, training tokens
+		const total = 4; // input price, cached input price, output price, performance metrics
 		if (hasInputPrice(model)) covered++;
 		if (hasCachedInputPrice(model)) covered++;
 		if (hasOutputPrice(model)) covered++;
 		if (hasPerformanceInfo(model)) covered++;
-		if (model.training_tokens !== null) covered++;
 		return Math.round((covered / total) * 100);
 	};
 
@@ -154,7 +158,16 @@ export default function PricingHeatmap({ models }: PricingHeatmapProps) {
 									>
 										<div className="p-4">
 											<div className="font-semibold mb-2 flex items-center justify-between">
-												<span>{model.name}</span>
+												<Tooltip delayDuration={0}>
+													<TooltipTrigger asChild>
+														<span>
+															{model.name}
+														</span>
+													</TooltipTrigger>
+													<TooltipContent side="top">
+														Model ID: {model.id}
+													</TooltipContent>
+												</Tooltip>
 												<Badge
 													variant="secondary"
 													className={getCoverageColorClass(
@@ -238,23 +251,6 @@ export default function PricingHeatmap({ models }: PricingHeatmapProps) {
 														{hasPerformanceInfo(
 															model
 														)
-															? "Present"
-															: "Missing"}
-													</Badge>
-												</div>
-												<div className="text-sm flex justify-between">
-													<span>Training Tokens</span>
-													<Badge
-														variant="outline"
-														className={
-															model.training_tokens !==
-															null
-																? "bg-green-100 dark:bg-green-900/20"
-																: "bg-gray-100 dark:bg-gray-800"
-														}
-													>
-														{model.training_tokens !==
-														null
 															? "Present"
 															: "Missing"}
 													</Badge>

@@ -1,6 +1,7 @@
 {
   "id": "healthbench",
   "name": "HealthBench",
+  "order": null,
   "description": null,
   "link": "https://openai.com/index/healthbench/"
 }

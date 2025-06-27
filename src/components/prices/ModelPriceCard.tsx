@@ -50,12 +50,6 @@ export default function ModelPriceCard({
 						</Badge>
 					)}
 				</div>
-				<p className="text-sm text-muted-foreground mb-4">
-					{model.description?.slice(0, 120)}
-					{model.description && model.description.length > 120
-						? "..."
-						: ""}
-				</p>
 				<div className="mt-auto">
 					<div className="grid grid-cols-2 gap-4">
 						{/* Input Price */}

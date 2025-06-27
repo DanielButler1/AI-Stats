@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": "2025-04-16T00:00:00",
   "release_date": "2025-04-16T00:00:00",
-  "input_context_length": 200000.0,
-  "output_context_length": 100000.0,
+  "deprecation_date": "",
+  "input_context_length": 200000,
+  "output_context_length": 100000,
   "license": "Proprietary",
   "multimodal": true,
   "input_types": "image,text",
@@ -76,7 +77,7 @@
       "source_link": "https://livebench.ai/#/"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "81.4%",
       "is_self_reported": true,
       "other_info": null,
@@ -111,7 +112,7 @@
       "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "81.4%",
       "is_self_reported": null,
       "other_info": "High Reasoning Effort",
@@ -130,18 +131,84 @@
       "is_self_reported": false,
       "other_info": "High Reasoning Effort",
       "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 15.79,
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.8,
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.82,
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "74.7%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "68.8%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 4.396,
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "lmarena-webdev",
+      "score": 1102.28,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1396,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": [
     {
       "api_provider": "openai",
-      "input_token_price": 1.1e-06,
-      "cached_input_token_price": 2.75e-07,
-      "output_token_price": 4.4e-06,
+      "input_token_price": "0.0000011",
+      "cached_input_token_price": "0.000000275",
+      "output_token_price": "0.0000044",
       "throughput": "",
       "latency": "",
       "source_link": "https://platform.openai.com/docs/models/o4-mini",
       "other_info": ""
+    },
+    {
+      "api_provider": "azure",
+      "input_token_price": "0.0000011",
+      "cached_input_token_price": "0.00000028",
+      "output_token_price": "0.0000044",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
+      "other_info": null
     }
   ]
 }

@@ -115,6 +115,7 @@ function findTopModels(
 				score,
 				rd,
 				description: hasPercentStr, // Using description field to store format info
+				benchmarkCount: model.benchmark_results?.length || 0, // Add benchmark count for filtering
 			};
 		})
 		// Filter out models with no score
@@ -132,6 +133,10 @@ function findTopModels(
 				);
 			}
 		})
+		// Only show AI Stats Score for models with 3+ benchmark results
+		.filter(
+			(model) => benchmarkId !== "glicko" || model.benchmarkCount >= 3
+		)
 		.sort((a, b) => b.score - a.score);
 
 	return modelsWithScores.slice(0, 3);

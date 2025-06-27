@@ -11,6 +11,7 @@ export interface Provider {
 export interface Benchmark {
     id: string;
     name: string;
+    order: string;
     description: string | null;
     link: string | null;
 }
@@ -51,6 +52,7 @@ export interface Model {
     description: string | null;
     announced_date: string | null;
     release_date: string | null;
+    deprecation_date: string | null;
     input_context_length: number | null;
     output_context_length: number | null;
     license: string | null;
@@ -81,6 +83,7 @@ export interface ExtendedModel {
     description: string | null;
     announced_date: string | null;
     release_date: string | null;
+    deprecation_date: string | null;
     input_context_length: number | null;
     output_context_length: number | null;
     license: string | null;
@@ -115,4 +118,5 @@ export interface ExtendedModel {
         rd: number;
         vol: number;
     };
+    valueScore?: number; // Optional value score for the model
 }

@@ -2,11 +2,12 @@
   "id": "gemini-2.5-pro-preview-05-06",
   "name": "Gemini 2.5 Pro Preview",
   "provider": "google",
-  "status": "Available",
+  "status": "Deprecated",
   "previous_model_id": "gemini-2.5-pro-exp-03-25",
   "description": null,
   "announced_date": null,
   "release_date": null,
+  "deprecation_date": "2025-06-26T00:00:00",
   "input_context_length": null,
   "output_context_length": null,
   "license": "Proprietary",
@@ -76,7 +77,7 @@
       "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "83.0%",
       "is_self_reported": true,
       "other_info": "Pass@1",
@@ -95,6 +96,34 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com/"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 10.62,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.75,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "42.5%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1446,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": []

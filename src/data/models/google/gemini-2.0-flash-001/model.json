@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2024-12-01T00:00:00",
-  "input_context_length": 1048576.0,
-  "output_context_length": 8192.0,
+  "deprecation_date": "",
+  "input_context_length": 1048576,
+  "output_context_length": 8192,
   "license": "Proprietary",
   "multimodal": true,
   "input_types": null,
@@ -97,7 +98,7 @@
       "source_link": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/gemini_2-5_flashcomp_benchmarks_dark2x.original.png"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "60.1%",
       "is_self_reported": true,
       "other_info": "Pass@1",
@@ -118,7 +119,7 @@
       "source_link": "gemini_2-5_flashcomp_benchmarks_dark2x.original.png (1920×2820)"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "78.3%",
       "is_self_reported": true,
       "other_info": "Single Attempt",
@@ -144,6 +145,20 @@
       "is_self_reported": false,
       "other_info": "Thinking",
       "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "lmarena-webdev",
+      "score": 1039.97,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1362,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": []

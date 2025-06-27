@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { ModelCard } from "@/components/provider/ModelCard";
+import { MetricModelCard } from "@/components/provider/MetricModelCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -40,7 +41,9 @@ export default function ModelsDisplay({ models }: ModelsDisplayProps) {
 	// State for filters
 	const [provider, setProvider] = useState<string>("all");
 	const [sort, setSort] = useState<string>("release_desc");
-	const [search, setSearch] = useState<string>(""); // Get unique providers for filter
+	const [search, setSearch] = useState<string>("");
+	const [view, setView] = useState<"card" | "metric">("card");
+	// Get unique providers for filter
 	const providers = useMemo(() => {
 		// Create a Map using provider_id as the key to ensure uniqueness
 		const uniqueProviders = new Map();
@@ -55,78 +58,8 @@ export default function ModelsDisplay({ models }: ModelsDisplayProps) {
 		);
 	}, [models]);
 
-	// Filtering and sorting logic
-	const filteredModels = useMemo(() => {
-		let filtered = models;
-		// Provider filter
-		if (provider !== "all") {
-			filtered = filtered.filter(
-				(m) => m.provider.provider_id === provider
-			);
-		}
-		// Search filter (now matches model name and provider name)
-		if (search.trim()) {
-			const q = search.trim().toLowerCase();
-			filtered = filtered.filter(
-				(m) =>
-					m.name.toLowerCase().includes(q) ||
-					(m.description &&
-						m.description.toLowerCase().includes(q)) ||
-					m.provider.name.toLowerCase().includes(q)
-			);
-		}
-		// Sorting
-		filtered = [...filtered].sort((a, b) => {
-			const getDateValue = (model: ExtendedModel) => {
-				return (
-					model.release_date || model.announced_date || "1970-01-01"
-				);
-			};
-
-			if (sort === "release_desc") {
-				return (
-					new Date(getDateValue(b)).getTime() -
-					new Date(getDateValue(a)).getTime()
-				);
-			}
-			if (sort === "release_asc") {
-				return (
-					new Date(getDateValue(a)).getTime() -
-					new Date(getDateValue(b)).getTime()
-				);
-			}
-			if (sort === "price_asc") {
-				const aPrice = a.prices?.[0]?.input_token_price;
-				const bPrice = b.prices?.[0]?.input_token_price;
-				return (aPrice ?? Infinity) - (bPrice ?? Infinity);
-			}
-			if (sort === "price_desc") {
-				const aPrice = a.prices?.[0]?.input_token_price;
-				const bPrice = b.prices?.[0]?.input_token_price;
-				return (bPrice ?? 0) - (aPrice ?? 0);
-			}
-			if (sort === "alpha_asc") {
-				return a.name.localeCompare(b.name);
-			}
-			if (sort === "alpha_desc") {
-				return b.name.localeCompare(a.name);
-			}
-			return 0;
-		});
-		return filtered;
-	}, [models, provider, sort, search]);
-
-	const handleReset = () => {
-		setProvider("all");
-		setSort("release_desc");
-		setSearch("");
-	};
-
-	const showReset =
-		provider !== "all" || sort !== "release_desc" || search.trim() !== "";
-
 	// Sort button config
-	const sortOptions = [
+	const cardSortOptions = [
 		{
 			key: "release",
 			label: "Release Date",
@@ -156,6 +89,47 @@ export default function ModelsDisplay({ models }: ModelsDisplayProps) {
 		},
 	];
 
+	const metricSortOptions = [
+		{
+			key: "score",
+			label: "AI Stats Score",
+			asc: "score_asc",
+			desc: "score_desc",
+			iconAsc: <ArrowUp className="w-4 h-4" />,
+			iconDesc: <ArrowDown className="w-4 h-4" />,
+			hover: "Sort by AI Stats Score (ascending/descending)",
+		},
+		{
+			key: "rd",
+			label: "RD",
+			asc: "rd_asc",
+			desc: "rd_desc",
+			iconAsc: <ArrowUp className="w-4 h-4" />,
+			iconDesc: <ArrowDown className="w-4 h-4" />,
+			hover: "Sort by RD (ascending/descending)",
+		},
+		{
+			key: "vol",
+			label: "Vol",
+			asc: "vol_asc",
+			desc: "vol_desc",
+			iconAsc: <ArrowUp className="w-4 h-4" />,
+			iconDesc: <ArrowDown className="w-4 h-4" />,
+			hover: "Sort by Vol (ascending/descending)",
+		},
+		{
+			key: "valueScore",
+			label: "Price Adjusted",
+			asc: "valueScore_asc",
+			desc: "valueScore_desc",
+			iconAsc: <ArrowUp10 className="w-4 h-4" />,
+			iconDesc: <ArrowDown01 className="w-4 h-4" />,
+			hover: "Sort by Price Adjusted (ascending/descending)",
+		},
+	];
+
+	const sortOptions = view === "metric" ? metricSortOptions : cardSortOptions;
+
 	const getSortState = () => {
 		for (const opt of sortOptions) {
 			if (sort === opt.asc) return { ...opt, dir: "asc" };
@@ -165,6 +139,126 @@ export default function ModelsDisplay({ models }: ModelsDisplayProps) {
 	};
 
 	const currentSort = getSortState();
+
+	// Filtering and sorting logic
+	const filteredModels = useMemo(() => {
+		let filtered = models;
+		// Provider filter
+		if (provider !== "all") {
+			filtered = filtered.filter(
+				(m) => m.provider.provider_id === provider
+			);
+		}
+		// Search filter (now matches model name and provider name)
+		if (search.trim()) {
+			const q = search.trim().toLowerCase();
+			filtered = filtered.filter(
+				(m) =>
+					m.name.toLowerCase().includes(q) ||
+					(m.description &&
+						m.description.toLowerCase().includes(q)) ||
+					m.provider.name.toLowerCase().includes(q)
+			);
+		}
+		// Sorting
+		filtered = [...filtered].sort((a, b) => {
+			const getDateValue = (model: ExtendedModel) => {
+				return (
+					model.release_date || model.announced_date || "1970-01-01"
+				);
+			};
+
+			if (view === "card") {
+				if (sort === "release_desc") {
+					return (
+						new Date(getDateValue(b)).getTime() -
+						new Date(getDateValue(a)).getTime()
+					);
+				}
+				if (sort === "release_asc") {
+					return (
+						new Date(getDateValue(a)).getTime() -
+						new Date(getDateValue(b)).getTime()
+					);
+				}
+				if (sort === "price_asc") {
+					const aPrice = a.prices?.[0]?.input_token_price;
+					const bPrice = b.prices?.[0]?.input_token_price;
+					return (aPrice ?? Infinity) - (bPrice ?? Infinity);
+				}
+				if (sort === "price_desc") {
+					const aPrice = a.prices?.[0]?.input_token_price;
+					const bPrice = b.prices?.[0]?.input_token_price;
+					return (bPrice ?? 0) - (aPrice ?? 0);
+				}
+				if (sort === "alpha_asc") {
+					return a.name.localeCompare(b.name);
+				}
+				if (sort === "alpha_desc") {
+					return b.name.localeCompare(a.name);
+				}
+			} else if (view === "metric") {
+				if (sort === "score_asc") {
+					return (
+						(a.glickoRating?.rating ?? -Infinity) -
+						(b.glickoRating?.rating ?? -Infinity)
+					);
+				}
+				if (sort === "score_desc") {
+					return (
+						(b.glickoRating?.rating ?? -Infinity) -
+						(a.glickoRating?.rating ?? -Infinity)
+					);
+				}
+				if (sort === "rd_asc") {
+					return (
+						(a.glickoRating?.rd ?? Infinity) -
+						(b.glickoRating?.rd ?? Infinity)
+					);
+				}
+				if (sort === "rd_desc") {
+					return (
+						(b.glickoRating?.rd ?? -Infinity) -
+						(a.glickoRating?.rd ?? -Infinity)
+					);
+				}
+				if (sort === "vol_asc") {
+					return (
+						(a.glickoRating?.vol ?? Infinity) -
+						(b.glickoRating?.vol ?? Infinity)
+					);
+				}
+				if (sort === "vol_desc") {
+					return (
+						(b.glickoRating?.vol ?? -Infinity) -
+						(a.glickoRating?.vol ?? -Infinity)
+					);
+				}
+				if (sort === "valueScore_asc") {
+					return (
+						(a.valueScore ?? Infinity) - (b.valueScore ?? Infinity)
+					);
+				}
+				if (sort === "valueScore_desc") {
+					return (
+						(b.valueScore ?? -Infinity) -
+						(a.valueScore ?? -Infinity)
+					);
+				}
+			}
+			return 0;
+		});
+		return filtered;
+	}, [models, provider, sort, search, view]);
+
+	const handleReset = () => {
+		setProvider("all");
+		setSort("release_desc");
+		setSearch("");
+	};
+
+	const showReset =
+		provider !== "all" || sort !== "release_desc" || search.trim() !== "";
 
 	return (
 		<TooltipProvider>
@@ -306,6 +400,24 @@ export default function ModelsDisplay({ models }: ModelsDisplayProps) {
 						)}
 					</div>
 
+					{/* View Toggle */}
+					<div className="flex items-center gap-2 ml-auto">
+						<Button
+							variant={view === "card" ? "default" : "ghost"}
+							size="sm"
+							onClick={() => setView("card")}
+						>
+							Card View
+						</Button>
+						<Button
+							variant={view === "metric" ? "default" : "ghost"}
+							size="sm"
+							onClick={() => setView("metric")}
+						>
+							Metric View
+						</Button>
+					</div>
+
 					{/* Search Bar */}
 					<div className="flex-1 flex justify-end">
 						<div className="relative w-full max-w-xs">
@@ -324,9 +436,13 @@ export default function ModelsDisplay({ models }: ModelsDisplayProps) {
 			{/* Models Grid */}
 			<div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
 				{filteredModels.length > 0 ? (
-					filteredModels.map((model) => (
-						<ModelCard key={model.id} model={model} />
-					))
+					filteredModels.map((model) =>
+						view === "card" ? (
+							<ModelCard key={model.id} model={model} />
+						) : (
+							<MetricModelCard key={model.id} model={model} />
+						)
+					)
 				) : (
 					<div className="col-span-full text-center text-muted-foreground py-12">
 						No models found for the selected filters.

@@ -7,6 +7,7 @@
   "description": null,
   "announced_date": "2025-05-20T00:00:00",
   "release_date": "",
+  "deprecation_date": "",
   "input_context_length": null,
   "output_context_length": null,
   "license": "Proprietary",
@@ -41,7 +42,7 @@
       "source_link": "https://deepmind.google/models/gemini-diffusion/#benchmarks"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "40.4%",
       "is_self_reported": true,
       "other_info": "Pass@1",

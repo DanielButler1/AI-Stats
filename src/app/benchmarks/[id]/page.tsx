@@ -27,6 +27,24 @@ export async function generateMetadata(
 ): Promise<Metadata> {
 	const params = await props.params;
 
+	if (params.id === "ai-stats-score") {
+		return {
+			title: "AI Stats Score | Model Ratings & Leaderboard",
+			description:
+				"The AI Stats Score is a Glicko-based rating that summarizes overall model performance across multiple benchmarks. See the leaderboard and compare models by their Glicko rating.",
+			keywords: [
+				"AI Stats Score",
+				"Glicko rating",
+				"AI model leaderboard",
+				"model comparison",
+				"AI Stats",
+			],
+			alternates: {
+				canonical: `https://ai-stats.phaseo.app/benchmarks/ai-stats-score`,
+			},
+		};
+	}
+
 	try {
 		const benchmarks = await fetchBenchmarks();
 		const benchmark: Benchmark | undefined = benchmarks.find(
@@ -35,7 +53,7 @@ export async function generateMetadata(
 
 		if (!benchmark) {
 			return {
-				title: "Benchmark Not Found | AI Stats",
+				title: "Benchmark Not Found",
 				description:
 					"The requested AI model benchmark could not be found on AI Stats.",
 				alternates: {
@@ -45,7 +63,7 @@ export async function generateMetadata(
 		}
 
 		return {
-			title: `${benchmark.name} Benchmark | Scores, Usage & Model Performance - AI Stats`,
+			title: `${benchmark.name} Benchmark | Scores, Usage & Model Performance`,
 			description: benchmark.description
 				? `${benchmark.description} See which AI models use the ${benchmark.name} benchmark, compare scores, and explore detailed performance data.`
 				: `Explore the ${benchmark.name} benchmark. See which AI models use it, compare scores, and view detailed performance data on AI Stats.`,
@@ -65,7 +83,7 @@ export async function generateMetadata(
 		};
 	} catch (error) {
 		return {
-			title: "Benchmark Error | AI Stats",
+			title: "Benchmark Error",
 			description:
 				"There was an error loading the benchmark data on AI Stats.",
 		};
@@ -75,9 +93,14 @@ export async function generateMetadata(
 export async function generateStaticParams() {
 	try {
 		const benchmarks = await fetchBenchmarks();
-		return benchmarks.map((benchmark: { id: string }) => ({
+		const paramsList = benchmarks.map((benchmark: { id: string }) => ({
 			id: benchmark.id,
 		}));
+		// Always include the special Glicko page
+		if (!paramsList.some((p) => p.id === "ai-stats-score")) {
+			paramsList.push({ id: "ai-stats-score" });
+		}
+		return paramsList;
 	} catch (error) {
 		console.error("Error generating static params for benchmarks:", error);
 		return [];
@@ -95,36 +118,71 @@ export default async function BenchmarkPage(props: BenchmarkPageProps) {
 		benchmark = (benchmarks.find((b) => b.id === params.id) ||
 			null) as Benchmark | null;
 
-		if (!benchmark) {
+		if (!benchmark && params.id !== "ai-stats-score") {
 			notFound();
 		}
 
-		// Fetch models data to find which ones use this benchmark
+		// Fetch models data
 		const models = await fetchAggregateData();
 
-		// Find models that use this benchmark by the benchmark_id
-		modelsWithBenchmark = models.filter((model: any) => {
-			if (
-				!model.benchmark_results ||
-				!Array.isArray(model.benchmark_results)
-			) {
-				return false;
-			}
-
-			return model.benchmark_results.some((br: any) => {
-				// Check for benchmark_id match
-				if (br.benchmark_id === params.id) {
-					return true;
+		if (params.id === "ai-stats-score") {
+			// Special case: Use Glicko Ratings
+			modelsWithBenchmark = models
+				.filter(
+					(model: any) =>
+						model.glickoRating &&
+						typeof model.glickoRating.rating === "number"
+				)
+				.map((model: any) => ({
+					...model,
+					benchmark_results: [
+						{
+							score: model.glickoRating.rating,
+							uncertainty: model.glickoRating.rd,
+							benchmark_id: "ai-stats-score",
+							benchmark: {
+								id: "ai-stats-score",
+								name: "AI Stats Score",
+								description:
+									"Glicko rating system for overall model performance.",
+							},
+						},
+					],
+				}));
+			// Provide a pseudo-benchmark object for display
+			benchmark = {
+				id: "ai-stats-score",
+				name: "AI Stats Score",
+				description:
+					"The AI Stats Score is a Glicko-based rating that summarizes overall model performance across multiple benchmarks.",
+				link: "https://ai-stats.phaseo.app/benchmarks/ai-stats-score",
+				order: "Higher",
+			};
+		} else {
+			// Find models that use this benchmark by the benchmark_id
+			modelsWithBenchmark = models.filter((model: any) => {
+				if (
+					!model.benchmark_results ||
+					!Array.isArray(model.benchmark_results)
+				) {
+					return false;
 				}
 
-				// Also check in enriched benchmark data
-				if (br.benchmark && br.benchmark.id === params.id) {
-					return true;
-				}
+				return model.benchmark_results.some((br: any) => {
+					// Check for benchmark_id match
+					if (br.benchmark_id === params.id) {
+						return true;
+					}
 
-				return false;
+					// Also check in enriched benchmark data
+					if (br.benchmark && br.benchmark.id === params.id) {
+						return true;
+					}
+
+					return false;
+				});
 			});
-		});
+		}
 	} catch (error) {
 		console.error(`Error fetching data for benchmark ${params.id}:`, error);
 	}

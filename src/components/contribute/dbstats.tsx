@@ -165,7 +165,7 @@ export default function DbStats({ models, benchmarks }: DbStatsProps) {
 									: "text-red-600 dark:text-red-400"
 							)}
 						>
-							{totalCoveragePercent}%
+							{totalCoveragePercent.toFixed(2)}%
 						</span>
 					</CardContent>
 				</Card>

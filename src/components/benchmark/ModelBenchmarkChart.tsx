@@ -72,7 +72,7 @@ interface ModelBenchmarkChartProps {
 		provider?: { name?: string; colour?: string | null };
 		benchmark_results: Array<{
 			benchmark_id?: string;
-			benchmark?: { id?: string; name?: string };
+			benchmark?: { id?: string; name?: string; order?: string | null };
 			name?: string;
 			score: string | number;
 			is_self_reported?: boolean | number;
@@ -99,6 +99,29 @@ export default function ModelBenchmarkChart({
 	// State for dialog
 	const [dialogOpen, setDialogOpen] = React.useState(false);
 	const isMobile = useIsMobile();
+
+	// Find the first matching benchmark result to determine order
+	const isLowerBetter = React.useMemo(() => {
+		for (const model of models) {
+			const result = model.benchmark_results.find(
+				(br) =>
+					(br.name &&
+						br.name.toLowerCase() ===
+							benchmarkName.toLowerCase()) ||
+					(br.benchmark?.name &&
+						br.benchmark.name.toLowerCase() ===
+							benchmarkName.toLowerCase())
+			);
+			if (
+				result &&
+				result.benchmark &&
+				result.benchmark.order === "lower"
+			) {
+				return true;
+			}
+		}
+		return false;
+	}, [models, benchmarkName]);
 
 	// Prepare data for the chart
 	const data = models
@@ -133,7 +156,13 @@ export default function ModelBenchmarkChart({
 				parsedResults.length === 1
 					? parsedResults[0]
 					: parsedResults.reduce((a, b) =>
-							(a.score as number) > (b.score as number) ? a : b
+							isLowerBetter
+								? (a.score as number) < (b.score as number)
+									? a
+									: b
+								: (a.score as number) > (b.score as number)
+								? a
+								: b
 					  );
 			return {
 				name: model.name,
@@ -160,8 +189,12 @@ export default function ModelBenchmarkChart({
 		}>;
 	}>;
 
-	// Sort data by score in descending order
-	data.sort((a, b) => b.score - a.score);
+	// Sort data by score (descending for higher is better, ascending for lower is better)
+	if (isLowerBetter) {
+		data.sort((a, b) => a.score - b.score);
+	} else {
+		data.sort((a, b) => b.score - a.score);
+	}
 
 	// Limit to top 20 models for the main chart
 	const topModels = isMobile ? data.slice(0, 10) : data.slice(0, 20);
@@ -221,6 +254,14 @@ export default function ModelBenchmarkChart({
 								? `Top 20 of ${data.length}`
 								: `${data.length} models`}
 						</Badge>
+						{isLowerBetter && (
+							<Badge
+								variant="outline"
+								className="ml-1 text-xs text-blue-600 border-blue-400"
+							>
+								Lower is better
+							</Badge>
+						)}
 					</CardTitle>
 				</CardHeader>
 				<CardContent className="p-0">
@@ -235,7 +276,6 @@ export default function ModelBenchmarkChart({
 								bottom: 40,
 							}}
 						>
-							{" "}
 							<XAxis
 								dataKey="name"
 								angle={isMobile ? -60 : -25}
@@ -248,17 +288,44 @@ export default function ModelBenchmarkChart({
 							/>{" "}
 							<YAxis
 								type="number"
-								domain={[
-									0,
-									Math.max(
-										100,
-										Math.ceil(
-											Math.max(
-												...topModels.map((d) => d.score)
-											) * 1.1
-										)
-									),
-								]}
+								domain={
+									isLowerBetter
+										? [
+												Math.min(
+													0,
+													Math.floor(
+														Math.min(
+															...topModels.map(
+																(d) => d.score
+															)
+														) * 0.9
+													)
+												),
+												Math.max(
+													100,
+													Math.ceil(
+														Math.max(
+															...topModels.map(
+																(d) => d.score
+															)
+														) * 1.1
+													)
+												),
+										  ]
+										: [
+												0,
+												Math.max(
+													100,
+													Math.ceil(
+														Math.max(
+															...topModels.map(
+																(d) => d.score
+															)
+														) * 1.1
+													)
+												),
+										  ]
+								}
 								tick={{ fontSize: 12 }}
 								axisLine={true}
 								tickLine={false}

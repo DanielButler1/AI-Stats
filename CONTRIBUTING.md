@@ -57,7 +57,7 @@ This section explains how to contribute data to the project. Whether you're addi
 
 #### Creating a New Benchmark
 
--   Add a new folder to `/benchmarks` using a short, lowercase, dash-separated name (e.g. `gpqa`, `mmlu`, `arc-agi-1` etc.)
+-   Add a new folder to `/benchmarks` using a short, lowercase, dash-separated name (e.g. `gpqa-diamond`, `mmlu`, `arc-agi-1` etc.)
 -   Inside that folder, create a `benchmark.json` file
 -   Follow the structure used in existing benchmarks.
 

@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2024-10-01T00:00:00",
-  "input_context_length": 128000.0,
-  "output_context_length": 4000.0,
+  "deprecation_date": "",
+  "input_context_length": 128000,
+  "output_context_length": 4000,
   "license": "Llama 3.1 Community License",
   "multimodal": false,
   "input_types": null,
@@ -25,6 +26,14 @@
   "weights_link": "https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct",
   "parameter_count": 70000000000,
   "training_tokens": null,
-  "benchmark_results": [],
+  "benchmark_results": [
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1294,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    }
+  ],
   "prices": []
 }

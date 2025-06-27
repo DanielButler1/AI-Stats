@@ -6,7 +6,7 @@ import { fetchAggregateData } from "@/lib/fetchData";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Compare AI Models Side-by-Side | Benchmarks, Features & Pricing - AI Stats",
+	title: "Compare AI Models Side-by-Side | Benchmarks, Features & Pricing",
 	description:
 		"Compare state-of-the-art AI models side-by-side. Explore detailed benchmarks, features, providers, and pricing to find the best AI model for your needs. Make informed decisions with AI Stats.",
 	keywords: [

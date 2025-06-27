@@ -10,27 +10,7 @@ import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
 
-// Static SEO metadata for providers listing
-export const metadata: Metadata = {
-	title: "AI Providers Directory | Compare AI Companies & Their Models - AI Stats",
-	description:
-		"Explore a comprehensive directory of AI providers. Compare top AI companies, their models, features, benchmarks, and pricing. Find the best AI provider for your needs on AI Stats.",
-	keywords: [
-		"AI providers",
-		"AI companies",
-		"AI models",
-		"machine learning providers",
-		"AI benchmarks",
-		"AI pricing",
-		"AI directory",
-		"compare AI providers",
-		"AI Stats",
-	],
-	alternates: {
-		canonical: "https://ai-stats.phaseo.app/providers",
-	},
-};
-
+// Helper to get all providers
 async function getAllProviders(): Promise<Provider[]> {
 	const providersDir = path.join(process.cwd(), "src/data/providers");
 	const providerFolders = await fs.readdir(providersDir);
@@ -47,6 +27,34 @@ async function getAllProviders(): Promise<Provider[]> {
 		}
 	}
 	return providers;
+}
+
+// Static SEO metadata for providers listing
+const staticKeywords = [
+	"AI providers",
+	"AI companies",
+	"AI models",
+	"machine learning providers",
+	"AI benchmarks",
+	"AI pricing",
+	"AI directory",
+	"compare AI providers",
+	"AI Stats",
+];
+
+export async function generateMetadata(): Promise<Metadata> {
+	const providers = await getAllProviders();
+	const providerNames = providers.map((p) => p.name);
+	const keywords = Array.from(new Set([...staticKeywords, ...providerNames]));
+	return {
+		title: "AI Providers | Compare AI Providers & Their Models",
+		description:
+			"Explore a comprehensive directory of AI providers. Compare top AI providers, their models, features, benchmarks, and pricing. Find the best AI provider for your needs on AI Stats.",
+		keywords,
+		alternates: {
+			canonical: "https://ai-stats.phaseo.app/providers",
+		},
+	};
 }
 
 // Helper to get the most recent model for a provider

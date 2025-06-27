@@ -1,6 +1,7 @@
 {
   "id": "swe-lancer",
   "name": "SWE-Lancer",
+  "order": null,
   "description": null,
   "link": "https://openai.com/index/swe-lancer/"
 }

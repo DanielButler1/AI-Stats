@@ -1,6 +1,7 @@
 {
   "id": "livecodebenchv6",
   "name": "LiveCodeBench V6",
+  "order": null,
   "description": null,
   "link": "https://livecodebench.github.io/leaderboard.html"
 }

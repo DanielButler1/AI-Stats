@@ -1,6 +1,7 @@
 {
   "id": "simplebench",
   "name": "SimpleBench",
+  "order": null,
   "description": null,
   "link": "https://simple-bench.com/index.html"
 }

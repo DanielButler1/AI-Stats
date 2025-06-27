@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": "2025-04-30T00:00:00",
   "release_date": "2025-04-30T00:00:00",
-  "input_context_length": 1000000.0,
-  "output_context_length": 10000.0,
+  "deprecation_date": "",
+  "input_context_length": 1000000,
+  "output_context_length": 10000,
   "license": "Proprietary",
   "multimodal": true,
   "input_types": "text,image,video",
@@ -27,7 +28,7 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "57.1%",
       "is_self_reported": null,
       "other_info": null,
@@ -37,9 +38,9 @@
   "prices": [
     {
       "api_provider": null,
-      "input_token_price": 8e-07,
+      "input_token_price": "0.0000008",
       "cached_input_token_price": null,
-      "output_token_price": 3.2e-06,
+      "output_token_price": "0.0000032",
       "throughput": "",
       "latency": "",
       "source_link": null,

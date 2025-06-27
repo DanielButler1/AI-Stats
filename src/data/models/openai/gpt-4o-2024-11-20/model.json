@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2024-08-06T00:00:00",
-  "input_context_length": 128000.0,
-  "output_context_length": 16384.0,
+  "deprecation_date": "",
+  "input_context_length": 128000,
+  "output_context_length": 16384,
   "license": "Proprietary",
   "multimodal": true,
   "input_types": "text,image",
@@ -41,23 +42,47 @@
       "source_link": "https://openai.com/index/gpt-4-1/"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "46.0%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 17.21,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "18.7%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
     }
   ],
   "prices": [
     {
       "api_provider": "openai",
-      "input_token_price": 2.5e-06,
-      "cached_input_token_price": 1.25e-06,
-      "output_token_price": 1e-05,
+      "input_token_price": "0.0000025",
+      "cached_input_token_price": "0.00000125",
+      "output_token_price": "0.00001",
       "throughput": "",
       "latency": "",
       "source_link": "https://platform.openai.com/docs/models/gpt-4o",
       "other_info": ""
+    },
+    {
+      "api_provider": "azure",
+      "input_token_price": "0.0000025",
+      "cached_input_token_price": "0.00000125",
+      "output_token_price": "0.00001",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
+      "other_info": "Global Pricing"
     }
   ]
 }

@@ -1,6 +1,7 @@
 {
   "id": "paperbench",
   "name": "PaperBench",
+  "order": null,
   "description": null,
   "link": "https://openai.com/index/paperbench/"
 }

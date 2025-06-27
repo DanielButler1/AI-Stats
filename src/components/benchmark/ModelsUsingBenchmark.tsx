@@ -36,6 +36,51 @@ export default function ModelsUsingBenchmark({
 	benchmarkId,
 	defaultAccordionValues,
 }: ModelsUsingBenchmarkProps) {
+	// Determine if lower is better for this benchmark
+	const isLowerBetter = React.useMemo(() => {
+		for (const model of modelsWithBenchmark) {
+			const result = model.benchmark_results?.find(
+				(br: any) =>
+					br.benchmark_id === benchmarkId ||
+					(br.benchmark && br.benchmark.id === benchmarkId)
+			);
+			if (
+				result &&
+				result.benchmark &&
+				result.benchmark.order === "lower"
+			) {
+				return true;
+			}
+		}
+		return false;
+	}, [modelsWithBenchmark, benchmarkId]);
+
+	// Sort models within each provider by score (lower or higher is better)
+	const sortedModelsByProvider = React.useMemo(() => {
+		const sorted: typeof modelsByProvider = {};
+		sortedProviders.forEach((provider) => {
+			sorted[provider] = [...modelsByProvider[provider]].sort((a, b) => {
+				const aResult = a.benchmark_results?.find(
+					(br: any) =>
+						br.benchmark_id === benchmarkId ||
+						(br.benchmark && br.benchmark.id === benchmarkId)
+				);
+				const bResult = b.benchmark_results?.find(
+					(br: any) =>
+						br.benchmark_id === benchmarkId ||
+						(br.benchmark && br.benchmark.id === benchmarkId)
+				);
+				const aScore = aResult ? parseScore(aResult.score) : null;
+				const bScore = bResult ? parseScore(bResult.score) : null;
+				if (aScore == null && bScore == null) return 0;
+				if (aScore == null) return 1;
+				if (bScore == null) return -1;
+				return isLowerBetter ? aScore - bScore : bScore - aScore;
+			});
+		});
+		return sorted;
+	}, [modelsByProvider, sortedProviders, benchmarkId, isLowerBetter]);
+
 	return (
 		<Card className=" shadow-lg bg-white dark:bg-zinc-950">
 			<CardHeader>
@@ -44,6 +89,11 @@ export default function ModelsUsingBenchmark({
 					{modelsWithBenchmark.length > 0 && (
 						<span className="text-muted-foreground text-base font-normal">
 							({modelsWithBenchmark.length})
+						</span>
+					)}
+					{isLowerBetter && (
+						<span className="ml-2 text-xs text-blue-600 border border-blue-400 rounded px-2 py-0.5">
+							Lower is better
 						</span>
 					)}
 				</CardTitle>
@@ -89,7 +139,7 @@ export default function ModelsUsingBenchmark({
 								</AccordionTrigger>
 								<AccordionContent>
 									<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 pt-2">
-										{modelsByProvider[provider].map(
+										{sortedModelsByProvider[provider].map(
 											(model) => {
 												// Find the benchmark result for this model
 												const result =

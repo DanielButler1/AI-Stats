@@ -1,6 +1,7 @@
 {
   "id": "thematic-generalisation",
   "name": "Thematic Generalisation",
+  "order": "lower",
   "description": null,
   "link": "https://github.com/lechmazur/generalization"
 }

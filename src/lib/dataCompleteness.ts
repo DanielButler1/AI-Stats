@@ -64,7 +64,17 @@ export function getBenchmarkCompleteness(models: ExtendedModel[], benchmarks: Be
     ];
     const total = models.length * benchmarks.length * benchFields.length;
     let completed = 0;
+    // Date threshold: models released over 28 days ago are considered fully benchmarked
+    // As this gives time for benchmarks to be run and reported - whilst also not being too long
+    // Or too short to ensure the completeness is as accurate as possible
+    const twentyEightDaysAgo = new Date();
+    twentyEightDaysAgo.setDate(twentyEightDaysAgo.getDate() - 28);
     models.forEach(model => {
+        // If model released more than 28 days ago, count all benchmark fields as completed
+        if (model.release_date && new Date(model.release_date) < twentyEightDaysAgo) {
+            completed += benchmarks.length * benchFields.length;
+            return;
+        }
         benchmarks.forEach(benchmark => {
             const result = model.benchmark_results?.find(r => r.benchmark_id === benchmark.id);
             benchFields.forEach(field => {
@@ -136,6 +146,6 @@ export function getDataCompleteness(models: ExtendedModel[], benchmarks: Benchma
 
     const total = prov.total + apiProv.total + mod.total + benchDefs.total + benchRes.total + price.total;
     const completed = prov.completed + apiProv.completed + mod.completed + benchDefs.completed + benchRes.completed + price.completed;
-    const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
+    const percent = total > 0 ? (completed / total) * 100 : 0;
     return { total, completed, percent };
 }

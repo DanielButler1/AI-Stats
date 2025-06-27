@@ -7,8 +7,9 @@
   "description": null,
   "announced_date": null,
   "release_date": "2024-12-25T00:00:00",
-  "input_context_length": 131072.0,
-  "output_context_length": 131072.0,
+  "deprecation_date": "",
+  "input_context_length": 131072,
+  "output_context_length": 131072,
   "license": "MIT + Model License (Commercial use allowed)",
   "multimodal": false,
   "input_types": null,
@@ -34,7 +35,7 @@
       "source_link": "https://github.com/deepseek-ai/DeepSeek-V3"
     },
     {
-      "benchmark_id": "gpqa",
+      "benchmark_id": "gpqa-diamond",
       "score": "59.1%",
       "is_self_reported": false,
       "other_info": null,
@@ -46,6 +47,34 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 2.03,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "15.1%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 5.161,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1355,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": []

@@ -1,6 +1,7 @@
 {
   "id": "solo-bench",
   "name": "SOLO-Bench",
+  "order": null,
   "description": null,
   "link": "https://github.com/jd-3d/SOLOBench"
 }

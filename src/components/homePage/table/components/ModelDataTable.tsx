@@ -122,7 +122,7 @@ export function ModelDataTable({ table, columns }: ModelDataTableProps) {
 					</TableBody>
 				</Table>
 			</div>
-			<div className="flex items-center justify-between py-4">
+			<div className="flex flex-col-reverse md:flex-row items-center md:justify-between py-4 space-y-2 md:space-y-0">
 				<div className="text-sm text-muted-foreground">
 					{table.getFilteredRowModel().rows.length > 0 && (
 						<>
@@ -149,7 +149,7 @@ export function ModelDataTable({ table, columns }: ModelDataTableProps) {
 						</>
 					)}
 				</div>
-				<div className="flex items-center space-x-2">
+				<div className="flex items-center space-x-2 pb-4 md:pb-0">
 					<Button
 						variant="outline"
 						size="icon"

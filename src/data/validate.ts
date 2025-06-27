@@ -13,23 +13,40 @@ const ProviderSchema = z.object({
     country_code: z.string().nullable(),
     description: z.string().nullable(),
     colour: z.string().nullable(),
-    twitter: z.string().nullable().optional(),
+    twitter: z.string().nullable(), // required, not optional
+});
+
+const BenchmarkSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    order: z.string(),
+    description: z.string().nullable(),
+    link: z.string().nullable(),
 });
 
 const BenchmarkResultSchema = z.object({
     benchmark_id: z.string(),
-    score: z.union([z.number(), z.string()]),
-    is_self_reported: z.union([z.boolean(), z.number()]).nullable(),
+    score: z.union([z.number(), z.string()]), // number or string
+    is_self_reported: z.union([z.boolean(), z.number()]), // boolean or number
     source_link: z.string().nullable(),
     other_info: z.string().nullable().optional(),
 });
 
+const APIProviderSchema = z.object({
+    api_provider_id: z.string(),
+    api_provider_name: z.string(),
+    description: z.string().nullable(),
+    link: z.string().nullable(),
+});
+
 const PriceSchema = z.object({
     api_provider_id: z.string().nullable().optional(),
-    input_token_price: z.union([z.number(), z.string()]).nullable(),
-    output_token_price: z.union([z.number(), z.string()]).nullable(),
-    throughput: z.union([z.number(), z.string()]).nullable(),
-    latency: z.union([z.number(), z.string()]).nullable(),
+    api_provider: z.union([APIProviderSchema, z.string()]).optional(),
+    input_token_price: z.number().nullable(),
+    cached_input_token_price: z.number().nullable().optional(),
+    output_token_price: z.number().nullable(),
+    throughput: z.number().nullable(),
+    latency: z.number().nullable(),
     source_link: z.string().nullable(),
     other_info: z.string().nullable(),
 });
@@ -58,8 +75,9 @@ const ModelSchema = z.object({
     paper_link: z.string().nullable(),
     announcement_link: z.string().nullable(),
     repository_link: z.string().nullable(),
-    weights_link: z.string().nullable(), parameter_count: z.union([z.number(), z.string()]).nullable(),
-    training_tokens: z.union([z.number(), z.string()]).nullable(),
+    weights_link: z.string().nullable(),
+    parameter_count: z.number().nullable(),
+    training_tokens: z.number().nullable(),
     benchmark_results: z.array(BenchmarkResultSchema).nullable(),
     prices: z.array(PriceSchema).nullable(),
 });

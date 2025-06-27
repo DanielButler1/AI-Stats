@@ -1,6 +1,7 @@
 {
   "id": "mmlu",
   "name": "MMLU",
+  "order": null,
   "description": null,
   "link": null
 }
