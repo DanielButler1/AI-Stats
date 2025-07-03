@@ -107,12 +107,12 @@ export default function Header() {
 				<div className="container mx-auto py-4 px-4">
 					<div className="relative flex items-center justify-between">
 						{/* Title: left on desktop, centered on mobile */}
-						<Bot className="hidden xl:block h-8 w-8 mr-2" />
 						<Link
 							href="/"
-							className="text-3xl font-bold mb-0 w-full md:w-auto text-center md:text-left"
+							className="flex items-center text-3xl font-bold mb-0 w-full md:w-auto text-center md:text-left group"
 						>
-							AI Stats
+							<Bot className="h-8 w-8 mr-2 group-hover:text-blue-500 transition-colors" />
+							<span>AI Stats</span>
 						</Link>
 
 						{/* Desktop nav links: centered */}

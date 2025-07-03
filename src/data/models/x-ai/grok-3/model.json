@@ -4,7 +4,7 @@
   "provider": "x-ai",
   "status": "Available",
   "previous_model_id": "grok-3-beta",
-  "description": null,
+  "description": "Grok 3, the successor to Grok 2, delivers advanced reasoning capabilities performing well to comparable models in math, science and coding. ",
   "announced_date": "2025-04-18T00:00:00",
   "release_date": "2025-04-18T00:00:00",
   "deprecation_date": "",
@@ -68,6 +68,13 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "ai2-sciarena",
+      "score": 1024.23,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://sciarena.allen.ai/"
     }
   ],
   "prices": [

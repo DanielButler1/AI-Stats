@@ -3,7 +3,7 @@
   "name": "o3 Pro",
   "provider": "openai",
   "status": "Available",
-  "previous_model_id": "o1-pro",
+  "previous_model_id": "o1-pro-2025-03-19",
   "description": "A version of o3 with more compute for higher quality and more accurate responses. The o3-pro model uses more compute to think harder and provide consistently better answers, designed to tackle the toughest of problems which require the most advanced reasoning capabilities.",
   "announced_date": "2025-06-10T00:00:00",
   "release_date": "2025-06-10T00:00:00",

@@ -3,7 +3,7 @@
   "name": "o3",
   "provider": "openai",
   "status": "Available",
-  "previous_model_id": "o1",
+  "previous_model_id": "o1-2024-12-17",
   "description": null,
   "announced_date": "2025-04-16T00:00:00",
   "release_date": "2025-04-16T00:00:00",
@@ -194,6 +194,13 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "ai2-sciarena",
+      "score": 1172.48,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://sciarena.allen.ai/"
     },
     {
       "benchmark_id": "aider-polyglot",

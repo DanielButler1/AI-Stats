@@ -3,7 +3,7 @@
   "name": "GPT-4.1 Mini",
   "provider": "openai",
   "status": "Available",
-  "previous_model_id": "gpt-4o",
+  "previous_model_id": "gpt-4o-2024-11-20",
   "description": null,
   "announced_date": null,
   "release_date": "2025-04-14T00:00:00",
@@ -96,6 +96,13 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "ai2-sciarena",
+      "score": 1025.56,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://sciarena.allen.ai/"
     }
   ],
   "prices": [

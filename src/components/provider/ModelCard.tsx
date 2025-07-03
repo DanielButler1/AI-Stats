@@ -1,12 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import {
-	Card,
-	CardHeader,
-	CardContent,
-	CardDescription,
-} from "@/components/ui/card";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import {
@@ -22,8 +16,11 @@ import {
 	Github,
 	Download,
 	ExternalLink,
-	ChevronDown,
 	ArrowRight,
+	CheckCircle,
+	HelpCircle,
+	Ban,
+	Rocket,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -40,8 +37,6 @@ const linkIcons = {
 };
 
 export function ModelCard({ model }: { model: ExtendedModel }) {
-	const [expanded, setExpanded] = useState(false);
-
 	return (
 		<Card
 			style={{
@@ -109,7 +104,8 @@ export function ModelCard({ model }: { model: ExtendedModel }) {
 			<CardHeader className="pb-2 pt-4">
 				<div className="mt-2 grid grid-cols-2 gap-2">
 					<div className="flex flex-col items-start">
-						<Badge className="bg-blue-100 text-blue-800 border border-blue-300 mb-1 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700 hover:bg-blue-200 hover:text-blue-900 hover:border-blue-400 dark:hover:bg-blue-800 dark:hover:text-blue-200 dark:hover:border-blue-500 transition-colors">
+						<Badge className="inline-flex w-auto bg-blue-100 text-blue-800 border border-blue-300 mb-1 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700 hover:bg-blue-200 hover:text-blue-900 hover:border-blue-400 dark:hover:bg-blue-800 dark:hover:text-blue-200 dark:hover:border-blue-500 transition-colors items-center gap-1">
+							<Megaphone size={14} className="mr-1" />
 							Announced
 						</Badge>
 						<span className="text-xs text-muted-foreground font-medium">
@@ -125,7 +121,8 @@ export function ModelCard({ model }: { model: ExtendedModel }) {
 						</span>
 					</div>
 					<div className="flex flex-col items-start">
-						<Badge className="bg-green-100 text-green-800 border border-green-300 mb-1 dark:bg-green-900 dark:text-green-100 dark:border-green-700 hover:bg-green-200 hover:text-green-900 hover:border-green-400 dark:hover:bg-green-800 dark:hover:text-green-200 dark:hover:border-green-500 transition-colors">
+						<Badge className="inline-flex w-auto bg-green-100 text-green-800 border border-green-300 mb-1 dark:bg-green-900 dark:text-green-100 dark:border-green-700 hover:bg-green-200 hover:text-green-900 hover:border-green-400 dark:hover:bg-green-800 dark:hover:text-green-200 dark:hover:border-green-500 transition-colors items-center gap-1">
+							<Rocket size={14} className="mr-1" />
 							Released
 						</Badge>
 						<span className="text-xs text-muted-foreground font-medium">
@@ -146,6 +143,7 @@ export function ModelCard({ model }: { model: ExtendedModel }) {
 						<Badge
 							variant="secondary"
 							className={cn(
+								"inline-flex w-auto items-center gap-1",
 								model.status === "Available" &&
 									"bg-green-100 text-green-800 border-green-300 dark:bg-green-900 dark:text-green-100 dark:border-green-800",
 								model.status === "Deprecated" &&
@@ -157,42 +155,24 @@ export function ModelCard({ model }: { model: ExtendedModel }) {
 								"border"
 							)}
 						>
+							{model.status === "Available" && (
+								<CheckCircle size={14} className="mr-1" />
+							)}
+							{model.status === "Deprecated" && (
+								<Ban size={14} className="mr-1" />
+							)}
+							{model.status === "Rumoured" && (
+								<HelpCircle size={14} className="mr-1" />
+							)}
+							{model.status === "Announced" && (
+								<Megaphone size={14} className="mr-1" />
+							)}
 							{model.status}
 						</Badge>
 					)}
-					<Badge variant="secondary">
-						{model.multimodal ? "Multimodal" : "Text"}
-					</Badge>
 				</div>
 			</CardHeader>
 			<CardContent className="flex-1 flex flex-col justify-start">
-				{model.description && (
-					<CardDescription className="mt-2 relative group">
-						<span
-							className={cn(
-								"block transition-all",
-								expanded ? undefined : "line-clamp-3"
-							)}
-						>
-							{model.description}
-						</span>
-						{model.description.length > 120 && (
-							<button
-								type="button"
-								onClick={() => setExpanded((v) => !v)}
-								className="absolute right-0 flex items-center gap-1 mt-1 opacity-0 group-hover:opacity-70 transition-opacity duration-500 bg-white/80 px-1 py-0.5 rounded shadow"
-								style={{ bottom: 0 }}
-							>
-								<ChevronDown
-									className={cn(
-										"w-4 h-4 text-blue-600 transition-transform duration-500",
-										expanded && "rotate-180"
-									)}
-								/>
-							</button>
-						)}
-					</CardDescription>
-				)}
 				<div className="flex gap-2 mt-4 flex-wrap">
 					{[
 						{

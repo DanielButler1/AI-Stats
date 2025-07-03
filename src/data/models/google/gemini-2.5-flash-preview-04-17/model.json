@@ -7,7 +7,7 @@
   "description": null,
   "announced_date": null,
   "release_date": "2025-04-17T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": "2025-07-15T00:00:00",
   "input_context_length": 1048576,
   "output_context_length": 65536,
   "license": "Proprietary",

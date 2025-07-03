@@ -40,6 +40,13 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://qwenlm.github.io/blog/qwen3/"
+    },
+    {
+      "benchmark_id": "ai2-sciarena",
+      "score": 1008.64,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://sciarena.allen.ai/"
     }
   ],
   "prices": []

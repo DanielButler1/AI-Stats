@@ -7,7 +7,7 @@
   "description": null,
   "announced_date": "2023-12-06T00:00:00",
   "release_date": "2024-02-15T00:00:00",
-  "deprecation_date": null,
+  "deprecation_date": "2025-04-21T00:00:00",
   "input_context_length": 32768,
   "output_context_length": 8192,
   "license": "Proprietary",
@@ -43,7 +43,7 @@
       "output_token_price": "0.0000375",
       "throughput": "",
       "latency": "",
-      "source_link": null,
+      "source_link": "",
       "other_info": null
     },
     {
@@ -53,7 +53,7 @@
       "output_token_price": "0.0000375",
       "throughput": "",
       "latency": "",
-      "source_link": null,
+      "source_link": "",
       "other_info": null
     }
   ]

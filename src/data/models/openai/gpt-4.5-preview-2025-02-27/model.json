@@ -3,7 +3,7 @@
   "name": "GPT-4.5",
   "provider": "openai",
   "status": "Available",
-  "previous_model_id": "gpt-4o",
+  "previous_model_id": "gpt-4o-2024-11-20",
   "description": null,
   "announced_date": "2024-02-27T00:00:00",
   "release_date": "2025-02-27T00:00:00",

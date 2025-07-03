@@ -3,7 +3,7 @@
   "name": "o3-mini",
   "provider": "openai",
   "status": "Available",
-  "previous_model_id": "o1-mini",
+  "previous_model_id": "o1-mini-2024-09-12",
   "description": null,
   "announced_date": null,
   "release_date": "2025-01-30T00:00:00",

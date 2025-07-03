@@ -82,6 +82,13 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "ai2-sciarena",
+      "score": 872.73,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://sciarena.allen.ai/"
     }
   ],
   "prices": [

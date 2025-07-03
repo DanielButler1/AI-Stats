@@ -7,7 +7,7 @@
   "description": "The latest generally available version of Google's Gemini 2.5 Pro Model. Gemini 2.5 Pro is Google's Flagship multimodal model, offering the strongest performance across any of Google's models with complete multimodaliality, and a 1m input context length.",
   "announced_date": "2025-06-05T00:00:00",
   "release_date": "2025-06-05T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": "2026-06-17T00:00:00",
   "input_context_length": 1048576,
   "output_context_length": 65536,
   "license": "Proprietary",
@@ -208,6 +208,13 @@
       "is_self_reported": false,
       "other_info": "32k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "ai2-sciarena",
+      "score": 1063,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://sciarena.allen.ai/"
     }
   ],
   "prices": [
@@ -218,7 +225,7 @@
       "output_token_price": "0.00001",
       "throughput": "",
       "latency": "",
-      "source_link": null,
+      "source_link": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro",
       "other_info": "Prices for input/output <200k tokens. Rises to $2.50 and $15 per 1m tokens >200k tokens. Cached Price rises to $0.625 per 1m tokens when prompts >200k tokens."
     },
     {

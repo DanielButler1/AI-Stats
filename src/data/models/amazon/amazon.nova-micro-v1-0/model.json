@@ -44,14 +44,14 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "amazon-bedrock",
       "input_token_price": "0.000000035",
-      "cached_input_token_price": null,
+      "cached_input_token_price": "0.00000000875",
       "output_token_price": "0.00000014",
       "throughput": "",
       "latency": "",
-      "source_link": null,
-      "other_info": null
+      "source_link": "https://aws.amazon.com/bedrock/pricing/",
+      "other_info": ""
     }
   ]
 }

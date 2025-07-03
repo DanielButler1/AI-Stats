@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { Megaphone, Rocket, Ban } from "lucide-react";
 
 // Date formatting helper
 function formatDate(dateStr: string | null | undefined) {
@@ -159,21 +160,33 @@ export default function RecentModels({ models }: RecentModelsProps) {
 												{event.types.includes(
 													"Announced"
 												) && (
-													<Badge className="bg-blue-100 text-blue-800 border border-blue-300 hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700 dark:hover:bg-blue-800 transition-colors">
+													<Badge className="bg-blue-100 text-blue-800 border border-blue-300 hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700 dark:hover:bg-blue-800 transition-colors flex items-center gap-1">
+														<Megaphone
+															size={14}
+															className="mr-1"
+														/>
 														Announced
 													</Badge>
 												)}
 												{event.types.includes(
 													"Released"
 												) && (
-													<Badge className="bg-green-100 text-green-800 border border-green-300 hover:bg-green-200 dark:bg-green-900 dark:text-green-100 dark:border-green-700 dark:hover:bg-green-800 transition-colors">
+													<Badge className="bg-green-100 text-green-800 border border-green-300 hover:bg-green-200 dark:bg-green-900 dark:text-green-100 dark:border-green-700 dark:hover:bg-green-800 transition-colors flex items-center gap-1">
+														<Rocket
+															size={14}
+															className="mr-1"
+														/>
 														Released
 													</Badge>
 												)}
 												{event.types.includes(
 													"Deprecated"
 												) && (
-													<Badge className="bg-red-100 text-red-800 border border-red-300 hover:bg-red-200 dark:bg-red-900 dark:text-red-100 dark:border-red-700 dark:hover:bg-red-800 transition-colors">
+													<Badge className="bg-red-100 text-red-800 border border-red-300 hover:bg-red-200 dark:bg-red-900 dark:text-red-100 dark:border-red-700 dark:hover:bg-red-800 transition-colors flex items-center gap-1">
+														<Ban
+															size={14}
+															className="mr-1"
+														/>
 														Deprecated
 													</Badge>
 												)}
@@ -288,15 +301,24 @@ export default function RecentModels({ models }: RecentModelsProps) {
 								<div className="flex justify-between items-center w-full px-4 pt-4">
 									{/* Event badge */}
 									{event.types.includes("Deprecated") ? (
-										<Badge className="bg-red-100 text-red-800 border border-red-300 px-2 py-1 text-xs">
+										<Badge className="bg-red-100 text-red-800 border border-red-300 px-2 py-1 text-xs flex items-center gap-1">
+											<Ban size={14} className="mr-1" />
 											Deprecated
 										</Badge>
 									) : event.types.includes("Released") ? (
-										<Badge className="bg-green-100 text-green-800 border border-green-300 px-2 py-1 text-xs">
+										<Badge className="bg-green-100 text-green-800 border border-green-300 px-2 py-1 text-xs flex items-center gap-1">
+											<Rocket
+												size={14}
+												className="mr-1"
+											/>
 											Released
 										</Badge>
 									) : (
-										<Badge className="bg-blue-100 text-blue-800 border border-blue-300 px-2 py-1 text-xs">
+										<Badge className="bg-blue-100 text-blue-800 border border-blue-300 px-2 py-1 text-xs flex items-center gap-1">
+											<Megaphone
+												size={14}
+												className="mr-1"
+											/>
 											Announced
 										</Badge>
 									)}

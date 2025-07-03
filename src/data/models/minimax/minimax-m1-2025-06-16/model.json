@@ -152,6 +152,13 @@
       "is_self_reported": true,
       "other_info": "80k",
       "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
+    },
+    {
+      "benchmark_id": "ai2-sciarena",
+      "score": 953.59,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://sciarena.allen.ai/"
     }
   ],
   "prices": [

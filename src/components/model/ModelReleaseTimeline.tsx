@@ -11,13 +11,13 @@ function getTimelineEvents(model: any, allModels: any[]) {
 	const events = [];
 
 	// Add current model events
-	if (model.announced_date) {
+	if (model.deprecation_date) {
 		events.push({
-			date: model.announced_date,
-			label: "Model Announced",
-			description: "Model first introduced to the public",
-			type: "announced",
-			color: "bg-blue-500",
+			date: model.deprecation_date,
+			label: "Model Deprecated",
+			description: "Model no longer supported or maintained",
+			type: "deprecated",
+			color: "bg-red-500",
 			modelId: model.id,
 		});
 	}
@@ -28,6 +28,16 @@ function getTimelineEvents(model: any, allModels: any[]) {
 			description: "Model first made available to the public",
 			type: "released",
 			color: "bg-green-500",
+			modelId: model.id,
+		});
+	}
+	if (model.announced_date) {
+		events.push({
+			date: model.announced_date,
+			label: "Model Announced",
+			description: "Model first introduced to the public",
+			type: "announced",
+			color: "bg-blue-500",
 			modelId: model.id,
 		});
 	}
@@ -120,7 +130,8 @@ export default function ModelReleaseTimeline({
 								</div>
 								<div className="font-semibold text-base mb-0.5">
 									{event.type !== "announced" &&
-									event.type !== "released" ? (
+									event.type !== "released" &&
+									event.type !== "deprecated" ? (
 										<Link
 											href={`/models/${event.modelId}`}
 											className="hover:underline"

@@ -33,6 +33,13 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "ai2-sciarena",
+      "score": 1018.12,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://sciarena.allen.ai/"
     }
   ],
   "prices": []

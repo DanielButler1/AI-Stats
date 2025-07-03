@@ -3,7 +3,7 @@
   "name": "o4 Mini",
   "provider": "openai",
   "status": "Available",
-  "previous_model_id": "o3-mini",
+  "previous_model_id": "o3-mini-2025-01-31",
   "description": null,
   "announced_date": "2025-04-16T00:00:00",
   "release_date": "2025-04-16T00:00:00",
@@ -187,6 +187,13 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "ai2-sciarena",
+      "score": 1053.85,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://sciarena.allen.ai/"
     }
   ],
   "prices": [

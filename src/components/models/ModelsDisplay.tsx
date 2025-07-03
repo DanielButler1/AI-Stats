@@ -405,14 +405,20 @@ export default function ModelsDisplay({ models }: ModelsDisplayProps) {
 						<Button
 							variant={view === "card" ? "default" : "ghost"}
 							size="sm"
-							onClick={() => setView("card")}
+							onClick={() => {
+								setView("card");
+								setSort("release_desc");
+							}}
 						>
 							Card View
 						</Button>
 						<Button
 							variant={view === "metric" ? "default" : "ghost"}
 							size="sm"
-							onClick={() => setView("metric")}
+							onClick={() => {
+								setView("metric");
+								setSort("score_desc");
+							}}
 						>
 							Metric View
 						</Button>

@@ -60,12 +60,12 @@ export default async function PricesContributePage() {
 									Submit Price Information
 								</Button>
 							</Link>
-							<Link href="/pricing">
+							<Link href="/prices">
 								<Button
 									className="w-full sm:w-auto"
 									variant="outline"
 								>
-									View All Pricing
+									View All Prices
 								</Button>
 							</Link>
 						</div>
