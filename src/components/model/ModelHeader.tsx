@@ -1,6 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardHeader } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+	Tooltip,
+	TooltipTrigger,
+	TooltipContent,
+	TooltipProvider,
+} from "@/components/ui/tooltip";
 import type { ExtendedModel, Provider } from "@/data/types";
 
 interface ModelHeaderProps {
@@ -9,6 +16,15 @@ interface ModelHeaderProps {
 }
 
 export default function ModelHeader({ model, provider }: ModelHeaderProps) {
+	// Determine if the model is provisional (has benchmark_results or prices)
+	const isProvisional =
+		model.status === "Rumoured" ||
+		Object.entries(model).some(
+			([key, value]) =>
+				!["id", "name", "provider", "description", "status"].includes(key) &&
+				value !== null &&
+				value !== undefined
+		);
 	return (
 		<Card className="relative flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-8 shadow-lg">
 			<CardHeader className="w-full">
@@ -26,7 +42,6 @@ export default function ModelHeader({ model, provider }: ModelHeaderProps) {
 				)}
 				{/* Layout around logo and info */}
 				<div className="flex flex-col md:flex-row items-center w-full gap-4 md:gap-0">
-					{" "}
 					{/* Provider logo */}
 					<div className="flex-shrink-0 flex flex-col items-center justify-center h-full mb-2 md:mb-0 md:mr-6">
 						<div className="w-12 h-12 md:w-24 md:h-24 relative flex items-center justify-center rounded-full border bg-white">
@@ -42,9 +57,29 @@ export default function ModelHeader({ model, provider }: ModelHeaderProps) {
 					</div>
 					{/* Model and provider info */}
 					<div className="flex flex-col items-center md:items-start justify-center flex-1 w-full text-center md:text-left">
-						<h1 className="text-3xl md:text-5xl font-bold mb-1">
-							{model.name}
-						</h1>
+						<div className="flex items-center gap-2 mb-1">
+							<h1 className="text-3xl md:text-5xl font-bold mr-2">
+								{model.name}
+							</h1>
+							{isProvisional && (
+								<TooltipProvider>
+									<Tooltip delayDuration={0}>
+										<TooltipTrigger asChild>
+											<span>
+												<Badge variant="warning">
+													Provisional
+												</Badge>
+											</span>
+										</TooltipTrigger>
+										<TooltipContent side="top">
+											This model is yet to release, any
+											information included on this page,
+											is all subject to change
+										</TooltipContent>
+									</Tooltip>
+								</TooltipProvider>
+							)}
+						</div>
 						<Link
 							href={`/providers/${provider.provider_id}`}
 							className="text-base md:text-lg font-semibold text-primary hover:font-bold flex items-center justify-center md:justify-start gap-2 mx-auto md:mx-0"

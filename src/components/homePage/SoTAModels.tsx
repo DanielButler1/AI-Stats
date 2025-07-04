@@ -318,7 +318,7 @@ export default function SotaModel({ models }: SotAModelProps) {
 	return (
 		<Card className="shadow-lg">
 			<CardHeader className="pb-2">
-				<div className="flex justify-between items-center">
+				<div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
 					<CardTitle className="text-2xl">
 						The Best{" "}
 						<button onClick={toggleShow} className="font-bold">
@@ -330,7 +330,7 @@ export default function SotaModel({ models }: SotAModelProps) {
 						<DropdownMenuTrigger asChild>
 							<Button
 								variant="outline"
-								className="whitespace-nowrap ml-4"
+								className="whitespace-nowrap ml-0 sm:ml-4"
 							>
 								{selectedBenchmark.name}{" "}
 								<ChevronDown className="ml-2 h-4 w-4" />

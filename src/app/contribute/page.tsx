@@ -77,7 +77,10 @@ export default async function ContributePage() {
 								</Link>
 							</div>
 							<div className="flex flex-col sm:flex-row gap-2 w-full">
-								<Link href="/contribute/benchmarks" className="w-full sm:w-auto">
+								<Link
+									href="/contribute/benchmarks"
+									className="w-full sm:w-auto"
+								>
 									<Button
 										className="w-full sm:w-auto"
 										variant="secondary"
@@ -85,7 +88,10 @@ export default async function ContributePage() {
 										View Benchmark Coverage
 									</Button>
 								</Link>
-								<Link href="/contribute/prices" className="w-full sm:w-auto">
+								<Link
+									href="/contribute/prices"
+									className="w-full sm:w-auto"
+								>
 									<Button
 										className="w-full sm:w-auto"
 										variant="secondary"

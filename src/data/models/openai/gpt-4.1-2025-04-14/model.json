@@ -98,13 +98,6 @@
       "source_link": "https://aidanbench.com/"
     },
     {
-      "benchmark_id": "lmarena-text",
-      "score": 1402,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
-    },
-    {
       "benchmark_id": "simplebench",
       "score": "27.0%",
       "is_self_reported": false,
@@ -122,12 +115,19 @@
       "benchmark_id": "lmarena-webdev",
       "score": 1256.52,
       "is_self_reported": false,
-      "other_info": null,
+      "other_info": "16th June 2025",
       "source_link": "https://web.lmarena.ai/leaderboard"
     },
     {
       "benchmark_id": "lmarena-text",
       "score": 1410,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1402,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

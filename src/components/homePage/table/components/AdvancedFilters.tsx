@@ -47,7 +47,7 @@ export function AdvancedFilters({
 	const DEFAULT_CONTEXT_LENGTH_RANGE = ["all"];
 	const DEFAULT_SELECTED_PROVIDERS: string[] = [];
 	const DEFAULT_SELECTED_LICENSES: string[] = [];
-	const DEFAULT_SORT_STATE = [{ id: "gpqa_score", desc: true }];
+	const DEFAULT_SORT_STATE = [{ id: "ai_stats_score", desc: true }];
 
 	// Check if any filters or column visibility are not default
 	const isFiltered =

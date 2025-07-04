@@ -1,0 +1,74 @@
+{
+	"id": "grok-4-0629",
+	"name": "Grok 4",
+	"provider": "x-ai",
+	"status": "Rumoured",
+	"previous_model_id": "grok-3",
+	"description": "Grok 4, the rumoured successor to Grok 3, is rumoured to be a substantial upgrade, providing breakthrough capabilities in reasoning and multimodal capabilities.",
+	"announced_date": null,
+	"release_date": null,
+	"deprecation_date": "",
+	"input_context_length": 131072,
+	"output_context_length": null,
+	"license": "Proprietary",
+	"multimodal": false,
+	"input_types": "text",
+	"output_types": "text",
+	"web_access": null,
+	"reasoning": true,
+	"fine_tunable": "",
+	"knowledge_cutoff": null,
+	"api_reference_link": null,
+	"playground_link": "",
+	"paper_link": null,
+	"announcement_link": null,
+	"repository_link": "",
+	"weights_link": "",
+	"parameter_count": "",
+	"training_tokens": "",
+	"benchmark_results": [
+		{
+			"benchmark_id": "gpqa-diamond",
+			"score": "87.0%",
+			"is_self_reported": true,
+			"other_info": null,
+			"source_link": null
+		},
+		{
+			"benchmark_id": "humanitys-last-exam",
+			"score": "35.0%",
+			"is_self_reported": true,
+			"other_info": null,
+			"source_link": null
+		},
+		{
+			"benchmark_id": "aime-2025",
+			"score": "95.0%",
+			"is_self_reported": true,
+			"other_info": null,
+			"source_link": null
+		},
+		{
+			"benchmark_id": "gpqa-diamond",
+			"score": "88.0%",
+			"is_self_reported": true,
+			"other_info": "Reasoning",
+			"source_link": null
+		},
+		{
+			"benchmark_id": "humanitys-last-exam",
+			"score": "45.0%",
+			"is_self_reported": true,
+			"other_info": "Reasoning",
+			"source_link": null
+		},
+		{
+			"benchmark_id": "aime-2025",
+			"score": "",
+			"is_self_reported": true,
+			"other_info": "Reasoning",
+			"source_link": null
+		}
+	],
+	"prices": []
+}

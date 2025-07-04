@@ -1,9 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, DollarSign } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 interface PriceProviderCardProps {
 	id: string;
@@ -41,16 +41,22 @@ export default function PriceProviderCard({
 							</div>
 						</div>
 						{name}
-						{isPopular && (
-							<Badge
-								variant="default"
-								className="ml-2 text-xs bg-primary/10 text-primary border-primary/20 transition-colors hover:bg-gray-100"
-							>
-								<DollarSign className="h-3 w-3 mr-1" />
-								Popular
-							</Badge>
-						)}
 					</Link>
+					<Button
+						asChild
+						size="icon"
+						variant="ghost"
+						tabIndex={-1}
+						className="group"
+					>
+						<Link
+							href={`/prices/${id}`}
+							aria-label={`Go to ${name} details`}
+							tabIndex={-1}
+						>
+							<ArrowRight className="w-5 h-5 transition-colors group-hover:text-[color:var(--provider-color)]" />
+						</Link>
+					</Button>
 				</CardTitle>
 			</CardHeader>
 			<CardContent className="flex flex-col flex-grow">

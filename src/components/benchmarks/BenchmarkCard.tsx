@@ -1,23 +1,21 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, BarChart2 } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
+import { Button } from "../ui/button";
 
 interface BenchmarkCardProps {
 	id: string;
 	name: string;
 	description?: string;
 	usageCount: number;
-	hasLink: boolean;
+	benchmarkLink: string | null; // Use benchmarkLink instead of hasLink
 }
 
 export default function BenchmarkCard({
 	id,
 	name,
-	description,
 	usageCount,
-	hasLink,
 }: BenchmarkCardProps) {
 	return (
 		<Card className="shadow-lg border hover:shadow-xl transition-all duration-200 flex flex-col h-full transform hover:scale-[1.01] dark:shadow-zinc-900/25 dark:bg-zinc-950 dark:border-zinc-800">
@@ -29,14 +27,21 @@ export default function BenchmarkCard({
 					>
 						{name}
 					</Link>
-					{hasLink && (
-						<Badge
-							variant="outline"
-							className="ml-2 text-xs font-normal"
+					<Button
+						asChild
+						size="icon"
+						variant="ghost"
+						tabIndex={-1}
+						className="group"
+					>
+						<Link
+							href={`/benchmarks/${id}`}
+							aria-label={`Go to ${name} details`}
+							tabIndex={-1}
 						>
-							<ExternalLink className="h-3 w-3 mr-1" />
-						</Badge>
-					)}
+							<ArrowRight className="w-5 h-5 transition-colors group-hover:text-[color:var(--provider-color)]" />
+						</Link>
+					</Button>
 				</CardTitle>
 			</CardHeader>
 			<CardContent className="flex flex-col flex-grow">

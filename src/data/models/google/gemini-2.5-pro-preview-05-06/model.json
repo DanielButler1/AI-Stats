@@ -98,6 +98,13 @@
       "source_link": "https://eqbench.com/"
     },
     {
+      "benchmark_id": "lmarena-text",
+      "score": 1446,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
       "benchmark_id": "confabulations",
       "score": 10.62,
       "is_self_reported": false,
@@ -117,13 +124,6 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
-    },
-    {
-      "benchmark_id": "lmarena-text",
-      "score": 1446,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
     }
   ],
   "prices": []

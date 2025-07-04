@@ -28,6 +28,13 @@
   "training_tokens": "",
   "benchmark_results": [
     {
+      "benchmark_id": "lmarena-text",
+      "score": 1449,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
       "benchmark_id": "arc-agi-2",
       "score": "2.0%",
       "is_self_reported": false,
@@ -112,13 +119,6 @@
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
     },
     {
-      "benchmark_id": "lmarena-text",
-      "score": 1443,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
-    },
-    {
       "benchmark_id": "eqbench",
       "score": 1500,
       "is_self_reported": false,
@@ -185,12 +185,12 @@
       "benchmark_id": "lmarena-webdev",
       "score": 1189.94,
       "is_self_reported": false,
-      "other_info": null,
+      "other_info": "16th June 2025",
       "source_link": "https://web.lmarena.ai/leaderboard"
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1449,
+      "score": 1443,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

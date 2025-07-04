@@ -28,6 +28,13 @@
   "training_tokens": "",
   "benchmark_results": [
     {
+      "benchmark_id": "lmarena-text",
+      "score": 1470,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
       "benchmark_id": "humanitys-last-exam",
       "score": "21.6%",
       "is_self_reported": true,
@@ -143,15 +150,8 @@
       "benchmark_id": "lmarena-webdev",
       "score": 1433.16,
       "is_self_reported": false,
-      "other_info": null,
+      "other_info": "16th June 2025",
       "source_link": "https://web.lmarena.ai/leaderboard"
-    },
-    {
-      "benchmark_id": "lmarena-text",
-      "score": 1470,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
       "benchmark_id": "arc-agi-1",

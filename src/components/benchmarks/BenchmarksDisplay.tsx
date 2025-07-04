@@ -212,7 +212,7 @@ export default function BenchmarksDisplay({
 							name={benchmark.name}
 							description={benchmark.description || ""}
 							usageCount={benchmarkUsage[benchmark.id] || 0}
-							hasLink={benchmarkLinks[benchmark.id] || false}
+							benchmarkLink={benchmark.link}
 						/>
 					))
 				) : (

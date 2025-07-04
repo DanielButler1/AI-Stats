@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Pencil } from "lucide-react";
+import { Pencil, CheckCircle, FileWarning, Users } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -88,19 +88,31 @@ export function ModelCard({
 					</Tooltip>
 					<div className="flex items-center gap-2 mt-2">
 						<Badge
-							variant={
+							className={`${
 								status === "complete"
-									? "default"
+									? "border-green-500 text-green-700 bg-transparent hover:bg-green-100 dark:hover:bg-green-800/60"
 									: status === "critical"
-									? "destructive"
-									: "warning"
-							}
+									? "border-red-500 text-red-700 bg-transparent hover:bg-red-100 dark:hover:bg-red-800/60"
+									: "border-yellow-500 text-yellow-700 bg-transparent hover:bg-yellow-100 dark:hover:bg-yellow-800/60"
+							}`}
+							variant="outline"
 						>
-							{status === "complete"
-								? "Complete"
-								: status === "critical"
-								? "Needs Contributions"
-								: "Needs Review"}
+							<span className="flex items-center gap-1">
+								{status === "complete" && (
+									<CheckCircle className="w-4 h-4 mr-1 text-green-500" />
+								)}
+								{status === "critical" && (
+									<Users className="w-4 h-4 mr-1 text-red-500" />
+								)}
+								{status === "warning" && (
+									<FileWarning className="w-4 h-4 mr-1 text-yellow-500" />
+								)}
+								{status === "complete"
+									? "Complete"
+									: status === "critical"
+									? "Needs Contributions"
+									: "Needs Review"}
+							</span>
 						</Badge>
 					</div>
 				</div>
