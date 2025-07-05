@@ -53,6 +53,8 @@ export default function BenchmarkBarChart({
 			<BarChart
 				data={chartData}
 				margin={{ left: 0, right: 0, top: 0, bottom: 32 }}
+				barCategoryGap="60%"
+				barGap={2}
 			>
 				<Legend verticalAlign="top" height={64} />
 				<XAxis
@@ -86,7 +88,7 @@ export default function BenchmarkBarChart({
 						key={model.name}
 						dataKey={model.name}
 						fill={PASTEL_COLORS[idx % PASTEL_COLORS.length]}
-						barSize={48}
+						barSize={40}
 						isAnimationActive={false}
 						shape={(props: any) => {
 							const { x, y, width, height, payload } = props;
@@ -124,6 +126,7 @@ export default function BenchmarkBarChart({
 									? value.toFixed(1)
 									: ""
 							}
+							fontSize={12}
 						/>
 					</Bar>
 				))}

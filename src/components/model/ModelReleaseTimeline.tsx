@@ -11,6 +11,16 @@ function getTimelineEvents(model: any, allModels: any[]) {
 	const events = [];
 
 	// Add current model events
+	if (model.retirement_date) {
+		events.push({
+			date: model.retirement_date,
+			label: "Model Retired",
+			description: "Model no longer available or supported",
+			type: "retired",
+			color: "bg-black",
+			modelId: model.id,
+		});
+	}
 	if (model.deprecation_date) {
 		events.push({
 			date: model.deprecation_date,
@@ -131,7 +141,8 @@ export default function ModelReleaseTimeline({
 								<div className="font-semibold text-base mb-0.5">
 									{event.type !== "announced" &&
 									event.type !== "released" &&
-									event.type !== "deprecated" ? (
+									event.type !== "deprecated" &&
+									event.type !== "retired" ? (
 										<Link
 											href={`/models/${event.modelId}`}
 											className="hover:underline"

@@ -16,15 +16,14 @@ interface ModelHeaderProps {
 }
 
 export default function ModelHeader({ model, provider }: ModelHeaderProps) {
-	// Determine if the model is provisional (has benchmark_results or prices)
+	// Determine if the model is provisional (has benchmark_results or prices, but not released)
 	const isProvisional =
 		model.status === "Rumoured" ||
-		Object.entries(model).some(
-			([key, value]) =>
-				!["id", "name", "provider", "description", "status"].includes(key) &&
-				value !== null &&
-				value !== undefined
-		);
+		(((Array.isArray(model.benchmark_results) &&
+			model.benchmark_results.length > 0) ||
+			(Array.isArray(model.prices) && model.prices.length > 0)) &&
+			!model.release_date);
+
 	return (
 		<Card className="relative flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-8 shadow-lg">
 			<CardHeader className="w-full">

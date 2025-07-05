@@ -14,14 +14,14 @@ export default function ComparisonHeader({
 				<h2 className="text-lg font-medium text-pink-400 mb-3">
 					MODEL COMPARISON
 				</h2>
-				<div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
+				<div className="flex flex-row items-center justify-center gap-3 mb-4 flex-wrap">
 					{selectedModels.map((m, index) => (
 						<React.Fragment key={m.id}>
-							<span className="text-4xl font-bold text-center sm:text-left">
+							<span className="flex items-center text-4xl font-bold text-center sm:text-left">
 								{m.name}
 							</span>
 							{index < selectedModels.length - 1 && (
-								<span className="text-lg text-muted-foreground font-medium">
+								<span className="flex items-center text-lg text-muted-foreground font-medium mx-2">
 									vs
 								</span>
 							)}

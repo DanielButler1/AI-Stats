@@ -77,6 +77,13 @@ export default function ModelCombobox({
 	const [open, setOpen] = React.useState(false);
 	const isMaxSelected = selected.length >= 4;
 
+	// Close popover when max selected is reached
+	React.useEffect(() => {
+		if (isMaxSelected) {
+			setOpen(false);
+		}
+	}, [isMaxSelected]);
+
 	// Check if a model is available (has release or announced date)
 	const isModelAvailable = React.useCallback((model: ExtendedModel) => {
 		return model.release_date || model.announced_date;

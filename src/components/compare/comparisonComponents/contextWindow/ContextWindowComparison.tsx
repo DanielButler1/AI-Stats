@@ -12,6 +12,7 @@ import Image from "next/image";
 import React from "react";
 import { Star, Info } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 interface ContextWindowComparisonProps {
 	selectedModels: ExtendedModel[];
@@ -51,15 +52,49 @@ function getInfoSentence(models: ExtendedModel[]) {
 		(a, b) => (b.input_context_length || 0) - (a.input_context_length || 0)
 	);
 	const [first, second] = sorted;
-	return `${first.name} accepts ${
-		first.input_context_length?.toLocaleString() ?? "-"
-	} input tokens compared to ${second.name}'s ${
-		second.input_context_length?.toLocaleString() ?? "-"
-	}. ${first.name} can generate responses up to ${
-		first.output_context_length?.toLocaleString() ?? "-"
-	} tokens, while ${second.name} is limited to ${
-		second.output_context_length?.toLocaleString() ?? "-"
-	} tokens.`;
+	return (
+		<>
+			<Link
+				href={`/models/${encodeURIComponent(first.id)}`}
+				className="group"
+			>
+				<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+					{first.name}
+				</span>
+			</Link>{" "}
+			accepts {first.input_context_length?.toLocaleString() ?? "-"} input
+			tokens compared to{" "}
+			<Link
+				href={`/models/${encodeURIComponent(second.id)}`}
+				className="group"
+			>
+				<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+					{second.name}
+				</span>
+			</Link>
+			&apos;s {second.input_context_length?.toLocaleString() ?? "-"}.{" "}
+			<Link
+				href={`/models/${encodeURIComponent(first.id)}`}
+				className="group"
+			>
+				<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+					{first.name}
+				</span>
+			</Link>{" "}
+			can generate responses up to{" "}
+			{first.output_context_length?.toLocaleString() ?? "-"} tokens, while{" "}
+			<Link
+				href={`/models/${encodeURIComponent(second.id)}`}
+				className="group"
+			>
+				<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+					{second.name}
+				</span>
+			</Link>{" "}
+			is limited to{" "}
+			{second.output_context_length?.toLocaleString() ?? "-"} tokens.
+		</>
+	);
 }
 
 function BarChartTooltip({ active, payload, label }: any) {
@@ -145,15 +180,28 @@ export default function ContextWindowComparison({
 							style={{ minWidth: 0 }}
 						>
 							<CardHeader className="flex flex-row items-center gap-3 pb-2">
-								<Image
-									src={`/providers/${model.provider.provider_id}.svg`}
-									alt={model.provider.name}
-									width={32}
-									height={32}
-									className="rounded-full border bg-white object-contain"
-								/>
+								<Link
+									href={`/providers/${model.provider.provider_id}`}
+								>
+									<Image
+										src={`/providers/${model.provider.provider_id}.svg`}
+										alt={model.provider.name}
+										width={32}
+										height={32}
+										className="rounded-full border bg-white object-contain"
+									/>
+								</Link>
 								<div className="font-semibold truncate text-base leading-tight">
-									{model.name}
+									<Link
+										href={`/models/${encodeURIComponent(
+											model.id
+										)}`}
+										className="group"
+									>
+										<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
+											{model.name}
+										</span>
+									</Link>
 								</div>
 							</CardHeader>
 							<CardContent className="pt-0">

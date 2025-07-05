@@ -213,6 +213,7 @@ export async function fetchAggregateData(): Promise<ExtendedModel[]> {
                             announced_date: model.announced_date,
                             release_date: model.release_date,
                             deprecation_date: model.deprecation_date,
+                            retirement_date: model.retirement_date,
                             input_context_length: model.input_context_length,
                             output_context_length: model.output_context_length,
                             license: model.license,

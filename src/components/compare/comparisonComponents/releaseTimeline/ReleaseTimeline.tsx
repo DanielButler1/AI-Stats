@@ -9,6 +9,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Calendar } from "lucide-react";
 import type { ExtendedModel } from "@/data/types";
+import Link from "next/link";
 
 function getMonthDiff(date1: Date, date2: Date) {
 	const years = date1.getFullYear() - date2.getFullYear();
@@ -86,25 +87,70 @@ export default function ReleaseTimeline({
 					{modelsWithDates.length === 1 ? (
 						<>
 							<span className="block font-medium">
-								{oldest.name} was released on {oldestDate}.
+								<Link
+									href={`/models/${encodeURIComponent(
+										oldest.id
+									)}`}
+									className="group"
+								>
+									<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+										{oldest.name}
+									</span>
+								</Link>{" "}
+								was released on {oldestDate}.
 							</span>
 						</>
 					) : (
 						<>
 							<span className="block font-medium">
-								<span className="font-semibold">
-									{newest.name}
-								</span>{" "}
+								<Link
+									href={`/models/${encodeURIComponent(
+										newest.id
+									)}`}
+									className="group"
+								>
+									<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+										{newest.name}
+									</span>
+								</Link>{" "}
 								was released on {newestDate}, while{" "}
-								<span className="font-semibold">
-									{oldest.name}
-								</span>{" "}
+								<Link
+									href={`/models/${encodeURIComponent(
+										oldest.id
+									)}`}
+									className="group"
+								>
+									<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+										{oldest.name}
+									</span>
+								</Link>{" "}
 								was released on {oldestDate}.
 							</span>
 							<span className="block text-xs text-muted-foreground mt-1">
-								{newest.name} is {Math.abs(diffMonths)} month
+								<Link
+									href={`/models/${encodeURIComponent(
+										newest.id
+									)}`}
+									className="group"
+								>
+									<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+										{newest.name}
+									</span>
+								</Link>{" "}
+								is {Math.abs(diffMonths)} month
 								{Math.abs(diffMonths) !== 1 ? "s" : ""} newer
-								than {oldest.name}.
+								than{" "}
+								<Link
+									href={`/models/${encodeURIComponent(
+										oldest.id
+									)}`}
+									className="group"
+								>
+									<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+										{oldest.name}
+									</span>
+								</Link>
+								.
 							</span>
 						</>
 					)}
@@ -148,7 +194,16 @@ export default function ReleaseTimeline({
 										key={model.id}
 										className="text-xs font-medium min-w-[60px] text-center"
 									>
-										{formatDate(model.release_date)}
+										<Link
+											href={`/models/${encodeURIComponent(
+												model.id
+											)}`}
+											className="group"
+										>
+											<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
+												{formatDate(model.release_date)}
+											</span>
+										</Link>
 									</span>
 								))}
 							</div>
@@ -191,7 +246,16 @@ export default function ReleaseTimeline({
 										key={model.id}
 										className="text-xs text-zinc-700 font-semibold min-w-[60px] text-center truncate"
 									>
-										{model.name}
+										<Link
+											href={`/models/${encodeURIComponent(
+												model.id
+											)}`}
+											className="group"
+										>
+											<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
+												{model.name}
+											</span>
+										</Link>
 									</span>
 								))}
 							</div>

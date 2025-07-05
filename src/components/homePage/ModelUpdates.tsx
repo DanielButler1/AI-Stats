@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { Megaphone, Rocket, Ban } from "lucide-react";
+import { Megaphone, Rocket, Ban, Archive } from "lucide-react";
 
 // Date formatting helper
 function formatDate(dateStr: string | null | undefined) {
@@ -67,7 +67,7 @@ interface RecentModelsProps {
 
 export default function RecentModels({ models }: RecentModelsProps) {
 	// Group events by model and date to combine same-day events
-	type EventType = "Announced" | "Released" | "Deprecated";
+	type EventType = "Announced" | "Released" | "Deprecated" | "Retired";
 	interface ModelEvent {
 		model: ExtendedModel;
 		types: EventType[];
@@ -101,6 +101,15 @@ export default function RecentModels({ models }: RecentModelsProps) {
 			);
 			if (existing) existing.types.push("Deprecated");
 			else evts.push({ model, types: ["Deprecated"], date: d });
+		}
+		// Add support for Retired status
+		if ((model as any).retirement_date) {
+			const r = (model as any).retirement_date;
+			const existing = evts.find(
+				(e) => e.model.id === model.id && e.date === r
+			);
+			if (existing) existing.types.push("Retired");
+			else evts.push({ model, types: ["Retired"], date: r });
 		}
 		return evts;
 	});
@@ -188,6 +197,18 @@ export default function RecentModels({ models }: RecentModelsProps) {
 															className="mr-1"
 														/>
 														Deprecated
+													</Badge>
+												)}
+												{/* Add Retired badge */}
+												{event.types.includes(
+													"Retired"
+												) && (
+													<Badge className="bg-zinc-300 text-zinc-800 border border-zinc-400 hover:bg-zinc-400 dark:bg-zinc-700 dark:text-zinc-100 dark:border-zinc-500 dark:hover:bg-zinc-600 transition-colors flex items-center gap-1">
+														<Archive
+															size={14}
+															className="mr-1"
+														/>
+														Retired
 													</Badge>
 												)}
 											</span>
@@ -312,6 +333,14 @@ export default function RecentModels({ models }: RecentModelsProps) {
 												className="mr-1"
 											/>
 											Released
+										</Badge>
+									) : event.types.includes("Retired") ? (
+										<Badge className="bg-zinc-300 text-zinc-800 border border-zinc-400 px-2 py-1 text-xs flex items-center gap-1">
+											<Archive
+												size={14}
+												className="mr-1"
+											/>
+											Retired
 										</Badge>
 									) : (
 										<Badge className="bg-blue-100 text-blue-800 border border-blue-300 px-2 py-1 text-xs flex items-center gap-1">

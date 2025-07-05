@@ -13,6 +13,7 @@ import { Check, Star, X } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import Link from "next/link";
 
 interface ComparisonTableProps {
 	selectedModels: ExtendedModel[];
@@ -36,14 +37,35 @@ function getOutputPrice(model: ExtendedModel): number | null {
 	return prices?.output_token_price ?? null;
 }
 
-function getLatency(model: ExtendedModel): number | null {
+function getLatency(model: ExtendedModel): number | string | null {
 	const prices = getModelPrices(model);
-	return prices?.latency ?? null;
+	const latency = prices?.latency;
+	if (latency === null || latency === undefined || latency === "")
+		return null;
+	return typeof latency === "string" ? parseFloat(latency) : latency;
 }
 
 function getThroughput(model: ExtendedModel): number | null {
 	const prices = getModelPrices(model);
-	return prices?.throughput ?? null;
+	const throughput = prices?.throughput;
+	if (throughput === null || throughput === undefined || throughput === "")
+		return null;
+	return typeof throughput === "string" ? parseFloat(throughput) : throughput;
+}
+
+// Helper to map benchmark names to ids
+function getBenchmarkNameToIdMap(
+	selectedModels: ExtendedModel[]
+): Record<string, string> {
+	const map: Record<string, string> = {};
+	selectedModels.forEach((model) => {
+		(model.benchmark_results || []).forEach((b) => {
+			if (b.benchmark && b.benchmark.name && b.benchmark.id) {
+				map[b.benchmark.name] = b.benchmark.id;
+			}
+		});
+	});
+	return map;
 }
 
 export default function ComparisonTable({
@@ -59,9 +81,9 @@ export default function ComparisonTable({
 					model.benchmark_results?.map((b) => b.benchmark.name) || []
 			)
 		)
-	)
-		.filter((name) => name !== "Codeforces") // Excluding Codeforces as the table doesn't support numerical values yet
-		.sort();
+	).sort();
+
+	const benchmarkNameToId = getBenchmarkNameToIdMap(selectedModels);
 
 	// Helper function to find the best (lowest) price
 	const findBestPrice = (metric: "input" | "output") => {
@@ -117,22 +139,41 @@ export default function ComparisonTable({
 											}}
 										>
 											<div className="flex items-center gap-3 justify-center mb-4">
-												<Avatar className="h-8 w-8 border bg-white">
-													<AvatarImage
-														src={`/providers/${model.provider.provider_id}.svg`}
-														alt={
-															model.provider.name
-														}
-														className="object-contain"
-													/>
-												</Avatar>
+												<Link
+													href={`/providers/${model.provider.provider_id}`}
+													className="focus:outline-none"
+												>
+													<Avatar className="h-8 w-8 border bg-white">
+														<AvatarImage
+															src={`/providers/${model.provider.provider_id}.svg`}
+															alt={
+																model.provider
+																	.name
+															}
+															className="object-contain"
+														/>
+													</Avatar>
+												</Link>
 												<div className="flex flex-col items-start">
-													<span className="font-medium">
-														{model.name}
-													</span>
-													<span className="text-xs text-muted-foreground">
-														{model.provider.name}
-													</span>
+													<Link
+														href={`/models/${model.id}`}
+														className="group"
+													>
+														<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-medium text-black">
+															{model.name}
+														</span>
+													</Link>
+													<Link
+														href={`/providers/${model.provider.provider_id}`}
+														className="group text-xs text-muted-foreground"
+													>
+														<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
+															{
+																model.provider
+																	.name
+															}
+														</span>
+													</Link>
 												</div>
 											</div>
 										</TableHead>
@@ -339,7 +380,8 @@ export default function ComparisonTable({
 												className="text-center"
 											>
 												<div className="flex items-center justify-center gap-1">
-													{latency !== null
+													{latency !== null &&
+													latency !== undefined
 														? `${latency}ms`
 														: "-"}
 													{latency === bestLatency &&
@@ -366,7 +408,8 @@ export default function ComparisonTable({
 												className="text-center"
 											>
 												<div className="flex items-center justify-center gap-1">
-													{throughput !== null
+													{throughput !== null &&
+													throughput !== undefined
 														? `${throughput} tokens/s`
 														: "-"}
 													{throughput ===
@@ -443,7 +486,24 @@ export default function ComparisonTable({
 									return (
 										<TableRow key={benchmarkName}>
 											<TableCell className="font-medium sticky left-0 bg-white dark:bg-zinc-950 z-10">
-												{benchmarkName}
+												{benchmarkNameToId[
+													benchmarkName
+												] ? (
+													<Link
+														href={`/benchmarks/${encodeURIComponent(
+															benchmarkNameToId[
+																benchmarkName
+															]
+														)}`}
+														className="group"
+													>
+														<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
+															{benchmarkName}
+														</span>
+													</Link>
+												) : (
+													<span>{benchmarkName}</span>
+												)}
 											</TableCell>
 											{selectedModels.map(
 												(model, idx) => {
@@ -538,20 +598,31 @@ export default function ComparisonTable({
 						<Card key={model.id}>
 							<CardHeader>
 								<div className="flex items-center gap-3">
-									<Avatar className="h-8 w-8 border bg-white">
-										<AvatarImage
-											src={`/providers/${model.provider.provider_id}.svg`}
-											alt={model.provider.name}
-											className="object-contain"
-										/>
-									</Avatar>
+									<Link
+										href={`/providers/${model.provider.provider_id}`}
+										className="focus:outline-none"
+									>
+										<Avatar className="h-8 w-8 border bg-white">
+											<AvatarImage
+												src={`/providers/${model.provider.provider_id}.svg`}
+												alt={model.provider.name}
+												className="object-contain"
+											/>
+										</Avatar>
+									</Link>
 									<div className="flex flex-col">
-										<span className="font-medium">
+										<Link
+											href={`/models/${model.id}`}
+											className="font-medium hover:underline focus:outline-none"
+										>
 											{model.name}
-										</span>
-										<span className="text-xs text-muted-foreground">
+										</Link>
+										<Link
+											href={`/providers/${model.provider.provider_id}`}
+											className="text-xs text-muted-foreground hover:underline focus:outline-none"
+										>
 											{model.provider.name}
-										</span>
+										</Link>
 									</div>
 								</div>
 							</CardHeader>
@@ -691,7 +762,8 @@ export default function ComparisonTable({
 												Latency:
 											</span>
 											<span>
-												{latency !== null
+												{latency !== null &&
+												latency !== undefined
 													? `${latency}ms`
 													: "-"}
 												{latency === bestLatency && (
@@ -704,7 +776,8 @@ export default function ComparisonTable({
 												Throughput:
 											</span>
 											<span>
-												{throughput !== null
+												{throughput !== null &&
+												throughput !== undefined
 													? `${throughput} tokens/s`
 													: "-"}
 												{throughput ===
@@ -805,7 +878,30 @@ export default function ComparisonTable({
 														className="flex items-center gap-1"
 													>
 														<span className="flex-1">
-															{benchmarkName}:
+															{benchmarkNameToId[
+																benchmarkName
+															] ? (
+																<Link
+																	href={`/benchmarks/${encodeURIComponent(
+																		benchmarkNameToId[
+																			benchmarkName
+																		]
+																	)}`}
+																	className="group"
+																>
+																	<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+																		{
+																			benchmarkName
+																		}
+																	</span>
+																</Link>
+															) : (
+																<span>
+																	{
+																		benchmarkName
+																	}
+																</span>
+															)}
 														</span>
 														<span className="tabular-nums">
 															{disp}

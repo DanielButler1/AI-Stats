@@ -21,6 +21,7 @@ import {
 	HelpCircle,
 	Ban,
 	Rocket,
+	Archive,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -152,21 +153,27 @@ export function ModelCard({ model }: { model: ExtendedModel }) {
 									"bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-900 dark:text-amber-100 dark:border-amber-800",
 								model.status === "Announced" &&
 									"bg-blue-100 text-blue-800 border-blue-300 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-800",
+								model.status === "Retired" &&
+									"bg-gray-100 text-gray-800 border-gray-300 dark:bg-gray-900 dark:text-gray-100 dark:border-gray-800",
 								"border"
 							)}
 						>
-							{model.status === "Available" && (
-								<CheckCircle size={14} className="mr-1" />
-							)}
-							{model.status === "Deprecated" && (
-								<Ban size={14} className="mr-1" />
-							)}
 							{model.status === "Rumoured" && (
 								<HelpCircle size={14} className="mr-1" />
 							)}
 							{model.status === "Announced" && (
 								<Megaphone size={14} className="mr-1" />
 							)}
+							{model.status === "Available" && (
+								<CheckCircle size={14} className="mr-1" />
+							)}
+							{model.status === "Deprecated" && (
+								<Ban size={14} className="mr-1" />
+							)}
+							{model.status === "Retired" && (
+								<Archive size={14} className="mr-1" />
+							)}
+
 							{model.status}
 						</Badge>
 					)}

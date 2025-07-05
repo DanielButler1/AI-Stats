@@ -8,6 +8,7 @@ import {
 import { Lock, Unlock, Scale } from "lucide-react";
 import type { ExtendedModel } from "@/data/types";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 interface LicenseTypeProps {
 	selectedModels: ExtendedModel[];
@@ -46,17 +47,31 @@ function getLicenseDescriptionCard(models: ExtendedModel[]) {
 					) : (
 						<>
 							<span className="block font-medium">
-								<span className="font-semibold">
-									{first.name}
-								</span>{" "}
+								<Link
+									href={`/models/${encodeURIComponent(
+										first.id
+									)}`}
+									className="group"
+								>
+									<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+										{first.name}
+									</span>
+								</Link>{" "}
 								is licensed under{" "}
 								{firstLicense === "proprietary"
 									? "a proprietary license"
 									: first.license ?? "unknown"}
 								, while{" "}
-								<span className="font-semibold">
-									{second.name}
-								</span>{" "}
+								<Link
+									href={`/models/${encodeURIComponent(
+										second.id
+									)}`}
+									className="group"
+								>
+									<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+										{second.name}
+									</span>
+								</Link>{" "}
 								uses{" "}
 								{secondLicense === "proprietary"
 									? "a proprietary license"
@@ -120,7 +135,16 @@ export default function LicenseType({ selectedModels }: LicenseTypeProps) {
 							<div className="flex items-center mb-2">
 								{getLicenseIcon(model.license)}
 								<span className="font-semibold ml-2 text-base">
-									{model.name}
+									<Link
+										href={`/models/${encodeURIComponent(
+											model.id
+										)}`}
+										className="group"
+									>
+										<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
+											{model.name}
+										</span>
+									</Link>
 								</span>
 							</div>
 							<span className="text-sm text-muted-foreground ">

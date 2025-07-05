@@ -16,6 +16,7 @@ import {
 	HoverCardTrigger,
 	HoverCardContent,
 } from "@/components/ui/hover-card";
+import Link from "next/link";
 
 interface PricingAnalysisProps {
 	selectedModels: ExtendedModel[];
@@ -140,14 +141,27 @@ function getStatCards(models: ExtendedModel[]) {
 					<Card key={model.id} className="shadow border-none">
 						<CardHeader className="pb-2">
 							<CardTitle className="text-base font-semibold flex items-center gap-2">
-								<Image
-									src={`/providers/${model.provider.provider_id}.svg`}
-									alt={model.provider.name}
-									width={20}
-									height={20}
-									className="mr-2"
-								/>
-								{model.name}
+								<Link
+									href={`/providers/${model.provider.provider_id}`}
+								>
+									<Image
+										src={`/providers/${model.provider.provider_id}.svg`}
+										alt={model.provider.name}
+										width={20}
+										height={20}
+										className="mr-2 rounded-full border bg-white object-contain"
+									/>
+								</Link>
+								<Link
+									href={`/models/${encodeURIComponent(
+										model.id
+									)}`}
+									className="group"
+								>
+									<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
+										{model.name}
+									</span>
+								</Link>
 							</CardTitle>
 						</CardHeader>
 						<CardContent className="pt-0">

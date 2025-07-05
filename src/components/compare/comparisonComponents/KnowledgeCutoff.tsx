@@ -9,6 +9,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Book } from "lucide-react";
 import type { ExtendedModel } from "@/data/types";
+import Link from "next/link";
 
 function getMonthDiff(date1: Date, date2: Date) {
 	const years = date1.getFullYear() - date2.getFullYear();
@@ -95,27 +96,71 @@ export default function KnowledgeCutoffTimeline({
 					{selectedModels.length === 1 ? (
 						<>
 							<span className="block font-medium">
-								{oldest.name} has knowledge cutoff at{" "}
-								{oldestDate}.
+								<Link
+									href={`/models/${encodeURIComponent(
+										oldest.id
+									)}`}
+									className="group"
+								>
+									<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+										{oldest.name}
+									</span>
+								</Link>{" "}
+								has knowledge cutoff at {oldestDate}.
 							</span>
 						</>
 					) : (
 						<>
 							<span className="block font-medium">
-								<span className="font-semibold">
-									{newest.name}
-								</span>{" "}
+								<Link
+									href={`/models/${encodeURIComponent(
+										newest.id
+									)}`}
+									className="group"
+								>
+									<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+										{newest.name}
+									</span>
+								</Link>{" "}
 								has knowledge up to {newestDate}, while{" "}
-								<span className="font-semibold">
-									{oldest.name}
-								</span>{" "}
+								<Link
+									href={`/models/${encodeURIComponent(
+										oldest.id
+									)}`}
+									className="group"
+								>
+									<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+										{oldest.name}
+									</span>
+								</Link>{" "}
 								stops at {oldestDate}.
 							</span>
 							<span className="block text-xs text-muted-foreground mt-1">
-								{newest.name}&apos;s knowledge is{" "}
-								{Math.abs(diffMonths)} month
+								<Link
+									href={`/models/${encodeURIComponent(
+										newest.id
+									)}`}
+									className="group"
+								>
+									<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+										{newest.name}
+									</span>
+								</Link>
+								&apos;s knowledge is {Math.abs(diffMonths)}{" "}
+								month
 								{Math.abs(diffMonths) !== 1 ? "s" : ""} more
-								recent than {oldest.name}&apos;s.
+								recent than{" "}
+								<Link
+									href={`/models/${encodeURIComponent(
+										oldest.id
+									)}`}
+									className="group"
+								>
+									<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+										{oldest.name}
+									</span>
+								</Link>
+								&apos;s.
 							</span>
 						</>
 					)}
@@ -198,7 +243,16 @@ export default function KnowledgeCutoffTimeline({
 										key={model.id}
 										className="text-xs text-zinc-700 font-semibold min-w-[60px] text-center truncate"
 									>
-										{model.name}
+										<Link
+											href={`/models/${encodeURIComponent(
+												model.id
+											)}`}
+											className="group"
+										>
+											<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
+												{model.name}
+											</span>
+										</Link>
 									</span>
 								))}
 							</div>

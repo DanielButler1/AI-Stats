@@ -37,8 +37,8 @@ export interface Price {
     input_token_price: number | null;
     cached_input_token_price: number | null;
     output_token_price: number | null;
-    throughput: number | null;
-    latency: number | null;
+    throughput: string | null;
+    latency: string | null;
     source_link: string | null;
     other_info: string | null;
 }
@@ -53,6 +53,7 @@ export interface Model {
     announced_date: string | null;
     release_date: string | null;
     deprecation_date: string | null;
+    retirement_date: string | null;
     input_context_length: number | null;
     output_context_length: number | null;
     license: string | null;
@@ -84,6 +85,7 @@ export interface ExtendedModel {
     announced_date: string | null;
     release_date: string | null;
     deprecation_date: string | null;
+    retirement_date: string | null;
     input_context_length: number | null;
     output_context_length: number | null;
     license: string | null;

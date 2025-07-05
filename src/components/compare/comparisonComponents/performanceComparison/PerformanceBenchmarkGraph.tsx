@@ -10,6 +10,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
+import Link from "next/link";
 
 function getCommonBenchmarks(selectedModels: ExtendedModel[]): string[] {
 	if (!selectedModels || selectedModels.length === 0) return [];
@@ -209,12 +210,28 @@ function getSignificanceAnalysis(
 	return message;
 }
 
+// Helper to map benchmark names to ids
+function getBenchmarkNameToIdMap(
+	selectedModels: ExtendedModel[]
+): Record<string, string> {
+	const map: Record<string, string> = {};
+	selectedModels.forEach((model) => {
+		(model.benchmark_results || []).forEach((b) => {
+			if (b.benchmark && b.benchmark.name && b.benchmark.id) {
+				map[b.benchmark.name] = b.benchmark.id;
+			}
+		});
+	});
+	return map;
+}
+
 export default function PerformanceBenchmarkGraph({
 	selectedModels,
 }: {
 	selectedModels: ExtendedModel[];
 }) {
 	const commonBenchmarks = getCommonBenchmarks(selectedModels);
+	const benchmarkNameToId = getBenchmarkNameToIdMap(selectedModels);
 	if (commonBenchmarks.length === 0) {
 		return (
 			<Card className="bg-white dark:bg-zinc-950 rounded-lg">
@@ -298,7 +315,20 @@ export default function PerformanceBenchmarkGraph({
 							{commonBenchmarks.map((bench) => (
 								<tr key={bench} className="border-t">
 									<td className="px-3 py-2 font-medium whitespace-nowrap">
-										{bench}
+										{benchmarkNameToId[bench] ? (
+											<Link
+												href={`/benchmarks/${encodeURIComponent(
+													benchmarkNameToId[bench]
+												)}`}
+												className="group"
+											>
+												<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+													{bench}
+												</span>
+											</Link>
+										) : (
+											<span>{bench}</span>
+										)}
 									</td>
 									<td className="px-3 py-2 text-right">
 										{models.flatMap((model, idx) => {
@@ -349,7 +379,22 @@ export default function PerformanceBenchmarkGraph({
 							key={bench}
 							className="bg-white dark:bg-zinc-900 shadow rounded-lg p-4"
 						>
-							<div className="font-medium mb-2">{bench}</div>
+							<div className="font-medium mb-2">
+								{benchmarkNameToId[bench] ? (
+									<Link
+										href={`/benchmarks/${encodeURIComponent(
+											benchmarkNameToId[bench]
+										)}`}
+										className="group"
+									>
+										<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-semibold">
+											{bench}
+										</span>
+									</Link>
+								) : (
+									<span>{bench}</span>
+								)}
+							</div>
 							{models.map((model, idx) => {
 								const value = model.scores[bench];
 								const color = [
