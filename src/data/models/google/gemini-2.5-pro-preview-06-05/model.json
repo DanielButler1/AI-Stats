@@ -8,6 +8,7 @@
   "announced_date": "2025-06-05T00:00:00",
   "release_date": "2025-06-05T00:00:00",
   "deprecation_date": "2026-06-17T00:00:00",
+  "retirement_date": null,
   "input_context_length": 1048576,
   "output_context_length": 65536,
   "license": "Proprietary",
@@ -17,7 +18,7 @@
   "web_access": true,
   "reasoning": true,
   "fine_tunable": false,
-  "knowledge_cutoff": "2025-01-01T00:00:00",
+  "knowledge_cutoff": "1/1/2025",
   "api_reference_link": "https://ai.google.dev/gemini-api/docs/models#gemini-2.5-pro-preview-06-05",
   "playground_link": "https://aistudio.google.com/prompts/new_chat",
   "paper_link": "",
@@ -36,70 +37,70 @@
     },
     {
       "benchmark_id": "humanitys-last-exam",
-      "score": "21.6%",
+      "score": "21.60%",
       "is_self_reported": true,
       "other_info": "No Tools",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
     },
     {
       "benchmark_id": "simpleqa",
-      "score": "54.0%",
+      "score": "54.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
     },
     {
       "benchmark_id": "swe-bench",
-      "score": "59.6%",
+      "score": "59.60%",
       "is_self_reported": true,
       "other_info": "Single Attempt",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
     },
     {
       "benchmark_id": "simplebench",
-      "score": "62.4%",
+      "score": "62.40%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
     },
     {
       "benchmark_id": "swe-bench",
-      "score": "67.2%",
+      "score": "67.20%",
       "is_self_reported": true,
       "other_info": "Multiple Attempts",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
     },
     {
       "benchmark_id": "mmmu",
-      "score": "82.0%",
+      "score": "82.00%",
       "is_self_reported": true,
       "other_info": "Single Attempt",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
     },
     {
       "benchmark_id": "aider-polyglot",
-      "score": "82.2%",
+      "score": "82.20%",
       "is_self_reported": false,
       "other_info": "Diff-Fenced",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "86.4%",
+      "score": "86.40%",
       "is_self_reported": true,
       "other_info": "Single Attempt",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "88.0%",
+      "score": "88.00%",
       "is_self_reported": true,
       "other_info": "Single Attempt",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
     },
     {
       "benchmark_id": "mmlu",
-      "score": "89.2%",
+      "score": "89.20%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
@@ -134,7 +135,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "58.7%",
+      "score": "58.70%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -155,56 +156,56 @@
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "16.0%",
+      "score": "16%",
       "is_self_reported": false,
       "other_info": "1k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "29.5%",
+      "score": "29.50%",
       "is_self_reported": false,
       "other_info": "8k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "41.0%",
+      "score": "41%",
       "is_self_reported": false,
       "other_info": "16k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "37.0%",
+      "score": "37%",
       "is_self_reported": false,
       "other_info": "32k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "0.0%",
+      "score": "0%",
       "is_self_reported": false,
       "other_info": "1k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "2.9%",
+      "score": "2.90%",
       "is_self_reported": false,
       "other_info": "8k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "4.0%",
+      "score": "4%",
       "is_self_reported": false,
       "other_info": "16k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "4.9%",
+      "score": "4.90%",
       "is_self_reported": false,
       "other_info": "32k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
@@ -219,22 +220,22 @@
   ],
   "prices": [
     {
-      "api_provider": "google-ai-studio",
+      "api_provider": null,
       "input_token_price": "0.00000125",
       "cached_input_token_price": "0.00000031",
       "output_token_price": "0.00001",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro",
       "other_info": "Prices for input/output <200k tokens. Rises to $2.50 and $15 per 1m tokens >200k tokens. Cached Price rises to $0.625 per 1m tokens when prompts >200k tokens."
     },
     {
-      "api_provider": "google-vertex",
+      "api_provider": null,
       "input_token_price": "0.00000125",
       "cached_input_token_price": "0.00000031",
       "output_token_price": "0.00001",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": null,
       "other_info": "Prices for input/output <200k tokens. Rises to $2.50 and $15 per 1m tokens >200k tokens. Cached Price rises to $0.625 per 1m tokens when prompts >200k tokens."
     }

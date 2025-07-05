@@ -3,11 +3,12 @@
   "name": "Mistral Large 2",
   "provider": "mistral",
   "status": null,
-  "previous_model_id": null,
+  "previous_model_id": false,
   "description": null,
   "announced_date": null,
   "release_date": "2024-07-24T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 128000,
   "output_context_length": 128000,
   "license": "Mistral Research License",
@@ -29,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "simplebench",
-      "score": "22.5%",
+      "score": "22.50%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
@@ -50,7 +51,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "12.6%",
+      "score": "12.60%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"

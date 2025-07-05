@@ -3,11 +3,12 @@
   "name": "Llama 3.3 70B Instruct",
   "provider": "meta",
   "status": null,
-  "previous_model_id": null,
+  "previous_model_id": false,
   "description": null,
   "announced_date": null,
   "release_date": "2024-12-06T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 128000,
   "output_context_length": 16384,
   "license": null,
@@ -36,7 +37,7 @@
     },
     {
       "benchmark_id": "simplebench",
-      "score": "19.9%",
+      "score": "19.90%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
@@ -57,7 +58,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "15.1%",
+      "score": "15.10%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -83,8 +84,8 @@
       "input_token_price": "0.0000001",
       "cached_input_token_price": null,
       "output_token_price": "0.00000025",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": null,
       "other_info": null
     }

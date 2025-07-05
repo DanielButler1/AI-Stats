@@ -2,12 +2,13 @@
   "id": "gpt-1",
   "name": "GPT-1",
   "provider": "openai",
-  "status": "Deprecated",
+  "status": "Retired",
   "previous_model_id": "",
   "description": null,
   "announced_date": null,
   "release_date": null,
   "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": null,
   "output_context_length": null,
   "license": null,
@@ -29,14 +30,14 @@
   "benchmark_results": [],
   "prices": [
     {
-      "api_provider": "openai",
+      "api_provider": null,
       "input_token_price": "",
       "cached_input_token_price": "",
       "output_token_price": "",
-      "throughput": "",
-      "latency": "",
-      "source_link": "",
-      "other_info": ""
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
     }
   ]
 }

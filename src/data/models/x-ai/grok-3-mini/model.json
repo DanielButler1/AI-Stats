@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2025-04-18T00:00:00",
   "release_date": "2025-04-18T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 131072,
   "output_context_length": 8000,
   "license": "Proprietary",
@@ -29,70 +30,70 @@
   "benchmark_results": [
     {
       "benchmark_id": "aime-2024",
-      "score": "71.5%",
+      "score": "71.50%",
       "is_self_reported": true,
       "other_info": "Low Reasoning Effort",
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "90.7%",
+      "score": "90.70%",
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "67.5%",
+      "score": "67.50%",
       "is_self_reported": true,
       "other_info": "Low Reasoning Effort",
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "83.0%",
+      "score": "83.00%",
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "75.3%",
+      "score": "75.30%",
       "is_self_reported": true,
       "other_info": "Low Reasoning Effort",
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "80.3%",
+      "score": "80.30%",
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
       "benchmark_id": "mmlu-pro",
-      "score": "80.5%",
+      "score": "80.50%",
       "is_self_reported": true,
       "other_info": "Low Reasoning Effort",
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
       "benchmark_id": "mmlu-pro",
-      "score": "82.8%",
+      "score": "82.80%",
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "16.5%",
+      "score": "16.50%",
       "is_self_reported": false,
       "other_info": "Low Reasoning Effort",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "0.4%",
+      "score": "0.40%",
       "is_self_reported": false,
       "other_info": "Low Reasoning Effort",
       "source_link": "https://arcprize.org/leaderboard"
@@ -100,32 +101,32 @@
   ],
   "prices": [
     {
-      "api_provider": "x-ai",
+      "api_provider": null,
       "input_token_price": "0.0000003",
       "cached_input_token_price": "0.000000075",
       "output_token_price": "0.0000005",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://docs.x.ai/docs/models",
       "other_info": null
     },
     {
-      "api_provider": "x-ai",
+      "api_provider": null,
       "input_token_price": "0.0000003",
       "cached_input_token_price": "0.00000007",
       "output_token_price": "0.0000005",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://docs.x.ai/docs/models",
       "other_info": "Fast Mode"
     },
     {
-      "api_provider": "x-ai",
+      "api_provider": null,
       "input_token_price": "0.0000006",
       "cached_input_token_price": "0.00000015",
       "output_token_price": "0.000004",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://docs.x.ai/docs/models",
       "other_info": "Fast Mode"
     }

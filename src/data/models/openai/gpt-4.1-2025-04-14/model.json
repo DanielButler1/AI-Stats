@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2025-04-13T00:00:00",
   "release_date": "2025-04-14T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 1047576,
   "output_context_length": 32768,
   "license": "Proprietary",
@@ -29,21 +30,21 @@
   "benchmark_results": [
     {
       "benchmark_id": "arc-agi-2",
-      "score": "0.4%",
+      "score": "0.40%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "5.5%",
+      "score": "5.50%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "swe-lancer",
-      "score": "35.1%",
+      "score": "35%",
       "is_self_reported": true,
       "other_info": "IC-Diamond",
       "source_link": "https://openai.com/index/gpt-4-1/"
@@ -57,21 +58,21 @@
     },
     {
       "benchmark_id": "aider-polyglot",
-      "score": "52.4%",
+      "score": "52.40%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
       "benchmark_id": "swe-bench",
-      "score": "54.6%",
+      "score": "54.60%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/"
     },
     {
       "benchmark_id": "livebench",
-      "score": "55.9%",
+      "score": "55.90%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://livebench.ai/#/"
@@ -99,14 +100,14 @@
     },
     {
       "benchmark_id": "simplebench",
-      "score": "27.0%",
+      "score": "27%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "23.6%",
+      "score": "23.60%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -142,22 +143,22 @@
   ],
   "prices": [
     {
-      "api_provider": "openai",
+      "api_provider": null,
       "input_token_price": "0.000002",
       "cached_input_token_price": "0.0000005",
       "output_token_price": "0.000008",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://platform.openai.com/docs/models/gpt-4.1",
-      "other_info": ""
+      "other_info": null
     },
     {
-      "api_provider": "azure",
+      "api_provider": null,
       "input_token_price": "0.000002",
       "cached_input_token_price": "0.0000005",
       "output_token_price": "0.000008",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
       "other_info": null
     }

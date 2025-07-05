@@ -8,6 +8,7 @@
   "announced_date": null,
   "release_date": "2024-05-01T00:00:00",
   "deprecation_date": "2025-09-24T00:00:00",
+  "retirement_date": null,
   "input_context_length": 1048576,
   "output_context_length": 8192,
   "license": "Proprietary",
@@ -37,12 +38,12 @@
   ],
   "prices": [
     {
-      "api_provider": "google-ai-studio",
+      "api_provider": null,
       "input_token_price": "0.000000075",
       "cached_input_token_price": "0.00000001875",
       "output_token_price": "0.0000003",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://ai.google.dev/gemini-api/docs/pricing#gemini-1.5-flash",
       "other_info": "Prices for input/output <128k tokens. Rises to $0.15 and $0.6 per 1m tokens >200k tokens. Cached Price rises to $0.0375 per 1m tokens when prompts >200k tokens."
     }

@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2024-10-22T00:00:00",
   "release_date": "2024-10-22T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 200000,
   "output_context_length": 8192,
   "license": "Proprietary",
@@ -17,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": null,
-  "knowledge_cutoff": "2024-04-01T00:00:00",
+  "knowledge_cutoff": "1/4/2024",
   "api_reference_link": "https://docs.anthropic.com/en/docs/about-claude/models/overview#model-comparison-table",
   "playground_link": "https://console.anthropic.com/",
   "paper_link": "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf",
@@ -36,14 +37,14 @@
     },
     {
       "benchmark_id": "aider-polyglot",
-      "score": "51.6%",
+      "score": "51.60%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
       "benchmark_id": "livebench",
-      "score": "51.8%",
+      "score": "51.80%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://livebench.ai/#/"
@@ -78,7 +79,7 @@
     },
     {
       "benchmark_id": "simplebench",
-      "score": "41.4%",
+      "score": "41.40%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
@@ -99,7 +100,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "17.7%",
+      "score": "17.70%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -128,12 +129,12 @@
   ],
   "prices": [
     {
-      "api_provider": "anthropic",
+      "api_provider": null,
       "input_token_price": "0.000003",
       "cached_input_token_price": "0.000006",
       "output_token_price": "0.000015",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://docs.anthropic.com/en/docs/about-claude/pricing",
       "other_info": null
     }

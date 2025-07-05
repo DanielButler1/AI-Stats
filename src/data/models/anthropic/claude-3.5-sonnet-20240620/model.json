@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2024-06-21T00:00:00",
   "release_date": "2024-06-21T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 200000,
   "output_context_length": 8192,
   "license": "Proprietary",
@@ -17,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": null,
-  "knowledge_cutoff": "2024-04-01T00:00:00",
+  "knowledge_cutoff": "1/4/2024",
   "api_reference_link": "https://docs.anthropic.com/en/docs/about-claude/models/overview#model-comparison-table",
   "playground_link": "https://console.anthropic.com/",
   "paper_link": "https://www-cdn.anthropic.com/fed9cc193a14b84131812372d8d5857f8f304c52/Model_Card_Claude_3_Addendum.pdf",
@@ -43,7 +44,7 @@
     },
     {
       "benchmark_id": "simplebench",
-      "score": "27.5%",
+      "score": "27.50%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
@@ -58,12 +59,12 @@
   ],
   "prices": [
     {
-      "api_provider": "anthropic",
+      "api_provider": null,
       "input_token_price": "0.000003",
       "cached_input_token_price": "0.000006",
       "output_token_price": "0.000015",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://docs.anthropic.com/en/docs/about-claude/pricing",
       "other_info": null
     }

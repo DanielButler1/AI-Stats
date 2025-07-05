@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": null,
   "release_date": null,
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 128000,
   "output_context_length": 4096,
   "license": "Proprietary",
@@ -17,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": false,
-  "knowledge_cutoff": "2023-10-01T00:00:00",
+  "knowledge_cutoff": "1/10/2023",
   "api_reference_link": "https://platform.openai.com/docs/models/chatgpt-4o-latest",
   "playground_link": "https://platform.openai.com/playground/prompts?models=chatgpt-4o-latest",
   "paper_link": null,
@@ -29,14 +30,14 @@
   "benchmark_results": [],
   "prices": [
     {
-      "api_provider": "openai",
+      "api_provider": null,
       "input_token_price": "0.000005",
       "cached_input_token_price": "",
       "output_token_price": "0.000015",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://platform.openai.com/docs/models/chatgpt-4o-latest",
-      "other_info": ""
+      "other_info": null
     }
   ]
 }

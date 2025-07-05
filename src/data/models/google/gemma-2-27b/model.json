@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2024-06-27T00:00:00",
   "release_date": "2024-06-27T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 8192,
   "output_context_length": 8192,
   "license": "Gemma",
@@ -17,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": true,
-  "knowledge_cutoff": "2024-06-01T00:00:00",
+  "knowledge_cutoff": "1/6/2024",
   "api_reference_link": "https://huggingface.co/google/gemma-2-27b-it",
   "playground_link": "https://huggingface.co/chat/models/google/gemma-2-27b-it",
   "paper_link": "https://storage.googleapis.com/deepmind-media/gemma/gemma-2-report.pdf",
@@ -43,7 +44,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "12.2%",
+      "score": "12.20%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"

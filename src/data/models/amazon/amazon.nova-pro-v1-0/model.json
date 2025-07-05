@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2024-12-03T00:00:00",
   "release_date": "2024-12-04T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 300000,
   "output_context_length": 10000,
   "license": "Proprietary",
@@ -50,7 +51,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "10.1%",
+      "score": "10.10%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -72,14 +73,14 @@
   ],
   "prices": [
     {
-      "api_provider": "amazon-bedrock",
+      "api_provider": null,
       "input_token_price": "0.0000008",
       "cached_input_token_price": "0.0000002",
       "output_token_price": "0.0000032",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://aws.amazon.com/bedrock/pricing/",
-      "other_info": ""
+      "other_info": null
     }
   ]
 }

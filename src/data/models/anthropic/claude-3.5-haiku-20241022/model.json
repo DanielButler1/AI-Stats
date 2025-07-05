@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2024-10-22T00:00:00",
   "release_date": "2024-11-04T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 200000,
   "output_context_length": 8192,
   "license": "Proprietary",
@@ -17,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": null,
-  "knowledge_cutoff": "2024-07-01T00:00:00",
+  "knowledge_cutoff": "1/7/2024",
   "api_reference_link": "https://docs.anthropic.com/en/docs/about-claude/models/overview#model-comparison-table",
   "playground_link": "https://console.anthropic.com/",
   "paper_link": "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf",
@@ -29,14 +30,14 @@
   "benchmark_results": [
     {
       "benchmark_id": "aider-polyglot",
-      "score": "28.0%",
+      "score": "28.00%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
       "benchmark_id": "livebench",
-      "score": "39.5%",
+      "score": "39.51%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://livebench.ai/#/"
@@ -71,7 +72,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "10.3%",
+      "score": "10.30%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -100,12 +101,12 @@
   ],
   "prices": [
     {
-      "api_provider": "anthropic",
+      "api_provider": null,
       "input_token_price": "0.0000008",
       "cached_input_token_price": "0.0000016",
       "output_token_price": "0.000004",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://docs.anthropic.com/en/docs/about-claude/pricing",
       "other_info": null
     }

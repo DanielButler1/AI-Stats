@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2025-03-13T00:00:00",
   "release_date": "2025-03-13T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 256000,
   "output_context_length": 4000,
   "license": "CC-BY-NC",
@@ -29,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "nyt-connections",
-      "score": "13.6%",
+      "score": "13.60%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -44,12 +45,12 @@
   ],
   "prices": [
     {
-      "api_provider": "cohere",
+      "api_provider": null,
       "input_token_price": "0.0000025",
       "cached_input_token_price": "",
       "output_token_price": "0.00001",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://cohere.com/pricing",
       "other_info": null
     }

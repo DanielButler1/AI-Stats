@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": null,
   "release_date": "2023-03-14T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 8192,
   "output_context_length": 8192,
   "license": "Proprietary",
@@ -17,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": true,
-  "knowledge_cutoff": "2023-12-01T00:00:00",
+  "knowledge_cutoff": "1/12/2023",
   "api_reference_link": "https://platform.openai.com/docs/models/gpt-4",
   "playground_link": "https://platform.openai.com/playground/prompts?models=gpt-4",
   "paper_link": null,
@@ -51,14 +52,14 @@
   ],
   "prices": [
     {
-      "api_provider": "openai",
+      "api_provider": null,
       "input_token_price": "0.00003",
       "cached_input_token_price": "",
       "output_token_price": "0.00006",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://platform.openai.com/docs/models/gpt-4",
-      "other_info": ""
+      "other_info": null
     }
   ]
 }

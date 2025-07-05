@@ -3,11 +3,12 @@
   "name": "Gemini Diffusion",
   "provider": "google",
   "status": "Available",
-  "previous_model_id": null,
+  "previous_model_id": false,
   "description": null,
   "announced_date": "2025-05-20T00:00:00",
-  "release_date": "",
-  "deprecation_date": "",
+  "release_date": null,
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": null,
   "output_context_length": null,
   "license": "Proprietary",
@@ -17,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": false,
-  "knowledge_cutoff": "2023-12-01T00:00:00",
+  "knowledge_cutoff": "1/12/2023",
   "api_reference_link": null,
   "playground_link": null,
   "paper_link": null,
@@ -29,42 +30,42 @@
   "benchmark_results": [
     {
       "benchmark_id": "swe-bench",
-      "score": "22.9%",
+      "score": "22.90%",
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://deepmind.google/models/gemini-diffusion/#benchmarks"
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "23.3%",
+      "score": "23.30%",
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://deepmind.google/models/gemini-diffusion/#benchmarks"
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "40.4%",
+      "score": "40.40%",
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://deepmind.google/models/gemini-diffusion/#benchmarks"
     },
     {
       "benchmark_id": "bigcodebench",
-      "score": "45.4%",
+      "score": "45.40%",
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://deepmind.google/models/gemini-diffusion/#benchmarks"
     },
     {
       "benchmark_id": "mmlu",
-      "score": "69.1%",
+      "score": "69.10%",
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://deepmind.google/models/gemini-diffusion/#benchmarks"
     },
     {
       "benchmark_id": "humaneval",
-      "score": "89.6%",
+      "score": "89.60%",
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://deepmind.google/models/gemini-diffusion/#benchmarks"

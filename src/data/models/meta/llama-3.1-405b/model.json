@@ -3,11 +3,12 @@
   "name": "Llama 3.1 405B (base)",
   "provider": "meta",
   "status": null,
-  "previous_model_id": null,
+  "previous_model_id": false,
   "description": null,
   "announced_date": null,
   "release_date": "2024-08-02T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 32768,
   "output_context_length": null,
   "license": null,
@@ -43,7 +44,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "16.2%",
+      "score": "16.20%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -62,8 +63,8 @@
       "input_token_price": "0.000002",
       "cached_input_token_price": null,
       "output_token_price": "0.000002",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": null,
       "other_info": null
     }

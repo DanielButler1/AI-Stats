@@ -2,12 +2,13 @@
   "id": "grok-2-1212",
   "name": "Grok-2",
   "provider": "x-ai",
-  "status": "Available",
+  "status": "Deprecated",
   "previous_model_id": "grok-1.5",
   "description": null,
   "announced_date": "2024-08-13T00:00:00",
   "release_date": "2024-08-13T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": "2025-07-04T00:00:00",
+  "retirement_date": null,
   "input_context_length": 128000,
   "output_context_length": 8000,
   "license": "Proprietary",
@@ -36,7 +37,7 @@
     },
     {
       "benchmark_id": "simplebench",
-      "score": "22.7%",
+      "score": "22.70%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
@@ -57,7 +58,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "19.2%",
+      "score": "19.20%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -72,12 +73,12 @@
   ],
   "prices": [
     {
-      "api_provider": "x-ai",
+      "api_provider": null,
       "input_token_price": "0.000002",
       "cached_input_token_price": "",
       "output_token_price": "0.00001",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://docs.x.ai/docs/models",
       "other_info": null
     }

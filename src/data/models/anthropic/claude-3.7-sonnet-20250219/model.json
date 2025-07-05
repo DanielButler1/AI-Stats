@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2025-02-24T00:00:00",
   "release_date": "2025-02-24T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 200000,
   "output_context_length": 64000,
   "license": "Proprietary",
@@ -17,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": null,
-  "knowledge_cutoff": "2024-11-01T00:00:00",
+  "knowledge_cutoff": "1/11/2024",
   "api_reference_link": "https://docs.anthropic.com/en/docs/about-claude/models/overview#model-comparison-table",
   "playground_link": "https://console.anthropic.com/",
   "paper_link": "https://assets.anthropic.com/m/785e231869ea8b3b/original/claude-3-7-sonnet-system-card.pdf",
@@ -29,70 +30,70 @@
   "benchmark_results": [
     {
       "benchmark_id": "arc-agi-2",
-      "score": "0.0%",
+      "score": "0.00%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "0.4%",
+      "score": "0.40%",
       "is_self_reported": false,
       "other_info": "1k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "0.7%",
+      "score": "0.70%",
       "is_self_reported": false,
       "other_info": "16k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "0.9%",
+      "score": "0.90%",
       "is_self_reported": false,
       "other_info": "8k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "11.6%",
+      "score": "11.60%",
       "is_self_reported": false,
       "other_info": "1k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "13.6%",
+      "score": "13.60%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "21.2%",
+      "score": "21.20%",
       "is_self_reported": false,
       "other_info": "8k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "28.6%",
+      "score": "28.60%",
       "is_self_reported": false,
       "other_info": "16k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "livebench",
-      "score": "58.5%",
+      "score": "58.48%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://livebench.ai/#/"
     },
     {
       "benchmark_id": "aider-polyglot",
-      "score": "60.4%",
+      "score": "60.40%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aider.chat/docs/leaderboards/"
@@ -141,21 +142,21 @@
     },
     {
       "benchmark_id": "aider-polyglot",
-      "score": "64.9%",
+      "score": "64.90%",
       "is_self_reported": false,
       "other_info": "Thinking",
       "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
       "benchmark_id": "aider-polyglot",
-      "score": "64.9%",
+      "score": "64.90%",
       "is_self_reported": false,
       "other_info": "32k Thinking",
       "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
       "benchmark_id": "livebench",
-      "score": "67.4%",
+      "score": "67.43%",
       "is_self_reported": false,
       "other_info": "64k Thinking",
       "source_link": "https://livebench.ai/#/"
@@ -176,14 +177,14 @@
     },
     {
       "benchmark_id": "simplebench",
-      "score": "46.4%",
+      "score": "46.40%",
       "is_self_reported": false,
       "other_info": "Thinking",
       "source_link": "https://simple-bench.com/index.html"
     },
     {
       "benchmark_id": "simplebench",
-      "score": "44.9%",
+      "score": "44.90%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
@@ -218,14 +219,14 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "33.6%",
+      "score": "33.60%",
       "is_self_reported": false,
       "other_info": "16k Thinking",
       "source_link": "https://github.com/lechmazur/nyt-connections"
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "19.2%",
+      "score": "19.20%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -275,12 +276,12 @@
   ],
   "prices": [
     {
-      "api_provider": "anthropic",
+      "api_provider": null,
       "input_token_price": "0.000003",
       "cached_input_token_price": "0.000006",
       "output_token_price": "0.000015",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://docs.anthropic.com/en/docs/about-claude/pricing",
       "other_info": null
     }

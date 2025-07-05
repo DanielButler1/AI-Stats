@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2025-05-28T00:00:00",
   "release_date": "2025-05-28T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 128000,
   "output_context_length": 64000,
   "license": "MIT License",
@@ -29,56 +30,56 @@
   "benchmark_results": [
     {
       "benchmark_id": "arc-agi-2",
-      "score": "1.1%",
+      "score": "1.10%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "humanitys-last-exam",
-      "score": "17.7%",
+      "score": "17.70%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://api-docs.deepseek.com/news/news250528"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "21.2%",
+      "score": "21.20%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "livebench",
-      "score": "69.4%",
+      "score": "69.39%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://livebench.ai/#/"
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "81.0%",
+      "score": "81.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://api-docs.deepseek.com/news/news250528"
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "85.5%",
+      "score": "85.50%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://api-docs.deepseek.com/news/news250528"
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "91.4%",
+      "score": "91.40%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://api-docs.deepseek.com/news/news250528"
     },
     {
       "benchmark_id": "simplebench",
-      "score": "40.8%",
+      "score": "40.80%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
@@ -99,7 +100,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "49.8%",
+      "score": "49.80%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -135,22 +136,22 @@
   ],
   "prices": [
     {
-      "api_provider": "deepseek",
+      "api_provider": null,
       "input_token_price": "0.00000055",
       "cached_input_token_price": "0.00000014",
       "output_token_price": "0.00000219",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://api-docs.deepseek.com/quick_start/pricing",
       "other_info": "Standard Pricing"
     },
     {
-      "api_provider": "deepseek",
+      "api_provider": null,
       "input_token_price": "0.000000135",
       "cached_input_token_price": "0.000000035",
       "output_token_price": "0.00000055",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://api-docs.deepseek.com/quick_start/pricing",
       "other_info": "Discount Pricing"
     }

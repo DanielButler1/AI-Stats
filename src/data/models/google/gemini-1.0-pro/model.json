@@ -8,6 +8,7 @@
   "announced_date": "2023-12-06T00:00:00",
   "release_date": "2024-02-15T00:00:00",
   "deprecation_date": "2025-04-21T00:00:00",
+  "retirement_date": null,
   "input_context_length": 32768,
   "output_context_length": 8192,
   "license": "Proprietary",
@@ -37,23 +38,23 @@
   ],
   "prices": [
     {
-      "api_provider": "google-ai-studio",
+      "api_provider": null,
       "input_token_price": "0.0000125",
       "cached_input_token_price": null,
       "output_token_price": "0.0000375",
-      "throughput": "",
-      "latency": "",
-      "source_link": "",
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
       "other_info": null
     },
     {
-      "api_provider": "google-vertex",
+      "api_provider": null,
       "input_token_price": "0.0000125",
       "cached_input_token_price": null,
       "output_token_price": "0.0000375",
-      "throughput": "",
-      "latency": "",
-      "source_link": "",
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
       "other_info": null
     }
   ]

@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2024-08-30T00:00:00",
   "release_date": "2024-08-30T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 128000,
   "output_context_length": 128000,
   "license": "CC-BY-NC",
@@ -29,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "simplebench",
-      "score": "17.4%",
+      "score": "17.40%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
@@ -44,12 +45,12 @@
   ],
   "prices": [
     {
-      "api_provider": "cohere",
+      "api_provider": null,
       "input_token_price": "0.0000025",
       "cached_input_token_price": "",
       "output_token_price": "0.00001",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://cohere.com/pricing",
       "other_info": null
     }

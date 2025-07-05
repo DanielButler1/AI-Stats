@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": null,
   "release_date": "2023-03-14T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 128000,
   "output_context_length": 4096,
   "license": "Proprietary",
@@ -29,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "simplebench",
-      "score": "25.1%",
+      "score": "25.10%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
@@ -44,14 +45,14 @@
   ],
   "prices": [
     {
-      "api_provider": "openai",
+      "api_provider": null,
       "input_token_price": "0.00001",
       "cached_input_token_price": "",
       "output_token_price": "0.00003",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://platform.openai.com/docs/models/gpt-4-turbo",
-      "other_info": ""
+      "other_info": null
     }
   ]
 }

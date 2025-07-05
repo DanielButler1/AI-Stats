@@ -7,7 +7,8 @@
   "description": "Grok 3, the successor to Grok 2, delivers advanced reasoning capabilities performing well to comparable models in math, science and coding. ",
   "announced_date": "2025-04-18T00:00:00",
   "release_date": "2025-04-18T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 131072,
   "output_context_length": 8000,
   "license": "Proprietary",
@@ -29,42 +30,42 @@
   "benchmark_results": [
     {
       "benchmark_id": "aime-2024",
-      "score": "60.0%",
+      "score": "60%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "57.5%",
+      "score": "57.50%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "79.1%",
+      "score": "79.10%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
       "benchmark_id": "mmlu-pro",
-      "score": "83.1%",
+      "score": "83.10%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
       "benchmark_id": "simplebench",
-      "score": "36.1%",
+      "score": "36.10%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "5.5%",
+      "score": "5.50%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
@@ -79,22 +80,22 @@
   ],
   "prices": [
     {
-      "api_provider": "x-ai",
+      "api_provider": null,
       "input_token_price": "0.000003",
       "cached_input_token_price": "0.00000075",
       "output_token_price": "0.000015",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://docs.x.ai/docs/models",
       "other_info": null
     },
     {
-      "api_provider": "x-ai",
+      "api_provider": null,
       "input_token_price": "0.000005",
       "cached_input_token_price": "0.00000125",
       "output_token_price": "0.000025",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://docs.x.ai/docs/models",
       "other_info": "Fast Mode"
     }

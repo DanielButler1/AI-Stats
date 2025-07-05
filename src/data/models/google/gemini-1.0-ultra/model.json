@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2023-12-06T00:00:00",
   "release_date": "2024-02-08T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 32768,
   "output_context_length": 8192,
   "license": "Proprietary",
@@ -17,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": false,
-  "knowledge_cutoff": "2023-11-01T00:00:00",
+  "knowledge_cutoff": "1/11/2023",
   "api_reference_link": null,
   "playground_link": null,
   "paper_link": null,
@@ -29,28 +30,28 @@
   "benchmark_results": [
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "35.7%",
+      "score": "35.70%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://artificialanalysis.ai/models/gemini-1-0-ultra"
     },
     {
       "benchmark_id": "math",
-      "score": "53.2%",
+      "score": "53.20%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://openai.com/index/hello-gpt-4o/"
     },
     {
       "benchmark_id": "humaneval",
-      "score": "74.4%",
+      "score": "74.40%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://openai.com/index/hello-gpt-4o/"
     },
     {
       "benchmark_id": "mmlu",
-      "score": "83.7%",
+      "score": "83.70%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://openai.com/index/hello-gpt-4o/"

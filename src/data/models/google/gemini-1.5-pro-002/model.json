@@ -8,6 +8,7 @@
   "announced_date": null,
   "release_date": null,
   "deprecation_date": "2025-09-24T00:00:00",
+  "retirement_date": null,
   "input_context_length": 2097152,
   "output_context_length": 8192,
   "license": "Proprietary",
@@ -29,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "simplebench",
-      "score": "27.1%",
+      "score": "27.10%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"

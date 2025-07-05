@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": null,
   "release_date": "2024-11-20T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 128000,
   "output_context_length": 16384,
   "license": "Proprietary",
@@ -29,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "simplebench",
-      "score": "17.8%",
+      "score": "17.80%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
@@ -50,7 +51,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "17.8%",
+      "score": "17.80%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -65,22 +66,22 @@
   ],
   "prices": [
     {
-      "api_provider": "openai",
+      "api_provider": null,
       "input_token_price": "0.0000025",
       "cached_input_token_price": "0.00000125",
       "output_token_price": "0.00001",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://platform.openai.com/docs/models/gpt-4o",
-      "other_info": ""
+      "other_info": null
     },
     {
-      "api_provider": "azure",
+      "api_provider": null,
       "input_token_price": "0.0000025",
       "cached_input_token_price": "0.00000125",
       "output_token_price": "0.00001",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
       "other_info": "Global Pricing"
     }

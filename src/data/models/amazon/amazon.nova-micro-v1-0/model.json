@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2024-12-03T00:00:00",
   "release_date": "2024-12-04T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 128000,
   "output_context_length": 10000,
   "license": "Proprietary",
@@ -44,14 +45,14 @@
   ],
   "prices": [
     {
-      "api_provider": "amazon-bedrock",
+      "api_provider": null,
       "input_token_price": "0.000000035",
       "cached_input_token_price": "0.00000000875",
       "output_token_price": "0.00000014",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://aws.amazon.com/bedrock/pricing/",
-      "other_info": ""
+      "other_info": null
     }
   ]
 }

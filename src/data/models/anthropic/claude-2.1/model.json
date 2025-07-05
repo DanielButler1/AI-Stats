@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2023-11-21T00:00:00",
   "release_date": "2023-11-22T00:00:00",
-  "deprecation_date": "2025-07-21T00:00:00",
+  "deprecation_date": "2025-01-21T00:00:00",
+  "retirement_date": "2025-07-21T00:00:00",
   "input_context_length": 200000,
   "output_context_length": 4096,
   "license": "Proprietary",
@@ -17,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": false,
-  "knowledge_cutoff": "2023-01-01T00:00:00",
+  "knowledge_cutoff": "1/1/2023",
   "api_reference_link": "",
   "playground_link": "",
   "paper_link": "https://www-cdn.anthropic.com/5c49cc247484cecf107c699baf29250302e5da70/claude-2-model-card.pdf",
@@ -29,12 +30,12 @@
   "benchmark_results": [],
   "prices": [
     {
-      "api_provider": "anthropic",
+      "api_provider": null,
       "input_token_price": "0.000008",
       "cached_input_token_price": "",
       "output_token_price": "0.000024",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": null,
       "other_info": null
     }

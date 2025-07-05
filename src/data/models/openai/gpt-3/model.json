@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2020-05-29T00:00:00",
   "release_date": "2020-06-11T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 2048,
   "output_context_length": 2048,
   "license": "Proprietary",
@@ -29,17 +30,17 @@
   "benchmark_results": [],
   "prices": [
     {
-      "api_provider": "openai",
+      "api_provider": null,
       "input_token_price": "",
       "cached_input_token_price": "",
       "output_token_price": "",
-      "throughput": "",
-      "latency": "",
-      "source_link": "",
-      "other_info": ""
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
     },
     {
-      "api_provider": "openai",
+      "api_provider": null,
       "input_token_price": null,
       "cached_input_token_price": null,
       "output_token_price": null,
@@ -49,7 +50,7 @@
       "other_info": "Ada"
     },
     {
-      "api_provider": "openai",
+      "api_provider": null,
       "input_token_price": null,
       "cached_input_token_price": null,
       "output_token_price": null,
@@ -59,7 +60,7 @@
       "other_info": "Babbage"
     },
     {
-      "api_provider": "openai",
+      "api_provider": null,
       "input_token_price": null,
       "cached_input_token_price": null,
       "output_token_price": null,
@@ -69,7 +70,7 @@
       "other_info": "Curie"
     },
     {
-      "api_provider": "openai",
+      "api_provider": null,
       "input_token_price": null,
       "cached_input_token_price": null,
       "output_token_price": null,

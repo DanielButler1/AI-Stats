@@ -8,6 +8,7 @@
   "announced_date": null,
   "release_date": "2024-09-12T00:00:00",
   "deprecation_date": "2025-10-27T00:00:00",
+  "retirement_date": null,
   "input_context_length": 128000,
   "output_context_length": 65536,
   "license": "Proprietary",
@@ -29,21 +30,21 @@
   "benchmark_results": [
     {
       "benchmark_id": "arc-agi-2",
-      "score": "0.8%",
+      "score": "0.80%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "14.0%",
+      "score": "14.00%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "aider-polyglot",
-      "score": "32.9%",
+      "score": "32.90%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aider.chat/docs/leaderboards/"
@@ -64,7 +65,7 @@
     },
     {
       "benchmark_id": "simplebench",
-      "score": "18.1%",
+      "score": "18.10%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
@@ -85,7 +86,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "26.9%",
+      "score": "26.90%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -107,22 +108,22 @@
   ],
   "prices": [
     {
-      "api_provider": "openai",
+      "api_provider": null,
       "input_token_price": "0.0000011",
       "cached_input_token_price": "0.00000055",
       "output_token_price": "0.0000044",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://platform.openai.com/docs/models/o1-mini",
-      "other_info": ""
+      "other_info": null
     },
     {
-      "api_provider": "azure",
+      "api_provider": null,
       "input_token_price": "0.0000011",
       "cached_input_token_price": "0.00000055",
       "output_token_price": "0.0000044",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
       "other_info": "Global Pricing"
     }

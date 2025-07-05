@@ -3,11 +3,12 @@
   "name": "Llama 4 Maverick",
   "provider": "meta",
   "status": null,
-  "previous_model_id": null,
+  "previous_model_id": false,
   "description": null,
   "announced_date": null,
   "release_date": "2025-04-05T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 1048576,
   "output_context_length": 1048576,
   "license": null,
@@ -29,14 +30,14 @@
   "benchmark_results": [
     {
       "benchmark_id": "arc-agi-2",
-      "score": "0.0%",
+      "score": "0.00%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "4.4%",
+      "score": "4.40%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
@@ -50,7 +51,7 @@
     },
     {
       "benchmark_id": "simplebench",
-      "score": "27.7%",
+      "score": "27.70%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
@@ -71,7 +72,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "19.1%",
+      "score": "19.10%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -97,8 +98,8 @@
       "input_token_price": "0.00000017",
       "cached_input_token_price": null,
       "output_token_price": "0.00000085",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": null,
       "other_info": null
     }

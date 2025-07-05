@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2025-02-19T00:00:00",
   "release_date": "2025-02-19T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 131072,
   "output_context_length": 8000,
   "license": "Proprietary",
@@ -29,14 +30,14 @@
   "benchmark_results": [
     {
       "benchmark_id": "aider-polyglot",
-      "score": "53.3%",
+      "score": "53.30%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
       "benchmark_id": "livebench",
-      "score": "56.0%",
+      "score": "56.05%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://livebench.ai/#/"
@@ -78,91 +79,91 @@
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "77.3%",
+      "score": "77.30%",
       "is_self_reported": true,
       "other_info": "Think",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "93.3%",
+      "score": "93.30%",
       "is_self_reported": true,
       "other_info": "Think, Cons@64",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "83.9%",
+      "score": "83.90%",
       "is_self_reported": true,
       "other_info": "Think",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "93.3%",
+      "score": "93.30%",
       "is_self_reported": true,
       "other_info": "Think, Cons@64",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "80.2%",
+      "score": "80.20%",
       "is_self_reported": true,
       "other_info": "Think",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "84.6%",
+      "score": "84.60%",
       "is_self_reported": true,
       "other_info": "Think, Cons@64",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "mmmu",
-      "score": "76.0%",
+      "score": "76%",
       "is_self_reported": true,
       "other_info": "Think",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "mmmu",
-      "score": "78.0%",
+      "score": "78%",
       "is_self_reported": true,
       "other_info": "Think, Cons@64",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "52.2%",
+      "score": "52.20%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "75.4%",
+      "score": "75.40%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "mmlu-pro",
-      "score": "79.9%",
+      "score": "79.90%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "simpleqa",
-      "score": "43.6%",
+      "score": "43.60%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "mmmu",
-      "score": "73.2%",
+      "score": "73.20%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-3"
@@ -183,7 +184,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "20.3%",
+      "score": "20.30%",
       "is_self_reported": false,
       "other_info": "No Reasoning",
       "source_link": "https://github.com/lechmazur/nyt-connections"

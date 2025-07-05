@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2024-03-04T00:00:00",
   "release_date": "2024-03-13T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 200000,
   "output_context_length": 4096,
   "license": "Proprietary",
@@ -17,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": true,
-  "knowledge_cutoff": "2023-08-01T00:00:00",
+  "knowledge_cutoff": "1/8/2023",
   "api_reference_link": "https://docs.anthropic.com/en/docs/about-claude/models/overview#model-comparison-table",
   "playground_link": "https://console.anthropic.com/",
   "paper_link": "https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf",
@@ -43,7 +44,7 @@
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "2.2%",
+      "score": "2.20%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"
@@ -58,12 +59,12 @@
   ],
   "prices": [
     {
-      "api_provider": "anthropic",
+      "api_provider": null,
       "input_token_price": "0.00000025",
       "cached_input_token_price": "0.0000005",
       "output_token_price": "0.00000125",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://docs.anthropic.com/en/docs/about-claude/pricing",
       "other_info": null
     }

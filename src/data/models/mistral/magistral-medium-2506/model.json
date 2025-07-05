@@ -7,7 +7,8 @@
   "description": null,
   "announced_date": "2025-06-10T00:00:00",
   "release_date": "2025-06-10T00:00:00",
-  "deprecation_date": "",
+  "deprecation_date": null,
+  "retirement_date": null,
   "input_context_length": 128000,
   "output_context_length": 128000,
   "license": "Proprietary",
@@ -29,70 +30,70 @@
   "benchmark_results": [
     {
       "benchmark_id": "humanitys-last-exam",
-      "score": "9.0%",
+      "score": "9.00%",
       "is_self_reported": true,
       "other_info": "Text Only Subset",
       "source_link": "https://mistral.ai/static/research/magistral.pdf"
     },
     {
       "benchmark_id": "aider-polyglot",
-      "score": "47.1%",
+      "score": "47.10%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://mistral.ai/news/magistral"
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "64.9%",
+      "score": "64.90%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://mistral.ai/news/magistral"
     },
     {
       "benchmark_id": "mmmu",
-      "score": "70.0%",
+      "score": "70.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://mistral.ai/static/research/magistral.pdf"
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "70.8%",
+      "score": "70.80%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://mistral.ai/news/magistral"
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "73.6%",
+      "score": "73.60%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://mistral.ai/news/magistral"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "5.9%",
+      "score": "5.90%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "6.1%",
+      "score": "6.10%",
       "is_self_reported": false,
       "other_info": "Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "0.0%",
+      "score": "0%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "0.0%",
+      "score": "0%",
       "is_self_reported": false,
       "other_info": "Thinking",
       "source_link": "https://arcprize.org/leaderboard"
@@ -100,14 +101,14 @@
   ],
   "prices": [
     {
-      "api_provider": "mistral",
+      "api_provider": null,
       "input_token_price": "0.000002",
       "cached_input_token_price": null,
       "output_token_price": "0.000005",
-      "throughput": "",
-      "latency": "",
+      "throughput": null,
+      "latency": null,
       "source_link": "https://mistral.ai/pricing#api-pricing",
-      "other_info": ""
+      "other_info": null
     }
   ]
 }
