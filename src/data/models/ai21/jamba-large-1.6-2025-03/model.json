@@ -1,0 +1,58 @@
+{
+  "id": "jamba-large-1.6-2025-03",
+  "name": "Jamba Large 1.6",
+  "provider": "ai21",
+  "status": "Deprecated",
+  "previous_model_id": "jamba-1.5-large-2024-08",
+  "description": null,
+  "announced_date": "2025-03-06T08:00:00.000Z",
+  "release_date": "2025-03-06T08:00:00.000Z",
+  "deprecation_date": "2025-08-03T07:00:00.000Z",
+  "retirement_date": null,
+  "input_context_length": 256000,
+  "output_context_length": 256000,
+  "license": "Jamba Open Model License",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": false,
+  "reasoning": false,
+  "fine_tunable": true,
+  "knowledge_cutoff": "2024-08-22T07:00:00.000Z",
+  "api_reference_link": "https://docs.ai21.com/reference/jamba-1-6-api-ref",
+  "playground_link": "https://studio.ai21.com/",
+  "paper_link": null,
+  "announcement_link": "https://www.ai21.com/blog/introducing-jamba-1-6/",
+  "repository_link": null,
+  "weights_link": "https://huggingface.co/ai21labs/AI21-Jamba-Large-1.6",
+  "parameter_count": 398000000000,
+  "training_tokens": null,
+  "benchmark_results": [
+    {
+      "benchmark_id": "facts",
+      "score": 0.758,
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": null
+    },
+    {
+      "benchmark_id": "if-eval",
+      "score": 0.758,
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": null
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": "ai21",
+      "input_token_price": "0.000002",
+      "cached_input_token_price": null,
+      "output_token_price": "0.000008",
+      "throughput": null,
+      "latency": null,
+      "source_link": "https://www.ai21.com/pricing/",
+      "other_info": null
+    }
+  ]
+}
