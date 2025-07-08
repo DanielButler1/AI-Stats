@@ -18,7 +18,7 @@
   "web_access": false,
   "reasoning": null,
   "fine_tunable": null,
-  "knowledge_cutoff": "2023-10",
+  "knowledge_cutoff": "2023-10-01",
   "api_reference_link": "https://huggingface.co/microsoft/Phi-3.5-MoE-instruct",
   "playground_link": null,
   "paper_link": "https://arxiv.org/abs/2404.14219",

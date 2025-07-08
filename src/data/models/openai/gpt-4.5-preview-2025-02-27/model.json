@@ -18,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": false,
-  "knowledge_cutoff": "1/10/2023",
+  "knowledge_cutoff": "2023-10-01",
   "api_reference_link": "https://platform.openai.com/docs/models/gpt-4-5#gpt-4-5",
   "playground_link": "https://platform.openai.com/playground",
   "paper_link": null,

@@ -18,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": false,
-  "knowledge_cutoff": "1/9/2021",
+  "knowledge_cutoff": "2021-09-01",
   "api_reference_link": "https://platform.openai.com/docs/models/gpt-3-5-turbo",
   "playground_link": null,
   "paper_link": null,

@@ -18,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": null,
-  "knowledge_cutoff": "1/7/2024",
+  "knowledge_cutoff": "2024-07-01",
   "api_reference_link": "https://docs.anthropic.com/en/docs/about-claude/models/overview#model-comparison-table",
   "playground_link": "https://console.anthropic.com/",
   "paper_link": "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf",

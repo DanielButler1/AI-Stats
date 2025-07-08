@@ -18,7 +18,7 @@
   "web_access": false,
   "reasoning": null,
   "fine_tunable": null,
-  "knowledge_cutoff": "2023-12",
+  "knowledge_cutoff": "2023-12-01",
   "api_reference_link": "https://huggingface.co/meta-llama/Llama-3.2-90B-Vision-Instruct",
   "playground_link": null,
   "paper_link": null,

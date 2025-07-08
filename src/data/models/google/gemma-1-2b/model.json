@@ -18,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": true,
-  "knowledge_cutoff": "1/11/2023",
+  "knowledge_cutoff": "2023-11-01",
   "api_reference_link": null,
   "playground_link": null,
   "paper_link": null,

@@ -18,7 +18,7 @@
   "web_access": null,
   "reasoning": true,
   "fine_tunable": false,
-  "knowledge_cutoff": "1/6/2024",
+  "knowledge_cutoff": "2024-06-01",
   "api_reference_link": "https://platform.openai.com/docs/models/codex-mini-latest",
   "playground_link": "https://platform.openai.com/playground/prompts?models=codex-mini",
   "paper_link": null,

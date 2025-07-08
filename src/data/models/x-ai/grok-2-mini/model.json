@@ -18,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": null,
-  "knowledge_cutoff": "2024-08",
+  "knowledge_cutoff": "2024-08-01",
   "api_reference_link": "https://x.ai/api",
   "playground_link": "",
   "paper_link": "",

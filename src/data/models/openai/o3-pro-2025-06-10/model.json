@@ -18,7 +18,7 @@
   "web_access": false,
   "reasoning": true,
   "fine_tunable": false,
-  "knowledge_cutoff": "1/6/2024",
+  "knowledge_cutoff": "2024-06-01",
   "api_reference_link": "https://platform.openai.com/docs/models/o3-pro",
   "playground_link": "https://platform.openai.com/playground/prompts?models=o3-pro",
   "paper_link": "",

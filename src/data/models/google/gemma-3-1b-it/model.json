@@ -18,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": true,
-  "knowledge_cutoff": "1/8/2024",
+  "knowledge_cutoff": "2024-08-01",
   "api_reference_link": "https://huggingface.co/google/gemma-3-1b-it",
   "playground_link": "https://huggingface.co/chat/models/google/gemma-3-1b-it",
   "paper_link": "https://storage.googleapis.com/deepmind-media/gemma/Gemma3Report.pdf",

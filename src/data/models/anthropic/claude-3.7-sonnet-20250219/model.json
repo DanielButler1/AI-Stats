@@ -18,7 +18,7 @@
   "web_access": false,
   "reasoning": false,
   "fine_tunable": null,
-  "knowledge_cutoff": "1/11/2024",
+  "knowledge_cutoff": "2024-11-01",
   "api_reference_link": "https://docs.anthropic.com/en/docs/about-claude/models/overview#model-comparison-table",
   "playground_link": "https://console.anthropic.com/",
   "paper_link": "https://assets.anthropic.com/m/785e231869ea8b3b/original/claude-3-7-sonnet-system-card.pdf",
