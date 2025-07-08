@@ -30,21 +30,21 @@
   "benchmark_results": [
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "50.4%",
+      "score": "50.40%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://www.anthropic.com/news/claude-3-family"
     },
     {
       "benchmark_id": "lisanbench",
-      "score": 48,
+      "score": 48.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 931,
+      "score": 931.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
@@ -72,7 +72,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1317,
+      "score": 1317.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -80,12 +80,12 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "anthropic",
       "input_token_price": "0.000015",
       "cached_input_token_price": "0.00003",
-      "output_token_price": "0.00007499999999999999",
-      "throughput": null,
-      "latency": null,
+      "output_token_price": "0.000075",
+      "throughput": "",
+      "latency": "",
       "source_link": "https://docs.anthropic.com/en/docs/about-claude/pricing",
       "other_info": null
     }

@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": null,
   "release_date": "2024-08-06T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 128000,
   "output_context_length": 16384,
   "license": "Proprietary",
@@ -30,21 +30,21 @@
   "benchmark_results": [
     {
       "benchmark_id": "aime-2024",
-      "score": "13.1%",
+      "score": "13.10%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/"
     },
     {
       "benchmark_id": "swe-bench",
-      "score": "33%",
+      "score": "33.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/"
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "46.0%",
+      "score": "46.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/"
@@ -66,22 +66,22 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "openai",
       "input_token_price": "0.0000025",
       "cached_input_token_price": "0.00000125",
       "output_token_price": "0.00001",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://platform.openai.com/docs/models/gpt-4o",
-      "other_info": null
+      "other_info": ""
     },
     {
-      "api_provider": null,
+      "api_provider": "azure",
       "input_token_price": "0.0000025",
       "cached_input_token_price": "0.00000125",
       "output_token_price": "0.00001",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
       "other_info": "Global Pricing"
     }

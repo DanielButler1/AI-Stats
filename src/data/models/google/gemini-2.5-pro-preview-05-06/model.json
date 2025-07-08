@@ -93,14 +93,14 @@
     },
     {
       "benchmark_id": "eqbench",
-      "score": 1230,
+      "score": 1230.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com/"
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1446,
+      "score": 1446.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

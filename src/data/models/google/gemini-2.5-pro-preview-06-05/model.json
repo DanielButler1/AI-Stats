@@ -8,7 +8,7 @@
   "announced_date": "2025-06-05T00:00:00",
   "release_date": "2025-06-05T00:00:00",
   "deprecation_date": "2026-06-17T00:00:00",
-  "retirement_date": null,
+  "retirement_date": "",
   "input_context_length": 1048576,
   "output_context_length": 65536,
   "license": "Proprietary",
@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "lmarena-text",
-      "score": 1470,
+      "score": 1470.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -107,7 +107,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1470,
+      "score": 1470.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -156,7 +156,7 @@
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "16%",
+      "score": "16.00%",
       "is_self_reported": false,
       "other_info": "1k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
@@ -170,21 +170,21 @@
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "41%",
+      "score": "41.00%",
       "is_self_reported": false,
       "other_info": "16k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "37%",
+      "score": "37.00%",
       "is_self_reported": false,
       "other_info": "32k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "0%",
+      "score": "0.00%",
       "is_self_reported": false,
       "other_info": "1k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
@@ -198,7 +198,7 @@
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "4%",
+      "score": "4.00%",
       "is_self_reported": false,
       "other_info": "16k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
@@ -212,7 +212,7 @@
     },
     {
       "benchmark_id": "ai2-sciarena",
-      "score": 1063,
+      "score": 1063.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://sciarena.allen.ai/"
@@ -220,22 +220,22 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "google-ai-studio",
       "input_token_price": "0.00000125",
       "cached_input_token_price": "0.00000031",
       "output_token_price": "0.00001",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro",
       "other_info": "Prices for input/output <200k tokens. Rises to $2.50 and $15 per 1m tokens >200k tokens. Cached Price rises to $0.625 per 1m tokens when prompts >200k tokens."
     },
     {
-      "api_provider": null,
+      "api_provider": "google-vertex",
       "input_token_price": "0.00000125",
       "cached_input_token_price": "0.00000031",
       "output_token_price": "0.00001",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": "Prices for input/output <200k tokens. Rises to $2.50 and $15 per 1m tokens >200k tokens. Cached Price rises to $0.625 per 1m tokens when prompts >200k tokens."
     }

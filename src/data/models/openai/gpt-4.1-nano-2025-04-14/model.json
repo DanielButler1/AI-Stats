@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": null,
   "release_date": "2025-04-14T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 1047576,
   "output_context_length": 32768,
   "license": "Proprietary",
@@ -51,7 +51,7 @@
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "29.4%",
+      "score": "29.40%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/"
@@ -65,14 +65,14 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "50.3%",
+      "score": "50.30%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/"
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 729,
+      "score": 729.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
@@ -93,7 +93,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1318,
+      "score": 1318.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -101,22 +101,22 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "openai",
       "input_token_price": "0.0000001",
       "cached_input_token_price": "0.000000025",
       "output_token_price": "0.0000004",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://platform.openai.com/docs/models/gpt-4.1-nano",
-      "other_info": null
+      "other_info": ""
     },
     {
-      "api_provider": null,
+      "api_provider": "azure",
       "input_token_price": "0.0000001",
       "cached_input_token_price": "0.00000003",
       "output_token_price": "0.0000004",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
       "other_info": null
     }

@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": null,
   "release_date": "2025-03-12T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 131072,
   "output_context_length": 131072,
   "license": "Gemma",
@@ -30,14 +30,14 @@
   "benchmark_results": [
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "30.8%",
+      "score": "30.80%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://ai.google.dev/gemma/docs/core/model_card_3"
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1299,
+      "score": 1299.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

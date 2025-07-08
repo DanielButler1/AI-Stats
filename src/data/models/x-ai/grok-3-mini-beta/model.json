@@ -7,7 +7,7 @@
   "description": null,
   "announced_date": "2025-02-19T00:00:00",
   "release_date": "2025-02-19T00:00:00",
-  "deprecation_date": null,
+  "deprecation_date": "",
   "retirement_date": null,
   "input_context_length": 131072,
   "output_context_length": 8000,
@@ -30,14 +30,14 @@
   "benchmark_results": [
     {
       "benchmark_id": "aime-2025",
-      "score": "82%",
+      "score": "82.00%",
       "is_self_reported": true,
       "other_info": "Think",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "91%",
+      "score": "91.00%",
       "is_self_reported": true,
       "other_info": "Think, Cons@64",
       "source_link": "https://x.ai/news/grok-3"
@@ -65,7 +65,7 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "84%",
+      "score": "84.00%",
       "is_self_reported": true,
       "other_info": "Think, Cons@64",
       "source_link": "https://x.ai/news/grok-3"
@@ -103,6 +103,13 @@
       "score": "69.40%",
       "is_self_reported": true,
       "other_info": null,
+      "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "84.00%",
+      "is_self_reported": true,
+      "other_info": "Reasoning",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
@@ -156,7 +163,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1355,
+      "score": 1355.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

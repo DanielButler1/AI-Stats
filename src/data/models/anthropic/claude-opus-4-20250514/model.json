@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2025-05-21T00:00:00",
   "release_date": "2025-05-21T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 200000,
   "output_context_length": 128000,
   "license": "Proprietary",
@@ -114,7 +114,7 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "83.3%",
+      "score": "83.30%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": null
@@ -198,14 +198,14 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1419,
+      "score": 1419.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1414,
+      "score": 1414.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -220,12 +220,12 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "anthropic",
       "input_token_price": "0.000015",
       "cached_input_token_price": "0.00003",
-      "output_token_price": "0.00007499999999999999",
-      "throughput": null,
-      "latency": null,
+      "output_token_price": "0.000075",
+      "throughput": "",
+      "latency": "",
       "source_link": "https://docs.anthropic.com/en/docs/about-claude/pricing",
       "other_info": null
     }

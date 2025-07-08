@@ -8,7 +8,7 @@
   "announced_date": null,
   "release_date": "2024-09-12T00:00:00",
   "deprecation_date": "2025-10-27T00:00:00",
-  "retirement_date": null,
+  "retirement_date": "",
   "input_context_length": 128000,
   "output_context_length": 65536,
   "license": "Proprietary",
@@ -51,14 +51,14 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "60.0%",
+      "score": "60.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/"
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 1488,
+      "score": 1488.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
@@ -100,7 +100,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1333,
+      "score": 1333.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -108,22 +108,22 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "openai",
       "input_token_price": "0.0000011",
       "cached_input_token_price": "0.00000055",
       "output_token_price": "0.0000044",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://platform.openai.com/docs/models/o1-mini",
-      "other_info": null
+      "other_info": ""
     },
     {
-      "api_provider": null,
+      "api_provider": "azure",
       "input_token_price": "0.0000011",
       "cached_input_token_price": "0.00000055",
       "output_token_price": "0.0000044",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
       "other_info": "Global Pricing"
     }

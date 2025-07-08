@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2024-03-11T00:00:00",
   "release_date": "2024-03-11T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 128000,
   "output_context_length": 4000,
   "license": null,
@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "lmarena-text",
-      "score": 1226,
+      "score": 1226.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -38,12 +38,12 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "cohere",
       "input_token_price": "0.0000005",
       "cached_input_token_price": "",
       "output_token_price": "0.0000015",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://cohere.com/pricing",
       "other_info": null
     }

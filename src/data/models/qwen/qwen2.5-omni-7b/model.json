@@ -3,16 +3,16 @@
   "name": "Qwen2.5-Omni-7B",
   "provider": "qwen",
   "status": null,
-  "previous_model_id": false,
+  "previous_model_id": null,
   "description": null,
   "announced_date": null,
   "release_date": "2025-03-27T00:00:00",
-  "deprecation_date": null,
+  "deprecation_date": "",
   "retirement_date": null,
   "input_context_length": 32768,
   "output_context_length": 32768,
   "license": "Apache 2.0",
-  "multimodal": true,
+  "multimodal": null,
   "input_types": null,
   "output_types": null,
   "web_access": false,
@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "30.8%",
+      "score": "30.80%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://github.com/QwenLM/Qwen2.5-Omni"

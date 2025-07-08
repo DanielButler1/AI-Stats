@@ -3,16 +3,16 @@
   "name": "Phi 4",
   "provider": "microsoft",
   "status": null,
-  "previous_model_id": false,
+  "previous_model_id": null,
   "description": null,
   "announced_date": null,
   "release_date": "2024-12-12T00:00:00",
-  "deprecation_date": null,
+  "deprecation_date": "",
   "retirement_date": null,
   "input_context_length": 16000,
   "output_context_length": 16000,
   "license": "MIT",
-  "multimodal": false,
+  "multimodal": null,
   "input_types": null,
   "output_types": null,
   "web_access": false,
@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "56.1%",
+      "score": "56.10%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://arxiv.org/pdf/2412.08905"
@@ -65,7 +65,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1255,
+      "score": 1255.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

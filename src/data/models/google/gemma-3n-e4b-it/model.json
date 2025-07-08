@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2025-05-20T00:00:00",
   "release_date": "2025-05-20T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 32768,
   "output_context_length": 32768,
   "license": "Gemma",
@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "lmarena-text",
-      "score": 1308,
+      "score": 1308.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

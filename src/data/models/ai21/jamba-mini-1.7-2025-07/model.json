@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2025-07-03T00:00:00",
   "release_date": "2025-07-03T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 256000,
   "output_context_length": 256000,
   "license": "Jamba Open Model License",
@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "facts",
-      "score": "79%",
+      "score": "79.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": null
@@ -45,12 +45,12 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "ai21",
       "input_token_price": "0.0000002",
       "cached_input_token_price": "",
       "output_token_price": "0.0000004",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://www.ai21.com/pricing/",
       "other_info": null
     }

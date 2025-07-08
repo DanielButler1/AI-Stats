@@ -3,12 +3,12 @@
   "name": "GPT-3.5 Turbo",
   "provider": "openai",
   "status": "Available",
-  "previous_model_id": false,
+  "previous_model_id": "",
   "description": null,
   "announced_date": null,
   "release_date": null,
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 4096,
   "output_context_length": 4096,
   "license": "Proprietary",
@@ -30,14 +30,14 @@
   "benchmark_results": [],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "openai",
       "input_token_price": "0.0000015",
       "cached_input_token_price": "",
       "output_token_price": "0.000002",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://platform.openai.com/docs/models/gpt-3.5-turbo",
-      "other_info": null
+      "other_info": ""
     }
   ]
 }

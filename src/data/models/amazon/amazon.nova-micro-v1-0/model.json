@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2024-12-03T00:00:00",
   "release_date": "2024-12-04T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 128000,
   "output_context_length": 10000,
   "license": "Proprietary",
@@ -30,14 +30,14 @@
   "benchmark_results": [
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "40.0%",
+      "score": "40.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://www.amazon.science/publications/the-amazon-nova-family-of-models-technical-report-and-model-card"
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1241,
+      "score": 1241.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -45,14 +45,14 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "amazon-bedrock",
       "input_token_price": "0.000000035",
       "cached_input_token_price": "0.00000000875",
       "output_token_price": "0.00000014",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://aws.amazon.com/bedrock/pricing/",
-      "other_info": null
+      "other_info": ""
     }
   ]
 }

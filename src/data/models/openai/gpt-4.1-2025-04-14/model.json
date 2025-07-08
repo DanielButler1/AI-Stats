@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2025-04-13T00:00:00",
   "release_date": "2025-04-14T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 1047576,
   "output_context_length": 32768,
   "license": "Proprietary",
@@ -44,14 +44,14 @@
     },
     {
       "benchmark_id": "swe-lancer",
-      "score": "35%",
+      "score": "35.00%",
       "is_self_reported": true,
       "other_info": "IC-Diamond",
       "source_link": "https://openai.com/index/gpt-4-1/"
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "48.1%",
+      "score": "48.10%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1"
@@ -79,28 +79,28 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "66.3%",
+      "score": "66.30%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1"
     },
     {
       "benchmark_id": "eqbench",
-      "score": 1212,
+      "score": 1212.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com/"
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 1379,
+      "score": 1379.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
     },
     {
       "benchmark_id": "simplebench",
-      "score": "27%",
+      "score": "27.00%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html"
@@ -121,14 +121,14 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1410,
+      "score": 1410.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1402,
+      "score": 1402.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -143,22 +143,22 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "openai",
       "input_token_price": "0.000002",
       "cached_input_token_price": "0.0000005",
       "output_token_price": "0.000008",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://platform.openai.com/docs/models/gpt-4.1",
-      "other_info": null
+      "other_info": ""
     },
     {
-      "api_provider": null,
+      "api_provider": "azure",
       "input_token_price": "0.000002",
       "cached_input_token_price": "0.0000005",
       "output_token_price": "0.000008",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
       "other_info": null
     }

@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2025-04-16T00:00:00",
   "release_date": "2025-04-16T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 200000,
   "output_context_length": 100000,
   "license": "Proprietary",
@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "lmarena-text",
-      "score": 1449,
+      "score": 1449.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -51,7 +51,7 @@
     },
     {
       "benchmark_id": "humanitys-last-exam",
-      "score": "20.3%",
+      "score": "20.30%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
@@ -93,42 +93,42 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "83.3%",
+      "score": "83.30%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "91.6%",
+      "score": "91.60%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "98.4%",
+      "score": "98.40%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
     },
     {
       "benchmark_id": "lisanbench",
-      "score": 1036,
+      "score": 1036.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
     },
     {
       "benchmark_id": "eqbench",
-      "score": 1500,
+      "score": 1500.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com/"
     },
     {
       "benchmark_id": "codeforces",
-      "score": 2517,
+      "score": 2517.0,
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GtG5biebMAIpBhq?format=png&name=4096x4096"
@@ -191,7 +191,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1443,
+      "score": 1443.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -220,24 +220,24 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "azure",
       "input_token_price": "0.00001",
       "cached_input_token_price": "0.0000025",
       "output_token_price": "0.00004",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
       "other_info": null
     },
     {
-      "api_provider": null,
+      "api_provider": "openai",
       "input_token_price": "0.000002",
       "cached_input_token_price": "0.0000005",
       "output_token_price": "0.000008",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://platform.openai.com/docs/models/o3",
-      "other_info": null
+      "other_info": ""
     }
   ]
 }

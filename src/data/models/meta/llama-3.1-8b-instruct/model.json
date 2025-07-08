@@ -3,11 +3,11 @@
   "name": "Llama 3.1 8B Instruct",
   "provider": "meta",
   "status": null,
-  "previous_model_id": false,
+  "previous_model_id": null,
   "description": null,
   "announced_date": null,
   "release_date": "2024-07-23T00:00:00",
-  "deprecation_date": null,
+  "deprecation_date": "",
   "retirement_date": null,
   "input_context_length": 16384,
   "output_context_length": 16384,
@@ -30,14 +30,14 @@
   "benchmark_results": [
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "30.4%",
+      "score": "30.40%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct"
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1211,
+      "score": 1211.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -49,8 +49,8 @@
       "input_token_price": "0.00000002",
       "cached_input_token_price": null,
       "output_token_price": "0.00000003",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": null
     }

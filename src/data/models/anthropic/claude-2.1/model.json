@@ -30,12 +30,12 @@
   "benchmark_results": [],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "anthropic",
       "input_token_price": "0.000008",
       "cached_input_token_price": "",
       "output_token_price": "0.000024",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": null
     }

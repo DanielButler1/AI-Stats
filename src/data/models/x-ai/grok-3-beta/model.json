@@ -7,7 +7,7 @@
   "description": null,
   "announced_date": "2025-02-19T00:00:00",
   "release_date": "2025-02-19T00:00:00",
-  "deprecation_date": null,
+  "deprecation_date": "",
   "retirement_date": null,
   "input_context_length": 131072,
   "output_context_length": 8000,
@@ -44,35 +44,35 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "75.4%",
+      "score": "75.40%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/blog/grok-3"
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "93.0%",
+      "score": "93.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/blog/grok-3"
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "93.0%",
+      "score": "93.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/blog/grok-3"
     },
     {
       "benchmark_id": "lisanbench",
-      "score": 231,
+      "score": 231.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 1857,
+      "score": 1857.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
@@ -121,14 +121,14 @@
     },
     {
       "benchmark_id": "mmmu",
-      "score": "76%",
+      "score": "76.00%",
       "is_self_reported": true,
       "other_info": "Think",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
       "benchmark_id": "mmmu",
-      "score": "78%",
+      "score": "78.00%",
       "is_self_reported": true,
       "other_info": "Think, Cons@64",
       "source_link": "https://x.ai/news/grok-3"
@@ -169,6 +169,69 @@
       "source_link": "https://x.ai/news/grok-3"
     },
     {
+      "benchmark_id": "aime-2024",
+      "score": "52.20%",
+      "is_self_reported": true,
+      "other_info": "Reasoning",
+      "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "75.40%",
+      "is_self_reported": true,
+      "other_info": "Reasoning",
+      "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "49.30%",
+      "is_self_reported": false,
+      "other_info": "Reasoning",
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "62.36%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://livebench.ai/#/"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "66.20%",
+      "is_self_reported": true,
+      "other_info": "Reasoning",
+      "source_link": "https://x.ai/blog/grok-3"
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "90.30%",
+      "is_self_reported": true,
+      "other_info": "Reasoning",
+      "source_link": "https://x.ai/blog/grok-3"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "95.80%",
+      "is_self_reported": true,
+      "other_info": "Reasoning",
+      "source_link": "https://x.ai/blog/grok-3"
+    },
+    {
+      "benchmark_id": "lisanbench",
+      "score": 151.0,
+      "is_self_reported": false,
+      "other_info": "Reasoning",
+      "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
+    },
+    {
+      "benchmark_id": "aidanbench",
+      "score": 2347.0,
+      "is_self_reported": false,
+      "other_info": "Reasoning",
+      "source_link": "https://aidanbench.com/"
+    },
+    {
       "benchmark_id": "confabulations",
       "score": 14.19,
       "is_self_reported": false,
@@ -198,7 +261,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1406,
+      "score": 1406.0,
       "is_self_reported": false,
       "other_info": "Early Grok-3",
       "source_link": "https://lmarena.ai/leaderboard/text"

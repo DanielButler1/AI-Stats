@@ -30,14 +30,14 @@
   "benchmark_results": [
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "40.4%",
+      "score": "40.40%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://www.anthropic.com/news/claude-3-family"
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1275,
+      "score": 1275.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -45,12 +45,12 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "anthropic",
       "input_token_price": "0.000003",
       "cached_input_token_price": "",
       "output_token_price": "0.000015",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://docs.anthropic.com/en/docs/about-claude/pricing",
       "other_info": null
     }

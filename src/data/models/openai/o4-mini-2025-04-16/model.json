@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2025-04-16T00:00:00",
   "release_date": "2025-04-16T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 200000,
   "output_context_length": 100000,
   "license": "Proprietary",
@@ -44,7 +44,7 @@
     },
     {
       "benchmark_id": "humanitys-last-exam",
-      "score": "17.7%",
+      "score": "17.70%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
@@ -79,21 +79,21 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "81.4%",
+      "score": "81.40%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "92.7%",
+      "score": "92.70%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "93.4%",
+      "score": "93.40%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
@@ -114,14 +114,14 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "81.4%",
+      "score": "81.40%",
       "is_self_reported": null,
       "other_info": "High Reasoning Effort",
       "source_link": null
     },
     {
       "benchmark_id": "lisanbench",
-      "score": 337,
+      "score": 337.0,
       "is_self_reported": false,
       "other_info": "High Reasoning Effort",
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
@@ -184,7 +184,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1396,
+      "score": 1396.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -199,22 +199,22 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "openai",
       "input_token_price": "0.0000011",
       "cached_input_token_price": "0.000000275",
       "output_token_price": "0.0000044",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://platform.openai.com/docs/models/o4-mini",
-      "other_info": null
+      "other_info": ""
     },
     {
-      "api_provider": null,
+      "api_provider": "azure",
       "input_token_price": "0.0000011",
       "cached_input_token_price": "0.00000028",
       "output_token_price": "0.0000044",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
       "other_info": null
     }

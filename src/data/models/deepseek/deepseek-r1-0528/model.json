@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2025-05-28T00:00:00",
   "release_date": "2025-05-28T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 128000,
   "output_context_length": 64000,
   "license": "MIT License",
@@ -121,7 +121,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1411,
+      "score": 1411.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -136,22 +136,22 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "deepseek",
       "input_token_price": "0.00000055",
       "cached_input_token_price": "0.00000014",
       "output_token_price": "0.00000219",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://api-docs.deepseek.com/quick_start/pricing",
       "other_info": "Standard Pricing"
     },
     {
-      "api_provider": null,
+      "api_provider": "deepseek",
       "input_token_price": "0.000000135",
       "cached_input_token_price": "0.000000035",
       "output_token_price": "0.00000055",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://api-docs.deepseek.com/quick_start/pricing",
       "other_info": "Discount Pricing"
     }

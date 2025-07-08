@@ -3,7 +3,7 @@
   "name": "Gemini 2.5 Pro Experimental",
   "provider": "google",
   "status": "Deprecated",
-  "previous_model_id": false,
+  "previous_model_id": "",
   "description": null,
   "announced_date": null,
   "release_date": null,

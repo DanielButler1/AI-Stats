@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": null,
   "release_date": "2023-03-21T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 16385,
   "output_context_length": 4096,
   "license": "Proprietary",
@@ -30,14 +30,14 @@
   "benchmark_results": [
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "30.8%",
+      "score": "30.80%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": null
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1215,
+      "score": 1215.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -45,14 +45,14 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "openai",
       "input_token_price": "0.0000005",
       "cached_input_token_price": "",
       "output_token_price": "0.0000015",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://platform.openai.com/docs/models/gpt-3.5-turbo",
-      "other_info": null
+      "other_info": ""
     }
   ]
 }

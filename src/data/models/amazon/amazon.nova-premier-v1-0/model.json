@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2025-04-30T00:00:00",
   "release_date": "2025-04-30T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 1000000,
   "output_context_length": 10000,
   "license": "Proprietary",
@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "57.1%",
+      "score": "57.10%",
       "is_self_reported": null,
       "other_info": null,
       "source_link": null
@@ -38,14 +38,14 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "amazon-bedrock",
       "input_token_price": "0.0000025",
       "cached_input_token_price": "",
       "output_token_price": "0.0000125",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://aws.amazon.com/bedrock/pricing/",
-      "other_info": null
+      "other_info": ""
     }
   ]
 }

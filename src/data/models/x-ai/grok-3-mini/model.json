@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2025-04-18T00:00:00",
   "release_date": "2025-04-18T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 131072,
   "output_context_length": 8000,
   "license": "Proprietary",
@@ -101,32 +101,32 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "x-ai",
       "input_token_price": "0.0000003",
       "cached_input_token_price": "0.000000075",
       "output_token_price": "0.0000005",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://docs.x.ai/docs/models",
       "other_info": null
     },
     {
-      "api_provider": null,
+      "api_provider": "x-ai",
       "input_token_price": "0.0000003",
       "cached_input_token_price": "0.00000007",
       "output_token_price": "0.0000005",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://docs.x.ai/docs/models",
       "other_info": "Fast Mode"
     },
     {
-      "api_provider": null,
+      "api_provider": "x-ai",
       "input_token_price": "0.0000006",
       "cached_input_token_price": "0.00000015",
       "output_token_price": "0.000004",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://docs.x.ai/docs/models",
       "other_info": "Fast Mode"
     }

@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2025-02-24T00:00:00",
   "release_date": "2025-02-24T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 200000,
   "output_context_length": 64000,
   "license": "Proprietary",
@@ -100,42 +100,42 @@
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "80.0%",
+      "score": "80.00%",
       "is_self_reported": true,
       "other_info": "64k Thinking",
       "source_link": "https://www.anthropic.com/news/claude-3-7-sonnet"
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "84.8%",
+      "score": "84.80%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://www.anthropic.com/news/claude-3-7-sonnet"
     },
     {
       "benchmark_id": "lisanbench",
-      "score": 166,
+      "score": 166.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
     },
     {
       "benchmark_id": "eqbench",
-      "score": 1069,
+      "score": 1069.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com/"
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 1968,
+      "score": 1968.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "61.3%",
+      "score": "61.30%",
       "is_self_reported": null,
       "other_info": "Thinking",
       "source_link": null
@@ -163,14 +163,14 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "78.2%",
+      "score": "78.20%",
       "is_self_reported": null,
       "other_info": "Thinking",
       "source_link": null
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 2233,
+      "score": 2233.0,
       "is_self_reported": false,
       "other_info": "Thinking",
       "source_link": "https://aidanbench.com/"
@@ -254,14 +254,14 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1385,
+      "score": 1385.0,
       "is_self_reported": false,
       "other_info": "32k Thinking",
       "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1374,
+      "score": 1374.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -276,12 +276,12 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "anthropic",
       "input_token_price": "0.000003",
       "cached_input_token_price": "0.000006",
       "output_token_price": "0.000015",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://docs.anthropic.com/en/docs/about-claude/pricing",
       "other_info": null
     }

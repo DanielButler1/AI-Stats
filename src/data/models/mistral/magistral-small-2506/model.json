@@ -3,12 +3,12 @@
   "name": "Magistral Small",
   "provider": "mistral",
   "status": "Available",
-  "previous_model_id": "",
+  "previous_model_id": null,
   "description": null,
   "announced_date": "2025-06-10T00:00:00",
   "release_date": "2025-06-10T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 128000,
   "output_context_length": 128000,
   "license": "Apache 2.0",
@@ -65,14 +65,14 @@
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "5%",
+      "score": "5.00%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "0%",
+      "score": "0.00%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
@@ -80,14 +80,14 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "mistral",
       "input_token_price": "0.0000005",
       "cached_input_token_price": null,
       "output_token_price": "0.0000015",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://mistral.ai/pricing#api-pricing",
-      "other_info": null
+      "other_info": ""
     }
   ]
 }

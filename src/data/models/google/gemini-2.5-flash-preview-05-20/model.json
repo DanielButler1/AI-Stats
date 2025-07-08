@@ -8,7 +8,7 @@
   "announced_date": "2025-05-20T00:00:00",
   "release_date": "2025-05-20T00:00:00",
   "deprecation_date": "2025-07-15T00:00:00",
-  "retirement_date": null,
+  "retirement_date": "",
   "input_context_length": 1048576,
   "output_context_length": 65536,
   "license": "Proprietary",
@@ -100,7 +100,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1417,
+      "score": 1417.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -108,14 +108,14 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "google-ai-studio",
       "input_token_price": "0.0000003",
       "cached_input_token_price": "0.000000075",
       "output_token_price": "0.0000025",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://ai.google.dev/gemini-api/docs/pricing",
-      "other_info": null
+      "other_info": ""
     }
   ]
 }

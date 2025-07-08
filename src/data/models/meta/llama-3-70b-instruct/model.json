@@ -3,11 +3,11 @@
   "name": "Llama 3 70B Instruct",
   "provider": "meta",
   "status": null,
-  "previous_model_id": false,
+  "previous_model_id": null,
   "description": null,
   "announced_date": null,
   "release_date": "2024-04-18T00:00:00",
-  "deprecation_date": null,
+  "deprecation_date": "",
   "retirement_date": null,
   "input_context_length": 8192,
   "output_context_length": 8192,
@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "lmarena-text",
-      "score": 1273,
+      "score": 1273.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -42,8 +42,8 @@
       "input_token_price": "0.0000003",
       "cached_input_token_price": null,
       "output_token_price": "0.0000004",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": null,
       "other_info": null
     }

@@ -8,7 +8,7 @@
   "announced_date": "2024-02-27T00:00:00",
   "release_date": "2025-02-27T00:00:00",
   "deprecation_date": "2025-07-14T00:00:00",
-  "retirement_date": null,
+  "retirement_date": "",
   "input_context_length": 128000,
   "output_context_length": 16384,
   "license": "Proprietary",
@@ -44,14 +44,14 @@
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "36.7%",
+      "score": "36.70%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/"
     },
     {
       "benchmark_id": "swe-bench",
-      "score": "38%",
+      "score": "38.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/"
@@ -72,21 +72,21 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "69.5%",
+      "score": "69.50%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/"
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "71.4%",
+      "score": "71.40%",
       "is_self_reported": null,
       "other_info": null,
       "source_link": null
     },
     {
       "benchmark_id": "lisanbench",
-      "score": 220,
+      "score": 220.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
@@ -100,7 +100,7 @@
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 3066,
+      "score": 3066.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
@@ -142,7 +142,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1434,
+      "score": 1434.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -150,22 +150,22 @@
   ],
   "prices": [
     {
-      "api_provider": null,
-      "input_token_price": "0.00007499999999999999",
+      "api_provider": "openai",
+      "input_token_price": "0.000075",
       "cached_input_token_price": "0.0000375",
       "output_token_price": "0.00015",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://platform.openai.com/docs/models/gpt-4.5-preview",
-      "other_info": null
+      "other_info": ""
     },
     {
-      "api_provider": null,
-      "input_token_price": "0.00007499999999999999",
+      "api_provider": "azure",
+      "input_token_price": "0.000075",
       "cached_input_token_price": "0.0000375",
       "output_token_price": "0.00015",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
       "other_info": null
     }

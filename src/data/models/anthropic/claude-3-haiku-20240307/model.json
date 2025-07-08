@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2024-03-04T00:00:00",
   "release_date": "2024-03-13T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 200000,
   "output_context_length": 4096,
   "license": "Proprietary",
@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "33.3%",
+      "score": "33.30%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://www.anthropic.com/news/claude-3-haiku"
@@ -51,7 +51,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1256,
+      "score": 1256.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -59,12 +59,12 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "anthropic",
       "input_token_price": "0.00000025",
       "cached_input_token_price": "0.0000005",
       "output_token_price": "0.00000125",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://docs.anthropic.com/en/docs/about-claude/pricing",
       "other_info": null
     }

@@ -30,14 +30,14 @@
   "benchmark_results": [],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "openai",
       "input_token_price": "",
       "cached_input_token_price": "",
       "output_token_price": "",
-      "throughput": null,
-      "latency": null,
-      "source_link": null,
-      "other_info": null
+      "throughput": "",
+      "latency": "",
+      "source_link": "",
+      "other_info": ""
     }
   ]
 }

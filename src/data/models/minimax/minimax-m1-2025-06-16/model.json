@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2025-06-16T00:00:00",
   "release_date": "2025-06-16T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 1000000,
   "output_context_length": 80000,
   "license": "Apache 2.0",
@@ -107,7 +107,7 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "70%",
+      "score": "70.00%",
       "is_self_reported": true,
       "other_info": "80k",
       "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
@@ -128,14 +128,14 @@
     },
     {
       "benchmark_id": "swe-bench",
-      "score": "56%",
+      "score": "56.00%",
       "is_self_reported": true,
       "other_info": "80k",
       "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
     },
     {
       "benchmark_id": "tau-bench",
-      "score": "62%",
+      "score": "62.00%",
       "is_self_reported": true,
       "other_info": "80k, Airline",
       "source_link": "https://github.com/MiniMax-AI/MiniMax-M1/blob/main/MiniMax_M1_tech_report.pdf"
@@ -164,12 +164,12 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "minimax",
       "input_token_price": "0.0000004",
       "cached_input_token_price": "",
       "output_token_price": "0.0000022",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://www.minimax.io/platform/document/Pricing%20Overview?key=67373ec8451eeff1a85b9e4c",
       "other_info": "Prices for input <200k tokens. Rises to $1.30 per 1m tokens >200k tokens."
     }

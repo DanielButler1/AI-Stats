@@ -8,11 +8,11 @@
   "announced_date": null,
   "release_date": "2025-04-17T00:00:00",
   "deprecation_date": "2025-07-15T00:00:00",
-  "retirement_date": null,
+  "retirement_date": "",
   "input_context_length": 1048576,
   "output_context_length": 65536,
   "license": "Proprietary",
-  "multimodal": true,
+  "multimodal": null,
   "input_types": null,
   "output_types": null,
   "web_access": true,
@@ -163,7 +163,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1405,
+      "score": 1405.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

@@ -7,8 +7,8 @@
   "description": "Grok 3, the successor to Grok 2, delivers advanced reasoning capabilities performing well to comparable models in math, science and coding. ",
   "announced_date": "2025-04-18T00:00:00",
   "release_date": "2025-04-18T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 131072,
   "output_context_length": 8000,
   "license": "Proprietary",
@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "aime-2024",
-      "score": "60%",
+      "score": "60.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://docs.x.ai/docs/models"
@@ -80,22 +80,22 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "x-ai",
       "input_token_price": "0.000003",
       "cached_input_token_price": "0.00000075",
       "output_token_price": "0.000015",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://docs.x.ai/docs/models",
       "other_info": null
     },
     {
-      "api_provider": null,
+      "api_provider": "x-ai",
       "input_token_price": "0.000005",
       "cached_input_token_price": "0.00000125",
       "output_token_price": "0.000025",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://docs.x.ai/docs/models",
       "other_info": "Fast Mode"
     }

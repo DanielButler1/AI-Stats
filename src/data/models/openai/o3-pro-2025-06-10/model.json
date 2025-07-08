@@ -7,8 +7,8 @@
   "description": "A version of o3 with more compute for higher quality and more accurate responses. The o3-pro model uses more compute to think harder and provide consistently better answers, designed to tackle the toughest of problems which require the most advanced reasoning capabilities.",
   "announced_date": "2025-06-10T00:00:00",
   "release_date": "2025-06-10T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 200000,
   "output_context_length": 100000,
   "license": "Proprietary",
@@ -72,21 +72,21 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "84%",
+      "score": "84.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GtG5biebMAIpBhq?format=png&name=4096x4096"
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "93%",
+      "score": "93.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GtG5biebMAIpBhq?format=png&name=4096x4096"
     },
     {
       "benchmark_id": "codeforces",
-      "score": 2748,
+      "score": 2748.0,
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GtG5biebMAIpBhq?format=png&name=4096x4096"
@@ -122,14 +122,14 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "openai",
       "input_token_price": "0.00002",
       "cached_input_token_price": "",
-      "output_token_price": "0.00008000000000000001",
-      "throughput": null,
-      "latency": null,
+      "output_token_price": "0.00008",
+      "throughput": "",
+      "latency": "",
       "source_link": "https://platform.openai.com/docs/models/o3-pro",
-      "other_info": null
+      "other_info": ""
     }
   ]
 }

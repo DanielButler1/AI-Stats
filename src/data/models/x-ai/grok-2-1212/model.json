@@ -12,7 +12,7 @@
   "input_context_length": 128000,
   "output_context_length": 8000,
   "license": "Proprietary",
-  "multimodal": true,
+  "multimodal": false,
   "input_types": "text",
   "output_types": "text",
   "web_access": false,
@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "56.0%",
+      "score": "56.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/blog/grok-2"
@@ -73,12 +73,12 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "x-ai",
       "input_token_price": "0.000002",
       "cached_input_token_price": "",
       "output_token_price": "0.00001",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://docs.x.ai/docs/models",
       "other_info": null
     }

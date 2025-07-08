@@ -7,8 +7,8 @@
   "description": null,
   "announced_date": "2025-06-26T00:00:00",
   "release_date": "2025-06-26T00:00:00",
-  "deprecation_date": null,
-  "retirement_date": null,
+  "deprecation_date": "",
+  "retirement_date": "",
   "input_context_length": 200000,
   "output_context_length": 100000,
   "license": "Proprietary",
@@ -30,14 +30,14 @@
   "benchmark_results": [],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "openai",
       "input_token_price": "0.000002",
       "cached_input_token_price": "0.0000005",
       "output_token_price": "0.000008",
-      "throughput": null,
-      "latency": null,
+      "throughput": "",
+      "latency": "",
       "source_link": "https://platform.openai.com/docs/models/o4-mini-deep-research",
-      "other_info": null
+      "other_info": ""
     }
   ]
 }

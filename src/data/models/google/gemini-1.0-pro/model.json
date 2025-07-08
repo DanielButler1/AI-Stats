@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "27.9%",
+      "score": "27.90%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": null
@@ -38,23 +38,23 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "google-ai-studio",
       "input_token_price": "0.0000125",
       "cached_input_token_price": null,
       "output_token_price": "0.0000375",
-      "throughput": null,
-      "latency": null,
-      "source_link": null,
+      "throughput": "",
+      "latency": "",
+      "source_link": "",
       "other_info": null
     },
     {
-      "api_provider": null,
+      "api_provider": "google-vertex",
       "input_token_price": "0.0000125",
       "cached_input_token_price": null,
       "output_token_price": "0.0000375",
-      "throughput": null,
-      "latency": null,
-      "source_link": null,
+      "throughput": "",
+      "latency": "",
+      "source_link": "",
       "other_info": null
     }
   ]
