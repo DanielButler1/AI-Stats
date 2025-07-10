@@ -1,0 +1,114 @@
+{
+  "id": "grok-4-0709",
+  "name": "Grok 4",
+  "provider": "x-ai",
+  "status": "Available",
+  "previous_model_id": "grok-3",
+  "description": "Grok 4, the successor to Grok 3, is a substantial upgrade, providing breakthrough capabilities in reasoning and multimodal capabilities.",
+  "announced_date": "2025-07-10T00:00:00",
+  "release_date": "2025-07-10T00:00:00",
+  "deprecation_date": "",
+  "retirement_date": "",
+  "input_context_length": 256000,
+  "output_context_length": 256000,
+  "license": "Proprietary",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": false,
+  "reasoning": true,
+  "fine_tunable": false,
+  "knowledge_cutoff": null,
+  "api_reference_link": "https://docs.x.ai/docs/models/grok-4-0709",
+  "playground_link": "",
+  "paper_link": null,
+  "announcement_link": "",
+  "repository_link": "",
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
+  "benchmark_results": [
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "87.50%",
+      "is_self_reported": true,
+      "other_info": "No Tools",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "88.90%",
+      "is_self_reported": true,
+      "other_info": "Grok 4 Heavy",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "92.00%",
+      "is_self_reported": true,
+      "other_info": "No Tools",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "99.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": null
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "100.00%",
+      "is_self_reported": true,
+      "other_info": "Grok 4 Heavy",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "51.00%",
+      "is_self_reported": true,
+      "other_info": "Grok 4 Heavy",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "26.90%",
+      "is_self_reported": true,
+      "other_info": "No Tools",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "41.00%",
+      "is_self_reported": true,
+      "other_info": "Tool Use",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "67.00%",
+      "is_self_reported": false,
+      "other_info": "Thinking",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "16.00%",
+      "is_self_reported": false,
+      "other_info": "Thinking",
+      "source_link": null
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": "0.000003",
+      "cached_input_token_price": "0.00000075",
+      "output_token_price": "0.000015",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://docs.x.ai/docs/models/grok-4-0709",
+      "other_info": "Prices for input and output <128k tokens. Rises to $6.00 per 1m input tokens, and $30 per 1m output tokens when >128k tokens."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "id": "grok-2-1212",
-  "name": "Grok-2",
+  "name": "Grok 2",
   "provider": "x-ai",
   "status": "Deprecated",
   "previous_model_id": "grok-1.5",

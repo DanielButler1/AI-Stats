@@ -1,6 +1,6 @@
 {
   "id": "grok-2-mini",
-  "name": "Grok-2 mini",
+  "name": "Grok 2 Mini",
   "provider": "x-ai",
   "status": "Deprecated",
   "previous_model_id": "",
