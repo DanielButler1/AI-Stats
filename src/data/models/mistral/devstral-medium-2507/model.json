@@ -1,0 +1,51 @@
+{
+  "id": "devstral-medium-2507",
+  "name": "Devstral Medium 1.1",
+  "provider": "mistral",
+  "status": "Available",
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": "2025-07-10T00:00:00",
+  "release_date": "2025-07-10T00:00:00",
+  "deprecation_date": "",
+  "retirement_date": "",
+  "input_context_length": null,
+  "output_context_length": null,
+  "license": "Proprietary",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": false,
+  "reasoning": false,
+  "fine_tunable": true,
+  "knowledge_cutoff": "",
+  "api_reference_link": "",
+  "playground_link": "",
+  "paper_link": "",
+  "announcement_link": "https://mistral.ai/news/devstral-2507",
+  "repository_link": "",
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
+  "benchmark_results": [
+    {
+      "benchmark_id": "swe-bench",
+      "score": "61.60%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/news/devstral-2507"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": "mistral",
+      "input_token_price": "0.0000004",
+      "cached_input_token_price": "",
+      "output_token_price": "0.000002",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://mistral.ai/pricing#api-pricing",
+      "other_info": null
+    }
+  ]
+}
