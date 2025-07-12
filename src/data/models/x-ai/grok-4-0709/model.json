@@ -104,6 +104,13 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/writing"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "79.60%",
+      "is_self_reported": false,
+      "other_info": "Diff",
+      "source_link": "https://aider.chat/docs/leaderboards/"
     }
   ],
   "prices": [

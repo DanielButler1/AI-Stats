@@ -1,0 +1,135 @@
+{
+  "id": "kimi-k2-0711",
+  "name": "Kimi K2 Base",
+  "provider": "moonshotai",
+  "status": "Available",
+  "previous_model_id": "kimi-k1.5",
+  "description": null,
+  "announced_date": "2025-07-11T00:00:00",
+  "release_date": "2025-07-11T00:00:00",
+  "deprecation_date": "",
+  "retirement_date": "",
+  "input_context_length": 128000,
+  "output_context_length": 128000,
+  "license": "Modified MIT - Check Github",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": false,
+  "reasoning": false,
+  "fine_tunable": true,
+  "knowledge_cutoff": "2025-04-01",
+  "api_reference_link": "https://platform.moonshot.ai/docs/introduction",
+  "playground_link": "https://www.kimi.com/",
+  "paper_link": null,
+  "announcement_link": "https://x.com/Kimi_Moonshot/status/1943687594560332025",
+  "repository_link": "https://github.com/MoonshotAI/Kimi-K2",
+  "weights_link": "https://huggingface.co/moonshotai/Kimi-K2-Base",
+  "parameter_count": 1000000000000,
+  "training_tokens": "",
+  "benchmark_results": [
+    {
+      "benchmark_id": "mmlu",
+      "score": "87.80%",
+      "is_self_reported": true,
+      "other_info": "EM",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "mmlu-pro",
+      "score": "69.20%",
+      "is_self_reported": true,
+      "other_info": "EM",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "mmlu-redux-2.0",
+      "score": "90.20%",
+      "is_self_reported": true,
+      "other_info": "EM",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "simpleqa",
+      "score": "35.30%",
+      "is_self_reported": true,
+      "other_info": "Correct",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "triviaqa",
+      "score": "85.10%",
+      "is_self_reported": true,
+      "other_info": "EM",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "48.10%",
+      "is_self_reported": true,
+      "other_info": "Avg@8",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "supergpqa",
+      "score": "44.70%",
+      "is_self_reported": true,
+      "other_info": "EM",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "livecodebench-v6",
+      "score": "26.30%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "evalplus",
+      "score": "80.30%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "math",
+      "score": "40.20%",
+      "is_self_reported": true,
+      "other_info": "EM",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "gsm8k",
+      "score": "92.10%",
+      "is_self_reported": true,
+      "other_info": "EM",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "c-eval",
+      "score": "92.50%",
+      "is_self_reported": true,
+      "other_info": "EM",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "csimpleqa",
+      "score": "77.60%",
+      "is_self_reported": true,
+      "other_info": "Correct",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": null,
+      "input_token_price": "0.0000006",
+      "cached_input_token_price": "0.00000015",
+      "output_token_price": "0.0000025",
+      "throughput": null,
+      "latency": null,
+      "source_link": null,
+      "other_info": null
+    }
+  ]
+}
