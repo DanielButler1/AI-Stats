@@ -27,6 +27,14 @@
   "weights_link": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
   "parameter_count": 24000000000,
   "training_tokens": null,
-  "benchmark_results": [],
+  "benchmark_results": [
+    {
+      "benchmark_id": "eqbench",
+      "score": 640.0,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com"
+    }
+  ],
   "prices": []
 }

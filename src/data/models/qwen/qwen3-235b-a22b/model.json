@@ -111,6 +111,13 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://sciarena.allen.ai/"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1260.4,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com"
     }
   ],
   "prices": []

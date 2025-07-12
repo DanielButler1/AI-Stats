@@ -11,7 +11,7 @@
   "retirement_date": "",
   "input_context_length": 128000,
   "output_context_length": 128000,
-  "license": "Modified MIT - Check Github",
+  "license": "Modified MIT",
   "multimodal": false,
   "input_types": "text",
   "output_types": "text",

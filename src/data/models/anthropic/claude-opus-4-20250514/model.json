@@ -121,7 +121,7 @@
     },
     {
       "benchmark_id": "eqbench",
-      "score": 1282.8,
+      "score": 1282.2,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com/"

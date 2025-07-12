@@ -111,6 +111,13 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1121.4,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com"
     }
   ],
   "prices": []

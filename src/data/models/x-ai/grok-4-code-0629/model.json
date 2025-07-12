@@ -32,14 +32,14 @@
       "benchmark_id": "swe-bench",
       "score": "72.00%",
       "is_self_reported": true,
-      "other_info": null,
+      "other_info": "Leaked Benchmarks - Subject to Change",
       "source_link": null
     },
     {
       "benchmark_id": "terminal-bench",
       "score": "75.00%",
       "is_self_reported": true,
-      "other_info": null,
+      "other_info": "Leaked Benchmarks - Subject to Change",
       "source_link": null
     }
   ],

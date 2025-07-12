@@ -265,6 +265,13 @@
       "is_self_reported": false,
       "other_info": "Early Grok-3",
       "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1065.3,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com"
     }
   ],
   "prices": []

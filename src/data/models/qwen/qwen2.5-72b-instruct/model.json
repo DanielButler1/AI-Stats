@@ -62,6 +62,13 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 693.5,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com"
     }
   ],
   "prices": []

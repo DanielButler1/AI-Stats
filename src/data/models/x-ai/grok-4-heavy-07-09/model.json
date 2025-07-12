@@ -22,7 +22,7 @@
   "api_reference_link": "",
   "playground_link": "",
   "paper_link": "",
-  "announcement_link": "",
+  "announcement_link": "https://x.ai/news/grok-4",
   "repository_link": "",
   "weights_link": "",
   "parameter_count": "",
@@ -33,21 +33,35 @@
       "score": "88.90%",
       "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://x.com/i/broadcasts/1lDGLzplWnyxm?t=kWWQeLTEOsQNxQOUgQ7eKQ"
+      "source_link": "https://x.ai/news/grok-4"
     },
     {
       "benchmark_id": "aime-2025",
       "score": "100.00%",
       "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://x.com/i/broadcasts/1lDGLzplWnyxm?t=kWWQeLTEOsQNxQOUgQ7eKQ"
+      "source_link": "https://x.ai/news/grok-4"
     },
     {
       "benchmark_id": "humanitys-last-exam",
       "score": "44.00%",
       "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://x.com/i/broadcasts/1lDGLzplWnyxm?t=kWWQeLTEOsQNxQOUgQ7eKQ"
+      "source_link": "https://x.ai/news/grok-4"
+    },
+    {
+      "benchmark_id": "usamo-2025",
+      "score": "61.90%",
+      "is_self_reported": true,
+      "other_info": "With Python",
+      "source_link": "https://x.ai/news/grok-4"
+    },
+    {
+      "benchmark_id": "hmmt-2025",
+      "score": "96.70%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://x.ai/news/grok-4"
     }
   ],
   "prices": []
