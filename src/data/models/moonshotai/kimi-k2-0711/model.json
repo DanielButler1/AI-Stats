@@ -122,13 +122,13 @@
   ],
   "prices": [
     {
-      "api_provider": null,
+      "api_provider": "moonshotai",
       "input_token_price": "0.0000006",
       "cached_input_token_price": "0.00000015",
       "output_token_price": "0.0000025",
-      "throughput": null,
-      "latency": null,
-      "source_link": null,
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://platform.moonshot.ai/docs/pricing/chat#generation-model-kimi-k2",
       "other_info": null
     }
   ]
