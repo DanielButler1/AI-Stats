@@ -30,7 +30,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "eqbench",
-      "score": 640.0,
+      "score": 646.0,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com"

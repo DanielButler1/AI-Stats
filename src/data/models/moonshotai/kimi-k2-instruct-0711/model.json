@@ -251,6 +251,13 @@
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1549.1,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com"
     }
   ],
   "prices": [
