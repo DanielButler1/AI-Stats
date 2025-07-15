@@ -139,6 +139,13 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 5.996,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/elimination_game"
     }
   ],
   "prices": [

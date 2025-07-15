@@ -258,6 +258,34 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com"
+    },
+    {
+      "benchmark_id": "creative-story-writing",
+      "score": 8.56,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/writing"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 20.38,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.94,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 3.772,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/elimination_game"
     }
   ],
   "prices": [
