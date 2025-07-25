@@ -9,6 +9,7 @@
   "release_date": "2024-12-04T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": "amazon/nova-lite-v1",
   "input_context_length": 300000,
   "output_context_length": 10000,
   "license": "Proprietary",
@@ -37,7 +38,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1259.0,
+      "score": 1259,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

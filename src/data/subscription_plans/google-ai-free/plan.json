@@ -1,0 +1,27 @@
+{
+  "plan_id": "google-ai-free",
+  "name": "Gemini Free",
+  "provider_id": "google",
+  "description": null,
+  "frequency": "monthly",
+  "usd-price": false,
+  "link": null,
+  "other_info": null,
+  "models": [
+    {
+      "plan_id": "google-ai-free",
+      "model_id": "gemini-2.5-flash-preview-05-20",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "google-ai-free",
+      "model_id": "gemini-2.5-pro-preview-06-05",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    }
+  ],
+  "features": []
+}

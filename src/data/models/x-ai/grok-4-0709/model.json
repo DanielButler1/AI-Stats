@@ -9,6 +9,7 @@
   "release_date": "2025-07-10T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": "x-ai/grok-4",
   "input_context_length": 256000,
   "output_context_length": 256000,
   "license": "Proprietary",
@@ -18,7 +19,7 @@
   "web_access": false,
   "reasoning": true,
   "fine_tunable": false,
-  "knowledge_cutoff": null,
+  "knowledge_cutoff": "2024-11-01",
   "api_reference_link": "https://docs.x.ai/docs/models/grok-4-0709",
   "playground_link": "",
   "paper_link": "",
@@ -37,14 +38,14 @@
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "92.00%",
+      "score": "91.70%",
       "is_self_reported": true,
       "other_info": "No Tools",
       "source_link": "https://x.ai/news/grok-4"
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "99.00%",
+      "score": "98.80%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-4"
@@ -65,21 +66,21 @@
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "67.00%",
+      "score": "66.70%",
       "is_self_reported": false,
       "other_info": "Thinking",
       "source_link": "https://x.ai/news/grok-4"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "16.00%",
+      "score": "16.20%",
       "is_self_reported": false,
       "other_info": "Thinking",
       "source_link": "https://x.ai/news/grok-4"
     },
     {
       "benchmark_id": "nyt-connections",
-      "score": "92.00%",
+      "score": "92.40%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/nyt-connections"

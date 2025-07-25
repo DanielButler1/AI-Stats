@@ -9,6 +9,7 @@
   "release_date": "2024-08-07T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": null,
   "input_context_length": 4096,
   "output_context_length": 4096,
   "license": "EXAONE AI Model License Agreement 1.1 - NC",

@@ -9,6 +9,7 @@
   "release_date": "2025-02-24T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": "anthropic/claude-3.7-sonnet",
   "input_context_length": 200000,
   "output_context_length": 64000,
   "license": "Proprietary",
@@ -114,7 +115,7 @@
     },
     {
       "benchmark_id": "lisanbench",
-      "score": 166.0,
+      "score": 166,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
@@ -128,7 +129,7 @@
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 1968.0,
+      "score": 1968,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
@@ -170,7 +171,7 @@
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 2233.0,
+      "score": 2233,
       "is_self_reported": false,
       "other_info": "Thinking",
       "source_link": "https://aidanbench.com/"
@@ -254,14 +255,14 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1385.0,
+      "score": 1385,
       "is_self_reported": false,
       "other_info": "32k Thinking",
       "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1374.0,
+      "score": 1374,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

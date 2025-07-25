@@ -9,6 +9,7 @@
   "release_date": "2024-11-20T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": "openai/gpt-4o-2024-08-06",
   "input_context_length": 128000,
   "output_context_length": 16384,
   "license": "Proprietary",
@@ -58,7 +59,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1328.0,
+      "score": 1328,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

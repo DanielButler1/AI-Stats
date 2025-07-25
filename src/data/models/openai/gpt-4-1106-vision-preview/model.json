@@ -9,6 +9,7 @@
   "release_date": null,
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": "openai/gpt-4-1106-preview",
   "input_context_length": null,
   "output_context_length": null,
   "license": null,
@@ -30,7 +31,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "lmarena-text",
-      "score": 1312.0,
+      "score": 1312,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

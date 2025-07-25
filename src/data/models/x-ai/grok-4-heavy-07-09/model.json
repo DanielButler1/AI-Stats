@@ -9,6 +9,7 @@
   "release_date": "2025-07-10T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": null,
   "input_context_length": null,
   "output_context_length": null,
   "license": "Proprietary",
@@ -18,7 +19,7 @@
   "web_access": false,
   "reasoning": true,
   "fine_tunable": false,
-  "knowledge_cutoff": null,
+  "knowledge_cutoff": "",
   "api_reference_link": "",
   "playground_link": "",
   "paper_link": "",
@@ -44,7 +45,7 @@
     },
     {
       "benchmark_id": "humanitys-last-exam",
-      "score": "44.00%",
+      "score": "44.40%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-4"

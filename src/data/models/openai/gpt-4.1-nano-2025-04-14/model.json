@@ -9,6 +9,7 @@
   "release_date": "2025-04-14T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": "openai/gpt-4.1-nano",
   "input_context_length": 1047576,
   "output_context_length": 32768,
   "license": "Proprietary",
@@ -72,7 +73,7 @@
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 729.0,
+      "score": 729,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
@@ -93,7 +94,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1318.0,
+      "score": 1318,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

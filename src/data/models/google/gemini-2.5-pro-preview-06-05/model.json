@@ -9,6 +9,7 @@
   "release_date": "2025-06-05T00:00:00",
   "deprecation_date": "2026-06-17T00:00:00",
   "retirement_date": "",
+  "open_router_model_id": "google/gemini-2.5-pro-preview",
   "input_context_length": 1048576,
   "output_context_length": 65536,
   "license": "Proprietary",
@@ -30,7 +31,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "lmarena-text",
-      "score": 1470.0,
+      "score": 1470,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -107,7 +108,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1470.0,
+      "score": 1470,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -212,7 +213,7 @@
     },
     {
       "benchmark_id": "ai2-sciarena",
-      "score": 1063.0,
+      "score": 1063,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://sciarena.allen.ai/"

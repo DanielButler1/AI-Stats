@@ -9,6 +9,7 @@
   "release_date": "2024-05-01T00:00:00",
   "deprecation_date": "2025-09-24T00:00:00",
   "retirement_date": "",
+  "open_router_model_id": "google/gemini-flash-1.5",
   "input_context_length": 1048576,
   "output_context_length": 8192,
   "license": "Proprietary",
@@ -30,7 +31,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "lmarena-text",
-      "score": 1307.0,
+      "score": 1307,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

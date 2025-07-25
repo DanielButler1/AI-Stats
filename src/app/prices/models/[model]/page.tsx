@@ -1,5 +1,11 @@
 import Header from "@/components/header";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Crown, Info } from "lucide-react";
 import Link from "next/link";
@@ -249,9 +255,13 @@ export default async function ModelPricePage(props: {
 					{/* Provider pricing comparison */}
 					<Card className="shadow-lg">
 						<CardHeader>
-							<CardTitle>
+							<CardTitle className="text-lg md:text-2xl font-bold">
 								Compare Pricing Across Providers
 							</CardTitle>
+							<CardDescription>
+								Latency & Throughput Figures Provided By
+								OpenRouter
+							</CardDescription>
 						</CardHeader>
 						<CardContent>
 							{/* Mobile View - Cards */}

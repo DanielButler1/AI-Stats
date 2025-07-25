@@ -141,9 +141,6 @@ export default function RecentModels({ models }: RecentModelsProps) {
 								<TableHead className="min-w-[120px]">
 									Date
 								</TableHead>
-								<TableHead className="min-w-[100px] text-center">
-									AI Stats Score
-								</TableHead>
 								<TableHead className="min-w-[120px] text-right">
 									&nbsp;
 								</TableHead>
@@ -258,33 +255,6 @@ export default function RecentModels({ models }: RecentModelsProps) {
 												{formatDate(event.date)}
 											</span>
 										</TableCell>{" "}
-										<TableCell className="min-w-[100px] align-middle flex justify-center font-mono text-sm">
-											{model.benchmark_results?.length &&
-											model.benchmark_results.length >=
-												3 ? (
-												<span className="flex items-center gap-1">
-													{model.glickoRating ? (
-														<>
-															{model.glickoRating.rating.toFixed(
-																2
-															)}
-															{/* <span className="text-muted-foreground">
-																±
-																{model.glickoRating.rd.toFixed(
-																	2
-																)}
-															</span> */}
-														</>
-													) : (
-														"Processing..."
-													)}
-												</span>
-											) : (
-												<span className="text-muted-foreground">
-													Awaiting...
-												</span>
-											)}
-										</TableCell>
 										<TableCell className="min-w-[120px] text-right align-middle">
 											<div className="flex justify-center w-full">
 												<Badge

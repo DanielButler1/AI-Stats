@@ -9,6 +9,7 @@
   "release_date": "2025-04-14T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": "openai/gpt-4.1",
   "input_context_length": 1047576,
   "output_context_length": 32768,
   "license": "Proprietary",
@@ -44,7 +45,7 @@
     },
     {
       "benchmark_id": "swe-lancer",
-      "score": "35.00%",
+      "score": "35.10%",
       "is_self_reported": true,
       "other_info": "IC-Diamond",
       "source_link": "https://openai.com/index/gpt-4-1/"
@@ -86,14 +87,14 @@
     },
     {
       "benchmark_id": "eqbench",
-      "score": 1230.0,
+      "score": 1230,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com/"
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 1379.0,
+      "score": 1379,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
@@ -121,14 +122,14 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1410.0,
+      "score": 1410,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1402.0,
+      "score": 1402,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

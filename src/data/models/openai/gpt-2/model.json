@@ -9,6 +9,7 @@
   "release_date": "2019-11-05T00:00:00",
   "deprecation_date": null,
   "retirement_date": null,
+  "open_router_model_id": null,
   "input_context_length": 1024,
   "output_context_length": 1024,
   "license": "MIT",

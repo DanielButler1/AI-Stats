@@ -9,6 +9,7 @@
   "release_date": "2024-08-30T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": "cohere/command-r-plus-08-2024",
   "input_context_length": 128000,
   "output_context_length": 128000,
   "license": "CC-BY-NC",
@@ -37,7 +38,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1275.0,
+      "score": 1275,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

@@ -9,6 +9,7 @@
   "release_date": "2025-03-12T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": "google/gemma-3-4b-it",
   "input_context_length": 131072,
   "output_context_length": 131072,
   "license": "Gemma",
@@ -37,7 +38,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1299.0,
+      "score": 1299,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

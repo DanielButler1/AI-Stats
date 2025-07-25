@@ -1,0 +1,34 @@
+{
+  "plan_id": "supergrok-heavy",
+  "name": "SuperGrok Heavy",
+  "provider_id": "x-ai",
+  "description": null,
+  "frequency": "yearly",
+  "usd-price": 3000.0,
+  "link": null,
+  "other_info": null,
+  "models": [
+    {
+      "plan_id": "supergrok-heavy",
+      "model_id": "grok-3",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "supergrok-heavy",
+      "model_id": "grok-4-0709",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "supergrok-heavy",
+      "model_id": "grok-4-heavy-07-09",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    }
+  ],
+  "features": []
+}

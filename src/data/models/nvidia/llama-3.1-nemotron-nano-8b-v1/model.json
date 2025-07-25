@@ -9,6 +9,7 @@
   "release_date": "2025-03-18T00:00:00",
   "deprecation_date": "",
   "retirement_date": null,
+  "open_router_model_id": null,
   "input_context_length": 131072,
   "output_context_length": 131072,
   "license": "Llama 3.1 Community License",

@@ -9,6 +9,7 @@
   "release_date": "2024-12-25T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": null,
   "input_context_length": 131072,
   "output_context_length": 131072,
   "license": "MIT + Model License (Commercial use allowed)",
@@ -72,7 +73,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1355.0,
+      "score": 1355,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

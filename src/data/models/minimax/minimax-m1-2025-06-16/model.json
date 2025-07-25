@@ -9,6 +9,7 @@
   "release_date": "2025-06-16T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": null,
   "input_context_length": 1000000,
   "output_context_length": 80000,
   "license": "Apache 2.0",

@@ -9,6 +9,7 @@
   "release_date": "2025-04-16T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": "openai/o4-mini",
   "input_context_length": 200000,
   "output_context_length": 100000,
   "license": "Proprietary",
@@ -121,7 +122,7 @@
     },
     {
       "benchmark_id": "lisanbench",
-      "score": 337.0,
+      "score": 337,
       "is_self_reported": false,
       "other_info": "High Reasoning Effort",
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
@@ -184,7 +185,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1396.0,
+      "score": 1396,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

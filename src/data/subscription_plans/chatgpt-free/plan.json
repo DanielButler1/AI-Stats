@@ -1,0 +1,41 @@
+{
+  "plan_id": "chatgpt-free",
+  "name": "ChatGPT Free",
+  "provider_id": "openai",
+  "description": null,
+  "frequency": "monthly",
+  "usd-price": false,
+  "link": null,
+  "other_info": null,
+  "models": [
+    {
+      "plan_id": "chatgpt-free",
+      "model_id": "gpt-4.1-mini-2025-04-14",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "model_id": "chatgpt-4o-latest",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "model_id": "o4-mini-2025-04-16",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "model_id": "o4-mini-deep-research-2025-06-26",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    }
+  ],
+  "features": []
+}

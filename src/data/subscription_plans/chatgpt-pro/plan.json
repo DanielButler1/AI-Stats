@@ -1,0 +1,90 @@
+{
+  "plan_id": "chatgpt-pro",
+  "name": "ChatGPT Pro",
+  "provider_id": "openai",
+  "description": null,
+  "frequency": "monthly",
+  "usd-price": 200.0,
+  "link": null,
+  "other_info": null,
+  "models": [
+    {
+      "plan_id": "chatgpt-pro",
+      "model_id": "chatgpt-4o-latest",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "model_id": "o3-2025-04-16",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "model_id": "o4-mini-2025-04-16",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "model_id": "o4-mini-2025-04-16",
+      "model_info": "High Reasoning Effort",
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "model_id": "gpt-4.5-preview-2025-02-27",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "model_id": "gpt-4.1-2025-04-14",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "model_id": "gpt-4.1-mini-2025-04-14",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "model_id": "o3-pro-2025-06-10",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "model_id": "o3-deep-research-2025-06-26",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "model_id": "o4-mini-deep-research-2025-06-26",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    }
+  ],
+  "features": [
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Agent Mode",
+      "feature_description": null,
+      "other_info": null
+    }
+  ]
+}

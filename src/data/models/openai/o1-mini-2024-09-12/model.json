@@ -9,6 +9,7 @@
   "release_date": "2024-09-12T00:00:00",
   "deprecation_date": "2025-04-28T00:00:00",
   "retirement_date": "2025-10-27T00:00:00",
+  "open_router_model_id": "openai/o1-mini",
   "input_context_length": 128000,
   "output_context_length": 65536,
   "license": "Proprietary",
@@ -58,7 +59,7 @@
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 1488.0,
+      "score": 1488,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
@@ -100,7 +101,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1333.0,
+      "score": 1333,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

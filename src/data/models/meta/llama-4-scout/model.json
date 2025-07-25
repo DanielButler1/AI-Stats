@@ -9,6 +9,7 @@
   "release_date": "2025-04-05T00:00:00",
   "deprecation_date": "",
   "retirement_date": null,
+  "open_router_model_id": "meta-llama/llama-4-scout",
   "input_context_length": 327680,
   "output_context_length": 8192,
   "license": null,

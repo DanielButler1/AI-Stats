@@ -9,6 +9,7 @@
   "release_date": null,
   "deprecation_date": "2025-09-24T00:00:00",
   "retirement_date": "",
+  "open_router_model_id": "google/gemini-pro-1.5",
   "input_context_length": 2097152,
   "output_context_length": 8192,
   "license": "Proprietary",
@@ -44,7 +45,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1346.0,
+      "score": 1346,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

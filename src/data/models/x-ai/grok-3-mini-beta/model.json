@@ -9,6 +9,7 @@
   "release_date": "2025-02-19T00:00:00",
   "deprecation_date": "",
   "retirement_date": null,
+  "open_router_model_id": "x-ai/grok-3-mini-beta",
   "input_context_length": 131072,
   "output_context_length": 8000,
   "license": "Proprietary",
@@ -37,7 +38,7 @@
     },
     {
       "benchmark_id": "aime-2025",
-      "score": "91.00%",
+      "score": "90.80%",
       "is_self_reported": true,
       "other_info": "Think, Cons@64",
       "source_link": "https://x.ai/news/grok-3"
@@ -163,7 +164,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1355.0,
+      "score": 1355,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

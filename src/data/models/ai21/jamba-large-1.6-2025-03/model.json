@@ -9,6 +9,7 @@
   "release_date": "2025-03-06T00:00:00",
   "deprecation_date": "2025-08-03T00:00:00",
   "retirement_date": null,
+  "open_router_model_id": "",
   "input_context_length": 256000,
   "output_context_length": 256000,
   "license": "Jamba Open Model License",

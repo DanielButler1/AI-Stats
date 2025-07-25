@@ -9,6 +9,7 @@
   "release_date": "2025-02-19T00:00:00",
   "deprecation_date": "",
   "retirement_date": null,
+  "open_router_model_id": "x-ai/grok-3-beta",
   "input_context_length": 131072,
   "output_context_length": 8000,
   "license": "Proprietary",
@@ -65,14 +66,14 @@
     },
     {
       "benchmark_id": "lisanbench",
-      "score": 231.0,
+      "score": 231,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 1857.0,
+      "score": 1857,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
@@ -219,14 +220,14 @@
     },
     {
       "benchmark_id": "lisanbench",
-      "score": 151.0,
+      "score": 151,
       "is_self_reported": false,
       "other_info": "Reasoning",
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 2347.0,
+      "score": 2347,
       "is_self_reported": false,
       "other_info": "Reasoning",
       "source_link": "https://aidanbench.com/"
@@ -261,7 +262,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1406.0,
+      "score": 1406,
       "is_self_reported": false,
       "other_info": "Early Grok-3",
       "source_link": "https://lmarena.ai/leaderboard/text"

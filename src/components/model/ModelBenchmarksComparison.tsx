@@ -151,13 +151,18 @@ export default function ModelBenchmarksComparison({
 		model: model,
 	};
 
-	// Add AI Stats Score to uniqueBenchmarks if the model has a glicko rating
+	// Filter out benchmarks without a proper benchmark object with a name
+	const filteredBenchmarks = uniqueBenchmarks.filter(
+		(b) => isEnrichedBenchmarkResult(b) && b.benchmark.name
+	);
+
+	// Add AI Stats Score to filteredBenchmarks if the model has a glicko rating
 	if (model.glickoRating) {
-		uniqueBenchmarks.push(aiStatsBenchmark);
+		filteredBenchmarks.push(aiStatsBenchmark);
 	}
 
 	// Sort benchmarks alphabetically by name
-	const sortedBenchmarks = uniqueBenchmarks.sort((a, b) => {
+	const sortedBenchmarks = filteredBenchmarks.sort((a, b) => {
 		const nameA = isEnrichedBenchmarkResult(a)
 			? a.benchmark.name
 			: a.benchmark_id;

@@ -73,65 +73,48 @@ function computeEffectivePrice(prices: Price[] | null): number {
 async function calculateGlickoRatings(models: ExtendedModel[]): Promise<void> {
     try {
         const modelPlayers = new Map<string, Glicko2Player>();
-
-        // Initialise players
         for (const model of models) {
             modelPlayers.set(model.id, new Glicko2Player(INITIAL_RATING, INITIAL_RD, INITIAL_VOL));
         }
 
         // Keep best score per model per benchmark
         const benchmarkScores: Record<string, Map<string, { model: ExtendedModel; score: number; isLowerBetter: boolean }>> = {};
-
         for (const model of models) {
             if (!Array.isArray(model.benchmark_results)) continue;
-
             for (const result of model.benchmark_results) {
                 const score = typeof result.score === 'string' ? parseFloat(result.score.replace('%', '')) : result.score;
                 if (isNaN(score)) continue;
-
                 const benchmark = result.benchmark;
                 if (!benchmark) continue;
-
                 const benchmarkName = benchmark.name;
                 const isLowerBetter = benchmark.order === 'lower';
-
-                if (!benchmarkScores[benchmarkName]) {
-                    benchmarkScores[benchmarkName] = new Map();
-                }
-
+                if (!benchmarkScores[benchmarkName]) benchmarkScores[benchmarkName] = new Map();
                 const current = benchmarkScores[benchmarkName].get(model.id);
                 const isBetter = !current || (isLowerBetter ? score < current.score : score > current.score);
-
                 if (isBetter) {
                     benchmarkScores[benchmarkName].set(model.id, { model, score, isLowerBetter });
                 }
             }
         }
 
-        // Convert to flat matches and update players immediately (Python style)
+        // Convert to flat matches and update players immediately
         for (const [, entriesMap] of Object.entries(benchmarkScores)) {
             const entries = Array.from(entriesMap.values());
-
             for (let i = 0; i < entries.length; i++) {
                 for (let j = i + 1; j < entries.length; j++) {
                     const a = entries[i];
                     const b = entries[j];
-
                     const aWins = a.score !== b.score
                         ? (a.isLowerBetter ? a.score < b.score : a.score > b.score)
                         : null;
-
                     const aPlayer = modelPlayers.get(a.model.id)!;
                     const bPlayer = modelPlayers.get(b.model.id)!;
-
                     if (aWins === null) {
-                        // Draw
                         aPlayer.updatePlayer([bPlayer.getRating()], [bPlayer.getRd()], [0.5]);
                         bPlayer.updatePlayer([aPlayer.getRating()], [aPlayer.getRd()], [0.5]);
                     } else {
                         const scoreA = aWins ? 1.0 : 0.0;
                         const scoreB = 1.0 - scoreA;
-
                         aPlayer.updatePlayer([bPlayer.getRating()], [bPlayer.getRd()], [scoreA]);
                         bPlayer.updatePlayer([aPlayer.getRating()], [aPlayer.getRd()], [scoreB]);
                     }
@@ -148,12 +131,10 @@ async function calculateGlickoRatings(models: ExtendedModel[]): Promise<void> {
                     rd: player.getRd(),
                     vol: player.vol,
                 };
-
                 const effectivePrice = computeEffectivePrice(model.prices);
                 model.valueScore = model.glickoRating.rating / (effectivePrice + 1);
             }
         }
-
     } catch (err) {
         console.error("Glicko rating calculation failed:", err);
     }
@@ -407,4 +388,72 @@ export async function fetchSearchData() {
         getApiProviders(),
     ]);
     return [...providers, ...models, ...benchmarks, ...apiProviders];
+}
+
+/**
+ * Fetches and collates all subscription plan JSON files into a single array,
+ * enriching each plan with model names and provider names.
+ */
+export async function fetchAllSubscriptionPlans(): Promise<any[]> {
+    const plansDir = path.join(process.cwd(), 'src/data/subscription_plans');
+    const planFolders = await fs.readdir(plansDir);
+    const plans: any[] = [];
+
+    // Build model and provider lookup tables
+    const modelsDir = path.join(process.cwd(), 'src/data/models');
+    const providersDir = path.join(process.cwd(), 'src/data/providers');
+    const modelNameMap: Record<string, string> = {};
+    const providerNameMap: Record<string, string> = {};
+
+    // Get all models
+    const providerFolders = await fs.readdir(modelsDir);
+    for (const provider of providerFolders) {
+        const providerPath = path.join(modelsDir, provider);
+        const modelFolders = await fs.readdir(providerPath);
+        for (const model of modelFolders) {
+            const modelJsonPath = path.join(providerPath, model, 'model.json');
+            try {
+                const data = await fs.readFile(modelJsonPath, 'utf-8');
+                const parsed = JSON.parse(data);
+                modelNameMap[parsed.id] = parsed.name;
+            } catch {
+                continue;
+            }
+        }
+    }
+    // Get all providers
+    const providerFolders2 = await fs.readdir(providersDir);
+    for (const folder of providerFolders2) {
+        const providerPath = path.join(providersDir, folder, 'provider.json');
+        try {
+            const data = await fs.readFile(providerPath, 'utf-8');
+            const parsed = JSON.parse(data);
+            providerNameMap[parsed.provider_id] = parsed.name;
+        } catch {
+            continue;
+        }
+    }
+    // Read and enrich plans
+    for (const folder of planFolders) {
+        const planPath = path.join(plansDir, folder, 'plan.json');
+        try {
+            const file = await fs.readFile(planPath, 'utf-8');
+            const plan = JSON.parse(file);
+            // Enrich models
+            if (Array.isArray(plan.models)) {
+                plan.models = plan.models.map((m: any) => ({
+                    ...m,
+                    name: modelNameMap[m.model_id] || m.model_id,
+                }));
+            }
+            // Enrich provider
+            if (plan.provider_id) {
+                plan.provider_name = providerNameMap[plan.provider_id] || plan.provider_id;
+            }
+            plans.push(plan);
+        } catch {
+            continue;
+        }
+    }
+    return plans;
 }

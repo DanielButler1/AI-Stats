@@ -9,6 +9,7 @@
   "release_date": "2025-04-16T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": "openai/o3",
   "input_context_length": 200000,
   "output_context_length": 100000,
   "license": "Proprietary",
@@ -30,7 +31,7 @@
   "benchmark_results": [
     {
       "benchmark_id": "lmarena-text",
-      "score": 1449.0,
+      "score": 1449,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
@@ -114,21 +115,21 @@
     },
     {
       "benchmark_id": "lisanbench",
-      "score": 1036.0,
+      "score": 1036,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
     },
     {
       "benchmark_id": "eqbench",
-      "score": 1500.0,
+      "score": 1500,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com/"
     },
     {
       "benchmark_id": "codeforces",
-      "score": 2517.0,
+      "score": 2517,
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GtG5biebMAIpBhq?format=png&name=4096x4096"
@@ -191,7 +192,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1443.0,
+      "score": 1443,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

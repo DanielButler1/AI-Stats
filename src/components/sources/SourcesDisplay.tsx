@@ -106,7 +106,7 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 										>
 											<CardHeader>
 												<div className="flex items-center justify-between">
-													<CardTitle className="text-2xl flex items-center gap-4">
+													<CardTitle className="text-xl flex items-center gap-4">
 														<div className="p-1 rounded-lg bg-white/10 backdrop-blur">
 															<img
 																src={`/providers/${provider.provider_id}.svg`}
@@ -205,7 +205,7 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 												<ScrollArea className="w-full">
 													<Accordion
 														type="multiple"
-														className="w-full space-y-4"
+														className="w-full"
 													>
 														{providerModels.map(
 															(model) => (
@@ -218,18 +218,18 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 																	}
 																	className="border-none"
 																>
-																	<AccordionTrigger className="flex items-center justify-between px-6 py-4 rounded-lg bg-muted/50 hover:bg-muted/70 transition-colors [&[data-state=open]>svg]:rotate-180">
-																		<div className="flex items-center gap-3">
-																			<span className="text-xl font-semibold">
+																	<AccordionTrigger className="flex items-center justify-between rounded-lg bg-muted/50 hover:bg-muted/70 transition-colors [&[data-state=open]>svg]:rotate-180">
+																		<div className="flex items-center">
+																			<span className="text-md font-semibold">
 																				{
 																					model.name
 																				}
 																			</span>
 																		</div>
 																	</AccordionTrigger>
-																	<AccordionContent className="px-6 pt-4">
+																	<AccordionContent>
 																		<div>
-																			<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+																			<div className="grid grid-cols-1 md:grid-cols-3 gap-2">
 																				{model.api_reference_link && (
 																					<Button
 																						variant="outline"
@@ -395,7 +395,7 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 																					.benchmark_results
 																					.length >
 																					0 && (
-																					<div className="mt-6 bg-background/50 rounded-lg p-4">
+																					<div className="mt-6 bg-background/50 rounded-lg pt-4">
 																						<div className="flex items-center gap-2 mb-4">
 																							<Award className="h-5 w-5 text-primary" />
 																							<h4 className="font-medium">
@@ -403,7 +403,7 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 																								Results
 																							</h4>
 																						</div>
-																						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+																						<div className="grid grid-cols-1 md:grid-cols-3 gap-2">
 																							{model.benchmark_results.map(
 																								(
 																									benchmark,
@@ -413,7 +413,7 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 																										key={
 																											index
 																										}
-																										className="flex flex-col gap-2 p-3 rounded-lg bg-muted/50"
+																										className="flex flex-col gap-2 rounded-lg bg-muted/50"
 																									>
 																										<span className="font-medium">
 																											{
@@ -424,10 +424,9 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 																										</span>
 																										{benchmark.source_link ? (
 																											<Button
-																												variant="default"
-																												size="sm"
+																												variant="outline"
 																												asChild
-																												className="h-7 px-2"
+																												className="w-full justify-start gap-3 h-auto py-3"
 																											>
 																												<a
 																													href={
@@ -446,9 +445,8 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 																										) : (
 																											<Button
 																												variant="destructive"
-																												size="sm"
 																												asChild
-																												className="h-7 px-2"
+																												className="w-full justify-start gap-3 h-auto py-3"
 																											>
 																												<Link
 																													href="/contribute"

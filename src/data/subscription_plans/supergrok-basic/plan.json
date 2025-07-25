@@ -1,0 +1,20 @@
+{
+  "plan_id": "supergrok-basic",
+  "name": "SuperGrok Basic",
+  "provider_id": "x-ai",
+  "description": null,
+  "frequency": "yearly",
+  "usd-price": false,
+  "link": null,
+  "other_info": null,
+  "models": [
+    {
+      "plan_id": "supergrok-basic",
+      "model_id": "grok-3",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    }
+  ],
+  "features": []
+}

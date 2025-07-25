@@ -14,6 +14,7 @@ import {
 	TooltipTrigger,
 } from "./ui/tooltip";
 import React from "react";
+import { Separator } from "./ui/separator";
 
 export default function Header() {
 	const pathname = usePathname();
@@ -222,17 +223,31 @@ export default function Header() {
 				</div>
 			</header>
 			{/* Support banner: visible on all screen sizes */}
-			<div className="bg-gray-50 dark:bg-zinc-900 text-gray-700 dark:text-gray-200 text-center py-1 text-xs border-b dark:border-zinc-800 flex justify-center items-center gap-2">
-				<span>Enjoying AI Stats?</span>
-				<Link
-					href="https://coff.ee/phaseo"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="group flex items-center gap-1 text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary font-medium transition-colors duration-200"
-				>
-					<Coffee className="h-4 w-4 transition-transform duration-300 group-hover:scale-125 group-hover:drop-shadow-md group-hover:animate-coffee-wiggle" />
-					Support us
-				</Link>
+			<div className="bg-gray-50 dark:bg-zinc-900 text-gray-700 dark:text-gray-200 text-center py-1 text-xs border-b dark:border-zinc-800 flex justify-center items-center">
+				<div className="flex items-center gap-0 mx-auto">
+					<Link
+						href="https://github.com/DanielButler1/AI-Stats"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="flex items-center gap-1 text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary font-medium transition-colors duration-200 px-2"
+					>
+						<Github className="h-4 w-4" />
+						Github Repo
+					</Link>
+					<Separator
+						orientation="vertical"
+						className="mx-2 h-4 w-px bg-gray-300 dark:bg-zinc-700"
+					/>
+					<Link
+						href="https://coff.ee/phaseo"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="flex items-center gap-1 text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary font-medium transition-colors duration-200 px-2"
+					>
+						Buy Me A Coffee
+						<Coffee className="h-4 w-4 transition-transform duration-300 group-hover:scale-125 group-hover:drop-shadow-md group-hover:animate-coffee-wiggle" />
+					</Link>
+				</div>
 			</div>
 		</>
 	);

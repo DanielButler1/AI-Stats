@@ -9,6 +9,7 @@
   "release_date": "2025-04-29T00:00:00",
   "deprecation_date": "",
   "retirement_date": null,
+  "open_router_model_id": null,
   "input_context_length": 128000,
   "output_context_length": 128000,
   "license": "Apache 2.0",
@@ -79,7 +80,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1295.0,
+      "score": 1295,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

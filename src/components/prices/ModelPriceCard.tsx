@@ -2,6 +2,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { ExtendedModel } from "@/data/types";
+import { Megaphone, Rocket, Ban, Archive } from "lucide-react";
 
 interface ModelPriceCardProps {
 	model: ExtendedModel;
@@ -22,31 +23,38 @@ export default function ModelPriceCard({
 		<Card className="shadow-lg border hover:shadow-xl transition-all duration-200 flex flex-col h-full transform hover:scale-[1.01] dark:shadow-zinc-900/25 dark:bg-zinc-950 dark:border-zinc-800">
 			<CardHeader className="pb-2">
 				<CardTitle className="text-lg flex items-center justify-between">
-					<Link
-						href={`/prices/models/${model.id}`}
-						className="hover:text-primary transition-colors flex flex-col gap-1"
-					>
-						{model.name}
-						<span className="text-sm font-normal text-muted-foreground">
-							{model.id}
-						</span>
-					</Link>
+					<div className="flex items-center gap-2">
+						<Link
+							href={`/prices/models/${model.id}`}
+							className="hover:text-primary transition-colors flex flex-col gap-1"
+						>
+							{model.name}
+							<span className="text-sm font-normal text-muted-foreground">
+								{model.id}
+							</span>
+						</Link>
+					</div>
 				</CardTitle>
 			</CardHeader>
 			<CardContent className="flex flex-col flex-grow">
 				<div className="flex items-center gap-2 mb-2">
-					{model.release_date && (
-						<Badge variant="outline">
-							Released{" "}
-							{new Date(model.release_date).toLocaleDateString()}
+					{/* Only show Available, Deprecated, or Retired status badges */}
+					{model.status === "Available" && (
+						<Badge className="bg-green-100 text-green-800 border border-green-300 hover:bg-green-200 dark:bg-green-900 dark:text-green-100 dark:border-green-700 dark:hover:bg-green-800 transition-colors flex items-center gap-1">
+							<Rocket size={14} className="mr-1" />
+							Available
 						</Badge>
 					)}
-					{!model.release_date && model.announced_date && (
-						<Badge variant="outline">
-							Announced{" "}
-							{new Date(
-								model.announced_date
-							).toLocaleDateString()}
+					{model.status === "Deprecated" && (
+						<Badge className="bg-yellow-100 text-yellow-800 border border-yellow-300 hover:bg-yellow-200 dark:bg-yellow-900 dark:text-yellow-100 dark:border-yellow-700 dark:hover:bg-yellow-800 transition-colors flex items-center gap-1">
+							<Ban size={14} className="mr-1" />
+							Deprecated
+						</Badge>
+					)}
+					{model.status === "Retired" && (
+						<Badge className="bg-zinc-300 text-zinc-800 border border-zinc-400 hover:bg-zinc-400 dark:bg-zinc-700 dark:text-zinc-100 dark:border-zinc-500 dark:hover:bg-zinc-600 transition-colors flex items-center gap-1">
+							<Archive size={14} className="mr-1" />
+							Retired
 						</Badge>
 					)}
 				</div>

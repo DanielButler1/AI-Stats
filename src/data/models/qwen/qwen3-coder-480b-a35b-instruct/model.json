@@ -1,0 +1,90 @@
+{
+  "id": "qwen3-coder-480b-a35b-instruct",
+  "name": "Qwen3 Coder 480B A35B Instruct",
+  "provider": "qwen",
+  "status": "Available",
+  "previous_model_id": null,
+  "description": null,
+  "announced_date": "2025-07-22T00:00:00",
+  "release_date": "2025-07-22T00:00:00",
+  "deprecation_date": "",
+  "retirement_date": "",
+  "open_router_model_id": "qwen/qwen3-coder",
+  "input_context_length": 262144,
+  "output_context_length": 262144,
+  "license": "Apache 2.0",
+  "multimodal": false,
+  "input_types": "text",
+  "output_types": "text",
+  "web_access": false,
+  "reasoning": false,
+  "fine_tunable": true,
+  "knowledge_cutoff": null,
+  "api_reference_link": "",
+  "playground_link": "https://chat.qwen.ai/",
+  "paper_link": "",
+  "announcement_link": "https://qwenlm.github.io/blog/qwen3-coder/",
+  "repository_link": "https://github.com/QwenLM/Qwen3-Coder",
+  "weights_link": "https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct",
+  "parameter_count": 480000000000,
+  "training_tokens": null,
+  "benchmark_results": [
+    {
+      "benchmark_id": "terminal-bench",
+      "score": "37.50%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
+    },
+    {
+      "benchmark_id": "swe-bench",
+      "score": "69.60%",
+      "is_self_reported": true,
+      "other_info": "OpenHands Scaffold, 500 Turns",
+      "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
+    },
+    {
+      "benchmark_id": "swe-bench",
+      "score": "67.00%",
+      "is_self_reported": true,
+      "other_info": "OpenHands Scaffold, 100 Turns",
+      "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
+    },
+    {
+      "benchmark_id": "swe-bench-multilingual",
+      "score": "54.70%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
+    },
+    {
+      "benchmark_id": "swe-bench-live",
+      "score": "26.30%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "61.80%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
+    },
+    {
+      "benchmark_id": "tau-bench-retail",
+      "score": "77.50%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
+    },
+    {
+      "benchmark_id": "tau-bench-airline",
+      "score": "60.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
+    }
+  ],
+  "prices": []
+}

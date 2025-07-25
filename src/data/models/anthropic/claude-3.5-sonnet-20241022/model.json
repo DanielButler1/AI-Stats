@@ -9,6 +9,7 @@
   "release_date": "2024-10-22T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
+  "open_router_model_id": "anthropic/claude-3.5-sonnet",
   "input_context_length": 200000,
   "output_context_length": 8192,
   "license": "Proprietary",
@@ -58,7 +59,7 @@
     },
     {
       "benchmark_id": "lisanbench",
-      "score": 167.0,
+      "score": 167,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
@@ -72,7 +73,7 @@
     },
     {
       "benchmark_id": "aidanbench",
-      "score": 2734.0,
+      "score": 2734,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://aidanbench.com/"
@@ -121,7 +122,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1364.0,
+      "score": 1364,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

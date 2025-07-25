@@ -1,0 +1,27 @@
+{
+  "plan_id": "supergrok",
+  "name": "SuperGrok",
+  "provider_id": "x-ai",
+  "description": null,
+  "frequency": "yearly",
+  "usd-price": 300.0,
+  "link": null,
+  "other_info": null,
+  "models": [
+    {
+      "plan_id": "supergrok",
+      "model_id": "grok-3",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "supergrok",
+      "model_id": "grok-4-0709",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    }
+  ],
+  "features": []
+}

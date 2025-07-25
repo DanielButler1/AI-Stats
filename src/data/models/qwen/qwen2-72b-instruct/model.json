@@ -9,6 +9,7 @@
   "release_date": "2024-07-23T00:00:00",
   "deprecation_date": "",
   "retirement_date": null,
+  "open_router_model_id": null,
   "input_context_length": 131072,
   "output_context_length": 131072,
   "license": "tongyi-qianwen",
@@ -37,7 +38,7 @@
     },
     {
       "benchmark_id": "lmarena-text",
-      "score": 1258.0,
+      "score": 1258,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"

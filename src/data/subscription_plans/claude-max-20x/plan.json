@@ -1,0 +1,55 @@
+{
+  "plan_id": "claude-max-20x",
+  "name": "Claude Max",
+  "provider_id": "anthropic",
+  "description": null,
+  "frequency": "monthly",
+  "usd-price": 200.0,
+  "link": null,
+  "other_info": null,
+  "models": [
+    {
+      "plan_id": "claude-max-20x",
+      "model_id": "claude-sonnet-4-20250514",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "claude-max-20x",
+      "model_id": "claude-sonnet-4-20250514",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "claude-max-20x",
+      "model_id": "claude-opus-4-20250514",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "claude-max-20x",
+      "model_id": "claude-3.7-sonnet-20250219",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "claude-max-20x",
+      "model_id": "claude-3-opus-20240229",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "claude-max-20x",
+      "model_id": "claude-3.5-haiku-20241022",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    }
+  ],
+  "features": []
+}
