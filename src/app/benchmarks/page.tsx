@@ -92,9 +92,9 @@ export default async function BenchmarksPage() {
 			<main className="flex min-h-screen flex-col">
 				<Header />
 				<div className="container mx-auto px-4 py-8">
-					<h2 className="text-2xl font-bold text-red-600">
+					<h1 className="text-2xl font-bold text-red-600">
 						Error loading benchmarks data
-					</h2>
+					</h1>
 					<p>Please try refreshing the page.</p>
 				</div>
 			</main>

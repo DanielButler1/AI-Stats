@@ -1,7 +1,6 @@
 import Header from "@/components/header";
-import { ExtendedModel } from "@/data/types";
 import { fetchAggregateData } from "@/lib/fetchData";
-import HomePage from "@/components/homePage/homePage";
+import ModelUpdatesPage from "../../../components/modelUpdates/ModelUpdates";
 import type { Metadata } from "next";
 
 const now = new Date();
@@ -22,41 +21,46 @@ const monthNames = [
 const currentMonthYear = `${monthNames[now.getMonth()]} ${now.getFullYear()}`;
 
 export const metadata: Metadata = {
-	title: `AI Leaderboard and Rankings - ${currentMonthYear}`,
+	title: `AI Model Updates - ${currentMonthYear}`,
 	description:
-		"Compare state-of-the-art AI models with detailed benchmarks, features, and pricing. Track AI progress, find the best models for your needs, and stay updated on the latest releases.",
+		"Stay updated on the latest changes and improvements to AI models. Track new releases, features, and benchmarks for leading AI systems.",
 	keywords: [
 		"llm",
 		"ai",
-		"ai leaderboard",
-		"llm leaderboard",
-		"ai comparison",
+		"ai model updates",
+		"llm updates",
+		"ai releases",
 		"ai benchmarks",
 		"gpt-5",
 		"claude 4",
-		"llm rankings",
 		"gemini 2.5",
 		"grok",
-		"ai model comparison",
-		"ai pricing",
+		"ai changelog",
 		"ai features",
 	],
 	alternates: {
-		canonical: "https://ai-stats.phaseo.app/",
+		canonical: "https://ai-stats.phaseo.app/models/updates",
 	},
 };
 
-export default async function Home() {
+export default async function Page() {
 	try {
-		const models: ExtendedModel[] = await fetchAggregateData();
-		return <HomePage models={models} />;
+		const models = await fetchAggregateData();
+		return (
+			<main className="flex min-h-screen flex-col">
+				<Header />
+				<div className="container mx-auto px-4 py-8">
+					<ModelUpdatesPage models={models} />
+				</div>
+			</main>
+		);
 	} catch {
 		return (
 			<main className="flex min-h-screen flex-col">
 				<Header />
 				<div className="container mx-auto px-4 py-8">
 					<h2 className="text-2xl font-bold text-red-600">
-						Error loading models
+						Error loading model updates
 					</h2>
 					<p>Please try refreshing the page.</p>
 				</div>

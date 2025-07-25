@@ -398,7 +398,7 @@ export default function RecentModels({ models }: RecentModelsProps) {
 			</CardContent>
 			<CardFooter>
 				<Button variant="outline" className="w-full" asChild>
-					<Link href="/models">View All Models</Link>
+					<Link href="/models/updates">View All Model Updates</Link>
 				</Button>
 			</CardFooter>
 		</Card>
