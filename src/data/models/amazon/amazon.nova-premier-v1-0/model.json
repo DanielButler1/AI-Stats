@@ -9,7 +9,6 @@
   "release_date": "2025-04-30T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
-  "open_router_model_id": "",
   "input_context_length": 1000000,
   "output_context_length": 10000,
   "license": "Proprietary",

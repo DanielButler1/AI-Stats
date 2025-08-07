@@ -1,3 +1,8 @@
+export interface SocialLink {
+    platform: 'twitter' | 'github' | 'instagram' | 'youtube' | 'linkedin' | 'reddit' | 'tiktok' | 'threads' | 'discord';
+    url: string;
+}
+
 export interface Provider {
     provider_id: string;
     name: string;
@@ -5,12 +10,13 @@ export interface Provider {
     country_code: string | null;
     description: string | null;
     colour: string | null;
-    twitter: string | null;
+    socials: SocialLink[];        // instead of individual nullable fields
 }
 
 export interface Benchmark {
     id: string;
     name: string;
+    category: string | null; // Category can be null if not specified
     order: string;
     description: string | null;
     link: string | null;
@@ -54,6 +60,7 @@ export interface Model {
     release_date: string | null;
     deprecation_date: string | null;
     retirement_date: string | null;
+    open_router_model_id: string | null; // Added for OpenRouter compatibility
     input_context_length: number | null;
     output_context_length: number | null;
     license: string | null;
@@ -70,8 +77,8 @@ export interface Model {
     announcement_link: string | null;
     repository_link: string | null;
     weights_link: string | null;
-    parameter_count: number | null;
-    training_tokens: number | null;
+    parameter_count: number | string | null;
+    training_tokens: number | string | null;
     benchmark_results: BenchmarkResult[] | null;
     prices: Price[] | null;
 }
@@ -86,6 +93,7 @@ export interface ExtendedModel {
     release_date: string | null;
     deprecation_date: string | null;
     retirement_date: string | null;
+    open_router_model_id: string | null;
     input_context_length: number | null;
     output_context_length: number | null;
     license: string | null;

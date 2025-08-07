@@ -1,6 +1,7 @@
 {
   "id": "gpqa",
   "name": "GPQA",
+  "category": "general-knowledge",
   "order": null,
   "description": null,
   "link": "https://github.com/idavidrein/gpqa"

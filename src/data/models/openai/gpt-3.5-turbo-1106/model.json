@@ -9,7 +9,6 @@
   "release_date": null,
   "deprecation_date": "",
   "retirement_date": "",
-  "open_router_model_id": null,
   "input_context_length": 16385,
   "output_context_length": 4096,
   "license": "Proprietary",

@@ -35,5 +35,5 @@ export default function LastUpdated({ deployTime }: LastUpdatedProps) {
 		return null;
 	}
 
-	return <span className="block">Last updated: {lastUpdated}</span>;
+	return <span className="mt-1">Last updated: {lastUpdated}</span>;
 }

@@ -51,7 +51,7 @@ export default function ModelCard({
 				<div className="flex items-center gap-2">
 					<Link
 						href={`/providers/${model.provider?.provider_id}`}
-						className="w-6 h-6 relative flex-shrink-0 block"
+						className="w-6 h-6 relative shrink-0 block"
 					>
 						<Image
 							src={`/providers/${model.provider?.provider_id}.svg`}

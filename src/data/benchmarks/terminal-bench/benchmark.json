@@ -1,6 +1,7 @@
 {
   "id": "terminal-bench",
   "name": "Terminal Bench",
+  "category": "code",
   "order": null,
   "description": null,
   "link": null

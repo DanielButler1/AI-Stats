@@ -17,12 +17,9 @@ import {
 	Play,
 	Code2,
 	Award,
-	Box,
-	Megaphone,
-	Github,
 	Download,
-	Globe,
-	Twitter,
+	Github as GithubIcon,
+	Megaphone,
 } from "lucide-react";
 import {
 	Accordion,
@@ -30,12 +27,7 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-	Tooltip,
-	TooltipContent,
-	TooltipProvider,
-	TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -44,7 +36,7 @@ interface SourcesDisplayProps {
 }
 
 export default function SourcesDisplay({ models }: SourcesDisplayProps) {
-	// Filter models that have at least one source
+	// Only include models with at least one source
 	const modelsWithSources = models.filter(
 		(model) =>
 			model.api_reference_link ||
@@ -56,18 +48,21 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 			(model.benchmark_results && model.benchmark_results.length > 0)
 	);
 
-	// Group models by provider
+	// Group by provider
 	const modelsByProvider = modelsWithSources.reduce((acc, model) => {
-		const providerId = model.provider.provider_id;
-		if (!acc[providerId]) {
-			acc[providerId] = [];
-		}
-		acc[providerId].push(model);
+		const id = model.provider.provider_id;
+		if (!acc[id])
+			acc[id] = {
+				providerName: model.provider.name,
+				providerId: id,
+				items: [] as ExtendedModel[],
+			};
+		acc[id].items.push(model);
 		return acc;
-	}, {} as Record<string, ExtendedModel[]>);
+	}, {} as Record<string, { providerName: string; providerId: string; items: ExtendedModel[] }>);
 
-	// Filter out empty providers
 	const hasModels = Object.keys(modelsByProvider).length > 0;
+
 	return (
 		<TooltipProvider>
 			<motion.section
@@ -76,160 +71,74 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.6, ease: "easeOut" }}
 			>
-				<div className="max-w-6xl mx-auto">
-					<Card className="flex items-center gap-3 mb-6">
-						<CardHeader className="text-3xl font-bold">
-							<CardHeader className="p-0">
-								Sources & References
-							</CardHeader>
-							<CardDescription>
-								A comprehensive collection of sources,
-								documentation, and benchmark references for all
-								models and providers.
-							</CardDescription>
-						</CardHeader>
-					</Card>
-
+				<div className="mx-auto">
+					<h1 className="font-bold text-xl text-black mb-2 md:mb-0">
+						Sources & References
+					</h1>
+					<p className="text-muted-foreground text-base mb-4">
+						A comprehensive collection of sources, documentation, and benchmark references for all models and providers.
+					</p>
 					{!hasModels ? (
 						<div className="text-center text-muted-foreground py-8">
 							No models with sources available at this time.
 						</div>
 					) : (
-						<div className="space-y-6">
-							{Object.entries(modelsByProvider).map(
-								([providerId, providerModels]) => {
-									const provider = providerModels[0].provider;
-									return (
-										<Card
-											key={providerId}
-											className="shadow-lg hover:shadow-xl transition-shadow"
-										>
-											<CardHeader>
-												<div className="flex items-center justify-between">
-													<CardTitle className="text-xl flex items-center gap-4">
-														<div className="p-1 rounded-lg bg-white/10 backdrop-blur">
-															<img
-																src={`/providers/${provider.provider_id}.svg`}
-																alt={
-																	provider.name
-																}
-																className="w-8 h-8"
-															/>
-														</div>
-														{provider.name}
-													</CardTitle>{" "}
-													<div>
-														{provider.twitter && (
-															<Tooltip>
-																<TooltipTrigger
-																	asChild
-																>
-																	<Button
-																		variant="ghost"
-																		size="icon"
-																		asChild
-																		className="h-9 w-9"
-																	>
-																		<a
-																			href={
-																				provider.twitter
-																			}
-																			target="_blank"
-																			rel="noopener noreferrer"
-																			className="text-muted-foreground hover:text-primary transition-colors"
-																		>
-																			<Image
-																				src={
-																					"/twitter_light.svg"
-																				}
-																				alt="Twitter"
-																				width={
-																					16
-																				}
-																				height={
-																					16
-																				}
-																				className="h-4 w-4"
-																			/>
-																		</a>
-																	</Button>
-																</TooltipTrigger>
-																<TooltipContent>
-																	<p>
-																		{
-																			provider.name
-																		}{" "}
-																		Twitter
-																	</p>
-																</TooltipContent>
-															</Tooltip>
-														)}
-														{provider.website && (
-															<Tooltip>
-																<TooltipTrigger
-																	asChild
-																>
-																	<Button
-																		variant="ghost"
-																		size="icon"
-																		asChild
-																		className="h-9 w-9"
-																	>
-																		<a
-																			href={
-																				provider.website
-																			}
-																			target="_blank"
-																			rel="noopener noreferrer"
-																			className="text-muted-foreground hover:text-primary transition-colors"
-																		>
-																			<Globe className="h-5 w-5" />
-																		</a>
-																	</Button>
-																</TooltipTrigger>
-																<TooltipContent>
-																	<p>
-																		{
-																			provider.name
-																		}{" "}
-																		website
-																	</p>
-																</TooltipContent>
-															</Tooltip>
-														)}
-													</div>
-												</div>
-											</CardHeader>
+						<div className="space-y-8">
+							{Object.values(modelsByProvider).map(
+								({ providerName, providerId, items }) => (
+									<div key={providerId} className="space-y-4">
+										{/* Provider header */}
+										<div className="flex items-center gap-3">
+											<div className="p-1 rounded bg-white/10">
+												<Image
+													src={`/providers/${providerId}.svg`}
+													alt={providerName}
+													width={28}
+													height={28}
+													className="w-7 h-7"
+												/>
+											</div>
+											<h2 className="text-xl font-semibold">
+												{providerName}
+											</h2>
+										</div>
 
-											<CardContent>
-												<ScrollArea className="w-full">
-													<Accordion
-														type="multiple"
-														className="w-full"
-													>
-														{providerModels.map(
-															(model) => (
+										{/* Models grid for this provider */}
+										<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+											{items.map((model) => (
+												<Card
+													key={model.id}
+													className="shadow-xs hover:shadow-md transition-shadow"
+												>
+													<CardHeader className="space-y-2">
+														<div className="flex items-center justify-between">
+															<CardTitle className="text-base truncate">
+																{model.name}
+															</CardTitle>
+														</div>
+													</CardHeader>
+
+													<CardContent>
+														<ScrollArea className="w-full">
+															<Accordion
+																type="multiple"
+																className="w-full"
+															>
 																<AccordionItem
-																	key={
-																		model.id
-																	}
-																	value={
-																		model.id
-																	}
+																	value={`${model.id}-sources`}
 																	className="border-none"
 																>
 																	<AccordionTrigger className="flex items-center justify-between rounded-lg bg-muted/50 hover:bg-muted/70 transition-colors [&[data-state=open]>svg]:rotate-180">
 																		<div className="flex items-center">
 																			<span className="text-md font-semibold">
-																				{
-																					model.name
-																				}
+																				Sources
 																			</span>
 																		</div>
 																	</AccordionTrigger>
 																	<AccordionContent>
-																		<div>
-																			<div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+																		<div className="grid grid-cols-1 gap-2">
+																			{/* Sources grid */}
+																			<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
 																				{model.api_reference_link && (
 																					<Button
 																						variant="outline"
@@ -349,7 +258,7 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 																							target="_blank"
 																							rel="noopener noreferrer"
 																						>
-																							<Github className="h-5 w-5" />
+																							<GithubIcon className="h-5 w-5" />
 																							<div className="flex flex-col items-start">
 																								<span className="font-medium">
 																									Repository
@@ -395,15 +304,15 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 																					.benchmark_results
 																					.length >
 																					0 && (
-																					<div className="mt-6 bg-background/50 rounded-lg pt-4">
-																						<div className="flex items-center gap-2 mb-4">
+																					<div className="mt-4 bg-background/50 rounded-lg pt-4">
+																						<div className="flex items-center gap-2 mb-3">
 																							<Award className="h-5 w-5 text-primary" />
 																							<h4 className="font-medium">
 																								Benchmark
 																								Results
 																							</h4>
 																						</div>
-																						<div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+																						<div className="grid grid-cols-1 gap-2">
 																							{model.benchmark_results.map(
 																								(
 																									benchmark,
@@ -413,7 +322,7 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 																										key={
 																											index
 																										}
-																										className="flex flex-col gap-2 rounded-lg bg-muted/50"
+																										className="flex flex-col gap-2 rounded-lg bg-muted/50 p-3"
 																									>
 																										<span className="font-medium">
 																											{
@@ -474,14 +383,14 @@ export default function SourcesDisplay({ models }: SourcesDisplayProps) {
 																		</div>
 																	</AccordionContent>
 																</AccordionItem>
-															)
-														)}
-													</Accordion>
-												</ScrollArea>
-											</CardContent>
-										</Card>
-									);
-								}
+															</Accordion>
+														</ScrollArea>
+													</CardContent>
+												</Card>
+											))}
+										</div>
+									</div>
+								)
 							)}
 						</div>
 					)}

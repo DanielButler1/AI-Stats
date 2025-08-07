@@ -1,543 +1,213 @@
-// https://github.com/flixlix/shadcn-date-picker
+"use client"
 
-"use client";
-
-import { Button, buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { differenceInCalendarDays } from "date-fns";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import * as React from "react";
+import * as React from "react"
 import {
-	DayPicker,
-	labelNext,
-	labelPrevious,
-	useDayPicker,
-	type DayPickerProps,
-} from "react-day-picker";
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "lucide-react"
+import { DayButton, DayPicker, getDefaultClassNames } from "react-day-picker"
 
-export type CalendarProps = DayPickerProps & {
-	/**
-	 * In the year view, the number of years to display at once.
-	 * @default 12
-	 */
-	yearRange?: number;
+import { cn } from "@/lib/utils"
+import { Button, buttonVariants } from "@/components/ui/button"
 
-	/**
-	 * Wether to show the year switcher in the caption.
-	 * @default true
-	 */
-	showYearSwitcher?: boolean;
-
-	monthsClassName?: string;
-	monthCaptionClassName?: string;
-	weekdaysClassName?: string;
-	weekdayClassName?: string;
-	monthClassName?: string;
-	captionClassName?: string;
-	captionLabelClassName?: string;
-	buttonNextClassName?: string;
-	buttonPreviousClassName?: string;
-	navClassName?: string;
-	monthGridClassName?: string;
-	weekClassName?: string;
-	dayClassName?: string;
-	dayButtonClassName?: string;
-	rangeStartClassName?: string;
-	rangeEndClassName?: string;
-	selectedClassName?: string;
-	todayClassName?: string;
-	outsideClassName?: string;
-	disabledClassName?: string;
-	rangeMiddleClassName?: string;
-	hiddenClassName?: string;
-};
-
-/**
- * A custom calendar component built on top of react-day-picker.
- * @param props The props for the calendar.
- * @default yearRange 12
- * @returns
- */
 function Calendar({
-	className,
-	showOutsideDays = true,
-	showYearSwitcher = true,
-	yearRange = 16,
-	numberOfMonths,
-	...props
-}: CalendarProps) {
-	const [navView, setNavView] = React.useState<"days" | "months" | "years">(
-		"days"
-	);
-	const [selectedYear, setSelectedYear] = React.useState<number>(
-		new Date().getFullYear()
-	);
-	const [displayYears, setDisplayYears] = React.useState<{
-		from: number;
-		to: number;
-	}>(
-		React.useMemo(() => {
-			const currentYear = new Date().getFullYear();
-			return {
-				from: currentYear - Math.floor(yearRange / 2 - 1),
-				to: currentYear + Math.ceil(yearRange / 2),
-			};
-		}, [yearRange])
-	);
+  className,
+  classNames,
+  showOutsideDays = true,
+  captionLayout = "label",
+  buttonVariant = "ghost",
+  formatters,
+  components,
+  ...props
+}: React.ComponentProps<typeof DayPicker> & {
+  buttonVariant?: React.ComponentProps<typeof Button>["variant"]
+}) {
+  const defaultClassNames = getDefaultClassNames()
 
-	const months = [
-		"January",
-		"February",
-		"March",
-		"April",
-		"May",
-		"June",
-		"July",
-		"August",
-		"September",
-		"October",
-		"November",
-		"December",
-	];
+  return (
+    <DayPicker
+      showOutsideDays={showOutsideDays}
+      className={cn(
+        "bg-white group/calendar p-3 [--cell-size:2rem] in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent dark:bg-zinc-950",
+        String.raw`[.rdp-button\_next>svg]:**:rtl:rotate-180`,
+        String.raw`[.rdp-button\_previous>svg]:**:rtl:rotate-180`,
+        className
+      )}
+      captionLayout={captionLayout}
+      formatters={{
+        formatMonthDropdown: (date) =>
+          date.toLocaleString("default", { month: "short" }),
+        ...formatters,
+      }}
+      classNames={{
+        root: cn("w-fit", defaultClassNames.root),
+        months: cn(
+          "relative flex flex-col gap-4 md:flex-row",
+          defaultClassNames.months
+        ),
+        month: cn("flex w-full flex-col gap-4", defaultClassNames.month),
+        nav: cn(
+          "absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1",
+          defaultClassNames.nav
+        ),
+        button_previous: cn(
+          buttonVariants({ variant: buttonVariant }),
+          "h-(--cell-size) w-(--cell-size) select-none p-0 aria-disabled:opacity-50",
+          defaultClassNames.button_previous
+        ),
+        button_next: cn(
+          buttonVariants({ variant: buttonVariant }),
+          "h-(--cell-size) w-(--cell-size) select-none p-0 aria-disabled:opacity-50",
+          defaultClassNames.button_next
+        ),
+        month_caption: cn(
+          "flex h-(--cell-size) w-full items-center justify-center px-(--cell-size)",
+          defaultClassNames.month_caption
+        ),
+        dropdowns: cn(
+          "flex h-(--cell-size) w-full items-center justify-center gap-1.5 text-sm font-medium",
+          defaultClassNames.dropdowns
+        ),
+        dropdown_root: cn(
+          "has-focus:border-zinc-950 border-zinc-200 shadow-2xs has-focus:ring-zinc-950/50 has-focus:ring-[3px] relative rounded-md border dark:has-focus:border-zinc-300 dark:border-zinc-800 dark:has-focus:ring-zinc-300/50",
+          defaultClassNames.dropdown_root
+        ),
+        dropdown: cn(
+          "bg-white absolute inset-0 opacity-0 dark:bg-zinc-950",
+          defaultClassNames.dropdown
+        ),
+        caption_label: cn(
+          "select-none font-medium",
+          captionLayout === "label"
+            ? "text-sm"
+            : "[&>svg]:text-zinc-500 flex h-8 items-center gap-1 rounded-md pl-2 pr-1 text-sm [&>svg]:size-3.5 dark:[&>svg]:text-zinc-400",
+          defaultClassNames.caption_label
+        ),
+        table: "w-full border-collapse",
+        weekdays: cn("flex", defaultClassNames.weekdays),
+        weekday: cn(
+          "text-zinc-500 flex-1 select-none rounded-md text-[0.8rem] font-normal dark:text-zinc-400",
+          defaultClassNames.weekday
+        ),
+        week: cn("mt-2 flex w-full", defaultClassNames.week),
+        week_number_header: cn(
+          "w-(--cell-size) select-none",
+          defaultClassNames.week_number_header
+        ),
+        week_number: cn(
+          "text-zinc-500 select-none text-[0.8rem] dark:text-zinc-400",
+          defaultClassNames.week_number
+        ),
+        day: cn(
+          "group/day relative aspect-square h-full w-full select-none p-0 text-center [&:first-child[data-selected=true]_button]:rounded-l-md [&:last-child[data-selected=true]_button]:rounded-r-md",
+          defaultClassNames.day
+        ),
+        range_start: cn(
+          "bg-zinc-100 rounded-l-md dark:bg-zinc-800",
+          defaultClassNames.range_start
+        ),
+        range_middle: cn("rounded-none", defaultClassNames.range_middle),
+        range_end: cn("bg-zinc-100 rounded-r-md dark:bg-zinc-800", defaultClassNames.range_end),
+        today: cn(
+          "bg-zinc-100 text-zinc-900 rounded-md data-[selected=true]:rounded-none dark:bg-zinc-800 dark:text-zinc-50",
+          defaultClassNames.today
+        ),
+        outside: cn(
+          "text-zinc-500 aria-selected:text-zinc-500 dark:text-zinc-400 dark:aria-selected:text-zinc-400",
+          defaultClassNames.outside
+        ),
+        disabled: cn(
+          "text-zinc-500 opacity-50 dark:text-zinc-400",
+          defaultClassNames.disabled
+        ),
+        hidden: cn("invisible", defaultClassNames.hidden),
+        ...classNames,
+      }}
+      components={{
+        Root: ({ className, rootRef, ...props }) => {
+          return (
+            <div
+              data-slot="calendar"
+              ref={rootRef}
+              className={cn(className)}
+              {...props}
+            />
+          )
+        },
+        Chevron: ({ className, orientation, ...props }) => {
+          if (orientation === "left") {
+            return (
+              <ChevronLeftIcon className={cn("size-4", className)} {...props} />
+            )
+          }
 
-	// ---------------- TIMING ------------------------
+          if (orientation === "right") {
+            return (
+              <ChevronRightIcon
+                className={cn("size-4", className)}
+                {...props}
+              />
+            )
+          }
 
-	const { onNextClick, onPrevClick, startMonth, endMonth } = props;
-
-	// ---------------- DATA ------------------------
-
-	const columnsDisplayed = navView === "years" ? 1 : numberOfMonths;
-
-	const _monthsClassName = cn("relative flex", props.monthsClassName);
-	const _monthCaptionClassName = cn(
-		"relative mx-10 flex h-7 items-center justify-center",
-		props.monthCaptionClassName
-	);
-	const _weekdaysClassName = cn("flex flex-row", props.weekdaysClassName);
-	const _weekdayClassName = cn(
-		"w-8 text-sm font-normal text-muted-foreground",
-		props.weekdayClassName
-	);
-	const _monthClassName = cn("w-full", props.monthClassName);
-	const _captionClassName = cn(
-		"relative flex items-center justify-center pt-1",
-		props.captionClassName
-	);
-	const _captionLabelClassName = cn(
-		"truncate text-sm font-medium",
-		props.captionLabelClassName
-	);
-	const buttonNavClassName = buttonVariants({
-		variant: "outline",
-		className:
-			"absolute h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100",
-	});
-	const _buttonNextClassName = cn(
-		buttonNavClassName,
-		"right-0",
-		props.buttonNextClassName
-	);
-	const _buttonPreviousClassName = cn(
-		buttonNavClassName,
-		"left-0",
-		props.buttonPreviousClassName
-	);
-	const _navClassName = cn("flex items-start", props.navClassName);
-	const _monthGridClassName = cn("mx-auto mt-4", props.monthGridClassName);
-	const _weekClassName = cn(
-		"mt-2 flex w-max items-start",
-		props.weekClassName
-	);
-	const _dayClassName = cn(
-		"flex size-8 flex-1 items-center justify-center p-0 text-sm",
-		props.dayClassName
-	);
-	const _dayButtonClassName = cn(
-		buttonVariants({ variant: "ghost" }),
-		"size-8 rounded-md p-0 font-normal transition-none aria-selected:opacity-100",
-		props.dayButtonClassName
-	);
-	const buttonRangeClassName =
-		"bg-accent [&>button]:bg-primary [&>button]:text-primary-foreground [&>button]:hover:bg-primary [&>button]:hover:text-primary-foreground";
-	const _rangeStartClassName = cn(
-		buttonRangeClassName,
-		"day-range-start rounded-s-md",
-		props.rangeStartClassName
-	);
-	const _rangeEndClassName = cn(
-		buttonRangeClassName,
-		"day-range-end rounded-e-md",
-		props.rangeEndClassName
-	);
-	const _rangeMiddleClassName = cn(
-		"bg-accent !text-foreground [&>button]:bg-transparent [&>button]:!text-foreground [&>button]:hover:bg-transparent [&>button]:hover:!text-foreground",
-		props.rangeMiddleClassName
-	);
-	const _selectedClassName = cn(
-		"[&>button]:bg-primary [&>button]:text-primary-foreground [&>button]:hover:bg-primary [&>button]:hover:text-primary-foreground",
-		props.selectedClassName
-	);
-	const _todayClassName = cn(
-		"[&>button]:bg-accent [&>button]:text-accent-foreground",
-		props.todayClassName
-	);
-	const _outsideClassName = cn(
-		"day-outside text-muted-foreground opacity-50 aria-selected:bg-accent/50 aria-selected:text-muted-foreground aria-selected:opacity-30",
-		props.outsideClassName
-	);
-	const _disabledClassName = cn(
-		"text-muted-foreground opacity-50",
-		props.disabledClassName
-	);
-	const _hiddenClassName = cn("invisible flex-1", props.hiddenClassName);
-
-	return (
-		<DayPicker
-			showOutsideDays={showOutsideDays}
-			className={cn("p-3", className)}
-			style={{
-				width: 248.8 * (columnsDisplayed ?? 1) + "px",
-			}}
-			classNames={{
-				months: _monthsClassName,
-				month_caption: _monthCaptionClassName,
-				weekdays: _weekdaysClassName,
-				weekday: _weekdayClassName,
-				month: _monthClassName,
-				caption: _captionClassName,
-				caption_label: _captionLabelClassName,
-				button_next: _buttonNextClassName,
-				button_previous: _buttonPreviousClassName,
-				nav: _navClassName,
-				month_grid: _monthGridClassName,
-				week: _weekClassName,
-				day: _dayClassName,
-				day_button: _dayButtonClassName,
-				range_start: _rangeStartClassName,
-				range_middle: _rangeMiddleClassName,
-				range_end: _rangeEndClassName,
-				selected: _selectedClassName,
-				today: _todayClassName,
-				outside: _outsideClassName,
-				disabled: _disabledClassName,
-				hidden: _hiddenClassName,
-			}}
-			components={{
-				Chevron: ({ orientation }) => {
-					const Icon =
-						orientation === "left" ? ChevronLeft : ChevronRight;
-					return <Icon className="h-4 w-4" />;
-				},
-				Nav: ({ className, children, ...props }) => {
-					const { nextMonth, previousMonth, goToMonth } =
-						useDayPicker();
-
-					const isPreviousDisabled = (() => {
-						if (navView === "years") {
-							return (
-								(startMonth &&
-									differenceInCalendarDays(
-										new Date(displayYears.from - 1, 0, 1),
-										startMonth
-									) < 0) ||
-								(endMonth &&
-									differenceInCalendarDays(
-										new Date(displayYears.from - 1, 0, 1),
-										endMonth
-									) > 0)
-							);
-						}
-						if (navView === "months") {
-							return (
-								startMonth &&
-								selectedYear <= startMonth.getFullYear()
-							);
-						}
-						return !previousMonth;
-					})();
-
-					const isNextDisabled = (() => {
-						if (navView === "years") {
-							return (
-								(startMonth &&
-									differenceInCalendarDays(
-										new Date(displayYears.to + 1, 0, 1),
-										startMonth
-									) < 0) ||
-								(endMonth &&
-									differenceInCalendarDays(
-										new Date(displayYears.to + 1, 0, 1),
-										endMonth
-									) > 0)
-							);
-						}
-						if (navView === "months") {
-							return (
-								endMonth &&
-								selectedYear >= endMonth.getFullYear()
-							);
-						}
-						return !nextMonth;
-					})();
-
-					const handlePreviousClick = React.useCallback(() => {
-						if (!previousMonth) return;
-						if (navView === "years") {
-							setDisplayYears((prev) => ({
-								from: prev.from - (prev.to - prev.from + 1),
-								to: prev.to - (prev.to - prev.from + 1),
-							}));
-							onPrevClick?.(
-								new Date(
-									displayYears.from -
-										(displayYears.to - displayYears.from),
-									0,
-									1
-								)
-							);
-							return;
-						}
-						if (navView === "months") {
-							setSelectedYear((prev) => prev - 1);
-							return;
-						}
-						goToMonth(previousMonth);
-						onPrevClick?.(previousMonth);
-					}, [previousMonth, goToMonth, navView]);
-
-					const handleNextClick = React.useCallback(() => {
-						if (!nextMonth) return;
-						if (navView === "years") {
-							setDisplayYears((prev) => ({
-								from: prev.from + (prev.to - prev.from + 1),
-								to: prev.to + (prev.to - prev.from + 1),
-							}));
-							onNextClick?.(
-								new Date(
-									displayYears.from +
-										(displayYears.to - displayYears.from),
-									0,
-									1
-								)
-							);
-							return;
-						}
-						if (navView === "months") {
-							setSelectedYear((prev) => prev + 1);
-							return;
-						}
-						goToMonth(nextMonth);
-						onNextClick?.(nextMonth);
-					}, [goToMonth, nextMonth, navView]);
-					return (
-						<nav
-							className={cn("flex items-center", className)}
-							{...props}
-						>
-							<Button
-								variant="outline"
-								className="absolute left-0 h-7 w-7 bg-transparent p-0 opacity-80 hover:opacity-100"
-								type="button"
-								tabIndex={isPreviousDisabled ? undefined : -1}
-								disabled={isPreviousDisabled}
-								aria-label={
-									navView === "years"
-										? `Go to the previous ${
-												displayYears.to -
-												displayYears.from +
-												1
-										  } years`
-										: labelPrevious(previousMonth)
-								}
-								onClick={handlePreviousClick}
-							>
-								<ChevronLeft className="h-4 w-4" />
-							</Button>
-
-							<Button
-								variant="outline"
-								className="absolute right-0 h-7 w-7 bg-transparent p-0 opacity-80 hover:opacity-100"
-								type="button"
-								tabIndex={isNextDisabled ? undefined : -1}
-								disabled={isNextDisabled}
-								aria-label={
-									navView === "years"
-										? `Go to the next ${
-												displayYears.to -
-												displayYears.from +
-												1
-										  } years`
-										: labelNext(nextMonth)
-								}
-								onClick={handleNextClick}
-							>
-								<ChevronRight className="h-4 w-4" />
-							</Button>
-						</nav>
-					);
-				},
-				CaptionLabel: ({ children, ...props }) => {
-					if (!showYearSwitcher)
-						return <span {...props}>{children}</span>;
-					return (
-						<Button
-							className="h-7 w-full truncate text-sm font-medium"
-							variant="ghost"
-							size="sm"
-							onClick={() => {
-								if (navView === "days") {
-									setNavView("months");
-									setSelectedYear(new Date().getFullYear());
-								} else if (navView === "months") {
-									setNavView("years");
-								} else {
-									setNavView("months");
-								}
-							}}
-						>
-							{navView === "days"
-								? children
-								: navView === "months"
-								? selectedYear
-								: displayYears.from + " - " + displayYears.to}
-						</Button>
-					);
-				},
-				MonthGrid: ({ className, children, ...props }) => {
-					const { goToMonth } = useDayPicker();
-
-					if (navView === "years") {
-						return (
-							<div
-								className={cn(
-									"grid grid-cols-4 gap-y-2",
-									className
-								)}
-								{...props}
-							>
-								{Array.from(
-									{
-										length:
-											displayYears.to -
-											displayYears.from +
-											1,
-									},
-									(_, i) => {
-										const year = displayYears.from + i;
-										const isBefore =
-											startMonth &&
-											differenceInCalendarDays(
-												new Date(year, 11, 31),
-												startMonth
-											) < 0;
-
-										const isAfter =
-											endMonth &&
-											differenceInCalendarDays(
-												new Date(year, 0, 0),
-												endMonth
-											) > 0;
-
-										const isDisabled = isBefore || isAfter;
-
-										return (
-											<Button
-												key={i}
-												className={cn(
-													"h-7 w-full text-sm font-normal text-foreground",
-													year ===
-														new Date().getFullYear() &&
-														"bg-accent font-medium text-accent-foreground"
-												)}
-												variant="ghost"
-												onClick={() => {
-													setSelectedYear(year);
-													setNavView("months");
-												}}
-												disabled={isDisabled}
-											>
-												{year}
-											</Button>
-										);
-									}
-								)}
-							</div>
-						);
-					}
-
-					if (navView === "months") {
-						return (
-							<div
-								className={cn(
-									"grid grid-cols-3 gap-2",
-									className
-								)}
-								{...props}
-							>
-								{months.map((month, index) => {
-									const isDisabled =
-										(startMonth &&
-											differenceInCalendarDays(
-												new Date(
-													selectedYear,
-													index,
-													1
-												),
-												startMonth
-											) < 0) ||
-										(endMonth &&
-											differenceInCalendarDays(
-												new Date(
-													selectedYear,
-													index,
-													1
-												),
-												endMonth
-											) > 0);
-
-									return (
-										<Button
-											key={month}
-											className={cn(
-												"h-9 w-full text-sm font-normal text-foreground",
-												new Date().getFullYear() ===
-													selectedYear &&
-													new Date().getMonth() ===
-														index &&
-													"bg-accent font-medium text-accent-foreground"
-											)}
-											variant="ghost"
-											onClick={() => {
-												setNavView("days");
-												goToMonth(
-													new Date(
-														selectedYear,
-														index
-													)
-												);
-											}}
-											disabled={isDisabled}
-										>
-											{month.slice(0, 3)}
-										</Button>
-									);
-								})}
-							</div>
-						);
-					}
-
-					return (
-						<table className={className} {...props}>
-							{children}
-						</table>
-					);
-				},
-			}}
-			numberOfMonths={columnsDisplayed}
-			{...props}
-		/>
-	);
+          return (
+            <ChevronDownIcon className={cn("size-4", className)} {...props} />
+          )
+        },
+        DayButton: CalendarDayButton,
+        WeekNumber: ({ children, ...props }) => {
+          return (
+            <td {...props}>
+              <div className="flex size-(--cell-size) items-center justify-center text-center">
+                {children}
+              </div>
+            </td>
+          )
+        },
+        ...components,
+      }}
+      {...props}
+    />
+  )
 }
-Calendar.displayName = "Calendar";
 
-export { Calendar };
+function CalendarDayButton({
+  className,
+  day,
+  modifiers,
+  ...props
+}: React.ComponentProps<typeof DayButton>) {
+  const defaultClassNames = getDefaultClassNames()
+
+  const ref = React.useRef<HTMLButtonElement>(null)
+  React.useEffect(() => {
+    if (modifiers.focused) ref.current?.focus()
+  }, [modifiers.focused])
+
+  return (
+    <Button
+      ref={ref}
+      variant="ghost"
+      size="icon"
+      data-day={day.date.toLocaleDateString()}
+      data-selected-single={
+        modifiers.selected &&
+        !modifiers.range_start &&
+        !modifiers.range_end &&
+        !modifiers.range_middle
+      }
+      data-range-start={modifiers.range_start}
+      data-range-end={modifiers.range_end}
+      data-range-middle={modifiers.range_middle}
+      className={cn(
+        "data-[selected-single=true]:bg-zinc-900 data-[selected-single=true]:text-zinc-50 data-[range-middle=true]:bg-zinc-100 data-[range-middle=true]:text-zinc-900 data-[range-start=true]:bg-zinc-900 data-[range-start=true]:text-zinc-50 data-[range-end=true]:bg-zinc-900 data-[range-end=true]:text-zinc-50 group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-ring/50 flex aspect-square h-auto w-full min-w-(--cell-size) flex-col gap-1 font-normal leading-none data-[range-end=true]:rounded-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[3px] [&>span]:text-xs [&>span]:opacity-70 dark:data-[selected-single=true]:bg-zinc-50 dark:data-[selected-single=true]:text-zinc-900 dark:data-[range-middle=true]:bg-zinc-800 dark:data-[range-middle=true]:text-zinc-50 dark:data-[range-start=true]:bg-zinc-50 dark:data-[range-start=true]:text-zinc-900 dark:data-[range-end=true]:bg-zinc-50 dark:data-[range-end=true]:text-zinc-900",
+        defaultClassNames.day,
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Calendar, CalendarDayButton }

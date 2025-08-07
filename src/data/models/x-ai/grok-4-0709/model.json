@@ -9,7 +9,6 @@
   "release_date": "2025-07-10T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
-  "open_router_model_id": "x-ai/grok-4",
   "input_context_length": 256000,
   "output_context_length": 256000,
   "license": "Proprietary",

@@ -41,7 +41,7 @@ export default function CompareDashboard({
 					setShowComparison={setShowComparison}
 				/>
 				<Separator className="my-8 w-full max-w-4xl" />
-				<PopularComparisons models={models} setSelected={setSelected} />
+				<PopularComparisons />
 			</div>
 		);
 	}

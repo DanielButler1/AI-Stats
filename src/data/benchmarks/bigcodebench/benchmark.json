@@ -1,6 +1,7 @@
 {
   "id": "bigcodebench",
   "name": "BigCodeBench",
+  "category": null,
   "order": null,
   "description": null,
   "link": "https://bigcode-bench.github.io/"

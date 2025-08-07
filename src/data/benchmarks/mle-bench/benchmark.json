@@ -1,6 +1,7 @@
 {
   "id": "mle-bench",
   "name": "MLE-Bench",
+  "category": null,
   "order": null,
   "description": null,
   "link": "https://github.com/openai/mle-bench"

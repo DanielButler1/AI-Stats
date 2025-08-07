@@ -9,7 +9,6 @@
   "release_date": "2025-02-19T00:00:00",
   "deprecation_date": "",
   "retirement_date": null,
-  "open_router_model_id": "x-ai/grok-3-mini-beta",
   "input_context_length": 131072,
   "output_context_length": 8000,
   "license": "Proprietary",

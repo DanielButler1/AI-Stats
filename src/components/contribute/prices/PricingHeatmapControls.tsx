@@ -14,8 +14,10 @@ import { Button } from "@/components/ui/button";
 interface PricingHeatmapControlsProps {
 	searchQuery: string;
 	setSearchQuery: (query: string) => void;
-	sortMethod: "coverage-desc" | "coverage-asc" | "name";
-	setSortMethod: (method: "coverage-desc" | "coverage-asc" | "name") => void;
+	sortMethod: "release-desc" | "coverage-desc" | "coverage-asc" | "name";
+	setSortMethod: (
+		method: "release-desc" | "coverage-desc" | "coverage-asc" | "name"
+	) => void;
 }
 
 export default function PricingHeatmapControls({
@@ -28,12 +30,14 @@ export default function PricingHeatmapControls({
 		sortMethod !== "coverage-desc" || searchQuery.trim() !== "";
 
 	const handleReset = () => {
-		setSortMethod("coverage-desc");
+		setSortMethod("release-desc");
 		setSearchQuery("");
 	};
 
 	const handleSortChange = (value: string) => {
-		setSortMethod(value as "coverage-desc" | "coverage-asc" | "name");
+		setSortMethod(
+			value as "release-desc" | "coverage-desc" | "coverage-asc" | "name"
+		);
 	};
 
 	return (
@@ -48,13 +52,15 @@ export default function PricingHeatmapControls({
 					className="pl-9 pr-4"
 				/>
 			</div>
-            
+
 			{/* Sort Dropdown */}
 			<div className="flex flex-wrap items-center gap-2">
 				<Select value={sortMethod} onValueChange={handleSortChange}>
 					<SelectTrigger className="w-[180px]">
 						<SelectValue placeholder="Sort by...">
-							{sortMethod === "coverage-desc"
+							{sortMethod === "release-desc"
+								? "Newest Release"
+								: sortMethod === "coverage-desc"
 								? "Most Coverage"
 								: sortMethod === "coverage-asc"
 								? "Least Coverage"
@@ -62,6 +68,9 @@ export default function PricingHeatmapControls({
 						</SelectValue>
 					</SelectTrigger>
 					<SelectContent>
+						<SelectItem value="release-desc">
+							Newest Release
+						</SelectItem>
 						<SelectItem value="coverage-desc">
 							Most Coverage
 						</SelectItem>

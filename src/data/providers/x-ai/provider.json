@@ -5,5 +5,10 @@
   "country_code": "US",
   "description": null,
   "colour": "#000000",
-  "twitter": "https://x.com/xai"
+  "socials": [
+    {
+      "platform": "twitter",
+      "url": "https://x.com/xai"
+    }
+  ]
 }

@@ -9,7 +9,6 @@
   "release_date": "2025-06-05T00:00:00",
   "deprecation_date": "2026-06-17T00:00:00",
   "retirement_date": "",
-  "open_router_model_id": "google/gemini-2.5-pro-preview",
   "input_context_length": 1048576,
   "output_context_length": 65536,
   "license": "Proprietary",

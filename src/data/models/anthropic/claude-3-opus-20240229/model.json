@@ -9,7 +9,6 @@
   "release_date": "2024-03-04T00:00:00",
   "deprecation_date": "2025-06-30T00:00:00",
   "retirement_date": "2026-01-05T00:00:00",
-  "open_router_model_id": "anthropic/claude-3-opus",
   "input_context_length": 200000,
   "output_context_length": 4096,
   "license": "Proprietary",

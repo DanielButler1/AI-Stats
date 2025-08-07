@@ -3,19 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "@/components/ui/accordion";
 
 interface ModelsUsingBenchmarkProps {
 	modelsWithBenchmark: any[];
 	modelsByProvider: Record<string, any[]>;
 	sortedProviders: string[];
 	benchmarkId: string;
-	defaultAccordionValues: string[];
 }
 
 // Parse score function (same as ModelBenchmarkChart)
@@ -34,7 +27,6 @@ export default function ModelsUsingBenchmark({
 	modelsByProvider,
 	sortedProviders,
 	benchmarkId,
-	defaultAccordionValues,
 }: ModelsUsingBenchmarkProps) {
 	// Determine if lower is better for this benchmark
 	const isLowerBetter = React.useMemo(() => {
@@ -82,40 +74,38 @@ export default function ModelsUsingBenchmark({
 	}, [modelsByProvider, sortedProviders, benchmarkId, isLowerBetter]);
 
 	return (
-		<Card className=" shadow-lg bg-white dark:bg-zinc-950">
-			<CardHeader>
-				<CardTitle className="text-2xl flex items-center gap-2">
+		<Card className="shadow-md bg-white dark:bg-zinc-950">
+			<CardHeader className="px-4 py-3">
+				<CardTitle className="text-xl sm:text-2xl flex items-center gap-2">
 					Models Using This Benchmark
 					{modelsWithBenchmark.length > 0 && (
-						<span className="text-muted-foreground text-base font-normal">
+						<span className="text-muted-foreground text-sm sm:text-base font-normal">
 							({modelsWithBenchmark.length})
 						</span>
 					)}
 					{isLowerBetter && (
-						<span className="ml-2 text-xs text-blue-600 border border-blue-400 rounded px-2 py-0.5">
+						<span className="ml-2 text-[10px] sm:text-xs text-blue-600 border border-blue-400 rounded px-1.5 py-0.5">
 							Lower is better
 						</span>
 					)}
 				</CardTitle>
 			</CardHeader>
-			<CardContent>
+			<CardContent className="pt-2">
 				{modelsWithBenchmark.length > 0 ? (
-					<Accordion
-						type="multiple"
-						className="w-full"
-						defaultValue={defaultAccordionValues}
-					>
-						{sortedProviders.map((provider) => (
-							<AccordionItem
-								value={provider}
-								key={provider}
-								className="border-b border-zinc-200 dark:border-zinc-800"
-							>
-								{" "}
-								<AccordionTrigger className="hover:no-underline hover:bg-zinc-50 dark:hover:bg-zinc-900 px-3 py-2 rounded-md">
+					<div className="space-y-4">
+						{sortedProviders.map((provider, idx) => (
+							<div key={provider} className="">
+								{/* Provider header */}
+								<div
+									className={`flex items-center justify-between px-3 py-2 ${
+										idx !== 0
+											? "border-t border-zinc-200 dark:border-zinc-800"
+											: ""
+									}`}
+								>
 									<div className="flex items-center gap-2">
-										<div className="h-6 w-6 relative flex items-center justify-center rounded-full border bg-white">
-											<div className="w-4 h-4 relative">
+										<div className="h-7 w-7 relative flex items-center justify-center rounded-full border bg-white">
+											<div className="w-4.5 h-4.5 relative">
 												<Image
 													src={`/providers/${modelsByProvider[provider][0]?.provider?.provider_id}.svg`}
 													alt={provider}
@@ -124,24 +114,30 @@ export default function ModelsUsingBenchmark({
 												/>
 											</div>
 										</div>
-										<span className="font-semibold">
-											{provider}
-										</span>
-										<span className="text-muted-foreground text-sm ml-2">
-											({modelsByProvider[provider].length}{" "}
-											{modelsByProvider[provider]
-												.length === 1
-												? "model"
-												: "models"}
-											)
-										</span>
+										<div className="flex items-center text-sm sm:text-base">
+											<span className="font-semibold">
+												{provider}
+											</span>
+											<span className="text-muted-foreground ml-2 text-xs sm:text-sm">
+												(
+												{
+													modelsByProvider[provider]
+														.length
+												}{" "}
+												{modelsByProvider[provider]
+													.length === 1
+													? "model"
+													: "models"}
+												)
+											</span>
+										</div>
 									</div>
-								</AccordionTrigger>
-								<AccordionContent>
-									<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 pt-2">
+								</div>
+								{/* Models grid */}
+								<div className="px-3 pb-2">
+									<div className="grid grid-cols-1 [@media(min-width:420px)]:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
 										{sortedModelsByProvider[provider].map(
 											(model) => {
-												// Find the benchmark result for this model
 												const result =
 													model.benchmark_results?.find(
 														(br: any) =>
@@ -153,7 +149,6 @@ export default function ModelsUsingBenchmark({
 																	benchmarkId)
 													);
 
-												// Parse and prepare the score for display
 												const rawScore =
 													result?.score || "N/A";
 												const isPercentage =
@@ -165,7 +160,6 @@ export default function ModelsUsingBenchmark({
 														? parseScore(rawScore)
 														: null;
 
-												// Format the display score
 												let displayScore;
 												if (parsedScore !== null) {
 													displayScore =
@@ -185,31 +179,33 @@ export default function ModelsUsingBenchmark({
 												return (
 													<Card
 														key={model.id}
-														className="overflow-hidden transition-all hover:shadow-lg border border-zinc-100 dark:border-zinc-800"
+														className="overflow-hidden transition-shadow hover:shadow-md border border-zinc-100 dark:border-zinc-800"
 													>
 														<CardContent className="p-3">
-															<div className="flex justify-between items-center">
-																<div className="flex items-center">
-																	<div className="min-w-0">
-																		<Link
-																			href={`/models/${model.id}`}
-																			className="text-base font-semibold hover:text-primary transition-colors inline-flex items-center gap-1 truncate"
-																		>
-																			{model
-																				.name
-																				.length >
-																			20
-																				? model.name.substring(
-																						0,
-																						18
-																				  ) +
-																				  "..."
-																				: model.name}{" "}
-																			<ChevronRight className="h-3 w-3 flex-shrink-0" />
-																		</Link>
+															<div className="flex justify-between items-start gap-2">
+																<div className="flex-1 min-w-0">
+																	<Link
+																		href={`/models/${model.id}`}
+																		className="text-sm sm:text-base font-semibold hover:text-primary transition-colors inline-flex items-center gap-1 truncate"
+																		title={
+																			model.name
+																		}
+																	>
+																		{
+																			model.name
+																		}
+																		<ChevronRight className="h-3 w-3 shrink-0" />
+																	</Link>
+																	<div className="text-[11px] text-muted-foreground truncate">
+																		{model
+																			.provider
+																			?.display_name ||
+																			model
+																				.provider
+																				?.provider_id}
 																	</div>
 																</div>
-																<div className="bg-primary/10 text-primary px-2.5 py-1 rounded-full text-xs font-semibold ml-2 flex-shrink-0">
+																<div className="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-[11px] font-semibold ml-2 shrink-0 leading-none">
 																	{
 																		displayScore
 																	}
@@ -221,10 +217,10 @@ export default function ModelsUsingBenchmark({
 											}
 										)}
 									</div>
-								</AccordionContent>
-							</AccordionItem>
+								</div>
+							</div>
 						))}
-					</Accordion>
+					</div>
 				) : (
 					<p className="text-muted-foreground">
 						No models currently using this benchmark in our

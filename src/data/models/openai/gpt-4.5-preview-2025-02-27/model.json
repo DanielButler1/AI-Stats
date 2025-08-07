@@ -9,7 +9,6 @@
   "release_date": "2025-02-27T00:00:00",
   "deprecation_date": "2025-04-14T00:00:00",
   "retirement_date": "2025-07-14T00:00:00",
-  "open_router_model_id": "openai/gpt-4.5-preview",
   "input_context_length": 128000,
   "output_context_length": 16384,
   "license": "Proprietary",

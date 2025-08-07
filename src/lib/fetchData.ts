@@ -1,17 +1,11 @@
 import fs from 'fs/promises';
 import path from 'path';
 import type { Model, Provider, Benchmark, ExtendedModel, BenchmarkResult, APIProvider, Price } from '@/data/types';
-import { Glicko2Player } from './Glicko2Player';
 
 const MODELS_DIR = path.join(process.cwd(), 'src/data/models');
 const PROVIDERS_DIR = path.join(process.cwd(), 'src/data/providers');
 const BENCHMARKS_DIR = path.join(process.cwd(), 'src/data/benchmarks');
 const API_PROVIDERS_DIR = path.join(process.cwd(), 'src/data/api_providers');
-
-// Glicko-2 parameters
-const INITIAL_RATING = 1500;
-const INITIAL_RD = 350;
-const INITIAL_VOL = 0.06;
 
 const providerCache = new Map<string, Provider>();
 const benchmarkCache = new Map<string, Benchmark>();
@@ -58,90 +52,16 @@ async function getAPIProvider(apiProviderId: string): Promise<APIProvider | null
     }
 }
 
-function computeEffectivePrice(prices: Price[] | null): number {
-    if (!prices || prices.length === 0) return Infinity;
-
-    const effectivePrices = prices.map(p => {
-        const input = p.input_token_price ?? 0;
-        const output = p.output_token_price ?? 0;
-        return ((input * 1) + (output * 3)) * 1000000;
-    });
-
-    return Math.min(...effectivePrices); // use lowest price across APIs
-}
-
-async function calculateGlickoRatings(models: ExtendedModel[]): Promise<void> {
-    try {
-        const modelPlayers = new Map<string, Glicko2Player>();
-        for (const model of models) {
-            modelPlayers.set(model.id, new Glicko2Player(INITIAL_RATING, INITIAL_RD, INITIAL_VOL));
-        }
-
-        // Keep best score per model per benchmark
-        const benchmarkScores: Record<string, Map<string, { model: ExtendedModel; score: number; isLowerBetter: boolean }>> = {};
-        for (const model of models) {
-            if (!Array.isArray(model.benchmark_results)) continue;
-            for (const result of model.benchmark_results) {
-                const score = typeof result.score === 'string' ? parseFloat(result.score.replace('%', '')) : result.score;
-                if (isNaN(score)) continue;
-                const benchmark = result.benchmark;
-                if (!benchmark) continue;
-                const benchmarkName = benchmark.name;
-                const isLowerBetter = benchmark.order === 'lower';
-                if (!benchmarkScores[benchmarkName]) benchmarkScores[benchmarkName] = new Map();
-                const current = benchmarkScores[benchmarkName].get(model.id);
-                const isBetter = !current || (isLowerBetter ? score < current.score : score > current.score);
-                if (isBetter) {
-                    benchmarkScores[benchmarkName].set(model.id, { model, score, isLowerBetter });
-                }
-            }
-        }
-
-        // Convert to flat matches and update players immediately
-        for (const [, entriesMap] of Object.entries(benchmarkScores)) {
-            const entries = Array.from(entriesMap.values());
-            for (let i = 0; i < entries.length; i++) {
-                for (let j = i + 1; j < entries.length; j++) {
-                    const a = entries[i];
-                    const b = entries[j];
-                    const aWins = a.score !== b.score
-                        ? (a.isLowerBetter ? a.score < b.score : a.score > b.score)
-                        : null;
-                    const aPlayer = modelPlayers.get(a.model.id)!;
-                    const bPlayer = modelPlayers.get(b.model.id)!;
-                    if (aWins === null) {
-                        aPlayer.updatePlayer([bPlayer.getRating()], [bPlayer.getRd()], [0.5]);
-                        bPlayer.updatePlayer([aPlayer.getRating()], [aPlayer.getRd()], [0.5]);
-                    } else {
-                        const scoreA = aWins ? 1.0 : 0.0;
-                        const scoreB = 1.0 - scoreA;
-                        aPlayer.updatePlayer([bPlayer.getRating()], [bPlayer.getRd()], [scoreA]);
-                        bPlayer.updatePlayer([aPlayer.getRating()], [aPlayer.getRd()], [scoreB]);
-                    }
-                }
-            }
-        }
-
-        // Final assignment of ratings to models
-        for (const model of models) {
-            const player = modelPlayers.get(model.id);
-            if (player) {
-                model.glickoRating = {
-                    rating: player.getRating(),
-                    rd: player.getRd(),
-                    vol: player.vol,
-                };
-                const effectivePrice = computeEffectivePrice(model.prices);
-                model.valueScore = model.glickoRating.rating / (effectivePrice + 1);
-            }
-        }
-    } catch (err) {
-        console.error("Glicko rating calculation failed:", err);
-    }
-}
-
 export async function fetchAggregateData(): Promise<ExtendedModel[]> {
     const models: ExtendedModel[] = [];
+
+    // helper to parse possibly-string numbers
+    const toNumberOrNull = (v: number | string | null | undefined): number | null => {
+        if (v === null || v === undefined) return null;
+        if (typeof v === 'number') return v;
+        const n = Number(String(v).replace(/[,\s]/g, ''));
+        return Number.isFinite(n) ? n : null;
+    };
 
     async function walkModels(dir: string) {
         const entries = await fs.readdir(dir, { withFileTypes: true });
@@ -157,15 +77,21 @@ export async function fetchAggregateData(): Promise<ExtendedModel[]> {
                     let enrichedBenchmarkResults: Array<Omit<BenchmarkResult, 'benchmark_id'> & { benchmark_id: string; benchmark: Benchmark; }> | null = null;
                     if (model.benchmark_results) {
                         enrichedBenchmarkResults = await Promise.all(
-                            model.benchmark_results.map(async br => {
+                            model.benchmark_results.map(async (br) => {
                                 const benchmarkData = await getBenchmark(br.benchmark_id);
                                 if (benchmarkData) {
-                                    return { ...br, benchmark: benchmarkData };
+                                    return { ...br, benchmark_id: br.benchmark_id, benchmark: benchmarkData };
                                 }
-                                return {
-                                    ...br,
-                                    benchmark: { id: br.benchmark_id, name: br.benchmark_id, order: '', description: '', link: '' },
+                                // Provide a fully-typed fallback Benchmark (include required fields like category)
+                                const fallback: Benchmark = {
+                                    id: br.benchmark_id,
+                                    name: br.benchmark_id,
+                                    category: null,
+                                    order: '',
+                                    description: '',
+                                    link: ''
                                 };
+                                return { ...br, benchmark_id: br.benchmark_id, benchmark: fallback };
                             })
                         );
                     }
@@ -195,6 +121,7 @@ export async function fetchAggregateData(): Promise<ExtendedModel[]> {
                             release_date: model.release_date,
                             deprecation_date: model.deprecation_date,
                             retirement_date: model.retirement_date,
+                            open_router_model_id: model.open_router_model_id,
                             input_context_length: model.input_context_length,
                             output_context_length: model.output_context_length,
                             license: model.license,
@@ -211,8 +138,8 @@ export async function fetchAggregateData(): Promise<ExtendedModel[]> {
                             announcement_link: model.announcement_link,
                             repository_link: model.repository_link,
                             weights_link: model.weights_link,
-                            parameter_count: model.parameter_count,
-                            training_tokens: model.training_tokens,
+                            parameter_count: toNumberOrNull(model.parameter_count),
+                            training_tokens: toNumberOrNull(model.training_tokens),
                             provider: providerData,
                             benchmark_results: enrichedBenchmarkResults,
                             prices: enrichedPrices,
@@ -220,6 +147,9 @@ export async function fetchAggregateData(): Promise<ExtendedModel[]> {
                     } else {
                         models.push({
                             ...model,
+                            // ensure numeric fields are coerced per ExtendedModel expectations
+                            parameter_count: toNumberOrNull(model.parameter_count),
+                            training_tokens: toNumberOrNull(model.training_tokens),
                             provider: {
                                 provider_id: model.provider,
                                 name: model.provider,
@@ -227,7 +157,7 @@ export async function fetchAggregateData(): Promise<ExtendedModel[]> {
                                 country_code: null,
                                 description: null,
                                 colour: null,
-                                twitter: null,
+                                socials: [],
                             },
                             benchmark_results: enrichedBenchmarkResults,
                             prices: enrichedPrices,
@@ -241,7 +171,6 @@ export async function fetchAggregateData(): Promise<ExtendedModel[]> {
     }
 
     await walkModels(MODELS_DIR);
-    await calculateGlickoRatings(models);
     return models;
 }
 
@@ -302,92 +231,6 @@ export async function fetchBenchmarks(): Promise<EnhancedBenchmark[]> {
     const benchmarks = await getAllBenchmarks();
     const { usage, links } = await getBenchmarkUsage();
     return benchmarks.map(b => ({ ...b, usage: usage[b.id] || 0, hasSourceLink: !!links[b.id] }));
-}
-
-export async function fetchSearchData() {
-    async function getProviders() {
-        const providerFolders = await fs.readdir(PROVIDERS_DIR);
-        const providers: any[] = [];
-        for (const folder of providerFolders) {
-            const providerPath = path.join(PROVIDERS_DIR, folder, 'provider.json');
-            try {
-                const data = await fs.readFile(providerPath, 'utf-8');
-                const parsed = JSON.parse(data);
-                providers.push({ ...parsed, type: 'Provider', provider: { id: parsed.id, name: parsed.name } });
-            } catch {
-                continue;
-            }
-        }
-        return providers;
-    }
-
-    async function getModels() {
-        const providerFolders = await fs.readdir(MODELS_DIR);
-        const models: any[] = [];
-        for (const provider of providerFolders) {
-            const providerPath = path.join(MODELS_DIR, provider);
-            const modelFolders = await fs.readdir(providerPath);
-            let providerName = provider;
-            try {
-                const providerJsonPath = path.join(PROVIDERS_DIR, provider, 'provider.json');
-                const providerData = await fs.readFile(providerJsonPath, 'utf-8');
-                providerName = JSON.parse(providerData).name;
-            } catch {
-                // ignore
-            }
-            for (const model of modelFolders) {
-                const modelJsonPath = path.join(providerPath, model, 'model.json');
-                try {
-                    const data = await fs.readFile(modelJsonPath, 'utf-8');
-                    const parsed = JSON.parse(data);
-                    models.push({ ...parsed, provider: { id: provider, name: providerName }, type: 'Model' });
-                } catch {
-                    continue;
-                }
-            }
-        }
-        return models;
-    }
-
-    async function getBenchmarks() {
-        const benchmarkFolders = await fs.readdir(BENCHMARKS_DIR);
-        const benchmarks: any[] = [];
-        for (const folder of benchmarkFolders) {
-            const benchmarkPath = path.join(BENCHMARKS_DIR, folder, 'benchmark.json');
-            try {
-                const data = await fs.readFile(benchmarkPath, 'utf-8');
-                const parsed = JSON.parse(data);
-                benchmarks.push({ ...parsed, type: 'Benchmark' });
-            } catch {
-                continue;
-            }
-        }
-        return benchmarks;
-    }
-
-    async function getApiProviders() {
-        const providerFolders = await fs.readdir(API_PROVIDERS_DIR);
-        const apiProviders: any[] = [];
-        for (const folder of providerFolders) {
-            const providerPath = path.join(API_PROVIDERS_DIR, folder, 'provider.json');
-            try {
-                const data = await fs.readFile(providerPath, 'utf-8');
-                const parsed = JSON.parse(data);
-                apiProviders.push({ ...parsed, type: 'API Provider' });
-            } catch {
-                continue;
-            }
-        }
-        return apiProviders;
-    }
-
-    const [providers, models, benchmarks, apiProviders] = await Promise.all([
-        getProviders(),
-        getModels(),
-        getBenchmarks(),
-        getApiProviders(),
-    ]);
-    return [...providers, ...models, ...benchmarks, ...apiProviders];
 }
 
 /**

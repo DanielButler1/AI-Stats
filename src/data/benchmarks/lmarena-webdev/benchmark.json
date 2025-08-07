@@ -1,6 +1,7 @@
 {
   "id": "lmarena-webdev",
   "name": "LMArena WebDev",
+  "category": null,
   "order": null,
   "description": null,
   "link": "https://lmarena.ai/leaderboard/webdev"

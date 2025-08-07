@@ -9,7 +9,6 @@
   "release_date": "2024-08-02T00:00:00",
   "deprecation_date": "",
   "retirement_date": null,
-  "open_router_model_id": null,
   "input_context_length": 32768,
   "output_context_length": null,
   "license": null,

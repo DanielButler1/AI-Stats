@@ -115,39 +115,61 @@ export default function ModelReleaseTimeline({
 		});
 	};
 	return (
-		<Card className="mb-8 shadow-lg">
-			<CardHeader>
-				<CardTitle className="text-2xl font-bold">
-					Model Release & Updates
-				</CardTitle>
-			</CardHeader>
-			<CardContent>
-				<div className="space-y-6">
-					{timeline.map((event, idx) => (
+		<div className="w-full mx-auto mb-8">
+			<h2 className="text-xl font-semibold mb-4">Model Timeline</h2>
+			<div className="space-y-6">
+				{timeline.map((event, idx) => {
+					// Choose border and text color based on event type
+					let borderColor =
+						"border-b-gray-300 dark:border-b-gray-600";
+					let textColor = "text-zinc-800 dark:text-zinc-300";
+					const dotColor = event.color;
+					if (event.type === "announced") {
+						borderColor =
+							"border-b-blue-400 dark:border-b-blue-700";
+						textColor = "text-blue-800 dark:text-blue-300";
+					} else if (event.type === "released") {
+						borderColor =
+							"border-b-green-400 dark:border-b-green-700";
+						textColor = "text-green-800 dark:text-green-300";
+					} else if (event.type === "deprecated") {
+						borderColor = "border-b-red-400 dark:border-b-red-700";
+						textColor = "text-red-800 dark:text-red-300";
+					} else if (event.type === "retired") {
+						borderColor =
+							"border-b-zinc-500 dark:border-b-zinc-600";
+						textColor = "text-zinc-800 dark:text-zinc-300";
+					} else if (event.type === "version") {
+						borderColor =
+							"border-b-zinc-400 dark:border-b-zinc-500";
+						textColor = "text-zinc-700 dark:text-zinc-200";
+					}
+					return (
 						<Card
 							key={idx}
-							className="flex items-center relative pl-0 border-l-4 border-zinc-200 dark:border-zinc-700 shadow-none border-t-0 border-b-0 border-r-0 rounded-none"
+							className={`flex items-center relative pl-0 border border-gray-200 dark:border-gray-700 border-b-2 ${borderColor} rounded-lg bg-white dark:bg-gray-900 shadow-none`}
 						>
 							{/* Dot in the line, vertically centered */}
 							<div className="absolute left-[-10px] top-1/2 -translate-y-1/2">
 								<span
-									className={`block w-4 h-4 rounded-full border-2 border-white shadow-sm ${event.color}`}
+									className={`block w-4 h-4 rounded-full border-2 border-white shadow-xs ${dotColor}`}
 								/>
 							</div>
 							<CardContent className="pl-6 py-4">
-								<div className="text-zinc-500 text-xs mb-1">
+								<div className="text-xs mb-1 text-zinc-500">
 									{formatDate(event.date)}
 								</div>
-								<div className="font-semibold text-base mb-0.5">
+								<div
+									className={`font-bold text-lg mb-0.5 ${textColor}`}
+								>
 									{event.type !== "announced" &&
 									event.type !== "released" &&
 									event.type !== "deprecated" &&
 									event.type !== "retired" ? (
-										<Link
-											href={`/models/${event.modelId}`}
-											className="hover:underline"
-										>
-											{event.label}
+										<Link href={`/models/${event.modelId}`}>
+											<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+												{event.label}
+											</span>
 										</Link>
 									) : (
 										event.label
@@ -158,9 +180,9 @@ export default function ModelReleaseTimeline({
 								</div>
 							</CardContent>
 						</Card>
-					))}
-				</div>
-			</CardContent>
-		</Card>
+					);
+				})}
+			</div>
+		</div>
 	);
 }

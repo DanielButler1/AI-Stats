@@ -1,16 +1,11 @@
 import Header from "@/components/header";
-import {
-	Card,
-	CardHeader,
-	CardTitle,
-	CardDescription,
-} from "@/components/ui/card";
 import type { ExtendedModel } from "@/data/types";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 import { fetchAggregateData, fetchBenchmarks } from "@/lib/fetchData";
 import BenchmarkHeatmap from "@/components/contribute/benchmarks/BenchmarkHeatmap";
+import { ArrowUpRight, Tag, FilePlus2, Building2 } from "lucide-react";
 
 export const metadata: Metadata = {
 	title: "AI Model Benchmark Coverage",
@@ -53,42 +48,83 @@ export default async function BenchmarksContributePage() {
 		<main className="flex min-h-screen flex-col">
 			<Header />
 			<div className="container mx-auto px-4 py-8">
-				<Card className="mb-4 shadow-lg">
-					<CardHeader className="flex flex-col space-y-4 text-3xl font-bold">
-						<div className="flex flex-col">
-							<CardTitle>Benchmark Coverage Map</CardTitle>{" "}
-							<CardDescription>
-								See which models have been evaluated on which
-								benchmarks. Missing data is shown in gray. Help
-								us improve coverage by contributing benchmark
-								results!
-							</CardDescription>
-						</div>
-						<div className="flex flex-col sm:flex-row gap-2">
-							<Link href="https://github.com/DanielButler1/AI-Stats">
-								<Button className="w-full sm:w-auto">
-									Submit New Benchmark Results
-								</Button>
-							</Link>
-							<Link href="/benchmarks">
-								<Button
-									className="w-full sm:w-auto"
-									variant="outline"
-								>
-									View All Benchmarks
-								</Button>
-							</Link>
-						</div>
-					</CardHeader>
-				</Card>{" "}
-				{errorMsg ? (
-					<div className="text-red-600 font-bold">{errorMsg}</div>
-				) : (
-					<BenchmarkHeatmap
-						models={models}
-						allBenchmarks={benchmarks}
-					/>
-				)}
+				<section className="mx-auto max-w-4xl text-center">
+					<h1 className="text-4xl font-semibold tracking-tight">
+						Benchmark Coverage & Contributions
+					</h1>
+					<p className="mt-3 text-base text-muted-foreground">
+						See which models have been evaluated on which
+						benchmarks. Fill in missing results and help keep the
+						database comprehensive and up to date.
+					</p>
+				</section>
+
+				{/* Primary actions */}
+				<section className="mt-8">
+					<div className="flex flex-col items-stretch sm:items-center gap-3 sm:flex-row sm:justify-center">
+						<Link
+							href="https://github.com/DanielButler1/AI-Stats"
+							className="w-full sm:w-auto"
+							aria-label="Submit a new provider on GitHub"
+						>
+							<Button className="w-full sm:w-auto gap-2">
+								<Building2 className="h-4 w-4" />
+								<span>Submit a New Provider</span>
+								<ArrowUpRight className="h-4 w-4 opacity-80" />
+							</Button>
+						</Link>
+						<Link
+							href="https://github.com/DanielButler1/AI-Stats"
+							className="w-full sm:w-auto"
+							aria-label="Submit a new model on GitHub"
+						>
+							<Button className="w-full sm:w-auto gap-2">
+								<FilePlus2 className="h-4 w-4" />
+								<span>Submit a New Model</span>
+								<ArrowUpRight className="h-4 w-4 opacity-80" />
+							</Button>
+						</Link>
+					</div>
+					<div className="mt-3 flex flex-col items-stretch sm:items-center gap-3 sm:flex-row sm:justify-center">
+						<Link
+							href="contribute"
+							className="w-full sm:w-auto"
+							aria-label="Back to model contributions"
+						>
+							<Button
+								className="w-full sm:w-auto gap-2"
+								variant="secondary"
+							>
+								<span>Back to Model Contributions</span>
+							</Button>
+						</Link>
+						<Link
+							href="contribute/prices"
+							className="w-full sm:w-auto"
+							aria-label="View pricing coverage"
+						>
+							<Button
+								className="w-full sm:w-auto gap-2"
+								variant="secondary"
+							>
+								<Tag className="h-4 w-4" />
+								<span>View Pricing Coverage</span>
+							</Button>
+						</Link>
+					</div>
+				</section>
+
+				{/* Benchmark heatmap */}
+				<section className="mt-8">
+					{errorMsg ? (
+						<div className="text-red-600 font-bold">{errorMsg}</div>
+					) : (
+						<BenchmarkHeatmap
+							models={models}
+							allBenchmarks={benchmarks}
+						/>
+					)}
+				</section>
 			</div>
 		</main>
 	);
