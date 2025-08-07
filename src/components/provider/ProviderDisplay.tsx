@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ProviderTabs from "@/components/provider/ProviderTabs";
 import { ExtendedModel } from "@/data/types";

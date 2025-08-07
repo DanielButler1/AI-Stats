@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import { fetchAggregateData } from "@/lib/fetchData";
 import ModelUpdatesPage from "@/components/models/ModelUpdates/ModelUpdates";
 import type { Metadata } from "next";

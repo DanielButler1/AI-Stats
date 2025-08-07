@@ -1,5 +1,5 @@
 import { ExtendedModel } from "@/data/types";
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import SourcesDisplay from "@/components/sources/SourcesDisplay";
 import type { Metadata } from "next";
 import { fetchAggregateData } from "@/lib/fetchData";

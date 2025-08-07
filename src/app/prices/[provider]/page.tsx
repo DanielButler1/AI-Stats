@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import type { Metadata } from "next";
 import type { ExtendedModel, Price } from "@/data/types";
 import { fetchAggregateData } from "@/lib/fetchData";

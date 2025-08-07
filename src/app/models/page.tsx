@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import { ExtendedModel } from "@/data/types";
 import ModelsDisplay from "@/components/models/Models/ModelsDisplay";
 import { fetchAggregateData } from "@/lib/fetchData";

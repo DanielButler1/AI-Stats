@@ -3,7 +3,7 @@ import {
 	AnnouncementTag,
 	AnnouncementTitle,
 } from "@/components/ui/announcement";
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import DatabaseStats from "@/components/landingPage/DatabaseStatistics";
 import ModelUpdates from "@/components/landingPage/ModelUpdates";
 import PartnerLogos from "@/components/landingPage/PartnerLogos/PartnerLogos";

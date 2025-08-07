@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import BenchmarksDisplay from "@/components/benchmarks/BenchmarksDisplay";
 import type { Metadata } from "next";
 import { fetchBenchmarks } from "@/lib/fetchData";

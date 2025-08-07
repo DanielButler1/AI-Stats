@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import type { ExtendedModel } from "@/data/types";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";

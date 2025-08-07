@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import BenchmarkMetrics from "@/components/benchmark/BenchmarkMetrics";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";

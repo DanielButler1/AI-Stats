@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import type { ExtendedModel } from "@/data/types";
 import ModelEdits from "@/components/contribute/edit/ModelEdits";
 import Link from "next/link";
