@@ -5,5 +5,10 @@
   "country_code": "FR",
   "description": null,
   "colour": "#e97a35",
-  "twitter": "https://x.com/MistralAI"
+  "socials": [
+    {
+      "platform": "twitter",
+      "url": "https://x.com/MistralAI"
+    }
+  ]
 }

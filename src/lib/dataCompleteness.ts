@@ -7,6 +7,24 @@ interface CompletenessResult {
     completed: number;
 }
 
+// Internal safe directory reader
+function safeReadJson<T>(jsonPath: string): T | null {
+    try {
+        const data = fs.readFileSync(jsonPath, 'utf8');
+        return JSON.parse(data) as T;
+    } catch {
+        return null;
+    }
+}
+
+function safeListDir(dir: string): string[] {
+    try {
+        return fs.readdirSync(dir);
+    } catch {
+        return [];
+    }
+}
+
 // Calculate completeness for providers
 export function getProviderCompleteness(): CompletenessResult {
     const providerFields: (keyof Provider)[] = [
@@ -16,20 +34,20 @@ export function getProviderCompleteness(): CompletenessResult {
         'country_code',
         'description',
         'colour',
-        'twitter'
+        'socials'
     ];
     // Load all providers from the providers directory
     const dir = path.join(process.cwd(), 'src', 'data', 'providers');
-    const providerNames = fs.readdirSync(dir);
+    const providerNames = safeListDir(dir);
     const providers: Provider[] = providerNames.map(name => {
         const jsonPath = path.join(dir, name, 'provider.json');
-        return JSON.parse(fs.readFileSync(jsonPath, 'utf8')) as Provider;
-    });
+        return safeReadJson<Provider>(jsonPath) as Provider;
+    }).filter(Boolean) as Provider[];
     const total = providers.length * providerFields.length;
     let completed = 0;
     providers.forEach(provider => {
         providerFields.forEach(field => {
-            if (provider[field] != null) completed++;
+            if ((provider as any)[field] != null) completed++;
         });
     });
     return { total, completed };
@@ -39,7 +57,7 @@ export function getProviderCompleteness(): CompletenessResult {
 export function getModelFieldCompleteness(models: ExtendedModel[]): CompletenessResult {
     const modelFields: (keyof ExtendedModel)[] = [
         'id', 'name', 'provider', 'status', 'previous_model_id', 'description', 'announced_date',
-        'release_date', 'input_context_length', 'output_context_length', 'license', 'multimodal',
+        'release_date', 'deprecation_date', 'retirement_date', 'open_router_model_id', 'input_context_length', 'output_context_length', 'license', 'multimodal',
         'input_types', 'output_types', 'web_access', 'reasoning',
         'fine_tunable', 'knowledge_cutoff', 'api_reference_link', 'playground_link',
         'paper_link', 'announcement_link', 'repository_link', 'weights_link',
@@ -97,7 +115,7 @@ export function getPricingCompleteness(models: ExtendedModel[]): CompletenessRes
     let completed = 0;
     models.forEach(model => {
         priceFields.forEach(field => {
-            if (model.prices?.some(p => (p as any)[field] != null)) {
+            if (model.prices?.some(p => (p as any)[field] != null || (field === 'api_provider' && (p as any)['api_provider_id'] != null))) {
                 completed++;
             }
         });
@@ -109,14 +127,14 @@ export function getPricingCompleteness(models: ExtendedModel[]): CompletenessRes
 export function getBenchmarkDefinitionCompleteness(): CompletenessResult {
     const benchFields: (keyof Benchmark)[] = ['id', 'name', 'description', 'link'];
     const dir = path.join(process.cwd(), 'src', 'data', 'benchmarks');
-    const benchNames = fs.readdirSync(dir);
+    const benchNames = safeListDir(dir);
     const benchmarks: Benchmark[] = benchNames.map(name => {
         const jsonPath = path.join(dir, name, 'benchmark.json');
-        return JSON.parse(fs.readFileSync(jsonPath, 'utf8')) as Benchmark;
-    });
+        return safeReadJson<Benchmark>(jsonPath) as Benchmark;
+    }).filter(Boolean) as Benchmark[];
     const total = benchmarks.length * benchFields.length;
     let completed = 0;
-    benchmarks.forEach(b => benchFields.forEach(f => { if (b[f] != null) completed++; }));
+    benchmarks.forEach(b => benchFields.forEach(f => { if ((b as any)[f] != null) completed++; }));
     return { total, completed };
 }
 
@@ -124,24 +142,47 @@ export function getBenchmarkDefinitionCompleteness(): CompletenessResult {
 export function getAPIProviderCompleteness(): CompletenessResult {
     const apiFields: (keyof APIProvider)[] = ['api_provider_id', 'api_provider_name', 'description', 'link'];
     const dir = path.join(process.cwd(), 'src', 'data', 'api_providers');
-    const names = fs.readdirSync(dir);
+    const names = safeListDir(dir);
     const providers: APIProvider[] = names.map(name => {
         const jsonPath = path.join(dir, name, 'api_provider.json');
-        return JSON.parse(fs.readFileSync(jsonPath, 'utf8')) as APIProvider;
-    });
+        return safeReadJson<APIProvider>(jsonPath) as APIProvider;
+    }).filter(Boolean) as APIProvider[];
     const total = providers.length * apiFields.length;
     let completed = 0;
-    providers.forEach(p => apiFields.forEach(f => { if (p[f] != null) completed++; }));
+    providers.forEach(p => apiFields.forEach(f => { if ((p as any)[f] != null) completed++; }));
     return { total, completed };
 }
 
+// Infer benchmark definitions from models' benchmark_results when explicit list isn't provided
+export function inferBenchmarksFromModels(models: ExtendedModel[]): Benchmark[] {
+    const map = new Map<string, Benchmark>();
+    models.forEach(m => {
+        m.benchmark_results?.forEach(r => {
+            if (!map.has(r.benchmark_id)) {
+                map.set(r.benchmark_id, {
+                    id: r.benchmark_id,
+                    name: r.benchmark_id,
+                    category: null,
+                    order: r.benchmark_id,
+                    description: null,
+                    link: null,
+                } as Benchmark);
+            }
+        });
+    });
+    return Array.from(map.values());
+}
+
 // Aggregate all completeness metrics into overall counts and percentage
-export function getDataCompleteness(models: ExtendedModel[], benchmarks: Benchmark[]): { total: number; completed: number; percent: number } {
+export function getDataCompleteness(models: ExtendedModel[], benchmarks: Benchmark[] = []): { total: number; completed: number; percent: number } {
+    // If no benchmarks provided, attempt to infer from models so we can compute server-side without FS reads
+    const inferredBenchmarks = benchmarks && benchmarks.length > 0 ? benchmarks : inferBenchmarksFromModels(models);
+
     const prov = getProviderCompleteness();
     const apiProv = getAPIProviderCompleteness();
     const mod = getModelFieldCompleteness(models);
     const benchDefs = getBenchmarkDefinitionCompleteness();
-    const benchRes = getBenchmarkCompleteness(models, benchmarks);
+    const benchRes = getBenchmarkCompleteness(models, inferredBenchmarks);
     const price = getPricingCompleteness(models);
 
     const total = prov.total + apiProv.total + mod.total + benchDefs.total + benchRes.total + price.total;

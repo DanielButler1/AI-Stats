@@ -1,13 +1,13 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowUpDown } from "lucide-react";
+import { Info, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import type { ExtendedModel } from "@/data/types";
 import Image from "next/image";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { ModelCard } from "./ModelCard";
 
 const PROVIDER_QUICK_FILTERS = [
@@ -51,9 +51,14 @@ function validateModel(model: ExtendedModel) {
 
 	// Important (Warning) Fields - only check for null
 	if (model.status === null) warnings.push("Missing status");
-	if (model.description === null) warnings.push("Missing description");
 	if (model.announced_date === null)
 		warnings.push("Missing announcement date");
+	if (model.deprecation_date === null)
+		warnings.push("Missing deprecation date");
+	if (model.retirement_date === null)
+		warnings.push("Missing retirement date");
+	if (model.open_router_model_id === null)
+		warnings.push("Missing OpenRouter model ID");
 	if (model.input_context_length === null)
 		warnings.push("Missing input context length");
 	if (model.output_context_length === null)
@@ -92,16 +97,7 @@ function validateModel(model: ExtendedModel) {
 	// Pricing and Performance Metrics - only check for null
 	const prices = getModelPrices(model);
 	if (prices === null) {
-		suggestions.push("Missing pricing information");
-	} else {
-		if (prices.input_token_price === null)
-			suggestions.push("Missing price per input token");
-		if (prices.output_token_price === null)
-			suggestions.push("Missing price per output token");
-		// if (prices.throughput === null)
-		// 	suggestions.push("Missing throughput metrics");
-		// if (prices.latency === null)
-		// 	suggestions.push("Missing latency metrics");
+		warnings.push("Missing pricing information");
 	}
 
 	// Categorize the overall status
@@ -139,18 +135,22 @@ function validateModel(model: ExtendedModel) {
 
 export default function ModelEdits({ models }: ModelEditsProps) {
 	const [selectedProviders, setSelectedProviders] = useState<string[]>([]);
-	const [showIssuesFirst, setShowIssuesFirst] = useState(false);
 
-	const results = models.map((model) => {
-		const validation = validateModel(model);
-		return { model, ...validation };
-	});
+	const results = useMemo(() => {
+		return models.map((model) => {
+			const validation = validateModel(model);
+			return { model, ...validation };
+		});
+	}, [models]);
 
-	const filteredResults = results.filter(
-		(result) =>
-			selectedProviders.length === 0 ||
-			selectedProviders.includes(result.model.provider?.provider_id)
-	);
+	const filteredResults = useMemo(() => {
+		return results.filter(
+			(result) =>
+				selectedProviders.length === 0 ||
+				selectedProviders.includes(result.model.provider?.provider_id)
+		);
+	}, [results, selectedProviders]);
+
 	// Split models into released and unreleased based on status
 	const releasedResults = filteredResults.filter(
 		(result) => result.model.status !== "Rumoured"
@@ -159,34 +159,18 @@ export default function ModelEdits({ models }: ModelEditsProps) {
 		(result) => result.model.status === "Rumoured"
 	);
 
-	// Sort function for both groups
-	const sortResults = (results: typeof filteredResults) => {
-		return [...results].sort((a, b) => {
+	// Always sort: by date (release_date, announced_date) DESC, then status priority
+	const statusRank = { critical: 0, warning: 1, complete: 2 } as const;
+	const sortResults = (arr: typeof filteredResults) => {
+		return [...arr].sort((a, b) => {
 			const getSortDate = (model: ExtendedModel) =>
 				new Date(
 					model.release_date || model.announced_date || 0
 				).getTime();
 
-			if (showIssuesFirst) {
-				// First sort by status priority
-				if (a.status === "critical" && b.status !== "critical")
-					return -1;
-				if (a.status !== "critical" && b.status === "critical")
-					return 1;
-				if (a.status === "warning" && b.status === "complete")
-					return -1;
-				if (a.status === "complete" && b.status === "warning") return 1;
-
-				// Within each status category, sort by release/announced date
-				const dateA = getSortDate(a.model);
-				const dateB = getSortDate(b.model);
-				return dateB - dateA;
-			}
-
-			// Default sorting: by release/announced date descending
-			const dateA = getSortDate(a.model);
-			const dateB = getSortDate(b.model);
-			return dateB - dateA;
+			const dateDiff = getSortDate(b.model) - getSortDate(a.model);
+			if (dateDiff !== 0) return dateDiff;
+			return statusRank[a.status] - statusRank[b.status];
 		});
 	};
 
@@ -195,10 +179,11 @@ export default function ModelEdits({ models }: ModelEditsProps) {
 
 	return (
 		<TooltipProvider>
-			<div className="space-y-6">
+			<div className="space-y-4">
+				{/* Compact filter bar */}
 				<Card>
-					<CardContent className="pt-6">
-						<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+					<CardContent className="pt-4 pb-3">
+						<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
 							<ToggleGroup
 								type="multiple"
 								value={selectedProviders}
@@ -210,70 +195,74 @@ export default function ModelEdits({ models }: ModelEditsProps) {
 										key={filter.id}
 										value={filter.id}
 										variant="outline"
-										className="rounded-full transition-all duration-200 data-[state=on]:bg-gray-200 data-[state=on]:text-primary hover:bg-gray-100 flex items-center gap-2"
+										className="h-8 rounded-full px-3 text-sm transition-all duration-200 data-[state=on]:bg-gray-200 data-[state=on]:text-primary hover:bg-gray-100 flex items-center gap-2"
+										aria-label={`Filter by ${filter.label}`}
 									>
 										<Image
 											src={`/providers/${filter.id}.svg`}
 											alt={filter.label}
-											width={16}
-											height={16}
+											width={14}
+											height={14}
 											className="rounded-sm"
 										/>
 										{filter.label}
 									</ToggleGroupItem>
 								))}
 							</ToggleGroup>
-							<Button
-								variant="outline"
-								size="sm"
-								className="shrink-0"
-								onClick={() =>
-									setShowIssuesFirst(!showIssuesFirst)
-								}
-							>
-								<ArrowUpDown className="mr-2 h-4 w-4" />
-								{showIssuesFirst
-									? "Show Default Order"
-									: "Show Issues First"}
-							</Button>
 						</div>
 					</CardContent>
 				</Card>
 
-				<div className="space-y-8">
-					{" "}
+				<div className="space-y-6">
 					{/* Released Models Section */}
-					<div className="space-y-4">
+					<div className="space-y-3">
 						<Card>
-							<CardContent className="pt-6">
-								<h2 className="text-xl font-semibold">
-									Available Models
-								</h2>
+							<CardContent className="pt-4 pb-3">
+								<div className="flex items-center justify-between gap-3">
+									<h2 className="text-lg font-semibold">
+										Available Models
+									</h2>
+									<Info
+										className="h-4 w-4 text-muted-foreground"
+										aria-hidden="true"
+									/>
+								</div>
 							</CardContent>
 						</Card>
-						<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+						<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 							{sortedReleasedResults.map((result) => (
 								<ModelCard key={result.model.id} {...result} />
 							))}
 							{sortedReleasedResults.length === 0 && (
-								<p className="text-muted-foreground col-span-full text-center py-4">
-									No released models found.
-								</p>
+								<div className="col-span-full flex flex-col items-center justify-center rounded-md border border-dashed p-6 text-center">
+									<Sparkles className="h-5 w-5 text-muted-foreground mb-1.5" />
+									<p className="text-sm text-muted-foreground">
+										No released models match your filters.
+									</p>
+									<Button
+										className="mt-2"
+										size="sm"
+										variant="outline"
+										onClick={() => setSelectedProviders([])}
+									>
+										Reset filters
+									</Button>
+								</div>
 							)}
 						</div>
 					</div>
+
 					{/* Unreleased Models Section */}
 					{sortedUnreleasedResults.length > 0 && (
-						<div className="space-y-4">
-							{" "}
+						<div className="space-y-3">
 							<Card>
-								<CardContent className="pt-6">
-									<h2 className="text-xl font-semibold">
+								<CardContent className="pt-4 pb-3">
+									<h2 className="text-lg font-semibold">
 										Rumoured Models
 									</h2>
 								</CardContent>
 							</Card>
-							<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+							<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 								{sortedUnreleasedResults.map((result) => (
 									<ModelCard
 										key={result.model.id}

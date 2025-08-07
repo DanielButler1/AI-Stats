@@ -1,6 +1,6 @@
-# 🤝 Contributing to AI Model Stats
+# 🤝 Contributing to AI Stats
 
-Thank you for your interest in contributing to **AI Model Stats**! This is a community-driven project, and we welcome contributions from **everyone**, whether you're a seasoned developer, AI researcher, or simply someone passionate about tracking the evolution of language models.
+Thank you for your interest in contributing to **AI Stats**! This is a community-driven project, and we welcome contributions from **everyone**, whether you're a seasoned developer, AI researcher, or simply someone passionate about tracking the evolution of language models.
 
 ---
 

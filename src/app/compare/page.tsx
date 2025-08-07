@@ -1,6 +1,6 @@
 import CompareDashboard from "@/components/compare/CompareDashboard";
 import CompareMiniHeader from "@/components/compare/CompareMiniHeader";
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import { ExtendedModel } from "@/data/types";
 import { fetchAggregateData } from "@/lib/fetchData";
 import type { Metadata } from "next";

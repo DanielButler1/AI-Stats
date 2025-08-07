@@ -72,5 +72,12 @@
       "other_info": null
     }
   ],
-  "features": []
+  "features": [
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Agent Mode",
+      "feature_description": null,
+      "other_info": null
+    }
+  ]
 }

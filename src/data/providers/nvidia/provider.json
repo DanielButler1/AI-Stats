@@ -5,5 +5,10 @@
   "country_code": "US",
   "description": null,
   "colour": "#76B900",
-  "twitter": "https://x.com/NVIDIAAI"
+  "socials": [
+    {
+      "platform": "twitter",
+      "url": "https://x.com/NVIDIAAI"
+    }
+  ]
 }

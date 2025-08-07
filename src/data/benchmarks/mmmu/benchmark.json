@@ -1,6 +1,7 @@
 {
   "id": "mmmu",
   "name": "MMMU",
+  "category": null,
   "order": null,
   "description": null,
   "link": "https://mmmu-benchmark.github.io/#leaderboard"

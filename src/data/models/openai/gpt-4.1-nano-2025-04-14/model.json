@@ -9,7 +9,6 @@
   "release_date": "2025-04-14T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
-  "open_router_model_id": "openai/gpt-4.1-nano",
   "input_context_length": 1047576,
   "output_context_length": 32768,
   "license": "Proprietary",

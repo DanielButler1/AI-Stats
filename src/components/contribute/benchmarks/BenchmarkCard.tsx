@@ -118,7 +118,7 @@ export default function BenchmarkCard({
 													className="p-2 rounded-md flex items-center justify-between bg-gray-100 dark:bg-gray-800/20"
 												>
 													<div className="flex items-center gap-2">
-														<div className="w-5 h-5 relative flex-shrink-0">
+														<div className="w-5 h-5 relative shrink-0">
 															<Image
 																src={`/providers/${model.provider?.provider_id}.svg`}
 																alt={
@@ -193,7 +193,7 @@ export default function BenchmarkCard({
 														className="p-2 rounded-md flex items-center justify-between bg-green-50 dark:bg-green-950/20"
 													>
 														<div className="flex items-center gap-2">
-															<div className="w-5 h-5 relative flex-shrink-0">
+															<div className="w-5 h-5 relative shrink-0">
 																<Image
 																	src={`/providers/${model.provider?.provider_id}.svg`}
 																	alt={

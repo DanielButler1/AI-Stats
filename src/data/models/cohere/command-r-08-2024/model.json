@@ -9,7 +9,6 @@
   "release_date": "2024-08-30T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
-  "open_router_model_id": "cohere/command-r-08-2024",
   "input_context_length": 128000,
   "output_context_length": 4000,
   "license": null,

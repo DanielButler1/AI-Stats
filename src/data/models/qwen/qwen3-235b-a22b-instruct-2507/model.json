@@ -9,7 +9,6 @@
   "release_date": "2025-07-21T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
-  "open_router_model_id": "qwen/qwen3-235b-a22b-2507",
   "input_context_length": 262144,
   "output_context_length": 262144,
   "license": "Apache 2.0",

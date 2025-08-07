@@ -1,6 +1,7 @@
 {
   "id": "mc-bench",
   "name": "MC-Bench",
+  "category": null,
   "order": null,
   "description": null,
   "link": "https://mcbench.ai/leaderboard"

@@ -9,7 +9,6 @@
   "release_date": "2025-03-13T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
-  "open_router_model_id": "cohere/command-a",
   "input_context_length": 256000,
   "output_context_length": 4000,
   "license": "CC-BY-NC",

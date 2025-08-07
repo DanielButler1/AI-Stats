@@ -5,5 +5,10 @@
   "country_code": "US",
   "description": null,
   "colour": "#cc785c",
-  "twitter": "https://x.com/AnthropicAI"
+  "socials": [
+    {
+      "platform": "twitter",
+      "url": "https://x.com/AnthropicAI"
+    }
+  ]
 }

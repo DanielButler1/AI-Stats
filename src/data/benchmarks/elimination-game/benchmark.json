@@ -1,6 +1,7 @@
 {
   "id": "elimination-game",
   "name": "Elimation Game",
+  "category": null,
   "order": null,
   "description": null,
   "link": "https://github.com/lechmazur/elimination_game"

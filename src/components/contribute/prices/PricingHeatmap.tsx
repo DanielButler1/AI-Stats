@@ -10,22 +10,19 @@ import {
 } from "@/components/ui/tooltip";
 import type { ExtendedModel } from "@/data/types";
 import { Badge } from "@/components/ui/badge";
-import { ListFilter } from "lucide-react";
 import PricingHeatmapControls from "./PricingHeatmapControls";
 
 interface PricingHeatmapProps {
 	models: ExtendedModel[];
 }
 
-type ViewMode = "MODEL";
-
 export default function PricingHeatmap({ models }: PricingHeatmapProps) {
 	// State for search query
 	const [searchQuery, setSearchQuery] = useState("");
 	// State for sort method
 	const [sortMethod, setSortMethod] = useState<
-		"coverage-desc" | "coverage-asc" | "name"
-	>("coverage-desc");
+		"release-desc" | "coverage-desc" | "coverage-asc" | "name"
+	>("release-desc");
 	// Helper to check if a model has any input token prices
 	const hasInputPrice = (model: ExtendedModel) => {
 		return model.prices?.some((p) => p.input_token_price !== null) ?? false;
@@ -84,9 +81,16 @@ export default function PricingHeatmap({ models }: PricingHeatmapProps) {
 
 		// Apply sorting
 		return filtered.sort((a, b) => {
+			if (sortMethod === "release-desc") {
+				// Sort by release date descending (fallback to announced date)
+				const dateA = new Date(a.release_date || a.announced_date || 0);
+				const dateB = new Date(b.release_date || b.announced_date || 0);
+				if (dateA.getTime() !== dateB.getTime()) {
+					return dateB.getTime() - dateA.getTime();
+				}
+			}
 			const coverageA = getPricingCoverage(a);
 			const coverageB = getPricingCoverage(b);
-
 			if (sortMethod === "coverage-desc") {
 				if (coverageA !== coverageB) {
 					return coverageB - coverageA;
@@ -143,7 +147,7 @@ export default function PricingHeatmap({ models }: PricingHeatmapProps) {
 						<PricingHeatmapControls
 							searchQuery={searchQuery}
 							setSearchQuery={setSearchQuery}
-							sortMethod={sortMethod}
+							sortMethod={sortMethod as any}
 							setSortMethod={setSortMethod}
 						/>
 

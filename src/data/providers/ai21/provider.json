@@ -5,5 +5,10 @@
   "country_code": "IL",
   "description": null,
   "colour": "#e72364",
-  "twitter": "https://x.com/AI21Labs"
+  "socials": [
+    {
+      "platform": "twitter",
+      "url": "https://x.com/AI21Labs"
+    }
+  ]
 }

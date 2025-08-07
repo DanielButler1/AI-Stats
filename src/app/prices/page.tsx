@@ -1,6 +1,5 @@
-import Header from "@/components/header";
-import PriceProvidersDisplay from "@/components/prices/PriceProvidersDisplay";
-import { Card } from "@/components/ui/card";
+import Header from "@/components/Header";
+import PriceProvidersDisplay from "@/components/prices/Provider/PriceProvidersDisplay";
 import type { Metadata } from "next";
 import { fetchAggregateData } from "@/lib/fetchData";
 
@@ -59,136 +58,101 @@ function extractProviderInfo(price: any) {
 }
 
 export default async function PricesPage() {
-	try {
-		const models = await fetchAggregateData();
+	const models = await fetchAggregateData();
 
-		const providerMap = new Map(); // Store provider data
-		const providerToModelsMap = new Map<string, Set<string>>(); // Track unique models per provider
+	const providerMap = new Map(); // Store provider data
+	const providerToModelsMap = new Map<string, Set<string>>(); // Track unique models per provider
 
-		// First pass: Collect all unique models and their base information
-		const uniqueModelIds = new Set<string>();
-		models.forEach((model: any) => {
-			if (model.id) uniqueModelIds.add(model.id);
-		});
+	// First pass: Collect all unique models and their base information
+	const uniqueModelIds = new Set<string>();
+	models.forEach((model: any) => {
+		if (model.id) uniqueModelIds.add(model.id);
+	});
 
-		// Process all models and their prices
-		models.forEach((model: any) => {
-			if (!model.prices || !Array.isArray(model.prices)) return;
+	// Process all models and their prices
+	models.forEach((model: any) => {
+		if (!model.prices || !Array.isArray(model.prices)) return;
 
-			// Track which providers we've seen for this model
-			const processedProvidersForModel = new Set<string>();
+		// Track which providers we've seen for this model
+		const processedProvidersForModel = new Set<string>();
 
-			model.prices.forEach((price: any) => {
-				// Extract provider info
-				const providerInfo = extractProviderInfo(price);
-				if (!providerInfo) return;
+		model.prices.forEach((price: any) => {
+			// Extract provider info
+			const providerInfo = extractProviderInfo(price);
+			if (!providerInfo) return;
 
-				const { id, name, description, inputPrice, outputPrice } =
-					providerInfo;
+			const { id, name, description, inputPrice, outputPrice } =
+				providerInfo;
 
-				// Only track each unique model once per provider
-				// This prevents counting the same model twice for a provider
-				if (!processedProvidersForModel.has(id)) {
-					processedProvidersForModel.add(id);
+			// Only track each unique model once per provider
+			// This prevents counting the same model twice for a provider
+			if (!processedProvidersForModel.has(id)) {
+				processedProvidersForModel.add(id);
 
-					// Add to unique models tracker
-					if (!providerToModelsMap.has(id)) {
-						providerToModelsMap.set(id, new Set([model.id]));
-					} else {
-						providerToModelsMap.get(id)!.add(model.id);
-					}
-				}
-
-				// Create or update provider data
-				if (!providerMap.has(id)) {
-					// First time seeing this provider
-					providerMap.set(id, {
-						id,
-						name,
-						description,
-						minInputPrice: inputPrice,
-						minOutputPrice: outputPrice,
-						allPrices: [
-							{
-								input: inputPrice,
-								output: outputPrice,
-								modelId: model.id,
-							},
-						],
-					});
+				// Add to unique models tracker
+				if (!providerToModelsMap.has(id)) {
+					providerToModelsMap.set(id, new Set([model.id]));
 				} else {
-					// Update existing provider data
-					const providerData = providerMap.get(id);
-
-					// Add this price to allPrices
-					providerData.allPrices.push({
-						input: inputPrice,
-						output: outputPrice,
-						modelId: model.id,
-					});
-
-					// Update minimum prices
-					if (
-						inputPrice &&
-						(providerData.minInputPrice === null ||
-							inputPrice < providerData.minInputPrice)
-					) {
-						providerData.minInputPrice = inputPrice;
-					}
-					if (
-						outputPrice &&
-						(providerData.minOutputPrice === null ||
-							outputPrice < providerData.minOutputPrice)
-					) {
-						providerData.minOutputPrice = outputPrice;
-					}
+					providerToModelsMap.get(id)!.add(model.id);
 				}
-			});
-		});
+			}
 
-		// Convert to arrays for rendering
-		const providers = Array.from(providerMap.values());
-		// Create provider usage object
-		const providerUsage: Record<string, number> = {};
-		providerToModelsMap.forEach((modelSet, providerId) => {
-			providerUsage[providerId] = modelSet.size;
-		});
+			// Create or update provider data
+			if (!providerMap.has(id)) {
+				// First time seeing this provider
+				providerMap.set(id, {
+					id,
+					name,
+					description,
+					minInputPrice: inputPrice,
+					minOutputPrice: outputPrice,
+					allPrices: [
+						{
+							input: inputPrice,
+							output: outputPrice,
+							modelId: model.id,
+						},
+					],
+				});
+			} else {
+				// Update existing provider data
+				const providerData = providerMap.get(id);
 
-		return (
-			<main className="flex min-h-screen flex-col">
-				<Header />
-				<div className="container mx-auto px-4 py-8">
-					<Card className="mb-4 shadow-lg p-4">
-						<h1 className="text-3xl font-bold">
-							All API Providers{" "}
-							<span className="text-muted-foreground text-xl font-normal">
-								({providers.length})
-							</span>
-						</h1>
-					</Card>
-					<PriceProvidersDisplay
-						providers={providers}
-						providerUsage={providerUsage}
-					/>
-				</div>
-			</main>
-		);
-	} catch (error) {
-		// Log error, but not in production
-		if (process.env.NODE_ENV !== "production") {
-			// eslint-disable-next-line no-console
-			console.error("Error loading price providers:", error);
-		}
-		return (
-			<main className="flex min-h-screen flex-col">
-				<Header />
-				<div className="container mx-auto px-4 py-8">
-					<h1 className="text-2xl font-bold text-red-600">
-						Error loading price provider data
-					</h1>
-					<p>Please try refreshing the page.</p>
-				</div>
-			</main>
-		);
-	}
+				// Add this price to allPrices
+				providerData.allPrices.push({
+					input: inputPrice,
+					output: outputPrice,
+					modelId: model.id,
+				});
+
+				// Update minimum prices
+				if (
+					inputPrice &&
+					(providerData.minInputPrice === null ||
+						inputPrice < providerData.minInputPrice)
+				) {
+					providerData.minInputPrice = inputPrice;
+				}
+				if (
+					outputPrice &&
+					(providerData.minOutputPrice === null ||
+						outputPrice < providerData.minOutputPrice)
+				) {
+					providerData.minOutputPrice = outputPrice;
+				}
+			}
+		});
+	});
+
+	// Convert to arrays for rendering
+	const providers = Array.from(providerMap.values());
+
+	return (
+		<main className="flex min-h-screen flex-col">
+			<Header />
+			<div className="container mx-auto px-4 py-8">
+				<PriceProvidersDisplay providers={providers} />
+			</div>
+		</main>
+	);
 }

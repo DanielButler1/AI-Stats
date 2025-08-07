@@ -1,6 +1,7 @@
 {
   "id": "livebench",
   "name": "LiveBench",
+  "category": null,
   "order": null,
   "description": null,
   "link": "https://livebench.ai/#/"

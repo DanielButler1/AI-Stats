@@ -9,7 +9,6 @@
   "release_date": "2024-06-27T00:00:00",
   "deprecation_date": "",
   "retirement_date": "",
-  "open_router_model_id": "google/gemma-2-9b-it",
   "input_context_length": 8192,
   "output_context_length": 8192,
   "license": "Gemma",

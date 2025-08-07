@@ -1,6 +1,7 @@
 {
   "id": "mmlu-redux",
   "name": "MMLU Redux",
+  "category": null,
   "order": null,
   "description": null,
   "link": null

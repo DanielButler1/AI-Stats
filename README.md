@@ -1,20 +1,22 @@
-# 🤖 AI Stats
+# 🤖 AI Stats - The Largest Database of AI Information
 
-> 🚧 **Work in Progress**  
-> This project is still in its early stages - data is actively being gathered and there may be bugs, gaps, or inaccuracies.  
+> This project is still in its relatively early stages - data is actively being gathered and the interface is being built on every week.
+> There may be bugs on the website, gaps, or inaccuracies in data.
 > Want to help? **Contributions are welcome!** See the [Get Involved](#get-involved) section below.
+
+> The schema is also in active development, so expect changes to the data structure as we refine it to hold all the data we need.
 
 ---
 
 ## 🌟 What is AI Stats?
 
-With new AI models launching almost **every week**, it’s hard to keep up.  
+With new AI models launching what feels like **multiple times every week**, it’s hard to keep up.  
 **AI Stats** offers a **clean, open, and collaborative** platform to:
 
 -   📊 Explore recently released models
 -   🔍 Compare benchmarks and capabilities
 -   📈 Track performance over time
--   🛠️ View context lengths, provider info, and more
+-   🛠️ View model details and pricing information
 
 The **entire project is community-driven** and licensed for non-commercial use. If something’s missing or incorrect, you can help fix it!
 
@@ -28,6 +30,7 @@ There was **no central place** to quickly check:
 -   What models have recently launched
 -   How they compare on a wide range of benchmarks
 -   What their strengths and limitations are
+-   How much they cost to use
 
 AI Stats is our answer - a platform that keeps pace with the rapid evolution of AI.
 
@@ -45,7 +48,7 @@ Missing a model? Outdated prices? New benchmark results?
 
 ```bash
 1. Fork the repo
-2. Add or update JSON files in the `/data` folder
+2. Add or update JSON files in the `/data` folder based on the types defined in `/data/types`
 3. Submit a Pull Request with a clear title and description
 ```
 

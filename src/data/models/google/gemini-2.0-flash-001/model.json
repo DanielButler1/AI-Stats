@@ -9,7 +9,6 @@
   "release_date": "2024-12-01T00:00:00",
   "deprecation_date": "2026-02-05T00:00:00",
   "retirement_date": "",
-  "open_router_model_id": "google/gemini-2.0-flash-001",
   "input_context_length": 1048576,
   "output_context_length": 8192,
   "license": "Proprietary",

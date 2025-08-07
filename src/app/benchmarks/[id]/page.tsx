@@ -1,11 +1,11 @@
-import Header from "@/components/header";
+import Header from "@/components/Header";
+import BenchmarkMetrics from "@/components/benchmark/BenchmarkMetrics";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import ModelBenchmarkChart from "@/components/benchmark/ModelBenchmarkChart";
 import ModelsUsingBenchmark from "@/components/benchmark/ModelsUsingBenchmark";
 import type { Benchmark } from "@/data/types";
 import { fetchBenchmarks, fetchAggregateData } from "@/lib/fetchData";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -27,67 +27,41 @@ export async function generateMetadata(
 ): Promise<Metadata> {
 	const params = await props.params;
 
-	if (params.id === "ai-stats-score") {
+	const benchmarks = await fetchBenchmarks();
+	const benchmark: Benchmark | undefined = benchmarks.find(
+		(b) => b.id === params.id
+	);
+
+	if (!benchmark) {
 		return {
-			title: "AI Stats Score | Model Ratings & Leaderboard",
+			title: "Benchmark Not Found",
 			description:
-				"The AI Stats Score is a Glicko-based rating that summarizes overall model performance across multiple benchmarks. See the leaderboard and compare models by their Glicko rating.",
-			keywords: [
-				"AI Stats Score",
-				"Glicko rating",
-				"AI model leaderboard",
-				"model comparison",
-				"AI Stats",
-			],
-			alternates: {
-				canonical: `https://ai-stats.phaseo.app/benchmarks/ai-stats-score`,
-			},
-		};
-	}
-
-	try {
-		const benchmarks = await fetchBenchmarks();
-		const benchmark: Benchmark | undefined = benchmarks.find(
-			(b) => b.id === params.id
-		);
-
-		if (!benchmark) {
-			return {
-				title: "Benchmark Not Found",
-				description:
-					"The requested AI model benchmark could not be found on AI Stats.",
-				alternates: {
-					canonical: `https://ai-stats.phaseo.app/benchmarks/${params.id}`,
-				},
-			};
-		}
-
-		return {
-			title: `${benchmark.name} Benchmark | Scores, Usage & Model Performance`,
-			description: benchmark.description
-				? `${benchmark.description} See which AI models use the ${benchmark.name} benchmark, compare scores, and explore detailed performance data.`
-				: `Explore the ${benchmark.name} benchmark. See which AI models use it, compare scores, and view detailed performance data on AI Stats.`,
-			keywords: [
-				benchmark.name,
-				"AI benchmark",
-				"AI model benchmarks",
-				"benchmark scores",
-				"compare AI models",
-				"AI model evaluation",
-				"machine learning benchmarks",
-				"AI Stats",
-			],
+				"The requested AI model benchmark could not be found on AI Stats.",
 			alternates: {
 				canonical: `https://ai-stats.phaseo.app/benchmarks/${params.id}`,
 			},
 		};
-	} catch (error) {
-		return {
-			title: "Benchmark Error",
-			description:
-				"There was an error loading the benchmark data on AI Stats.",
-		};
 	}
+
+	return {
+		title: `${benchmark.name} Benchmark | Scores, Usage & Model Performance`,
+		description: benchmark.description
+			? `${benchmark.description} See which AI models use the ${benchmark.name} benchmark, compare scores, and explore detailed performance data.`
+			: `Explore the ${benchmark.name} benchmark. See which AI models use it, compare scores, and view detailed performance data on AI Stats.`,
+		keywords: [
+			benchmark.name,
+			"AI benchmark",
+			"AI model benchmarks",
+			"benchmark scores",
+			"compare AI models",
+			"AI model evaluation",
+			"machine learning benchmarks",
+			"AI Stats",
+		],
+		alternates: {
+			canonical: `https://ai-stats.phaseo.app/benchmarks/${params.id}`,
+		},
+	};
 }
 
 export async function generateStaticParams() {
@@ -96,10 +70,6 @@ export async function generateStaticParams() {
 		const paramsList = benchmarks.map((benchmark: { id: string }) => ({
 			id: benchmark.id,
 		}));
-		// Always include the special Glicko page
-		if (!paramsList.some((p) => p.id === "ai-stats-score")) {
-			paramsList.push({ id: "ai-stats-score" });
-		}
 		return paramsList;
 	} catch (error) {
 		console.error("Error generating static params for benchmarks:", error);
@@ -113,79 +83,68 @@ export default async function BenchmarkPage(props: BenchmarkPageProps) {
 	let benchmark: Benchmark | null = null;
 	let modelsWithBenchmark: any[] = [];
 
-	try {
-		const benchmarks = await fetchBenchmarks();
-		benchmark = (benchmarks.find((b) => b.id === params.id) ||
-			null) as Benchmark | null;
+	const benchmarks = await fetchBenchmarks();
+	benchmark = (benchmarks.find((b) => b.id === params.id) ||
+		null) as Benchmark | null;
 
-		if (!benchmark && params.id !== "ai-stats-score") {
-			notFound();
-		}
-
-		// Fetch models data
-		const models = await fetchAggregateData();
-
-		if (params.id === "ai-stats-score") {
-			// Special case: Use Glicko Ratings
-			modelsWithBenchmark = models
-				.filter(
-					(model: any) =>
-						model.glickoRating &&
-						typeof model.glickoRating.rating === "number"
-				)
-				.map((model: any) => ({
-					...model,
-					benchmark_results: [
-						{
-							score: model.glickoRating.rating,
-							uncertainty: model.glickoRating.rd,
-							benchmark_id: "ai-stats-score",
-							benchmark: {
-								id: "ai-stats-score",
-								name: "AI Stats Score",
-								description:
-									"Glicko rating system for overall model performance.",
-							},
-						},
-					],
-				}));
-			// Provide a pseudo-benchmark object for display
-			benchmark = {
-				id: "ai-stats-score",
-				name: "AI Stats Score",
-				description:
-					"The AI Stats Score is a Glicko-based rating that summarizes overall model performance across multiple benchmarks.",
-				link: "https://ai-stats.phaseo.app/benchmarks/ai-stats-score",
-				order: "Higher",
-			};
-		} else {
-			// Find models that use this benchmark by the benchmark_id
-			modelsWithBenchmark = models.filter((model: any) => {
-				if (
-					!model.benchmark_results ||
-					!Array.isArray(model.benchmark_results)
-				) {
-					return false;
-				}
-
-				return model.benchmark_results.some((br: any) => {
-					// Check for benchmark_id match
-					if (br.benchmark_id === params.id) {
-						return true;
-					}
-
-					// Also check in enriched benchmark data
-					if (br.benchmark && br.benchmark.id === params.id) {
-						return true;
-					}
-
-					return false;
-				});
-			});
-		}
-	} catch (error) {
-		console.error(`Error fetching data for benchmark ${params.id}:`, error);
+	if (!benchmark) {
+		return (
+			<main className="flex min-h-screen flex-col">
+				<Header />
+				<div className="container mx-auto px-4 py-8">
+					<div className="rounded-lg border border-dashed p-6 md:p-8 text-center bg-muted/30">
+						<div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-muted">
+							<span className="text-xl">📊</span>
+						</div>
+						<p className="text-base font-medium">
+							Benchmark not found
+						</p>
+						<p className="mt-1 text-sm text-muted-foreground">
+							We&apos;re continuously adding new benchmarks. Have
+							a benchmark to suggest or contribute?
+						</p>
+						<div className="mt-3">
+							<a
+								href="https://github.com/DanielButler1/AI-Stats"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="inline-flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+							>
+								Contribute on GitHub
+							</a>
+						</div>
+					</div>
+				</div>
+			</main>
+		);
 	}
+
+	// Fetch models data
+	const models = await fetchAggregateData();
+
+	// Find models that use this benchmark by the benchmark_id
+	modelsWithBenchmark = models.filter((model: any) => {
+		if (
+			!model.benchmark_results ||
+			!Array.isArray(model.benchmark_results)
+		) {
+			return false;
+		}
+
+		return model.benchmark_results.some((br: any) => {
+			// Check for benchmark_id match
+			if (br.benchmark_id === params.id) {
+				return true;
+			}
+
+			// Also check in enriched benchmark data
+			if (br.benchmark && br.benchmark.id === params.id) {
+				return true;
+			}
+
+			return false;
+		});
+	});
 
 	// If the benchmark still isn't found after API call, show 404
 	if (!benchmark) {
@@ -239,79 +198,56 @@ export default async function BenchmarkPage(props: BenchmarkPageProps) {
 			<Header />
 			<div className="container mx-auto px-4 py-8 space-y-4">
 				{/* Title Card */}
-				<Card className="shadow-lg bg-white dark:bg-zinc-950">
-					<CardHeader className="flex flex-row items-center justify-between">
-						<CardTitle className="text-3xl md:text-5xl font-bold mb-1 text-center md:text-left">
-							{benchmark.name}
-						</CardTitle>
-						{benchmark.link && (
-							<TooltipProvider>
-								<Tooltip>
-									<TooltipTrigger asChild>
-										<Button
-											asChild
-											size="sm"
-											variant="outline"
-											className="ml-auto"
+				<div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-2">
+					<h1 className="font-bold text-xl text-black mb-2 md:mb-0">
+						{benchmark.name}
+					</h1>
+					{benchmark.link && (
+						<TooltipProvider>
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										asChild
+										size="sm"
+										variant="outline"
+										className="ml-auto"
+									>
+										<Link
+											href={benchmark.link}
+											target="_blank"
+											rel="noopener noreferrer"
+											aria-label={`Visit ${benchmark.name} page`}
 										>
-											<Link
-												href={benchmark.link}
-												target="_blank"
-												rel="noopener noreferrer"
-												aria-label={`Visit ${benchmark.name} page`}
-											>
-												<ExternalLink className="w-5 h-5 inline-block align-text-bottom" />
-												<span className="sr-only">
-													Twitter
-												</span>
-											</Link>
-										</Button>
-									</TooltipTrigger>
-									<TooltipContent>
-										Visit benchmark page
-									</TooltipContent>
-								</Tooltip>
-							</TooltipProvider>
-						)}
-					</CardHeader>
-				</Card>
-				{/* About Section - Full Width */}
-				<Card className=" shadow-lg bg-white dark:bg-zinc-950">
-					<CardHeader>
-						<CardTitle className="text-2xl">
-							About this Benchmark
-						</CardTitle>
-					</CardHeader>
-					<CardContent>
-						<div className="prose dark:prose-invert max-w-none">
-							<p className="text-muted-foreground">
-								{benchmark.description ||
-									"Unfortunately there isn't a description for this benchmark yet."}
-							</p>
-						</div>
-					</CardContent>
-				</Card>
+											<ExternalLink className="w-5 h-5 inline-block align-text-bottom" />
+											<span className="sr-only">
+												Twitter
+											</span>
+										</Link>
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent>
+									Visit benchmark page
+								</TooltipContent>
+							</Tooltip>
+						</TooltipProvider>
+					)}
+				</div>
+				{/* Benchmark Stats Row */}
+				<BenchmarkMetrics
+					modelsWithBenchmark={modelsWithBenchmark}
+					benchmarkId={params.id}
+				/>
 				{/* Model Performance Chart - Full Width */}
-				<Card className=" shadow-lg bg-white dark:bg-zinc-950">
-					<CardHeader>
-						<CardTitle className="text-2xl">
-							Model Performance
-						</CardTitle>
-					</CardHeader>
-					<CardContent>
-						<ModelBenchmarkChart
-							models={modelsWithBenchmark}
-							benchmarkName={benchmark.name}
-						/>
-					</CardContent>
-				</Card>{" "}
+				<ModelBenchmarkChart
+					models={modelsWithBenchmark}
+					benchmarkName={benchmark.name}
+				/>
 				{/* Models Using This Benchmark - Now as a separate component */}
 				<ModelsUsingBenchmark
 					modelsWithBenchmark={modelsWithBenchmark}
 					modelsByProvider={modelsByProvider}
 					sortedProviders={sortedProviders}
 					benchmarkId={params.id}
-					defaultAccordionValues={defaultAccordionValues}
 				/>
 			</div>
 		</main>

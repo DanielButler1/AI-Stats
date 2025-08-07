@@ -1,6 +1,7 @@
 {
   "id": "mmlu-pro",
   "name": "MMLU-Pro",
+  "category": null,
   "order": null,
   "description": null,
   "link": null

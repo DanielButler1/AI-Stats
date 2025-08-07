@@ -37,35 +37,39 @@ export function ModelCard({
 	allWarnings,
 	allSuggestions,
 }: ModelCardProps) {
+	const statusStyles =
+		status === "complete"
+			? "border-muted/60 hover:border-muted/80"
+			: status === "critical"
+			? "border-red-300/80 hover:border-red-400/90 shadow-[0_0_0_1px_rgba(248,113,113,0.2)]"
+			: "border-yellow-300/80 hover:border-yellow-400/90 shadow-[0_0_0_1px_rgba(250,204,21,0.2)]";
+
+	const isRumoured = model.status === "Rumoured";
+	const dashedIfRumoured = isRumoured ? "border-dashed" : "";
+
 	return (
 		<Card
-			className={
-				status === "complete"
-					? "opacity-60"
-					: status === "critical"
-					? "border-red-400 shadow-red-200"
-					: "border-yellow-400 shadow-yellow-200"
-			}
+			className={`transition-colors duration-150 ${statusStyles} ${dashedIfRumoured} ${
+				status === "complete" ? "opacity-70" : ""
+			}`}
 		>
 			<CardHeader className="relative flex flex-row items-center gap-3 pb-2">
-				{" "}
 				<Link
 					href={`/providers/${model.provider?.provider_id}`}
 					className="group"
 					tabIndex={-1}
 					aria-label={`Go to ${
-						model.provider?.name || model.provider.provider_id
+						model.provider?.name || model.provider?.provider_id
 					} details`}
 				>
-					<div className="w-10 h-10 relative flex items-center justify-center rounded-full border bg-white">
-						<div className="w-7 h-7 relative">
-							<Image
-								src={`/providers/${model.provider?.provider_id}.svg`}
-								alt={model.provider?.name}
-								className="group-hover:opacity-80 transition object-contain"
-								fill
-							/>
-						</div>
+					<div className="w-9 h-9 relative flex items-center justify-center rounded-full border bg-white">
+						<Image
+							src={`/providers/${model.provider?.provider_id}.svg`}
+							alt={model.provider?.name || "Provider"}
+							className="transition group-hover:opacity-80 object-contain p-1.5"
+							fill
+							style={{ objectFit: "contain" }}
+						/>
 					</div>
 				</Link>
 				<div className="flex-1 min-w-0">
@@ -73,7 +77,7 @@ export function ModelCard({
 						<TooltipTrigger asChild>
 							<Link
 								href={`/models/${model.id}`}
-								className="hover:underline font-semibold truncate text-lg leading-tight block"
+								className="hover:underline font-semibold truncate text-base leading-tight block"
 								aria-label={`Go to ${model.name} details`}
 							>
 								{model.name}
@@ -83,29 +87,29 @@ export function ModelCard({
 							align="start"
 							className="flex justify-start items-start"
 						>
-							Model ID: {model.id}
+							{model.id}
 						</TooltipContent>
 					</Tooltip>
-					<div className="flex items-center gap-2 mt-2">
+					<div className="mt-1.5 flex items-center gap-2">
 						<Badge
-							className={`${
+							className={`h-6 px-2.5 text-xs ${
 								status === "complete"
-									? "border-green-500 text-green-700 bg-transparent hover:bg-green-100 dark:hover:bg-green-800/60"
+									? "border-green-500 text-green-700 bg-transparent hover:bg-green-50 dark:hover:bg-green-900/30"
 									: status === "critical"
-									? "border-red-500 text-red-700 bg-transparent hover:bg-red-100 dark:hover:bg-red-800/60"
-									: "border-yellow-500 text-yellow-700 bg-transparent hover:bg-yellow-100 dark:hover:bg-yellow-800/60"
+									? "border-red-500 text-red-700 bg-transparent hover:bg-red-50 dark:hover:bg-red-900/30"
+									: "border-yellow-500 text-yellow-700 bg-transparent hover:bg-yellow-50 dark:hover:bg-yellow-900/30"
 							}`}
 							variant="outline"
 						>
-							<span className="flex items-center gap-1">
+							<span className="flex items-center gap-1.5">
 								{status === "complete" && (
-									<CheckCircle className="w-4 h-4 mr-1 text-green-500" />
+									<CheckCircle className="w-4 h-4 text-green-500" />
 								)}
 								{status === "critical" && (
-									<Users className="w-4 h-4 mr-1 text-red-500" />
+									<Users className="w-4 h-4 text-red-500" />
 								)}
 								{status === "warning" && (
-									<FileWarning className="w-4 h-4 mr-1 text-yellow-500" />
+									<FileWarning className="w-4 h-4 text-yellow-500" />
 								)}
 								{status === "complete"
 									? "Complete"
@@ -120,7 +124,7 @@ export function ModelCard({
 					<TooltipTrigger asChild>
 						<Link
 							href={`https://github.com/DanielButler1/AI-Stats/blob/main/src/data/models/${model.provider?.provider_id}/${model.id}/model.json`}
-							className="absolute top-2 right-2 p-2 rounded-full hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-primary"
+							className="absolute top-2 right-2 p-2 rounded-full hover:bg-zinc-100 focus:outline-hidden focus:ring-2 focus:ring-primary"
 							aria-label="Propose Changes"
 						>
 							<Pencil className="w-4 h-4 text-zinc-500" />
@@ -129,9 +133,10 @@ export function ModelCard({
 					<TooltipContent>Propose Changes</TooltipContent>
 				</Tooltip>
 			</CardHeader>
-			{status !== "complete" && (
-				<CardContent>
-					<ul className="list-disc list-inside text-sm space-y-1">
+			{/* Content */}
+			{status !== "complete" && !isRumoured && (
+				<CardContent className="pt-2">
+					<ul className="list-disc list-inside text-sm space-y-1.5">
 						{criticalErrors.map((err, i) => (
 							<li key={i} className="text-red-700">
 								{err}
@@ -140,7 +145,7 @@ export function ModelCard({
 						{hiddenCriticalCount > 0 && (
 							<Tooltip delayDuration={0}>
 								<TooltipTrigger asChild>
-									<li className="text-red-500 font-medium cursor-help">
+									<li className="text-red-600 font-medium cursor-help">
 										+{hiddenCriticalCount} more critical
 										issues...
 									</li>
@@ -164,7 +169,7 @@ export function ModelCard({
 						{hiddenWarningCount > 0 && (
 							<Tooltip delayDuration={0}>
 								<TooltipTrigger asChild>
-									<li className="text-yellow-500 font-medium cursor-help">
+									<li className="text-yellow-600 font-medium cursor-help">
 										+{hiddenWarningCount} more warnings...
 									</li>
 								</TooltipTrigger>
@@ -187,7 +192,7 @@ export function ModelCard({
 						{hiddenSuggestionCount > 0 && (
 							<Tooltip delayDuration={0}>
 								<TooltipTrigger asChild>
-									<li className="text-gray-500 font-medium cursor-help">
+									<li className="text-gray-600 font-medium cursor-help">
 										+{hiddenSuggestionCount} more
 										suggestions...
 									</li>
@@ -206,8 +211,10 @@ export function ModelCard({
 					</ul>
 				</CardContent>
 			)}
-			{status === "complete" && (
-				<CardContent>
+			{/* Rumoured models: hide errors and show neutral note */}
+			{isRumoured && <CardContent className="pt-2 pb-3"></CardContent>}
+			{status === "complete" && !isRumoured && (
+				<CardContent className="pt-2 pb-3">
 					<p className="text-green-700 text-sm">No issues found.</p>
 				</CardContent>
 			)}

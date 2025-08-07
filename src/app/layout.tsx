@@ -8,6 +8,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
+import { PostHogProvider } from "@/components/PostHogProvider";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -55,28 +57,27 @@ export default function RootLayout({
 				className={cn(
 					`${montserrat.className}`,
 					"bg-background antialiased min-h-screen flex flex-col"
-					// "[background-size:8px_8px] sm:[background-size:12px_12px] md:[background-size:20px_20px]",
-					// "[background-image:radial-gradient(#d4d4d4_1px,transparent_1px)]",
-					// "dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]"
 				)}
 			>
-				<GoogleAnalytics gaId="G-BG2L1NPYGL" />
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="light"
-					enableSystem={false}
-					disableTransitionOnChange
-				>
-					<div className="flex flex-col min-h-screen">
-						<main className="flex-1 flex flex-col">
-							{children}
-							<Analytics />
-						</main>
-						<Footer />
-					</div>
-					<TailwindIndicator />
-				</ThemeProvider>
-				<Toaster richColors />
+				<PostHogProvider>
+					<GoogleAnalytics gaId="G-BG2L1NPYGL" />
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="light"
+						enableSystem={false}
+						disableTransitionOnChange
+					>
+						<div className="flex flex-col min-h-screen">
+							<main className="flex-1 flex flex-col">
+								<NuqsAdapter>{children}</NuqsAdapter>
+								<Analytics />
+							</main>
+							<Footer />
+						</div>
+						<TailwindIndicator />
+					</ThemeProvider>
+					<Toaster richColors />
+				</PostHogProvider>
 			</body>
 		</html>
 	);

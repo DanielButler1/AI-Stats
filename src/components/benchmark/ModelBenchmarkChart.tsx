@@ -14,7 +14,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Expand } from "lucide-react";
-import { BenchmarkDialog } from "../model/BenchmarkDialog";
+import { BenchmarkDialog } from "@/components/model/benchmarks/BenchmarkDialog";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 // Custom tooltip component
@@ -197,7 +197,7 @@ export default function ModelBenchmarkChart({
 	}
 
 	// Limit to top 20 models for the main chart
-	const topModels = isMobile ? data.slice(0, 10) : data.slice(0, 20);
+	const topModels = data.slice(0, 10);
 
 	if (data.length === 0) {
 		return (
@@ -232,131 +232,109 @@ export default function ModelBenchmarkChart({
 	});
 
 	return (
-		<>
-			<Card className="shadow border-none flex flex-col justify-between relative transition-all dark:bg-zinc-950 dark:border-zinc-800">
-				<button
-					type="button"
-					className="absolute top-3 right-3 z-10 p-1 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none hidden md:block"
-					onClick={() => setDialogOpen(true)}
-					title="Expand benchmark comparison"
-				>
-					<Expand className="w-5 h-5 text-zinc-500 hover:text-indigo-600" />
-				</button>{" "}
-				<CardHeader className="pb-2">
-					<CardTitle className="text-lg font-semibold flex items-center gap-2">
-						{benchmarkName}
-						<Badge variant="secondary">
-							{isMobile
-								? data.length > 10
-									? `Top 10 of ${data.length}`
-									: `${data.length} models`
-								: data.length > 20
-								? `Top 20 of ${data.length}`
-								: `${data.length} models`}
-						</Badge>
-						{isLowerBetter && (
-							<Badge
-								variant="outline"
-								className="ml-1 text-xs text-blue-600 border-blue-400"
-							>
-								Lower is better
-							</Badge>
-						)}
-					</CardTitle>
-				</CardHeader>
-				<CardContent className="p-0">
-					<ResponsiveContainer width="100%" height={400}>
-						<BarChart
-							data={topModels}
-							layout="horizontal"
-							margin={{
-								top: 16,
-								right: 48,
-								left: 20,
-								bottom: 40,
-							}}
+		<div className="flex flex-col w-full">
+			<div className="w-full">
+				<div className="flex items-center gap-2 mb-2">
+					<h1 className="text-xl font-bold">
+						Top 10 Model Performance
+					</h1>
+					<Badge variant="secondary">
+						{data.length > 10
+							? `Top 10 of ${data.length}`
+							: `${data.length} models`}
+					</Badge>
+					{isLowerBetter && (
+						<Badge
+							variant="outline"
+							className="ml-1 text-xs text-blue-600 border-blue-400"
 						>
-							<XAxis
-								dataKey="name"
-								angle={isMobile ? -60 : -25}
-								textAnchor="end"
-								tick={{ fontSize: isMobile ? 10 : 12 }}
-								interval={0}
-								height={isMobile ? 100 : 80}
-								axisLine={true}
-								tickLine={false}
-							/>{" "}
-							<YAxis
-								type="number"
-								domain={
-									isLowerBetter
-										? [
-												Math.min(
-													0,
-													Math.floor(
-														Math.min(
-															...topModels.map(
-																(d) => d.score
-															)
-														) * 0.9
-													)
-												),
-												Math.max(
-													100,
-													Math.ceil(
-														Math.max(
-															...topModels.map(
-																(d) => d.score
-															)
-														) * 1.1
-													)
-												),
-										  ]
-										: [
+							Lower is better
+						</Badge>
+					)}
+				</div>
+				<ResponsiveContainer width="100%" height={400}>
+					<BarChart
+						data={topModels}
+						layout="vertical"
+						margin={{ top: 16, right: 48, left: 80, bottom: 40 }}
+					>
+						<YAxis
+							dataKey="name"
+							type="category"
+							width={isMobile ? 80 : 120}
+							tick={{ fontSize: isMobile ? 10 : 12 }}
+							axisLine={true}
+							tickLine={false}
+						/>
+						<XAxis
+							type="number"
+							domain={
+								isLowerBetter
+									? [
+											Math.min(
 												0,
-												Math.max(
-													100,
-													Math.ceil(
-														Math.max(
-															...topModels.map(
-																(d) => d.score
-															)
-														) * 1.1
-													)
-												),
-										  ]
-								}
-								tick={{ fontSize: 12 }}
-								axisLine={true}
-								tickLine={false}
-							/>{" "}
-							<Tooltip
-								content={<BenchmarkTooltip />}
-								wrapperStyle={{ zIndex: 1000 }}
-							/>
-							<Bar dataKey="score" radius={[4, 4, 0, 0]}>
-								{topModels.map((entry, index) => (
-									<Cell
-										key={`cell-${index}`}
-										fill={
-											entry.providerColor ||
-											providerColors[entry.provider] ||
-											"#9ca3af"
-										}
-									/>
-								))}{" "}
-								{/* No labels on top of bars */}
-							</Bar>
-						</BarChart>
-					</ResponsiveContainer>
-				</CardContent>
-			</Card>
-
+												Math.floor(
+													Math.min(
+														...topModels.map(
+															(d) => d.score
+														)
+													) * 0.9
+												)
+											),
+											Math.max(
+												100,
+												Math.ceil(
+													Math.max(
+														...topModels.map(
+															(d) => d.score
+														)
+													) * 1.1
+												)
+											),
+									  ]
+									: [
+											0,
+											Math.max(
+												100,
+												Math.ceil(
+													Math.max(
+														...topModels.map(
+															(d) => d.score
+														)
+													) * 1.1
+												)
+											),
+									  ]
+							}
+							tick={{ fontSize: 12 }}
+							axisLine={true}
+							tickLine={false}
+						/>
+						<Tooltip
+							content={<BenchmarkTooltip />}
+							wrapperStyle={{ zIndex: 1000 }}
+						/>
+						<Bar dataKey="score" radius={[0, 4, 4, 0]}>
+							{topModels.map((entry, index) => (
+								<Cell
+									key={`cell-${index}`}
+									fill={
+										entry.providerColor ||
+										providerColors[entry.provider] ||
+										"#9ca3af"
+									}
+								/>
+							))}
+							{/* No labels on top of bars */}
+						</Bar>
+					</BarChart>
+				</ResponsiveContainer>
+			</div>
 			<BenchmarkDialog
 				open={dialogOpen}
 				onOpenChange={setDialogOpen}
 				benchmarkName={benchmarkName}
-				modelsWithThisBenchmark={data.map((d) => ({
+				modelsWithThisBenchmark={data.slice(0, 20).map((d) => ({
 					modelName: d.name,
 					provider: d.provider,
 					score: d.score,
@@ -371,6 +349,6 @@ export default function ModelBenchmarkChart({
 				currentIdx={-1}
 				current={null}
 			/>
-		</>
+		</div>
 	);
 }
