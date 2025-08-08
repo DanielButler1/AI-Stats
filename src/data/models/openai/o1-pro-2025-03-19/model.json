@@ -29,11 +29,11 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "0.90%",
-      "is_self_reported": false,
-      "other_info": "Low Reasoning Effort",
-      "source_link": "https://arcprize.org/leaderboard"
+      "benchmark_id": "aime-2024",
+      "score": "86.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-chatgpt-pro/"
     },
     {
       "benchmark_id": "arc-agi-1",
@@ -43,18 +43,11 @@
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "79.00%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://openai.com/index/introducing-chatgpt-pro/"
-    },
-    {
-      "benchmark_id": "aime-2024",
-      "score": "86.00%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://openai.com/index/introducing-chatgpt-pro/"
+      "benchmark_id": "arc-agi-2",
+      "score": "0.90%",
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "codeforces",
@@ -62,6 +55,13 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GtG5biebMAIpBhq?format=png&name=4096x4096"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "79.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-chatgpt-pro/"
     },
     {
       "benchmark_id": "nyt-connections",

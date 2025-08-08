@@ -29,11 +29,11 @@
   "training_tokens": null,
   "benchmark_results": [
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "0.00%",
+      "benchmark_id": "ai2-sciarena",
+      "score": 872.73,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
+      "source_link": "https://sciarena.allen.ai/"
     },
     {
       "benchmark_id": "arc-agi-1",
@@ -43,18 +43,11 @@
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "69.80%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
-    },
-    {
-      "benchmark_id": "simplebench",
-      "score": "27.70%",
+      "benchmark_id": "arc-agi-2",
+      "score": "0.00%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://simple-bench.com/index.html"
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "confabulations",
@@ -64,11 +57,18 @@
       "source_link": "https://github.com/lechmazur/confabulations"
     },
     {
-      "benchmark_id": "thematic-generalisation",
-      "score": 2.04,
+      "benchmark_id": "elimination-game",
+      "score": 4.78,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/generalization"
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "69.80%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
     },
     {
       "benchmark_id": "nyt-connections",
@@ -78,18 +78,18 @@
       "source_link": "https://github.com/lechmazur/nyt-connections"
     },
     {
-      "benchmark_id": "elimination-game",
-      "score": 4.78,
+      "benchmark_id": "simplebench",
+      "score": "27.70%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/elimination_game"
+      "source_link": "https://simple-bench.com/index.html"
     },
     {
-      "benchmark_id": "ai2-sciarena",
-      "score": 872.73,
+      "benchmark_id": "thematic-generalisation",
+      "score": 2.04,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://sciarena.allen.ai/"
+      "source_link": "https://github.com/lechmazur/generalization"
     }
   ],
   "prices": [

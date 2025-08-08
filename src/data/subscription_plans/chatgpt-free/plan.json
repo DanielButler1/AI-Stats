@@ -4,7 +4,7 @@
   "provider_id": "openai",
   "description": null,
   "frequency": "monthly",
-  "usd-price": false,
+  "usd_price": false,
   "link": null,
   "other_info": null,
   "models": [
@@ -30,5 +30,78 @@
       "other_info": null
     }
   ],
-  "features": []
+  "features": [
+    {
+      "plan_id": "chatgpt-free",
+      "feature_name": "Deep Research",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "feature_name": "Advanced Voice Mode",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "feature_name": "Memory",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "feature_name": "Search",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "feature_name": "Canvas",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "feature_name": "Code edits on macOS",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "feature_name": "Data Analysis",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "feature_name": "Vision",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "feature_name": "File Upload",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "feature_name": "Use GPTs",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "feature_name": "Image Generation",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-free",
+      "feature_name": "Study Mode",
+      "feature_description": null,
+      "other_info": null
+    }
+  ]
 }

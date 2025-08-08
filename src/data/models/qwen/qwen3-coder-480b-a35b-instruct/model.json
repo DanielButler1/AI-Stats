@@ -29,8 +29,8 @@
   "training_tokens": null,
   "benchmark_results": [
     {
-      "benchmark_id": "terminal-bench",
-      "score": "37.50%",
+      "benchmark_id": "aider-polyglot",
+      "score": "61.80%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
@@ -50,13 +50,6 @@
       "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
     },
     {
-      "benchmark_id": "swe-bench-multilingual",
-      "score": "54.70%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
-    },
-    {
       "benchmark_id": "swe-bench-live",
       "score": "26.30%",
       "is_self_reported": true,
@@ -64,8 +57,15 @@
       "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
     },
     {
-      "benchmark_id": "aider-polyglot",
-      "score": "61.80%",
+      "benchmark_id": "swe-bench-multilingual",
+      "score": "54.70%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
+    },
+    {
+      "benchmark_id": "tau-bench-airline",
+      "score": "60.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
@@ -78,8 +78,8 @@
       "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"
     },
     {
-      "benchmark_id": "tau-bench-airline",
-      "score": "60.00%",
+      "benchmark_id": "terminal-bench",
+      "score": "37.50%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GwfRwACbEAIWJny?format=jpg&name=small"

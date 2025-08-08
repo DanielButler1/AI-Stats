@@ -29,15 +29,8 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "aime-2025",
-      "score": "82.00%",
-      "is_self_reported": true,
-      "other_info": "Think",
-      "source_link": "https://x.ai/news/grok-3"
-    },
-    {
-      "benchmark_id": "aime-2025",
-      "score": "90.80%",
+      "benchmark_id": "aime-2024",
+      "score": "95.80%",
       "is_self_reported": true,
       "other_info": "Think, Cons@64",
       "source_link": "https://x.ai/news/grok-3"
@@ -51,9 +44,65 @@
     },
     {
       "benchmark_id": "aime-2024",
-      "score": "95.80%",
+      "score": "39.70%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "90.80%",
       "is_self_reported": true,
       "other_info": "Think, Cons@64",
+      "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "82.00%",
+      "is_self_reported": true,
+      "other_info": "Think",
+      "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 14.04,
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 10.8,
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 7.032,
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 984.7,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "84.00%",
+      "is_self_reported": true,
+      "other_info": "Think, Cons@64",
+      "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "84.00%",
+      "is_self_reported": true,
+      "other_info": "Reasoning",
       "source_link": "https://x.ai/news/grok-3"
     },
     {
@@ -65,35 +114,21 @@
     },
     {
       "benchmark_id": "gpqa-diamond",
-      "score": "84.00%",
-      "is_self_reported": true,
-      "other_info": "Think, Cons@64",
-      "source_link": "https://x.ai/news/grok-3"
-    },
-    {
-      "benchmark_id": "aime-2024",
-      "score": "39.70%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://x.ai/news/grok-3"
-    },
-    {
-      "benchmark_id": "gpqa-diamond",
       "score": "66.20%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-3"
     },
     {
-      "benchmark_id": "mmlu-pro",
-      "score": "78.90%",
-      "is_self_reported": true,
+      "benchmark_id": "lmarena-text",
+      "score": 1355,
+      "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://x.ai/news/grok-3"
+      "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
-      "benchmark_id": "simpleqa",
-      "score": "21.70%",
+      "benchmark_id": "mmlu-pro",
+      "score": "78.90%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-3"
@@ -104,41 +139,6 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-3"
-    },
-    {
-      "benchmark_id": "gpqa-diamond",
-      "score": "84.00%",
-      "is_self_reported": true,
-      "other_info": "Reasoning",
-      "source_link": "https://x.ai/news/grok-3"
-    },
-    {
-      "benchmark_id": "confabulations",
-      "score": 10.8,
-      "is_self_reported": false,
-      "other_info": "High Reasoning Effort",
-      "source_link": "https://github.com/lechmazur/confabulations"
-    },
-    {
-      "benchmark_id": "confabulations",
-      "score": 14.04,
-      "is_self_reported": false,
-      "other_info": "Low Reasoning Effort",
-      "source_link": "https://github.com/lechmazur/confabulations"
-    },
-    {
-      "benchmark_id": "thematic-generalisation",
-      "score": 1.89,
-      "is_self_reported": false,
-      "other_info": "High Reasoning Effort",
-      "source_link": "https://github.com/lechmazur/generalization"
-    },
-    {
-      "benchmark_id": "thematic-generalisation",
-      "score": 1.9,
-      "is_self_reported": false,
-      "other_info": "Low Reasoning Effort",
-      "source_link": "https://github.com/lechmazur/generalization"
     },
     {
       "benchmark_id": "nyt-connections",
@@ -155,25 +155,25 @@
       "source_link": "https://github.com/lechmazur/nyt-connections"
     },
     {
-      "benchmark_id": "elimination-game",
-      "score": 7.032,
+      "benchmark_id": "simpleqa",
+      "score": "21.70%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://x.ai/news/grok-3"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.9,
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.89,
       "is_self_reported": false,
       "other_info": "High Reasoning Effort",
-      "source_link": "https://github.com/lechmazur/elimination_game"
-    },
-    {
-      "benchmark_id": "lmarena-text",
-      "score": 1355,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
-    },
-    {
-      "benchmark_id": "eqbench",
-      "score": 992.4,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://eqbench.com"
+      "source_link": "https://github.com/lechmazur/generalization"
     }
   ],
   "prices": []

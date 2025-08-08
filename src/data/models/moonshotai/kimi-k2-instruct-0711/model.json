@@ -29,99 +29,15 @@
   "training_tokens": 15500000000000,
   "benchmark_results": [
     {
-      "benchmark_id": "livecodebench-v6",
-      "score": "53.70%",
-      "is_self_reported": true,
-      "other_info": "Pass@1, Aug 24 - May 25",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
-    },
-    {
-      "benchmark_id": "ojbench",
-      "score": "27.10%",
-      "is_self_reported": true,
-      "other_info": "Pass@1",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
-    },
-    {
-      "benchmark_id": "multiPL-E",
-      "score": "85.70%",
-      "is_self_reported": true,
-      "other_info": "Pass@1",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
-    },
-    {
-      "benchmark_id": "swe-bench",
-      "score": "51.80%",
-      "is_self_reported": true,
-      "other_info": "Single Patch w/o Test (Acc)",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
-    },
-    {
-      "benchmark_id": "swe-bench",
-      "score": "65.80%",
-      "is_self_reported": true,
-      "other_info": "Single Attempt (Acc)",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
-    },
-    {
-      "benchmark_id": "swe-bench",
-      "score": "71.60%",
-      "is_self_reported": true,
-      "other_info": "Multiple Attempts (Acc)",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
-    },
-    {
-      "benchmark_id": "swe-bench-multilingual",
-      "score": "47.30%",
-      "is_self_reported": true,
-      "other_info": "Single Attempt (Acc)",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
-    },
-    {
-      "benchmark_id": "terminal-bench",
-      "score": "30.00%",
-      "is_self_reported": true,
-      "other_info": "Inhouse Framework (Acc)",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
-    },
-    {
-      "benchmark_id": "terminal-bench",
-      "score": "25.00%",
-      "is_self_reported": true,
-      "other_info": "Terminus (Acc)",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
-    },
-    {
-      "benchmark_id": "aider-polyglot",
-      "score": "60.00%",
+      "benchmark_id": "ace-bench",
+      "score": "76.50%",
       "is_self_reported": true,
       "other_info": "Acc",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
-      "benchmark_id": "tau-2-retail",
-      "score": "70.60%",
-      "is_self_reported": true,
-      "other_info": "Avg@4",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
-    },
-    {
-      "benchmark_id": "tau-2-airline",
-      "score": "56.50%",
-      "is_self_reported": true,
-      "other_info": "Avg@4",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
-    },
-    {
-      "benchmark_id": "tau-2-telecom",
-      "score": "65.80%",
-      "is_self_reported": true,
-      "other_info": "Avg@4",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
-    },
-    {
-      "benchmark_id": "ace-bench",
-      "score": "76.50%",
+      "benchmark_id": "aider-polyglot",
+      "score": "60.00%",
       "is_self_reported": true,
       "other_info": "Acc",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
@@ -141,17 +57,10 @@
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
-      "benchmark_id": "math-500",
-      "score": "97.40%",
+      "benchmark_id": "autologi",
+      "score": "89.50%",
       "is_self_reported": true,
       "other_info": "Acc",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
-    },
-    {
-      "benchmark_id": "hmmt-2025",
-      "score": "38.80%",
-      "is_self_reported": true,
-      "other_info": "Avg@32",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
@@ -162,25 +71,32 @@
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
-      "benchmark_id": "polymath-en",
-      "score": "65.10%",
-      "is_self_reported": true,
-      "other_info": "Avg@4",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+      "benchmark_id": "confabulations",
+      "score": 20.38,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
     },
     {
-      "benchmark_id": "zebralogic",
-      "score": "89.00%",
-      "is_self_reported": true,
-      "other_info": "Acc",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+      "benchmark_id": "creative-story-writing",
+      "score": 8.56,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/writing"
     },
     {
-      "benchmark_id": "autologi",
-      "score": "89.50%",
-      "is_self_reported": true,
-      "other_info": "Acc",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+      "benchmark_id": "elimination-game",
+      "score": 3.772,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1563.3,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com"
     },
     {
       "benchmark_id": "gpqa-diamond",
@@ -190,10 +106,10 @@
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
-      "benchmark_id": "supergpqa",
-      "score": "57.20%",
+      "benchmark_id": "hmmt-2025",
+      "score": "38.80%",
       "is_self_reported": true,
-      "other_info": "Acc",
+      "other_info": "Avg@32",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
@@ -204,15 +120,36 @@
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
-      "benchmark_id": "mmlu",
-      "score": "89.50%",
+      "benchmark_id": "if-eval",
+      "score": "89.80%",
       "is_self_reported": true,
-      "other_info": "EM",
+      "other_info": "Prompt Strict",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
-      "benchmark_id": "mmlu-redux",
-      "score": "92.70%",
+      "benchmark_id": "livebench",
+      "score": "76.40%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
+      "benchmark_id": "livecodebench-v6",
+      "score": "53.70%",
+      "is_self_reported": true,
+      "other_info": "Pass@1, Aug 24 - May 25",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
+      "benchmark_id": "math-500",
+      "score": "97.40%",
+      "is_self_reported": true,
+      "other_info": "Acc",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
+      "benchmark_id": "mmlu",
+      "score": "89.50%",
       "is_self_reported": true,
       "other_info": "EM",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
@@ -225,10 +162,10 @@
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
-      "benchmark_id": "if-eval",
-      "score": "89.80%",
+      "benchmark_id": "mmlu-redux",
+      "score": "92.70%",
       "is_self_reported": true,
-      "other_info": "Prompt Strict",
+      "other_info": "EM",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
@@ -239,6 +176,27 @@
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
+      "benchmark_id": "multiPL-E",
+      "score": "85.70%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
+      "benchmark_id": "ojbench",
+      "score": "27.10%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
+      "benchmark_id": "polymath-en",
+      "score": "65.10%",
+      "is_self_reported": true,
+      "other_info": "Avg@4",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
       "benchmark_id": "simpleqa",
       "score": "31.00%",
       "is_self_reported": true,
@@ -246,32 +204,74 @@
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
-      "benchmark_id": "livebench",
-      "score": "76.40%",
+      "benchmark_id": "supergpqa",
+      "score": "57.20%",
       "is_self_reported": true,
-      "other_info": "Pass@1",
+      "other_info": "Acc",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
-      "benchmark_id": "eqbench",
-      "score": 1549.1,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://eqbench.com"
+      "benchmark_id": "swe-bench",
+      "score": "71.60%",
+      "is_self_reported": true,
+      "other_info": "Multiple Attempts (Acc)",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
-      "benchmark_id": "creative-story-writing",
-      "score": 8.56,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/writing"
+      "benchmark_id": "swe-bench",
+      "score": "65.80%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt (Acc)",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
-      "benchmark_id": "confabulations",
-      "score": 20.38,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/confabulations"
+      "benchmark_id": "swe-bench",
+      "score": "51.80%",
+      "is_self_reported": true,
+      "other_info": "Single Patch w/o Test (Acc)",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
+      "benchmark_id": "swe-bench-multilingual",
+      "score": "47.30%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt (Acc)",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
+      "benchmark_id": "tau-2-airline",
+      "score": "56.50%",
+      "is_self_reported": true,
+      "other_info": "Avg@4",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
+      "benchmark_id": "tau-2-retail",
+      "score": "70.60%",
+      "is_self_reported": true,
+      "other_info": "Avg@4",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
+      "benchmark_id": "tau-2-telecom",
+      "score": "65.80%",
+      "is_self_reported": true,
+      "other_info": "Avg@4",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
+      "benchmark_id": "terminal-bench",
+      "score": "30.00%",
+      "is_self_reported": true,
+      "other_info": "Inhouse Framework (Acc)",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
+    },
+    {
+      "benchmark_id": "terminal-bench",
+      "score": "25.00%",
+      "is_self_reported": true,
+      "other_info": "Terminus (Acc)",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     },
     {
       "benchmark_id": "thematic-generalisation",
@@ -281,11 +281,11 @@
       "source_link": "https://github.com/lechmazur/generalization"
     },
     {
-      "benchmark_id": "elimination-game",
-      "score": 3.772,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/elimination_game"
+      "benchmark_id": "zebralogic",
+      "score": "89.00%",
+      "is_self_reported": true,
+      "other_info": "Acc",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"
     }
   ],
   "prices": [

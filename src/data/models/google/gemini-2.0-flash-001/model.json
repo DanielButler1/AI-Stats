@@ -29,20 +29,6 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "humanitys-last-exam",
-      "score": "5.10%",
-      "is_self_reported": true,
-      "other_info": "No Tools",
-      "source_link": "gemini_2-5_flashcomp_benchmarks_dark2x.original.png (1920×2820)"
-    },
-    {
-      "benchmark_id": "humanitys-last-exam",
-      "score": "5.10%",
-      "is_self_reported": true,
-      "other_info": "No Tools",
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
-    },
-    {
       "benchmark_id": "aider-polyglot",
       "score": "22.20%",
       "is_self_reported": true,
@@ -54,34 +40,6 @@
       "score": "22.20%",
       "is_self_reported": true,
       "other_info": "Whole",
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
-    },
-    {
-      "benchmark_id": "aime-2025",
-      "score": "27.50%",
-      "is_self_reported": true,
-      "other_info": "Single Attempt",
-      "source_link": "gemini_2-5_flashcomp_benchmarks_dark2x.original.png (1920×2820)"
-    },
-    {
-      "benchmark_id": "aime-2025",
-      "score": "27.50%",
-      "is_self_reported": true,
-      "other_info": "Pass@1",
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
-    },
-    {
-      "benchmark_id": "simpleqa",
-      "score": "29.70%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "gemini_2-5_flashcomp_benchmarks_dark2x.original.png (1920×2820)"
-    },
-    {
-      "benchmark_id": "simpleqa",
-      "score": "29.90%",
-      "is_self_reported": true,
-      "other_info": null,
       "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
     },
     {
@@ -99,6 +57,34 @@
       "source_link": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/gemini_2-5_flashcomp_benchmarks_dark2x.original.png"
     },
     {
+      "benchmark_id": "aime-2025",
+      "score": "27.50%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt",
+      "source_link": "gemini_2-5_flashcomp_benchmarks_dark2x.original.png (1920×2820)"
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "27.50%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 775.3,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "78.30%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt",
+      "source_link": "gemini_2-5_flashcomp_benchmarks_dark2x.original.png (1920×2820)"
+    },
+    {
       "benchmark_id": "gpqa-diamond",
       "score": "60.10%",
       "is_self_reported": true,
@@ -106,24 +92,38 @@
       "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
     },
     {
-      "benchmark_id": "mmmu",
-      "score": "71.70%",
+      "benchmark_id": "humanitys-last-exam",
+      "score": "5.10%",
       "is_self_reported": true,
-      "other_info": "Pass@1",
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
-    },
-    {
-      "benchmark_id": "mmmu",
-      "score": "76.70%",
-      "is_self_reported": true,
-      "other_info": "Pass@1",
+      "other_info": "No Tools",
       "source_link": "gemini_2-5_flashcomp_benchmarks_dark2x.original.png (1920×2820)"
     },
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "78.30%",
+      "benchmark_id": "humanitys-last-exam",
+      "score": "5.10%",
       "is_self_reported": true,
-      "other_info": "Single Attempt",
+      "other_info": "No Tools",
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1362,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "lmarena-webdev",
+      "score": 1039.97,
+      "is_self_reported": false,
+      "other_info": "16th June 2025",
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "mmlu",
+      "score": "88.40%",
+      "is_self_reported": true,
+      "other_info": "Lite",
       "source_link": "gemini_2-5_flashcomp_benchmarks_dark2x.original.png (1920×2820)"
     },
     {
@@ -134,11 +134,18 @@
       "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
     },
     {
-      "benchmark_id": "mmlu",
-      "score": "88.40%",
+      "benchmark_id": "mmmu",
+      "score": "76.70%",
       "is_self_reported": true,
-      "other_info": "Lite",
+      "other_info": "Pass@1",
       "source_link": "gemini_2-5_flashcomp_benchmarks_dark2x.original.png (1920×2820)"
+    },
+    {
+      "benchmark_id": "mmmu",
+      "score": "71.70%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
     },
     {
       "benchmark_id": "simplebench",
@@ -148,25 +155,18 @@
       "source_link": "https://simple-bench.com/index.html"
     },
     {
-      "benchmark_id": "lmarena-webdev",
-      "score": 1039.97,
-      "is_self_reported": false,
-      "other_info": "16th June 2025",
-      "source_link": "https://web.lmarena.ai/leaderboard"
+      "benchmark_id": "simpleqa",
+      "score": "29.90%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-flash-preview.pdf"
     },
     {
-      "benchmark_id": "lmarena-text",
-      "score": 1362,
-      "is_self_reported": false,
+      "benchmark_id": "simpleqa",
+      "score": "29.70%",
+      "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
-    },
-    {
-      "benchmark_id": "eqbench",
-      "score": 783.3,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://eqbench.com"
+      "source_link": "gemini_2-5_flashcomp_benchmarks_dark2x.original.png (1920×2820)"
     }
   ],
   "prices": []

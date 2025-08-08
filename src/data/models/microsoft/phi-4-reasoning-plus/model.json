@@ -29,8 +29,8 @@
   "training_tokens": 16000000000,
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "68.90%",
+      "benchmark_id": "aime-2024",
+      "score": "81.30%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/microsoft/Phi-4-reasoning-plus"
@@ -43,8 +43,8 @@
       "source_link": "https://huggingface.co/microsoft/Phi-4-reasoning-plus"
     },
     {
-      "benchmark_id": "aime-2024",
-      "score": "81.30%",
+      "benchmark_id": "gpqa-diamond",
+      "score": "68.90%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/microsoft/Phi-4-reasoning-plus"

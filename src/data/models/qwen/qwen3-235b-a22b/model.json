@@ -29,8 +29,15 @@
   "training_tokens": 36000000000000,
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "47.50%",
+      "benchmark_id": "ai2-sciarena",
+      "score": 1025.97,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://sciarena.allen.ai/"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "85.70%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://qwenlm.github.io/blog/qwen3/"
@@ -43,39 +50,11 @@
       "source_link": "https://qwenlm.github.io/blog/qwen3/"
     },
     {
-      "benchmark_id": "aime-2024",
-      "score": "85.70%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://qwenlm.github.io/blog/qwen3/"
-    },
-    {
-      "benchmark_id": "simplebench",
-      "score": "31.00%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://simple-bench.com/index.html"
-    },
-    {
       "benchmark_id": "confabulations",
       "score": 15.41,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/confabulations"
-    },
-    {
-      "benchmark_id": "thematic-generalisation",
-      "score": 1.9,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/generalization"
-    },
-    {
-      "benchmark_id": "nyt-connections",
-      "score": "55.60%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/nyt-connections"
     },
     {
       "benchmark_id": "elimination-game",
@@ -85,11 +64,18 @@
       "source_link": "https://github.com/lechmazur/elimination_game"
     },
     {
-      "benchmark_id": "lmarena-webdev",
-      "score": 1186.82,
+      "benchmark_id": "eqbench",
+      "score": 1275.3,
       "is_self_reported": false,
-      "other_info": "16th June 2025",
-      "source_link": "https://web.lmarena.ai/leaderboard"
+      "other_info": null,
+      "source_link": "https://eqbench.com"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "47.50%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://qwenlm.github.io/blog/qwen3/"
     },
     {
       "benchmark_id": "lmarena-text",
@@ -106,18 +92,32 @@
       "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
-      "benchmark_id": "ai2-sciarena",
-      "score": 1025.97,
+      "benchmark_id": "lmarena-webdev",
+      "score": 1186.82,
       "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://sciarena.allen.ai/"
+      "other_info": "16th June 2025",
+      "source_link": "https://web.lmarena.ai/leaderboard"
     },
     {
-      "benchmark_id": "eqbench",
-      "score": 1274.9,
+      "benchmark_id": "nyt-connections",
+      "score": "55.60%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://eqbench.com"
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "31.00%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.9,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
     }
   ],
   "prices": []

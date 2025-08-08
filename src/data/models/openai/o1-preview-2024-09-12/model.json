@@ -29,20 +29,6 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "aime-2024",
-      "score": "42.00%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://openai.com/index/learning-to-reason-with-llms/"
-    },
-    {
-      "benchmark_id": "gpqa-diamond",
-      "score": "73.30%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://openai.com/index/learning-to-reason-with-llms/"
-    },
-    {
       "benchmark_id": "aidanbench",
       "score": 1938,
       "is_self_reported": false,
@@ -50,11 +36,11 @@
       "source_link": "https://aidanbench.com/"
     },
     {
-      "benchmark_id": "simplebench",
-      "score": "41.70%",
-      "is_self_reported": false,
+      "benchmark_id": "aime-2024",
+      "score": "42.00%",
+      "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://simple-bench.com/index.html"
+      "source_link": "https://openai.com/index/learning-to-reason-with-llms/"
     },
     {
       "benchmark_id": "confabulations",
@@ -64,11 +50,25 @@
       "source_link": "https://github.com/lechmazur/confabulations"
     },
     {
+      "benchmark_id": "gpqa-diamond",
+      "score": "73.30%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/learning-to-reason-with-llms/"
+    },
+    {
       "benchmark_id": "lmarena-text",
       "score": 1381,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "41.70%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": [

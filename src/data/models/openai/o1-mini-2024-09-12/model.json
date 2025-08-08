@@ -29,18 +29,11 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "0.80%",
+      "benchmark_id": "aidanbench",
+      "score": 1488,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "14.00%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
+      "source_link": "https://aidanbench.com/"
     },
     {
       "benchmark_id": "aider-polyglot",
@@ -50,25 +43,18 @@
       "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "60.00%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/"
-    },
-    {
-      "benchmark_id": "aidanbench",
-      "score": 1488,
+      "benchmark_id": "arc-agi-1",
+      "score": "14.00%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://aidanbench.com/"
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "simplebench",
-      "score": "18.10%",
+      "benchmark_id": "arc-agi-2",
+      "score": "0.80%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://simple-bench.com/index.html"
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "confabulations",
@@ -78,18 +64,18 @@
       "source_link": "https://github.com/lechmazur/confabulations"
     },
     {
-      "benchmark_id": "thematic-generalisation",
-      "score": 1.95,
-      "is_self_reported": false,
+      "benchmark_id": "gpqa-diamond",
+      "score": "60.00%",
+      "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/generalization"
+      "source_link": "https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/"
     },
     {
-      "benchmark_id": "nyt-connections",
-      "score": "26.90%",
+      "benchmark_id": "lmarena-text",
+      "score": 1333,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/nyt-connections"
+      "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
       "benchmark_id": "lmarena-webdev",
@@ -99,11 +85,25 @@
       "source_link": "https://web.lmarena.ai/leaderboard"
     },
     {
-      "benchmark_id": "lmarena-text",
-      "score": 1333,
+      "benchmark_id": "nyt-connections",
+      "score": "26.90%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "18.10%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.95,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
     }
   ],
   "prices": [

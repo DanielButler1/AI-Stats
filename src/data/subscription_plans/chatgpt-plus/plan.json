@@ -4,7 +4,7 @@
   "provider_id": "openai",
   "description": null,
   "frequency": "monthly",
-  "usd-price": 20.0,
+  "usd_price": 20.0,
   "link": null,
   "other_info": null,
   "models": [
@@ -48,6 +48,120 @@
     {
       "plan_id": "chatgpt-plus",
       "feature_name": "Agent Mode",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Deep Research",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Advanced Voice Mode",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Advanced Voice With Video",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Memory",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Search",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Canvas",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Code edits on macOS",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Projects",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Tasks",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Data Analysis",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Vision",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "ChatGPT Record Mode",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "File Upload",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Use GPTs",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Create GPTs",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Image Generation",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Sora",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Codex",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "feature_name": "Study Mode",
       "feature_description": null,
       "other_info": null
     }

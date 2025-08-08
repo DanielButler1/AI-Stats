@@ -29,6 +29,20 @@
   "training_tokens": "",
   "benchmark_results": [
     {
+      "benchmark_id": "aidanbench",
+      "score": 931,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aidanbench.com/"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 22.7,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
       "benchmark_id": "gpqa-diamond",
       "score": "50.40%",
       "is_self_reported": true,
@@ -43,25 +57,11 @@
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
     },
     {
-      "benchmark_id": "aidanbench",
-      "score": 931,
+      "benchmark_id": "lmarena-text",
+      "score": 1317,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://aidanbench.com/"
-    },
-    {
-      "benchmark_id": "simplebench",
-      "score": "23.50%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://simple-bench.com/index.html"
-    },
-    {
-      "benchmark_id": "confabulations",
-      "score": 22.7,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/confabulations"
+      "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
       "benchmark_id": "nyt-connections",
@@ -71,11 +71,11 @@
       "source_link": "https://github.com/lechmazur/nyt-connections"
     },
     {
-      "benchmark_id": "lmarena-text",
-      "score": 1317,
+      "benchmark_id": "simplebench",
+      "score": "23.50%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": [

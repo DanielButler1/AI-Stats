@@ -130,3 +130,43 @@ export interface ExtendedModel {
     };
     valueScore?: number; // Optional value score for the model
 }
+
+export interface SubscriptionPlan {
+    plan_id: string;
+    plan_name: string;
+    plan_provider_id: string;
+    plan_description: string | null;
+    plan_frequency: string | null; // e.g., "monthly", "yearly"
+    plan_usd_price: number | null;
+    plan_link: string | null;
+    plan_other_info: string | null;
+}
+
+export interface SubscriptionPlanModels {
+    plan_id: string;
+    model_id: string;
+    model_info: string;
+    rate_limit: string | null; // e.g., "1000 requests/month"
+    other_info: string | null; // Additional info if available
+}
+
+export interface SubscriptionPlanFeatures {
+    plan_id: string;
+    feature_name: string;
+    feature_description: string | null;
+    other_info: string | null; // Additional info if available
+}
+
+export interface SubscriptionPlans {
+    plan_id: string;
+    name: string;
+    provider_id: string;
+    description: string | null;
+    frequency: string | null; // e.g., "monthly", "yearly"
+    usd_price: number | null;
+    link: string | null;
+    other_info: string | null;
+    models: SubscriptionPlanModels[] | null;
+    features: SubscriptionPlanFeatures[] | null;
+    provider_name?: string; // Optional provider name for display purposes
+}

@@ -29,18 +29,18 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "38.70%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://artificialanalysis.ai/models/jamba-1-6-large#intelligence-evaluations"
-    },
-    {
       "benchmark_id": "facts",
       "score": "75.80%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": null
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "38.70%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://artificialanalysis.ai/models/jamba-1-6-large#intelligence-evaluations"
     },
     {
       "benchmark_id": "if-eval",

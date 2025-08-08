@@ -36,11 +36,11 @@
       "source_link": "https://github.com/lechmazur/confabulations"
     },
     {
-      "benchmark_id": "thematic-generalisation",
-      "score": 2.6,
+      "benchmark_id": "lmarena-text",
+      "score": 1285,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/generalization"
+      "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
       "benchmark_id": "nyt-connections",
@@ -50,11 +50,11 @@
       "source_link": "https://github.com/lechmazur/nyt-connections"
     },
     {
-      "benchmark_id": "lmarena-text",
-      "score": 1285,
+      "benchmark_id": "thematic-generalisation",
+      "score": 2.6,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
+      "source_link": "https://github.com/lechmazur/generalization"
     }
   ],
   "prices": []

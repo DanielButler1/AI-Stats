@@ -30,21 +30,14 @@
   "benchmark_results": [
     {
       "benchmark_id": "aime-2024",
-      "score": "71.50%",
-      "is_self_reported": true,
-      "other_info": "Low Reasoning Effort",
-      "source_link": "https://docs.x.ai/docs/models"
-    },
-    {
-      "benchmark_id": "aime-2024",
       "score": "90.70%",
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
-      "benchmark_id": "aime-2025",
-      "score": "67.50%",
+      "benchmark_id": "aime-2024",
+      "score": "71.50%",
       "is_self_reported": true,
       "other_info": "Low Reasoning Effort",
       "source_link": "https://docs.x.ai/docs/models"
@@ -57,31 +50,10 @@
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "75.30%",
+      "benchmark_id": "aime-2025",
+      "score": "67.50%",
       "is_self_reported": true,
       "other_info": "Low Reasoning Effort",
-      "source_link": "https://docs.x.ai/docs/models"
-    },
-    {
-      "benchmark_id": "gpqa-diamond",
-      "score": "80.30%",
-      "is_self_reported": true,
-      "other_info": "High Reasoning Effort",
-      "source_link": "https://docs.x.ai/docs/models"
-    },
-    {
-      "benchmark_id": "mmlu-pro",
-      "score": "80.50%",
-      "is_self_reported": true,
-      "other_info": "Low Reasoning Effort",
-      "source_link": "https://docs.x.ai/docs/models"
-    },
-    {
-      "benchmark_id": "mmlu-pro",
-      "score": "82.80%",
-      "is_self_reported": true,
-      "other_info": "High Reasoning Effort",
       "source_link": "https://docs.x.ai/docs/models"
     },
     {
@@ -97,6 +69,34 @@
       "is_self_reported": false,
       "other_info": "Low Reasoning Effort",
       "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "80.30%",
+      "is_self_reported": true,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://docs.x.ai/docs/models"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "75.30%",
+      "is_self_reported": true,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://docs.x.ai/docs/models"
+    },
+    {
+      "benchmark_id": "mmlu-pro",
+      "score": "82.80%",
+      "is_self_reported": true,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://docs.x.ai/docs/models"
+    },
+    {
+      "benchmark_id": "mmlu-pro",
+      "score": "80.50%",
+      "is_self_reported": true,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://docs.x.ai/docs/models"
     }
   ],
   "prices": [

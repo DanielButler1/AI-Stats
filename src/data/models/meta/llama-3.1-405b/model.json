@@ -36,11 +36,11 @@
       "source_link": "https://github.com/lechmazur/confabulations"
     },
     {
-      "benchmark_id": "thematic-generalisation",
-      "score": 2.08,
+      "benchmark_id": "elimination-game",
+      "score": 4.234,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/generalization"
+      "source_link": "https://github.com/lechmazur/elimination_game"
     },
     {
       "benchmark_id": "nyt-connections",
@@ -50,11 +50,11 @@
       "source_link": "https://github.com/lechmazur/nyt-connections"
     },
     {
-      "benchmark_id": "elimination-game",
-      "score": 4.234,
+      "benchmark_id": "thematic-generalisation",
+      "score": 2.08,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/elimination_game"
+      "source_link": "https://github.com/lechmazur/generalization"
     }
   ],
   "prices": [

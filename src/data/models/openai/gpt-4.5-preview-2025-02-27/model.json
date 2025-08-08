@@ -29,32 +29,11 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "0.80%",
+      "benchmark_id": "aidanbench",
+      "score": 3066,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "10.30%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "aime-2024",
-      "score": "36.70%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://openai.com/index/gpt-4-1/"
-    },
-    {
-      "benchmark_id": "swe-bench",
-      "score": "38.00%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://openai.com/index/gpt-4-1/"
+      "source_link": "https://aidanbench.com/"
     },
     {
       "benchmark_id": "aider-polyglot",
@@ -64,53 +43,25 @@
       "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
-      "benchmark_id": "livebench",
-      "score": "58.65%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://livebench.ai/#/"
-    },
-    {
-      "benchmark_id": "gpqa-diamond",
-      "score": "69.50%",
+      "benchmark_id": "aime-2024",
+      "score": "36.70%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/"
     },
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "71.40%",
-      "is_self_reported": null,
-      "other_info": null,
-      "source_link": null
-    },
-    {
-      "benchmark_id": "lisanbench",
-      "score": 220,
+      "benchmark_id": "arc-agi-1",
+      "score": "10.30%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "eqbench",
-      "score": 1099,
+      "benchmark_id": "arc-agi-2",
+      "score": "0.80%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://eqbench.com/"
-    },
-    {
-      "benchmark_id": "aidanbench",
-      "score": 3066,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://aidanbench.com/"
-    },
-    {
-      "benchmark_id": "simplebench",
-      "score": "34.50%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://simple-bench.com/index.html"
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "confabulations",
@@ -120,11 +71,53 @@
       "source_link": "https://github.com/lechmazur/confabulations"
     },
     {
-      "benchmark_id": "thematic-generalisation",
-      "score": 1.93,
+      "benchmark_id": "elimination-game",
+      "score": 6.282,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/generalization"
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1092.7,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "71.40%",
+      "is_self_reported": null,
+      "other_info": null,
+      "source_link": null
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "69.50%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/gpt-4-1/"
+    },
+    {
+      "benchmark_id": "lisanbench",
+      "score": 220,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "58.65%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://livebench.ai/#/"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1434,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
       "benchmark_id": "nyt-connections",
@@ -134,18 +127,25 @@
       "source_link": "https://github.com/lechmazur/nyt-connections"
     },
     {
-      "benchmark_id": "elimination-game",
-      "score": 6.282,
+      "benchmark_id": "simplebench",
+      "score": "34.50%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/elimination_game"
+      "source_link": "https://simple-bench.com/index.html"
     },
     {
-      "benchmark_id": "lmarena-text",
-      "score": 1434,
+      "benchmark_id": "swe-bench",
+      "score": "38.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/gpt-4-1/"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.93,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
+      "source_link": "https://github.com/lechmazur/generalization"
     }
   ],
   "prices": [

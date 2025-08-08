@@ -29,6 +29,55 @@
   "training_tokens": 15500000000000,
   "benchmark_results": [
     {
+      "benchmark_id": "c-eval",
+      "score": "92.50%",
+      "is_self_reported": true,
+      "other_info": "EM",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "csimpleqa",
+      "score": "77.60%",
+      "is_self_reported": true,
+      "other_info": "Correct",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "evalplus",
+      "score": "80.30%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "48.10%",
+      "is_self_reported": true,
+      "other_info": "Avg@8",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "gsm8k",
+      "score": "92.10%",
+      "is_self_reported": true,
+      "other_info": "EM",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "livecodebench-v6",
+      "score": "26.30%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
+      "benchmark_id": "math",
+      "score": "40.20%",
+      "is_self_reported": true,
+      "other_info": "EM",
+      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
+    },
+    {
       "benchmark_id": "mmlu",
       "score": "87.80%",
       "is_self_reported": true,
@@ -57,20 +106,6 @@
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
     },
     {
-      "benchmark_id": "triviaqa",
-      "score": "85.10%",
-      "is_self_reported": true,
-      "other_info": "EM",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
-    },
-    {
-      "benchmark_id": "gpqa-diamond",
-      "score": "48.10%",
-      "is_self_reported": true,
-      "other_info": "Avg@8",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
-    },
-    {
       "benchmark_id": "supergpqa",
       "score": "44.70%",
       "is_self_reported": true,
@@ -78,45 +113,10 @@
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
     },
     {
-      "benchmark_id": "livecodebench-v6",
-      "score": "26.30%",
-      "is_self_reported": true,
-      "other_info": "Pass@1",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
-    },
-    {
-      "benchmark_id": "evalplus",
-      "score": "80.30%",
-      "is_self_reported": true,
-      "other_info": "Pass@1",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
-    },
-    {
-      "benchmark_id": "math",
-      "score": "40.20%",
+      "benchmark_id": "triviaqa",
+      "score": "85.10%",
       "is_self_reported": true,
       "other_info": "EM",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
-    },
-    {
-      "benchmark_id": "gsm8k",
-      "score": "92.10%",
-      "is_self_reported": true,
-      "other_info": "EM",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
-    },
-    {
-      "benchmark_id": "c-eval",
-      "score": "92.50%",
-      "is_self_reported": true,
-      "other_info": "EM",
-      "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
-    },
-    {
-      "benchmark_id": "csimpleqa",
-      "score": "77.60%",
-      "is_self_reported": true,
-      "other_info": "Correct",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base"
     }
   ],

@@ -29,36 +29,15 @@
   "training_tokens": 14800000000000,
   "benchmark_results": [
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "1.10%",
+      "benchmark_id": "ai2-sciarena",
+      "score": 1061.94,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
+      "source_link": "https://sciarena.allen.ai/"
     },
     {
-      "benchmark_id": "humanitys-last-exam",
-      "score": "17.70%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://api-docs.deepseek.com/news/news250528"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "21.20%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "livebench",
-      "score": "69.39%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://livebench.ai/#/"
-    },
-    {
-      "benchmark_id": "gpqa-diamond",
-      "score": "81.00%",
+      "benchmark_id": "aime-2024",
+      "score": "91.40%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://api-docs.deepseek.com/news/news250528"
@@ -71,18 +50,18 @@
       "source_link": "https://api-docs.deepseek.com/news/news250528"
     },
     {
-      "benchmark_id": "aime-2024",
-      "score": "91.40%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://api-docs.deepseek.com/news/news250528"
-    },
-    {
-      "benchmark_id": "simplebench",
-      "score": "40.80%",
+      "benchmark_id": "arc-agi-1",
+      "score": "21.20%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://simple-bench.com/index.html"
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "1.10%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "confabulations",
@@ -92,20 +71,6 @@
       "source_link": "https://github.com/lechmazur/confabulations"
     },
     {
-      "benchmark_id": "thematic-generalisation",
-      "score": 1.74,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/generalization"
-    },
-    {
-      "benchmark_id": "nyt-connections",
-      "score": "49.80%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/nyt-connections"
-    },
-    {
       "benchmark_id": "elimination-game",
       "score": 6.354,
       "is_self_reported": false,
@@ -113,11 +78,25 @@
       "source_link": "https://github.com/lechmazur/elimination_game"
     },
     {
-      "benchmark_id": "lmarena-webdev",
-      "score": 1408.84,
+      "benchmark_id": "gpqa-diamond",
+      "score": "81.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://api-docs.deepseek.com/news/news250528"
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "17.70%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://api-docs.deepseek.com/news/news250528"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "69.39%",
       "is_self_reported": false,
-      "other_info": "16th June 2025",
-      "source_link": "https://web.lmarena.ai/leaderboard"
+      "other_info": null,
+      "source_link": "https://livebench.ai/#/"
     },
     {
       "benchmark_id": "lmarena-text",
@@ -127,11 +106,32 @@
       "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
-      "benchmark_id": "ai2-sciarena",
-      "score": 1061.94,
+      "benchmark_id": "lmarena-webdev",
+      "score": 1408.84,
+      "is_self_reported": false,
+      "other_info": "16th June 2025",
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "49.80%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://sciarena.allen.ai/"
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "40.80%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.74,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
     }
   ],
   "prices": [

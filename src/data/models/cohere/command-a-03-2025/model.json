@@ -29,18 +29,18 @@
   "training_tokens": null,
   "benchmark_results": [
     {
-      "benchmark_id": "nyt-connections",
-      "score": "13.60%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/nyt-connections"
-    },
-    {
       "benchmark_id": "lmarena-text",
       "score": 1344,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "13.60%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
     }
   ],
   "prices": [

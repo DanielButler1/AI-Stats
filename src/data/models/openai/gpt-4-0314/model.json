@@ -29,18 +29,18 @@
   "training_tokens": "",
   "benchmark_results": [
     {
+      "benchmark_id": "eqbench",
+      "score": 435.1,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
+    },
+    {
       "benchmark_id": "gpqa-diamond",
       "score": "35.70%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/hello-gpt-4o/"
-    },
-    {
-      "benchmark_id": "eqbench",
-      "score": 437.9,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://eqbench.com/"
     },
     {
       "benchmark_id": "lmarena-text",

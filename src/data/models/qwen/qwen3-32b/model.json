@@ -29,11 +29,11 @@
   "training_tokens": null,
   "benchmark_results": [
     {
-      "benchmark_id": "aime-2025",
-      "score": "72.90%",
-      "is_self_reported": true,
+      "benchmark_id": "ai2-sciarena",
+      "score": 1008.64,
+      "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://qwenlm.github.io/blog/qwen3/"
+      "source_link": "https://sciarena.allen.ai/"
     },
     {
       "benchmark_id": "aime-2024",
@@ -43,15 +43,15 @@
       "source_link": "https://qwenlm.github.io/blog/qwen3/"
     },
     {
-      "benchmark_id": "ai2-sciarena",
-      "score": 1008.64,
-      "is_self_reported": false,
+      "benchmark_id": "aime-2025",
+      "score": "72.90%",
+      "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://sciarena.allen.ai/"
+      "source_link": "https://qwenlm.github.io/blog/qwen3/"
     },
     {
       "benchmark_id": "eqbench",
-      "score": 960.2,
+      "score": 952.9,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com"

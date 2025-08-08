@@ -9,12 +9,6 @@ export default function OtherInfo({
 	license,
 	trainingTokens,
 }: OtherInfoProps) {
-	console.log("Rendering OtherInfo", {
-		parameterCount,
-		license,
-		trainingTokens,
-	});
-
 	const formatCount = (value?: number | string) => {
 		// Explicitly bail out on empty‐string, null or undefined
 		if (value === "" || value == null || value === 0) return "-";

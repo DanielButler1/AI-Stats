@@ -29,13 +29,6 @@
   "training_tokens": null,
   "benchmark_results": [
     {
-      "benchmark_id": "simplebench",
-      "score": "22.50%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://simple-bench.com/index.html"
-    },
-    {
       "benchmark_id": "confabulations",
       "score": 21.4,
       "is_self_reported": false,
@@ -43,11 +36,11 @@
       "source_link": "https://github.com/lechmazur/confabulations"
     },
     {
-      "benchmark_id": "thematic-generalisation",
-      "score": 2.11,
+      "benchmark_id": "elimination-game",
+      "score": 5.39,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/generalization"
+      "source_link": "https://github.com/lechmazur/elimination_game"
     },
     {
       "benchmark_id": "nyt-connections",
@@ -57,11 +50,18 @@
       "source_link": "https://github.com/lechmazur/nyt-connections"
     },
     {
-      "benchmark_id": "elimination-game",
-      "score": 5.39,
+      "benchmark_id": "simplebench",
+      "score": "22.50%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/elimination_game"
+      "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 2.11,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
     }
   ],
   "prices": []

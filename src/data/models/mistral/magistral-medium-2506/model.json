@@ -29,36 +29,8 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "humanitys-last-exam",
-      "score": "9.00%",
-      "is_self_reported": true,
-      "other_info": "Text Only Subset",
-      "source_link": "https://mistral.ai/static/research/magistral.pdf"
-    },
-    {
       "benchmark_id": "aider-polyglot",
       "score": "47.10%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://mistral.ai/news/magistral"
-    },
-    {
-      "benchmark_id": "aime-2025",
-      "score": "64.90%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://mistral.ai/news/magistral"
-    },
-    {
-      "benchmark_id": "mmmu",
-      "score": "70.00%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://mistral.ai/static/research/magistral.pdf"
-    },
-    {
-      "benchmark_id": "gpqa-diamond",
-      "score": "70.80%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://mistral.ai/news/magistral"
@@ -71,11 +43,11 @@
       "source_link": "https://mistral.ai/news/magistral"
     },
     {
-      "benchmark_id": "arc-agi-1",
-      "score": "5.90%",
-      "is_self_reported": false,
+      "benchmark_id": "aime-2025",
+      "score": "64.90%",
+      "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
+      "source_link": "https://mistral.ai/news/magistral"
     },
     {
       "benchmark_id": "arc-agi-1",
@@ -85,6 +57,13 @@
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
+      "benchmark_id": "arc-agi-1",
+      "score": "5.90%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
       "benchmark_id": "arc-agi-2",
       "score": "0.00%",
       "is_self_reported": false,
@@ -97,6 +76,27 @@
       "is_self_reported": false,
       "other_info": "Thinking",
       "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "70.80%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/news/magistral"
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "9.00%",
+      "is_self_reported": true,
+      "other_info": "Text Only Subset",
+      "source_link": "https://mistral.ai/static/research/magistral.pdf"
+    },
+    {
+      "benchmark_id": "mmmu",
+      "score": "70.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/static/research/magistral.pdf"
     }
   ],
   "prices": [

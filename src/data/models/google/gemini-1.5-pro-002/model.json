@@ -29,11 +29,11 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "simplebench",
-      "score": "27.10%",
+      "benchmark_id": "lmarena-text",
+      "score": 1346,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://simple-bench.com/index.html"
+      "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
       "benchmark_id": "lmarena-webdev",
@@ -43,11 +43,11 @@
       "source_link": "https://web.lmarena.ai/leaderboard"
     },
     {
-      "benchmark_id": "lmarena-text",
-      "score": 1346,
+      "benchmark_id": "simplebench",
+      "score": "27.10%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": []

@@ -1,4 +1,4 @@
-import { fetchAggregateData } from "@/lib/fetchData";
+import { fetchAggregateData, fetchAllSubscriptionPlans } from "@/lib/fetchData";
 import fs from "fs/promises";
 import path from "path";
 import type { Metadata } from "next";
@@ -92,5 +92,9 @@ export default async function ModelPage(props: {
 	const models = await fetchAggregateData();
 	const model = models.find((m) => m.id === params.modelId);
 
-	return <ModelDisplay model={model} models={models} />;
+	const plans = await fetchAllSubscriptionPlans();
+
+	return (
+		<ModelDisplay model={model} models={models} subscriptionPlans={plans} />
+	);
 }

@@ -29,18 +29,11 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "87.50%",
-      "is_self_reported": true,
-      "other_info": "No Tools",
-      "source_link": "https://x.ai/news/grok-4"
-    },
-    {
-      "benchmark_id": "aime-2025",
-      "score": "91.70%",
-      "is_self_reported": true,
-      "other_info": "No Tools",
-      "source_link": "https://x.ai/news/grok-4"
+      "benchmark_id": "aider-polyglot",
+      "score": "79.60%",
+      "is_self_reported": false,
+      "other_info": "Diff",
+      "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
       "benchmark_id": "aime-2025",
@@ -50,17 +43,10 @@
       "source_link": "https://x.ai/news/grok-4"
     },
     {
-      "benchmark_id": "humanitys-last-exam",
-      "score": "25.40%",
+      "benchmark_id": "aime-2025",
+      "score": "91.70%",
       "is_self_reported": true,
       "other_info": "No Tools",
-      "source_link": "https://x.ai/news/grok-4"
-    },
-    {
-      "benchmark_id": "humanitys-last-exam",
-      "score": "38.60%",
-      "is_self_reported": true,
-      "other_info": "Tool Use",
       "source_link": "https://x.ai/news/grok-4"
     },
     {
@@ -78,20 +64,6 @@
       "source_link": "https://x.ai/news/grok-4"
     },
     {
-      "benchmark_id": "nyt-connections",
-      "score": "92.40%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/nyt-connections"
-    },
-    {
-      "benchmark_id": "thematic-generalisation",
-      "score": 1.88,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/generalization"
-    },
-    {
       "benchmark_id": "confabulations",
       "score": 12.41,
       "is_self_reported": false,
@@ -106,24 +78,24 @@
       "source_link": "https://github.com/lechmazur/writing"
     },
     {
-      "benchmark_id": "aider-polyglot",
-      "score": "79.60%",
+      "benchmark_id": "elimination-game",
+      "score": 5.996,
       "is_self_reported": false,
-      "other_info": "Diff",
-      "source_link": "https://aider.chat/docs/leaderboards/"
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/elimination_game"
     },
     {
-      "benchmark_id": "usamo-2025",
-      "score": "37.50%",
-      "is_self_reported": true,
+      "benchmark_id": "eqbench",
+      "score": 1193.2,
+      "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://x.ai/news/grok-4"
+      "source_link": "https://eqbench.com"
     },
     {
-      "benchmark_id": "hmmt-2025",
-      "score": "90.00%",
+      "benchmark_id": "gpqa-diamond",
+      "score": "87.50%",
       "is_self_reported": true,
-      "other_info": null,
+      "other_info": "No Tools",
       "source_link": "https://x.ai/news/grok-4"
     },
     {
@@ -134,18 +106,46 @@
       "source_link": "https://x.ai/news/grok-4"
     },
     {
-      "benchmark_id": "eqbench",
-      "score": 1181.2,
-      "is_self_reported": false,
+      "benchmark_id": "hmmt-2025",
+      "score": "90.00%",
+      "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://eqbench.com"
+      "source_link": "https://x.ai/news/grok-4"
     },
     {
-      "benchmark_id": "elimination-game",
-      "score": 5.996,
+      "benchmark_id": "humanitys-last-exam",
+      "score": "38.60%",
+      "is_self_reported": true,
+      "other_info": "Tool Use",
+      "source_link": "https://x.ai/news/grok-4"
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "25.40%",
+      "is_self_reported": true,
+      "other_info": "No Tools",
+      "source_link": "https://x.ai/news/grok-4"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "92.40%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/elimination_game"
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.88,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "usamo-2025",
+      "score": "37.50%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://x.ai/news/grok-4"
     }
   ],
   "prices": [

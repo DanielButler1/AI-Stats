@@ -29,67 +29,39 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "0.00%",
+      "benchmark_id": "ai2-sciarena",
+      "score": 975.38,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
+      "source_link": "https://sciarena.allen.ai/"
     },
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "0.40%",
+      "benchmark_id": "aidanbench",
+      "score": 2233,
       "is_self_reported": false,
-      "other_info": "1k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
+      "other_info": "Thinking",
+      "source_link": "https://aidanbench.com/"
     },
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "0.70%",
-      "is_self_reported": false,
-      "other_info": "16k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-2",
-      "score": "0.90%",
-      "is_self_reported": false,
-      "other_info": "8k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "11.60%",
-      "is_self_reported": false,
-      "other_info": "1k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "13.60%",
+      "benchmark_id": "aidanbench",
+      "score": 1968,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
+      "source_link": "https://aidanbench.com/"
     },
     {
-      "benchmark_id": "arc-agi-1",
-      "score": "21.20%",
+      "benchmark_id": "aider-polyglot",
+      "score": "64.90%",
       "is_self_reported": false,
-      "other_info": "8k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
+      "other_info": "Thinking",
+      "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
-      "benchmark_id": "arc-agi-1",
-      "score": "28.60%",
+      "benchmark_id": "aider-polyglot",
+      "score": "64.90%",
       "is_self_reported": false,
-      "other_info": "16k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "livebench",
-      "score": "58.48%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://livebench.ai/#/"
+      "other_info": "32k Thinking",
+      "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
       "benchmark_id": "aider-polyglot",
@@ -106,34 +78,6 @@
       "source_link": "https://www.anthropic.com/news/claude-3-7-sonnet"
     },
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "84.80%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://www.anthropic.com/news/claude-3-7-sonnet"
-    },
-    {
-      "benchmark_id": "lisanbench",
-      "score": 166,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
-    },
-    {
-      "benchmark_id": "eqbench",
-      "score": 1081.5,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://eqbench.com/"
-    },
-    {
-      "benchmark_id": "aidanbench",
-      "score": 1968,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://aidanbench.com/"
-    },
-    {
       "benchmark_id": "aime-2024",
       "score": "61.30%",
       "is_self_reported": null,
@@ -141,60 +85,60 @@
       "source_link": null
     },
     {
-      "benchmark_id": "aider-polyglot",
-      "score": "64.90%",
-      "is_self_reported": false,
-      "other_info": "Thinking",
-      "source_link": "https://aider.chat/docs/leaderboards/"
-    },
-    {
-      "benchmark_id": "aider-polyglot",
-      "score": "64.90%",
-      "is_self_reported": false,
-      "other_info": "32k Thinking",
-      "source_link": "https://aider.chat/docs/leaderboards/"
-    },
-    {
-      "benchmark_id": "livebench",
-      "score": "67.43%",
-      "is_self_reported": false,
-      "other_info": "64k Thinking",
-      "source_link": "https://livebench.ai/#/"
-    },
-    {
-      "benchmark_id": "gpqa-diamond",
-      "score": "78.20%",
-      "is_self_reported": null,
-      "other_info": "Thinking",
-      "source_link": null
-    },
-    {
-      "benchmark_id": "aidanbench",
-      "score": 2233,
-      "is_self_reported": false,
-      "other_info": "Thinking",
-      "source_link": "https://aidanbench.com/"
-    },
-    {
-      "benchmark_id": "simplebench",
-      "score": "46.40%",
-      "is_self_reported": false,
-      "other_info": "Thinking",
-      "source_link": "https://simple-bench.com/index.html"
-    },
-    {
-      "benchmark_id": "simplebench",
-      "score": "44.90%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://simple-bench.com/index.html"
-    },
-    {
-      "benchmark_id": "confabulations",
-      "score": 14.71,
+      "benchmark_id": "arc-agi-1",
+      "score": "28.60%",
       "is_self_reported": false,
       "other_info": "16k Thinking",
-      "source_link": "https://github.com/lechmazur/confabulations"
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "21.20%",
+      "is_self_reported": false,
+      "other_info": "8k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "13.60%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "11.60%",
+      "is_self_reported": false,
+      "other_info": "1k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "0.90%",
+      "is_self_reported": false,
+      "other_info": "8k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "0.70%",
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "0.40%",
+      "is_self_reported": false,
+      "other_info": "1k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "0.00%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "confabulations",
@@ -204,32 +148,11 @@
       "source_link": "https://github.com/lechmazur/confabulations"
     },
     {
-      "benchmark_id": "thematic-generalisation",
-      "score": 1.73,
+      "benchmark_id": "confabulations",
+      "score": 14.71,
       "is_self_reported": false,
       "other_info": "16k Thinking",
-      "source_link": "https://github.com/lechmazur/generalization"
-    },
-    {
-      "benchmark_id": "thematic-generalisation",
-      "score": 1.88,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/generalization"
-    },
-    {
-      "benchmark_id": "nyt-connections",
-      "score": "33.60%",
-      "is_self_reported": false,
-      "other_info": "16k Thinking",
-      "source_link": "https://github.com/lechmazur/nyt-connections"
-    },
-    {
-      "benchmark_id": "nyt-connections",
-      "score": "19.20%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/nyt-connections"
+      "source_link": "https://github.com/lechmazur/confabulations"
     },
     {
       "benchmark_id": "elimination-game",
@@ -246,11 +169,46 @@
       "source_link": "https://github.com/lechmazur/elimination_game"
     },
     {
-      "benchmark_id": "lmarena-webdev",
-      "score": 1357.03,
+      "benchmark_id": "eqbench",
+      "score": 1082.7,
       "is_self_reported": false,
-      "other_info": "16th June 2025",
-      "source_link": "https://web.lmarena.ai/leaderboard"
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "84.80%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://www.anthropic.com/news/claude-3-7-sonnet"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "78.20%",
+      "is_self_reported": null,
+      "other_info": "Thinking",
+      "source_link": null
+    },
+    {
+      "benchmark_id": "lisanbench",
+      "score": 166,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "67.43%",
+      "is_self_reported": false,
+      "other_info": "64k Thinking",
+      "source_link": "https://livebench.ai/#/"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "58.48%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://livebench.ai/#/"
     },
     {
       "benchmark_id": "lmarena-text",
@@ -267,11 +225,53 @@
       "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
-      "benchmark_id": "ai2-sciarena",
-      "score": 975.38,
+      "benchmark_id": "lmarena-webdev",
+      "score": 1357.03,
+      "is_self_reported": false,
+      "other_info": "16th June 2025",
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "33.60%",
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "19.20%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://sciarena.allen.ai/"
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "46.40%",
+      "is_self_reported": false,
+      "other_info": "Thinking",
+      "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "44.90%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.88,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.73,
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://github.com/lechmazur/generalization"
     }
   ],
   "prices": [

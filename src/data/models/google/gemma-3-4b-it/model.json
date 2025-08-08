@@ -29,6 +29,13 @@
   "training_tokens": 4000000000000,
   "benchmark_results": [
     {
+      "benchmark_id": "eqbench",
+      "score": 856.4,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com"
+    },
+    {
       "benchmark_id": "gpqa-diamond",
       "score": "30.80%",
       "is_self_reported": true,
@@ -41,13 +48,6 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
-    },
-    {
-      "benchmark_id": "eqbench",
-      "score": 863.3,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://eqbench.com"
     }
   ],
   "prices": []

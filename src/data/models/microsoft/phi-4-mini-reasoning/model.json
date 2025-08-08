@@ -29,15 +29,15 @@
   "training_tokens": 150000000000,
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "52.00%",
+      "benchmark_id": "aime-2024",
+      "score": "57.50%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/microsoft/Phi-4-mini-reasoning"
     },
     {
-      "benchmark_id": "aime-2024",
-      "score": "57.50%",
+      "benchmark_id": "gpqa-diamond",
+      "score": "52.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/microsoft/Phi-4-mini-reasoning"

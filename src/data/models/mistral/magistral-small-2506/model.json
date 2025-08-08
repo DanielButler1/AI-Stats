@@ -29,36 +29,15 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "humanitys-last-exam",
-      "score": "6.40%",
-      "is_self_reported": true,
-      "other_info": "Text Only Subset",
-      "source_link": "https://mistral.ai/static/research/magistral.pdf"
-    },
-    {
-      "benchmark_id": "aime-2025",
-      "score": "62.80%",
+      "benchmark_id": "aime-2024",
+      "score": "70.70%",
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://mistral.ai/static/research/magistral.pdf"
     },
     {
-      "benchmark_id": "mmmu",
-      "score": "66.00%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://mistral.ai/static/research/magistral.pdf"
-    },
-    {
-      "benchmark_id": "gpqa-diamond",
-      "score": "68.20%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://mistral.ai/static/research/magistral.pdf"
-    },
-    {
-      "benchmark_id": "aime-2024",
-      "score": "70.70%",
+      "benchmark_id": "aime-2025",
+      "score": "62.80%",
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://mistral.ai/static/research/magistral.pdf"
@@ -76,6 +55,27 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "68.20%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/static/research/magistral.pdf"
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "6.40%",
+      "is_self_reported": true,
+      "other_info": "Text Only Subset",
+      "source_link": "https://mistral.ai/static/research/magistral.pdf"
+    },
+    {
+      "benchmark_id": "mmmu",
+      "score": "66.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/static/research/magistral.pdf"
     }
   ],
   "prices": [

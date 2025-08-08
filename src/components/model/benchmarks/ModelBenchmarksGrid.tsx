@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
+import Link from "next/link";
 
 interface ModelBenchmarksGridProps {
 	sortedBenchmarks: any[];
@@ -115,10 +116,14 @@ export function ModelBenchmarksGrid(props: ModelBenchmarksGridProps) {
 						>
 							<div className="flex flex-col gap-0.5 px-1 py-1">
 								<div className="truncate font-semibold text-xs text-zinc-800 dark:text-zinc-100 leading-tight">
-									<span className="truncate font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
-										{b.benchmark?.name ||
-											"Unnamed Benchmark"}
-									</span>
+									<Link
+										href={`/benchmarks/${b.benchmark_id}`}
+									>
+										<span className="truncate font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+											{b.benchmark?.name ||
+												"Unnamed Benchmark"}
+										</span>
+									</Link>
 								</div>
 								<div className="flex items-center justify-between text-base font-mono">
 									<span>

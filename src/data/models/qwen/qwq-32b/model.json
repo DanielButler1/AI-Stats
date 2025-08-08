@@ -29,11 +29,11 @@
   "training_tokens": null,
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "65.20%",
-      "is_self_reported": true,
+      "benchmark_id": "ai2-sciarena",
+      "score": 996.24,
+      "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://qwen-ai.com/qwq-32b/"
+      "source_link": "https://sciarena.allen.ai/"
     },
     {
       "benchmark_id": "aime-2024",
@@ -43,18 +43,18 @@
       "source_link": "https://qwenlm.github.io/blog/qwq-32b/"
     },
     {
-      "benchmark_id": "ai2-sciarena",
-      "score": 996.24,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://sciarena.allen.ai/"
-    },
-    {
       "benchmark_id": "eqbench",
-      "score": 1212.8,
+      "score": 1214.1,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://eqbench.com"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "65.20%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://qwen-ai.com/qwq-32b/"
     }
   ],
   "prices": []

@@ -4,7 +4,7 @@
   "provider_id": "openai",
   "description": null,
   "frequency": "monthly",
-  "usd-price": 200.0,
+  "usd_price": 200.0,
   "link": null,
   "other_info": null,
   "models": [
@@ -84,12 +84,139 @@
       "model_info": null,
       "rate_limit": "Unlimited within abuse guardrails",
       "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "model_id": "gpt-5-pro",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
     }
   ],
   "features": [
     {
       "plan_id": "chatgpt-pro",
       "feature_name": "Agent Mode",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Deep Research",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Advanced Voice Mode",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Advanced Voice With Video",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Memory",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Search",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Canvas",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Code edits on macOS",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Projects",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Tasks",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Data Analysis",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Vision",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Connectors to internal sources",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "ChatGPT Record Mode",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "File Upload",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Use GPTs",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Create GPTs",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Image Generation",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Sora",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Codex",
+      "feature_description": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "feature_name": "Study Mode",
       "feature_description": null,
       "other_info": null
     }

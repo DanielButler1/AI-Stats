@@ -4,7 +4,7 @@
   "provider_id": "google",
   "description": null,
   "frequency": "monthly",
-  "usd-price": 249.99,
+  "usd_price": 249.99,
   "link": null,
   "other_info": null,
   "models": [

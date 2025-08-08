@@ -7,30 +7,35 @@ import {
 	DropdownMenuContent,
 	DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
-import { ExtendedModel } from "@/data/types";
+import { ExtendedModel, SubscriptionPlans } from "@/data/types";
 import ModelOverview from "@/components/model/overview/ModelOverview";
 import ModelBenchmarksComparison from "@/components/model/benchmarks/ModelBenchmarksComparison";
 import ModelReleaseTimeline from "@/components/model/ModelReleaseTimeline";
 import ModelAPI from "@/components/model/overview/ModelAPI";
 import ModelAPIProviders from "@/components/model/api_providers/ModelAPIProviders";
+import ModelInProducts from "@/components/model/ModelInProducts";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
 interface ModelTabsProps {
 	model: ExtendedModel;
 	models: ExtendedModel[];
+	subscriptionPlans: SubscriptionPlans[];
 }
 
 const tabs = [
 	{ label: "Overview", key: "overview" },
 	{ label: "Timeline", key: "timeline" },
 	{ label: "Benchmarks", key: "benchmarks" },
-	{ label: "Pricing & APIs", key: "api" },
+	{ label: "Availability & Pricing", key: "pricing" },
 	{ label: "Gateway", key: "gateway" },
-	{ label: "In Products", key: "products" },
 ];
 
-export default function ModelTabs({ model, models }: ModelTabsProps) {
+export default function ModelTabs({
+	model,
+	models,
+	subscriptionPlans,
+}: ModelTabsProps) {
 	const [activeTab, setActiveTab] = useQueryState("tab", {
 		defaultValue: "overview",
 	});
@@ -83,30 +88,32 @@ export default function ModelTabs({ model, models }: ModelTabsProps) {
 				</DropdownMenu>
 			</div>
 
-		<div>
-			{activeTab === "overview" && <ModelOverview model={model} />}
-			{activeTab === "benchmarks" && (
-				<ModelBenchmarksComparison
-					model={model}
-					allModels={models}
-				/>
-			)}
-			{activeTab === "timeline" && (
-				<ModelReleaseTimeline model={model} allModels={models} />
-			)}
-			{activeTab === "api" && <ModelAPIProviders model={model} />}
-			{activeTab === "gateway" && <ModelAPI />}
-			{activeTab === "products" && (
-				<div className="p-4 text-base text-muted-foreground">
-					<p>
-						<strong>Model Availability in Products:</strong>
-					</p>
-					<p>
-						This section will describe where this model is available in consumer products and subscription services (e.g., ChatGPT, Gemini, Grok, Copilot, Claude, etc.).
-					</p>
-				</div>
-			)}
-		</div>
+			<div>
+				{activeTab === "overview" && <ModelOverview model={model} />}
+				{activeTab === "benchmarks" && (
+					<ModelBenchmarksComparison
+						model={model}
+						allModels={models}
+					/>
+				)}
+				{activeTab === "timeline" && (
+					<ModelReleaseTimeline model={model} allModels={models} />
+				)}
+				{activeTab === "pricing" && (
+					<div className="space-y-8">
+						<div>
+							<ModelInProducts
+								model={model}
+								plans={subscriptionPlans}
+							/>
+						</div>
+						<div>
+							<ModelAPIProviders model={model} />
+						</div>
+					</div>
+				)}
+				{activeTab === "gateway" && <ModelAPI />}
+			</div>
 		</div>
 	);
 }

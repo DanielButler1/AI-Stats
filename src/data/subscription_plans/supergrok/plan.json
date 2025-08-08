@@ -4,7 +4,7 @@
   "provider_id": "x-ai",
   "description": null,
   "frequency": "yearly",
-  "usd-price": 300.0,
+  "usd_price": 300.0,
   "link": null,
   "other_info": null,
   "models": [

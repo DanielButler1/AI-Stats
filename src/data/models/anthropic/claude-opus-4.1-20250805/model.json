@@ -29,36 +29,43 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "swe-bench",
-      "score": "74.50%",
+      "benchmark_id": "aime-2025",
+      "score": "78.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://www.anthropic.com/news/claude-opus-4-1"
     },
     {
-      "benchmark_id": "terminal-bench",
-      "score": "43.30%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://www.anthropic.com/news/claude-opus-4-1"
+      "benchmark_id": "confabulations",
+      "score": 18.51,
+      "is_self_reported": false,
+      "other_info": "No Reasoning",
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 17.08,
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "creative-story-writing",
+      "score": 8.47,
+      "is_self_reported": false,
+      "other_info": "No Reasoning",
+      "source_link": "https://github.com/lechmazur/writing"
+    },
+    {
+      "benchmark_id": "creative-story-writing",
+      "score": 8.45,
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://github.com/lechmazur/writing"
     },
     {
       "benchmark_id": "gpqa-diamond",
       "score": "80.90%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://www.anthropic.com/news/claude-opus-4-1"
-    },
-    {
-      "benchmark_id": "tau-bench-retail",
-      "score": "82.40%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://www.anthropic.com/news/claude-opus-4-1"
-    },
-    {
-      "benchmark_id": "tau-bench-airline",
-      "score": "56.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://www.anthropic.com/news/claude-opus-4-1"
@@ -78,8 +85,36 @@
       "source_link": "https://www.anthropic.com/news/claude-opus-4-1"
     },
     {
-      "benchmark_id": "aime-2025",
-      "score": "78.00%",
+      "benchmark_id": "simplebench",
+      "score": "60.00%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/"
+    },
+    {
+      "benchmark_id": "swe-bench",
+      "score": "74.50%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://www.anthropic.com/news/claude-opus-4-1"
+    },
+    {
+      "benchmark_id": "tau-bench-airline",
+      "score": "56.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://www.anthropic.com/news/claude-opus-4-1"
+    },
+    {
+      "benchmark_id": "tau-bench-retail",
+      "score": "82.40%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://www.anthropic.com/news/claude-opus-4-1"
+    },
+    {
+      "benchmark_id": "terminal-bench",
+      "score": "43.30%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://www.anthropic.com/news/claude-opus-4-1"

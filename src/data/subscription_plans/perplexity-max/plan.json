@@ -4,7 +4,7 @@
   "provider_id": "perplexity",
   "description": null,
   "frequency": "monthly",
-  "usd-price": 200.0,
+  "usd_price": 200.0,
   "link": null,
   "other_info": null,
   "models": [],

@@ -29,13 +29,6 @@
   "training_tokens": 14000000000000,
   "benchmark_results": [
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "42.40%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://ai.google.dev/gemma/docs/core/model_card_3"
-    },
-    {
       "benchmark_id": "confabulations",
       "score": 40.26,
       "is_self_reported": false,
@@ -43,18 +36,18 @@
       "source_link": "https://github.com/lechmazur/confabulations"
     },
     {
-      "benchmark_id": "thematic-generalisation",
-      "score": 2.21,
+      "benchmark_id": "eqbench",
+      "score": 1040.7,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/generalization"
+      "source_link": "https://eqbench.com"
     },
     {
-      "benchmark_id": "nyt-connections",
-      "score": "11.80%",
-      "is_self_reported": false,
+      "benchmark_id": "gpqa-diamond",
+      "score": "42.40%",
+      "is_self_reported": true,
       "other_info": null,
-      "source_link": "https://github.com/lechmazur/nyt-connections"
+      "source_link": "https://ai.google.dev/gemma/docs/core/model_card_3"
     },
     {
       "benchmark_id": "lmarena-text",
@@ -64,11 +57,18 @@
       "source_link": "https://lmarena.ai/leaderboard/text"
     },
     {
-      "benchmark_id": "eqbench",
-      "score": 1048.7,
+      "benchmark_id": "nyt-connections",
+      "score": "11.80%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://eqbench.com"
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 2.21,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
     }
   ],
   "prices": []

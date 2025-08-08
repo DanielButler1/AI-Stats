@@ -29,6 +29,13 @@
   "training_tokens": 14800000000000,
   "benchmark_results": [
     {
+      "benchmark_id": "ai2-sciarena",
+      "score": 1016.2,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://sciarena.allen.ai/"
+    },
+    {
       "benchmark_id": "aime-2024",
       "score": "39.20%",
       "is_self_reported": false,
@@ -36,11 +43,32 @@
       "source_link": "https://github.com/deepseek-ai/DeepSeek-V3"
     },
     {
+      "benchmark_id": "elimination-game",
+      "score": 5.161,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
       "benchmark_id": "gpqa-diamond",
       "score": "59.10%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/deepseek-ai/DeepSeek-V3"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1355,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "15.10%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
     },
     {
       "benchmark_id": "simplebench",
@@ -55,34 +83,6 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/generalization"
-    },
-    {
-      "benchmark_id": "nyt-connections",
-      "score": "15.10%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/nyt-connections"
-    },
-    {
-      "benchmark_id": "elimination-game",
-      "score": 5.161,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/elimination_game"
-    },
-    {
-      "benchmark_id": "lmarena-text",
-      "score": 1355,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
-    },
-    {
-      "benchmark_id": "ai2-sciarena",
-      "score": 1016.2,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://sciarena.allen.ai/"
     }
   ],
   "prices": []

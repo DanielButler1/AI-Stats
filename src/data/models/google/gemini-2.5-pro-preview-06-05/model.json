@@ -29,53 +29,11 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "lmarena-text",
-      "score": 1470,
+      "benchmark_id": "ai2-sciarena",
+      "score": 1063,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
-    },
-    {
-      "benchmark_id": "humanitys-last-exam",
-      "score": "21.60%",
-      "is_self_reported": true,
-      "other_info": "No Tools",
-      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
-    },
-    {
-      "benchmark_id": "simpleqa",
-      "score": "54.00%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
-    },
-    {
-      "benchmark_id": "swe-bench",
-      "score": "59.60%",
-      "is_self_reported": true,
-      "other_info": "Single Attempt",
-      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
-    },
-    {
-      "benchmark_id": "simplebench",
-      "score": "62.40%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://simple-bench.com/index.html"
-    },
-    {
-      "benchmark_id": "swe-bench",
-      "score": "67.20%",
-      "is_self_reported": true,
-      "other_info": "Multiple Attempts",
-      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
-    },
-    {
-      "benchmark_id": "mmmu",
-      "score": "82.00%",
-      "is_self_reported": true,
-      "other_info": "Single Attempt",
-      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+      "source_link": "https://sciarena.allen.ai/"
     },
     {
       "benchmark_id": "aider-polyglot",
@@ -85,88 +43,11 @@
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
     },
     {
-      "benchmark_id": "gpqa-diamond",
-      "score": "86.40%",
-      "is_self_reported": true,
-      "other_info": "Single Attempt",
-      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
-    },
-    {
       "benchmark_id": "aime-2025",
       "score": "88.00%",
       "is_self_reported": true,
       "other_info": "Single Attempt",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
-    },
-    {
-      "benchmark_id": "mmlu",
-      "score": "89.20%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
-    },
-    {
-      "benchmark_id": "lmarena-text",
-      "score": 1470,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
-    },
-    {
-      "benchmark_id": "eqbench",
-      "score": 1468.5,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://eqbench.com/"
-    },
-    {
-      "benchmark_id": "confabulations",
-      "score": 12.38,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/confabulations"
-    },
-    {
-      "benchmark_id": "thematic-generalisation",
-      "score": 1.79,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/generalization"
-    },
-    {
-      "benchmark_id": "nyt-connections",
-      "score": "58.70%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/nyt-connections"
-    },
-    {
-      "benchmark_id": "elimination-game",
-      "score": 4.036,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/elimination_game"
-    },
-    {
-      "benchmark_id": "lmarena-webdev",
-      "score": 1433.16,
-      "is_self_reported": false,
-      "other_info": "16th June 2025",
-      "source_link": "https://web.lmarena.ai/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "16.00%",
-      "is_self_reported": false,
-      "other_info": "1k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "29.50%",
-      "is_self_reported": false,
-      "other_info": "8k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-1",
@@ -183,17 +64,24 @@
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "0.00%",
+      "benchmark_id": "arc-agi-1",
+      "score": "29.50%",
+      "is_self_reported": false,
+      "other_info": "8k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "16.00%",
       "is_self_reported": false,
       "other_info": "1k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "2.90%",
+      "score": "4.90%",
       "is_self_reported": false,
-      "other_info": "8k Thinking",
+      "other_info": "32k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
@@ -205,17 +93,129 @@
     },
     {
       "benchmark_id": "arc-agi-2",
-      "score": "4.90%",
+      "score": "2.90%",
       "is_self_reported": false,
-      "other_info": "32k Thinking",
+      "other_info": "8k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "ai2-sciarena",
-      "score": 1063,
+      "benchmark_id": "arc-agi-2",
+      "score": "0.00%",
+      "is_self_reported": false,
+      "other_info": "1k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 12.38,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://sciarena.allen.ai/"
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 4.036,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1470.2,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "86.40%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "21.60%",
+      "is_self_reported": true,
+      "other_info": "No Tools",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1470,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1470,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "lmarena-webdev",
+      "score": 1433.16,
+      "is_self_reported": false,
+      "other_info": "16th June 2025",
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "mmlu",
+      "score": "89.20%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "mmmu",
+      "score": "82.00%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "58.70%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "62.40%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "simpleqa",
+      "score": "54.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "swe-bench",
+      "score": "67.20%",
+      "is_self_reported": true,
+      "other_info": "Multiple Attempts",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "swe-bench",
+      "score": "59.60%",
+      "is_self_reported": true,
+      "other_info": "Single Attempt",
+      "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.79,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/generalization"
     }
   ],
   "prices": [

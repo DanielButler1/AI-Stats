@@ -49,13 +49,6 @@ export default function ModelAPIProviders({ model }: ModelAPIProvidersProps) {
 		);
 	}
 
-	// // Sort prices by input and output token prices in ascending order
-	// model.prices.sort((a: Price, b: Price) => {
-	// 	const inputPriceA = a.input_token_price || 0;
-	// 	const inputPriceB = b.input_token_price || 0;
-	// 	return inputPriceA - inputPriceB;
-	// });
-
 	return (
 		<div className="space-y-4">
 			<h3 className="text-lg font-semibold mb-2">

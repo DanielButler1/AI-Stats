@@ -29,6 +29,13 @@
   "training_tokens": "",
   "benchmark_results": [
     {
+      "benchmark_id": "aime-2025",
+      "score": "100.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://x.ai/news/grok-4"
+    },
+    {
       "benchmark_id": "gpqa-diamond",
       "score": "88.90%",
       "is_self_reported": true,
@@ -36,8 +43,8 @@
       "source_link": "https://x.ai/news/grok-4"
     },
     {
-      "benchmark_id": "aime-2025",
-      "score": "100.00%",
+      "benchmark_id": "hmmt-2025",
+      "score": "96.70%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-4"
@@ -54,13 +61,6 @@
       "score": "61.90%",
       "is_self_reported": true,
       "other_info": "With Python",
-      "source_link": "https://x.ai/news/grok-4"
-    },
-    {
-      "benchmark_id": "hmmt-2025",
-      "score": "96.70%",
-      "is_self_reported": true,
-      "other_info": null,
       "source_link": "https://x.ai/news/grok-4"
     }
   ],

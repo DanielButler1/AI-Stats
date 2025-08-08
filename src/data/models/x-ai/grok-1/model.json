@@ -36,13 +36,6 @@
       "source_link": "https://x.ai/news/grok"
     },
     {
-      "benchmark_id": "mmlu",
-      "score": "73.00%",
-      "is_self_reported": true,
-      "other_info": "5 Shot",
-      "source_link": "https://x.ai/news/grok"
-    },
-    {
       "benchmark_id": "humaneval",
       "score": "63.20%",
       "is_self_reported": true,
@@ -54,6 +47,13 @@
       "score": "23.90%",
       "is_self_reported": true,
       "other_info": "4 Shot",
+      "source_link": "https://x.ai/news/grok"
+    },
+    {
+      "benchmark_id": "mmlu",
+      "score": "73.00%",
+      "is_self_reported": true,
+      "other_info": "5 Shot",
       "source_link": "https://x.ai/news/grok"
     }
   ],

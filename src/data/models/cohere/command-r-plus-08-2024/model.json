@@ -29,18 +29,18 @@
   "training_tokens": null,
   "benchmark_results": [
     {
-      "benchmark_id": "simplebench",
-      "score": "17.40%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://simple-bench.com/index.html"
-    },
-    {
       "benchmark_id": "lmarena-text",
       "score": 1275,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "17.40%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://simple-bench.com/index.html"
     }
   ],
   "prices": [

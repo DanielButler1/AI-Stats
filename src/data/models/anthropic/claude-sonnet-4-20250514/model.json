@@ -29,45 +29,31 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "0.90%",
-      "is_self_reported": false,
-      "other_info": "1k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-2",
-      "score": "1.30%",
+      "benchmark_id": "ai2-sciarena",
+      "score": 1044.81,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
+      "source_link": "https://sciarena.allen.ai/"
     },
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "2.10%",
+      "benchmark_id": "aider-polyglot",
+      "score": "61.30%",
       "is_self_reported": false,
-      "other_info": "8k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
+      "other_info": "32k Thinking",
+      "source_link": "https://aider.chat/docs/leaderboards/"
     },
     {
-      "benchmark_id": "arc-agi-2",
-      "score": "5.90%",
+      "benchmark_id": "aider-polyglot",
+      "score": "56.40%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "40.00%",
       "is_self_reported": false,
       "other_info": "16k Thinking",
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "23.80%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://arcprize.org/leaderboard"
-    },
-    {
-      "benchmark_id": "arc-agi-1",
-      "score": "28.00%",
-      "is_self_reported": false,
-      "other_info": "1k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
@@ -79,38 +65,80 @@
     },
     {
       "benchmark_id": "arc-agi-1",
-      "score": "40.00%",
+      "score": "28.00%",
+      "is_self_reported": false,
+      "other_info": "1k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "23.80%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "5.90%",
       "is_self_reported": false,
       "other_info": "16k Thinking",
       "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "aider-polyglot",
-      "score": "56.40%",
+      "benchmark_id": "arc-agi-2",
+      "score": "2.10%",
+      "is_self_reported": false,
+      "other_info": "8k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "1.30%",
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://aider.chat/docs/leaderboards/"
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "aider-polyglot",
-      "score": "61.30%",
+      "benchmark_id": "arc-agi-2",
+      "score": "0.90%",
       "is_self_reported": false,
-      "other_info": "32k Thinking",
-      "source_link": "https://aider.chat/docs/leaderboards/"
+      "other_info": "1k Thinking",
+      "source_link": "https://arcprize.org/leaderboard"
     },
     {
-      "benchmark_id": "livebench",
-      "score": "63.37%",
+      "benchmark_id": "confabulations",
+      "score": 14.85,
+      "is_self_reported": false,
+      "other_info": "No Reasoning",
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 13.2,
+      "is_self_reported": false,
+      "other_info": "16k Thinking",
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 5.678,
+      "is_self_reported": false,
+      "other_info": "No Reasoning",
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 4.605,
       "is_self_reported": false,
       "other_info": null,
-      "source_link": "https://livebench.ai/#/"
+      "source_link": "https://github.com/lechmazur/elimination_game"
     },
     {
-      "benchmark_id": "livebench",
-      "score": "72.08%",
+      "benchmark_id": "eqbench",
+      "score": 1260.8,
       "is_self_reported": false,
-      "other_info": "64k Thinking",
-      "source_link": "https://livebench.ai/#/"
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
     },
     {
       "benchmark_id": "gpqa-diamond",
@@ -127,53 +155,32 @@
       "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
     },
     {
-      "benchmark_id": "eqbench",
-      "score": 1258.7,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://eqbench.com/"
-    },
-    {
-      "benchmark_id": "simplebench",
-      "score": "45.50%",
-      "is_self_reported": false,
-      "other_info": "Thinking",
-      "source_link": "https://simple-bench.com/index.html"
-    },
-    {
-      "benchmark_id": "confabulations",
-      "score": 13.2,
-      "is_self_reported": false,
-      "other_info": "16k Thinking",
-      "source_link": "https://github.com/lechmazur/confabulations"
-    },
-    {
-      "benchmark_id": "confabulations",
-      "score": 14.85,
-      "is_self_reported": false,
-      "other_info": "No Reasoning",
-      "source_link": "https://github.com/lechmazur/confabulations"
-    },
-    {
-      "benchmark_id": "thematic-generalisation",
-      "score": 1.69,
-      "is_self_reported": false,
-      "other_info": "16k Thinking",
-      "source_link": "https://github.com/lechmazur/generalization"
-    },
-    {
-      "benchmark_id": "thematic-generalisation",
-      "score": 1.74,
+      "benchmark_id": "livebench",
+      "score": "72.08%",
       "is_self_reported": false,
       "other_info": "64k Thinking",
-      "source_link": "https://github.com/lechmazur/generalization"
+      "source_link": "https://livebench.ai/#/"
     },
     {
-      "benchmark_id": "thematic-generalisation",
-      "score": 1.89,
+      "benchmark_id": "livebench",
+      "score": "63.37%",
       "is_self_reported": false,
-      "other_info": "No Reasoning",
-      "source_link": "https://github.com/lechmazur/generalization"
+      "other_info": null,
+      "source_link": "https://livebench.ai/#/"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1394,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "lmarena-webdev",
+      "score": 1381.76,
+      "is_self_reported": false,
+      "other_info": "16th June 2025",
+      "source_link": "https://web.lmarena.ai/leaderboard"
     },
     {
       "benchmark_id": "nyt-connections",
@@ -197,39 +204,32 @@
       "source_link": "https://github.com/lechmazur/nyt-connections"
     },
     {
-      "benchmark_id": "elimination-game",
-      "score": 5.678,
+      "benchmark_id": "simplebench",
+      "score": "45.50%",
+      "is_self_reported": false,
+      "other_info": "Thinking",
+      "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.89,
       "is_self_reported": false,
       "other_info": "No Reasoning",
-      "source_link": "https://github.com/lechmazur/elimination_game"
+      "source_link": "https://github.com/lechmazur/generalization"
     },
     {
-      "benchmark_id": "elimination-game",
-      "score": 4.605,
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.74,
       "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/elimination_game"
+      "other_info": "64k Thinking",
+      "source_link": "https://github.com/lechmazur/generalization"
     },
     {
-      "benchmark_id": "lmarena-webdev",
-      "score": 1381.76,
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.69,
       "is_self_reported": false,
-      "other_info": "16th June 2025",
-      "source_link": "https://web.lmarena.ai/leaderboard"
-    },
-    {
-      "benchmark_id": "lmarena-text",
-      "score": 1394,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
-    },
-    {
-      "benchmark_id": "ai2-sciarena",
-      "score": 1044.81,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://sciarena.allen.ai/"
+      "other_info": "16k Thinking",
+      "source_link": "https://github.com/lechmazur/generalization"
     }
   ],
   "prices": [

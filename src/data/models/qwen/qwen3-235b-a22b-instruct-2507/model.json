@@ -29,43 +29,8 @@
   "training_tokens": "",
   "benchmark_results": [
     {
-      "benchmark_id": "mmlu-pro",
-      "score": "83.00%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
-    },
-    {
-      "benchmark_id": "mmlu-redux",
-      "score": "93.10%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
-    },
-    {
-      "benchmark_id": "gpqa-diamond",
-      "score": "77.50%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
-    },
-    {
-      "benchmark_id": "supergpqa",
-      "score": "62.60%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
-    },
-    {
-      "benchmark_id": "simpleqa",
-      "score": "54.30%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
-    },
-    {
-      "benchmark_id": "csimpleqa",
-      "score": "84.30%",
+      "benchmark_id": "aider-polyglot",
+      "score": "57.30%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
@@ -78,13 +43,6 @@
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
     },
     {
-      "benchmark_id": "hmmt-2025",
-      "score": "55.40%",
-      "is_self_reported": true,
-      "other_info": null,
-      "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
-    },
-    {
       "benchmark_id": "arc-agi-1",
       "score": "41.80%",
       "is_self_reported": true,
@@ -92,8 +50,29 @@
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
     },
     {
-      "benchmark_id": "zebralogic",
-      "score": "95.00%",
+      "benchmark_id": "csimpleqa",
+      "score": "84.30%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "77.50%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
+    },
+    {
+      "benchmark_id": "hmmt-2025",
+      "score": "55.40%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
+    },
+    {
+      "benchmark_id": "if-eval",
+      "score": "88.70%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
@@ -113,6 +92,20 @@
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
     },
     {
+      "benchmark_id": "mmlu-pro",
+      "score": "83.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
+    },
+    {
+      "benchmark_id": "mmlu-redux",
+      "score": "93.10%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
+    },
+    {
       "benchmark_id": "multiPL-E",
       "score": "87.90%",
       "is_self_reported": true,
@@ -120,15 +113,22 @@
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
     },
     {
-      "benchmark_id": "aider-polyglot",
-      "score": "57.30%",
+      "benchmark_id": "simpleqa",
+      "score": "54.30%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
     },
     {
-      "benchmark_id": "if-eval",
-      "score": "88.70%",
+      "benchmark_id": "supergpqa",
+      "score": "62.60%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
+    },
+    {
+      "benchmark_id": "tau-bench-airline",
+      "score": "44.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
@@ -141,8 +141,8 @@
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"
     },
     {
-      "benchmark_id": "tau-bench-airline",
-      "score": "44.00%",
+      "benchmark_id": "zebralogic",
+      "score": "95.00%",
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large"

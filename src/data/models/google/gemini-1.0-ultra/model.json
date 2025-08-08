@@ -36,15 +36,15 @@
       "source_link": "https://artificialanalysis.ai/models/gemini-1-0-ultra"
     },
     {
-      "benchmark_id": "math",
-      "score": "53.20%",
+      "benchmark_id": "humaneval",
+      "score": "74.40%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://openai.com/index/hello-gpt-4o/"
     },
     {
-      "benchmark_id": "humaneval",
-      "score": "74.40%",
+      "benchmark_id": "math",
+      "score": "53.20%",
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://openai.com/index/hello-gpt-4o/"

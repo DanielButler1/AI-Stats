@@ -29,11 +29,81 @@
   "training_tokens": "",
   "benchmark_results": [
     {
+      "benchmark_id": "aider-polyglot",
+      "score": "76.50%",
+      "is_self_reported": true,
+      "other_info": "Whole",
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "72.70%",
+      "is_self_reported": true,
+      "other_info": "Diff",
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "83.00%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 10.62,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1247,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "83.00%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
+    },
+    {
       "benchmark_id": "humanitys-last-exam",
       "score": "17.80%",
       "is_self_reported": true,
       "other_info": "No Tools",
       "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1446,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "mmlu",
+      "score": "88.60%",
+      "is_self_reported": true,
+      "other_info": "Lite",
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
+    },
+    {
+      "benchmark_id": "mmmu",
+      "score": "79.60%",
+      "is_self_reported": true,
+      "other_info": "Pass@1",
+      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "42.50%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://github.com/lechmazur/nyt-connections"
     },
     {
       "benchmark_id": "simpleqa",
@@ -50,81 +120,11 @@
       "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
     },
     {
-      "benchmark_id": "aider-polyglot",
-      "score": "72.70%",
-      "is_self_reported": true,
-      "other_info": "Diff",
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
-    },
-    {
-      "benchmark_id": "aider-polyglot",
-      "score": "76.50%",
-      "is_self_reported": true,
-      "other_info": "Whole",
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
-    },
-    {
-      "benchmark_id": "mmmu",
-      "score": "79.60%",
-      "is_self_reported": true,
-      "other_info": "Pass@1",
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
-    },
-    {
-      "benchmark_id": "aime-2025",
-      "score": "83.00%",
-      "is_self_reported": true,
-      "other_info": "Pass@1",
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
-    },
-    {
-      "benchmark_id": "gpqa-diamond",
-      "score": "83.00%",
-      "is_self_reported": true,
-      "other_info": "Pass@1",
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
-    },
-    {
-      "benchmark_id": "mmlu",
-      "score": "88.60%",
-      "is_self_reported": true,
-      "other_info": "Lite",
-      "source_link": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf"
-    },
-    {
-      "benchmark_id": "eqbench",
-      "score": 1246.4,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://eqbench.com/"
-    },
-    {
-      "benchmark_id": "lmarena-text",
-      "score": 1446,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://lmarena.ai/leaderboard/text"
-    },
-    {
-      "benchmark_id": "confabulations",
-      "score": 10.62,
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/confabulations"
-    },
-    {
       "benchmark_id": "thematic-generalisation",
       "score": 1.75,
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/lechmazur/generalization"
-    },
-    {
-      "benchmark_id": "nyt-connections",
-      "score": "42.50%",
-      "is_self_reported": false,
-      "other_info": null,
-      "source_link": "https://github.com/lechmazur/nyt-connections"
     }
   ],
   "prices": []

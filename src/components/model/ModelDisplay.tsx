@@ -1,5 +1,5 @@
 import React from "react";
-import { ExtendedModel } from "@/data/types";
+import { ExtendedModel, SubscriptionPlans } from "@/data/types";
 import Header from "@/components/header";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Image from "next/image";
@@ -9,9 +9,14 @@ import Link from "next/link";
 interface ModelDisplayProps {
 	model?: ExtendedModel;
 	models: ExtendedModel[];
+	subscriptionPlans: SubscriptionPlans[];
 }
 
-export default function ModelDisplay({ model, models }: ModelDisplayProps) {
+export default function ModelDisplay({
+	model,
+	models,
+	subscriptionPlans,
+}: ModelDisplayProps) {
 	if (!model) {
 		return (
 			<main className="flex min-h-screen flex-col">
@@ -106,7 +111,11 @@ export default function ModelDisplay({ model, models }: ModelDisplayProps) {
 							)}
 						</div>
 						{/* Tabs section below main model heading */}
-						<ModelTabs model={model} models={models} />
+						<ModelTabs
+							model={model}
+							models={models}
+							subscriptionPlans={subscriptionPlans}
+						/>
 					</>
 				</div>
 			</TooltipProvider>
