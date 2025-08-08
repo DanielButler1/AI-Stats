@@ -3,6 +3,8 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fetchAggregateData } from '@/lib/fetchData';
 
+export const dynamic = 'force-static'; // required for output: 'export'
+
 type SitemapItem = {
     url: string;
     lastModified: string;
