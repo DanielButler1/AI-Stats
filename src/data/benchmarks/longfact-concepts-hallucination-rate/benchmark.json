@@ -1,0 +1,8 @@
+{
+  "id": "longfact-concepts-hallucination-rate",
+  "name": "LongFact-Concepts hallucination rate",
+  "category": "hallucinations",
+  "order": "lower",
+  "description": null,
+  "link": null
+}

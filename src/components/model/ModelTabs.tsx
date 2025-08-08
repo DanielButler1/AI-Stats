@@ -27,6 +27,7 @@ const tabs = [
 	{ label: "Benchmarks", key: "benchmarks" },
 	{ label: "Pricing & APIs", key: "api" },
 	{ label: "Gateway", key: "gateway" },
+	{ label: "In Products", key: "products" },
 ];
 
 export default function ModelTabs({ model, models }: ModelTabsProps) {
@@ -82,20 +83,30 @@ export default function ModelTabs({ model, models }: ModelTabsProps) {
 				</DropdownMenu>
 			</div>
 
-			<div>
-				{activeTab === "overview" && <ModelOverview model={model} />}
-				{activeTab === "benchmarks" && (
-					<ModelBenchmarksComparison
-						model={model}
-						allModels={models}
-					/>
-				)}
-				{activeTab === "timeline" && (
-					<ModelReleaseTimeline model={model} allModels={models} />
-				)}
-				{activeTab === "api" && <ModelAPIProviders model={model} />}
-				{activeTab === "gateway" && <ModelAPI />}
-			</div>
+		<div>
+			{activeTab === "overview" && <ModelOverview model={model} />}
+			{activeTab === "benchmarks" && (
+				<ModelBenchmarksComparison
+					model={model}
+					allModels={models}
+				/>
+			)}
+			{activeTab === "timeline" && (
+				<ModelReleaseTimeline model={model} allModels={models} />
+			)}
+			{activeTab === "api" && <ModelAPIProviders model={model} />}
+			{activeTab === "gateway" && <ModelAPI />}
+			{activeTab === "products" && (
+				<div className="p-4 text-base text-muted-foreground">
+					<p>
+						<strong>Model Availability in Products:</strong>
+					</p>
+					<p>
+						This section will describe where this model is available in consumer products and subscription services (e.g., ChatGPT, Gemini, Grok, Copilot, Claude, etc.).
+					</p>
+				</div>
+			)}
+		</div>
 		</div>
 	);
 }

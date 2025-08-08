@@ -97,6 +97,55 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "openai-mrcr-2-needle-128k",
+      "score": "36.60%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "openai-mrcr-2-needle-256k",
+      "score": "22.60%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "graphwalks-bfs-lt-128k",
+      "score": "25.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "graphwalks-parents-lt-128k",
+      "score": "9.40%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "browsecomp-long-context-128k",
+      "score": "89.40%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "browsecomp-long-context-256k",
+      "score": "19.10%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "videomme",
+      "score": "55.20%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
     }
   ],
   "prices": [

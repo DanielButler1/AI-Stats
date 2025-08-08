@@ -1,7 +1,7 @@
 {
   "id": "healthbench-hard",
   "name": "HealthBench Hard",
-  "category": null,
+  "category": "health",
   "order": null,
   "description": null,
   "link": null

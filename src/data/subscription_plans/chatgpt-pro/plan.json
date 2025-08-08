@@ -12,7 +12,7 @@
       "plan_id": "chatgpt-pro",
       "model_id": "chatgpt-4o-latest",
       "model_info": null,
-      "rate_limit": null,
+      "rate_limit": "For Advanced Voice Mode",
       "other_info": null
     },
     {
@@ -76,6 +76,13 @@
       "model_id": "o4-mini-deep-research-2025-06-26",
       "model_info": null,
       "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-pro",
+      "model_id": "gpt-5-2025-08-07",
+      "model_info": null,
+      "rate_limit": "Unlimited within abuse guardrails",
       "other_info": null
     }
   ],

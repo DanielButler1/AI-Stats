@@ -12,49 +12,21 @@
       "plan_id": "chatgpt-plus",
       "model_id": "chatgpt-4o-latest",
       "model_info": null,
-      "rate_limit": null,
+      "rate_limit": "For Advanced Voice Mode",
       "other_info": null
     },
     {
       "plan_id": "chatgpt-plus",
-      "model_id": "o3-2025-04-16",
+      "model_id": "gpt-5-2025-08-07",
       "model_info": null,
-      "rate_limit": null,
+      "rate_limit": "80 Messages Per 3 Hours",
       "other_info": null
     },
     {
       "plan_id": "chatgpt-plus",
-      "model_id": "o4-mini-2025-04-16",
+      "model_id": "gpt-5-mini-2025-08-07",
       "model_info": null,
-      "rate_limit": null,
-      "other_info": null
-    },
-    {
-      "plan_id": "chatgpt-plus",
-      "model_id": "o4-mini-2025-04-16",
-      "model_info": "High Reasoning Effort",
-      "rate_limit": null,
-      "other_info": null
-    },
-    {
-      "plan_id": "chatgpt-plus",
-      "model_id": "gpt-4.5-preview-2025-02-27",
-      "model_info": null,
-      "rate_limit": "50 Messages / Week",
-      "other_info": null
-    },
-    {
-      "plan_id": "chatgpt-plus",
-      "model_id": "gpt-4.1-2025-04-14",
-      "model_info": null,
-      "rate_limit": null,
-      "other_info": null
-    },
-    {
-      "plan_id": "chatgpt-plus",
-      "model_id": "gpt-4.1-mini-2025-04-14",
-      "model_info": null,
-      "rate_limit": null,
+      "rate_limit": "Unlimited within abuse guardrails",
       "other_info": null
     },
     {

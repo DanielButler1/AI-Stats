@@ -1,0 +1,8 @@
+{
+  "id": "longfact-objects-hallucination-rate",
+  "name": "LongFact-Objects hallucination rate",
+  "category": "hallucinations",
+  "order": "lower",
+  "description": null,
+  "link": null
+}

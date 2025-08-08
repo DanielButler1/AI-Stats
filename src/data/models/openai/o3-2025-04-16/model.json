@@ -1,243 +1,299 @@
 {
-	"id": "o3-2025-04-16",
-	"name": "o3",
-	"provider": "openai",
-	"status": "Available",
-	"previous_model_id": "o1-2024-12-17",
-	"description": null,
-	"announced_date": "2025-04-16T00:00:00",
-	"release_date": "2025-04-16T00:00:00",
-	"deprecation_date": "",
-	"retirement_date": "",
-	"input_context_length": 200000,
-	"output_context_length": 100000,
-	"license": "Proprietary",
-	"multimodal": true,
-	"input_types": "image,text",
-	"output_types": "text",
-	"web_access": false,
-	"reasoning": true,
-	"fine_tunable": false,
-	"knowledge_cutoff": "2024-06-01",
-	"api_reference_link": "https://platform.openai.com/docs/models/o3",
-	"playground_link": "https://platform.openai.com/playground/prompts?models=o3",
-	"paper_link": "https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf",
-	"announcement_link": "https://openai.com/index/introducing-o3-and-o4-mini/",
-	"repository_link": "",
-	"weights_link": "",
-	"parameter_count": "",
-	"training_tokens": "",
-	"benchmark_results": [
-		{
-			"benchmark_id": "lmarena-text",
-			"score": 1449,
-			"is_self_reported": false,
-			"other_info": null,
-			"source_link": "https://lmarena.ai/leaderboard/text"
-		},
-		{
-			"benchmark_id": "arc-agi-2",
-			"score": "2.00%",
-			"is_self_reported": false,
-			"other_info": "Low Reasoning Effort",
-			"source_link": "https://arcprize.org/leaderboard"
-		},
-		{
-			"benchmark_id": "arc-agi-2",
-			"score": "3.00%",
-			"is_self_reported": false,
-			"other_info": "Medium Reasoning Effort",
-			"source_link": "https://arcprize.org/leaderboard"
-		},
-		{
-			"benchmark_id": "humanitys-last-exam",
-			"score": "20.30%",
-			"is_self_reported": true,
-			"other_info": null,
-			"source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
-		},
-		{
-			"benchmark_id": "arc-agi-1",
-			"score": "41.50%",
-			"is_self_reported": false,
-			"other_info": "Low Reasoning Effort",
-			"source_link": "https://arcprize.org/leaderboard"
-		},
-		{
-			"benchmark_id": "arc-agi-1",
-			"score": "53.00%",
-			"is_self_reported": false,
-			"other_info": "Medium Reasoning Effort",
-			"source_link": "https://arcprize.org/leaderboard"
-		},
-		{
-			"benchmark_id": "livebench",
-			"score": "71.98%",
-			"is_self_reported": false,
-			"other_info": "Medium Reasoning Effort",
-			"source_link": "https://livebench.ai/#/"
-		},
-		{
-			"benchmark_id": "livebench",
-			"score": "74.42%",
-			"is_self_reported": false,
-			"other_info": "High Reasoning Effort",
-			"source_link": "https://livebench.ai/#/"
-		},
-		{
-			"benchmark_id": "aider-polyglot",
-			"score": "79.60%",
-			"is_self_reported": false,
-			"other_info": null,
-			"source_link": "https://aider.chat/docs/leaderboards/"
-		},
-		{
-			"benchmark_id": "gpqa-diamond",
-			"score": "83.30%",
-			"is_self_reported": true,
-			"other_info": null,
-			"source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
-		},
-		{
-			"benchmark_id": "aime-2024",
-			"score": "91.60%",
-			"is_self_reported": true,
-			"other_info": null,
-			"source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
-		},
-		{
-			"benchmark_id": "aime-2025",
-			"score": "98.40%",
-			"is_self_reported": true,
-			"other_info": null,
-			"source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
-		},
-		{
-			"benchmark_id": "lisanbench",
-			"score": 1036,
-			"is_self_reported": false,
-			"other_info": null,
-			"source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
-		},
-		{
-			"benchmark_id": "eqbench",
-			"score": 1500,
-			"is_self_reported": false,
-			"other_info": null,
-			"source_link": "https://eqbench.com/"
-		},
-		{
-			"benchmark_id": "codeforces",
-			"score": 2517,
-			"is_self_reported": true,
-			"other_info": null,
-			"source_link": "https://pbs.twimg.com/media/GtG5biebMAIpBhq?format=png&name=4096x4096"
-		},
-		{
-			"benchmark_id": "simplebench",
-			"score": "53.10%",
-			"is_self_reported": false,
-			"other_info": "High Reasoning Effort",
-			"source_link": "https://simple-bench.com/index.html"
-		},
-		{
-			"benchmark_id": "confabulations",
-			"score": 14.38,
-			"is_self_reported": false,
-			"other_info": "High Reasoning Effort",
-			"source_link": "https://github.com/lechmazur/confabulations"
-		},
-		{
-			"benchmark_id": "thematic-generalisation",
-			"score": 1.82,
-			"is_self_reported": false,
-			"other_info": "High Reasoning Effort",
-			"source_link": "https://github.com/lechmazur/generalization"
-		},
-		{
-			"benchmark_id": "thematic-generalisation",
-			"score": 1.83,
-			"is_self_reported": false,
-			"other_info": "Medium Reasoning Effort",
-			"source_link": "https://github.com/lechmazur/generalization"
-		},
-		{
-			"benchmark_id": "nyt-connections",
-			"score": "79.50%",
-			"is_self_reported": false,
-			"other_info": "High Reasoning Effort",
-			"source_link": "https://github.com/lechmazur/nyt-connections"
-		},
-		{
-			"benchmark_id": "nyt-connections",
-			"score": "74.00%",
-			"is_self_reported": false,
-			"other_info": "Medium Reasoning Effort",
-			"source_link": "https://github.com/lechmazur/nyt-connections"
-		},
-		{
-			"benchmark_id": "elimination-game",
-			"score": 4.382,
-			"is_self_reported": false,
-			"other_info": "Medium Reasoning Effort",
-			"source_link": "https://github.com/lechmazur/elimination_game"
-		},
-		{
-			"benchmark_id": "lmarena-webdev",
-			"score": 1189.94,
-			"is_self_reported": false,
-			"other_info": "16th June 2025",
-			"source_link": "https://web.lmarena.ai/leaderboard"
-		},
-		{
-			"benchmark_id": "lmarena-text",
-			"score": 1443,
-			"is_self_reported": false,
-			"other_info": null,
-			"source_link": "https://lmarena.ai/leaderboard/text"
-		},
-		{
-			"benchmark_id": "ai2-sciarena",
-			"score": 1172.48,
-			"is_self_reported": false,
-			"other_info": null,
-			"source_link": "https://sciarena.allen.ai/"
-		},
-		{
-			"benchmark_id": "aider-polyglot",
-			"score": "81.30%",
-			"is_self_reported": false,
-			"other_info": "High Reasoning Effort",
-			"source_link": "https://aider.chat/docs/leaderboards/"
-		},
-		{
-			"benchmark_id": "aider-polyglot",
-			"score": "76.90%",
-			"is_self_reported": false,
-			"other_info": "Medium Reasoning Effort",
-			"source_link": "https://aider.chat/docs/leaderboards/"
-		}
-	],
-	"prices": [
-		{
-			"api_provider": "azure",
-			"input_token_price": "0.00001",
-			"cached_input_token_price": "0.0000025",
-			"output_token_price": "0.00004",
-			"throughput": "",
-			"latency": "",
-			"source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
-			"other_info": null
-		},
-		{
-			"api_provider": "openai",
-			"input_token_price": "0.000002",
-			"cached_input_token_price": "0.0000005",
-			"output_token_price": "0.000008",
-			"throughput": "",
-			"latency": "",
-			"source_link": "https://platform.openai.com/docs/models/o3",
-			"other_info": ""
-		}
-	]
+  "id": "o3-2025-04-16",
+  "name": "o3",
+  "provider": "openai",
+  "status": "Available",
+  "previous_model_id": "o1-2024-12-17",
+  "description": null,
+  "announced_date": "2025-04-16T00:00:00",
+  "release_date": "2025-04-16T00:00:00",
+  "deprecation_date": "",
+  "retirement_date": "",
+  "input_context_length": 200000,
+  "output_context_length": 100000,
+  "license": "Proprietary",
+  "multimodal": true,
+  "input_types": "image,text",
+  "output_types": "text",
+  "web_access": false,
+  "reasoning": true,
+  "fine_tunable": false,
+  "knowledge_cutoff": "2024-06-01",
+  "api_reference_link": "https://platform.openai.com/docs/models/o3",
+  "playground_link": "https://platform.openai.com/playground/prompts?models=o3",
+  "paper_link": "https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf",
+  "announcement_link": "https://openai.com/index/introducing-o3-and-o4-mini/",
+  "repository_link": "",
+  "weights_link": "",
+  "parameter_count": "",
+  "training_tokens": "",
+  "benchmark_results": [
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1449,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "2.00%",
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-2",
+      "score": "3.00%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "humanitys-last-exam",
+      "score": "20.30%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "41.50%",
+      "is_self_reported": false,
+      "other_info": "Low Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "arc-agi-1",
+      "score": "53.00%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://arcprize.org/leaderboard"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "71.98%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://livebench.ai/#/"
+    },
+    {
+      "benchmark_id": "livebench",
+      "score": "74.42%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://livebench.ai/#/"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "79.60%",
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": "83.30%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
+    },
+    {
+      "benchmark_id": "aime-2024",
+      "score": "91.60%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": "98.40%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/"
+    },
+    {
+      "benchmark_id": "lisanbench",
+      "score": 1036,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GsNuq8rW8AArAE8?format=png&name=4096x4096"
+    },
+    {
+      "benchmark_id": "eqbench",
+      "score": 1500,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://eqbench.com/"
+    },
+    {
+      "benchmark_id": "codeforces",
+      "score": 2517,
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://pbs.twimg.com/media/GtG5biebMAIpBhq?format=png&name=4096x4096"
+    },
+    {
+      "benchmark_id": "simplebench",
+      "score": "53.10%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://simple-bench.com/index.html"
+    },
+    {
+      "benchmark_id": "confabulations",
+      "score": 14.38,
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/confabulations"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.82,
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "thematic-generalisation",
+      "score": 1.83,
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/generalization"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "79.50%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "nyt-connections",
+      "score": "74.00%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/nyt-connections"
+    },
+    {
+      "benchmark_id": "elimination-game",
+      "score": 4.382,
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://github.com/lechmazur/elimination_game"
+    },
+    {
+      "benchmark_id": "lmarena-webdev",
+      "score": 1189.94,
+      "is_self_reported": false,
+      "other_info": "16th June 2025",
+      "source_link": "https://web.lmarena.ai/leaderboard"
+    },
+    {
+      "benchmark_id": "lmarena-text",
+      "score": 1443,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://lmarena.ai/leaderboard/text"
+    },
+    {
+      "benchmark_id": "ai2-sciarena",
+      "score": 1172.48,
+      "is_self_reported": false,
+      "other_info": null,
+      "source_link": "https://sciarena.allen.ai/"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "81.30%",
+      "is_self_reported": false,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "aider-polyglot",
+      "score": "76.90%",
+      "is_self_reported": false,
+      "other_info": "Medium Reasoning Effort",
+      "source_link": "https://aider.chat/docs/leaderboards/"
+    },
+    {
+      "benchmark_id": "openai-mrcr-2-needle-128k",
+      "score": "55.00%",
+      "is_self_reported": true,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "graphwalks-bfs-lt-128k",
+      "score": "77.30%",
+      "is_self_reported": true,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "graphwalks-parents-lt-128k",
+      "score": "72.90%",
+      "is_self_reported": true,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "browsecomp-long-context-128k",
+      "score": "88.30%",
+      "is_self_reported": true,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "videomme",
+      "score": "84.90%",
+      "is_self_reported": true,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "longfact-concepts-hallucination-rate",
+      "score": "5.20%",
+      "is_self_reported": true,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "longfact-objects-hallucination-rate",
+      "score": "6.80%",
+      "is_self_reported": true,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "factscore-halluciation-rate",
+      "score": "23.50%",
+      "is_self_reported": true,
+      "other_info": "High Reasoning Effort",
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    }
+  ],
+  "prices": [
+    {
+      "api_provider": "azure",
+      "input_token_price": "0.00001",
+      "cached_input_token_price": "0.0000025",
+      "output_token_price": "0.00004",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://azure.microsoft.com/en-gb/pricing/details/cognitive-services/openai-service/?cdn=disable",
+      "other_info": null
+    },
+    {
+      "api_provider": "openai",
+      "input_token_price": "0.000002",
+      "cached_input_token_price": "0.0000005",
+      "output_token_price": "0.000008",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://platform.openai.com/docs/models/o3",
+      "other_info": ""
+    }
+  ]
 }

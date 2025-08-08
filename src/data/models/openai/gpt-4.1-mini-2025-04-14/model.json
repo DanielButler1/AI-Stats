@@ -104,6 +104,76 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://sciarena.allen.ai/"
+    },
+    {
+      "benchmark_id": "openai-mrcr-2-needle-128k",
+      "score": "47.20%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "openai-mrcr-2-needle-256k",
+      "score": "45.50%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "graphwalks-bfs-lt-128k",
+      "score": "61.70%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "graphwalks-parents-lt-128k",
+      "score": "60.50%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "browsecomp-long-context-128k",
+      "score": "89.00%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "browsecomp-long-context-256k",
+      "score": "81.60%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "videomme",
+      "score": "68.40%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "longfact-concepts-hallucination-rate",
+      "score": "1.10%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "longfact-objects-hallucination-rate",
+      "score": "1.80%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
+    },
+    {
+      "benchmark_id": "factscore-halluciation-rate",
+      "score": "10.90%",
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/"
     }
   ],
   "prices": [
