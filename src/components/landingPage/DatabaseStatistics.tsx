@@ -62,8 +62,11 @@ export default function DatabaseStats({ data }: DbStatsProps) {
 	const totalPricesCount = Math.floor(totalPricesCountRaw / 100) * 100;
 
 	function formatStat(num: number) {
-		if (num >= 1000) {
-			return `${Math.floor(num / 1000)}k+`;
+		if (num >= 1_000_000) {
+			return `${(num / 1_000_000).toFixed(num % 1_000_000 === 0 ? 0 : 1)}m+`;
+		}
+		if (num >= 1_000) {
+			return `${(num / 1_000).toFixed(num % 1_000 === 0 ? 0 : 1)}k+`;
 		}
 		return `${num}+`;
 	}

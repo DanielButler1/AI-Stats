@@ -47,7 +47,7 @@ export default function ModelTabs({
 				{tabs.map((tab) => (
 					<button
 						key={tab.key}
-						className={`pb-2 px-2 font-medium transition-colors duration-150 ${
+						className={`pb-2 px-2 font-medium transition-colors duration-150 cursor-pointer ${
 							activeTab === tab.key
 								? "border-b-2 border-primary text-primary"
 								: "border-b-2 border-transparent text-muted-foreground hover:text-primary"
