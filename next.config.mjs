@@ -21,6 +21,7 @@ const nextConfig = {
 		];
 	},
 	skipTrailingSlashRedirect: true,
+	output: "export",
 };
 
 export default nextConfig;
