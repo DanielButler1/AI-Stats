@@ -120,5 +120,26 @@
       "source_link": "https://www.anthropic.com/news/claude-opus-4-1"
     }
   ],
-  "prices": []
+  "prices": [
+    {
+      "api_provider": "anthropic",
+      "input_token_price": "0.000015",
+      "cached_input_token_price": "0.00003",
+      "output_token_price": "0.00007499999999999999",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://docs.anthropic.com/en/docs/about-claude/models/overview",
+      "other_info": null
+    },
+    {
+      "api_provider": "google-vertex",
+      "input_token_price": "0.000015",
+      "cached_input_token_price": "",
+      "output_token_price": "0.00007499999999999999",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://cloud.google.com/vertex-ai/generative-ai/pricing#claude-models",
+      "other_info": null
+    }
+  ]
 }
