@@ -17,7 +17,7 @@
     },
     {
       "plan_id": "chatgpt-plus",
-      "model_id": "gpt-5-2025-08-07",
+      "model_id": "gpt-5-chat-latest",
       "model_info": null,
       "rate_limit": "80 Messages Per 3 Hours",
       "other_info": null
@@ -27,6 +27,13 @@
       "model_id": "gpt-5-mini-2025-08-07",
       "model_info": null,
       "rate_limit": "Unlimited within abuse guardrails",
+      "other_info": null
+    },
+    {
+      "plan_id": "chatgpt-plus",
+      "model_id": "gpt-4o-2024-11-20",
+      "model_info": null,
+      "rate_limit": null,
       "other_info": null
     },
     {

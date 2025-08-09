@@ -80,7 +80,7 @@
     },
     {
       "plan_id": "chatgpt-pro",
-      "model_id": "gpt-5-2025-08-07",
+      "model_id": "gpt-5-chat-latest",
       "model_info": null,
       "rate_limit": "Unlimited within abuse guardrails",
       "other_info": null

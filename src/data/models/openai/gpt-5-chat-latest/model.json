@@ -36,5 +36,16 @@
       "source_link": "https://eqbench.com/"
     }
   ],
-  "prices": []
+  "prices": [
+    {
+      "api_provider": "openai",
+      "input_token_price": "0.00000125",
+      "cached_input_token_price": "0.000000125",
+      "output_token_price": "0.00001",
+      "throughput": "",
+      "latency": "",
+      "source_link": "https://platform.openai.com/docs/models/gpt-5-chat-latest",
+      "other_info": null
+    }
+  ]
 }

@@ -10,7 +10,7 @@
   "models": [
     {
       "plan_id": "chatgpt-free",
-      "model_id": "gpt-5-2025-08-07",
+      "model_id": "gpt-5-chat-latest",
       "model_info": null,
       "rate_limit": "10 Messages Per 5 Hours",
       "other_info": null
