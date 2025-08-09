@@ -119,7 +119,7 @@ export default function ModelPriceCard({ model }: ModelPriceCardProps) {
 										className="w-7 h-7 rounded shrink-0"
 									/>
 									<Link
-										href={`models/${model.id}`}
+										href={`/models/${model.id}`}
 										className="group/model flex items-center gap-1 truncate font-semibold focus:outline-hidden"
 										style={{ textDecoration: "none" }}
 									>

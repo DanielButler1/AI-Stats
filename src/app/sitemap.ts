@@ -160,20 +160,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.7
     }));
 
-    // Generate prices/models pages for individual models
-    const modelPricesItems: SitemapItem[] = modelSlugs.map(id => ({
-        url: `${baseUrl}/prices/models/${id}`,
-        lastModified: new Date().toISOString(),
-        changefreq: 'weekly',
-        priority: 0.7
-    }));
-
     return [
         ...staticItems,
         ...modelItems,
         ...providerItems,
         ...benchmarkItems,
-        ...apiProviderItems,
-        ...modelPricesItems
+        ...apiProviderItems
     ];
 }
