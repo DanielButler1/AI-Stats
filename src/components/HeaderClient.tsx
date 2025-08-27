@@ -2,14 +2,21 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Bot, Coffee } from "lucide-react";
+import { Menu, Bot, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerTrigger, DrawerContent } from "@/components/ui/drawer";
-import Image from "next/image";
 import React from "react";
 import SearchPopover from "./SearchPopover";
 import { ExtendedModel } from "@/data/types";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+	DropdownMenu,
+	DropdownMenuTrigger,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
 
 interface HeaderProps {
 	aggregateData: ExtendedModel[];
@@ -115,14 +122,33 @@ export default function HeaderClient({ aggregateData }: HeaderProps) {
 							<span>AI Stats</span>
 						</Link>
 
-						{/* Desktop nav links: centered */}
-						<nav className="hidden xl:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 gap-6">
+						{/* Desktop nav links: left-aligned next to title */}
+						<nav className="hidden xl:flex gap-6 ml-8">
 							{navLinks}
 						</nav>
 
 						{/* Desktop Search */}
 						<div className="hidden xl:flex items-center ml-auto gap-4">
 							<SearchPopover aggregateData={aggregateData} />
+							<DropdownMenu>
+								<DropdownMenuTrigger asChild>
+									<Avatar>
+										<AvatarFallback>
+											<User className="h-4 w-4 text-muted-foreground" />
+										</AvatarFallback>
+									</Avatar>
+								</DropdownMenuTrigger>
+								<DropdownMenuContent sideOffset={4} align="end">
+									<DropdownMenuItem>Profile</DropdownMenuItem>
+									<DropdownMenuItem>
+										Settings
+									</DropdownMenuItem>
+									<DropdownMenuSeparator />
+									<DropdownMenuItem>
+										Sign Out
+									</DropdownMenuItem>
+								</DropdownMenuContent>
+							</DropdownMenu>
 						</div>
 
 						{/* Hamburger, right-aligned, only on mobile */}
@@ -140,44 +166,14 @@ export default function HeaderClient({ aggregateData }: HeaderProps) {
 									<div className="pt-4">
 										<nav className="flex flex-col gap-2 px-6 pb-4">
 											{navLinks}
-										</nav>{" "}
+										</nav>
 										<div className="px-6 py-4 mt-auto border-t">
-											<div className="flex justify-between items-center">
-												<a
-													href="https://discord.gg/zDw73wamdX"
-													target="_blank"
-													rel="noopener noreferrer"
-													aria-label="Join our Discord"
-													className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-												>
-													<Image
-														src="/social/discord.svg"
-														alt="Discord"
-														width={16}
-														height={16}
-														className="h-4 w-4"
-													/>
-													<span>
-														Join our Discord
-													</span>
-												</a>
-												<a
-													href="https://coff.ee/phaseo"
-													target="_blank"
-													rel="noopener noreferrer"
-													aria-label="Buy me a coffee"
-													className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-												>
-													<span>Buy Me a Coffee</span>
-													<Image
-														src="/social/bmc.svg"
-														alt="Buy Me a Coffee"
-														width={16}
-														height={16}
-														className="h-4 w-4"
-													/>
-												</a>
-											</div>
+											<Button
+												variant="ghost"
+												className="w-full"
+											>
+												Sign In
+											</Button>
 										</div>
 									</div>
 								</DrawerContent>
