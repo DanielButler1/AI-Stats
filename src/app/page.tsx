@@ -23,7 +23,7 @@ export default async function Page() {
 			<Header />
 			<div className="container space-y-8 mx-auto mt-12 text-center mb-12 px-4 sm:px-6 lg:px-8">
 				<div className="flex flex-col space-y-4">
-					<div>
+					{/* <div>
 						<Link href="models/gpt-5-2025-08-07">
 							<Announcement>
 								<AnnouncementTag>Latest Update</AnnouncementTag>
@@ -36,7 +36,7 @@ export default async function Page() {
 								/>
 							</Announcement>
 						</Link>
-					</div>
+					</div> */}
 
 					<div>
 						<h1 className="text-4xl md:text-5xl font-semibold mb-2 text-gray-900 dark:text-gray-100 drop-shadow-xs animate-fade-in">

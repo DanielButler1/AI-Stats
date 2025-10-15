@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Bot, Coffee } from "lucide-react";
+import { Menu, Bot, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerTrigger, DrawerContent } from "@/components/ui/drawer";
@@ -186,6 +186,31 @@ export default function HeaderClient({ aggregateData }: HeaderProps) {
 					</div>
 				</div>
 			</header>
+
+			{/* Banner sitting directly under the header */}
+			<div className="w-full border-b bg-background/60">
+				<div className="container mx-auto px-4 py-2">
+					<div className="rounded-lg border bg-background/60 backdrop-blur-md py-2 px-4 flex items-center justify-between gap-3">
+						<div className="flex items-center gap-3">
+							<span className="text-sm font-semibold">
+								AI Stats update coming soon
+							</span>
+							<p className="text-sm text-muted-foreground hidden sm:inline">
+								Refreshed design, improved Updates, and the AI
+								Stats Gateway - rolling out over the next week.
+							</p>
+						</div>
+						<div className="flex items-center gap-2">
+							<Button asChild variant="secondary" size="sm">
+								<Link href="/coming-soon">
+									Roadmap
+									<ArrowRight className="ml-2 h-4 w-4" />
+								</Link>
+							</Button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</>
 	);
 }
