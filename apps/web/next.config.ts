@@ -1,3 +1,5 @@
+import path from "node:path";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
@@ -11,6 +13,10 @@ const nextConfig = {
   // typedRoutes: true,
   experimental: {
     ppr: 'incremental',
+    // Allow Turbopack to resolve packages from the monorepo root during CI builds.
+    turbopack: {
+      root: path.join(__dirname, "..", ".."),
+    },
   },
   // 	browserDebugInfoInTerminal: true,
 
