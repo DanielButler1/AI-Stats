@@ -1,4 +1,7 @@
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -14,9 +17,9 @@ const nextConfig = {
   experimental: {
     ppr: 'incremental',
     // Allow Turbopack to resolve packages from the monorepo root during CI builds.
-    turbopack: {
-      root: path.join(__dirname, "..", ".."),
-    },
+  },
+  turbopack: {
+    root: path.join(process.cwd(), "..", ".."),
   },
   // 	browserDebugInfoInTerminal: true,
 
