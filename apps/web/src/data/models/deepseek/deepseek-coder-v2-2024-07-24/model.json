@@ -1,0 +1,17 @@
+{
+  "model_id": "deepseek/deepseek-coder-v2-2024-07-24",
+  "organisation_id": "deepseek",
+  "name": "DeepSeek Coder V2 (2024-07-24)",
+  "status": null,
+  "previous_model_id": null,
+  "announced_date": null,
+  "release_date": "2024-07-24T00:00:00",
+  "deprecation_date": null,
+  "retirement_date": null,
+  "license": null,
+  "input_types": null,
+  "output_types": null,
+  "links": [],
+  "details": [],
+  "benchmarks": []
+}

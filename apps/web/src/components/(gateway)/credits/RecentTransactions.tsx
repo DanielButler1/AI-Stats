@@ -1,0 +1,547 @@
+"use client";
+
+import React, { useEffect, useMemo } from "react";
+import { useQueryState } from "nuqs";
+import {
+	Pagination,
+	PaginationContent,
+	PaginationItem,
+	PaginationPrevious,
+	PaginationNext,
+	PaginationEllipsis,
+	PaginationLink,
+} from "@/components/ui/pagination";
+import { usePathname, useSearchParams } from "next/navigation";
+import {
+	ExternalLink,
+	ArrowDownCircle,
+	ArrowUpCircle,
+	Info,
+	CheckCircle,
+	XCircle,
+	Clock,
+	Ban,
+	DollarSign,
+	Repeat,
+	CreditCard,
+	Zap,
+} from "lucide-react";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
+
+type Transaction = {
+	id: string;
+	amount_nanos?: number | null;
+	/** Optional extras if you start passing them from the server: */
+	description?: string | null;
+	created_at?: string | null; // event_time preferred; fallback created_at
+	status?: string | null; // e.g. 'pending' | 'processing' | 'paid' | 'refunded' | 'failed'
+	kind?: string | null; // e.g. 'topup', 'charge', 'auto_topup', 'adjustment'
+	ref_type?: string | null; // e.g. 'payment_intent'
+	ref_id?: string | null; // e.g. 'pi_xxx'
+	before_balance_nanos?: number | null; // bigint nanos
+	after_balance_nanos?: number | null; // bigint nanos
+};
+
+interface Props {
+	transactions: Transaction[];
+	pageSize?: number;
+	stripeCustomerId?: string | null;
+	currency?: string; // default "USD"
+}
+
+function formatNanos(nanos?: number | null, currency = "USD") {
+	const val = (nanos ?? 0) / 10_000_000;
+	try {
+		return new Intl.NumberFormat("en-US", {
+			style: "currency",
+			currency,
+			currencyDisplay: "symbol",
+			minimumFractionDigits: 2,
+			maximumFractionDigits: 2,
+		}).format(val);
+	} catch {
+		// fallback if unknown currency code
+		return `${val.toFixed(2)} ${currency}`;
+	}
+}
+
+function shortDateTime(iso?: string | null) {
+	if (!iso) return "-";
+	const d = new Date(iso);
+	if (isNaN(d.getTime())) return "-";
+	return d.toLocaleString(undefined, {
+		year: "numeric",
+		month: "short",
+		day: "2-digit",
+		hour: "2-digit",
+		minute: "2-digit",
+		second: "2-digit",
+	});
+}
+
+function fullDateTime(iso?: string | null) {
+	if (!iso) return "-";
+	const d = new Date(iso);
+	if (isNaN(d.getTime())) return "-";
+	return d.toISOString(); // universally precise for tooltip
+}
+
+function statusChip(status?: string | null, kind?: string | null) {
+	// Use verbatim DB status values when they match the allowed set per kind.
+	const raw = (status ?? "").toLowerCase();
+	const k = (kind ?? "").toLowerCase();
+
+	const isRefundKind = k === "refund" || k === "refunded";
+
+	// Allowed statuses for refunds (verbatim): succeeded, failed, pending, cancelled
+	if (isRefundKind) {
+		if (raw === "succeeded")
+			return {
+				label: "succeeded",
+				className: "capitalize bg-emerald-100 text-emerald-800",
+				icon: <CheckCircle className="mr-1 h-4 w-4" aria-hidden />,
+			};
+		if (raw === "failed")
+			return {
+				label: "failed",
+				className: "capitalize bg-red-100 text-red-800",
+				icon: <XCircle className="mr-1 h-4 w-4" aria-hidden />,
+			};
+		if (raw === "pending")
+			return {
+				label: "pending",
+				className: "capitalize bg-amber-100 text-amber-800",
+				icon: <Clock className="mr-1 h-4 w-4" aria-hidden />,
+			};
+		if (raw === "cancelled" || raw === "canceled")
+			return {
+				label: "cancelled",
+				className: "capitalize bg-zinc-100 text-zinc-700",
+				icon: <Ban className="mr-1 h-4 w-4" aria-hidden />,
+			};
+
+		// Unknown -> default to 'processing'
+		return {
+			label: "processing",
+			className: "capitalize bg-blue-100 text-blue-800",
+			icon: <Clock className="mr-1 h-4 w-4" aria-hidden />,
+		};
+	}
+
+	// Non-refund events: allowed statuses (verbatim): cancelled, processing, succeeded
+	if (raw === "cancelled" || raw === "canceled")
+		return {
+			label: "cancelled",
+			className: "capitalize bg-zinc-100 text-zinc-700",
+			icon: <Ban className="mr-1 h-4 w-4" aria-hidden />,
+		};
+	if (raw === "processing")
+		return {
+			label: "processing",
+			className: "capitalize bg-blue-100 text-blue-800",
+			icon: <Clock className="mr-1 h-4 w-4" aria-hidden />,
+		};
+	if (raw === "paid")
+		return {
+			label: "paid",
+			className: "capitalize bg-emerald-100 text-emerald-800",
+			icon: <CheckCircle className="mr-1 h-4 w-4" aria-hidden />,
+		};
+
+	// Unknown -> default to 'processing'
+	return {
+		label: "processing",
+		className: "capitalize bg-gray-100 text-gray-800",
+		icon: <Clock className="mr-1 h-4 w-4" aria-hidden />,
+	};
+}
+
+function kindBadge(kind?: string | null) {
+	// map normalized forms to badges
+	if (kind === "top_up_one_off")
+		return (
+			<Badge className="bg-emerald-600 hover:bg-emerald-600 flex items-center gap-1">
+				<DollarSign className="h-4 w-4" aria-hidden />
+				One-Off Top Up
+			</Badge>
+		);
+
+	if (kind === "top_up")
+		return (
+			<Badge className="bg-emerald-600 hover:bg-emerald-600 flex items-center gap-1">
+				<DollarSign className="h-4 w-4" aria-hidden />
+				Top Up
+			</Badge>
+		);
+
+	if (kind === "auto_top_up")
+		return (
+			<Badge className="bg-teal-600 hover:bg-teal-600 flex items-center gap-1">
+				<Repeat className="h-4 w-4" aria-hidden />
+				Auto Top Up
+			</Badge>
+		);
+
+	if (kind === "refund" || kind === "refunded")
+		return (
+			<Badge className="bg-rose-600 hover:bg-rose-600 flex items-center gap-1">
+				<ArrowUpCircle className="h-4 w-4" aria-hidden />
+				Refund
+			</Badge>
+		);
+
+	if (kind === "adjustment")
+		return (
+			<Badge className="bg-zinc-700 hover:bg-zinc-700 flex items-center gap-1">
+				<Zap className="h-4 w-4" aria-hidden />
+				Adjustment
+			</Badge>
+		);
+
+	if (kind === "charge" || kind === "usage")
+		return (
+			<Badge className="bg-indigo-600 hover:bg-indigo-600 flex items-center gap-1">
+				<CreditCard className="h-4 w-4" aria-hidden />
+				Usage
+			</Badge>
+		);
+
+	return kind ? <Badge variant="secondary">{kind}</Badge> : null;
+}
+
+/** Credit is amount > 0, Debit is amount < 0 */
+function amountPill(nanos?: number | null, currency = "USD") {
+	const n = nanos ?? 0;
+	const positive = n > 0;
+	const negative = n < 0;
+	const Icon = positive ? ArrowDownCircle : ArrowUpCircle;
+	return (
+		<span
+			className={cn(
+				"inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-medium",
+				positive && "text-emerald-700 bg-emerald-50",
+				negative && "text-rose-700 bg-rose-50",
+				!positive && !negative && "text-zinc-700 bg-zinc-50"
+			)}
+		>
+			{(positive || negative) && <Icon className="h-4 w-4" aria-hidden />}
+			{positive ? "+" : negative ? "−" : ""}
+			{formatNanos(Math.abs(n), currency)}
+		</span>
+	);
+}
+
+export default function RecentTransactions({
+	transactions,
+	pageSize = 10,
+	stripeCustomerId,
+	currency = "USD",
+}: Props) {
+	const [pageStr, setPageStr] = useQueryState("tx_page", {
+		defaultValue: "0",
+	});
+	const page = Math.max(0, parseInt(pageStr ?? "0", 10) || 0);
+	const totalPages = Math.max(1, Math.ceil(transactions.length / pageSize));
+
+	// clamp page if transactions change
+	useEffect(() => {
+		if (page > totalPages - 1) {
+			setPageStr(String(totalPages - 1));
+		}
+	}, [transactions.length, totalPages, page, setPageStr]);
+
+	const pageItems = useMemo(() => {
+		const start = page * pageSize;
+		return transactions.slice(start, start + pageSize);
+	}, [transactions, page, pageSize]);
+
+	const pathname = usePathname() || "/";
+	const searchParams = useSearchParams();
+
+	function buildHref(p: number) {
+		const params = new URLSearchParams(Array.from(searchParams.entries()));
+		params.set("tx_page", String(p));
+		return `${pathname}?${params.toString()}`;
+	}
+
+	return (
+		<section>
+			<Card>
+				<CardHeader>
+					<div className="w-full flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+						<CardTitle className="m-0">
+							Recent Transactions
+						</CardTitle>
+						<Button
+							variant="ghost"
+							size="sm"
+							onClick={async (e) => {
+								e.preventDefault();
+								try {
+									const resp = await fetch(
+										"/api/stripe/billing-portal",
+										{
+											method: "POST",
+											headers: {
+												"Content-Type":
+													"application/json",
+											},
+											body: JSON.stringify({
+												customerId: stripeCustomerId,
+												returnUrl: window.location.href,
+											}),
+										}
+									);
+									const data = await resp.json();
+									window.location.href =
+										data?.url ??
+										"/dashboard/settings/credits";
+								} catch {
+									window.location.href =
+										"/dashboard/settings/credits";
+								}
+							}}
+						>
+							Manage Payment Methods
+							<ExternalLink className="h-4 w-4 ml-1" />
+						</Button>
+					</div>
+				</CardHeader>
+
+				<CardContent>
+					{transactions.length === 0 ? (
+						<div className="text-sm text-muted-foreground">
+							No credits purchased
+						</div>
+					) : (
+						<div className="w-full overflow-x-auto">
+							<table className="w-full text-sm table-fixed border-collapse">
+								<thead>
+									<tr className="text-left text-xs text-muted-foreground">
+										<th className="py-2 pr-4 w-56">Date</th>
+										<th className="py-2 pr-4 w-40">
+											Event
+										</th>
+										<th className="py-2 pr-4 w-32">
+											Status
+										</th>
+										<th className="py-2 pr-4 w-36 text-right">
+											Amount
+										</th>
+										<th className="py-2 pl-4 w-40 text-right">
+											Balance
+										</th>
+									</tr>
+								</thead>
+								<tbody className="divide-y">
+									{pageItems.map((t) => {
+										const { label, className, icon } =
+											statusChip(t.status, t.kind);
+										const dateShort = shortDateTime(
+											t.created_at
+										);
+										const dateFull = fullDateTime(
+											t.created_at
+										);
+										const before =
+											t.before_balance_nanos ?? null;
+										const after =
+											t.after_balance_nanos ?? null;
+
+										return (
+											<tr
+												key={t.id}
+												className="align-top"
+											>
+												{/* Date */}
+												<td className="py-3 pr-4 text-muted-foreground">
+													<Tooltip>
+														<TooltipTrigger asChild>
+															<span className="cursor-default">
+																{dateShort}
+															</span>
+														</TooltipTrigger>
+														<TooltipContent>
+															{dateFull}
+														</TooltipContent>
+													</Tooltip>
+												</td>
+
+												{/* Event (kind badge) */}
+												<td className="py-3 pr-4">
+													<div className="flex items-center gap-2">
+														{kindBadge(t.kind)}
+													</div>
+												</td>
+
+												{/* Status */}
+												<td className="py-3 pr-4">
+													<span
+														className={cn(
+															"inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium",
+															className
+														)}
+													>
+														{icon}
+														{label}
+													</span>
+												</td>
+
+												{/* Amount */}
+												<td className="py-3 pr-4 text-right font-medium">
+													{amountPill(
+														t.amount_nanos ?? 0,
+														currency
+													)}
+												</td>
+
+												{/* Balance after + before→after tooltip */}
+												<td className="py-3 pl-4 text-right">
+													{after !== null ? (
+														<Tooltip>
+															<TooltipTrigger
+																asChild
+															>
+																<span className="cursor-default font-medium">
+																	{formatNanos(
+																		after,
+																		currency
+																	)}
+																</span>
+															</TooltipTrigger>
+															<TooltipContent className="flex items-center gap-2">
+																<Info className="h-4 w-4" />
+																<span className="tabular-nums">
+																	{before !==
+																	null
+																		? `${formatNanos(
+																				before,
+																				currency
+																		  )} → ${formatNanos(
+																				after,
+																				currency
+																		  )}`
+																		: `Balance: ${formatNanos(
+																				after,
+																				currency
+																		  )}`}
+																</span>
+															</TooltipContent>
+														</Tooltip>
+													) : (
+														<span className="text-muted-foreground">
+															—
+														</span>
+													)}
+												</td>
+											</tr>
+										);
+									})}
+								</tbody>
+							</table>
+						</div>
+					)}
+
+					<div className="mt-6 flex items-center justify-center">
+						<Pagination>
+							<PaginationContent>
+								<PaginationItem>
+									<PaginationPrevious
+										href={buildHref(Math.max(0, page - 1))}
+									/>
+								</PaginationItem>
+
+								{totalPages <= 7 ? (
+									Array.from({ length: totalPages }).map(
+										(_, i) => (
+											<PaginationItem key={i}>
+												<PaginationLink
+													href={buildHref(i)}
+													isActive={page === i}
+												>
+													{i + 1}
+												</PaginationLink>
+											</PaginationItem>
+										)
+									)
+								) : (
+									<>
+										<PaginationItem>
+											<PaginationLink
+												href={buildHref(0)}
+												isActive={page === 0}
+											>
+												1
+											</PaginationLink>
+										</PaginationItem>
+
+										{page > 2 && (
+											<PaginationItem>
+												<PaginationEllipsis />
+											</PaginationItem>
+										)}
+
+										{[
+											Math.max(1, page - 1),
+											page,
+											Math.min(totalPages - 2, page + 1),
+										]
+											.filter(
+												(v, idx, arr) =>
+													v >= 1 &&
+													v <= totalPages - 2 &&
+													arr.indexOf(v) === idx
+											)
+											.map((p) => (
+												<PaginationItem key={p}>
+													<PaginationLink
+														href={buildHref(p)}
+														isActive={page === p}
+													>
+														{p + 1}
+													</PaginationLink>
+												</PaginationItem>
+											))}
+
+										{page < totalPages - 3 && (
+											<PaginationItem>
+												<PaginationEllipsis />
+											</PaginationItem>
+										)}
+
+										<PaginationItem>
+											<PaginationLink
+												href={buildHref(totalPages - 1)}
+												isActive={
+													page === totalPages - 1
+												}
+											>
+												{totalPages}
+											</PaginationLink>
+										</PaginationItem>
+									</>
+								)}
+
+								<PaginationItem>
+									<PaginationNext
+										href={buildHref(
+											Math.min(totalPages - 1, page + 1)
+										)}
+									/>
+								</PaginationItem>
+							</PaginationContent>
+						</Pagination>
+					</div>
+				</CardContent>
+			</Card>
+		</section>
+	);
+}

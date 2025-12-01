@@ -1,0 +1,307 @@
+import Link from "next/link";
+import { createAdminClient } from "@/utils/supabase/admin";
+import { createClient } from "@/utils/supabase/client";
+import { Calendar, Sparkles, TrendingUp, Check } from "lucide-react";
+import {
+	Empty,
+	EmptyDescription,
+	EmptyHeader,
+	EmptyMedia,
+	EmptyTitle,
+} from "@/components/ui/empty";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+type OrganisationRow = {
+	name?: string | null;
+	organisation_id?: string | null;
+};
+
+type DataModelRelation = {
+	name?: string | null;
+	organisation_id?: string | null;
+	organisation?: OrganisationRow | OrganisationRow[] | null;
+};
+
+type RecentModel = {
+	model_id: string;
+	created_at: string;
+	is_active_gateway: boolean;
+	data_models?: DataModelRelation | DataModelRelation[] | null;
+};
+
+async function getRecentModels(apiProviderId: string): Promise<RecentModel[]> {
+	const supabase = createClient();
+
+	try {
+		const { data, error } = await supabase
+			.from("data_api_provider_models")
+			.select(
+				"model_id, created_at, is_active_gateway, data_models (name, organisation_id, organisation:data_organisations!data_models_organisation_id_fkey(organisation_id, name))"
+			)
+			.eq("api_provider_id", apiProviderId)
+			.order("created_at", { ascending: false })
+			.limit(5);
+
+		if (error) {
+			console.error("Error fetching recent models:", error);
+			return [];
+		}
+
+		return (data || []) as RecentModel[];
+	} catch (err) {
+		console.error("Unexpected error fetching recent models:", err);
+		return [];
+	}
+}
+
+async function getRecentTokenCount(apiProviderId: string): Promise<number> {
+	const supabase = createAdminClient();
+	const since = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(); // Last 7 days
+
+	try {
+		const { data, error } = await supabase.rpc("get_provider_token_usage", {
+			provider_id: apiProviderId,
+			since_ts: since,
+		});
+
+		if (error) {
+			console.error("Error fetching recent token usage:", error);
+			return 0;
+		}
+
+		const row = (data && data[0]) || null;
+		return Number(row?.total_tokens ?? 0);
+	} catch (err) {
+		console.error("Unexpected error fetching recent token usage:", err);
+		return 0;
+	}
+}
+
+export default async function Updates({
+	apiProviderId,
+}: {
+	apiProviderId: string;
+}) {
+	const [recentModels, recentTokens] = await Promise.all([
+		getRecentModels(apiProviderId),
+		getRecentTokenCount(apiProviderId),
+	]);
+
+	const newModels = recentModels.filter((model) => {
+		const createdAt = new Date(model.created_at);
+		const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+		return createdAt > weekAgo;
+	});
+	const latestModelDisplay =
+		recentModels.length > 0
+			? resolveModelDisplayInfo(recentModels[0])
+			: undefined;
+	const latestModelDate =
+		recentModels.length > 0
+			? formatModelDate(recentModels[0].created_at)
+			: undefined;
+
+	return (
+		<div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+			<div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+				<div className="mb-4">
+					<h3 className="text-lg font-semibold mb-2">New Models</h3>
+					<p className="text-sm text-muted-foreground">
+						Recently added models with gateway availability status.
+					</p>
+				</div>
+				{newModels.length > 0 ? (
+					<div className="space-y-3">
+						{newModels.map((model) => {
+							const display = resolveModelDisplayInfo(model);
+							const formattedDate = formatModelDate(
+								model.created_at
+							);
+
+							return (
+								<div
+									key={model.model_id}
+									className="border border-gray-200 dark:border-gray-700 bg-background rounded-lg p-4 transition hover:border-blue-500 dark:hover:border-blue-400"
+								>
+									<div className="flex items-start justify-between gap-6">
+										<div className="flex-1 space-y-1">
+											<div className="flex items-center gap-2">
+												<p className="font-semibold text-sm leading-tight">
+													{display.name}
+												</p>
+												{model.is_active_gateway && (
+													<Tooltip>
+														<TooltipTrigger asChild>
+															<Check className="h-4 w-4 text-green-600" />
+														</TooltipTrigger>
+														<TooltipContent>
+															Available on Gateway
+														</TooltipContent>
+													</Tooltip>
+												)}
+											</div>
+											{display.organisationName && (
+												<p className="text-xs text-muted-foreground">
+													{display.organisationName}
+												</p>
+											)}
+										</div>
+										<div className="flex flex-col items-end gap-1 text-right text-xs text-muted-foreground">
+											<span className="text-[11px] font-semibold uppercase tracking-wide">
+												Added
+											</span>
+											<span className="text-sm font-medium text-foreground">
+												{formattedDate}
+											</span>
+										</div>
+									</div>
+								</div>
+							);
+						})}
+					</div>
+				) : (
+					<div className="py-8">
+						<Empty size="compact">
+							<EmptyHeader>
+								<EmptyMedia variant="icon">
+									<Sparkles className="h-5 w-5" />
+								</EmptyMedia>
+								<EmptyTitle>No New Models</EmptyTitle>
+								<EmptyDescription>
+									New models will appear here when added to
+									the platform.
+								</EmptyDescription>
+							</EmptyHeader>
+						</Empty>
+					</div>
+				)}
+			</div>
+
+			<div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+				<div className="mb-4">
+					<h3 className="text-lg font-semibold mb-2">
+						Recent Activity
+					</h3>
+					<p className="text-sm text-muted-foreground">
+						Usage statistics and model availability overview.
+					</p>
+				</div>
+				<div className="space-y-6">
+					{/* Token count */}
+					<div className="text-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+						<div className="text-3xl font-bold mb-1">
+							{recentTokens.toLocaleString()}
+						</div>
+						<p className="text-sm text-muted-foreground flex items-center justify-center gap-1">
+							<TrendingUp className="h-3 w-3" />
+							Tokens in last 7 days
+						</p>
+					</div>
+
+					{/* Model count */}
+					<div className="text-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+						<div className="text-2xl font-bold mb-1">
+							{recentModels.length}
+						</div>
+						<p className="text-sm text-muted-foreground flex items-center justify-center gap-1">
+							<Sparkles className="h-3 w-3" />
+							Total models available
+						</p>
+					</div>
+
+					{/* Latest model */}
+					{recentModels.length > 0 && (
+						<div className="pt-2 border-t border-gray-200 dark:border-gray-700">
+							<p className="text-xs text-muted-foreground mb-3 flex items-center gap-1">
+								<Calendar className="h-3 w-3" />
+								Latest model added:
+							</p>
+							<div className="p-3 border border-gray-200 dark:border-gray-700 rounded-lg">
+								<div className="flex items-start justify-between gap-4">
+									<div>
+										<p className="text-sm font-semibold mb-1">
+											<Link
+												href={`/models/${recentModels[0].model_id}`}
+												className="hover:text-primary transition-colors"
+											>
+												<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+													{latestModelDisplay?.name ??
+														recentModels[0]
+															.model_id}
+												</span>
+											</Link>
+										</p>
+										{latestModelDisplay?.organisationName && (
+											<p className="text-xs text-muted-foreground">
+												{latestModelDisplay.organisationId ? (
+													<Link
+														href={`/organisations/${latestModelDisplay.organisationId}`}
+														className="text-xs hover:text-primary transition-colors"
+													>
+														<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+															{
+																latestModelDisplay.organisationName
+															}
+														</span>
+													</Link>
+												) : (
+													<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+														{
+															latestModelDisplay.organisationName
+														}
+													</span>
+												)}
+											</p>
+										)}
+									</div>
+									<div className="flex flex-col items-end gap-1 text-right text-xs text-muted-foreground">
+										<span className="text-[11px] font-semibold uppercase tracking-wide">
+											Added
+										</span>
+										<span className="text-sm font-semibold text-foreground">
+											{latestModelDate}
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					)}
+				</div>
+			</div>
+		</div>
+	);
+}
+
+type ModelDisplayInfo = {
+	name: string;
+	organisationName?: string;
+	organisationId?: string;
+};
+
+function resolveModelDisplayInfo(model: RecentModel): ModelDisplayInfo {
+	const relatedModel = Array.isArray(model.data_models)
+		? model.data_models[0]
+		: model.data_models;
+	const nestedOrg = Array.isArray(relatedModel?.organisation)
+		? relatedModel?.organisation[0]
+		: relatedModel?.organisation;
+
+	const organisationId =
+		nestedOrg?.organisation_id ??
+		relatedModel?.organisation_id ??
+		undefined;
+
+	return {
+		name: relatedModel?.name ?? model.model_id,
+		organisationName: nestedOrg?.name ?? undefined,
+		organisationId,
+	};
+}
+
+function formatModelDate(timestamp: string): string {
+	return new Date(timestamp).toLocaleDateString();
+}

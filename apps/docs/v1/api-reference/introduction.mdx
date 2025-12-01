@@ -1,0 +1,69 @@
+---
+title: "Introduction To The AI Gateway"
+description: "Get started with the AI Stats Gateway"
+---
+
+## Getting started
+
+The full OpenAPI description that powers this reference lives alongside the docs. You
+can import it into Postman, Hoppscotch, or your favourite SDK generator to bootstrap a
+client automatically.
+
+<Card
+	title="AI Stats Gateway OpenAPI"
+	icon="list-bullet"
+	href="https://github.com/DanielButler1/AI-Stats/blob/main/apps/docs/openapi/v1/openapi.json"
+>
+	View the specification file
+</Card>
+
+All production traffic should target **https://api.ai-stats.phaseo.app**.
+{/* A Cloudflare workers.dev preview is also available at **https://ai-stats-gateway.workers.dev** for testing. */}
+
+## Authentication
+
+All endpoints require a gateway API key to help mitigate abuse. Supply it as
+an `Authorization: Bearer` header. Keys have the form `aistats_v1_k_` and
+map back to the teams you manage inside the dashboard.
+
+```http
+Authorization: Bearer aistats_v1_k_XXXX_example
+```
+
+If authentication fails you will receive a **401** error response.
+
+## Endpoint overview
+
+The table below outlines the main endpoints available in the AI Stats Gateway right now:
+
+| Endpoint                    | Description                                                                                    |
+| --------------------------- | ---------------------------------------------------------------------------------------------- |
+| `POST /v1/chat/completions` | Route chat completions to the healthiest configured provider, with optional streaming via SSE. |
+| `POST /v1/moderation`       | Score text input against provider moderation policies.                                         |
+| `POST /v1/embeddings`       | Generate embeddings for text input.                                                            |
+| `GET /v1/generation/{id}`   | Retrieve the stored audit record for a previous request.                                       |
+| `GET /v1/health`            | Inspect provider health, routing scores, and breaker status.                                   |
+| `GET /v1/models`            | List available models across all providers along with their capabilities.                      |
+
+Use the `include_endpoints` query parameter on `GET /v1/models` to reproduce the per-surface catalogues (chat, moderations, embeddings, images, video, or audio) without bouncing between separate endpoints.
+
+With the table below showing the upcoming endpoints planned for future releases:
+| Endpoint | Description |
+| ----------------------------- | ---------------------------------------------------------------------------------------------- |
+| `POST /v1/images/generations` | Generate one or more images from a prompt. |
+| `POST /v1/video/generation` | Submit a video generation job to the upstream provider. |
+| `POST /v1/audio` | Use an audio model. |
+| `GET /v1/api-keys` | List and manage your API keys. |
+
+Responses include an optional `usage` and `meta` object with your usage, in both tokens and pricing, broken down into clear lines to
+see what costs what, as well as detailed timing and performance metadata, such as throughput, latency, and generation time,
+to support auditing and debugging.
+
+## Rate limits & billing
+
+We apply apply no rate limits directly on our platform, any rate limits are upstream, applied by the providers themselves,
+we are working to get higher rate limits from the upstream providers to ensure that our users have a smooth experience.
+
+We apply credit checks prior to all requests made, ensuring that you have a minimum of $1.00 of credit in the team wallet.
+We do this to ensure that users do not accidentally rack up large bills on their accounts. You can top up your team wallet
+via the dashboard at any time, with payments typically going through within a few minutes. 

@@ -1,0 +1,22 @@
+{
+	"$schema": "https://unpkg.com/knip@5/schema.json",
+	"workspaces": {
+		".": {},
+		"apps/web": {
+			"entry": ["apps/web/src/app/**/*.tsx"]
+		},
+		"apps/api": {
+			"entry": ["apps/api/src/**/*.ts"]
+		},
+		"packages/*": {}
+	},
+	"ignore": [
+		"**/dist/**",
+		"**/.turbo/**",
+		"**/node_modules/**",
+		"apps/api/.wrangler/**",
+		"apps/web/scripts/**",
+		"apps/web/src/data/__tests__/**"
+	],
+	"jest": false
+}

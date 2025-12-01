@@ -1,0 +1,33 @@
+{
+  "organisation_id": "deepseek",
+  "name": "DeepSeek",
+  "country_code": "CN",
+  "description": "DeepSeek is an AI company. Their mission is to develop open-weight large language models that enable reasoning, tool-use and private deployment, offering an alternative path in the large-model ecosystem.",
+  "colour": "#5e71ed",
+  "organisation_links": [
+    {
+      "platform": "github",
+      "url": "https://github.com/deepseek-ai"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/deepseek-ai"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/deepseek-ai/"
+    },
+    {
+      "platform": "reddit",
+      "url": "https://www.reddit.com/r/DeepSeek/"
+    },
+    {
+      "platform": "website",
+      "url": "https://deepseek.ai"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/deepseek_ai"
+    }
+  ]
+}

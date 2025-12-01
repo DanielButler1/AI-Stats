@@ -1,113 +1,84 @@
-# 🤖 AI Stats - The Largest Database of AI Information
+# AI Stats Gateway
 
-> This project is still in its relatively early stages - data is actively being gathered and the interface is being built on every week.
-> There may be bugs on the website, gaps, or inaccuracies in data.
-> Want to help? **Contributions are welcome!** See the [Get Involved](#get-involved) section below.
+> _Open access to the world’s AI models — built in public._
 
-> The schema is also in active development, so expect changes to the data structure as we refine it to hold all the data we need.
+> ⚡ A note from Daniel
+> I want everyone to have access to powerful AI tools — affordably, transparently, and without corporate lock-ins.
+>
+> Right now, though, I’m an indie developer funding this project myself. That means prices are a bit higher than the big players for the moment — not because I want them to be, but because it’s what keeps the lights on and the servers running.
+>
+> Every person who supports or uses this project helps bring it closer to the point where I can lower prices for everyone. Your support genuinely means the world to me — thank you for helping make this vision possible.
 
----
-
-## 🌟 What is AI Stats?
-
-With new AI models launching what feels like **multiple times every week**, it’s hard to keep up.  
-**AI Stats** offers a **clean, open, and collaborative** platform to:
-
--   📊 Explore recently released models
--   🔍 Compare benchmarks and capabilities
--   📈 Track performance over time
--   🛠️ View model details and pricing information
-
-The **entire project is community-driven** and licensed for non-commercial use. If something’s missing or incorrect, you can help fix it!
+AI Stats Gateway is an open, transparent platform that tracks, compares, and connects large language models across every major provider.  
+It exists to make AI **accessible**, **interoperable**, and **free from vendor lock-in**.
 
 ---
 
-## 💡 Why This Exists
+### 🌍 What It Is
 
-This project was born out of frustration:  
-There was **no central place** to quickly check:
+AI Stats is made up of three main parts:
 
--   What models have recently launched
--   How they compare on a wide range of benchmarks
--   What their strengths and limitations are
--   How much they cost to use
+| Part                       | Description                                                       |
+| -------------------------- | ----------------------------------------------------------------- |
+| [`apps/web`](./apps/web)   | The public website — explore, compare, and visualise models.      |
+| [`apps/api`](./apps/api)   | The gateway API — a unified layer that routes to any AI provider. |
+| [`apps/docs`](./apps/docs) | The documentation site — a collaborative knowledge base.          |
 
-AI Stats is our answer - a platform that keeps pace with the rapid evolution of AI.
-
----
-
-## 🙌 Get Involved
-
-**Yes, you can help.** Whether you're a developer, researcher, hobbyist, or AI enthusiast - we welcome you.
-
-### 🧹 Contribute Data
-
-Missing a model? Outdated prices? New benchmark results?
-
-➡️ You can fix that:
-
-```bash
-1. Fork the repo
-2. Add or update JSON files in the `/data` folder based on the types defined in `/data/types`
-3. Submit a Pull Request with a clear title and description
-```
-
-## 💡 Suggest Features / Report Bugs
-
-Open a GitHub issue to:
-
--   Suggest new features
--   Report bugs or inaccuracies
--   Recommend UI/UX improvements
-
-> We want to build the go-to AI stats platform - your feedback is invaluable!
-
-## 🌐 Improve the Website
-
-Want to contribute to the frontend?
-
-```bash
-1. Clone the repo: git clone https://github.com/DanielButler1/AI-Stats.git
-2. Install dependencies: npm install
-3. Run the dev server: npm run dev
-4. Visit http://localhost:3000
-
-```
+Each one plays a part in a single mission:  
+**to make every AI model available through one open gateway.**
 
 ---
 
-🧰 Tech Stack
+### 💡 Why It Exists
 
--   ⚡ Next.js - Blazing-fast frontend
--   🎨 Tailwind CSS - Clean, responsive styling
--   🧩 Lucide Icons - Modern, consistent icon set
+AI is the most profound technology in human history — but access to it is increasingly fragmented, closed, and centralised.  
+AI Stats was built to change that.
 
----
-
-## 🌍 Community First
-
-AI Stats is not owned by any company or AI provider.
-It’s built by the community, for the community.
-We want to create a **neutral, unbiased resource** that anyone can use to:
-
--   Make informed decisions
--   Understand the AI landscape
--   Track progress over time
+-   **No lock-ins.** Anyone can use, fork, or extend it.
+-   **No secrets.** All data and code are open.
+-   **No borders.** It’s built for everyone, together.
 
 ---
 
-## 🗣️ Join the Conversation
+### 🧩 Contributing
 
--   [📘 GitHub Wiki](https://github.com/DanielButler1/AI-Stats/wiki)
--   [🐦 Twitter / X](https://x.com/DanielButler001)
--   [💬 Discord Server](https://discord.gg/zDw73wamdX)
+You don’t need to be an expert to contribute — just curious.  
+There are many ways to help:
 
-## 📜 License
+-   Add or improve model data
+-   Write documentation or guides
+-   Suggest ideas and features
+-   Fix a bug or improve a UI component
 
-This project is licensed for non-commercial use.
-See the [LICENSE](LICENSE) file for details.
+👉 [Open an issue](https://github.com/DanielButler1/AI-Stats/issues) or [start a discussion](https://github.com/DanielButler1/AI-Stats/discussions).  
+Every contribution matters.
 
-## 🙏 Attributions
+---
 
-This project builds upon open-source efforts from across the AI community.  
-Special thanks to the team behind [llm-stats](https://github.com/JonathanChavezTamales/llm-leaderboard) for laying the groundwork that inspired parts of our data structure and direction with this project.
+### 🛠️ Tech at a Glance
+
+-   **Next.js 15** for the website
+-   **Cloudflare Workers + Hono** for the API gateway
+-   **Supabase** for data
+-   **Mintlify** for documentation
+-   **Vercel + Cloudflare** for deployment
+
+---
+
+### 📜 License
+
+AI Stats Gateway is free software, built to stay in the commons.
+
+-   **Core apps** (`apps/web`, `apps/api`, `apps/docs` and other server-side code in this repo) are licensed under the  
+    **GNU Affero General Public License v3.0 (AGPL-3.0)**.
+-   **Client SDKs** (for example `packages/sdk-js` and `packages/sdk-py`) are licensed under the  
+    **MIT Licence** for easy use in any application.
+
+What this means in practice:
+
+-   You are free to **run, self-host, modify, and deploy** AI Stats Gateway.
+-   If you **modify** the core and run it for others over a network or distribute it, you must  
+    **publish your modifications under AGPL-3.0 as well**.
+-   You can use the SDKs in **open or closed-source projects** without worrying about copyleft.
+
+> “AI should belong to humanity — not just the highest bidder — and so should the tools that connect to it.”

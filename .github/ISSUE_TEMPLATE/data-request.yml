@@ -1,0 +1,38 @@
+name: "🧠 New Data Request"
+description: Suggest new data to add
+title: "[Data Request] "
+labels: ["type/data-request", "status/triage"]
+assignees:
+    - DanielButler1
+body:
+    - type: dropdown
+      id: area
+      attributes:
+          label: Area
+          options:
+              - area/schema
+              - area/data-importers
+              - area/analytics
+              - area/docs
+              - area/web
+      validations:
+          required: true
+    - type: input
+      id: data_name
+      attributes:
+          label: Data name
+          placeholder: e.g. Model / Benchmark / Provider
+      validations:
+          required: true
+    - type: input
+      id: data_link
+      attributes:
+          label: Link to information
+          placeholder: Official page / docs / announcement
+      validations:
+          required: true
+    - type: textarea
+      id: notes
+      attributes:
+          label: Key details (optional)
+          placeholder: Features, benchmarks, pricing if known

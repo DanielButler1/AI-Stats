@@ -1,0 +1,29 @@
+{
+  "organisation_id": "baidu",
+  "name": "Baidu",
+  "country_code": "CN",
+  "description": "Baidu is an AI model and technology company. Their mission is to build large-model families (such as “ERNIE”), covering language, vision and multimodal tasks, so that intelligence can be applied broadly across services.",
+  "colour": "#2932E1",
+  "organisation_links": [
+    {
+      "platform": "github",
+      "url": "https://github.com/baidu"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/baidu"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/baidu-inc"
+    },
+    {
+      "platform": "website",
+      "url": "https://www.baidu.com/"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/Baidu_Inc"
+    }
+  ]
+}

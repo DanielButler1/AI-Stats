@@ -1,0 +1,7 @@
+{
+  "alias_slug": "google/gemini-2.5-flash-preview-latest",
+  "resolved_model_id": "google/gemini-2-5-flash-preview-2025-09-25",
+  "channel": "preview",
+  "is_enabled": true,
+  "notes": null
+}

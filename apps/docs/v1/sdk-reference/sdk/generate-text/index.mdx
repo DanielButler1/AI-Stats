@@ -1,0 +1,32 @@
+---
+title: "Generate Text (SDK)"
+api: "POST /chat/completions"
+description: "Send a non-streaming chat completion request via SDK."
+playground: 'none'
+---
+
+TypeScript and Python are production-ready; other SDKs are in preview.
+
+<CodeGroup>
+```ts TypeScript
+import { AIStats } from "@ai-stats/ts-sdk";
+
+const client = new AIStats({ apiKey: process.env.AI_STATS_API_KEY! });
+const res = await client.generateText({
+  model: "gpt-4o-mini",
+  messages: [{ role: "user", content: "Say hi!" }],
+});
+console.log(res.choices?.[0]?.message?.content);
+```
+
+```python Python
+from ai_stats import AIStats
+
+client = AIStats(api_key="YOUR_KEY")
+resp = client.generate_text({
+    "model": "gpt-4o-mini",
+    "messages": [{"role": "user", "content": "Say hi!"}],
+})
+print(resp.choices[0].message.content)
+```
+</CodeGroup>

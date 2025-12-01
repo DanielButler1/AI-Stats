@@ -1,0 +1,53 @@
+{
+  "organisation_id": "openai",
+  "name": "OpenAI",
+  "country_code": "US",
+  "description": "OpenAI is an AI research and deployment company. Their mission is to ensure that artificial general intelligence (AGI) benefits all of humanity.",
+  "colour": "#333333",
+  "organisation_links": [
+    {
+      "platform": "discord",
+      "url": "https://discord.gg/openai"
+    },
+    {
+      "platform": "github",
+      "url": "https://github.com/openai"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/openai"
+    },
+    {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/openai/"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/openai"
+    },
+    {
+      "platform": "reddit",
+      "url": "https://www.reddit.com/r/OpenAI/"
+    },
+    {
+      "platform": "threads",
+      "url": "https://www.threads.com/@openai"
+    },
+    {
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@openai"
+    },
+    {
+      "platform": "website",
+      "url": "https://openai.com"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/OpenAI"
+    },
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/OpenAI"
+    }
+  ]
+}

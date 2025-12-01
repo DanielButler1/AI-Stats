@@ -1,0 +1,53 @@
+{
+  "organisation_id": "google",
+  "name": "Google",
+  "country_code": "US",
+  "description": "Google is a technology and AI company. Their mission is to advance multimodal, generative and agentic AI across vision, language and platforms to support users and creators around the world.",
+  "colour": "#4285F4",
+  "organisation_links": [
+    {
+      "platform": "discord",
+      "url": "https://discord.com/invite/google-dev-community"
+    },
+    {
+      "platform": "github",
+      "url": "https://github.com/google"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/google"
+    },
+    {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/googlegemini/"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/google/posts/?feedView=all"
+    },
+    {
+      "platform": "reddit",
+      "url": "https://www.reddit.com/r/Bard/"
+    },
+    {
+      "platform": "threads",
+      "url": "https://www.threads.com/@google"
+    },
+    {
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@googlegemini"
+    },
+    {
+      "platform": "website",
+      "url": "https://gemini.google.com/app?hl=en-GB"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/GeminiApp"
+    },
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/@Google"
+    }
+  ]
+}

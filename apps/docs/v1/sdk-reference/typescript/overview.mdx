@@ -1,0 +1,35 @@
+---
+title: "TypeScript SDK Overview"
+description: "Official TypeScript client for the AI Stats Gateway API"
+---
+
+The AI Stats TypeScript SDK provides a type-safe, convenient way to interact with the AI Stats Gateway API. Built on top of the OpenAPI specification, it offers full TypeScript support with generated types and a simple client interface.
+
+## Features
+
+-   **Type-safe**: Full TypeScript support with generated types from the OpenAPI spec
+-   **Simple API**: Easy-to-use client with a clean interface
+-   **Generated code**: Automatically generated from the canonical API specification
+-   **Comprehensive**: Covers all Gateway API endpoints
+
+## Quick Example
+
+```typescript
+import { AIStats } from "@ai-stats/ts-sdk";
+
+const client = new AIStats({ apiKey: process.env.AI_STATS_API_KEY! });
+
+const response = await client.generateText({
+	model: "openai/gpt-4o-mini",
+	messages: [{ role: "user", content: "Hello, how are you?" }],
+});
+
+console.log(response.choices[0].message.content);
+```
+
+## What's Included
+
+-   `AIStats` client class for all API interactions
+-   Generated types for all request/response objects
+-   Full API coverage including chat completions, models, credits, and more
+-   TypeScript definitions for better development experience

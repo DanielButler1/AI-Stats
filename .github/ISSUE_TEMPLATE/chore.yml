@@ -1,0 +1,27 @@
+name: "🧹 Chore / Test"
+description: Maintenance, CI, dependencies, or tests
+title: "[Chore] "
+labels: ["type/chore", "status/triage"]
+assignees:
+    - DanielButler1
+body:
+    - type: dropdown
+      id: area
+      attributes:
+          label: Area
+          options:
+              - area/infrastructure
+              - area/test
+              - area/web
+              - area/api
+              - area/sdk-js
+              - area/sdk-py
+      validations:
+          required: true
+    - type: textarea
+      id: scope
+      attributes:
+          label: Scope
+          placeholder: What needs doing and why.
+      validations:
+          required: true

@@ -1,0 +1,33 @@
+{
+  "organisation_id": "lg",
+  "name": "LG",
+  "country_code": "KR",
+  "description": "LG is a technology and electronics company. Their mission is to integrate advanced AI models into devices, consumer experiences and automation systems so that intelligence becomes embedded everywhere.",
+  "colour": "#a50034",
+  "organisation_links": [
+    {
+      "platform": "github",
+      "url": "https://github.com/LG-AI-EXAONE"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/LGAI-EXAONE"
+    },
+    {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/lg_global/"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/lg-electronics/"
+    },
+    {
+      "platform": "website",
+      "url": "https://www.lg.com/uk/lg-ai/"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/LG_AI_Research"
+    }
+  ]
+}

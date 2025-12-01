@@ -1,0 +1,13 @@
+generatorName: php
+outputDir: ../../../../packages/sdk-php/src/gen
+inputSpec: apps/docs/openapi/v1/openapi.json
+additionalProperties:
+  invokerPackage: AIStats\\Sdk
+  packageName: AIStatsSdk
+globalProperty:
+  apis: true
+  models: true
+  apiDocs: false
+  modelDocs: false
+  apiTests: false
+  modelTests: false

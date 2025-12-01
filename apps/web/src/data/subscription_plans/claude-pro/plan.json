@@ -1,0 +1,53 @@
+{
+  "plan_id": "claude-pro",
+  "name": "Claude Pro",
+  "organisation_id": "anthropic",
+  "description": null,
+  "pricing_options": [
+    {
+      "frequency": "monthly",
+      "usd_price": 20.0,
+      "link": null,
+      "other_info": null
+    },
+    {
+      "frequency": "yearly",
+      "usd_price": 200.0,
+      "link": null,
+      "other_info": null
+    }
+  ],
+  "features": [],
+  "models": [
+    {
+      "model_id": "anthropic/claude-sonnet-4-2025-05-21",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "model_id": "anthropic/claude-opus-4-2025-05-21",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "model_id": "anthropic/claude-3-7-sonnet-2025-02-24",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "model_id": "anthropic/claude-3-opus-2024-03-04",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "model_id": "anthropic/claude-3-5-haiku-2024-11-04",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    }
+  ]
+}

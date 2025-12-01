@@ -1,0 +1,190 @@
+---
+title: "How to Contribute"
+description: "A step-by-step guide on how to make your first contribution to AI Stats - from setting up your environment to submitting a pull request."
+---
+
+Contributing to **AI Stats** is simple, transparent, and open to everyone.  
+This guide walks you through the entire process, whether you’re editing a model entry, updating benchmark data, improving documentation, or contributing new ideas.
+
+---
+
+## Before you start
+
+You’ll need a few basic tools installed:
+
+| Tool               | Purpose                                        | Installation                                       |
+| ------------------ | ---------------------------------------------- | -------------------------------------------------- |
+| **Git**            | Version control to clone and push changes.     | [Install Git](https://git-scm.com/downloads)       |
+| **Node.js (v20+)** | Runs the AI Stats site locally (Next.js).      | [Download Node.js](https://nodejs.org/en/download) |
+| **pnpm**           | Package manager used in this project.          | `npm install -g pnpm`                              |
+| **GitHub account** | Required for forks, issues, and pull requests. | [Sign up here](https://github.com/signup)          |
+
+If you only want to edit **data** or **Markdown documentation**, you can make changes directly on GitHub without setting up a local environment.
+
+---
+
+## 1. Fork the repository
+
+Go to the [AI Stats GitHub Repository](https://github.com/DanielButler1/AI-Stats) and click **“Fork”** in the top-right corner.  
+This creates your own copy of the project that you can freely edit.
+
+---
+
+## 2. Clone your fork
+
+```bash
+git clone https://github.com/yourusername/AI-Stats.git
+cd AI-Stats
+```
+
+This downloads your fork to your local machine.
+
+---
+
+## 3. Create a new branch
+
+It’s best practice to make a new branch for each change you make:
+
+```bash
+git checkout -b update-benchmark-data
+```
+
+Please use a descriptive branch name that reflects your change to make reviewing your changes easier.
+
+Examples:
+
+-   `fix-{model-name}`
+-   `add-new-organisation`
+-   `improve-docs`
+-   `update-pricing-for-{model-name}`
+
+---
+
+## 4. Make your changes
+
+Depending on what you want to edit:
+
+| Area                  | Files                                    | Description                                           |
+| --------------------- | ---------------------------------------- | ----------------------------------------------------- |
+| **Model data**        | `/apps/web/data/models/**/*.json`        | Add or update model metadata, pricing, or benchmarks. |
+| **Organisation data** | `/apps/web/data/organisations/**/*.json` | Update details about companies or research groups.    |
+| **Benchmark data**    | `/apps/web/data/benchmarks/**/*.json`    | Submit new evaluation results or corrections.         |
+| **Documentation**     | `/apps/docs/v1/**/*.mdx`                 | Improve or expand guides, references, and docs pages. |
+| **Gateway**           | `/apps/api/*`                            | Make changes to the API Gateway.                      |
+
+If you’re editing data, please follow the schemas and field formats described in [Repo Structure](/v1/contributing/repo-structure).
+
+---
+
+## 5. Preview your changes (optional)
+
+If you’d like to preview your edits locally:
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Use [http://localhost:3100](http://localhost:3100) for web changes, and [http://localhost:3101](http://localhost:3101) for docs changes. All data changes will have to be previewed after a PR has been made as the web app pulls from the database.
+
+---
+
+## 6. Commit your changes
+
+Once you’re satisfied, commit your work:
+
+```bash
+git add .
+git commit -m "Updated benchmark data for Claude 3.5 Sonnet"
+```
+
+Please ensure your commit message is descriptive of the changes made to help reviewers understand your contribution.
+
+---
+
+## 7. Push your branch
+
+```bash
+git push origin update-benchmark-data
+```
+
+---
+
+## 8. Create a Pull Request (PR)
+
+1. Go to your fork on GitHub.
+2. You’ll see a message offering to create a PR - click **“Compare & Pull Request.”**
+3. Fill out the PR template with the appropriate information for your changes
+4. Submit the PR!
+
+Once your PR is reviewed and approved, it will be merged into the main AI Stats repository.
+
+---
+
+## 9. Celebrate 🎉
+
+Your contribution will be live once merged. If you made it this far, we appreciate your effort and support and will be forever grateful for all your help! ❤️
+
+<Card
+	title="View Contributors"
+	icon="users"
+	href="https://ai-stats.phaseo.app/contribute"
+	horizontal
+>
+	See everyone who’s helped build AI Stats.
+</Card>
+
+---
+
+## Contribution tips
+
+-   Keep PRs **small and focused** - one logical change per PR.
+-   Attempt to follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) where possible. Use **clear commit prefixes** like `fix:`, `add:`, or `chore:`.
+-   If your change affects data accuracy, include **sources or references**.
+-   For large or uncertain ideas, open a **GitHub Discussion** or message in Discord before coding.
+-   Always stay respectful and follow our [Code of Conduct](/v1/community/code-of-conduct).
+
+---
+
+## Example workflow summary
+
+```bash
+# 1. Fork and clone
+
+git clone https://github.com/yourusername/AI-Stats.git
+cd AI-Stats
+
+# 2. Create branch
+git checkout -b add-openai-new-model
+
+# 3. Make changes
+# e.g., update /data/models/new-openai-model.json
+
+# 4. Commit and push
+git add .
+git commit -m "Add new OpenAI model entry"
+git push origin add-new-openai-model
+
+# 5. Create a Pull Request on GitHub
+```
+
+---
+
+## Next steps
+
+<Columns cols={2}>
+	<Card
+		title="Repo Structure"
+		icon="folder-tree"
+		href="/v1/contributing/repo-structure"
+	>
+		Learn about the folder layout and where to find key data files.
+	</Card>
+	<Card
+		title="Editing a Model"
+		icon="brain"
+		href="/v1/contributing/editing-a-model"
+	>
+		Start with a practical example — updating or adding a model entry.
+	</Card>
+</Columns>

@@ -1,0 +1,8 @@
+{
+  "benchmark_id": "bigcodebench",
+  "benchmark_name": "BigCodeBench",
+  "category": null,
+  "ascending_order": null,
+  "link": "https://bigcode-bench.github.io/",
+  "total_models": 1
+}

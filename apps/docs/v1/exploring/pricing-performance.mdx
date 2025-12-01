@@ -1,0 +1,194 @@
+---
+title: "Pricing & Performance"
+description: "Understand how model pricing and performance are measured, compared, and normalised across providers on AI Stats."
+---
+
+AI Stats helps you make informed decisions about which models to use by providing **transparent pricing and performance metrics** for every model and provider.
+
+This page explains how AI Stats calculates, standardises, and presents cost and speed data — allowing you to identify the **best value** models for your use case.
+
+---
+
+## Why pricing & performance matter
+
+When choosing a model, you’re balancing **three key factors**:
+
+1. 💰 **Price** — how much each request costs.
+2. ⚙️ **Performance** — how fast and efficient the model is.
+3. 🧠 **Quality** — how well it performs on benchmarks.
+
+AI Stats gives you clear, comparable metrics for the first two, and links them with benchmark data to help you find the **sweet spot between cost, speed, and intelligence**.
+
+---
+
+## Pricing structure
+
+Pricing varies depending on the **provider**, **model type**, and **usage mode**.  
+AI Stats normalises all prices to **USD per 1,000 tokens** (for text models) or the equivalent unit for other modalities.
+
+| Type             | Unit                | Example                             |
+| ---------------- | ------------------- | ----------------------------------- |
+| **Text Models**  | Per 1,000 tokens    | $0.005 input / $0.015 output        |
+| **Image Models** | Per image           | $0.02 per 1024×1024 image           |
+| **Audio Models** | Per minute or MB    | $0.006 per minute of transcription  |
+| **Video Models** | Per second or frame | $0.01 per second of generated video |
+| **Embeddings**   | Per 1,000 tokens    | $0.0001 per 1K tokens               |
+
+---
+
+## Input vs Output pricing
+
+For most text-based models, you’ll see two separate costs:
+
+-   **Input price** — charged per 1,000 tokens you send (the prompt).
+-   **Output price** — charged per 1,000 tokens the model generates.
+
+Example:
+
+| Model             | Input (USD / 1K tokens) | Output (USD / 1K tokens) |
+| ----------------- | ----------------------- | ------------------------ |
+| GPT-4o            | $0.005                  | $0.015                   |
+| Claude 3.5 Sonnet | $0.003                  | $0.015                   |
+| Gemini 1.5 Pro    | $0.00125                | $0.005                   |
+| Mistral Large     | $0.002                  | $0.006                   |
+
+AI Stats displays both prices for full transparency and allows filtering or sorting by either.
+
+---
+
+## Cost per request (E2E)
+
+AI Stats also computes an **estimated cost per complete request**, which factors in:
+
+-   The **average number of input tokens** per request.
+-   The **average model output length**.
+-   The **current pricing structure** for that provider.
+
+This gives a more realistic “per-call” cost when comparing across models and providers.
+
+---
+
+## Measuring performance
+
+AI Stats tracks three main performance metrics for every model and provider:
+
+| Metric                 | Description                                                                                        | Example             |
+| ---------------------- | -------------------------------------------------------------------------------------------------- | ------------------- |
+| **Throughput**         | The average number of tokens processed per second (TPS).                                           | e.g. 400 tokens/sec |
+| **Latency**            | The time between sending a request and receiving the **first token** (TTFT - time-to-first-token). | e.g. 800ms          |
+| **End-to-End Latency** | The total duration from request to the last token in the response.                                 | e.g. 3.2s           |
+
+Together, these metrics reflect **responsiveness and efficiency** — critical for interactive or production workloads.
+
+---
+
+## How we measure it
+
+AI Stats uses **standardised benchmarking scripts** to gather real-world performance data for each model and provider.
+
+Each test includes:
+
+-   Repeated requests with consistent prompts (to reduce variance).
+-   Averaged results across multiple time periods.
+-   Measurements from different regions when applicable.
+
+For transparency, raw performance data is often available through the [AI Stats Gateway API](/v1/api-reference/endpoint/health) or the open [Performance Dataset](https://github.com/DanielButler1/AI-Stats).
+
+---
+
+## Interpreting performance
+
+| Scenario                         | What to look for                                                                    |
+| -------------------------------- | ----------------------------------------------------------------------------------- |
+| **Interactive chatbots**         | Prioritise **low latency** (< 1s TTFT).                                             |
+| **Large document summarisation** | Focus on **high throughput** (tokens/sec).                                          |
+| **Batch processing**             | Balance throughput and cost — consider cheaper models with slightly higher latency. |
+| **Real-time streaming**          | Requires providers that support streaming APIs and sub-second TTFT.                 |
+
+Use AI Stats’ performance charts to visualise these trade-offs interactively.
+
+---
+
+## Example performance snapshot
+
+```json
+{
+	"model": "gpt-4o",
+	"provider": "OpenAI",
+	"input_price_usd_per_1k": 0.005,
+	"output_price_usd_per_1k": 0.015,
+	"throughput_tps": 420,
+	"latency_first_token_ms": 700,
+	"latency_total_ms": 3100,
+	"uptime_percent": 99.97
+}
+```
+
+---
+
+## Cost-to-performance ratio
+
+AI Stats calculates a **cost-to-performance ratio (CPR)** — a derived metric that helps identify the most efficient models.
+
+Formula:
+
+math
+CPR = (Cost per 1K tokens) / (Throughput in tokens/sec)
+
+Lower CPR values indicate **better cost efficiency** for the same throughput.
+
+---
+
+## Data refresh frequency
+
+Pricing and performance data are refreshed regularly:
+
+| Data Type       | Update Frequency          |
+| --------------- | ------------------------- |
+| **Pricing**     | Every 24 hours            |
+| **Performance** | Every 6 hours             |
+| **Benchmarks**  | Weekly or on new releases |
+
+Each update is timestamped and versioned for transparency.
+
+---
+
+## Example use cases
+
+| Goal                               | Example                                                             |
+| ---------------------------------- | ------------------------------------------------------------------- |
+| Compare models by speed            | “Which model has the lowest latency?”                               |
+| Find the best cost-per-token ratio | “Which model offers the best throughput for under $0.01/1K tokens?” |
+| Identify regional variations       | “Does latency differ between EU and US endpoints?”                  |
+| Balance cost and performance       | “What’s the most efficient model for real-time summarisation?”      |
+
+---
+
+## Contributing or validating data
+
+You can help by submitting verified pricing or performance updates through GitHub.  
+All submissions are reviewed before being included in the live dataset.
+
+<Card
+	title="Contribute Pricing & Performance Data"
+	icon="github"
+	href="/v1/contributing/contributing-to-the-api"
+	horizontal
+>
+	Help maintain the accuracy of cost and performance data across providers.
+</Card>
+
+---
+
+## Next steps
+
+Now that you understand how pricing and performance are measured, you can explore how to integrate models programmatically via the AI Stats Gateway.
+
+<Card
+	title="Integrate with the Gateway"
+	icon="terminal"
+	href="/v1/developers/integrating-with-the-gateway"
+	horizontal
+>
+	Learn how to build using the AI Stats Gateway API.
+</Card>

@@ -1,0 +1,101 @@
+---
+title: "Developers Introduction"
+description: "Everything you need to start integrating with the AI Stats Gateway API."
+---
+
+The **AI Stats Gateway** provides a unified API for accessing the world’s leading AI models - all through a single, consistent interface.
+
+Whether you’re building a chatbot, analysing content, generating media, or testing moderation workflows, the Gateway abstracts away individual provider quirks and gives you:
+
+-   **One endpoint** for multiple AI providers
+-   **Unified request and response formats**
+-   **Transparent usage tracking and pricing**
+-   **Lightweight SDKs** and modern developer experience
+
+---
+
+## Why the Gateway exists
+
+Working with multiple AI providers is powerful but messy - each has unique endpoints, model ids and types, and schemas.  
+The Gateway removes that friction by providing a normalised API layer that automatically routes your request to the best available model or provider.
+
+You focus on **building**, not integration maintenance.
+
+---
+
+## Core features
+
+<Columns cols={2}>
+	<Card
+		title="Unified Endpoints"
+		icon="terminal"
+		href="/v1/api-reference/introduction"
+	>
+		Standardised chat, image, and moderation endpoints that work
+		consistently across all providers.
+	</Card>
+	<Card title="Smart Routing" icon="git-branch">
+		Requests are dynamically routed to the optimal provider for speed, cost,
+		or reliability.
+	</Card>
+	<Card title="Built-in Usage Tracking" icon="chart-column-increasing">
+		Every request is logged with latency, token counts, and cost metrics for
+		transparent reporting.
+	</Card>
+	<Card title="BYOK (Bring Your Own Key)" icon="key">
+		Optionally connect your own provider API keys to manage billing and rate
+		limits yourself whilst still benefiting from the Gateway’s unified
+		interface.
+	</Card>
+</Columns>
+
+---
+
+## Getting started
+
+1. **[Sign up](https://ai-stats.phaseo.app/sign-up)** for an AI Stats account.
+2. **[Generate an API key](https://ai-stats.phaseo.app/settings/keys)** in your dashboard.
+3. **Make your first request** to the `/v1/chat/completions` endpoint.
+
+<Card
+	title="Quickstart"
+	icon="rocket"
+	href="/v1/integrating-with-the-gateway"
+	horizontal
+>
+	Jump into our quickstart to make your first successful API call in under a
+	minute.
+</Card>
+
+---
+
+## Next steps
+
+<Columns cols={2}>
+	<Card
+		title="Authentication"
+		icon="lock"
+		href="/v1/developers/authentication"
+	>
+		Learn how to authenticate securely using your personal or team API key.
+	</Card>
+	<Card title="API Reference" icon="code" href="/v1/api-reference">
+		Browse the complete API documentation with endpoints, parameters, and
+		response schemas.
+	</Card>
+	<Card
+		title="Best Practices"
+		icon="shield-check"
+		href="/v1/developers/best-practices"
+	>
+		Guidance on how to get the most out of the AI Stats Gateway.
+	</Card>
+	<Card title="Examples" icon="terminal" href="/v1/developers/examples">
+		Copy ready-to-run snippets for Next.js, Node.js streaming, Python, and
+		curl.
+	</Card>
+</Columns>
+
+---
+
+Need more detail? Continue with [Integrating with the Gateway](./integrating-with-the-gateway) for an end-to-end walkthrough, then explore [SDKs and Tools](./sdks-and-tools) or [Rate limits](./rate-limits) as you scale.

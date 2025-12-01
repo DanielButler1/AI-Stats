@@ -1,0 +1,29 @@
+{
+  "organisation_id": "perplexity",
+  "name": "Perplexity",
+  "country_code": "US",
+  "description": "Perplexity AI is an AI application company. Their mission is to combine generative models, retrieval-augmented search and agentic interfaces so that people can access accurate information and intelligence in new ways.",
+  "colour": "#20b8cd",
+  "organisation_links": [
+    {
+      "platform": "github",
+      "url": "https://github.com/perplexityai"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/perplexity-ai"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/perplexity-ai"
+    },
+    {
+      "platform": "website",
+      "url": "https://www.perplexity.ai/"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/perplexity_ai"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+name: "📘 Report Incorrect Info"
+description: Flag incorrect or outdated information
+title: "[Incorrect Info] "
+labels: ["type/incorrect-info", "status/triage"]
+assignees:
+    - DanielButler1
+body:
+    - type: dropdown
+      id: area
+      attributes:
+          label: Area
+          options:
+              - area/web
+              - area/docs
+              - area/schema
+              - area/data-importers
+              - area/analytics
+              - area/api
+      validations:
+          required: true
+    - type: textarea
+      id: incorrect
+      attributes:
+          label: What is incorrect?
+          placeholder: Point to the page/field and what is wrong.
+      validations:
+          required: true
+    - type: textarea
+      id: correct
+      attributes:
+          label: What should it be?
+          placeholder: Provide the corrected value/content.
+      validations:
+          required: true
+    - type: input
+      id: source
+      attributes:
+          label: Source / reference (optional)
+          placeholder: Link to docs / official page / blog

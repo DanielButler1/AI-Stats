@@ -1,0 +1,23 @@
+name = "ai-stats-gateway"
+main = "src/index.ts"
+compatibility_date = "2025-10-01"
+compatibility_flags = []
+workers_dev = false
+preview_urls = false
+
+[vars]
+ENV = "prod"
+SUPABASE_URL = "https://xansbgjaduxypzsmjwct.supabase.co"
+
+[placement]
+mode = "smart"
+
+[[routes]]
+pattern = "api.ai-stats.phaseo.app"
+custom_domain = true
+
+[observability]
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = true

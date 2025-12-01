@@ -1,0 +1,15 @@
+---
+title: "Ruby SDK (preview)"
+description: "Generated client for the AI Stats Gateway. Models endpoint only for now."
+---
+
+- Status: Preview (not yet on RubyGems).
+- Generate with `pnpm openapi:gen:ruby`.
+- Wrapper `packages/sdk-ruby/lib/index.rb` exposes `get_models`.
+
+```ruby
+client = AIStatsSdk::Client.new(api_key: "YOUR_KEY")
+resp = client.get_models(limit: 5)
+```
+
+TypeScript and Python SDKs are production-ready; other languages follow soon.

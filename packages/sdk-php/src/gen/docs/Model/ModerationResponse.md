@@ -1,0 +1,16 @@
+# # ModerationResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**native_response_id** | **string** |  | [optional]
+**provider** | **string** |  |
+**meta** | [**\AIStats\\Sdk\Model\GatewayMetadata**](GatewayMetadata.md) |  |
+**usage** | [**\AIStats\\Sdk\Model\GatewayUsage**](GatewayUsage.md) |  | [optional]
+**id** | **string** |  |
+**created** | **int** |  |
+**model** | **string** |  |
+**results** | [**\AIStats\\Sdk\Model\ModerationResult[]**](ModerationResult.md) |  |
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

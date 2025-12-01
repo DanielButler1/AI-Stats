@@ -1,0 +1,33 @@
+{
+  "organisation_id": "cohere",
+  "name": "Cohere",
+  "country_code": "CA",
+  "description": "Cohere is an enterprise-AI company. Their mission is to scale intelligence for organisations by delivering powerful foundation models and secure AI solutions tailored for real-world business needs.",
+  "colour": "#41584f",
+  "organisation_links": [
+    {
+      "platform": "github",
+      "url": "https://github.com/cohere-ai"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/Cohere"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/cohere-ai/"
+    },
+    {
+      "platform": "website",
+      "url": "https://cohere.com/"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/cohere"
+    },
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/@CohereAI"
+    }
+  ]
+}

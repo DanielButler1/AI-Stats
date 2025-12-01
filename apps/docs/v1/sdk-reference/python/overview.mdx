@@ -1,0 +1,39 @@
+---
+title: "Python SDK Overview"
+description: "Official Python client for the AI Stats Gateway API"
+---
+
+The AI Stats Python SDK provides an asynchronous-first, type-safe Python client for the AI Stats Gateway API. Built with modern Python features, it offers both async and sync interfaces with rich type hints.
+
+## Features
+
+-   **Async-first**: Built with `asyncio` and `httpx` for high performance
+-   **Type-safe**: Full type hints for modern Python editors and IDEs
+-   **Dual interface**: Both async (`AIStats`) and sync (`AIStatsSync`) clients
+-   **Streaming support**: Built-in streaming helpers for real-time responses
+-   **Comprehensive**: Covers all Gateway API endpoints
+
+## Quick Example
+
+```python
+import asyncio
+from ai_stats import AIStats
+
+async def main():
+    async with AIStats(api_key="your-api-key") as client:
+        response = await client.chat_completions(
+            model="openai/gpt-4o-mini",
+            messages=[{"role": "user", "content": "Hello, how are you?"}]
+        )
+        print(response["choices"][0]["message"]["content"])
+
+asyncio.run(main())
+```
+
+## What's Included
+
+-   `AIStats` async client for high-performance applications
+-   `AIStatsSync` sync client for simpler use cases
+-   Streaming helpers for real-time responses
+-   Rich type hints and error handling
+-   Full API coverage including chat completions, models, credits, and more

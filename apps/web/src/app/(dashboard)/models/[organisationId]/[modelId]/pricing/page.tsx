@@ -1,0 +1,82 @@
+import ModelDetailShell from "@/components/(data)/model/ModelDetailShell";
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
+import { getModelOverview } from "@/lib/fetchers/models/getModel";
+import ModelPricing from "@/components/(data)/model/pricing/ModelPricing";
+import {
+	getModelIdFromParams,
+	type ModelRouteParams,
+} from "@/app/(dashboard)/models/model-route-helpers";
+
+async function fetchModel(modelId: string) {
+	try {
+		return await getModelOverview(modelId);
+	} catch (error) {
+		console.warn("[seo] failed to load model overview for metadata", {
+			modelId,
+			error,
+		});
+		return null;
+	}
+}
+
+export async function generateMetadata(props: {
+	params: Promise<ModelRouteParams>;
+}): Promise<Metadata> {
+	const params = await props.params;
+	const modelId = getModelIdFromParams(params);
+	const model = await fetchModel(modelId);
+
+	if (!model) {
+		return buildMetadata({
+			title: "Model Pricing Overview",
+			description:
+				"View AI model pricing on AI Stats, including token costs, tiers, and billing details.",
+			path: `/models/${modelId}/pricing`,
+			keywords: [
+				"AI model pricing",
+				"token costs",
+				"AI billing",
+				"AI Stats",
+			],
+		});
+	}
+
+	const organisationName = model.organisation?.name ?? "AI provider";
+
+	const description = [
+		`${model.name} pricing by ${organisationName} on AI Stats.`,
+		"See token costs, endpoints, and billing details for this model.",
+	]
+		.filter(Boolean)
+		.join(" ");
+
+	return buildMetadata({
+		title: `${model.name} Pricing - Token Costs & Billing Details`,
+		description,
+		path: `/models/${modelId}/pricing`,
+		keywords: [
+			model.name,
+			`${model.name} pricing`,
+			`${organisationName} AI`,
+			"token pricing",
+			"AI billing",
+			"AI Stats",
+		],
+	});
+}
+
+export default async function Page({
+	params,
+}: {
+	params: Promise<ModelRouteParams>;
+}) {
+	const routeParams = await params;
+	const modelId = getModelIdFromParams(routeParams);
+
+	return (
+		<ModelDetailShell modelId={modelId}>
+			<ModelPricing modelId={modelId} />
+		</ModelDetailShell>
+	);
+}

@@ -1,0 +1,26 @@
+name: "📝 Docs"
+description: Content, structure, or navigation changes
+title: "[Docs] "
+labels: ["type/docs", "status/triage"]
+assignees:
+    - DanielButler1
+body:
+    - type: dropdown
+      id: area
+      attributes:
+          label: Area
+          options:
+              - area/docs
+              - area/web
+              - area/sdk-js
+              - area/sdk-py
+              - area/api
+      validations:
+          required: true
+    - type: textarea
+      id: change
+      attributes:
+          label: Requested change
+          placeholder: Page(s) and the change you want.
+      validations:
+          required: true

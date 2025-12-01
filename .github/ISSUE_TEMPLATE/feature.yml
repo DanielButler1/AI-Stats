@@ -1,0 +1,35 @@
+name: "✨ Feature"
+description: Propose a new capability
+title: "[Feature] "
+labels: ["type/feature", "status/triage"]
+assignees:
+    - DanielButler1
+body:
+    - type: dropdown
+      id: area
+      attributes:
+          label: Area
+          options:
+              - area/api
+              - area/web
+              - area/web:ui
+              - area/web:server
+              - area/web:db
+              - area/sdk-js
+              - area/sdk-py
+              - area/docs
+              - area/infrastructure
+      validations:
+          required: true
+    - type: textarea
+      id: summary
+      attributes:
+          label: Summary
+          placeholder: What, for whom, and why it matters.
+      validations:
+          required: true
+    - type: textarea
+      id: acceptance
+      attributes:
+          label: Acceptance criteria
+          placeholder: Bullet list of “done means…”

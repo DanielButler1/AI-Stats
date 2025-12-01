@@ -1,0 +1,17 @@
+{
+	"$schema": "https://unpkg.com/@changesets/config@2.0.0/schema.json",
+	"changelog": [
+		"@changesets/changelog-github",
+		{
+			"repo": "DanielButler1/AI-Stats-Private"
+		}
+	],
+	"commit": false,
+	"access": "restricted",
+	"baseBranch": "main",
+	"updateInternalDependencies": "patch",
+	"privatePackages": {
+		"version": true,
+		"tag": false
+	}
+}

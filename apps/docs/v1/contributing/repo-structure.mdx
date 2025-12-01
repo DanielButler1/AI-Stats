@@ -1,0 +1,189 @@
+---
+title: "Repository Structure"
+description: "Understand how the AI Stats repository is organised — where to find data, documentation, and configuration files."
+---
+
+Before contributing to AI Stats, it’s important to understand the **layout of the repository**.  
+The project is designed for clarity and scalability — separating data, documentation, and app logic so you can easily find what you need.
+
+---
+
+## Overview
+
+Here’s what the root directory of the repository looks like:
+
+```bash
+AI-Stats/
+├── apps/
+│ ├── web/ # The main AI Stats Next.js website (contains data)
+│ ├── api/ # The AI Stats Gateway API (Hono/Cloudflare Workers)
+│ └── docs/ # The Mintlify-powered documentation site
+│
+├── packages/ # SDK packages for various languages
+│ ├── sdk-ts/ # TypeScript SDK (supported)
+│ ├── sdk-py/ # Python SDK (supported)
+│
+│ ├── sdk-cpp/ # C++ SDK (coming soon)
+│ ├── sdk-csharp/ # C# SDK (coming soon)
+│ ├── sdk-go/ # Go SDK (coming soon)
+│ ├── sdk-php/ # PHP SDK (coming soon)
+│ ├── sdk-ruby/ # Ruby SDK (coming soon)
+│ └── sdk-rust/ # Rust SDK (coming soon)
+│
+├── scripts/ # Automation scripts and utilities
+│ └── watchers/ # Cron jobs or GitHub Actions for syncing data
+│
+├── docs/
+│ └── v1/ # Documentation content (MDX)
+│   ├── exploring/ # Pages on models, benchmarks, pricing, etc.
+│   ├── contributing/ # Contributing guides (like this one)
+│   ├── developers/ # API integration and developer guides
+│   ├── api-reference/ # Reference documentation for endpoints
+│   └── community/ # Community, FAQ, roadmap, and support pages
+│
+├── turbo.json # Turborepo configuration
+├── package.json # Global scripts and dependencies
+├── README.md # Root readme file
+└── .github/ # GitHub workflows and issue templates
+```
+
+---
+
+## Data folders
+
+AI Stats stores its structured data in **JSON files** under the `/apps/web/src/data` directory.  
+These files act as the source of truth for models, benchmarks, and pricing.
+
+### `/apps/web/src/data/models`
+
+Contains one JSON file per model.  
+Each file describes the model’s metadata, pricing, benchmarks, and capabilities.
+
+Example:  
+`/apps/web/src/data/models/openai/gpt-5-2025-08-07/model.json`
+
+---
+
+### `/apps/web/src/data/organisations`
+
+Describes companies or research groups behind models.  
+Each JSON file includes name, description, founding date, website, and country.
+
+Example:  
+`/apps/web/src/data/organisations/openai.json`
+
+---
+
+### `/apps/web/src/data/benchmarks`
+
+Contains benchmark metadata and aggregated results across models.  
+Each benchmark has an ID, name, description, category, and metrics.
+
+Example:  
+`/apps/web/src/data/benchmarks/mmlu.json`
+
+---
+
+### `/apps/web/src/data/api_providers`
+
+Lists all supported API providers with their supported models.  
+This links to both models and organisations.
+
+Example:  
+`/apps/web/src/data/api_providers/openai.json`
+
+---
+
+### `/apps/web/src/data/pricing`
+
+Tracks historical pricing data over time for trend analysis.  
+Files are timestamped and often aggregated by provider.
+
+---
+
+## Documentation folders
+
+Documentation is written in **MDX** and lives in `/docs/v1/`.  
+Each folder maps directly to a group in the Mintlify configuration.
+
+| Folder                   | Purpose                                                 |
+| ------------------------ | ------------------------------------------------------- |
+| `/docs/v1/exploring`     | Explains data concepts (models, benchmarks, providers). |
+| `/docs/v1/contributing`  | Step-by-step guides for contributors.                   |
+| `/docs/v1/developers`    | Integration and API usage guides.                       |
+| `/docs/v1/api-reference` | Detailed reference for every endpoint.                  |
+| `/docs/v1/community`     | Support, FAQ, and roadmap content.                      |
+
+---
+
+## Application folders
+
+| Path         | Description                                                                                       |
+| ------------ | ------------------------------------------------------------------------------------------------- |
+| `/apps/web`  | Main AI Stats website, built with Next.js 15 and TailwindCSS. Contains the data under `src/data`. |
+| `/apps/api`  | The API Gateway — routes, caching, and model proxy logic.                                         |
+| `/apps/docs` | The Mintlify documentation project you’re reading now.                                            |
+
+Each app runs independently but shares types and configuration through `/packages`.
+
+---
+
+## SDK Packages
+
+The `/packages` directory contains SDKs for various programming languages to interact with the AI Stats API.
+
+| SDK          | Status      | Description                                      |
+| ------------ | ----------- | ------------------------------------------------ |
+| `sdk-ts`     | Supported   | TypeScript SDK for Node.js and web applications. |
+| `sdk-py`     | Supported   | Python SDK for Python applications.              |
+| `sdk-cpp`    | Coming soon | C++ SDK.                                         |
+| `sdk-csharp` | Coming soon | C# SDK.                                          |
+| `sdk-go`     | Coming soon | Go SDK.                                          |
+| `sdk-php`    | Coming soon | PHP SDK.                                         |
+| `sdk-ruby`   | Coming soon | Ruby SDK.                                        |
+| `sdk-rust`   | Coming soon | Rust SDK.                                        |
+
+---
+
+## Automation & scripts
+
+AI Stats uses automation to keep data up to date:
+
+-   **Importers** → pull new data from sources like F1DB, Hugging Face, or provider APIs.
+-   **Watchers** → run on a schedule (via GitHub Actions) to detect and commit updates.
+-   **Utilities** → handle validation, schema checking, and JSON formatting.
+
+You can explore these under `/scripts/`.
+
+---
+
+## Where to start
+
+If you’re contributing:
+
+-   🧠 **Data:** Look in `/apps/web/src/data/` for JSON files.
+-   📄 **Documentation:** Look in `/docs/v1/` for MDX files.
+-   ⚙️ **Code:** Explore `/apps/web` or `/apps/api`.
+-   🧩 **Automation:** Modify or inspect `/scripts/`.
+-   📦 **SDKs:** Check `/packages/` for language-specific SDKs.
+
+---
+
+## Related pages
+
+<Columns cols={2}>
+	<Card
+		title="Editing a Model"
+		icon="brain"
+		href="/v1/contributing/editing-a-model"
+	>
+		Learn how to update or add model data.
+	</Card>
+	<Card
+		title="Editing an Organisation"
+		icon="building"
+		href="/v1/contributing/editing-an-organisation"
+	>
+		Understand how to modify organisation data safely.
+	</Card>
+</Columns>

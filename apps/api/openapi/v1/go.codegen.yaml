@@ -1,0 +1,13 @@
+generatorName: go
+outputDir: ../../../../packages/sdk-go/gen
+inputSpec: apps/docs/openapi/v1/openapi.json
+additionalProperties:
+  packageName: ai_stats_sdk
+  enumClassPrefix: true
+globalProperty:
+  apis: true
+  models: true
+  apiDocs: false
+  modelDocs: false
+  apiTests: false
+  modelTests: false

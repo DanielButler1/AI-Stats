@@ -1,0 +1,37 @@
+{
+  "organisation_id": "microsoft",
+  "name": "Microsoft",
+  "country_code": "US",
+  "description": "Microsoft is a software, cloud- and AI-company. Their mission is to build model families, embed them into productivity tools and infrastructure, and ensure that AI augments human capability across work and life.",
+  "colour": "#1368aa",
+  "organisation_links": [
+    {
+      "platform": "github",
+      "url": "https://github.com/microsoft"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/microsoft"
+    },
+    {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/microsoft/"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/microsoft"
+    },
+    {
+      "platform": "website",
+      "url": "https://microsoft.ai/"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/Microsoft"
+    },
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/user/Microsoft"
+    }
+  ]
+}

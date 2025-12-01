@@ -1,0 +1,180 @@
+---
+title: "Python SDK Usage"
+description: "Complete guide to using the AI Stats Python SDK"
+---
+
+## Async Usage
+
+```python
+import asyncio
+from ai_stats import AIStats
+
+async def main():
+    async with AIStats(api_key="your-api-key") as client:
+        # Chat completions
+        response = await client.chat_completions(
+            model="openai/gpt-4o-mini",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": "What is AI Stats?"}
+            ],
+            temperature=0.7,
+            max_tokens=1000
+        )
+        print(response["choices"][0]["message"]["content"])
+
+asyncio.run(main())
+```
+
+## Sync Usage
+
+```python
+from ai_stats import AIStatsSync
+
+with AIStatsSync(api_key="your-api-key") as client:
+    response = client.chat_completions(
+        model="openai/gpt-4o-mini",
+        messages=[{"role": "user", "content": "Hello!"}]
+    )
+    print(response["choices"][0]["message"]["content"])
+```
+
+## Available Methods
+
+### Chat Completions
+
+```python
+# Async
+response = await client.chat_completions(
+    model="anthropic/claude-3-haiku",
+    messages=[{"role": "user", "content": "Explain quantum computing"}],
+    temperature=0.3
+)
+
+# Sync
+response = client.chat_completions(
+    model="anthropic/claude-3-haiku",
+    messages=[{"role": "user", "content": "Explain quantum computing"}]
+)
+```
+
+The primary method for generating text responses from AI models. Supports both async and sync interfaces with all standard parameters.
+
+### Streaming Responses
+
+```python
+# Async streaming
+async with AIStats(api_key="your-api-key") as client:
+    async for chunk in client.stream_chat_completions(
+        model="openai/gpt-4o-mini",
+        messages=[{"role": "user", "content": "Tell me a story"}]
+    ):
+        delta = chunk["choices"][0]["delta"]
+        if "content" in delta:
+            print(delta["content"], end="", flush=True)
+
+# Sync streaming
+with AIStatsSync(api_key="your-api-key") as client:
+    for chunk in client.stream_chat_completions(
+        model="openai/gpt-4o-mini",
+        messages=[{"role": "user", "content": "Tell me a story"}]
+    ):
+        delta = chunk["choices"][0]["delta"]
+        if "content" in delta:
+            print(delta["content"], end="", flush=True)
+```
+
+Stream responses in real-time for better user experience. Available in both async and sync variants.
+
+### Models
+
+```python
+# List all models
+models = await client.models()
+print(f"Available models: {len(models['data'])}")
+
+# Get specific model
+model = await client.models(model="openai/gpt-4o")
+print(f"Model: {model['id']}")
+```
+
+Retrieve information about available models or get details about a specific model including capabilities and metadata.
+
+### Credits & Billing
+
+```python
+# Check credits
+credits = await client.credits()
+print(f"Remaining credits: {credits['credits']}")
+```
+
+Monitor your API usage and remaining credits to manage costs effectively.
+
+### Health & Status
+
+```python
+# API health
+health = await client.health()
+print(f"Status: {health['status']}")
+```
+
+Verify the API is operational and check system status.
+
+## Error Handling
+
+```python
+try:
+    response = await client.chat_completions(
+        model="invalid-model",
+        messages=[{"role": "user", "content": "Hello"}]
+    )
+except Exception as e:
+    print(f"API Error: {e}")
+    # Handle authentication, rate limits, etc.
+```
+
+Handle API errors gracefully including rate limits, authentication failures, and network issues.
+
+## Configuration Options
+
+```python
+from ai_stats import AIStats
+import httpx
+
+# Custom configuration
+client = AIStats(
+    api_key="your-api-key",
+    base_url="https://api.ai-stats.phaseo.app",  # Custom base URL
+    timeout=httpx.Timeout(30.0),  # Custom timeout
+    headers={"Custom-Header": "value"}  # Additional headers
+)
+```
+
+Customize client behavior with base URLs, timeouts, headers, and other configuration options.
+
+## Type Hints
+
+```python
+from ai_stats import AIStats
+from typing import List, Dict, Any
+
+async def chat_with_model(
+    client: AIStats,
+    model: str,
+    messages: List[Dict[str, str]]
+) -> Dict[str, Any]:
+    return await client.chat_completions(
+        model=model,
+        messages=messages
+    )
+```
+
+Rich type hints for modern Python editors and IDEs, improving development experience.
+
+## Best Practices
+
+-   Use `async with` context managers for proper resource cleanup
+-   Handle rate limits with exponential backoff
+-   Check credits before expensive operations
+-   Use streaming for real-time user experiences
+-   Store API keys securely (environment variables, not in code)

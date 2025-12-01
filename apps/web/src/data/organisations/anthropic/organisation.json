@@ -1,0 +1,45 @@
+{
+  "organisation_id": "anthropic",
+  "name": "Anthropic",
+  "country_code": "US",
+  "description": "Anthropic is an AI research and deployment company. Their mission is to build reliable, interpretable and steerable AI systems so that increasingly capable technologies remain beneficial to humanity.",
+  "colour": "#cc785c",
+  "organisation_links": [
+    {
+      "platform": "discord",
+      "url": "https://discord.com/invite/6PPFFzqPDZ"
+    },
+    {
+      "platform": "github",
+      "url": "https://github.com/anthropics"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/Anthropic"
+    },
+    {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/claudeai/"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/anthropicresearch/posts/?feedView=all"
+    },
+    {
+      "platform": "reddit",
+      "url": "https://www.reddit.com/r/ClaudeAI/"
+    },
+    {
+      "platform": "website",
+      "url": "https://www.anthropic.com"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/AnthropicAI"
+    },
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/@anthropic-ai"
+    }
+  ]
+}

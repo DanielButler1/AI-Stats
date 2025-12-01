@@ -1,0 +1,29 @@
+{
+  "organisation_id": "suno",
+  "name": "Suno",
+  "country_code": "US",
+  "description": "Suno is an AI generative-audio company. Their mission is to build models and tools for music and creative audio generation so that creators can generate high-fidelity pieces and new forms of expression via AI.",
+  "colour": "#FF4B23",
+  "organisation_links": [
+    {
+      "platform": "github",
+      "url": "https://github.com/suno-ai"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/suno"
+    },
+    {
+      "platform": "website",
+      "url": "https://suno.com/home"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/suno"
+    },
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/@suno"
+    }
+  ]
+}

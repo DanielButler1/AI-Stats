@@ -1,0 +1,44 @@
+name: Apply area label & normalise title
+on:
+    issues:
+        types: [opened, edited]
+permissions:
+    issues: write
+jobs:
+    label:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/github-script@v7
+              with:
+                  script: |
+                      const issue = context.payload.issue;
+                      const body = issue.body || "";
+                      const labels = new Set(issue.labels.map(l => l.name));
+
+                      // Read the "Area" field (Issue Forms render headings like "### Area")
+                      const m = body.match(/(^|\n)###\s*Area\s*\n([^\n]+)/i);
+                      if (m) {
+                        const area = m[2].trim();
+                        if (area.startsWith("area/")) labels.add(area);
+                      }
+
+                      // Ensure a single status label exists
+                      if (![...labels].some(n => n.startsWith("status/"))) labels.add("status/triage");
+
+                      // Normalise title prefix based on type/* label already present from template
+                      const type = [...labels].find(n => n.startsWith("type/"));
+                      if (type) {
+                        const tag = type.replace('type/','').replace('-', ' ');
+                        const pretty = tag.replace(/\b\w/g, s => s.toUpperCase());
+                        const want = `[${pretty}] `;
+                        const newTitle = issue.title.startsWith('[')
+                          ? issue.title.replace(/^\[[^\]]+\]\s*/, want)
+                          : want + issue.title;
+                        if (newTitle !== issue.title) {
+                          await github.rest.issues.update({ ...context.repo, issue_number: issue.number, title: newTitle });
+                        }
+                      }
+
+                      await github.rest.issues.setLabels({
+                        ...context.repo, issue_number: issue.number, labels: [...labels]
+                      });

@@ -1,0 +1,26 @@
+{
+  "model_id": "deepseek/deepseek-v3-2-2025-09-29",
+  "organisation_id": "deepseek",
+  "name": "Deepseek V3.2",
+  "status": "Available",
+  "previous_model_id": "deepseek/deepseek-v3-1-terminus-2025-09-22",
+  "announced_date": "2025-09-29T00:00:00",
+  "release_date": "2025-09-29T00:00:00",
+  "deprecation_date": null,
+  "retirement_date": null,
+  "license": null,
+  "input_types": null,
+  "output_types": null,
+  "links": [],
+  "details": [],
+  "benchmarks": [
+    {
+      "benchmark_id": "matharena-apex",
+      "score": 0.0052,
+      "is_self_reported": false,
+      "other_info": "Reasoning",
+      "source_link": "https://matharena.ai/?comp=apex--apex_2025",
+      "rank": 6
+    }
+  ]
+}

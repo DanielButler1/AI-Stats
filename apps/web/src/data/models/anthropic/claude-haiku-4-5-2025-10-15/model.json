@@ -1,0 +1,22 @@
+{
+  "model_id": "anthropic/claude-haiku-4-5-2025-10-15",
+  "organisation_id": "anthropic",
+  "name": "Claude Haiku 4.5",
+  "status": "Available",
+  "previous_model_id": "anthropic/claude-3-5-haiku-2024-11-04",
+  "announced_date": "2025-10-15T00:00:00",
+  "release_date": "2025-10-15T00:00:00",
+  "deprecation_date": null,
+  "retirement_date": null,
+  "license": "Proprietary",
+  "input_types": null,
+  "output_types": null,
+  "links": [
+    {
+      "platform": "announcement",
+      "url": "https://www.anthropic.com/news/claude-haiku-4-5"
+    }
+  ],
+  "details": [],
+  "benchmarks": []
+}
