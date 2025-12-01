@@ -5,7 +5,6 @@ from typing_extensions import NotRequired, TypedDict
 
 from ai_stats_generated import ApiClient, Configuration
 from ai_stats_generated.api.completions_api import CompletionsApi
-from ai_stats_generated.api.embeddings_api import EmbeddingsApi
 from ai_stats_generated.api.images_api import ImagesApi
 from ai_stats_generated.api.moderations_api import ModerationsApi
 from ai_stats_generated.api.video_api import VideoApi
@@ -13,13 +12,12 @@ from ai_stats_generated.models.model_list_response import ModelListResponse
 from ai_stats_generated.models.gateway_health_response import GatewayHealthResponse
 from ai_stats_generated.models.chat_completions_request import ChatCompletionsRequest
 from ai_stats_generated.models.chat_completions_response import ChatCompletionsResponse
-from ai_stats_generated.models.chat_completions_request_reasoning_inner import ChatCompletionsRequestReasoningInner
+from ai_stats_generated.models.chat_completions_request_reasoning import ChatCompletionsRequestReasoning
 from ai_stats_generated.models.chat_completions_request_tool_choice import ChatCompletionsRequestToolChoice
 from ai_stats_generated.models.chat_message import ChatMessage
 from ai_stats_generated.models.model_id import ModelId
 from ai_stats_generated.models.image_generation_request import ImageGenerationRequest
 from ai_stats_generated.models.image_generation_response import ImageGenerationResponse
-from ai_stats_generated.models.embeddings_post_request import EmbeddingsPostRequest
 from ai_stats_generated.models.moderation_request import ModerationRequest
 from ai_stats_generated.models.moderation_response import ModerationResponse
 from ai_stats_generated.models.video_generation_request import VideoGenerationRequest
@@ -31,7 +29,7 @@ DEFAULT_BASE_URL = "https://api.ai-stats.phaseo.app/v1"
 
 
 class ChatCompletionsParams(TypedDict, total=False):
-    reasoning: NotRequired[list[ChatCompletionsRequestReasoningInner]]
+    reasoning: NotRequired[list[ChatCompletionsRequestReasoning]]
     frequency_penalty: NotRequired[Union[float, int]]
     logit_bias: NotRequired[Dict[str, Union[float, int]]]
     max_output_tokens: NotRequired[int]
@@ -74,7 +72,6 @@ class AIStats:
 
         self._client = ApiClient(configuration=configuration)
         self._chat_api = CompletionsApi(api_client=self._client)
-        self._embeddings_api = EmbeddingsApi(api_client=self._client)
         self._images_api = ImagesApi(api_client=self._client)
         self._moderations_api = ModerationsApi(api_client=self._client)
         self._video_api = VideoApi(api_client=self._client)
@@ -101,9 +98,6 @@ class AIStats:
 
     def generate_image(self, request: ImageGenerationRequest) -> ImageGenerationResponse:
         return self._images_api.images_generations_post(image_generation_request=request)
-
-    def generate_embedding(self, request: EmbeddingsPostRequest):
-        return self._embeddings_api.embeddings_post(embeddings_post_request=request)
 
     def generate_moderation(self, request: ModerationRequest) -> ModerationResponse:
         return self._moderations_api.moderations_post(request)
@@ -174,10 +168,10 @@ __all__ = [
     "ModelId",
     "ImageGenerationRequest",
     "ImageGenerationResponse",
-    "EmbeddingsPostRequest",
     "ModerationRequest",
     "ModerationResponse",
     "VideoGenerationRequest",
     "VideoGenerationResponse",
     "ChatMessage",
+    "ChatCompletionsRequestReasoning",
 ]
