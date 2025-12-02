@@ -194,6 +194,8 @@ AIStatsModelId::eAIStatsModelId toEnum(const EnumUnderlyingType& val)
         return AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_1_TERMINUS_2025_09_22;
     if (val == utility::conversions::to_string_t(_XPLATSTR("deepseek/deepseek-v3-2-2025-09-29")))
         return AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2_2025_09_29;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("deepseek/deepseek-v3-2-speciale-2025-12-01")))
+        return AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2_SPECIALE_2025_12_01;
     if (val == utility::conversions::to_string_t(_XPLATSTR("deepseek/deepseek-v3-2024-12-25")))
         return AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2024_12_25;
     if (val == utility::conversions::to_string_t(_XPLATSTR("deepseek/deepseek-v3-2025-03-25")))
@@ -602,6 +604,12 @@ AIStatsModelId::eAIStatsModelId toEnum(const EnumUnderlyingType& val)
         return AIStatsModelId::eAIStatsModelId::MISTRAL_MAMBA_CODESTRAL_7B;
     if (val == utility::conversions::to_string_t(_XPLATSTR("mistral/mathstral-7b")))
         return AIStatsModelId::eAIStatsModelId::MISTRAL_MATHSTRAL_7B;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("mistral/ministral-3-14b-2025-12-02")))
+        return AIStatsModelId::eAIStatsModelId::MISTRAL_MINISTRAL_3_14B_2025_12_02;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("mistral/ministral-3-3b-2025-12-02")))
+        return AIStatsModelId::eAIStatsModelId::MISTRAL_MINISTRAL_3_3B_2025_12_02;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("mistral/ministral-3-8b-2025-12-02")))
+        return AIStatsModelId::eAIStatsModelId::MISTRAL_MINISTRAL_3_8B_2025_12_02;
     if (val == utility::conversions::to_string_t(_XPLATSTR("mistral/ministral-3b-2410")))
         return AIStatsModelId::eAIStatsModelId::MISTRAL_MINISTRAL_3B_2410;
     if (val == utility::conversions::to_string_t(_XPLATSTR("mistral/ministral-8b-2410")))
@@ -620,6 +628,8 @@ AIStatsModelId::eAIStatsModelId toEnum(const EnumUnderlyingType& val)
         return AIStatsModelId::eAIStatsModelId::MISTRAL_MISTRAL_LARGE_2407;
     if (val == utility::conversions::to_string_t(_XPLATSTR("mistral/mistral-large-2411")))
         return AIStatsModelId::eAIStatsModelId::MISTRAL_MISTRAL_LARGE_2411;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("mistral/mistral-large-3-675b-2025-12-02")))
+        return AIStatsModelId::eAIStatsModelId::MISTRAL_MISTRAL_LARGE_3_675B_2025_12_02;
     if (val == utility::conversions::to_string_t(_XPLATSTR("mistral/mistral-medium-2312")))
         return AIStatsModelId::eAIStatsModelId::MISTRAL_MISTRAL_MEDIUM_2312;
     if (val == utility::conversions::to_string_t(_XPLATSTR("mistral/mistral-medium-2505")))
@@ -1293,6 +1303,8 @@ EnumUnderlyingType fromEnum(AIStatsModelId::eAIStatsModelId e)
         return _XPLATSTR("deepseek/deepseek-v3-1-terminus-2025-09-22");
     case AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2_2025_09_29:
         return _XPLATSTR("deepseek/deepseek-v3-2-2025-09-29");
+    case AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2_SPECIALE_2025_12_01:
+        return _XPLATSTR("deepseek/deepseek-v3-2-speciale-2025-12-01");
     case AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2024_12_25:
         return _XPLATSTR("deepseek/deepseek-v3-2024-12-25");
     case AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2025_03_25:
@@ -1701,6 +1713,12 @@ EnumUnderlyingType fromEnum(AIStatsModelId::eAIStatsModelId e)
         return _XPLATSTR("mistral/mamba-codestral-7b");
     case AIStatsModelId::eAIStatsModelId::MISTRAL_MATHSTRAL_7B:
         return _XPLATSTR("mistral/mathstral-7b");
+    case AIStatsModelId::eAIStatsModelId::MISTRAL_MINISTRAL_3_14B_2025_12_02:
+        return _XPLATSTR("mistral/ministral-3-14b-2025-12-02");
+    case AIStatsModelId::eAIStatsModelId::MISTRAL_MINISTRAL_3_3B_2025_12_02:
+        return _XPLATSTR("mistral/ministral-3-3b-2025-12-02");
+    case AIStatsModelId::eAIStatsModelId::MISTRAL_MINISTRAL_3_8B_2025_12_02:
+        return _XPLATSTR("mistral/ministral-3-8b-2025-12-02");
     case AIStatsModelId::eAIStatsModelId::MISTRAL_MINISTRAL_3B_2410:
         return _XPLATSTR("mistral/ministral-3b-2410");
     case AIStatsModelId::eAIStatsModelId::MISTRAL_MINISTRAL_8B_2410:
@@ -1719,6 +1737,8 @@ EnumUnderlyingType fromEnum(AIStatsModelId::eAIStatsModelId e)
         return _XPLATSTR("mistral/mistral-large-2407");
     case AIStatsModelId::eAIStatsModelId::MISTRAL_MISTRAL_LARGE_2411:
         return _XPLATSTR("mistral/mistral-large-2411");
+    case AIStatsModelId::eAIStatsModelId::MISTRAL_MISTRAL_LARGE_3_675B_2025_12_02:
+        return _XPLATSTR("mistral/mistral-large-3-675b-2025-12-02");
     case AIStatsModelId::eAIStatsModelId::MISTRAL_MISTRAL_MEDIUM_2312:
         return _XPLATSTR("mistral/mistral-medium-2312");
     case AIStatsModelId::eAIStatsModelId::MISTRAL_MISTRAL_MEDIUM_2505:

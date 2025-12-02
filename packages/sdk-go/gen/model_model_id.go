@@ -105,6 +105,7 @@ const (
 	MODELID_DEEPSEEK_DEEPSEEK_V3_1 ModelId = "deepseek/deepseek-v3-1"
 	MODELID_DEEPSEEK_DEEPSEEK_V3_1_TERMINUS_2025_09_22 ModelId = "deepseek/deepseek-v3-1-terminus-2025-09-22"
 	MODELID_DEEPSEEK_DEEPSEEK_V3_2_2025_09_29 ModelId = "deepseek/deepseek-v3-2-2025-09-29"
+	MODELID_DEEPSEEK_DEEPSEEK_V3_2_SPECIALE_2025_12_01 ModelId = "deepseek/deepseek-v3-2-speciale-2025-12-01"
 	MODELID_DEEPSEEK_DEEPSEEK_V3_2024_12_25 ModelId = "deepseek/deepseek-v3-2024-12-25"
 	MODELID_DEEPSEEK_DEEPSEEK_V3_2025_03_25 ModelId = "deepseek/deepseek-v3-2025-03-25"
 	MODELID_DEEPSEEK_DEEPSEEK_VL2_2024_12_13 ModelId = "deepseek/deepseek-vl2-2024-12-13"
@@ -309,6 +310,9 @@ const (
 	MODELID_MISTRAL_MAGISTRAL_SMALL_2509 ModelId = "mistral/magistral-small-2509"
 	MODELID_MISTRAL_MAMBA_CODESTRAL_7B ModelId = "mistral/mamba-codestral-7b"
 	MODELID_MISTRAL_MATHSTRAL_7B ModelId = "mistral/mathstral-7b"
+	MODELID_MISTRAL_MINISTRAL_3_14B_2025_12_02 ModelId = "mistral/ministral-3-14b-2025-12-02"
+	MODELID_MISTRAL_MINISTRAL_3_3B_2025_12_02 ModelId = "mistral/ministral-3-3b-2025-12-02"
+	MODELID_MISTRAL_MINISTRAL_3_8B_2025_12_02 ModelId = "mistral/ministral-3-8b-2025-12-02"
 	MODELID_MISTRAL_MINISTRAL_3B_2410 ModelId = "mistral/ministral-3b-2410"
 	MODELID_MISTRAL_MINISTRAL_8B_2410 ModelId = "mistral/ministral-8b-2410"
 	MODELID_MISTRAL_MINISTRAL_8B_INSTRUCT_2024_10_16 ModelId = "mistral/ministral-8b-instruct-2024-10-16"
@@ -318,6 +322,7 @@ const (
 	MODELID_MISTRAL_MISTRAL_LARGE_2402 ModelId = "mistral/mistral-large-2402"
 	MODELID_MISTRAL_MISTRAL_LARGE_2407 ModelId = "mistral/mistral-large-2407"
 	MODELID_MISTRAL_MISTRAL_LARGE_2411 ModelId = "mistral/mistral-large-2411"
+	MODELID_MISTRAL_MISTRAL_LARGE_3_675B_2025_12_02 ModelId = "mistral/mistral-large-3-675b-2025-12-02"
 	MODELID_MISTRAL_MISTRAL_MEDIUM_2312 ModelId = "mistral/mistral-medium-2312"
 	MODELID_MISTRAL_MISTRAL_MEDIUM_2505 ModelId = "mistral/mistral-medium-2505"
 	MODELID_MISTRAL_MISTRAL_MEDIUM_2508 ModelId = "mistral/mistral-medium-2508"
@@ -655,6 +660,7 @@ var AllowedModelIdEnumValues = []ModelId{
 	"deepseek/deepseek-v3-1",
 	"deepseek/deepseek-v3-1-terminus-2025-09-22",
 	"deepseek/deepseek-v3-2-2025-09-29",
+	"deepseek/deepseek-v3-2-speciale-2025-12-01",
 	"deepseek/deepseek-v3-2024-12-25",
 	"deepseek/deepseek-v3-2025-03-25",
 	"deepseek/deepseek-vl2-2024-12-13",
@@ -859,6 +865,9 @@ var AllowedModelIdEnumValues = []ModelId{
 	"mistral/magistral-small-2509",
 	"mistral/mamba-codestral-7b",
 	"mistral/mathstral-7b",
+	"mistral/ministral-3-14b-2025-12-02",
+	"mistral/ministral-3-3b-2025-12-02",
+	"mistral/ministral-3-8b-2025-12-02",
 	"mistral/ministral-3b-2410",
 	"mistral/ministral-8b-2410",
 	"mistral/ministral-8b-instruct-2024-10-16",
@@ -868,6 +877,7 @@ var AllowedModelIdEnumValues = []ModelId{
 	"mistral/mistral-large-2402",
 	"mistral/mistral-large-2407",
 	"mistral/mistral-large-2411",
+	"mistral/mistral-large-3-675b-2025-12-02",
 	"mistral/mistral-medium-2312",
 	"mistral/mistral-medium-2505",
 	"mistral/mistral-medium-2508",

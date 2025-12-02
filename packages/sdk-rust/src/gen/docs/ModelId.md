@@ -89,6 +89,7 @@
 | DeepseekSlashDeepseekV31 | deepseek/deepseek-v3-1 |
 | DeepseekSlashDeepseekV31Terminus20250922 | deepseek/deepseek-v3-1-terminus-2025-09-22 |
 | DeepseekSlashDeepseekV3220250929 | deepseek/deepseek-v3-2-2025-09-29 |
+| DeepseekSlashDeepseekV32Speciale20251201 | deepseek/deepseek-v3-2-speciale-2025-12-01 |
 | DeepseekSlashDeepseekV320241225 | deepseek/deepseek-v3-2024-12-25 |
 | DeepseekSlashDeepseekV320250325 | deepseek/deepseek-v3-2025-03-25 |
 | DeepseekSlashDeepseekVl220241213 | deepseek/deepseek-vl2-2024-12-13 |
@@ -293,6 +294,9 @@
 | MistralSlashMagistralSmall2509 | mistral/magistral-small-2509 |
 | MistralSlashMambaCodestral7b | mistral/mamba-codestral-7b |
 | MistralSlashMathstral7b | mistral/mathstral-7b |
+| MistralSlashMinistral314b20251202 | mistral/ministral-3-14b-2025-12-02 |
+| MistralSlashMinistral33b20251202 | mistral/ministral-3-3b-2025-12-02 |
+| MistralSlashMinistral38b20251202 | mistral/ministral-3-8b-2025-12-02 |
 | MistralSlashMinistral3b2410 | mistral/ministral-3b-2410 |
 | MistralSlashMinistral8b2410 | mistral/ministral-8b-2410 |
 | MistralSlashMinistral8bInstruct20241016 | mistral/ministral-8b-instruct-2024-10-16 |
@@ -302,6 +306,7 @@
 | MistralSlashMistralLarge2402 | mistral/mistral-large-2402 |
 | MistralSlashMistralLarge2407 | mistral/mistral-large-2407 |
 | MistralSlashMistralLarge2411 | mistral/mistral-large-2411 |
+| MistralSlashMistralLarge3675b20251202 | mistral/mistral-large-3-675b-2025-12-02 |
 | MistralSlashMistralMedium2312 | mistral/mistral-medium-2312 |
 | MistralSlashMistralMedium2505 | mistral/mistral-medium-2505 |
 | MistralSlashMistralMedium2508 | mistral/mistral-medium-2508 |
