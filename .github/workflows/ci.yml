@@ -42,6 +42,8 @@ jobs:
         outputs:
             data-changed: ${{ steps.filter.outputs.data }}
         steps:
+            - uses: actions/checkout@v4
+
             - uses: dorny/paths-filter@v3
               id: filter
               with:
