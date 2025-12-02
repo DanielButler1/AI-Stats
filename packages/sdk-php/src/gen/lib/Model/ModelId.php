@@ -212,6 +212,8 @@ class ModelId
 
     public const DEEPSEEK_DEEPSEEK_V3_2_2025_09_29 = 'deepseek/deepseek-v3-2-2025-09-29';
 
+    public const DEEPSEEK_DEEPSEEK_V3_2_SPECIALE_2025_12_01 = 'deepseek/deepseek-v3-2-speciale-2025-12-01';
+
     public const DEEPSEEK_DEEPSEEK_V3_2024_12_25 = 'deepseek/deepseek-v3-2024-12-25';
 
     public const DEEPSEEK_DEEPSEEK_V3_2025_03_25 = 'deepseek/deepseek-v3-2025-03-25';
@@ -620,6 +622,12 @@ class ModelId
 
     public const MISTRAL_MATHSTRAL_7B = 'mistral/mathstral-7b';
 
+    public const MISTRAL_MINISTRAL_3_14B_2025_12_02 = 'mistral/ministral-3-14b-2025-12-02';
+
+    public const MISTRAL_MINISTRAL_3_3B_2025_12_02 = 'mistral/ministral-3-3b-2025-12-02';
+
+    public const MISTRAL_MINISTRAL_3_8B_2025_12_02 = 'mistral/ministral-3-8b-2025-12-02';
+
     public const MISTRAL_MINISTRAL_3B_2410 = 'mistral/ministral-3b-2410';
 
     public const MISTRAL_MINISTRAL_8B_2410 = 'mistral/ministral-8b-2410';
@@ -637,6 +645,8 @@ class ModelId
     public const MISTRAL_MISTRAL_LARGE_2407 = 'mistral/mistral-large-2407';
 
     public const MISTRAL_MISTRAL_LARGE_2411 = 'mistral/mistral-large-2411';
+
+    public const MISTRAL_MISTRAL_LARGE_3_675B_2025_12_02 = 'mistral/mistral-large-3-675b-2025-12-02';
 
     public const MISTRAL_MISTRAL_MEDIUM_2312 = 'mistral/mistral-medium-2312';
 
@@ -1226,6 +1236,7 @@ class ModelId
             self::DEEPSEEK_DEEPSEEK_V3_1,
             self::DEEPSEEK_DEEPSEEK_V3_1_TERMINUS_2025_09_22,
             self::DEEPSEEK_DEEPSEEK_V3_2_2025_09_29,
+            self::DEEPSEEK_DEEPSEEK_V3_2_SPECIALE_2025_12_01,
             self::DEEPSEEK_DEEPSEEK_V3_2024_12_25,
             self::DEEPSEEK_DEEPSEEK_V3_2025_03_25,
             self::DEEPSEEK_DEEPSEEK_VL2_2024_12_13,
@@ -1430,6 +1441,9 @@ class ModelId
             self::MISTRAL_MAGISTRAL_SMALL_2509,
             self::MISTRAL_MAMBA_CODESTRAL_7B,
             self::MISTRAL_MATHSTRAL_7B,
+            self::MISTRAL_MINISTRAL_3_14B_2025_12_02,
+            self::MISTRAL_MINISTRAL_3_3B_2025_12_02,
+            self::MISTRAL_MINISTRAL_3_8B_2025_12_02,
             self::MISTRAL_MINISTRAL_3B_2410,
             self::MISTRAL_MINISTRAL_8B_2410,
             self::MISTRAL_MINISTRAL_8B_INSTRUCT_2024_10_16,
@@ -1439,6 +1453,7 @@ class ModelId
             self::MISTRAL_MISTRAL_LARGE_2402,
             self::MISTRAL_MISTRAL_LARGE_2407,
             self::MISTRAL_MISTRAL_LARGE_2411,
+            self::MISTRAL_MISTRAL_LARGE_3_675B_2025_12_02,
             self::MISTRAL_MISTRAL_MEDIUM_2312,
             self::MISTRAL_MISTRAL_MEDIUM_2505,
             self::MISTRAL_MISTRAL_MEDIUM_2508,

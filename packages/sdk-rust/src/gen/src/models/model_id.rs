@@ -184,6 +184,8 @@ pub enum ModelId {
     DeepseekSlashDeepseekV31Terminus20250922,
     #[serde(rename = "deepseek/deepseek-v3-2-2025-09-29")]
     DeepseekSlashDeepseekV3220250929,
+    #[serde(rename = "deepseek/deepseek-v3-2-speciale-2025-12-01")]
+    DeepseekSlashDeepseekV32Speciale20251201,
     #[serde(rename = "deepseek/deepseek-v3-2024-12-25")]
     DeepseekSlashDeepseekV320241225,
     #[serde(rename = "deepseek/deepseek-v3-2025-03-25")]
@@ -592,6 +594,12 @@ pub enum ModelId {
     MistralSlashMambaCodestral7b,
     #[serde(rename = "mistral/mathstral-7b")]
     MistralSlashMathstral7b,
+    #[serde(rename = "mistral/ministral-3-14b-2025-12-02")]
+    MistralSlashMinistral314b20251202,
+    #[serde(rename = "mistral/ministral-3-3b-2025-12-02")]
+    MistralSlashMinistral33b20251202,
+    #[serde(rename = "mistral/ministral-3-8b-2025-12-02")]
+    MistralSlashMinistral38b20251202,
     #[serde(rename = "mistral/ministral-3b-2410")]
     MistralSlashMinistral3b2410,
     #[serde(rename = "mistral/ministral-8b-2410")]
@@ -610,6 +618,8 @@ pub enum ModelId {
     MistralSlashMistralLarge2407,
     #[serde(rename = "mistral/mistral-large-2411")]
     MistralSlashMistralLarge2411,
+    #[serde(rename = "mistral/mistral-large-3-675b-2025-12-02")]
+    MistralSlashMistralLarge3675b20251202,
     #[serde(rename = "mistral/mistral-medium-2312")]
     MistralSlashMistralMedium2312,
     #[serde(rename = "mistral/mistral-medium-2505")]
@@ -1197,6 +1207,7 @@ impl std::fmt::Display for ModelId {
             Self::DeepseekSlashDeepseekV31 => write!(f, "deepseek/deepseek-v3-1"),
             Self::DeepseekSlashDeepseekV31Terminus20250922 => write!(f, "deepseek/deepseek-v3-1-terminus-2025-09-22"),
             Self::DeepseekSlashDeepseekV3220250929 => write!(f, "deepseek/deepseek-v3-2-2025-09-29"),
+            Self::DeepseekSlashDeepseekV32Speciale20251201 => write!(f, "deepseek/deepseek-v3-2-speciale-2025-12-01"),
             Self::DeepseekSlashDeepseekV320241225 => write!(f, "deepseek/deepseek-v3-2024-12-25"),
             Self::DeepseekSlashDeepseekV320250325 => write!(f, "deepseek/deepseek-v3-2025-03-25"),
             Self::DeepseekSlashDeepseekVl220241213 => write!(f, "deepseek/deepseek-vl2-2024-12-13"),
@@ -1401,6 +1412,9 @@ impl std::fmt::Display for ModelId {
             Self::MistralSlashMagistralSmall2509 => write!(f, "mistral/magistral-small-2509"),
             Self::MistralSlashMambaCodestral7b => write!(f, "mistral/mamba-codestral-7b"),
             Self::MistralSlashMathstral7b => write!(f, "mistral/mathstral-7b"),
+            Self::MistralSlashMinistral314b20251202 => write!(f, "mistral/ministral-3-14b-2025-12-02"),
+            Self::MistralSlashMinistral33b20251202 => write!(f, "mistral/ministral-3-3b-2025-12-02"),
+            Self::MistralSlashMinistral38b20251202 => write!(f, "mistral/ministral-3-8b-2025-12-02"),
             Self::MistralSlashMinistral3b2410 => write!(f, "mistral/ministral-3b-2410"),
             Self::MistralSlashMinistral8b2410 => write!(f, "mistral/ministral-8b-2410"),
             Self::MistralSlashMinistral8bInstruct20241016 => write!(f, "mistral/ministral-8b-instruct-2024-10-16"),
@@ -1410,6 +1424,7 @@ impl std::fmt::Display for ModelId {
             Self::MistralSlashMistralLarge2402 => write!(f, "mistral/mistral-large-2402"),
             Self::MistralSlashMistralLarge2407 => write!(f, "mistral/mistral-large-2407"),
             Self::MistralSlashMistralLarge2411 => write!(f, "mistral/mistral-large-2411"),
+            Self::MistralSlashMistralLarge3675b20251202 => write!(f, "mistral/mistral-large-3-675b-2025-12-02"),
             Self::MistralSlashMistralMedium2312 => write!(f, "mistral/mistral-medium-2312"),
             Self::MistralSlashMistralMedium2505 => write!(f, "mistral/mistral-medium-2505"),
             Self::MistralSlashMistralMedium2508 => write!(f, "mistral/mistral-medium-2508"),

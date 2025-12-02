@@ -173,6 +173,8 @@
 
 * `DEEPSEEK_DEEPSEEK_V3_2_2025_09_29` (value: `"deepseek/deepseek-v3-2-2025-09-29"`)
 
+* `DEEPSEEK_DEEPSEEK_V3_2_SPECIALE_2025_12_01` (value: `"deepseek/deepseek-v3-2-speciale-2025-12-01"`)
+
 * `DEEPSEEK_DEEPSEEK_V3_2024_12_25` (value: `"deepseek/deepseek-v3-2024-12-25"`)
 
 * `DEEPSEEK_DEEPSEEK_V3_2025_03_25` (value: `"deepseek/deepseek-v3-2025-03-25"`)
@@ -581,6 +583,12 @@
 
 * `MISTRAL_MATHSTRAL_7B` (value: `"mistral/mathstral-7b"`)
 
+* `MISTRAL_MINISTRAL_3_14B_2025_12_02` (value: `"mistral/ministral-3-14b-2025-12-02"`)
+
+* `MISTRAL_MINISTRAL_3_3B_2025_12_02` (value: `"mistral/ministral-3-3b-2025-12-02"`)
+
+* `MISTRAL_MINISTRAL_3_8B_2025_12_02` (value: `"mistral/ministral-3-8b-2025-12-02"`)
+
 * `MISTRAL_MINISTRAL_3B_2410` (value: `"mistral/ministral-3b-2410"`)
 
 * `MISTRAL_MINISTRAL_8B_2410` (value: `"mistral/ministral-8b-2410"`)
@@ -598,6 +606,8 @@
 * `MISTRAL_MISTRAL_LARGE_2407` (value: `"mistral/mistral-large-2407"`)
 
 * `MISTRAL_MISTRAL_LARGE_2411` (value: `"mistral/mistral-large-2411"`)
+
+* `MISTRAL_MISTRAL_LARGE_3_675B_2025_12_02` (value: `"mistral/mistral-large-3-675b-2025-12-02"`)
 
 * `MISTRAL_MISTRAL_MEDIUM_2312` (value: `"mistral/mistral-medium-2312"`)
 
