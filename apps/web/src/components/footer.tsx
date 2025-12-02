@@ -40,7 +40,7 @@ const externalLinks = {
 		campaign: "footer-social",
 		content: "reddit",
 	}),
-	x: withUTM("https://x.com/phaseoapp", {
+	x: withUTM("https://x.com/ai_stats_team", {
 		campaign: "footer-social",
 		content: "x",
 	}),
