@@ -182,9 +182,20 @@ export default function Support() {
 			<CardHeader className="pb-3">
 				<div className="flex items-center gap-2">
 					<span
-						className={`h-2.5 w-2.5 rounded-full ring-2 ${availabilityDotColor} ${availabilityDotRing}`}
+						className="relative flex h-2.5 w-2.5"
 						aria-hidden="true"
-					/>
+					>
+						{isOpen && (
+							<span
+								className={`absolute inline-flex h-full w-full animate-ping rounded-full ${availabilityDotRing
+									.replace("ring-", "bg-")
+									.replace("/60", "")} opacity-75`}
+							></span>
+						)}
+						<span
+							className={`relative inline-flex h-full w-full rounded-full ${availabilityDotColor}`}
+						></span>
+					</span>
 					<CardTitle className="flex items-center gap-2">
 						<LifeBuoy className="h-5 w-5 text-primary" />
 						Support

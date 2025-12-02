@@ -236,9 +236,28 @@ export default function TeamSwitcher({
 							<span>Support</span>
 						</div>
 						<span
-							className={`h-2.5 w-2.5 rounded-full ring-2 ${supportDotClasses}`}
+							className="relative flex h-2.5 w-2.5"
 							aria-hidden="true"
-						/>
+						>
+							{supportIsOpen && (
+								<span
+									className={`absolute inline-flex h-full w-full animate-ping rounded-full ${
+										supportDotClasses
+											.split(" ")
+											.find((c) => c.startsWith("ring-"))
+											?.replace("ring-", "bg-")
+											.replace("/60", "") || ""
+									} opacity-75`}
+								></span>
+							)}
+							<span
+								className={`relative inline-flex h-full w-full rounded-full ${
+									supportDotClasses
+										.split(" ")
+										.find((c) => c.startsWith("bg-")) || ""
+								}`}
+							></span>
+						</span>
 					</div>
 				</DropdownMenuItem>
 
