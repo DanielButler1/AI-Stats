@@ -36,6 +36,7 @@ export default function ModelPerformanceDashboard({
 				<>
 					<ModelPerformanceCards
 						summary={metrics.summary}
+						prevSummary={metrics.prevSummary}
 						hourly={metrics.hourly}
 					/>
 					<ModelProviderPerformanceTable

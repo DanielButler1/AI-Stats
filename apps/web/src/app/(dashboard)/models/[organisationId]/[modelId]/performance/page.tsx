@@ -2,13 +2,14 @@ import ModelDetailShell from "@/components/(data)/model/ModelDetailShell";
 import ModelPerformanceDashboard from "@/components/(data)/models/ModelPerformanceDashboard";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
-import { getModelPerformanceMetrics } from "@/lib/fetchers/models/getModelPerformance";
-import { getModelTokenTrajectory } from "@/lib/fetchers/models/getModelTokenTrajectory";
+import { getModelPerformanceMetricsCached } from "@/lib/fetchers/models/getModelPerformance";
+import { getModelTokenTrajectoryCached } from "@/lib/fetchers/models/getModelTokenTrajectory";
 import { getModelOverviewCached } from "@/lib/fetchers/models/getModel";
 import {
 	getModelIdFromParams,
 	type ModelRouteParams,
 } from "@/app/(dashboard)/models/model-route-helpers";
+import { Suspense } from "react";
 
 async function fetchModelOverview(modelId: string) {
 	try {
@@ -71,17 +72,51 @@ export default async function Page({
 	const routeParams = await params;
 	const modelId = getModelIdFromParams(routeParams);
 
-	const [performanceMetrics, tokenTrajectory] = await Promise.all([
-		getModelPerformanceMetrics(modelId, 24),
-		getModelTokenTrajectory(modelId),
-	]);
+	const performanceMetricsPromise = getModelPerformanceMetricsCached(modelId, 24);
+	const tokenTrajectoryPromise = getModelTokenTrajectoryCached(modelId);
 
 	return (
 		<ModelDetailShell modelId={modelId}>
-			<ModelPerformanceDashboard
-				metrics={performanceMetrics}
-				tokenTrajectory={tokenTrajectory}
-			/>
+			<Suspense fallback={<PerformanceSkeleton />}>
+				<PerformancePanel
+					metricsPromise={performanceMetricsPromise}
+					tokenTrajectoryPromise={tokenTrajectoryPromise}
+				/>
+			</Suspense>
 		</ModelDetailShell>
+	);
+}
+
+async function PerformancePanel({
+	metricsPromise,
+	tokenTrajectoryPromise,
+}: {
+	metricsPromise: ReturnType<typeof getModelPerformanceMetricsCached>;
+	tokenTrajectoryPromise: ReturnType<typeof getModelTokenTrajectory>;
+}) {
+	const [metrics, tokenTrajectory] = await Promise.all([
+		metricsPromise,
+		tokenTrajectoryPromise,
+	]);
+
+	return (
+		<ModelPerformanceDashboard
+			metrics={metrics}
+			tokenTrajectory={tokenTrajectory}
+		/>
+	);
+}
+
+function PerformanceSkeleton() {
+	return (
+		<div className="space-y-6">
+			<div className="h-6 w-48 animate-pulse rounded bg-muted" />
+			<div className="grid gap-4 md:grid-cols-2">
+				<div className="h-40 animate-pulse rounded bg-muted" />
+				<div className="h-40 animate-pulse rounded bg-muted" />
+			</div>
+			<div className="h-72 animate-pulse rounded bg-muted" />
+			<div className="h-72 animate-pulse rounded bg-muted" />
+		</div>
 	);
 }

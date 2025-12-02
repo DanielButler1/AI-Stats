@@ -36,6 +36,18 @@ jobs:
             - name: Validate data files
               run: pnpm validate:data && pnpm validate:pricing && pnpm validate:gateway
 
+    check-paths:
+        name: Check for data changes
+        runs-on: ubuntu-latest
+        outputs:
+            data-changed: ${{ steps.filter.outputs.data }}
+        steps:
+            - uses: dorny/paths-filter@v3
+              id: filter
+              with:
+                  filters: |
+                      data: 'apps/web/src/data/**'
+
     openapi-lint:
         name: OpenAPI lint
         runs-on: ubuntu-latest
@@ -105,8 +117,10 @@ jobs:
     importer:
         name: Run importer on main
         runs-on: ubuntu-latest
-        needs: data
-        if: github.ref == 'refs/heads/main'
+        needs:
+            - data
+            - check-paths
+        if: needs.check-paths.outputs.data-changed == 'true' && github.ref == 'refs/heads/main'
         env:
             SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
             NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
@@ -342,7 +356,6 @@ jobs:
         runs-on: ubuntu-latest
         needs:
             - apps
-            - importer
         if: github.ref == 'refs/heads/main'
         permissions:
             contents: write

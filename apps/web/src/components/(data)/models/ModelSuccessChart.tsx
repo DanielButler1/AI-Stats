@@ -57,7 +57,7 @@ export default function ModelSuccessChart({
 }: ModelSuccessChartProps) {
 	const chartData = successSeries.map((point) => ({
 		time: formatBucketLabel(point.bucket),
-		overall: point.overallSuccessPct ?? 100,
+		overall: point.overallSuccessPct ?? null,
 		worst: point.worstProviderSuccessPct,
 		bucket: point.bucket,
 	}));
