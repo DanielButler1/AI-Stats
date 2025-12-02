@@ -1,0 +1,33 @@
+---
+title: "Stream Text (SDK)"
+api: "POST /chat/completions (stream)"
+description: "Stream chat completions via SDK."
+playground: 'none'
+---
+
+TypeScript and Python support streaming today; other SDKs are in preview.
+
+<CodeGroup>
+```ts TypeScript
+import { AIStats } from "@ai-stats/ts-sdk";
+
+const client = new AIStats({ apiKey: process.env.AI_STATS_API_KEY! });
+for await (const chunk of client.streamText({
+  model: "gpt-4o-mini",
+  messages: [{ role: "user", content: "Stream hi!" }],
+})) {
+  console.log(chunk);
+}
+```
+
+```python Python
+from ai_stats import AIStats
+
+client = AIStats(api_key="YOUR_KEY")
+for chunk in client.stream_text({
+    "model": "gpt-4o-mini",
+    "messages": [{"role": "user", "content": "Stream hi!"}],
+}):
+    print(chunk)
+```
+</CodeGroup>

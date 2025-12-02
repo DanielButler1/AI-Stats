@@ -1,0 +1,98 @@
+﻿---
+title: "Changelog"
+description: "Product updates, releases, and fixes across AI Stats."
+rss: true
+---
+
+<Update label="1st December 2025">
+# Introducing The New AI Stats
+
+We are excited to announce a major update to AI Stats. This is the culmination of months of work to bring a major overhaul to our website and offering. Today, we are introducing a unified model gateway, massively expanded data coverage, and a revamped user experience, as well as much more. This release marks a significant step towards our vision of making AI integration a seamless experience for developers and researchers alike.
+
+## Rebranding
+
+We have rebranded slightly, with adjusted logos and wordmarks to better reflect our mission and vision. The new design is more modern, clean, and versatile, allowing us to better represent our brand across various platforms and media. We hope you like the new look as much as we do!
+
+## Data coverage
+
+At the heart of AI Stats is our database. It is designed to be a highly expansive and flexible store of model data. If you have used AI Stats before, you may know we only used to have text-based models. However, we always wanted to change that, so today we are announcing that we have grown our entire data coverage dramatically to allow us to track more models, such as image, video, and embedding models, in as much detail as possible.
+
+There is still a long road to capture every organisation, model, and benchmark result. We currently sit at ~30% coverage, but we are prioritising expanding this as quickly as possible and aim to reach at least 60% over the next year. We want our database to be the gold standard, whilst still keeping it open source so anyone can contribute. We always welcome contributions to help us get there faster!
+
+### Model Availability
+
+With the introduction of the AI Stats Gateway, we have also reworked how we track model availability. A full subscription plan section now allows you to see all the subscription plans we track, the models they include, and the features they offer, as well as clearly seeing the price. We have also adjusted how we display availability to make it clearer and easier to see where models are available. We plan to continue tweaking this section to make it as useful as possible.
+
+## Data Overhaul
+
+We have revisited what data we store, how we store it, and how we present that data, so we have built a smoother, more reliable experience across every page. It is not perfect yet, and we have plenty of optimisations ahead. We are working hard to adjust certain pages to make them clearer and easier to use. We know there is more to do, and we plan to make trends easier to track, comparisons easier to make, and data more accessible. If you have any feedback on how we can improve – whether that is certain pages and their designs or layouts, or even tracking new data points – please reach out!
+
+## User Experience Improvements
+
+We have redesigned many parts of the website to make it easier to navigate, find information, and understand the data presented. We have worked on improving load times and responsiveness, so you can keep up to date on the go, as well as overall usability. We are committed to making AI Stats a joy to use, no matter how much data we have, and we will continue to refine the user experience based on your feedback.
+
+### Benchmark pages
+
+We have revamped and overhauled the benchmark pages to make them clearer and easier to see which models are performing best, and how scores were achieved, with more detailed information on the methodology used. We plan to continue to work on these pages to make them as easy as possible to interpret, and to filter the data so you can conduct your own analysis.
+
+### API provider pages
+
+We have also redesigned the API provider pages to give a clear overview of the performance data we get from our gateway, so you can see exactly how each provider is performing and which models are being used most. We then also give a breakdown of each set of models provided by the provider, so you can see what models are available per provider, as well as easily see if they are available on the gateway. We plan to adjust this shortly to include detailed pricing information, so you can easily compare models' pricing.
+
+## Updates
+
+I am excited to announce an expansion of the Latest Updates section on the homepage. This section will now feature not only the latest model changes, but also the latest news and YouTube releases, alongside the model updates. With new pages inside the [Updates](https://ai-stats.phaseo.app/updates) section too, there has never been a better place to stay updated in the ever-changing world of AI! Stay tuned for even more updates to this section in the near future, as we plan to add more to keep you up to date with everything AI and AI Stats.
+
+## Our Model Gateway – Beta
+
+We are also introducing a brand-new unified gateway to use any supported AI model with a single API interface. We are expanding coverage as fast as possible while keeping the service reliable at scale – please stress-test it and tell us what breaks. The integration steps are all covered per model page, and you can find the full API reference in our [docs](/v1/api-reference).
+
+We would not yet recommend the API for production use, but we are excited to get feedback from the community to help us improve it rapidly. We will take any feedback as seriously as possible to make the gateway as reliable and useful as possible.
+
+> Please also be aware we are yet to fully finalise the schema for requests and responses, so these may change in the coming weeks.
+
+### SDKs – Beta
+
+Today, we are also announcing official SDKs for Python and TypeScript/JavaScript. Pick your preferred package manager and run one of the commands below to get up and running.
+
+#### Python SDK
+
+The Python SDK provides a simple interface to interact with the Model Gateway, manage API keys, and handle requests/responses.
+
+```bash
+pip install ai-stats-py-sdk
+```
+
+#### TypeScript / JavaScript SDK
+
+The TypeScript/JavaScript SDK makes it easy to integrate AI models into web and backend applications, with first-class async support and built-in error handling.
+
+<CodeGroup>
+
+    ```bash title="npm"
+    npm install @ai-stats/ts-sdk
+    ```
+
+    ```bash title="pnpm"
+    pnpm install @ai-stats/ts-sdk
+    ```
+
+    ```bash title="yarn"
+    yarn add @ai-stats/ts-sdk
+    ```
+
+    ```bash title="bun"
+    bun add @ai-stats/ts-sdk
+    ```
+
+    </CodeGroup>
+
+We plan to expand SDK support to other languages based on community feedback, so please let us know what you would like to see next!
+
+## Our Future Plan
+
+Right from the start of AI Stats, we believe that a completely public, open source approach is the best way to build a reliable, trustworthy service. We want to continue this with our new version of AI Stats, which is why the entire source code for the website, gateway, and database is available on [GitHub](https://github.com/DanielButler1/ai-stats). We welcome contributions, feature ideas, and performance testing - help us push the limits of infra together to build a better gateway, and a better AI Stats. Open to everyone, built by the community.
+
+We plan to currently work at a rapid pace to expand data coverage, refine the user experience and expand our gateway. We have a public [roadmap](https://ai-stats.phaseo.app/roadmap) of features and improvements we want to make, but we are always open to feedback from our users to help us prioritise what matters most to them.
+
+</Update>

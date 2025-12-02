@@ -1,0 +1,37 @@
+{
+  "organisation_id": "ai21",
+  "name": "ai21",
+  "country_code": "IL",
+  "description": "AI21 Labs is an AI research and product company. Their mission is to build advanced language models and writing-tools that enable humans and machines to collaborate in thinking and creating.",
+  "colour": "#e72364",
+  "organisation_links": [
+    {
+      "platform": "discord",
+      "url": "https://discord.com/invite/cKzg6GEAyB"
+    },
+    {
+      "platform": "github",
+      "url": "https://github.com/AI21Labs"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/ai21labs"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/ai21/"
+    },
+    {
+      "platform": "website",
+      "url": "https://www.ai21.com/"
+    },
+    {
+      "platform": "x",
+      "url": "https://twitter.com/AI21Labs"
+    },
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/@ai21labs"
+    }
+  ]
+}

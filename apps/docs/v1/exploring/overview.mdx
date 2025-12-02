@@ -1,0 +1,124 @@
+---
+title: "Overview"
+description: "Learn how to explore models, benchmarks, providers, and pricing data across the AI ecosystem."
+---
+
+The **AI Stats Platform** gives you a complete view of the global AI landscape - from the newest models and providers to performance benchmarks, pricing, and real world usage insights.
+
+Whether you’re a developer choosing what model to use for your newest product, a researcher analysing benchmark results, or a contributor helping expand the database, this section will help you make the most of what AI Stats offers.
+
+---
+
+## What you can do
+
+<Columns cols={2}>
+	<Card
+		title="Discover Organisations"
+		icon="building"
+		href="/v1/exploring/organisations"
+	>
+		See what models are offered by organisations, as well as their latest
+		releases and how they stack up.
+	</Card>
+	<Card title="Explore Models" icon="brain" href="/v1/exploring/models">
+		View detailed model pages with key information like capabilities,
+		pricing, benchmark results, and real world performance metrics.
+	</Card>
+	<Card
+		title="Compare Benchmarks"
+		icon="chart-no-axes-column"
+		href="/v1/exploring/benchmarks"
+	>
+		See how models perform across common benchmark datasets and tasks.
+	</Card>
+	<Card
+		title="Analyse Pricing & Performance"
+		icon="scale"
+		href="/v1/exploring/pricing-performance"
+	>
+		Compare model costs and token efficiency to find the right balance for
+		your use case.
+	</Card>
+</Columns>
+
+---
+
+## Data structure
+
+AI Stats collects and organises data in several key categories:
+
+| Category                                                   | Description                                                                   |
+| ---------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| **[Organisations](/v1/exploring/organisations)**           | The companies or research labs that develop and publish models.               |
+| **[Models](/v1/exploring/models)**                         | The individual models that are released by the organisations.                 |
+| **[Benchmarks](/v1/exploring/benchmarks)**                 | The standardised tests that organisations use to evaluate model performance.  |
+| **[API Providers](/v1/exploring/api-providers)**           | The platforms that offer programmatic access to models.                       |
+| **[Pricing](/v1/exploring/pricing-performance)**           | Detailed cost breakdowns per model, measured per token, image, or generation. |
+| **[Subscription Plans](/v1/exploring/subscription-plans)** | Information on different pricing tiers and their included features or limits. |
+
+Each of these categories is discussed in the documentation to help you navigate these pages and get the most out of the data.
+
+---
+
+## How AI Stats collects and updates data
+
+AI Stats is powered by a vast, fully open database - built and maintained through a mix of automation and incredible community effort.
+While we have automated systems that track updates across providers and models, human contribution is the back bone of the project and is what keeps it running smoothly.
+
+When updates do occur:
+
+-   🧩 New models are added swiftly and documented with as much detail as possible.
+-   🔄 Provider changes - from pricing to endpoint tweaks - are continuously monitored and reviewed.
+-   🧠 Community contributions are carefully reviewed and merged through GitHub pull requests, ensuring quality and transparency.
+
+You can contribute corrections or additions yourself, check out the [Contributing guide](/v1/contributing/overview) for details.
+AI Stats is only as strong as the community behind it - and together, we’re building the most accurate and transparent record of AI progress in the world.
+
+---
+
+## Interpreting data on AI Stats
+
+All data on AI Stats has been normalised for consistency:
+
+-   **Dates** should always be formatted as `DD MMM YYYY` (e.g. `01 Jan 2022`).
+-   **Prices** are displayed in USD by default, normalised per 1 million tokens where applicable or appropriate units.
+-   **Performance scores** are standardised to a common scale where possible.
+-   **Model families** group together related models (e.g., GPT-5, Claude 4, Gemini 2.5, etc.).
+
+---
+
+## Example use cases
+
+Here are some examples of how you might use AI Stats:
+
+| Goal                               | Example                                                          |
+| ---------------------------------- | ---------------------------------------------------------------- |
+| Compare two models                 | “Which performs better on GPQA - Claude 4.5 Sonnet or GPT-5?”    |
+| Find the cheapest model for a task | “What’s the most cost-efficient model for summarisation?”        |
+| Analyse benchmark trends           | “How have reasoning models improved on GPQA over the last year?” |
+| Explore API access                 | “Which providers currently support JSON mode?”                   |
+| Identify gaps for contribution     | “Which models are missing key benchmarks or metadata?”           |
+
+---
+
+## Next steps
+
+<Columns cols={2}>
+	<Card
+		title="Explore Models"
+		icon="brain"
+		href="https://ai-stats.phaseo.app/models"
+	>
+		Explore the latest models in the database and dive deeper into how each
+		one performs.
+	</Card>
+	<Card
+		title="Learn About Benchmarks"
+		icon="chart-column-increasing"
+		href="/v1/exploring/benchmarks"
+	>
+		Understand what benchmarks measure and how we can interpret results.
+	</Card>
+</Columns>
+
+---

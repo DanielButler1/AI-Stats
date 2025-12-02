@@ -1,0 +1,29 @@
+{
+  "organisation_id": "minimax",
+  "name": "MiniMax",
+  "country_code": "CN",
+  "description": "Minimax is an AI company. Their mission is to produce model and agent systems that push forward next-generation intelligence, providing novel AI capabilities (public-detailed model info is limited).",
+  "colour": "#f13e5a",
+  "organisation_links": [
+    {
+      "platform": "github",
+      "url": "https://github.com/MiniMax-AI"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/MiniMaxAI"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/minimax-ai"
+    },
+    {
+      "platform": "website",
+      "url": "https://www.minimax.io/"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/MiniMax__AI"
+    }
+  ]
+}

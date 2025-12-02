@@ -1,0 +1,60 @@
+---
+title: "Benchmark Methodology"
+description: "Learn how AI Stats collects, normalises, and publishes benchmark results."
+---
+
+Benchmarks provide the foundation for comparisons across models and providers. This page explains how data enters the platform and how we maintain consistency.
+
+---
+
+## Data sources
+
+-   **Official releases** — Provider announcements, technical blogs, and press materials.
+-   **Academic papers** — Peer-reviewed publications and arXiv preprints with reproducible results.
+-   **Community submissions** — Verified contributions from the AI Stats community and partners.
+
+Every score must include a public citation or reproducible evaluation before it is accepted.
+
+---
+
+## Normalisation
+
+We standardise benchmark names, metrics, and splits to make cross-model comparisons accurate:
+
+1.  Map each submission to an internal benchmark ID.
+2.  Convert reported metrics to a canonical scale (for example percentages).
+3.  Note any deviations, such as few-shot variants or custom evaluation harnesses.
+4.  Run automated validation to ensure fields and ranges are sensible.
+
+---
+
+## Update cadence
+
+-   **Weekly** for popular suites such as MMLU, GSM8K, and HumanEval.
+-   **Monthly** for niche or emerging benchmarks.
+-   **On-demand** when providers or community members submit high-quality evaluations.
+
+Large updates trigger changelog entries so you can audit historical movements.
+
+---
+
+## Transparency and reproducibility
+
+| Practice                    | Outcome                                                        |
+| --------------------------- | --------------------------------------------------------------- |
+| Link to primary sources     | Users can verify scores quickly.                               |
+| Track `last_updated` dates  | Highlights when a benchmark may need review.                   |
+| Document evaluation setup   | Clarifies prompt format, context windows, and sampling.        |
+| Flag human-reviewed scores  | Distinguishes manual validation from automated pipelines.      |
+
+---
+
+## Feedback loop
+
+If you notice discrepancies or missing data:
+
+1.  Open a GitHub issue with evidence or references.
+2.  Submit a pull request using the [contribution guides](../contributing/overview).
+3.  Reach out in Discord to coordinate larger data imports.
+
+We review every report and provide status updates as the benchmark is verified.

@@ -1,0 +1,26 @@
+---
+title: "Authentication"
+description: "Authenticate securely with the AI Stats Gateway API using your API key."
+---
+
+All requests to the AI Stats Gateway require authentication via an API key.
+
+You can find or create keys in your **AI Stats Dashboard** under **Keys** in the profile selector or inside of settings.
+
+{/* Add image here of profile selector + Settings */}
+
+---
+
+## Header-based authentication
+
+Include your API key in the `Authorization` header using the `Bearer` scheme:
+
+```bash
+curl https://api.ai-stats.phaseo.app/v1/chat/completions \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gpt-5.1",
+    "messages": [{"role": "user", "content": "Hello!"}]
+  }'
+```

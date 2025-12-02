@@ -1,0 +1,8 @@
+{
+  "benchmark_id": "misguided-attention",
+  "benchmark_name": "Misguided Attention",
+  "category": null,
+  "ascending_order": null,
+  "link": "https://github.com/cpldcpu/MisguidedAttention",
+  "total_models": 0
+}

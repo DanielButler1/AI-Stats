@@ -1,0 +1,59 @@
+name: "🐞 Bug Report"
+description: Report a defect or unintended behaviour
+title: "[Bug] "
+labels: ["type/bug", "status/triage"]
+assignees:
+    - DanielButler1
+body:
+    - type: dropdown
+      id: area
+      attributes:
+          label: Area
+          options:
+              - area/api
+              - area/api:routing
+              - area/api:pricing
+              - area/web
+              - area/web:ui
+              - area/web:server
+              - area/web:db
+              - area/web:auth
+              - area/docs
+              - area/sdk-js
+              - area/sdk-py
+              - area/schema
+              - area/data-importers
+              - area/infrastructure
+              - area/analytics
+              - area/security
+      validations:
+          required: true
+    - type: textarea
+      id: summary
+      attributes:
+          label: Summary
+          placeholder: One clear paragraph of what’s broken.
+      validations:
+          required: true
+    - type: textarea
+      id: repro
+      attributes:
+          label: Steps to reproduce
+          placeholder: |
+              1. …
+              2. …
+              3. …
+      validations:
+          required: true
+    - type: textarea
+      id: expected
+      attributes:
+          label: Expected vs actual
+          placeholder: What should have happened?
+      validations:
+          required: true
+    - type: input
+      id: env
+      attributes:
+          label: Environment
+          placeholder: OS / Browser / Device / App version / Commit SHA

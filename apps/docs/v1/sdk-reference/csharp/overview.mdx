@@ -1,0 +1,16 @@
+---
+title: "C# SDK (preview)"
+description: "Generated client for the AI Stats Gateway. Models endpoint only for now."
+---
+
+- Status: Preview (not yet on NuGet).
+- Generate with `pnpm openapi:gen:csharp`.
+- Wrapper `packages/sdk-csharp/Client.cs` exposes `GetModels`.
+
+```csharp
+var client = new AiStatsSdk.Client("YOUR_KEY");
+var models = client.GetModels(limit: 5);
+Console.WriteLine(models.Models?.Count);
+```
+
+TypeScript and Python SDKs are production-ready; other languages follow soon.

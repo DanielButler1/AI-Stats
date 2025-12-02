@@ -1,0 +1,29 @@
+{
+  "organisation_id": "qwen",
+  "name": "Qwen",
+  "country_code": "CN",
+  "description": "Qwen is a model development company. Their mission is to create large language and multimodal models that support multilingual, flexible tasks and broaden access to foundational AI capabilities.",
+  "colour": "#5d49df",
+  "organisation_links": [
+    {
+      "platform": "github",
+      "url": "https://github.com/QwenLM"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/Qwen"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/qwen/"
+    },
+    {
+      "platform": "website",
+      "url": "https://chat.qwen.ai/"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/Alibaba_Qwen"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+---
+title: "TypeScript SDK Installation"
+description: "How to install and set up the AI Stats TypeScript SDK"
+---
+
+## Installation
+
+Install the SDK using npm or yarn:
+
+```bash
+npm install @ai-stats/ts-sdk
+```
+
+or
+
+```bash
+yarn add @ai-stats/ts-sdk
+```
+
+## Requirements
+
+-   Node.js 18+
+-   TypeScript 4.5+ (for type definitions)
+
+## Setup
+
+### API Key
+
+You'll need an AI Stats API key to use the SDK. Get one from the [AI Stats Dashboard](https://ai-stats.phaseo.app).
+
+### Environment Variables
+
+Set your API key as an environment variable:
+
+```bash
+export AI_STATS_API_KEY="your-api-key-here"
+```
+
+### Basic Usage
+
+```typescript
+import { AIStats } from "@ai-stats/ts-sdk";
+
+// Initialize the client
+const client = new AIStats({
+	apiKey: process.env.AI_STATS_API_KEY!,
+});
+
+// Make your first request
+const response = await client.generateText({
+	model: "openai/gpt-4o-mini",
+	messages: [{ role: "user", content: "Hello!" }],
+});
+
+console.log(response.choices[0].message.content);
+```
+
+## Next Steps
+
+-   Check out the [Usage Guide](/v1/sdk-reference/typescript/usage) for detailed examples
+-   View the [API Reference](/v1/api-reference/introduction) for endpoint documentation

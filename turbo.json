@@ -1,0 +1,29 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"tasks": {
+		"dev": { "cache": false, "persistent": true },
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": [".next/**", "dist/**", "build/**", ".mint/**"]
+		},
+		"lint": { "outputs": [] },
+		"typecheck": { "outputs": [] },
+		"clean": { "cache": false }
+	},
+	"globalEnv": [
+		"NEXT_PUBLIC_WEBSITE_URL",
+		"DATABASE_URL",
+		"DATABASE_PASSWORD",
+		"SUPABASE_SERVICE_ROLE_KEY",
+		"UPSTASH_REDIS_REST_URL",
+		"UPSTASH_REDIS_REST_TOKEN",
+		"STRIPE_SECRET_KEY",
+		"STRIPE_WEBHOOK_SECRET",
+		"INVITE_ENCRYPTION_KEY",
+		"HMAC_ENCRPYTION_KEY",
+		"WEBSITE_URL",
+		"ADMIN_TOKEN",
+		"YT_CALLBACK_URL",
+		"YT_WEBHOOK_SECRET"
+	]
+}

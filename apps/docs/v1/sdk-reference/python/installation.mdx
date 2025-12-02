@@ -1,0 +1,66 @@
+---
+title: "Python SDK Installation"
+description: "How to install and set up the AI Stats Python SDK"
+---
+
+## Installation
+
+Install the SDK using pip:
+
+```bash
+pip install ai-stats-py-sdk
+```
+
+## Requirements
+
+-   Python 3.9+
+-   `httpx` (automatically installed as dependency)
+
+## Setup
+
+### API Key
+
+You'll need an AI Stats API key to use the SDK. Get one from the [AI Stats Dashboard](https://ai-stats.phaseo.app).
+
+### Environment Variables
+
+Set your API key as an environment variable:
+
+```bash
+export AI_STATS_API_KEY="your-api-key-here"
+```
+
+### Basic Usage (Async)
+
+```python
+import asyncio
+from ai_stats import AIStats
+
+async def main():
+    async with AIStats(api_key="your-api-key") as client:
+        response = await client.chat_completions(
+            model="openai/gpt-4o-mini",
+            messages=[{"role": "user", "content": "Hello!"}]
+        )
+        print(response["choices"][0]["message"]["content"])
+
+asyncio.run(main())
+```
+
+### Basic Usage (Sync)
+
+```python
+from ai_stats import AIStatsSync
+
+with AIStatsSync(api_key="your-api-key") as client:
+    response = client.chat_completions(
+        model="openai/gpt-4o-mini",
+        messages=[{"role": "user", "content": "Hello!"}]
+    )
+    print(response["choices"][0]["message"]["content"])
+```
+
+## Next Steps
+
+-   Check out the [Usage Guide](/v1/sdk-reference/python/usage) for detailed examples
+-   View the [API Reference](/v1/api-reference/introduction) for endpoint documentation

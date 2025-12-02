@@ -1,0 +1,2581 @@
+openapi: 3.1.0
+info:
+  contact:
+    name: AI Stats Support
+    url: https://github.com/DanielButler1/ai-stats
+  description: "Programmatic access to the AI Stats AI Gateway. All endpoints forward\
+    \ requests to the best available provider for the specified model, and return\
+    \ normalised responses with clear structured metadata."
+  title: AI Stats Gateway API
+  version: 0.1.0
+servers:
+- description: Production
+  url: https://api.ai-stats.phaseo.app/v1
+security:
+- GatewayAuth: []
+tags:
+- description: Routes that create conversational completions.
+  name: Completions
+- description: Guidance around the conversational gateway flows.
+  name: Chat
+- description: Content moderation scoring.
+  name: Moderations
+- description: Embedding generation workflows.
+  name: Embeddings
+- description: Image generation workflows.
+  name: Images
+- description: Video generation workflows.
+  name: Video
+- description: "Telemetry, health, and performance insights."
+  name: Analytics
+- description: Audit and historical generation records.
+  name: Generations
+- description: Listings of models and available providers.
+  name: Models
+- description: Endpoint catalogue and availability.
+  name: Endpoints
+- description: Provider-specific health and metadata.
+  name: Providers
+- description: Gateway key management reminders.
+  name: API Keys
+- description: Billing and credits information.
+  name: Credits
+- description: Operational tooling for the gateway.
+  name: Operations
+- description: Service level operations.
+  name: Service
+- description: Beta or experimental features.
+  name: Beta
+paths:
+  /chat/completions:
+    post:
+      description: Routes a chat completion request to the healthiest configured provider
+        for the requested model. The gateway normalises upstream responses and adds
+        auditing metadata to the payload.
+      operationId: createChatCompletion
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChatCompletionsRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChatCompletionsResponse"
+            text/event-stream:
+              schema:
+                description: "Server-Sent Events stream of JSON frames when the request\
+                  \ is made with `stream: true`."
+                type: string
+          description: Chat completion created successfully.
+        "400":
+          $ref: "#/components/responses/GatewayError"
+        "401":
+          $ref: "#/components/responses/GatewayError"
+        "402":
+          $ref: "#/components/responses/GatewayError"
+        "404":
+          $ref: "#/components/responses/GatewayError"
+        "429":
+          $ref: "#/components/responses/GatewayError"
+        "500":
+          $ref: "#/components/responses/GatewayError"
+      summary: Create a chat completion
+      tags:
+      - Completions
+  /moderations:
+    post:
+      description: Evaluates text input against provider moderation policies and returns
+        the gateway-normalised safety scores.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ModerationRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModerationResponse"
+          description: Moderation results returned successfully.
+        "400":
+          $ref: "#/components/responses/GatewayError"
+        "401":
+          $ref: "#/components/responses/GatewayError"
+        "402":
+          $ref: "#/components/responses/GatewayError"
+        "404":
+          $ref: "#/components/responses/GatewayError"
+        "429":
+          $ref: "#/components/responses/GatewayError"
+        "500":
+          $ref: "#/components/responses/GatewayError"
+      summary: Score content with moderation models
+      tags:
+      - Moderations
+  /images/generations:
+    post:
+      description: Creates one or more images from a text prompt using the configured
+        provider for the requested model.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ImageGenerationRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ImageGenerationResponse"
+          description: Image generation completed.
+        "400":
+          $ref: "#/components/responses/GatewayError"
+        "401":
+          $ref: "#/components/responses/GatewayError"
+        "402":
+          $ref: "#/components/responses/GatewayError"
+        "404":
+          $ref: "#/components/responses/GatewayError"
+        "429":
+          $ref: "#/components/responses/GatewayError"
+        "500":
+          $ref: "#/components/responses/GatewayError"
+      summary: Generate images
+      tags:
+      - Images
+  /video/generation:
+    post:
+      description: Creates an async video generation job or direct asset depending
+        on the upstream provider. The payload is returned verbatim with gateway metadata
+        attached.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VideoGenerationRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VideoGenerationResponse"
+          description: Video generation accepted by the upstream provider.
+        "400":
+          $ref: "#/components/responses/GatewayError"
+        "401":
+          $ref: "#/components/responses/GatewayError"
+        "402":
+          $ref: "#/components/responses/GatewayError"
+        "404":
+          $ref: "#/components/responses/GatewayError"
+        "429":
+          $ref: "#/components/responses/GatewayError"
+        "500":
+          $ref: "#/components/responses/GatewayError"
+      summary: Generate video
+      tags:
+      - Video
+  /generation:
+    get:
+      description: Fetches the stored audit record for a given `request_id` that belongs
+        to your team.
+      parameters:
+      - description: The `request_id` returned by a previous gateway response.
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GatewayGenerationRecord"
+          description: Generation record located.
+        "400":
+          $ref: "#/components/responses/GatewayError"
+        "401":
+          $ref: "#/components/responses/GatewayError"
+        "404":
+          $ref: "#/components/responses/GatewayError"
+        "500":
+          $ref: "#/components/responses/GatewayError"
+      summary: Look up a past generation
+      tags:
+      - Generations
+  /health:
+    get:
+      description: "Returns the most recent latency, success rate, and breaker status\
+        \ for each configured provider."
+      parameters:
+      - description: Filter to a specific provider name.
+        explode: true
+        in: query
+        name: provider
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Optional model id used to resolve candidate providers.
+        explode: true
+        in: query
+        name: model
+        required: false
+        schema:
+          $ref: "#/components/schemas/ModelId"
+        style: form
+      - description: Endpoint identifier paired with `model` when deriving providers.
+        explode: true
+        in: query
+        name: endpoint
+        required: false
+        schema:
+          enum:
+          - chat.completions
+          - images.generations
+          - audio.speech
+          - audio.transcription
+          - moderations
+          - video.generation
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GatewayHealthResponse"
+          description: Provider health snapshot.
+        "404":
+          $ref: "#/components/responses/GatewayError"
+        "500":
+          $ref: "#/components/responses/GatewayError"
+      summary: Inspect provider health
+      tags:
+      - Analytics
+  /models:
+    get:
+      description: "Returns a paginated catalogue of models with provider mappings,\
+        \ aliases, and endpoint support. Results are sorted by release date (falling\
+        \ back to announcement date) in descending order."
+      parameters:
+      - description: Filter results to models served by one or more provider identifiers.
+        explode: true
+        in: query
+        name: provider
+        required: false
+        schema:
+          $ref: "#/components/schemas/_models_get_provider_parameter"
+        style: form
+      - description: Maximum number of models to return (default 50).
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          maximum: 250
+          minimum: 1
+          type: integer
+        style: form
+      - description: Number of models to skip before starting the page.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          minimum: 0
+          type: integer
+        style: form
+      - description: Restrict results to models associated with one or more organisation
+          identifiers.
+        explode: true
+        in: query
+        name: organisation
+        required: false
+        schema:
+          $ref: "#/components/schemas/_models_get_organisation_parameter"
+        style: form
+      - description: Only return models that support at least one of the specified
+          gateway endpoints.
+        explode: true
+        in: query
+        name: include_endpoints
+        required: false
+        schema:
+          $ref: "#/components/schemas/_models_get_include_endpoints_parameter"
+        style: form
+      - description: Exclude models that support any of the specified gateway endpoints.
+        explode: true
+        in: query
+        name: exclude_endpoints
+        required: false
+        schema:
+          $ref: "#/components/schemas/_models_get_include_endpoints_parameter"
+        style: form
+      - description: Only return models that advertise support for at least one of
+          the requested input content types.
+        explode: true
+        in: query
+        name: input_types
+        required: false
+        schema:
+          $ref: "#/components/schemas/_models_get_provider_parameter"
+        style: form
+      - description: Only return models that advertise support for at least one of
+          the requested output content types.
+        explode: true
+        in: query
+        name: output_types
+        required: false
+        schema:
+          $ref: "#/components/schemas/_models_get_provider_parameter"
+        style: form
+      - description: Whether to include models marked as rumoured in the response
+          (default true).
+        explode: true
+        in: query
+        name: include_rumoured
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
+      - description: Whether to include models marked as deprecated in the response
+          (default true).
+        explode: true
+        in: query
+        name: include_deprecated
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
+      - description: Whether to include models marked as retired in the response (default
+          true).
+        explode: true
+        in: query
+        name: include_retired
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModelListResponse"
+          description: Paginated model catalogue.
+        "401":
+          $ref: "#/components/responses/GatewayError"
+        "429":
+          $ref: "#/components/responses/GatewayError"
+        "500":
+          $ref: "#/components/responses/GatewayError"
+      summary: List all gateway models
+      tags:
+      - Models
+components:
+  responses:
+    GatewayError:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GatewayError"
+      description: Gateway error response
+  schemas:
+    GatewayMetadata:
+      description: Metadata added by the gateway to every successful response.
+      example:
+        referer: referer
+        endpoint: endpoint
+        provider: provider
+        requestId: requestId
+        timing: "{}"
+        model: ai21/jamba-large-1-5-2024-08-22
+        appTitle: appTitle
+      properties:
+        requestId:
+          type: string
+        provider:
+          type: string
+        endpoint:
+          type: string
+        model:
+          $ref: "#/components/schemas/ModelId"
+        appTitle:
+          type: string
+          nullable: true
+        referer:
+          type: string
+          nullable: true
+        timing:
+          additionalProperties: false
+          description: Optional timing information captured during the request lifecycle.
+          type: object
+      required:
+      - endpoint
+      - model
+      - provider
+      - requestId
+    ModelId:
+      enum:
+      - ai21/jamba-large-1-5-2024-08-22
+      - ai21/jamba-large-1-6-2025-03-06
+      - ai21/jamba-large-1-7-2025-07-03
+      - ai21/jamba-mini-1-5-2024-08-22
+      - ai21/jamba-mini-1-6-2025-03-06
+      - ai21/jamba-mini-1-7-2025-07-03
+      - amazon/nova-canvas
+      - amazon/nova-lite-1-0-2024-12-04
+      - amazon/nova-micro-1-0-2024-12-04
+      - amazon/nova-premier-2025-04-30
+      - amazon/nova-pro-1-0-2024-12-04
+      - amazon/nova-reel
+      - amazon/nova-sonic
+      - anthropic/claude-1-0-2023-03-14
+      - anthropic/claude-1-1
+      - anthropic/claude-1-2
+      - anthropic/claude-1-3
+      - anthropic/claude-2-0-2023-07-12
+      - anthropic/claude-2-1-2023-11-22
+      - anthropic/claude-3-5-haiku-2024-11-04
+      - anthropic/claude-3-5-sonnet-2024-06-21
+      - anthropic/claude-3-5-sonnet-2024-10-22
+      - anthropic/claude-3-7-sonnet-2025-02-24
+      - anthropic/claude-3-haiku-2024-03-13
+      - anthropic/claude-3-opus-2024-03-04
+      - anthropic/claude-3-sonnet-2024-03-04
+      - anthropic/claude-haiku-4-5-2025-10-15
+      - anthropic/claude-instant-1-0-2023-03-14
+      - anthropic/claude-instant-1-1
+      - anthropic/claude-instant-1-2-2023-08-09
+      - anthropic/claude-opus-4-1-2025-08-05
+      - anthropic/claude-opus-4-2025-05-21
+      - anthropic/claude-opus-4-5-2025-11-24
+      - anthropic/claude-sonnet-4-2025-05-21
+      - anthropic/claude-sonnet-4-5-2025-09-29
+      - baidu/ernie-4-5-21b-a3b
+      - baidu/ernie-4-5-21b-a3b-thinking
+      - baidu/ernie-4-5-300b-a47b
+      - baidu/ernie-4-5-vl-28b-a3b
+      - baidu/ernie-4-5-vl-424b-a47b
+      - baidu/qianfan-vl-3b
+      - baidu/qianfan-vl-70b
+      - baidu/qianfan-vl-8b
+      - bytedance/seed-coder-8b-instruct
+      - bytedance/seed-coder-8b-reasoning
+      - bytedance/seed-oss-36b-instruct
+      - cohere/c4ai-aya-expanse-32b
+      - cohere/c4ai-aya-expanse-8b
+      - cohere/c4ai-aya-vision-32b
+      - cohere/c4ai-aya-vision-8b
+      - cohere/command
+      - cohere/command-a-2025-03-13
+      - cohere/command-a-reasoning-2025-08-21
+      - cohere/command-a-translate-2025-08-28
+      - cohere/command-a-vision-2025-07-31
+      - cohere/command-light
+      - cohere/command-r-2024-03-11
+      - cohere/command-r-2024-08-30
+      - cohere/command-r-7b-2024-12-13
+      - cohere/command-r+-2024-04-04
+      - cohere/command-r+-2024-08-30
+      - cohere/embed-english-light-v2-0
+      - cohere/embed-english-light-v3
+      - cohere/embed-english-v2-0
+      - cohere/embed-english-v3
+      - cohere/embed-multilingual-light-v3
+      - cohere/embed-multilingual-v2-0
+      - cohere/embed-multilingual-v3
+      - cohere/embed-v4
+      - cohere/rerank-multilingual-v3
+      - cohere/rerank-v3-5
+      - cohere/rerenk-english-v3
+      - deepseek/deepseek-coder-v2-2024-06-14
+      - deepseek/deepseek-coder-v2-2024-07-24
+      - deepseek/deepseek-ocr-2025-10-20
+      - deepseek/deepseek-r1-2025-01-20
+      - deepseek/deepseek-r1-2025-05-28
+      - deepseek/deepseek-r1-lite-preview
+      - deepseek/deepseek-v2-2024-05-17
+      - deepseek/deepseek-v2-2024-06-28
+      - deepseek/deepseek-v2-5
+      - deepseek/deepseek-v2-5-2024-05-08
+      - deepseek/deepseek-v3-1
+      - deepseek/deepseek-v3-1-terminus-2025-09-22
+      - deepseek/deepseek-v3-2-2025-09-29
+      - deepseek/deepseek-v3-2024-12-25
+      - deepseek/deepseek-v3-2025-03-25
+      - deepseek/deepseek-vl2-2024-12-13
+      - deepseek/deepseek-vl2-small-2024-12-13
+      - deepseek/deepseek-vl2-tiny-2024-12-13
+      - google/embedding-001-2023-12-13
+      - google/embedding-gecko-001-2023-12-13
+      - google/gemini-1-0-nano-2023-12-06
+      - google/gemini-1-0-pro-2023-12-06
+      - google/gemini-1-0-ultra-2023-12-06
+      - google/gemini-1-5-flash-001-2024-05-23
+      - google/gemini-1-5-flash-002-2024-09-24
+      - google/gemini-1-5-flash-8b-2024-03-15
+      - google/gemini-1-5-flash-8b-exp-2024-08-27
+      - google/gemini-1-5-flash-8b-exp-2024-09-24
+      - google/gemini-1-5-pro-001-2024-05-23
+      - google/gemini-1-5-pro-002-2024-09-24
+      - google/gemini-1-5-pro-exp-2024-08-01
+      - google/gemini-1-5-pro-exp-2024-08-27
+      - google/gemini-2-0-flash-2025-02-05
+      - google/gemini-2-0-flash-exp
+      - google/gemini-2-0-flash-exp-image-generation
+      - google/gemini-2-0-flash-lite-2025-02-05
+      - google/gemini-2-0-flash-live-001-2025-04-09
+      - google/gemini-2-0-flash-preview-image-generation-2025-05-07
+      - google/gemini-2-0-flash-thinking-exp-2024-12-19
+      - google/gemini-2-0-flash-thinking-exp-2025-01-21
+      - google/gemini-2-0-pro-exp-2025-02-05
+      - google/gemini-2-5-computer-use-preview-2025-10-07
+      - google/gemini-2-5-flash-exp-native-audio-thinking-dialog
+      - google/gemini-2-5-flash-image-preview
+      - google/gemini-2-5-flash-lite-preview-2025-06-17
+      - google/gemini-2-5-flash-lite-preview-2025-09-25
+      - google/gemini-2-5-flash-native-audio-preview
+      - google/gemini-2-5-flash-preview-2025-04-17
+      - google/gemini-2-5-flash-preview-2025-05-20
+      - google/gemini-2-5-flash-preview-2025-09-25
+      - google/gemini-2-5-flash-preview-native-audio-dialog
+      - google/gemini-2-5-flash-preview-tts
+      - google/gemini-2-5-pro-experimental
+      - google/gemini-2-5-pro-preview-2025-05-06
+      - google/gemini-2-5-pro-preview-2025-06-05
+      - google/gemini-2-5-pro-preview-tts
+      - google/gemini-3-0-flash
+      - google/gemini-3-0-flash-lite
+      - google/gemini-3-0-pro-preview-2025-11-18
+      - google/gemini-3-pro-image-preview-2025-11-20
+      - google/gemini-diffusion
+      - google/gemini-embedding-001-2025-05-20
+      - google/gemini-embedding-exp-0307-2025-03-07
+      - google/gemini-exp-1114-2024-11-14
+      - google/gemini-exp-1121-2024-11-21
+      - google/gemini-exp-1206
+      - google/gemini-live-2-5-flash-preview-2025-04-09
+      - google/gemini-robotics-er-1-5-preview
+      - google/gemma-1-2b-2024-02-21
+      - google/gemma-1-7b-2024-02-21
+      - google/gemma-2-27b-2024-06-27
+      - google/gemma-2-2b-2024-07-31
+      - google/gemma-2-9b-2024-06-27
+      - google/gemma-3-12b-2025-03-12
+      - google/gemma-3-1b-2025-03-12
+      - google/gemma-3-27b-2025-03-12
+      - google/gemma-3-4b-2025-03-12
+      - google/gemma-3n-e2b
+      - google/gemma-3n-e4b-2025-05-20
+      - google/imagen-3-0-generate-001
+      - google/imagen-3-0-generate-002-2025-02-06
+      - google/imagen-4-0-fast-generate-001
+      - google/imagen-4-0-generate-001-2025-08-14
+      - google/imagen-4-0-ultra-generate-001-2025-08-14
+      - google/imagen-4-preview
+      - google/imagen-4-ultra-preview-2025-08-14
+      - google/learnlm-1-5-pro-experimental
+      - google/learnlm-2-0-flash-experimental
+      - google/veo-2-2025-04-09
+      - google/veo-3-0-fast-generate-preview-2025-07-17
+      - google/veo-3-0-generate-preview-2025-07-17
+      - google/veo-3-1-fast-preview-2025-10-15
+      - google/veo-3-1-preview-2025-10-15
+      - google/veo-3-2025-09-09
+      - google/veo-3-fast-2025-09-09
+      - google/veo-4
+      - ibm/granite-20b-code-instruct-8k
+      - ibm/granite-3-0-1b-a400m-instruct
+      - ibm/granite-3-0-2b-instruct
+      - ibm/granite-3-0-3b-a800m-instruct
+      - ibm/granite-3-0-8b-instruct
+      - ibm/granite-3-1-1b-a400m-instruct
+      - ibm/granite-3-1-2b-instruct
+      - ibm/granite-3-1-3b-a800m-instruct
+      - ibm/granite-3-1-8b-instruct
+      - ibm/granite-3-2-2b-instruct
+      - ibm/granite-3-2-8b-instruct
+      - ibm/granite-3-2-8b-instruct-preview
+      - ibm/granite-3-3-2b-instruct-2025-04-16
+      - ibm/granite-3-3-8b-instruct-2025-04-16
+      - ibm/granite-34b-code-instruct-8b
+      - ibm/granite-3b-code-instruct-128k
+      - ibm/granite-3b-code-instruct-2k
+      - ibm/granite-4-0-micro-2025-10-02
+      - ibm/granite-4-0-small-2025-10-02
+      - ibm/granite-4-0-tiny-2025-10-02
+      - ibm/granite-4-0-tiny-preview-2025-05-02
+      - ibm/granite-8b-code-instruct-128k
+      - ibm/granite-8b-code-instruct-4k
+      - ibm/granite-embedding-107m-multilingual
+      - ibm/granite-embedding-125m-english
+      - ibm/granite-embedding-278m-multilingual
+      - ibm/granite-embedding-30m-english
+      - ibm/granite-embedding-english-r2
+      - ibm/granite-embedding-reranker-english-r2
+      - ibm/granite-embedding-small-english-r2
+      - ibm/granite-guardian-3-0-2b
+      - ibm/granite-guardian-3-0-8b
+      - ibm/granite-guardian-3-1-2b
+      - ibm/granite-guardian-3-1-8b
+      - ibm/granite-guardian-3-2-5b
+      - ibm/granite-guardian-3-3-8b
+      - ibm/granite-speech-3-2-8b
+      - ibm/granite-speech-3-3-2b
+      - ibm/granite-speech-3-3-8b
+      - ibm/granite-vision-3-1-2b-preview
+      - ibm/granite-vision-3-2-2b
+      - ibm/granite-vision-3-3-2b
+      - ibm/granite-vision-3-3-2b-embedding
+      - lg/exaone-3-0-2024-08-07
+      - lg/exaone-3-5-2-4b-2024-12-09
+      - lg/exaone-3-5-32b-2024-12-09
+      - lg/exaone-3-5-7-8b-2024-12-09
+      - lg/exaone-4-0-1-2b-2025-07-15
+      - lg/exaone-4-0-32b-2025-07-15
+      - lg/exaone-deep-2-4b-2025-03-18
+      - lg/exaone-deep-32b-2025-03-18
+      - lg/exaone-deep-7-8b-2025-03-18
+      - meta/llama-2-13b-chat-2023-06-20
+      - meta/llama-2-70b-chat-2023-06-20
+      - meta/llama-2-7b-chat
+      - meta/llama-3-1-405b-instruct-2024-07-23
+      - meta/llama-3-1-70b-instruct-2024-07-23
+      - meta/llama-3-1-8b-instruct-2024-07-23
+      - meta/llama-3-2-11b-vision-instruct
+      - meta/llama-3-2-1b-instruct-2024-09-25
+      - meta/llama-3-2-3b-instruct-2024-09-25
+      - meta/llama-3-2-90b-vision-instruct
+      - meta/llama-3-3-70b-instruct-2024-12-06
+      - meta/llama-3-70b-instruct-2024-04-18
+      - meta/llama-3-8b-instruct-2024-04-18
+      - meta/llama-4-maverick-2025-04-05
+      - meta/llama-4-scout-2025-04-05
+      - microsoft/phi-1
+      - microsoft/phi-1-5
+      - microsoft/phi-2
+      - microsoft/phi-3-5-mini-instruct-2024-08-23
+      - microsoft/phi-3-5-moe-instruct-2024-08-23
+      - microsoft/phi-3-5-vision-instruct-2024-08-23
+      - microsoft/phi-3-medium-128k-instruct
+      - microsoft/phi-3-medium-4k-instruct
+      - microsoft/phi-3-mini-128k-instruct
+      - microsoft/phi-3-small-128k-instruct
+      - microsoft/phi-3-small-8k-instruct
+      - microsoft/phi-3-vision-128k-instruct
+      - microsoft/phi-4-2024-12-12
+      - microsoft/phi-4-mini-2025-02-01
+      - microsoft/phi-4-mini-flash-reasoning
+      - microsoft/phi-4-mini-reasoning-2025-04-30
+      - microsoft/phi-4-multimodal-instruct-2025-02-01
+      - microsoft/phi-4-reasoning-2025-04-30
+      - microsoft/phi-4-reasoning-plus-2025-04-30
+      - minimax/hailuo-02
+      - minimax/i2v-01-director
+      - minimax/i2v-01-live
+      - minimax/image-01
+      - minimax/minimax-m1-2025-06-16
+      - minimax/minimax-m1-40k
+      - minimax/minimax-m2-1
+      - minimax/minimax-m2-2025-10-27
+      - minimax/minimax-text-01
+      - minimax/minimax-vl-01
+      - minimax/music-1-5
+      - minimax/s2v-01
+      - minimax/speech-01-hd
+      - minimax/speech-01-turbo
+      - minimax/speech-02-hd
+      - minimax/speech-02-turbo
+      - minimax/speech-2-5-hd-preview
+      - minimax/speech-2-5-turbo-preview
+      - minimax/t2v-01-director
+      - mistral/codestral-22b-2024-05-29
+      - mistral/codestral-2405
+      - mistral/codestral-2501
+      - mistral/codestral-2508
+      - mistral/codestral-embed
+      - mistral/devstral-medium-1-1-2025-07-10
+      - mistral/devstral-small
+      - mistral/devstral-small-1-1-2025-07-10
+      - mistral/magistral-medium-2025-06-10
+      - mistral/magistral-medium-2507
+      - mistral/magistral-medium-2509
+      - mistral/magistral-small-2025-06-10
+      - mistral/magistral-small-2507
+      - mistral/magistral-small-2509
+      - mistral/mamba-codestral-7b
+      - mistral/mathstral-7b
+      - mistral/ministral-3b-2410
+      - mistral/ministral-8b-2410
+      - mistral/ministral-8b-instruct-2024-10-16
+      - mistral/mistral-7b
+      - mistral/mistral-embed
+      - mistral/mistral-large-2-2024-07-24
+      - mistral/mistral-large-2402
+      - mistral/mistral-large-2407
+      - mistral/mistral-large-2411
+      - mistral/mistral-medium-2312
+      - mistral/mistral-medium-2505
+      - mistral/mistral-medium-2508
+      - mistral/mistral-moderation-2411
+      - mistral/mistral-nemo-instruct-2024-07-18
+      - mistral/mistral-ocr-2503
+      - mistral/mistral-ocr-2505
+      - mistral/mistral-saba-2502
+      - mistral/mistral-small-2024-09-17
+      - mistral/mistral-small-2402
+      - mistral/mistral-small-2407
+      - mistral/mistral-small-2501
+      - mistral/mistral-small-2503
+      - mistral/mistral-small-2506
+      - mistral/mistral-small-3-1-24b-base-2025-03-17
+      - mistral/mistral-small-3-1-24b-instruct-2025-03-17
+      - mistral/mistral-small-3-2-2025-06-20
+      - mistral/mistral-small-3-24b-base-2025-01-30
+      - mistral/mistral-small-3-24b-instruct-2025-01-30
+      - mistral/mixtral-8x22b
+      - mistral/mixtral-8x7b
+      - mistral/open-codestral-mamba
+      - mistral/open-mistral-7b
+      - mistral/open-mistral-nemo
+      - mistral/open-mixtral-8x22b
+      - mistral/open-mixtral-8x7b
+      - mistral/pixtral-12b-base-2024-09-17
+      - mistral/pixtral-large-2024-11-18
+      - mistral/pixtral-large-2411
+      - mistral/voxtral-mini-2507
+      - mistral/voxtral-small-2507
+      - moonshotai/kimi-k1-5-2025-01-20
+      - moonshotai/kimi-k2-base-2025-07-11
+      - moonshotai/kimi-k2-instruct-0905
+      - moonshotai/kimi-k2-instruct-2025-07-11
+      - moonshotai/kimi-k2-thinking-2025-11-06
+      - moonshotai/kimi-vl-a3b-instruct
+      - moonshotai/kimi-vl-a3b-thinking
+      - moonshotai/kimi-vl-a3b-thinking-2506
+      - nous/hermes-2-pro-llama-3-70b
+      - nous/hermes-2-pro-llama-3-8b
+      - nous/hermes-2-pro-mistral-7b
+      - nous/hermes-2-theta-llama-3-70b
+      - nous/hermes-2-theta-llama-3-8b
+      - nous/hermes-3-llama-3-1-405b
+      - nous/hermes-3-llama-3-1-70b
+      - nous/hermes-3-llama-3-1-8b
+      - nous/hermes-3-llama-3-2-3b
+      - nous/hermes-4-14b
+      - nous/hermes-4-405b
+      - nous/hermes-4-70b
+      - nvidia/llama-3-1-nemotron-70b-instruct-2024-10-01
+      - nvidia/llama-3-1-nemotron-nano-4b-v1-1
+      - nvidia/llama-3-1-nemotron-nano-8b-v1-2025-03-18
+      - nvidia/llama-3-1-nemotron-ultra-253b-v1-2025-04-07
+      - nvidia/llama-3-3-nemotron-super-49b-v1-2025-03-18
+      - nvidia/llama-3-3-nemotron-super-49b-v1-5
+      - nvidia/nvidia-nemotron-nano-12b-v2
+      - nvidia/nvidia-nemotron-nano-9b-v2
+      - nvidia/openreasoning-nemotron-1-5b
+      - nvidia/openreasoning-nemotron-14b
+      - nvidia/openreasoning-nemotron-32b
+      - nvidia/openreasoning-nemotron-7b
+      - openai/ada-2020-06-11
+      - openai/babbage-002
+      - openai/babbage-2020-06-11
+      - openai/chatgpt-4o
+      - openai/code-cushman-001
+      - openai/code-cushman-002
+      - openai/code-davinci-001
+      - openai/code-davinci-002
+      - openai/code-davinci-edit-001
+      - openai/code-search-ada-code-001
+      - openai/code-search-babbage-code-001
+      - openai/code-search-babbage-text-001
+      - openai/codes-search-ada-text-001
+      - openai/codex-mini-2025-05-16
+      - openai/computer-use-preview
+      - openai/curie-2020-06-11
+      - openai/dall-e-2-2022-09-28
+      - openai/dall-e-3-2023-10-19
+      - openai/davinci-002
+      - openai/davinci-2020-06-11
+      - openai/gpt-1-2018-06-11
+      - openai/gpt-2-2019-11-05
+      - openai/gpt-3-2020-06-11
+      - openai/gpt-3-5-turbo-0613
+      - openai/gpt-3-5-turbo-16k-0613-2023-06-13
+      - openai/gpt-3-5-turbo-2023-03-21
+      - openai/gpt-3-5-turbo-2023-09-28
+      - openai/gpt-3-5-turbo-2023-11-06
+      - openai/gpt-4-1-2025-04-14
+      - openai/gpt-4-1-mini-2025-04-14
+      - openai/gpt-4-1-nano-2025-04-14
+      - openai/gpt-4-2023-03-14
+      - openai/gpt-4-2023-06-13
+      - openai/gpt-4-32k
+      - openai/gpt-4-32k-0314
+      - openai/gpt-4-32k-0613
+      - openai/gpt-4-5-2025-02-27
+      - openai/gpt-4-turbo-2023-03-14
+      - openai/gpt-4-turbo-2023-11-06
+      - openai/gpt-4-turbo-2024-01-25
+      - openai/gpt-4o-2024-05-13
+      - openai/gpt-4o-2024-08-06
+      - openai/gpt-4o-2024-11-20
+      - openai/gpt-4o-audio-2024-10-01
+      - openai/gpt-4o-audio-2024-12-17
+      - openai/gpt-4o-audio-2025-06-03
+      - openai/gpt-4o-mini-2024-07-18
+      - openai/gpt-4o-mini-audio-preview
+      - openai/gpt-4o-mini-realtime-preview
+      - openai/gpt-4o-mini-search-preview
+      - openai/gpt-4o-mini-transcribe
+      - openai/gpt-4o-mini-tts
+      - openai/gpt-4o-realtime-preview-2024-10-01
+      - openai/gpt-4o-realtime-preview-2024-12-17
+      - openai/gpt-4o-realtime-preview-2025-06-03
+      - openai/gpt-4o-search-preview
+      - openai/gpt-4o-transcribe
+      - openai/gpt-4o-transcribe-diarize-2025-10-15
+      - openai/gpt-5-1-2025-11-12
+      - openai/gpt-5-1-chat-2025-11-13
+      - openai/gpt-5-1-codex-2025-11-13
+      - openai/gpt-5-1-codex-max-2025-11-19
+      - openai/gpt-5-1-codex-mini-2025-11-13
+      - openai/gpt-5-1-pro
+      - openai/gpt-5-2025-08-07
+      - openai/gpt-5-chat-2025-08-07
+      - openai/gpt-5-codex-2025-09-15
+      - openai/gpt-5-codex-mini-2025-11-07
+      - openai/gpt-5-mini-2025-08-07
+      - openai/gpt-5-nano-2025-08-07
+      - openai/gpt-5-pro-2025-08-07
+      - openai/gpt-5-search-api-2025-10-14
+      - openai/gpt-6
+      - openai/gpt-6-mini
+      - openai/gpt-6-nano
+      - openai/gpt-6-pro
+      - openai/gpt-audio
+      - openai/gpt-audio-mini-2025-10-06
+      - openai/gpt-image-1
+      - openai/gpt-image-1-mini-2025-10-06
+      - openai/gpt-oss-120b-2025-08-05
+      - openai/gpt-oss-20b-2025-08-05
+      - openai/gpt-oss-safeguard-120b-2025-10-29
+      - openai/gpt-oss-safeguard-20b-2025-10-29
+      - openai/gpt-realtime
+      - openai/gpt-realtime-mini-2025-10-06
+      - openai/o1-2024-12-17
+      - openai/o1-mini-2024-09-12
+      - openai/o1-preview-2024-09-12
+      - openai/o1-pro-2025-03-19
+      - openai/o3-2025-04-16
+      - openai/o3-deep-research-2025-06-26
+      - openai/o3-mini-2025-01-30
+      - openai/o3-preview
+      - openai/o3-pro-2025-06-10
+      - openai/o4-mini-2025-04-16
+      - openai/o4-mini-deep-research-2025-06-26
+      - openai/omni-moderation-2024-09-26
+      - openai/sora-1-2024-12-09
+      - openai/sora-2-2025-09-30
+      - openai/sora-2-pro-2025-10-03
+      - openai/text-ada-001
+      - openai/text-babbage-001
+      - openai/text-curie-001
+      - openai/text-davinci-001
+      - openai/text-davinci-002
+      - openai/text-davinci-003
+      - openai/text-davinci-edit-001
+      - openai/text-embedding-3-large
+      - openai/text-embedding-3-small
+      - openai/text-embedding-ada-002
+      - openai/text-moderation-007
+      - openai/text-search-ada-doc-001
+      - openai/text-search-ada-query-001
+      - openai/text-search-babbage-doc-001
+      - openai/text-search-babbage-query-001
+      - openai/text-search-curie-doc-001
+      - openai/text-search-curie-query-001
+      - openai/text-search-davinci-doc-001
+      - openai/text-search-davinci-query-001
+      - openai/text-similarity-ada-001
+      - openai/text-similarity-babbage-001
+      - openai/text-similarity-curie-001
+      - openai/text-similarity-davinci-001
+      - openai/tts-1
+      - openai/tts-1-hd
+      - openai/whisper-1
+      - qwen/qvq-72b-preview-2024-12-25
+      - qwen/qwen2-5-14b-instruct-2024-09-19
+      - qwen/qwen2-5-32b-instruct-2024-09-19
+      - qwen/qwen2-5-72b-instruct-2024-09-19
+      - qwen/qwen2-5-7b-instruct-2024-09-19
+      - qwen/qwen2-5-coder-32b-instruct-2024-09-19
+      - qwen/qwen2-5-coder-7b-instruct-2024-09-19
+      - qwen/qwen2-5-omni-7b-2025-03-27
+      - qwen/qwen2-5-vl-32b-instruct-2025-02-28
+      - qwen/qwen2-5-vl-72b-instruct-2025-01-26
+      - qwen/qwen2-5-vl-7b-instruct-2025-01-26
+      - qwen/qwen2-72b-instruct-2024-07-23
+      - qwen/qwen2-7b-instruct-2024-07-23
+      - qwen/qwen2-vl-72b-instruct-2024-08-29
+      - qwen/qwen3-235b-a22b-2025-04-29
+      - qwen/qwen3-235b-a22b-thinking-2507-2025-07-25
+      - qwen/qwen3-30b-a3b-2025-04-29
+      - qwen/qwen3-32b-2025-04-29
+      - qwen/qwen3-a235-a22b-instruct-2507-2025-07-21
+      - qwen/qwen3-coder-480b-a35b-instruct-2025-07-22
+      - qwen/qwq-32b-2025-03-05
+      - qwen/qwq-32b-preview-2024-11-28
+      - suno/suno-v3-5
+      - suno/suno-v4
+      - suno/suno-v4-5
+      - suno/suno-v4-5+
+      - suno/suno-v5
+      - x-ai/grok-0
+      - x-ai/grok-1
+      - x-ai/grok-1-5-2024-03-28
+      - x-ai/grok-1-5v-2024-04-12
+      - x-ai/grok-2-2024-08-13
+      - x-ai/grok-2-image-1212
+      - x-ai/grok-2-mini-2024-08-13
+      - x-ai/grok-2-vision-1212
+      - x-ai/grok-3-2025-04-18
+      - x-ai/grok-3-beta-2025-02-19
+      - x-ai/grok-3-mini-2025-04-18
+      - x-ai/grok-3-mini-beta-2025-02-19
+      - x-ai/grok-4-1-non-thinking-2025-11-17
+      - x-ai/grok-4-1-thinking-2025-11-17
+      - x-ai/grok-4-2025-07-10
+      - x-ai/grok-4-fast-non-reasoning-2025-09-20
+      - x-ai/grok-4-fast-reasoning-2025-09-20
+      - x-ai/grok-4-heavy-2025-07-10
+      - x-ai/grok-code-fast-1-2025-08-28
+      - z-ai/glm-4-1v-9b
+      - z-ai/glm-4-1v-thinking-9b
+      - z-ai/glm-4-32b-0414
+      - z-ai/glm-4-5
+      - z-ai/glm-4-5-air
+      - z-ai/glm-4-5v
+      - z-ai/glm-4-6-2025-09-30
+      - z-ai/glm-4-9b
+      - z-ai/glm-4-9b-0414
+      - z-ai/glm-4-9b-chat
+      - z-ai/glm-4-9b-chat-1m
+      - z-ai/glm-4v-9b
+      type: string
+    GatewayUsage:
+      additionalProperties: false
+      description: Token accounting for the request where provided by the upstream
+        model.
+      example:
+        input_text_tokens: 0
+        output_text_tokens: 0
+        total_tokens: 0
+        reasoning_tokens: 0
+        cached_read_text_tokens: 0
+      properties:
+        total_tokens:
+          minimum: 0
+          type: integer
+        input_text_tokens:
+          minimum: 0
+          type: integer
+        output_text_tokens:
+          minimum: 0
+          type: integer
+        reasoning_tokens:
+          minimum: 0
+          type: integer
+          nullable: true
+        cached_read_text_tokens:
+          minimum: 0
+          type: integer
+          nullable: true
+    GatewayResponseEnvelope:
+      description: Common fields present on all successful gateway responses.
+      properties:
+        nativeResponseId:
+          type: string
+          nullable: true
+        provider:
+          type: string
+        meta:
+          $ref: "#/components/schemas/GatewayMetadata"
+        usage:
+          $ref: "#/components/schemas/GatewayUsage"
+      required:
+      - meta
+      - provider
+    ChatMessage:
+      discriminator:
+        mapping:
+          system: "#/components/schemas/ChatMessageSystem"
+          user: "#/components/schemas/ChatMessageUser"
+          assistant: "#/components/schemas/ChatMessageAssistant"
+          tool: "#/components/schemas/ChatMessageTool"
+        propertyName: role
+      oneOf:
+      - $ref: "#/components/schemas/ChatMessageSystem"
+      - $ref: "#/components/schemas/ChatMessageUser"
+      - $ref: "#/components/schemas/ChatMessageAssistant"
+      - $ref: "#/components/schemas/ChatMessageTool"
+    ChatCompletionsRequest:
+      additionalProperties: {}
+      example:
+        top_logprobs: 7
+        logit_bias:
+          key: 6.027456183070403
+        seed: -2147483648
+        max_tool_calls: 1
+        presence_penalty: 0.25495066265333133
+        reasoning:
+          summary: auto
+          effort: none
+        usage: true
+        tools:
+        - "{}"
+        - "{}"
+        logprobs: true
+        top_p: 0.20271230230023218
+        frequency_penalty: -1.6796687238155954
+        max_completions_tokens: 1
+        parallel_tool_calls: true
+        stream: false
+        meta: false
+        temperature: 1.4122802483006218
+        messages:
+        - role: system
+          name: name
+          content: MessageContent
+        - role: system
+          name: name
+          content: MessageContent
+        tool_choice: ChatCompletionsRequest_tool_choice
+        model: model
+        max_output_tokens: 1
+      properties:
+        reasoning:
+          $ref: "#/components/schemas/ChatCompletionsRequest_reasoning"
+        frequency_penalty:
+          maximum: 2
+          minimum: -2
+          type: number
+        logit_bias:
+          additionalProperties:
+            type: number
+        max_output_tokens:
+          minimum: 1
+          type: integer
+        max_completions_tokens:
+          minimum: 1
+          type: integer
+        meta:
+          default: false
+          description: Include gateway metadata in the response.
+          type: boolean
+        model:
+          type: string
+        messages:
+          items:
+            $ref: "#/components/schemas/ChatMessage"
+          minItems: 1
+          type: array
+        presence_penalty:
+          maximum: 2
+          minimum: -2
+          type: number
+        seed:
+          maximum: 9223372036854776000
+          minimum: -9223372036854776000
+          type: integer
+        stream:
+          default: false
+          type: boolean
+        temperature:
+          maximum: 2
+          minimum: 0
+          type: number
+        tools:
+          items:
+            type: object
+          type: array
+        max_tool_calls:
+          minimum: 1
+          type: integer
+        parallel_tool_calls:
+          default: true
+          type: boolean
+        tool_choice:
+          $ref: "#/components/schemas/ChatCompletionsRequest_tool_choice"
+        logprobs:
+          type: boolean
+        top_logprobs:
+          maximum: 20
+          minimum: 0
+          type: integer
+        top_p:
+          maximum: 1
+          minimum: 0
+          type: number
+        usage:
+          default: true
+          description: Include token usage details in the response.
+          type: boolean
+      required:
+      - messages
+      - model
+    GatewayChatChoice:
+      additionalProperties: {}
+      example:
+        finish_reason: stop
+        reasoning: true
+        index: 0
+        message:
+          role: role
+          content: content
+      properties:
+        index:
+          minimum: 0
+          type: integer
+        message:
+          $ref: "#/components/schemas/GatewayChatChoice_message"
+        finish_reason:
+          description: Why the model stopped generating tokens.
+          enum:
+          - stop
+          - length
+          - tool_calls
+          - content_filter
+          - error
+          - null
+          nullable: true
+          type: string
+        reasoning:
+          description: True when the choice contains provider reasoning traces.
+          type: boolean
+          nullable: true
+      required:
+      - finish_reason
+      - index
+      - message
+    ChatCompletionsResponse:
+      allOf:
+      - $ref: "#/components/schemas/GatewayResponseEnvelope"
+      - properties:
+          created:
+            description: Unix timestamp in seconds.
+            type: integer
+          model:
+            type: string
+          choices:
+            items:
+              $ref: "#/components/schemas/GatewayChatChoice"
+            type: array
+        required:
+        - choices
+        - created
+        - model
+      example:
+        provider: provider
+        meta:
+          referer: referer
+          endpoint: endpoint
+          provider: provider
+          requestId: requestId
+          timing: "{}"
+          model: ai21/jamba-large-1-5-2024-08-22
+          appTitle: appTitle
+        created: 2
+        usage:
+          input_text_tokens: 0
+          output_text_tokens: 0
+          total_tokens: 0
+          reasoning_tokens: 0
+          cached_read_text_tokens: 0
+        model: model
+        nativeResponseId: nativeResponseId
+        choices:
+        - finish_reason: stop
+          reasoning: true
+          index: 0
+          message:
+            role: role
+            content: content
+        - finish_reason: stop
+          reasoning: true
+          index: 0
+          message:
+            role: role
+            content: content
+    ModerationRequest:
+      additionalProperties: {}
+      example:
+        input: ""
+        model: model
+      properties:
+        model:
+          type: string
+        input: {}
+      required:
+      - input
+      - model
+    ModerationResult:
+      additionalProperties: false
+      example:
+        flagged: true
+        scores:
+          key: 1.4658129805029452
+        applied_input_types:
+          key:
+          - applied_input_types
+          - applied_input_types
+        index: 0
+        categories:
+          key: true
+      properties:
+        index:
+          minimum: 0
+          type: integer
+        flagged:
+          type: boolean
+        categories:
+          additionalProperties:
+            type: boolean
+        scores:
+          additionalProperties:
+            type: number
+        applied_input_types:
+          additionalProperties:
+            items:
+              type: string
+          nullable: true
+      required:
+      - categories
+      - flagged
+      - index
+      - scores
+    ModerationResponse:
+      allOf:
+      - $ref: "#/components/schemas/GatewayResponseEnvelope"
+      - properties:
+          id:
+            type: string
+          created:
+            type: integer
+          model:
+            type: string
+          results:
+            items:
+              $ref: "#/components/schemas/ModerationResult"
+            type: array
+        required:
+        - created
+        - id
+        - model
+        - results
+      example:
+        provider: provider
+        meta:
+          referer: referer
+          endpoint: endpoint
+          provider: provider
+          requestId: requestId
+          timing: "{}"
+          model: ai21/jamba-large-1-5-2024-08-22
+          appTitle: appTitle
+        created: 0
+        usage:
+          input_text_tokens: 0
+          output_text_tokens: 0
+          total_tokens: 0
+          reasoning_tokens: 0
+          cached_read_text_tokens: 0
+        model: model
+        id: id
+        nativeResponseId: nativeResponseId
+        results:
+        - flagged: true
+          scores:
+            key: 1.4658129805029452
+          applied_input_types:
+            key:
+            - applied_input_types
+            - applied_input_types
+          index: 0
+          categories:
+            key: true
+        - flagged: true
+          scores:
+            key: 1.4658129805029452
+          applied_input_types:
+            key:
+            - applied_input_types
+            - applied_input_types
+          index: 0
+          categories:
+            key: true
+    ImageGenerationRequest:
+      additionalProperties: false
+      example:
+        size: size
+        model: model
+        prompt: prompt
+        "n": 1
+      properties:
+        model:
+          type: string
+        prompt:
+          type: string
+        size:
+          type: string
+        "n":
+          maximum: 10
+          minimum: 1
+          type: integer
+      required:
+      - model
+      - prompt
+    GatewayImageData:
+      additionalProperties: false
+      example:
+        url: https://openapi-generator.tech
+      properties:
+        url:
+          format: uri
+          type: string
+      required:
+      - url
+    ImageGenerationResponse:
+      allOf:
+      - $ref: "#/components/schemas/GatewayResponseEnvelope"
+      - properties:
+          id:
+            type: string
+          created:
+            type: integer
+          model:
+            type: string
+          data:
+            items:
+              $ref: "#/components/schemas/GatewayImageData"
+            type: array
+        required:
+        - created
+        - data
+        - id
+        - model
+      example:
+        data:
+        - url: https://openapi-generator.tech
+        - url: https://openapi-generator.tech
+        provider: provider
+        meta:
+          referer: referer
+          endpoint: endpoint
+          provider: provider
+          requestId: requestId
+          timing: "{}"
+          model: ai21/jamba-large-1-5-2024-08-22
+          appTitle: appTitle
+        created: 0
+        usage:
+          input_text_tokens: 0
+          output_text_tokens: 0
+          total_tokens: 0
+          reasoning_tokens: 0
+          cached_read_text_tokens: 0
+        model: model
+        id: id
+        nativeResponseId: nativeResponseId
+    VideoGenerationRequest:
+      additionalProperties: false
+      example:
+        duration: 10
+        model: model
+        prompt: prompt
+        ratio: ratio
+      properties:
+        model:
+          type: string
+        prompt:
+          type: string
+        duration:
+          maximum: 120
+          minimum: 1
+          type: integer
+        ratio:
+          type: string
+      required:
+      - model
+      - prompt
+    VideoGenerationResponse:
+      allOf:
+      - $ref: "#/components/schemas/GatewayResponseEnvelope"
+      - additionalProperties: false
+        description: Provider-native video generation payload. Fields vary by upstream
+          integration and are passed through unchanged.
+        type: object
+      example:
+        provider: provider
+        meta:
+          referer: referer
+          endpoint: endpoint
+          provider: provider
+          requestId: requestId
+          timing: "{}"
+          model: ai21/jamba-large-1-5-2024-08-22
+          appTitle: appTitle
+        usage:
+          input_text_tokens: 0
+          output_text_tokens: 0
+          total_tokens: 0
+          reasoning_tokens: 0
+          cached_read_text_tokens: 0
+        nativeResponseId: nativeResponseId
+    GatewayGenerationRecord:
+      additionalProperties: {}
+      example:
+        error_message: error_message
+        referer: referer
+        status_code: 0
+        before: "{}"
+        app_title: app_title
+        usage: "{}"
+        cost_nanos: 5
+        native_response_id: native_response_id
+        generation_ms: 1.4658129805029452
+        team_id: team_id
+        model_id: model_id
+        execute: "{}"
+        latency_ms: 6.027456183070403
+        pricing_lines:
+        - "{}"
+        - "{}"
+        endpoint: endpoint
+        provider: provider
+        stream: true
+        success: true
+        error_code: error_code
+        currency: currency
+        request_id: request_id
+        app_id: app_id
+        byok: true
+      properties:
+        request_id:
+          type: string
+        team_id:
+          type: string
+        app_id:
+          type: string
+          nullable: true
+        app_title:
+          type: string
+          nullable: true
+        referer:
+          type: string
+          nullable: true
+        endpoint:
+          type: string
+        model_id:
+          type: string
+          nullable: true
+        provider:
+          type: string
+          nullable: true
+        native_response_id:
+          type: string
+          nullable: true
+        stream:
+          type: boolean
+        byok:
+          type: boolean
+        status_code:
+          type: integer
+          nullable: true
+        success:
+          type: boolean
+        error_code:
+          type: string
+          nullable: true
+        error_message:
+          type: string
+          nullable: true
+        before:
+          additionalProperties: false
+          type: object
+        execute:
+          additionalProperties: false
+          type: object
+        latency_ms:
+          type: number
+          nullable: true
+        generation_ms:
+          type: number
+          nullable: true
+        usage:
+          additionalProperties: false
+          type: object
+        cost_nanos:
+          type: integer
+          nullable: true
+        currency:
+          type: string
+          nullable: true
+        pricing_lines:
+          items:
+            type: object
+          type: array
+      required:
+      - endpoint
+      - request_id
+      - success
+      - team_id
+    GatewayHealthProvider:
+      additionalProperties: false
+      example:
+        p95_ms: 9.301444243932576
+        last_updated: 4
+        breaker: closed
+        load: 2.027123023002322
+        provider: provider
+        p50_ms: 7.061401241503109
+        success_rate: 3.616076749251911
+        status: up
+      properties:
+        provider:
+          type: string
+        status:
+          enum:
+          - up
+          - degraded
+          - down
+          - probing
+          type: string
+        breaker:
+          enum:
+          - closed
+          - open
+          - half_open
+          type: string
+        p50_ms:
+          type: number
+          nullable: true
+        p95_ms:
+          type: number
+          nullable: true
+        success_rate:
+          type: number
+        load:
+          type: number
+        last_updated:
+          description: Unix timestamp (ms).
+          type: integer
+      required:
+      - breaker
+      - last_updated
+      - load
+      - provider
+      - status
+      - success_rate
+    GatewayHealthResponse:
+      example:
+        window_minutes: 0
+        generated_at: 7
+        scope:
+          endpoint: endpoint
+          provider: provider
+          model: model
+        overall:
+          providers_total: 1
+          p95_ms: 5.637376656633329
+          p50_ms: 5.962133916683182
+          providers_up: 6
+          success_rate: 2.3021358869347655
+          status: up
+        ok: true
+        providers:
+        - p95_ms: 9.301444243932576
+          last_updated: 4
+          breaker: closed
+          load: 2.027123023002322
+          provider: provider
+          p50_ms: 7.061401241503109
+          success_rate: 3.616076749251911
+          status: up
+        - p95_ms: 9.301444243932576
+          last_updated: 4
+          breaker: closed
+          load: 2.027123023002322
+          provider: provider
+          p50_ms: 7.061401241503109
+          success_rate: 3.616076749251911
+          status: up
+      properties:
+        ok:
+          type: boolean
+        window_minutes:
+          type: integer
+        scope:
+          $ref: "#/components/schemas/GatewayHealthResponse_scope"
+        overall:
+          $ref: "#/components/schemas/GatewayHealthResponse_overall"
+        providers:
+          items:
+            $ref: "#/components/schemas/GatewayHealthProvider"
+          type: array
+        generated_at:
+          description: Unix timestamp in milliseconds.
+          type: integer
+      required:
+      - generated_at
+      - ok
+      - overall
+      - providers
+      - scope
+      - window_minutes
+    GatewayError:
+      additionalProperties: {}
+      example:
+        reason: reason
+        meta:
+          referer: referer
+          appTitle: appTitle
+        timing: "{}"
+        model: model
+        team_id: team_id
+        ok: true
+        error: error
+        message: message
+        request_id: request_id
+      properties:
+        ok:
+          type: boolean
+        error:
+          type: string
+        reason:
+          type: string
+          nullable: true
+        message:
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          nullable: true
+        team_id:
+          type: string
+          nullable: true
+        model:
+          type: string
+          nullable: true
+        meta:
+          $ref: "#/components/schemas/GatewayError_meta"
+        timing:
+          additionalProperties: false
+          type: object
+          nullable: true
+      required:
+      - error
+    GatewayModel:
+      additionalProperties: false
+      example:
+        endpoints:
+        - chat.completions
+        - chat.completions
+        aliases:
+        - aliases
+        - aliases
+        output_types:
+        - output_types
+        - output_types
+        input_types:
+        - input_types
+        - input_types
+        release_date: 2000-01-23
+        announcement_date: 2000-01-23
+        name: name
+        organisation: ai21
+        model_id: model_id
+        providers:
+        - country_code: country_code
+          api_provider_id: api_provider_id
+          endpoint: chat.completions
+          is_active_gateway: true
+          provider_model_slug: provider_model_slug
+          link: link
+          effective_to: 2000-01-23T04:56:07.000+00:00
+          api_provider_name: api_provider_name
+          input_modalities:
+          - input_modalities
+          - input_modalities
+          output_modalities:
+          - output_modalities
+          - output_modalities
+          effective_from: 2000-01-23T04:56:07.000+00:00
+        - country_code: country_code
+          api_provider_id: api_provider_id
+          endpoint: chat.completions
+          is_active_gateway: true
+          provider_model_slug: provider_model_slug
+          link: link
+          effective_to: 2000-01-23T04:56:07.000+00:00
+          api_provider_name: api_provider_name
+          input_modalities:
+          - input_modalities
+          - input_modalities
+          output_modalities:
+          - output_modalities
+          - output_modalities
+          effective_from: 2000-01-23T04:56:07.000+00:00
+        status: status
+      properties:
+        model_id:
+          description: Canonical model identifier.
+          type: string
+        name:
+          description: Human readable model name.
+          nullable: true
+          type: string
+        release_date:
+          description: Earliest known public release date.
+          format: date
+          nullable: true
+          type: string
+        announcement_date:
+          description: Earliest known public announcement date if different from release.
+          format: date
+          nullable: true
+          type: string
+        status:
+          description: "Lifecycle status of the model (Rumoured, Announced, Available,\
+            \ Deprecated, Retired)."
+          nullable: true
+          type: string
+        organisation:
+          $ref: "#/components/schemas/OrganisationId"
+        aliases:
+          description: Enabled aliases that resolve to this model.
+          items:
+            type: string
+          type: array
+        endpoints:
+          description: Gateway endpoints that currently route to this model.
+          items:
+            enum:
+            - chat.completions
+            - images.generations
+            - audio.speech
+            - audio.transcription
+            - moderations
+            - video.generation
+            - embeddings
+            - batch
+            type: string
+          type: array
+        providers:
+          description: Provider mappings that can serve this model.
+          items:
+            $ref: "#/components/schemas/GatewayModelProvider"
+          type: array
+        input_types:
+          description: Input content types supported by the model itself.
+          items:
+            type: string
+          type: array
+        output_types:
+          description: Output content types supported by the model itself.
+          items:
+            type: string
+          type: array
+      required:
+      - aliases
+      - announcement_date
+      - endpoints
+      - input_types
+      - model_id
+      - name
+      - organisation
+      - output_types
+      - providers
+      - release_date
+      - status
+    ModelListResponse:
+      example:
+        models:
+        - endpoints:
+          - chat.completions
+          - chat.completions
+          aliases:
+          - aliases
+          - aliases
+          output_types:
+          - output_types
+          - output_types
+          input_types:
+          - input_types
+          - input_types
+          release_date: 2000-01-23
+          announcement_date: 2000-01-23
+          name: name
+          organisation: ai21
+          model_id: model_id
+          providers:
+          - country_code: country_code
+            api_provider_id: api_provider_id
+            endpoint: chat.completions
+            is_active_gateway: true
+            provider_model_slug: provider_model_slug
+            link: link
+            effective_to: 2000-01-23T04:56:07.000+00:00
+            api_provider_name: api_provider_name
+            input_modalities:
+            - input_modalities
+            - input_modalities
+            output_modalities:
+            - output_modalities
+            - output_modalities
+            effective_from: 2000-01-23T04:56:07.000+00:00
+          - country_code: country_code
+            api_provider_id: api_provider_id
+            endpoint: chat.completions
+            is_active_gateway: true
+            provider_model_slug: provider_model_slug
+            link: link
+            effective_to: 2000-01-23T04:56:07.000+00:00
+            api_provider_name: api_provider_name
+            input_modalities:
+            - input_modalities
+            - input_modalities
+            output_modalities:
+            - output_modalities
+            - output_modalities
+            effective_from: 2000-01-23T04:56:07.000+00:00
+          status: status
+        - endpoints:
+          - chat.completions
+          - chat.completions
+          aliases:
+          - aliases
+          - aliases
+          output_types:
+          - output_types
+          - output_types
+          input_types:
+          - input_types
+          - input_types
+          release_date: 2000-01-23
+          announcement_date: 2000-01-23
+          name: name
+          organisation: ai21
+          model_id: model_id
+          providers:
+          - country_code: country_code
+            api_provider_id: api_provider_id
+            endpoint: chat.completions
+            is_active_gateway: true
+            provider_model_slug: provider_model_slug
+            link: link
+            effective_to: 2000-01-23T04:56:07.000+00:00
+            api_provider_name: api_provider_name
+            input_modalities:
+            - input_modalities
+            - input_modalities
+            output_modalities:
+            - output_modalities
+            - output_modalities
+            effective_from: 2000-01-23T04:56:07.000+00:00
+          - country_code: country_code
+            api_provider_id: api_provider_id
+            endpoint: chat.completions
+            is_active_gateway: true
+            provider_model_slug: provider_model_slug
+            link: link
+            effective_to: 2000-01-23T04:56:07.000+00:00
+            api_provider_name: api_provider_name
+            input_modalities:
+            - input_modalities
+            - input_modalities
+            output_modalities:
+            - output_modalities
+            - output_modalities
+            effective_from: 2000-01-23T04:56:07.000+00:00
+          status: status
+        total: 1
+        offset: 6
+        limit: 0
+        ok: true
+      properties:
+        ok:
+          type: boolean
+        limit:
+          type: integer
+        offset:
+          type: integer
+        models:
+          items:
+            $ref: "#/components/schemas/GatewayModel"
+          type: array
+        total:
+          description: Total number of models matching the filter.
+          type: integer
+      required:
+      - limit
+      - models
+      - offset
+      - ok
+      - total
+    GatewayOrganisation:
+      additionalProperties: {}
+      properties:
+        organisation_id:
+          $ref: "#/components/schemas/OrganisationId"
+        name:
+          description: Display name for the organisation.
+          nullable: true
+          type: string
+        country_code:
+          description: ISO 3166-1 alpha-2 country code.
+          nullable: true
+          type: string
+      required:
+      - country_code
+      - name
+      - organisation_id
+    GatewayModelProvider:
+      additionalProperties: false
+      example:
+        country_code: country_code
+        api_provider_id: api_provider_id
+        endpoint: chat.completions
+        is_active_gateway: true
+        provider_model_slug: provider_model_slug
+        link: link
+        effective_to: 2000-01-23T04:56:07.000+00:00
+        api_provider_name: api_provider_name
+        input_modalities:
+        - input_modalities
+        - input_modalities
+        output_modalities:
+        - output_modalities
+        - output_modalities
+        effective_from: 2000-01-23T04:56:07.000+00:00
+      properties:
+        api_provider_id:
+          description: Identifier for the provider.
+          type: string
+        api_provider_name:
+          description: Human readable provider name.
+          nullable: true
+          type: string
+        link:
+          description: Canonical URL for the provider.
+          nullable: true
+          type: string
+        country_code:
+          description: Provider headquarters country code.
+          nullable: true
+          type: string
+        endpoint:
+          description: Gateway endpoint served by this provider.
+          enum:
+          - chat.completions
+          - images.generations
+          - audio.speech
+          - audio.transcription
+          - moderations
+          - video.generation
+          - embeddings
+          - batch
+          type: string
+        provider_model_slug:
+          description: Provider specific model identifier.
+          nullable: true
+          type: string
+        is_active_gateway:
+          description: Whether the provider is currently routable via the gateway.
+          type: boolean
+        input_modalities:
+          description: Input modalities supported by this provider-model pairing.
+          items:
+            type: string
+          type: array
+        output_modalities:
+          description: Output modalities supported by this provider-model pairing.
+          items:
+            type: string
+          type: array
+        effective_from:
+          description: Timestamp from which the pairing is effective.
+          format: date-time
+          nullable: true
+          type: string
+        effective_to:
+          description: Timestamp when the pairing stops being effective.
+          format: date-time
+          nullable: true
+          type: string
+      required:
+      - api_provider_id
+      - api_provider_name
+      - country_code
+      - effective_from
+      - effective_to
+      - endpoint
+      - input_modalities
+      - is_active_gateway
+      - link
+      - output_modalities
+      - provider_model_slug
+    ChatMessageSystem:
+      additionalProperties: false
+      example:
+        role: system
+        name: name
+        content: MessageContent
+      properties:
+        role:
+          enum:
+          - system
+          type: string
+        content:
+          $ref: "#/components/schemas/MessageContent"
+        name:
+          type: string
+      required:
+      - content
+      - role
+    ChatMessageUser:
+      additionalProperties: false
+      properties:
+        role:
+          enum:
+          - user
+          type: string
+        content:
+          $ref: "#/components/schemas/MessageContent"
+        name:
+          type: string
+      required:
+      - content
+      - role
+    ChatMessageAssistant:
+      additionalProperties: false
+      properties:
+        role:
+          enum:
+          - assistant
+          type: string
+        content:
+          $ref: "#/components/schemas/MessageContent"
+        name:
+          type: string
+        tool_calls:
+          items:
+            $ref: "#/components/schemas/ToolCall"
+          type: array
+      required:
+      - role
+    MessageContentText:
+      properties:
+        type:
+          enum:
+          - text
+          type: string
+        text:
+          type: string
+      required:
+      - text
+      - type
+    MessageContentImageUrl:
+      properties:
+        type:
+          enum:
+          - image_url
+          type: string
+        image_url:
+          $ref: "#/components/schemas/MessageContentImageUrl_image_url"
+      required:
+      - image_url
+      - type
+    MessageContentInputAudio:
+      properties:
+        type:
+          enum:
+          - input_audio
+          type: string
+        input_audio:
+          $ref: "#/components/schemas/MessageContentInputAudio_input_audio"
+      required:
+      - input_audio
+      - type
+    MessageContentInputVideo:
+      properties:
+        type:
+          enum:
+          - input_video
+          type: string
+        video_url:
+          format: uri
+          type: string
+      required:
+      - type
+      - video_url
+    MessageContentPart:
+      discriminator:
+        mapping:
+          text: "#/components/schemas/MessageContentText"
+          image_url: "#/components/schemas/MessageContentImageUrl"
+          input_audio: "#/components/schemas/MessageContentInputAudio"
+          input_video: "#/components/schemas/MessageContentInputVideo"
+          tool_call: "#/components/schemas/ToolCallPart"
+        propertyName: type
+      oneOf:
+      - $ref: "#/components/schemas/MessageContentText"
+      - $ref: "#/components/schemas/MessageContentImageUrl"
+      - $ref: "#/components/schemas/MessageContentInputAudio"
+      - $ref: "#/components/schemas/MessageContentInputVideo"
+      - $ref: "#/components/schemas/ToolCallPart"
+    MessageContent:
+      oneOf:
+      - type: string
+      - items:
+          additionalProperties: false
+          type: object
+        type: array
+    ToolCallFunction:
+      properties:
+        name:
+          type: string
+        arguments:
+          type: string
+      required:
+      - arguments
+      - name
+    ToolCall:
+      properties:
+        id:
+          type: string
+        type:
+          enum:
+          - function
+          type: string
+        function:
+          $ref: "#/components/schemas/ToolCallFunction"
+      required:
+      - function
+      - id
+      - type
+    ChatMessageTool:
+      additionalProperties: false
+      properties:
+        role:
+          enum:
+          - tool
+          type: string
+        content:
+          $ref: "#/components/schemas/MessageContent"
+        name:
+          type: string
+        tool_call_id:
+          type: string
+      required:
+      - content
+      - role
+      - tool_call_id
+    ToolCallPart:
+      properties:
+        type:
+          enum:
+          - tool_call
+          type: string
+        id:
+          type: string
+        function:
+          $ref: "#/components/schemas/ToolCallFunction"
+      required:
+      - function
+      - id
+      - type
+    ModerationInputTextItem:
+      additionalProperties: {}
+      properties:
+        type:
+          enum:
+          - text
+          type: string
+        text:
+          type: string
+      required:
+      - text
+      - type
+    ModerationInputImageUrlItem:
+      additionalProperties: {}
+      properties:
+        type:
+          enum:
+          - image_url
+          type: string
+        image_url:
+          $ref: "#/components/schemas/ModerationInputImageUrlItem_image_url"
+      required:
+      - image_url
+      - type
+    ModerationInputContentItem:
+      description: "A single moderation content item: text or image_url."
+      nullable: true
+      oneOf: []
+    ModerationRequestInput:
+      description: Input to classify. A single text string or an array of rich content
+        items.
+      oneOf:
+      - type: string
+      - items:
+          ? ""
+          : "#/components/schemas/ModerationInputContentItem"
+        minItems: 1
+        type: array
+    OrganisationId:
+      description: Organisation identifier.
+      enum:
+      - ai21
+      - amazon
+      - anthropic
+      - baidu
+      - black-forest-labs
+      - bytedance
+      - cohere
+      - deepseek
+      - eleven-labs
+      - google
+      - ibm
+      - inclusionai
+      - lg
+      - meta
+      - microsoft
+      - minimax
+      - mistral
+      - moonshotai
+      - nous
+      - nvidia
+      - openai
+      - perplexity
+      - qwen
+      - suno
+      - x-ai
+      - z-ai
+      type: string
+    BenchmarkId:
+      description: Benchmark identifier.
+      enum:
+      - ace-bench
+      - ai2-sciarena
+      - ai2d
+      - aidanbench
+      - aider-polyglot
+      - aime-2024
+      - aime-2025
+      - arc-agi-1
+      - arc-agi-2
+      - autologi
+      - balrog-ai
+      - bigcodebench
+      - browsecomp
+      - browsecomp-long-context-128k
+      - browsecomp-long-context-256k
+      - c-eval
+      - chartqa
+      - charxiv-reasoning
+      - cnmo-2024
+      - codeforces
+      - collie
+      - confabulations
+      - creative-story-writing
+      - csimpleqa
+      - docvqa
+      - dubesor-llm
+      - elimination-game
+      - eqbench
+      - erqa
+      - evalplus
+      - facts
+      - facts-benchmark-suite
+      - factscore-halluciation-rate
+      - fiction-live-bench
+      - frontier-math
+      - galileo-agent
+      - global-pica
+      - gpqa
+      - gpqa-diamond
+      - graphwalks-bfs-lt-128k
+      - graphwalks-parents-lt-128k
+      - gsm8k
+      - healthbench
+      - healthbench-concensus
+      - healthbench-hard
+      - hmmt-2025
+      - humaneval
+      - humanitys-last-exam
+      - if-eval
+      - iq-bench
+      - lisanbench
+      - livebench
+      - livecodebench-pro
+      - livecodebench-v5
+      - livecodebench-v6
+      - lmarena-text
+      - lmarena-webdev
+      - longfact-concepts-hallucination-rate
+      - longfact-objects-hallucination-rate
+      - math
+      - math-500
+      - matharena
+      - matharena-apex
+      - mathvista
+      - mc-bench
+      - metr
+      - misguided-attention
+      - mle-bench
+      - mmlu
+      - mmlu-pro
+      - mmlu-redux
+      - mmlu-redux-2.0
+      - mmmlu
+      - mmmu
+      - mmmu-pro
+      - multi-challenge
+      - multiPL-E
+      - nyt-connections
+      - ojbench
+      - omnidocbench-1.5
+      - openai-mrcr-2-needle-128k
+      - openai-mrcr-2-needle-256k
+      - openai-mrcr-8-needle-128k
+      - openai-mrcr-8-needle-1m
+      - os-world
+      - paperbench
+      - phybench
+      - polymath-en
+      - screenspot-pro
+      - seal-multichallenege
+      - simplebench
+      - simpleqa
+      - smolagents-llm
+      - snake-bench
+      - solo-bench
+      - supergpqa
+      - swe-bench
+      - swe-bench-live
+      - swe-bench-multilingual
+      - swe-bench-pro
+      - swe-lancer
+      - symflower-coding
+      - tau-2-airline
+      - tau-2-bench
+      - tau-2-retail
+      - tau-2-telecom
+      - tau-bench
+      - tau-bench-airline
+      - tau-bench-retail
+      - terminal-bench
+      - terminal-bench-2.0
+      - thematic-generalisation
+      - triviaqa
+      - usamo-2025
+      - vending-bench-2
+      - video-mmmu
+      - videomme
+      - weirdml
+      - xlang-agent
+      - zebralogic
+      type: string
+    _models_get_provider_parameter:
+      oneOf:
+      - type: string
+      - items:
+          type: string
+        type: array
+    _models_get_organisation_parameter:
+      oneOf:
+      - $ref: "#/components/schemas/OrganisationId"
+      - items:
+          $ref: "#/components/schemas/OrganisationId"
+        type: array
+    _models_get_include_endpoints_parameter:
+      oneOf:
+      - enum:
+        - chat.completions
+        - images.generations
+        - audio.speech
+        - audio.transcription
+        - moderations
+        - video.generation
+        - embeddings
+        - batch
+        type: string
+      - items:
+          enum:
+          - chat.completions
+          - images.generations
+          - audio.speech
+          - audio.transcription
+          - moderations
+          - video.generation
+          - embeddings
+          - batch
+          type: string
+        type: array
+    ChatCompletionsRequest_reasoning:
+      additionalProperties: false
+      example:
+        summary: auto
+        effort: none
+      properties:
+        effort:
+          enum:
+          - none
+          - minimal
+          - low
+          - medium
+          - high
+          type: string
+          nullable: true
+        summary:
+          enum:
+          - auto
+          - concise
+          - detailed
+          type: string
+          nullable: true
+      nullable: true
+    ChatCompletionsRequest_tool_choice:
+      oneOf:
+      - type: string
+      - type: object
+    GatewayChatChoice_message:
+      additionalProperties: false
+      example:
+        role: role
+        content: content
+      properties:
+        role:
+          type: string
+        content:
+          type: string
+      required:
+      - content
+      - role
+    GatewayHealthResponse_scope:
+      additionalProperties: false
+      example:
+        endpoint: endpoint
+        provider: provider
+        model: model
+      properties:
+        provider:
+          type: string
+          nullable: true
+        model:
+          type: string
+          nullable: true
+        endpoint:
+          type: string
+          nullable: true
+    GatewayHealthResponse_overall:
+      example:
+        providers_total: 1
+        p95_ms: 5.637376656633329
+        p50_ms: 5.962133916683182
+        providers_up: 6
+        success_rate: 2.3021358869347655
+        status: up
+      properties:
+        status:
+          enum:
+          - up
+          - degraded
+          - down
+          type: string
+        providers_up:
+          type: integer
+        providers_total:
+          type: integer
+        p50_ms:
+          type: number
+          nullable: true
+        p95_ms:
+          type: number
+          nullable: true
+        success_rate:
+          type: number
+          nullable: true
+      required:
+      - providers_total
+      - providers_up
+      - status
+    GatewayError_meta:
+      additionalProperties: false
+      example:
+        referer: referer
+        appTitle: appTitle
+      properties:
+        appTitle:
+          type: string
+          nullable: true
+        referer:
+          type: string
+          nullable: true
+      nullable: true
+    MessageContentImageUrl_image_url:
+      properties:
+        url:
+          format: uri
+          type: string
+      required:
+      - url
+    MessageContentInputAudio_input_audio:
+      properties:
+        data:
+          type: string
+        format:
+          enum:
+          - wav
+          - mp3
+          - flac
+          - m4a
+          - ogg
+          - pcm16
+          - pcm24
+          type: string
+      required:
+      - data
+      - format
+    ModerationInputImageUrlItem_image_url:
+      additionalProperties: false
+      example:
+        url: https://openapi-generator.tech
+      properties:
+        url:
+          format: uri
+          type: string
+      required:
+      - url
+  securitySchemes:
+    GatewayAuth:
+      bearerFormat: Gateway API key
+      scheme: bearer
+      type: http

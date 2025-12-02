@@ -1,0 +1,8 @@
+{
+	"name": "@ai-stats/py-sdk",
+	"version": "0.1.1",
+	"private": true,
+	"scripts": {
+		"build": "python -m build --sdist --wheel --outdir dist"
+	}
+}

@@ -1,0 +1,74 @@
+// components/header/Header.tsx  (STATIC)
+import Link from "next/link";
+import { Suspense } from "react";
+import AuthControls from "./AuthControls"; // server island
+import MainNav from "./MainNav"; // client-only nav (no data)
+import Search from "./Search/Search";
+import { HeaderAnnouncements } from "./HeaderAnnouncements";
+
+const releaseMessage = "Introducing Our Model Gateway";
+const changelogLink = "https://docs.ai-stats.phaseo.app/changelog";
+
+export default function Header() {
+	return (
+		<header className="sticky top-0 z-50 border-b bg-white/80 dark:bg-zinc-950/80 backdrop-blur">
+			<div className="container mx-auto px-4">
+				<div className="flex h-16 items-center justify-between">
+					{/* Brand + Desktop Nav */}
+					<div className="flex flex-1 items-center gap-5 overflow-hidden">
+						<Link
+							href="/"
+							className="flex items-center text-2xl font-semibold tracking-tight"
+						>
+							<img
+								src="/wordmark_light.svg"
+								alt="AI Stats"
+								className="h-10 select-none dark:invert"
+							/>
+						</Link>
+						<div className="hidden lg:block h-6 w-px bg-zinc-200/70 dark:bg-zinc-800" />
+						<div className="hidden lg:block max-w-full">
+							<MainNav />
+						</div>
+
+						{/* keep space for alignment - Search moved to right actions on desktop */}
+						<div className="flex-0" />
+					</div>
+
+					{/* Right actions: desktop auth + search */}
+					<div className="hidden lg:flex items-center gap-3 shrink-0">
+						<div className="flex items-center">
+							<Search />
+						</div>
+						<Suspense
+							fallback={
+								<div className="h-9 w-28 rounded-md animate-pulse" />
+							}
+						>
+							<AuthControls variant="desktop" />
+						</Suspense>
+					</div>
+
+					{/* Mobile: menu/auth drawer trigger */}
+					<div className="lg:hidden">
+						<Suspense
+							fallback={
+								<div className="h-9 w-9 rounded-md animate-pulse" />
+							}
+						>
+							<AuthControls variant="mobile" />
+						</Suspense>
+					</div>
+				</div>
+			</div>
+
+			<HeaderAnnouncements
+				message={releaseMessage}
+				href="/gateway"
+				secondaryLabel="Read more in the changelog"
+				secondaryHref={changelogLink}
+				label="New Release"
+			/>
+		</header>
+	);
+}

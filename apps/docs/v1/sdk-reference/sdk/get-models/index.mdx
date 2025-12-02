@@ -1,0 +1,64 @@
+---
+title: "Get Models (SDK)"
+api: "GET /models"
+description: "Fetch catalogue models using the SDKs."
+playground: 'none'
+---
+
+Use the SDKs to call the `/models` endpoint. TypeScript and Python are production-ready; other SDKs are in preview.
+
+<CodeGroup dropdown>
+```ts TypeScript
+import { AIStats } from "@ai-stats/ts-sdk";
+
+const client = new AIStats({ apiKey: process.env.AI_STATS_API_KEY! });
+const res = await client.getModels({ limit: 5 });
+console.log(res.models);
+```
+
+```python Python
+from ai_stats import AIStats
+
+client = AIStats(api_key="YOUR_KEY")
+resp = client.get_models({"limit": 5})
+print(resp.models)
+```
+
+```csharp C# (preview)
+var client = new AiStatsSdk.Client("YOUR_KEY");
+var res = client.GetModels(limit: 5);
+Console.WriteLine(res.Models.Count);
+```
+
+```cpp C++ (preview)
+ai_stats_sdk_cpp::Client client("YOUR_KEY");
+auto task = client.getModels();
+auto resp = task.get();
+std::cout << "models fetched" << std::endl;
+```
+
+```go Go (preview)
+client := aistats.New("YOUR_KEY", "https://api.ai-stats.phaseo.app/v1")
+resp, _, _ := client.GetModels(context.Background(), nil)
+fmt.Println(resp.Models)
+```
+
+```php PHP (preview)
+$client = new \AIStats\Sdk\Client('YOUR_KEY');
+$resp = $client->getModels(['limit' => 5]);
+echo count($resp->getModels());
+```
+
+```ruby Ruby (preview)
+client = AIStatsSdk::Client.new(api_key: "YOUR_KEY")
+resp = client.get_models(limit: 5)
+puts resp.models.length
+```
+
+```rust Rust (preview)
+let client = ai_stats_sdk_example::Client::new("YOUR_KEY", "https://api.ai-stats.phaseo.app/v1");
+let resp = client.get_models(None, Some(5), None).await?;
+println!("{:?}", resp.models);
+```
+
+</CodeGroup>

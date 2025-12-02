@@ -1,0 +1,13 @@
+generatorName: rust
+outputDir: ../../../../packages/sdk-rust/src/gen
+inputSpec: apps/docs/openapi/v1/openapi.json
+additionalProperties:
+  packageName: ai_stats_sdk
+  supportAsync: true
+globalProperty:
+  apis: true
+  models: true
+  apiDocs: false
+  modelDocs: false
+  apiTests: false
+  modelTests: false

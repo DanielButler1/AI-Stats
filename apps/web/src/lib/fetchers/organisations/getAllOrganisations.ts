@@ -1,0 +1,45 @@
+// lib/fetchers/organisations/getAllOrganisations.ts
+import { unstable_cache } from "next/cache";
+import { createClient } from "@/utils/supabase/client";
+
+export interface OrganisationCard {
+    organisation_id: string;
+    organisation_name: string | null;
+    country_code: string | null;
+    colour: string | null;
+}
+
+export async function getAllOrganisations(): Promise<OrganisationCard[]> {
+    const supabase = await createClient();
+
+    const { data, error } = await supabase
+        .from("data_organisations")
+        .select("organisation_id, name, country_code, colour")
+        .order("name", { ascending: true });
+
+    if (error) {
+        // eslint-disable-next-line no-console
+        console.warn("[getAllOrganisations] supabase error fetching organisations", error.message);
+        throw error;
+    }
+
+    const rows: any[] = data ?? [];
+
+    const organisations: OrganisationCard[] = rows.map((raw: any) => ({
+        organisation_id: raw.organisation_id ?? raw.id ?? raw.slug ?? "",
+        organisation_name: raw.name ?? raw.organisation_name ?? null,
+        colour: raw.colour ?? raw.color ?? raw.colour_hex ?? null,
+        country_code: raw.country_code ?? raw.country ?? null,
+    })).filter(o => !!o.organisation_id);
+
+    return organisations;
+}
+
+export const getAllOrganisationsCached = unstable_cache(
+    async () => {
+        console.log("[fetch] HIT DB for organisations");
+        return await getAllOrganisations();
+    },
+    ["data:organisations:v1"],
+    { revalidate: 60 * 60 * 24, tags: ["data:organisations"] }
+);

@@ -1,0 +1,10 @@
+# # MessageContentImageUrl
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**type** | **string** |  |
+**image_url** | [**\AIStats\\Sdk\Model\MessageContentImageUrlImageUrl**](MessageContentImageUrlImageUrl.md) |  |
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

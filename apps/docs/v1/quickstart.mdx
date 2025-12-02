@@ -1,0 +1,208 @@
+---
+title: "Quickstart"
+description: "Get up and running with the AI Stats Gateway & Database in just a few minutes."
+---
+
+Welcome to the **AI Stats Quickstart** — this guide will help you make your first successful API request and explore everything AI Stats has to offer.
+
+The Gateway provides a simple and unified way to access AI models from multiple providers, without needing to juggle different APIs, keys, or formats.
+
+---
+
+## 1. Create an account
+
+Sign up for a free account on the [AI Stats Dashboard](https://ai-stats.phaseo.app).  
+Once logged in, navigate to **Gateway → API Keys** and click **Generate Key**.
+
+This key will be used to authenticate all API requests.
+
+---
+
+## 2. Make your first request
+
+With your API key ready, send your first request to the `/chat/completions` endpoint.
+
+<CodeGroup dropdown>
+```bash
+curl https://api.ai-stats.phaseo.app/v1/chat/completions \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gemini-3-pro-preview",
+    "messages": [
+      {"role": "user", "content": "Give me a short fact about AI."}
+    ]
+  }'
+```
+
+```javascript
+const response = await fetch(
+	"https://api.ai-stats.phaseo.app/v1/chat/completions",
+	{
+		method: "POST",
+		headers: {
+			Authorization: "Bearer YOUR_API_KEY",
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			model: "gemini-3-pro-preview",
+			messages: [
+				{ role: "user", content: "Give me a short fact about AI." },
+			],
+		}),
+	}
+);
+
+const data = await response.json();
+console.log(data.choices[0].message.content);
+```
+
+```python
+import requests
+
+url = "https://api.ai-stats.phaseo.app/v1/chat/completions"
+headers = {
+	"Authorization": "Bearer YOUR_API_KEY",
+	"Content-Type": "application/json"
+}
+data = {
+	"model": "gemini-3-pro-preview",
+	"messages": [{"role": "user", "content": "Give me a short fact about AI."}]
+}
+
+response = requests.post(url, headers=headers, json=data)
+print(response.json()["choices"][0]["message"]["content"])
+```
+
+```typescript
+import axios from "axios";
+
+const res = await axios.post(
+	"https://api.ai-stats.phaseo.app/v1/chat/completions",
+	{
+		model: "gemini-3-pro-preview",
+		messages: [{ role: "user", content: "Give me a short fact about AI." }],
+	},
+	{
+		headers: {
+			Authorization: "Bearer YOUR_API_KEY",
+			"Content-Type": "application/json",
+		},
+	}
+);
+
+console.log(res.data.choices[0].message.content);
+```
+
+</CodeGroup>
+
+If successful, you’ll receive a JSON response like this:
+
+```json
+{
+	"id": "G-00000000000000000000000000",
+	"model": "gemini-3-pro-preview",
+	"choices": [
+		{
+			"index": 0,
+			"message": {
+				"role": "assistant",
+				"content": "Artificial intelligence was first coined as a term in 1956 at Dartmouth College."
+			},
+			"finish_reason": "stop"
+		}
+	],
+	"usage": {
+		"input_tokens": 14,
+		"output_tokens": 21,
+		"total_tokens": 35
+	}
+}
+```
+
+You just made your first request to the AI Stats Gateway! 🎉
+You can easily modify the request to change model, the prompt, and other parameters.
+
+---
+
+## 3. Try different endpoints
+
+Once you’re comfortable, explore the other endpoints available in the Gateway:
+
+| Endpoint            | Purpose                                |
+| ------------------- | -------------------------------------- |
+| `/chat/completions` | Conversational AI (text generation).   |
+| `/moderations`      | Content moderation and safety scoring. |
+| `/embeddings`       | Generate vector embeddings for text.   |
+
+Other endpoints are coming soon!
+
+You can find full details and parameters in the [API Reference](/v1/api-reference/introduction).
+
+---
+
+## 4. Explore data on AI Stats
+
+The Gateway is just one part of AI Stats.
+You can also explore model metadata, benchmarks, and pricing across hundreds of providers:
+
+<Columns cols={2}>
+	<Card title="Explore Models" icon="database" href="/v1/exploring/models">
+		Browse detailed information for every model available.
+	</Card>
+	<Card
+		title="Compare Benchmarks"
+		icon="chart-column-increasing"
+		href="/v1/exploring/benchmarks"
+	>
+		Understand model performance across common benchmarks.
+	</Card>
+</Columns>
+
+---
+
+## 5. Next steps
+
+You’re all set!
+Continue learning by diving deeper into the API and integration examples.
+
+<Columns cols={2}>
+	<Card
+		title="Developers Introduction"
+		icon="code"
+		href="/v1/developers/introduction"
+	>
+		Learn about the Gateway, SDKs, and how to build with AI Stats.
+	</Card>
+	<Card
+		title="Authentication"
+		icon="key"
+		href="/v1/api-reference/authentication"
+	>
+		Securely authenticate your API requests.
+	</Card>
+</Columns>
+
+Or by exploring the data available on the website:
+
+<Columns cols={2}>
+	<Card
+		title="Models"
+		icon="database"
+		href="https://ai-stats.phaseo.app/models"
+	>
+		View all models on the website.
+	</Card>
+	<Card
+		title="Benchmarks"
+		icon="chart-column-increasing"
+		href="https://ai-stats.phaseo.app/benchmarks"
+	>
+		See how models perform across various benchmarks.
+	</Card>
+</Columns>
+
+---
+
+Need help?
+Join our [Discord community](https://discord.gg/phaseo) or reach out via the [Contact & Support page](/v1/community/contact-and-support).

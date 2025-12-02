@@ -1,0 +1,16 @@
+{
+  "key": "deepseek:deepseek/deepseek-v3-1-terminus-2025-09-22:chat.completions",
+  "api_provider_id": "deepseek",
+  "provider_slug": "deepseek",
+  "model_id": "deepseek/deepseek-v3-1-terminus-2025-09-22",
+  "endpoint": "chat.completions",
+  "provider_model_slug": null,
+  "is_active_gateway": false,
+  "input_modalities": [],
+  "output_modalities": [],
+  "effective_from": null,
+  "effective_to": null,
+  "capability": {},
+  "params": [],
+  "rules": []
+}

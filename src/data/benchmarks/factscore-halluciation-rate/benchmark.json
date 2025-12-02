@@ -1,8 +1,0 @@
-{
-  "id": "factscore-halluciation-rate",
-  "name": "FActScore hallucination rate",
-  "category": "hallucinations",
-  "order": "lower",
-  "description": null,
-  "link": null
-}

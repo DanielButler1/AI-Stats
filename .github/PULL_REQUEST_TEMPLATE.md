@@ -1,25 +1,39 @@
-## Description
+## Summary
 
-<!-- Briefly describe your changes and add links to any relevant resources. -->
+<!-- What does this PR change? High-level description. -->
 
-### References
+## Type of change
 
-<!-- Add links to sources or documentation here. -->
+-   [ ] Bug fix
+-   [ ] New feature
+-   [ ] Improvement / refactor
+-   [ ] Docs only
+-   [ ] Chore / tooling
+-   [ ] Data / content update
 
-## Type of Change (Tick all that apply)
+## Related issues / tickets
 
-<!-- Mark the appropriate option with an [x] -->
+<!-- e.g. Closes #123 -->
 
--   [ ] API Provider Update/Addition
--   [ ] Benchmark Update/Addition
--   [ ] Model Update/Addition
--   [ ] Provider Update/Addition
--   [ ] Bug Fix
--   [ ] Website Improvement
--   [ ] Other (please specify)
+## Affected areas
 
-## Checklist
+-   [ ] Web: frontend
+-   [ ] Web: backend
+-   [ ] API / gateway
+-   [ ] SDK-TS
+-   [ ] SDK-PY
+-   [ ] Database
+-   [ ] Data / scrapers
+-   [ ] Docs
+-   [ ] General / repo-wide
 
--   [ ] I've read the [CONTRIBUTING.md](../CONTRIBUTING.md) guidelines
--   [ ] My contribution complies with the non-commercial license
--   [ ] My changes are accurate and properly referenced
+## Deployment impact
+
+-   [ ] No migration / no special steps
+-   [ ] Requires DB migration
+-   [ ] Changes CI/CD
+-   [ ] User-facing behaviour change
+
+## Notes
+
+<!-- Anything else reviewers should know (edge cases, follow-ups, rollout notes, etc.) -->

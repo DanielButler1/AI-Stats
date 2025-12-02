@@ -1,0 +1,55 @@
+// lib/fetchers/benchmarks/getAllBenchmarks.ts
+import { unstable_cache } from "next/cache";
+
+export interface BenchmarkCard {
+    benchmark_id: string;
+    benchmark_name: string;
+    total_models: number;
+}
+
+import { createClient } from '@/utils/supabase/client';
+
+/**
+ * Fetch all benchmarks exclusively from the database `data_benchmarks` table.
+ */
+export async function getAllBenchmarks(sorted = false): Promise<BenchmarkCard[]> {
+    const supabase = await createClient();
+
+    // Base query
+    let query = supabase.from("data_benchmarks").select("id, name, total_models");
+
+    // Apply ordering based on flag
+    if (sorted) {
+        // Sort by total_models DESC, then name ASC
+        query = query.order("total_models", { ascending: false, nullsFirst: false }).order("name", { ascending: true });
+    } else {
+        // Sort alphabetically A-Z only
+        query = query.order("name", { ascending: true });
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+        // Surface DB errors to caller
+        throw error;
+    }
+
+    if (!data || !Array.isArray(data)) return [];
+
+    return data
+        .map((r: any) => ({
+            benchmark_id: r.id,
+            benchmark_name: r.name ?? '',
+            total_models: r.total_models ?? 0,
+        }))
+        .filter((b) => b.benchmark_id);
+}
+
+export const getAllBenchmarksCached = unstable_cache(
+    async (sorted = false) => {
+        console.log("[fetch] HIT for benchmarks");
+        return await getAllBenchmarks(sorted);
+    },
+    ["data:benchmarks:v1"],
+    { revalidate: 60 * 60 * 24, tags: ["data:benchmarks"] }
+);

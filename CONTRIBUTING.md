@@ -1,244 +1,131 @@
 # 🤝 Contributing to AI Stats
 
-Thank you for your interest in contributing to **AI Stats**! This is a community-driven project, and we welcome contributions from **everyone**, whether you're a seasoned developer, AI researcher, or simply someone passionate about tracking the evolution of language models.
+Thank you for your interest in contributing!  
+AI Stats is a community-driven project — built in public, by people who believe that AI should be **open**, **transparent**, and **accessible** to everyone.
+
+This guide explains how you can get involved.
 
 ---
 
-## 🔍 Data Contributions
+## 🧠 Our Philosophy
 
-This section explains how to contribute data to the project. Whether you're adding new models or updating benchmark scores, follow the steps below to ensure consistency and data quality.
+AI is reshaping the world — but access to it is increasingly closed off behind paywalls, restrictions, and vendor lock-ins.  
+AI Stats exists to change that, by providing an **open, unified layer** that connects to every model, everywhere.
 
----
-
-<details>
-<summary>🏢 <strong>Providers</strong> — Add or update AI providers</summary>
-
-#### Creating a New Provider
-
--   Create a new folder inside `/providers` using the provider’s name in **URL-safe**, **lowercase**, **dash-separated** format (e.g. `openai`, `google`, `mistral-ai`)
--   Inside that folder, create a file named `provider.json`
--   Follow the structure used in existing examples (fields include: `provider_id`, `name`, `website`, etc.)
-
-#### Updating an Existing Provider
-
--   Locate and edit the `provider.json` file inside the appropriate `/providers/{provider}/` folder
--   Keep all updates clear and accurate
--   Follow the same field naming and structure conventions
-
-</details>
+Whether you write code, improve docs, share ideas, or report bugs — you are helping keep AI open.
 
 ---
 
-<details>
-<summary>🤖 <strong>Models</strong> — Add or update individual models</summary>
+## 🛠️ Ways to Contribute
 
-#### Creating a New Model
+There are many ways to help — big or small:
 
--   Create a new folder inside `/models` using the model’s ID in lowercase preferably from an API (e.g. `gpt-4-0314`, `claude-4-opus-20250514`)
--   Inside that folder, add a `model.json` file with fields like:
-    -   `name`
-    -   `provider_id` (must match an existing entry in `/providers`)
-    -   `release_date`
-    -   `announcement_link`, `description`, and other relevant info
--   Follow the structure used in other model files
--   Please provide as much detail as possible, ensuring relevant sources are linked appropriately
+### 🧩 1. Code Contributions
 
-#### Updating an Existing Model
+-   Fix a bug or refactor an existing function.
+-   Add new routes, features, or utilities to the Gateway.
+-   Improve the frontend or data visualisations on the website.
+-   Write tests or performance improvements.
 
--   Locate and edit the `model.json` file in `/models/{model-id}/`
--   Add or correct fields like context length, architecture, supported modalities, etc.
-
-</details>
+> 💡 Start with “good first issue” tags in [Issues](https://github.com/DanielButler1/AI-Stats/issues).
 
 ---
 
-<details>
-<summary>🧪 <strong>Benchmarks</strong> — Add or update benchmark definitions</summary>
+### 🧾 2. Data Contributions
 
-#### Creating a New Benchmark
-
--   Add a new folder to `/benchmarks` using a short, lowercase, dash-separated name (e.g. `gpqa-diamond`, `mmlu`, `arc-agi-1` etc.)
--   Inside that folder, create a `benchmark.json` file
--   Follow the structure used in existing benchmarks.
-
-#### Updating an Existing Benchmark
-
--   Locate the existing file in `/benchmarks/{benchmark-id}/`
--   Add or correct metadata or improve descriptions
-
-</details>
+-   Add or update **model metadata** (JSON files).
+-   Contribute benchmark results or new provider integrations.
+-   Help verify or validate existing data for accuracy.
 
 ---
 
-<details>
-<summary>📊 <strong>Benchmark Results</strong> — Add results for a model</summary>
+### 🖋️ 3. Documentation
 
-#### Adding Benchmark Results
-
--   Benchmark results live **inside the `model.json` file** of the related model in `/models/{model-id}/`
--   Use the structure:
-    ```json
-    {
-    	"benchmark_id": "mmlu",
-    	"score": 86.7,
-    	"is_self_reported": true,
-    	"source_link": "https://example.com",
-    	"other_info": "March 2024 update"
-    }
-    ```
-
-#### Updating Benchmark Results
-
--   Locate the `model.json` file for the model you want to update
--   Add or update the `benchmark_results` array with new or corrected entries
--   Ensure all fields are accurate and follow the same structure as existing entries
-
-</details>
+-   Improve clarity, add examples, or write new guides.
+-   Translate or simplify sections for wider understanding.
+-   Fix typos, broken links, or structure issues in Mintlify docs.
 
 ---
 
-<details> <summary>🌐 <strong>API Providers</strong> — Add or update model API access sources</summary>
+### 💬 4. Community & Ideas
 
-#### Creating a New API Provider
-
--   Create a new folder inside `/api_providers` using the provider’s name in lowercase, dash-separated format (e.g. `openai`, `google`, `mistral-ai`)
--   Inside that folder, create a file named `provider.json`
--   Include fields like:
-    -   `api_provider_id` (must be unique)
-    -   `api_provider_name`
-    -   `description`
-    -   `website` - link to the API homepage
-
-#### Updating an Existing API Provider
-
--   Locate the `provider.json` file in `/api_providers/{provider}/`
--   Add or correct fields like `api_provider_name`, `description`, `website`, etc.
-
-</details>
+-   Share feature suggestions or feedback in [Discussions](https://github.com/DanielButler1/AI-Stats/discussions).
+-   Help onboard new contributors.
+-   Spread awareness about the mission of AI openness.
 
 ---
 
-<details> <summary>💸 <strong>Price Data</strong> — Add or update pricing for model usage</summary>
+## 🧰 Project Structure
 
-#### Adding Price Data
+```
+ai-stats/
+├── apps/
+│ ├── web/ → Public Next.js website
+│ ├── docs/ → Mintlify documentation
+│ └── api/ → Cloudflare Workers Gateway
+├── packages/ → Shared libraries & configs
+└── data/ → JSON model and benchmark data
+```
 
--   Find the model you want to add pricing for in `/models/{model-id}/`
--   Inside of the model.json file add a `prices` array with entries like:
-
-    ```json
-    {
-    	"api_provider": "openai",
-    	"input_token_price": 2e-5,
-    	"output_token_price": 8e-5,
-    	"throughput": "", (optional)
-    	"latency": "", (optional)
-    	"source_link": null,
-    	"other_info": ""
-    }
-    ```
-
-#### Updating Price Data
-
--   Locate the `model.json` file for the model's pricing you want to update
--   Add or update the `prices` array with new or corrected entries
-
-</details>
+Each folder contains its own README with relevant context.
 
 ---
 
----
+## ⚙️ Development Basics
 
-<details>
-<summary>🛠️ <strong>Website Development</strong> — Improve the site with code</summary>
+To work on the project locally:
 
-We welcome contributions to the frontend and overall structure of the AI Model Stats website. Whether it’s polishing the UI or improving performance, your help is appreciated!
+```bash
+# Clone the repository
+git clone https://github.com/DanielButler1/AI-Stats.git
+cd AI-Stats
 
-#### Areas to Contribute
+# Install dependencies
+pnpm install
 
--   Improve UI design or layout
--   Add new pages or functionality
--   Fix existing bugs
--   Optimise performance or code structure
--   Refactor or simplify components
+# Run all apps
+pnpm dev
+```
 
-#### Tech Stack
-
--   **Framework**: [Next.js](https://nextjs.org/) (App Router)
--   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
--   **Icons**: [Lucide](https://lucide.dev/)
-
-#### Guidelines
-
--   Follow existing file and folder structure
--   Keep components composable and reusable
--   Use Tailwind utility classes for all styling
--   Use TypeScript where appropriate
--   Keep commits focused and well-documented
-
-> If you’re unsure where to start, check the [open issues](https://github.com/DanielButler1/AI-Stats/issues) for bugs or feature suggestions tagged with `good first issue`.
-
-</details>
-
-### 💡 Ideas and Feedback
-
--   Suggest UI/UX improvements
--   Recommend new data fields to track
--   Propose automation or dashboard tools
-
-Even just opening an issue to start a conversation helps us improve!
+> You don’t need to run everything at once — work on the part that excites you most.
 
 ---
 
-## ⚙️ Setting Up Locally
+## ✅ Pull Request Guidelines
 
-1. Clone the repo:
+Fork the repository and create a new branch:
+git checkout -b feature/my-improvement
 
-    ```bash
-    git clone https://github.com/DanielButler1/AI-Stats.git
-    cd ai-model-stats
-    ```
+Make your changes.
 
-2. Install dependencies:
+Write clear commit messages and PR descriptions.
 
-    ```bash
-    npm install
-    ```
+Reference any related issues.
 
-3. Start the development server:
+Open a PR for review.
 
-    ```bash
-    npm run dev
-    ```
-
-4. Visit `http://localhost:3000`
+We prefer small, focused PRs over giant ones ― they’re easier to review and merge.
 
 ---
 
-## 🔄 Submitting a Pull Request
+## Release workflow
 
-1. **Fork** the repository
-2. **Create a new branch** (`git checkout -b feature-name`)
-3. **Make your changes** (code or data)
-4. **Commit and push** your branch
-5. Open a **pull request** with a clear description of what you’ve done
+The monorepo now uses [changesets](https://github.com/changesets/changesets) to track releases for the SDK packages, the gateway API, and the web UI. To publish a release:
 
-We'll review your submission and provide feedback if needed!
+- Run `pnpm changeset` and select the workspaces you want to release (for example `@ai-stats/ts-sdk`, `@ai-stats/gateway-api`, `@ai-stats/web`, or `@ai-stats/py-sdk`). The Python workspace exists solely for tooling and stays private.
+  - Run `pnpm changeset:version` to bump every affected `package.json`, emit changelog entries, and automatically sync `pyproject.toml`. The Mintlify docs site uses its own version selector, so `apps/docs/docs.json` (and its `api.version` entry) are maintained separately.
+- Use `pnpm sdk-py:sync-version` whenever you need to resync `pyproject.toml` (for example if you roll back a change or edit the file manually) before publishing to PyPI.
 
----
+## dY'� Code of Conduct
 
-## ✅ Code Guidelines
+AI Stats follows the Contributor Covenant
+.
+Be kind, respectful, and open-minded. This project thrives on good intent and shared curiosity.
 
--   Write clean, readable code with clear variable names
--   Prefer functional, composable components (Next.js)
--   Keep styling in Tailwind CSS classes
--   Data files must be valid JSON with consistent field naming
+## 🌍 Built in Public
 
----
+Every line of code, every discussion, and every idea contributes to a movement:
+keeping AI accessible, understandable, and transparent for all.
 
-## 🗣️ Questions or Ideas?
-
--   [Open an Issue](https://github.com/DanielButler1/AI-Stats/issues)
--   DM us on Twitter [@DanielButler001](https://twitter.com/DanielButler001)
--   Join our [Discord community](https://discord.gg/zDw73wamdX)
-
-Thanks again for being here - let’s build something great together 🚀
+Thank you for being part of it.
+— The AI Stats Team

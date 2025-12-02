@@ -1,0 +1,16 @@
+{
+  "plan_id": "perplexity-free",
+  "name": "Perplexity Free",
+  "organisation_id": "perplexity",
+  "description": null,
+  "pricing_options": [
+    {
+      "frequency": "monthly",
+      "usd_price": 0.0,
+      "link": null,
+      "other_info": null
+    }
+  ],
+  "features": [],
+  "models": []
+}

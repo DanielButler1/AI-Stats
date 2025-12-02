@@ -1,0 +1,53 @@
+name: Watchers
+
+on:
+    workflow_dispatch: {}
+
+    # schedule:
+    #   - cron: "*/30 * * * *"
+
+permissions:
+    contents: read
+
+jobs:
+    watcher:
+        name: ${{ matrix.name }}
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    - name: Web watcher
+                      watcher: web
+                      script: ../../scripts/watchers/web-watcher.ts
+                    - name: YouTube watcher
+                      watcher: youtube
+                      script: ../../scripts/watchers/youtube-watcher.ts
+
+        env:
+            NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+            SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  package_json_file: package.json
+
+            - name: Setup Node 20
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+                  cache: "pnpm"
+                  cache-dependency-path: pnpm-lock.yaml
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Run watcher (${{ matrix.watcher }})
+              env:
+                  WEB_WATCHER_PER_SITEMAP_LIMIT: ${{ matrix.watcher == 'web' && secrets.WEB_WATCHER_PER_SITEMAP_LIMIT || '' }}
+                  YT_API_KEY: ${{ matrix.watcher == 'youtube' && secrets.YT_API_KEY || '' }}
+              run: pnpm --filter @ai-stats/web exec tsx ${{ matrix.script }}

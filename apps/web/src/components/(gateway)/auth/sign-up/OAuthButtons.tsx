@@ -1,0 +1,94 @@
+"use client";
+
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { handleOAuthRedirect } from "@/app/(auth)/sign-in/actions";
+import { Logo } from "@/components/Logo";
+
+type Provider = "google" | "github" | "gitlab";
+
+const PROVIDERS: Provider[] = ["google", "github", "gitlab"];
+
+type ProviderMeta = {
+	label: string;
+	logoId?: string;
+	light?: string;
+	dark?: string;
+};
+
+const META: Record<Provider, ProviderMeta> = {
+	google: { label: "Google", logoId: "google" },
+	github: {
+		label: "GitHub",
+		light: "/social/github_light.svg",
+		dark: "/social/github_dark.svg",
+	},
+	gitlab: { label: "GitLab", light: "/social/gitlab.svg" },
+};
+
+export default function OAuthButtons() {
+	return (
+		<div className="grid gap-4">
+			<div className="flex items-center gap-2">
+				<div className="flex-1 border-t border-border" />
+				<span className="px-2 text-sm font-medium">Quick sign-up</span>
+				<div className="flex-1 border-t border-border" />
+			</div>
+
+			<div className="flex flex-col gap-3">
+				{PROVIDERS.map((id) => {
+					const meta = META[id];
+					return (
+						<form action={handleOAuthRedirect} key={id}>
+							<input type="hidden" name="provider" value={id} />
+							<Button
+								type="submit"
+								variant="outline"
+								aria-label={`Continue with ${meta.label}`}
+								className="w-full h-10 flex items-center justify-center relative"
+							>
+								<div className="absolute left-3 flex items-center">
+									{meta.logoId ? (
+										<Logo
+											id={meta.logoId}
+											width={16}
+											height={16}
+											className="h-4 w-4 shrink-0"
+										/>
+									) : (
+										<>
+											{meta.light ? (
+												<Image
+													src={meta.light}
+													alt={`${meta.label} logo`}
+													width={16}
+													height={16}
+													className="h-4 w-4 shrink-0 dark:hidden"
+												/>
+											) : null}
+											{(meta.dark ?? meta.light) ? (
+												<Image
+													src={
+														meta.dark ?? meta.light!
+													}
+													alt={`${meta.label} logo`}
+													width={16}
+													height={16}
+													className="hidden h-4 w-4 shrink-0 dark:block"
+												/>
+											) : null}
+										</>
+									)}
+								</div>
+
+								<span className="text-center">
+									Continue with {meta.label}
+								</span>
+							</Button>
+						</form>
+					);
+				})}
+			</div>
+		</div>
+	);
+}

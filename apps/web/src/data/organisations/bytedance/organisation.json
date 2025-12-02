@@ -1,0 +1,29 @@
+{
+  "organisation_id": "bytedance",
+  "name": "ByteDance",
+  "country_code": "CN",
+  "description": "ByteDance is an AI and technology company. Their mission is to apply generative, vision-language and agentic AI across content, creation and interaction so that intelligence powers new experience platforms.",
+  "colour": "#74E1DE",
+  "organisation_links": [
+    {
+      "platform": "github",
+      "url": "https://github.com/bytedance"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/ByteDance-Seed"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/bytedance"
+    },
+    {
+      "platform": "website",
+      "url": "https://seed.bytedance.com/en/"
+    },
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/c/ByteDance"
+    }
+  ]
+}

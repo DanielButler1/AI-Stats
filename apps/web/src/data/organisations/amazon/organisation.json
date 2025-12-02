@@ -1,0 +1,49 @@
+{
+  "organisation_id": "amazon",
+  "name": "Amazon",
+  "country_code": "US",
+  "description": "Amazon is a technology and infrastructure company. Their mission is to make generative AI and foundation models accessible and scalable across businesses and services, helping users solve problems, boost productivity and innovate.",
+  "colour": "#FF9900",
+  "organisation_links": [
+    {
+      "platform": "github",
+      "url": "https://github.com/amzn"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/amazon"
+    },
+    {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/amazon/"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/amazon/posts/?feedView=all"
+    },
+    {
+      "platform": "reddit",
+      "url": "https://www.reddit.com/r/amazon/about/"
+    },
+    {
+      "platform": "threads",
+      "url": "https://www.threads.com/@amazon"
+    },
+    {
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@amazon"
+    },
+    {
+      "platform": "website",
+      "url": "https://aws.amazon.com/ai/"
+    },
+    {
+      "platform": "x",
+      "url": "https://twitter.com/amazon"
+    },
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/@amazon"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "organisation_id": "mistral",
+  "name": "Mistral",
+  "country_code": "FR",
+  "description": "Mistral is an AI model company. Their mission is to democratise artificial intelligence by building efficient, open-source and high-performance models which organisations can deploy and own.",
+  "colour": "#e97a35",
+  "organisation_links": [
+    {
+      "platform": "github",
+      "url": "https://github.com/mistralai"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/mistralai"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/mistralai"
+    },
+    {
+      "platform": "website",
+      "url": "https://mistral.ai/"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/MistralAI"
+    }
+  ]
+}

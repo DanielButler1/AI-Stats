@@ -1,0 +1,200 @@
+{
+	"$schema": "https://mintlify.com/docs.json",
+	"theme": "mint",
+	"name": "AI Stats Docs",
+	"colors": {
+		"primary": "#333333",
+		"light": "#cccccc",
+		"dark": "#333333"
+	},
+	"favicon": "/favicon.svg",
+	"icons": {
+		"library": "lucide"
+	},
+	"api": {
+		"openapi": "openapi/v1/openapi.json",
+		"version": "0.1.0"
+	},
+	"navigation": {
+		"versions": [
+			{
+				"version": "V1",
+				"tabs": [
+					{
+						"tab": "Guides",
+						"icon": "book",
+						"groups": [
+							{
+								"group": "Introduction",
+								"pages": ["v1/index", "v1/quickstart"]
+							},
+							{
+								"group": "Contributing to AI Stats",
+								"pages": [
+									"v1/contributing/overview",
+									"v1/contributing/how-to-contribute",
+									"v1/contributing/repo-structure"
+								]
+							}
+						]
+					},
+					{
+						"tab": "Developers",
+						"icon": "code",
+						"groups": [
+							{
+								"group": "Getting Started with the Gateway",
+								"pages": [
+									"v1/developers/introduction",
+									"v1/developers/integrating-with-the-gateway",
+									"v1/developers/authentication"
+								]
+							},
+							{
+								"group": "Advanced Usage",
+								"pages": [
+									"v1/developers/best-practices",
+									"v1/developers/error-handling",
+									"v1/developers/rate-limits"
+								]
+							},
+							{
+								"group": "Research & Methodology",
+								"pages": ["v1/research/citation"]
+							}
+						]
+					},
+					{
+						"tab": "API Reference",
+						"icon": "server",
+						"groups": [
+							{
+								"group": "Overview",
+								"pages": [
+									"v1/api-reference/introduction",
+									"v1/api-reference/authentication",
+									"v1/api-reference/errors"
+								]
+							},
+							{
+								"group": "Models",
+								"pages": ["v1/api-reference/endpoint/models"]
+							},
+							{
+								"group": "Completions",
+								"pages": [
+									"v1/api-reference/endpoint/chat-completions"
+								]
+							},
+							{
+								"group": "Analytics",
+								"pages": ["v1/api-reference/endpoint/health"]
+							},
+							{
+								"group": "Credits",
+								"pages": []
+							},
+							{
+								"group": "Generations",
+								"pages": [
+									"v1/api-reference/endpoint/generation"
+								]
+							},
+							{
+								"group": "Providers",
+								"pages": []
+							},
+							{
+								"group": "API Keys",
+								"pages": []
+							}
+						]
+					},
+					{
+						"tab": "SDK Reference (Beta)",
+						"icon": "package",
+						"menu": [
+							{
+								"item": "TypeScript SDK",
+								"pages": [
+									"v1/sdk-reference/typescript/overview",
+									"v1/sdk-reference/typescript/installation",
+									"v1/sdk-reference/typescript/usage"
+								]
+							},
+							{
+								"item": "Python SDK",
+								"pages": [
+									"v1/sdk-reference/python/overview",
+									"v1/sdk-reference/python/installation",
+									"v1/sdk-reference/python/usage"
+								]
+							}
+						]
+					},
+					{
+						"tab": "Changelog",
+						"icon": "history",
+						"groups": [
+							{
+								"group": "Latest updates",
+								"pages": ["v1/changelog"]
+							}
+						]
+					}
+				]
+			}
+		],
+		"global": {
+			"anchors": [
+				{
+					"anchor": "GitHub",
+					"href": "https://github.com/DanielButler1/ai-stats",
+					"icon": "github"
+				},
+				{
+					"anchor": "Discord",
+					"href": "https://discord.gg/aQyywCvgZ5",
+					"icon": "discord"
+				}
+			]
+		}
+	},
+	"logo": {
+		"light": "/logo/light.svg",
+		"dark": "/logo/dark.svg",
+		"href": "https://ai-stats.phaseo.app"
+	},
+	"navbar": {
+		"links": [
+			{
+				"label": "Support",
+				"href": "mailto:daniel@phaseo.app"
+			}
+		],
+		"primary": {
+			"type": "button",
+			"label": "Dashboard",
+			"href": "https://ai-stats.phaseo.app"
+		}
+	},
+	"contextual": {
+		"options": [
+			"copy",
+			"view",
+			"chatgpt",
+			"claude",
+			"perplexity",
+			"mcp",
+			"cursor",
+			"vscode"
+		]
+	},
+	"footer": {
+		"socials": {
+			"x": "https://x.com/phaseoapp",
+			"github": "https://github.com/ai-stats",
+			"discord": "https://discord.gg/aQyywCvgZ5"
+		}
+	}
+}

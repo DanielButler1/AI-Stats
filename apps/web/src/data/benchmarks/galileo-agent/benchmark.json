@@ -1,0 +1,8 @@
+{
+  "benchmark_id": "galileo-agent",
+  "benchmark_name": "Galileo Agent",
+  "category": null,
+  "ascending_order": null,
+  "link": "https://huggingface.co/spaces/galileo-ai/agent-leaderboard",
+  "total_models": 0
+}

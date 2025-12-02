@@ -1,0 +1,7 @@
+{
+  "name": "@ai-stats/rust-sdk",
+  "version": "0.0.0",
+  "private": true,
+  "description": "AI Stats Rust SDK (preview) - generated client with models wrapper",
+  "license": "MIT"
+}

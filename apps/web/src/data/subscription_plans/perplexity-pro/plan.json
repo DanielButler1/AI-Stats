@@ -1,0 +1,22 @@
+{
+  "plan_id": "perplexity-pro",
+  "name": "Perplexity Pro",
+  "organisation_id": "perplexity",
+  "description": null,
+  "pricing_options": [
+    {
+      "frequency": "monthly",
+      "usd_price": 20.0,
+      "link": null,
+      "other_info": null
+    },
+    {
+      "frequency": "yearly",
+      "usd_price": 200.0,
+      "link": null,
+      "other_info": null
+    }
+  ],
+  "features": [],
+  "models": []
+}

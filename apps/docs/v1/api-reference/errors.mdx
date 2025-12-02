@@ -1,0 +1,82 @@
+---
+title: "Error Handling"
+description: "Understand how to handle errors and interpret responses from the AI Stats Gateway API."
+---
+
+All errors from the AI Stats Gateway should be returned in a consistent JSON structure:
+
+```json
+{
+	"generation_id": "G-abc123",
+	"status_code": 401,
+	"error": "Detailed human-readable message",
+	"reason": "error_type"
+}
+```
+
+Every response includes:
+
+- `generation_id`: a stable identifier you can share with support for faster investigation.
+- `status_code`: mirrors the HTTP status to make retries decisions easier.
+- `error`: a human-friendly explanation you can display to end users.
+- `reason`: a machine-readable error type that aligns with the types listed below.
+
+---
+
+## Common error types
+
+| Type                   | HTTP Status | Description                                          |
+| ---------------------- | ----------- | ---------------------------------------------------- |
+| `authentication_error` | `401`       | Missing or invalid API key.                          |
+| `authorization_error`  | `403`       | Key lacks permission to access this resource.        |
+| `not_found_error`      | `404`       | The endpoint or resource could not be found.         |
+| `rate_limit_error`     | `429`       | Too many requests. Retry after the specified delay.  |
+| `validation_error`     | `400`       | Invalid parameters or request body.                  |
+| `provider_error`       | `502`       | Upstream model provider failed to respond correctly. |
+| `server_error`         | `500`       | Unexpected issue within the Gateway.                 |
+
+---
+
+## Retry strategy
+
+-   **400-series errors:** Fix your request before retrying.
+-   **429:** Implement exponential backoff and honour the `Retry-After` header.
+-   **500-series errors:** Retry safely after a short delay.
+
+Example:
+
+```js
+if (error.type === "rate_limit_error") {
+	await sleep(retryAfterMs);
+	return retryRequest();
+}
+```
+
+---
+
+## Troubleshooting tips
+
+-   Check the [Gateway status page](/status) for ongoing incidents.
+-   Review your request payloads — strict JSON validation is enforced.
+-   Use the `generation_id` (from the response body) when contacting support as this helps us identify your request.
+
+---
+
+## Related resources
+
+<Columns cols={2}>
+	<Card
+		title="Authentication"
+		icon="key"
+		href="/v1/api-reference/authentication"
+	>
+		How to authenticate with your API key securely.
+	</Card>
+	<Card
+		title="Health Endpoint"
+		icon="activity"
+		href="/v1/api-reference/endpoint/health"
+	>
+		Test connectivity and verify Gateway uptime.
+	</Card>
+</Columns>
