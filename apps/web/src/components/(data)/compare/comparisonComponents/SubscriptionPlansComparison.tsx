@@ -14,6 +14,22 @@ interface SubscriptionPlansComparisonProps {
 	selectedModels: ExtendedModel[];
 }
 
+const formatRateLimit = (value: unknown): string => {
+	if (value === null || value === undefined) return "";
+	if (typeof value === "string" || typeof value === "number") {
+		return String(value);
+	}
+	if (typeof value === "object") {
+		try {
+			const serialized = JSON.stringify(value);
+			return serialized === "{}" ? "" : serialized;
+		} catch {
+			return "";
+		}
+	}
+	return "";
+};
+
 const buildPriceLabel = (
 	prices: NonNullable<
 		ExtendedModel["subscription_plans"]
@@ -137,19 +153,19 @@ export default function SubscriptionPlansComparison({
 															? "noreferrer noopener"
 															: undefined
 													}
-												>
-													{plan.name}
-												</Link>
-												<span className="text-xs text-muted-foreground">
-													{plan.organisation.name}
-												</span>
-											</div>
-											{plan.model_info?.rate_limit && (
-												<Badge variant="outline" className="text-[10px]">
-													{plan.model_info.rate_limit}
-												</Badge>
-											)}
-										</div>
+									>
+										{plan.name}
+									</Link>
+									<span className="text-xs text-muted-foreground">
+										{plan.organisation.name}
+									</span>
+								</div>
+								{formatRateLimit(plan.model_info?.rate_limit) && (
+									<Badge variant="outline" className="text-[10px]">
+										{formatRateLimit(plan.model_info?.rate_limit)}
+									</Badge>
+								)}
+							</div>
 										<p className="text-sm font-mono text-primary">
 											{buildPriceLabel(plan.prices)}
 										</p>

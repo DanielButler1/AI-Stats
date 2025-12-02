@@ -42,9 +42,6 @@ const staticRoutes: Array<{
         { path: "/compare", changeFrequency: "weekly", priority: 0.7 },
         { path: "/gateway", changeFrequency: "weekly", priority: 0.7 },
         { path: "/contribute", changeFrequency: "monthly", priority: 0.6 },
-        { path: "/contribute/benchmarks", changeFrequency: "monthly", priority: 0.5 },
-        { path: "/contribute/prices", changeFrequency: "monthly", priority: 0.5 },
-        { path: "/contribute/changes", changeFrequency: "monthly", priority: 0.5 },
         { path: "/sources", changeFrequency: "monthly", priority: 0.6 },
         { path: "/roadmap", changeFrequency: "monthly", priority: 0.6 },
         { path: "/tools", changeFrequency: "monthly", priority: 0.65 },
@@ -56,6 +53,7 @@ const staticRoutes: Array<{
         { path: "/updates/models", changeFrequency: "weekly", priority: 0.55 },
         { path: "/updates/web", changeFrequency: "weekly", priority: 0.55 },
         { path: "/updates/youtube", changeFrequency: "weekly", priority: 0.55 },
+        { path: "/updates/calendar", changeFrequency: "weekly", priority: 0.55 },
         { path: "/updates/calendar", changeFrequency: "weekly", priority: 0.55 },
         { path: "/wrapped", changeFrequency: "monthly", priority: 0.5 },
         { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
@@ -138,14 +136,14 @@ function getModelSlugs(map?: ManifestFile["models"]): string[] {
     if (!map) {
         return [];
     }
-    Object.entries(map).forEach(([orgId, list]) => {
+    Object.entries(map).forEach(([, list]) => {
         (list ?? []).forEach((slug) => {
             if (!slug) {
                 return;
             }
             const cleaned = slug.trim();
             if (cleaned) {
-                normalized.add(`${orgId}/${cleaned}`);
+                normalized.add(`${cleaned}`);
             }
         });
     });

@@ -13,15 +13,35 @@ interface CompareMiniHeaderProps {
 	models: ExtendedModel[];
 }
 
+const decodeModelIdFromUrl = (value: string): string => {
+	const trimmed = value?.trim();
+	if (!trimmed) return "";
+	if (trimmed.includes("/")) return trimmed;
+	if (!trimmed.includes("_")) return trimmed;
+	const [organisationId, ...rest] = trimmed.split("_");
+	if (!organisationId || rest.length === 0) return trimmed;
+	return `${organisationId}/${rest.join("_")}`;
+};
+
+const encodeModelIdForUrl = (value: string): string => {
+	if (!value) return "";
+	const [organisationId, ...rest] = value.split("/");
+	if (!organisationId || rest.length === 0) return value;
+	return `${organisationId}_${rest.join("/")}`;
+};
+
 export default function CompareMiniHeader({ models }: CompareMiniHeaderProps) {
 	const searchParams = useSearchParams();
 	const router = useRouter();
-	const selected = searchParams.getAll("models");
+	const selected = searchParams
+		.getAll("models")
+		.map((value) => decodeModelIdFromUrl(value))
+		.filter(Boolean);
 
 	const setSelected = (ids: string[]) => {
 		const params = new URLSearchParams(searchParams.toString());
 		params.delete("models");
-		ids.forEach((id) => params.append("models", id));
+		ids.forEach((id) => params.append("models", encodeModelIdForUrl(id)));
 		router.replace(`?${params.toString()}`);
 	};
 

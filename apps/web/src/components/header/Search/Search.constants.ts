@@ -372,7 +372,7 @@ export const curatedGroups: ResultGroup[] = [
             {
                 id: "compare-gpt5-claude",
                 title: "GPT-5 vs Claude 3.5",
-                href: "/compare?models=gpt-5-2025-08-07,claude-3.5-sonnet-20241022",
+                href: "/compare?models=openai_gpt-5-2025-08-07,anthropic_claude-3-5-sonnet-2024-10-22",
                 icon: "compare",
                 leftLogoId: "openai",
                 rightLogoId: "anthropic",
@@ -380,7 +380,7 @@ export const curatedGroups: ResultGroup[] = [
             {
                 id: "compare-gemini-gpt",
                 title: "Gemini 3.0 Pro vs GPT-5",
-                href: "/compare?models=gemini-3.0-pro-preview,gpt-5-2025-08-07",
+                href: "/compare?models=google_gemini-3-0-pro-preview-2025-11-18,openai_gpt-5-2025-08-07",
                 icon: "compare",
                 leftLogoId: "google",
                 rightLogoId: "openai",
@@ -388,7 +388,7 @@ export const curatedGroups: ResultGroup[] = [
             {
                 id: "compare-grok-claude",
                 title: "Grok-4 vs Claude 3.5",
-                href: "/compare?models=grok-4-0709,claude-3.5-sonnet-20241022",
+                href: "/compare?models=x-ai_grok-4-2025-07-10,anthropic_claude-3-5-sonnet-2024-10-22",
                 icon: "compare",
                 leftLogoId: "x-ai",
                 rightLogoId: "anthropic",
@@ -396,7 +396,7 @@ export const curatedGroups: ResultGroup[] = [
             {
                 id: "compare-open-mistral",
                 title: "Mistral vs OpenAI",
-                href: "/compare?models=mistral-large-2,gpt-4o-2024-05-13",
+                href: "/compare?models=mistral_mistral-large-2-2024-07-24,openai_gpt-4o-2024-05-13",
                 icon: "compare",
                 leftLogoId: "mistral",
                 rightLogoId: "openai",
@@ -404,7 +404,7 @@ export const curatedGroups: ResultGroup[] = [
             {
                 id: "compare-coding",
                 title: "Coding models showdown",
-                href: "/compare?models=deepseek-r1,gpt-4o-2024-05-13",
+                href: "/compare?models=deepseek_deepseek-r1-2025-05-28,openai_gpt-4o-2024-05-13",
                 icon: "compare",
                 leftLogoId: "deepseek",
                 rightLogoId: "openai",
@@ -412,7 +412,7 @@ export const curatedGroups: ResultGroup[] = [
             {
                 id: "compare-llama-gpt",
                 title: "Llama 3.3 vs GPT-5",
-                href: "/compare?models=llama-3.3-70b,gpt-5-2025-08-07",
+                href: "/compare?models=meta_llama-3-3-70b-instruct-2024-12-06,openai_gpt-5-2025-08-07",
                 icon: "compare",
                 leftLogoId: "meta",
                 rightLogoId: "openai",

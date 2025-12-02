@@ -11,7 +11,12 @@
   "license": null,
   "input_types": null,
   "output_types": null,
-  "links": [],
+  "links": [
+    {
+      "platform": "announcement",
+      "url": "https://x.com/deepseek_ai/status/1995452641430651132?s=20"
+    }
+  ],
   "details": [],
   "benchmarks": []
 }

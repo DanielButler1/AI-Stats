@@ -7,11 +7,10 @@ import { cn } from "@/lib/utils";
 
 const LINKS = [
 	{ href: "/", label: "Home", exact: true },
-	// { href: "/compare", label: "Comparisons" },
+	{ href: "/compare", label: "Compare" },
 	{ href: "/organisations", label: "Organisations" },
 	{ href: "/models", label: "Models" },
 	{ href: "/benchmarks", label: "Benchmarks" },
-	{ href: "/performance", label: "Performance" },
 	{ href: "/api-providers", label: "API Providers" },
 ];
 

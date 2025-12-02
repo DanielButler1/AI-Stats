@@ -31,8 +31,18 @@ export const metadata: Metadata = buildMetadata({
 
 type PageProps = {
 	searchParams?:
-		| Promise<Record<string, string | string[] | undefined>>
-		| Record<string, string | string[] | undefined>;
+	| Promise<Record<string, string | string[] | undefined>>
+	| Record<string, string | string[] | undefined>;
+};
+
+const decodeModelIdFromUrl = (value: string): string => {
+	const trimmed = value?.trim();
+	if (!trimmed) return "";
+	if (trimmed.includes("/")) return trimmed;
+	if (!trimmed.includes("_")) return trimmed;
+	const [organisationId, ...rest] = trimmed.split("_");
+	if (!organisationId || rest.length === 0) return trimmed;
+	return `${organisationId}/${rest.join("_")}`;
 };
 
 const normalizeSelection = (value: string | string[] | undefined): string[] => {
@@ -44,12 +54,14 @@ const normalizeSelection = (value: string | string[] | undefined): string[] => {
 export default async function Page({ searchParams }: PageProps = {}) {
 	const models: ExtendedModel[] = await loadCompareModelsCached();
 	const resolvedSearchParams = await searchParams;
-	const selection = normalizeSelection(resolvedSearchParams?.models);
+	const selection = normalizeSelection(resolvedSearchParams?.models).map(
+		decodeModelIdFromUrl
+	);
 
 	const lookup = new Map<string, string>();
 	models.forEach((model) => {
+		if (!model.id) return;
 		lookup.set(model.id, model.id);
-		lookup.set(model.name, model.id);
 	});
 
 	const resolvedIds = selection

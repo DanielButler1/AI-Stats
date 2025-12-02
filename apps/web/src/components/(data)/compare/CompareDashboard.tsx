@@ -16,56 +16,79 @@ type QuickComparison = {
 	logos: string[];
 };
 
+const decodeModelIdFromUrl = (value: string): string => {
+	const trimmed = value?.trim();
+	if (!trimmed) return "";
+	if (trimmed.includes("/")) return trimmed;
+	if (!trimmed.includes("_")) return trimmed;
+	const [organisationId, ...rest] = trimmed.split("_");
+	if (!organisationId || rest.length === 0) return trimmed;
+	return `${organisationId}/${rest.join("_")}`;
+};
+
+const encodeModelIdForUrl = (value: string): string => {
+	if (!value) return "";
+	const [organisationId, ...rest] = value.split("/");
+	if (!organisationId || rest.length === 0) return value;
+	return `${organisationId}_${rest.join("/")}`;
+};
+
 const quickComparisons: QuickComparison[] = [
 	{
 		title: "Gemini 2.5 Pro Preview vs Grok 4 vs GPT-5 vs Claude Sonnet 4.5",
 		modelIds: [
-			"gemini-2.5-pro-preview-06-05",
-			"grok-4-0709",
-			"gpt-5-2025-08-07",
-			"claude-sonnet-4-5-20250929",
+			"google/gemini-2-5-pro-preview-2025-06-05",
+			"x-ai/grok-4-2025-07-10",
+			"openai/gpt-5-2025-08-07",
+			"anthropic/claude-sonnet-4-5-2025-09-29",
 		],
-		logos: ["google", "grok", "openai", "anthropic"],
+		logos: ["google", "xai", "openai", "anthropic"],
 	},
 	{
 		title: "Grok 4 vs GPT-5.1",
-		modelIds: ["grok-4-0709", "gpt-5.1-2025-11-13"],
-		logos: ["grok", "openai"],
+		modelIds: ["x-ai/grok-4-2025-07-10", "openai/gpt-5-1-2025-11-12"],
+		logos: ["xai", "openai"],
 	},
 	{
 		title: "Claude Sonnet 4.5 vs Gemini 2.5 Pro Preview",
 		modelIds: [
-			"claude-sonnet-4-5-20250929",
-			"gemini-2.5-pro-preview-06-05",
+			"anthropic/claude-sonnet-4-5-2025-09-29",
+			"google/gemini-2-5-pro-preview-2025-06-05",
 		],
 		logos: ["anthropic", "google"],
 	},
 	{
 		title: "GPT-5 vs Claude Opus 4",
-		modelIds: ["gpt-5-2025-08-07", "claude-opus-4-20250514"],
+		modelIds: ["openai/gpt-5-2025-08-07", "anthropic/claude-opus-4-2025-05-21"],
 		logos: ["openai", "anthropic"],
 	},
 	{
 		title: "Grok 4 vs Claude Sonnet 4.5",
-		modelIds: ["grok-4-0709", "claude-sonnet-4-5-20250929"],
-		logos: ["grok", "anthropic"],
+		modelIds: ["x-ai/grok-4-2025-07-10", "anthropic/claude-sonnet-4-5-2025-09-29"],
+		logos: ["xai", "anthropic"],
 	},
 	{
 		title: "Gemini 2.5 Pro Preview vs GPT-5.1",
-		modelIds: ["gemini-2.5-pro-preview-06-05", "gpt-5.1-2025-11-13"],
+		modelIds: [
+			"google/gemini-2-5-pro-preview-2025-06-05",
+			"openai/gpt-5-1-2025-11-12",
+		],
 		logos: ["google", "openai"],
 	},
 	{
 		title: "Claude Sonnet 4.5 vs Grok 4 Max",
-		modelIds: ["claude-sonnet-4-5-20250929", "grok-4-heavy-07-09"],
-		logos: ["anthropic", "grok"],
+		modelIds: [
+			"anthropic/claude-sonnet-4-5-2025-09-29",
+			"x-ai/grok-4-heavy-2025-07-10",
+		],
+		logos: ["anthropic", "xai"],
 	},
 ];
 
 const buildQuickComparisonHref = (modelIds: string[]): string => {
 	const params = new URLSearchParams();
 	modelIds.forEach((id) => {
-		if (id) params.append("models", id);
+		if (id) params.append("models", encodeModelIdForUrl(id));
 	});
 	const queryString = params.toString();
 	return queryString ? `/compare?${queryString}` : "/compare";
@@ -82,13 +105,16 @@ export default function CompareDashboard({
 }: CompareDashboardProps) {
 	const searchParams = useSearchParams();
 	const router = useRouter();
-	const selected = searchParams.getAll("models");
+	const selected = searchParams
+		.getAll("models")
+		.map((value) => decodeModelIdFromUrl(value))
+		.filter(Boolean);
 
 	const selectionLookup = useMemo(() => {
 		const map = new Map<string, string>();
 		models.forEach((model) => {
+			if (!model.id) return;
 			map.set(model.id, model.id);
-			map.set(model.name, model.id);
 		});
 		return map;
 	}, [models]);
@@ -98,19 +124,22 @@ export default function CompareDashboard({
 		[selected, selectionLookup]
 	);
 
+	const resolvedSelectionSet = useMemo(
+		() => new Set(resolvedSelectionIds),
+		[resolvedSelectionIds]
+	);
+
 	const setSelected = (ids: string[]) => {
 		const params = new URLSearchParams(searchParams.toString());
 		params.delete("models");
-		ids.forEach((id) => params.append("models", id));
+		ids.forEach((id) => params.append("models", encodeModelIdForUrl(id)));
 		router.replace(`?${params.toString()}`);
 	};
 
-	const selectedModels = models.filter(
-		(m) => selected.includes(m.id) || selected.includes(m.name)
-	);
+	const selectedModels = models.filter((m) => resolvedSelectionSet.has(m.id));
 
-	const notFound = selected.filter(
-		(id) => !selectedModels.some((m) => m.id === id || m.name === id)
+	const notFound = resolvedSelectionIds.filter(
+		(id) => !selectedModels.some((m) => m.id === id)
 	);
 
 	if (selected.length === 0) {
