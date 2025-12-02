@@ -365,6 +365,16 @@ jobs:
                   node-version: ${{ env.NODE_VERSION }}
 
             # ---------- WEB (Vercel) ----------
+            - name: Setup pnpm
+              if: matrix.target == 'web'
+              uses: pnpm/action-setup@v4
+              with:
+                  package_json_file: package.json
+
+            - name: Install dependencies
+              if: matrix.target == 'web'
+              run: pnpm install --frozen-lockfile
+
             - name: Install Vercel CLI
               if: matrix.target == 'web'
               run: npm install --global vercel@latest

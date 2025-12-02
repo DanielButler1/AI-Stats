@@ -1,10 +1,8 @@
 name: Watchers
 
 on:
-    workflow_dispatch: {}
-
-    # schedule:
-    #   - cron: "*/30 * * * *"
+    schedule:
+        - cron: "*/30 * * * *"
 
 permissions:
     contents: read

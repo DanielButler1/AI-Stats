@@ -11,12 +11,16 @@ import {
 	type ModelRouteParams,
 } from "@/app/(dashboard)/models/model-route-helpers";
 import type { ModelGatewayMetadata } from "@/lib/fetchers/models/getModelGatewayMetadata";
+import getModelOverviewHeader from "@/lib/fetchers/models/getModelOverviewHeader";
 
 async function fetchModel(modelId: string) {
 	try {
-		const metadata = await getModelGatewayMetadata(modelId);
+		const [metadata, header] = await Promise.all([
+			getModelGatewayMetadata(modelId),
+			getModelOverviewHeader(modelId),
+		]);
 		if (!metadata) return null;
-		return metadata;
+		return { metadata, header };
 	} catch (error) {
 		console.warn("[seo] failed to load model gateway metadata", {
 			modelId,
@@ -31,9 +35,9 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
 	const params = await props.params;
 	const modelId = getModelIdFromParams(params);
-	const metadata = await fetchModel(modelId);
+	const result = await fetchModel(modelId);
 
-	if (!metadata) {
+	if (!result) {
 		return buildMetadata({
 			title: "Gateway Integration for Model",
 			description:
@@ -48,7 +52,10 @@ export async function generateMetadata(props: {
 		});
 	}
 
-	const displayName = (metadata as any)?.name ?? metadata.modelId;
+	const { metadata, header } = result;
+	const displayName = header?.name ?? metadata.modelId;
+	const organisationName =
+		header?.organisation?.name ?? (metadata as any)?.providerName ?? "AI provider";
 	const description = `${displayName} gateway support on AI Stats. View providers, streaming support, and routing options for this model.`;
 
 	return buildMetadata({
@@ -59,7 +66,7 @@ export async function generateMetadata(props: {
 		keywords: [
 			displayName,
 			`${displayName} gateway`,
-			`${(metadata as any)?.providerName ?? metadata.modelId} provider`,
+			`${organisationName} provider`,
 			"AI gateway",
 			"AI Stats",
 		],
