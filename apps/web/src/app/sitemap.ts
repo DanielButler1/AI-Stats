@@ -26,7 +26,11 @@ type RouteSuffix = {
 };
 
 const manifest = manifestData as ManifestFile;
-const baseUrl = (process.env.WEBSITE_URL ?? "").replace(/\/$/, "");
+const baseUrl = (
+	process.env.NEXT_PUBLIC_WEBSITE_URL ??
+	process.env.WEBSITE_URL ??
+	"https://ai-stats.phaseo.app"
+).replace(/\/$/, "");
 
 const staticRoutes: Array<{
     path: string;

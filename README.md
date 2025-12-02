@@ -1,84 +1,84 @@
 # AI Stats Gateway
 
-> _Open access to the world’s AI models — built in public._
-
-> ⚡ A note from Daniel
-> I want everyone to have access to powerful AI tools — affordably, transparently, and without corporate lock-ins.
->
-> Right now, though, I’m an indie developer funding this project myself. That means prices are a bit higher than the big players for the moment — not because I want them to be, but because it’s what keeps the lights on and the servers running.
->
-> Every person who supports or uses this project helps bring it closer to the point where I can lower prices for everyone. Your support genuinely means the world to me — thank you for helping make this vision possible.
-
-AI Stats Gateway is an open, transparent platform that tracks, compares, and connects large language models across every major provider.  
+AI Stats Gateway is an open, transparent platform for tracking, comparing, and connecting large language models across major providers.  
 It exists to make AI **accessible**, **interoperable**, and **free from vendor lock-in**.
 
 ---
 
-### 🌍 What It Is
+## 🌍 What this repo contains
 
-AI Stats is made up of three main parts:
+AI Stats is a monorepo made up of several apps and packages:
 
-| Part                       | Description                                                       |
-| -------------------------- | ----------------------------------------------------------------- |
-| [`apps/web`](./apps/web)   | The public website — explore, compare, and visualise models.      |
-| [`apps/api`](./apps/api)   | The gateway API — a unified layer that routes to any AI provider. |
-| [`apps/docs`](./apps/docs) | The documentation site — a collaborative knowledge base.          |
+### Apps
 
-Each one plays a part in a single mission:  
-**to make every AI model available through one open gateway.**
+| Path                       | Description                                                             |
+| -------------------------- | ----------------------------------------------------------------------- |
+| [`apps/web`](./apps/web)   | Public website - explore, compare, and visualise models.                |
+| [`apps/api`](./apps/api)   | Gateway API (Beta) - a unified layer that routes to multiple providers. |
+| [`apps/docs`](./apps/docs) | Documentation site - reference, guides, and concepts.                   |
 
----
+### Packages (Beta)
 
-### 💡 Why It Exists
+| Path                                   | Description                                |
+| -------------------------------------- | ------------------------------------------ |
+| [`packages/sdk-ts`](./packages/sdk-ts) | TypeScript / JavaScript client SDK.        |
+| [`packages/sdk-py`](./packages/sdk-py) | Python client SDK.                         |
+| Other languages                        | Work In Progress SDKs for other languages. |
 
-AI is the most profound technology in human history — but access to it is increasingly fragmented, closed, and centralised.  
-AI Stats was built to change that.
+All of these are wired together to support a single mission:
 
--   **No lock-ins.** Anyone can use, fork, or extend it.
--   **No secrets.** All data and code are open.
--   **No borders.** It’s built for everyone, together.
-
----
-
-### 🧩 Contributing
-
-You don’t need to be an expert to contribute — just curious.  
-There are many ways to help:
-
--   Add or improve model data
--   Write documentation or guides
--   Suggest ideas and features
--   Fix a bug or improve a UI component
-
-👉 [Open an issue](https://github.com/DanielButler1/AI-Stats/issues) or [start a discussion](https://github.com/DanielButler1/AI-Stats/discussions).  
-Every contribution matters.
+> **Build the largest single information point for AI Models.**
 
 ---
 
-### 🛠️ Tech at a Glance
+## 💡 Why it exists
 
--   **Next.js 15** for the website
--   **Cloudflare Workers + Hono** for the API gateway
--   **Supabase** for data
--   **Mintlify** for documentation
--   **Vercel + Cloudflare** for deployment
+AI is becoming the most important general-purpose technology in human history - but access to it is increasingly fragmented, closed, and centralised.
+
+AI Stats is built to push the other way:
+
+-   **No lock-ins.** Use the gateway, self-host it, or fork it.
+-   **No black boxes.** Data formats, routing, and pricing are all transparent.
+-   **No borders.** Anyone, anywhere can use it and get value from it.
+
+If you care about open infrastructure for AI, this project is for you.
 
 ---
 
-### 📜 License
+## 🚀 Getting started (high level)
 
-AI Stats Gateway is free software, built to stay in the commons.
+This is only a quick overview - see the docs for full details.
 
--   **Core apps** (`apps/web`, `apps/api`, `apps/docs` and other server-side code in this repo) are licensed under the  
-    **GNU Affero General Public License v3.0 (AGPL-3.0)**.
--   **Client SDKs** (for example `packages/sdk-js` and `packages/sdk-py`) are licensed under the  
-    **MIT Licence** for easy use in any application.
+### Prerequisites
 
-What this means in practice:
+-   Node.js 20+
+-   `pnpm`
+-   A Supabase (or Postgres) instance
+-   A Cloudflare account (for Workers)
 
--   You are free to **run, self-host, modify, and deploy** AI Stats Gateway.
--   If you **modify** the core and run it for others over a network or distribute it, you must  
-    **publish your modifications under AGPL-3.0 as well**.
--   You can use the SDKs in **open or closed-source projects** without worrying about copyleft.
+### Basic setup
 
-> “AI should belong to humanity — not just the highest bidder — and so should the tools that connect to it.”
+```bash
+# Clone the repo
+git clone https://github.com/DanielButler1/AI-Stats.git
+cd AI-Stats
+
+# Install dependencies
+pnpm install
+
+# Set up environment variables
+cp .env.example .env.local
+# then fill in the required values (Supabase, Cloudflare, providers, etc.)
+
+# Run local development (example - adjust to your scripts)
+pnpm dev
+```
+
+---
+
+## The Future Of AI Stats
+
+This project is designed to make AI more accessible, and as much data available in an easy to use and open way. Things can and will change, as we adapt to suggestions as well as learning as we go. We will make mistakes, however, we will learn from them and improve.
+
+If you have any suggestions, please open an issue or a PR. We welcome contributions from the community to help make this project better for everyone.
+We are excited about the future of AI Stats and the role it can play in democratising access to AI technologies.
