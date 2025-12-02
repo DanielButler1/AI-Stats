@@ -1,10 +1,13 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import type { NextConfig } from "next";
 
-const __dirname = fileURLToPath(new URL(".", import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const monorepoRoot = path.join(__dirname, "..", "..");
+
+const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_DEPLOY_TIME:
       process.env.NEXT_PUBLIC_DEPLOY_TIME ?? new Date().toISOString(),
@@ -16,10 +19,12 @@ const nextConfig = {
   // typedRoutes: true,
   experimental: {
     ppr: 'incremental',
-    // Allow Turbopack to resolve packages from the monorepo root during CI builds.
   },
+  outputFileTracingRoot: monorepoRoot,
+
+  // Make Turbopack root the SAME directory
   turbopack: {
-    root: path.join(process.cwd(), "..", ".."),
+    root: monorepoRoot,
   },
   // 	browserDebugInfoInTerminal: true,
 
