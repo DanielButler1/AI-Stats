@@ -92,7 +92,7 @@ async function PerformancePanel({
 	tokenTrajectoryPromise,
 }: {
 	metricsPromise: ReturnType<typeof getModelPerformanceMetricsCached>;
-	tokenTrajectoryPromise: ReturnType<typeof getModelTokenTrajectory>;
+	tokenTrajectoryPromise: ReturnType<typeof getModelTokenTrajectoryCached>;
 }) {
 	const [metrics, tokenTrajectory] = await Promise.all([
 		metricsPromise,

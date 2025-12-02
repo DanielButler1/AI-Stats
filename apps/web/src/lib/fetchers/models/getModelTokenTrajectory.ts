@@ -55,15 +55,18 @@ type RpcTokenTrajectory = {
 function mapTrajectory(row: RpcTokenTrajectory | undefined): ModelTokenTrajectory | null {
 	if (!row?.release_date) return null;
 
+	const points = row.points ?? [];
+	const deprecationDatePrefix = row.deprecation_date?.slice(0, 10);
+	const deprecationDaysSinceRelease = deprecationDatePrefix
+		? points.find((p) => p.date.startsWith(deprecationDatePrefix))?.daysSinceRelease ??
+		  null
+		: null;
+
 	return {
 		releaseDate: row.release_date,
 		deprecationDate: row.deprecation_date,
-		deprecationDaysSinceRelease: row.deprecation_date
-			? row.points.find((p) =>
-					p.date.startsWith(row.deprecation_date?.slice(0, 10))
-			  )?.daysSinceRelease ?? null
-			: null,
-		points: row.points ?? [],
+		deprecationDaysSinceRelease,
+		points,
 		tokenMilestones: row.token_milestones ?? [],
 		successorMilestones: row.successor_milestones ?? [],
 	};
@@ -91,6 +94,6 @@ export async function getModelTokenTrajectory(
 
 export const getModelTokenTrajectoryCached = unstable_cache(
 	async (modelId: string) => getModelTokenTrajectory(modelId),
-	(modelId: string) => ["model-token-trajectory", modelId],
+	["model-token-trajectory"],
 	{ revalidate: 60 * 30, tags: ["data:gateway_requests"] }
 );

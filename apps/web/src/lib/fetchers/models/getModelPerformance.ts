@@ -133,11 +133,7 @@ export async function getModelPerformanceMetrics(
 export const getModelPerformanceMetricsCached = unstable_cache(
 	async (modelId: string, hours: number = HOURS_DEFAULT) =>
 		getModelPerformanceMetrics(modelId, hours),
-	(modelId: string, hours: number = HOURS_DEFAULT) => [
-		"model-performance",
-		modelId,
-		String(hours),
-	],
+	["model-performance"],
 	{ revalidate: 60 * 5, tags: ["data:gateway_requests"] }
 );
 
