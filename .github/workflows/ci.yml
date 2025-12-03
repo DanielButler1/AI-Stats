@@ -472,14 +472,6 @@ jobs:
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
-            - name: Capture planned releases (all packages)
-              id: planned_releases
-              run: |
-                  pnpm changeset status --output .changeset/status.json || echo '{"releases":[]}' > .changeset/status.json
-                  echo "Planned releases:"
-                  jq -r '.releases[] | "\(.name)@\(.newVersion)"' .changeset/status.json || true
-                  echo "count=$(jq '.releases | length' .changeset/status.json)" >> "$GITHUB_OUTPUT"
-
             - name: Create release PR / publish
               id: changesets
               uses: changesets/action@v1
@@ -511,28 +503,9 @@ jobs:
                   packages-dir: packages/sdk-py/dist
                   skip-existing: true
 
-            - name: Create GitHub releases for all versioned packages
-              if: steps.planned_releases.outputs.count != '0'
+            - name: Create GitHub releases from changelogs
+              if: steps.changesets.outputs.published == 'true'
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
-                  STATUS_FILE=".changeset/status.json"
-                  if [ ! -f "$STATUS_FILE" ]; then
-                    echo "No status file found; skipping."
-                    exit 0
-                  fi
-
-                  jq -c '.releases[]' "$STATUS_FILE" | while read release; do
-                    name=$(echo "$release" | jq -r '.name')
-                    version=$(echo "$release" | jq -r '.newVersion')
-                    tag="${name}@${version}"
-                    title="${name} v${version}"
-
-                    if gh release view "$tag" >/dev/null 2>&1; then
-                      echo "Release $tag already exists; skipping."
-                      continue
-                    fi
-
-                    notes="Automated release for ${name} v${version}. See package changelog (if present) for details."
-                    gh release create "$tag" --title "$title" --notes "$notes"
-                  done
+                  pnpm tsx scripts/changesets/create-github-releases-from-changelogs.ts
