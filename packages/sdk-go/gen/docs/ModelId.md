@@ -15,8 +15,6 @@
 
 * `AI21_JAMBA_MINI_1_7_2025_07_03` (value: `"ai21/jamba-mini-1-7-2025-07-03"`)
 
-* `AMAZON_DEEPSEEK_V3_2_2025_12_01` (value: `"amazon/deepseek-v3-2-2025-12-01"`)
-
 * `AMAZON_NOVA_2_LITE_2025_12_02` (value: `"amazon/nova-2-lite-2025-12-02"`)
 
 * `AMAZON_NOVA_2_OMNI_2025_12_02` (value: `"amazon/nova-2-omni-2025-12-02"`)
@@ -182,6 +180,8 @@
 * `DEEPSEEK_DEEPSEEK_V3_1` (value: `"deepseek/deepseek-v3-1"`)
 
 * `DEEPSEEK_DEEPSEEK_V3_1_TERMINUS_2025_09_22` (value: `"deepseek/deepseek-v3-1-terminus-2025-09-22"`)
+
+* `DEEPSEEK_DEEPSEEK_V3_2_2025_12_01` (value: `"deepseek/deepseek-v3-2-2025-12-01"`)
 
 * `DEEPSEEK_DEEPSEEK_V3_2_EXP_2025_09_29` (value: `"deepseek/deepseek-v3-2-exp-2025-09-29"`)
 

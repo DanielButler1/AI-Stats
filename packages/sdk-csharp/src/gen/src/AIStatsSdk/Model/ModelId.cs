@@ -61,424 +61,424 @@ namespace AIStatsSdk.Model
         Ai21JambaMini1720250703 = 6,
 
         /// <summary>
-        /// Enum AmazonDeepseekV3220251201 for value: amazon/deepseek-v3-2-2025-12-01
-        /// </summary>
-        AmazonDeepseekV3220251201 = 7,
-
-        /// <summary>
         /// Enum AmazonNova2Lite20251202 for value: amazon/nova-2-lite-2025-12-02
         /// </summary>
-        AmazonNova2Lite20251202 = 8,
+        AmazonNova2Lite20251202 = 7,
 
         /// <summary>
         /// Enum AmazonNova2Omni20251202 for value: amazon/nova-2-omni-2025-12-02
         /// </summary>
-        AmazonNova2Omni20251202 = 9,
+        AmazonNova2Omni20251202 = 8,
 
         /// <summary>
         /// Enum AmazonNova2Pro20251202 for value: amazon/nova-2-pro-2025-12-02
         /// </summary>
-        AmazonNova2Pro20251202 = 10,
+        AmazonNova2Pro20251202 = 9,
 
         /// <summary>
         /// Enum AmazonNova2Sonic20251202 for value: amazon/nova-2-sonic-2025-12-02
         /// </summary>
-        AmazonNova2Sonic20251202 = 11,
+        AmazonNova2Sonic20251202 = 10,
 
         /// <summary>
         /// Enum AmazonNovaCanvas for value: amazon/nova-canvas
         /// </summary>
-        AmazonNovaCanvas = 12,
+        AmazonNovaCanvas = 11,
 
         /// <summary>
         /// Enum AmazonNovaLite1020241204 for value: amazon/nova-lite-1-0-2024-12-04
         /// </summary>
-        AmazonNovaLite1020241204 = 13,
+        AmazonNovaLite1020241204 = 12,
 
         /// <summary>
         /// Enum AmazonNovaMicro1020241204 for value: amazon/nova-micro-1-0-2024-12-04
         /// </summary>
-        AmazonNovaMicro1020241204 = 14,
+        AmazonNovaMicro1020241204 = 13,
 
         /// <summary>
         /// Enum AmazonNovaMultimodalEmbeddings20251202 for value: amazon/nova-multimodal-embeddings-2025-12-02
         /// </summary>
-        AmazonNovaMultimodalEmbeddings20251202 = 15,
+        AmazonNovaMultimodalEmbeddings20251202 = 14,
 
         /// <summary>
         /// Enum AmazonNovaPremier20250430 for value: amazon/nova-premier-2025-04-30
         /// </summary>
-        AmazonNovaPremier20250430 = 16,
+        AmazonNovaPremier20250430 = 15,
 
         /// <summary>
         /// Enum AmazonNovaPro1020241204 for value: amazon/nova-pro-1-0-2024-12-04
         /// </summary>
-        AmazonNovaPro1020241204 = 17,
+        AmazonNovaPro1020241204 = 16,
 
         /// <summary>
         /// Enum AmazonNovaReel for value: amazon/nova-reel
         /// </summary>
-        AmazonNovaReel = 18,
+        AmazonNovaReel = 17,
 
         /// <summary>
         /// Enum AmazonNovaSonic for value: amazon/nova-sonic
         /// </summary>
-        AmazonNovaSonic = 19,
+        AmazonNovaSonic = 18,
 
         /// <summary>
         /// Enum AnthropicClaude1020230314 for value: anthropic/claude-1-0-2023-03-14
         /// </summary>
-        AnthropicClaude1020230314 = 20,
+        AnthropicClaude1020230314 = 19,
 
         /// <summary>
         /// Enum AnthropicClaude11 for value: anthropic/claude-1-1
         /// </summary>
-        AnthropicClaude11 = 21,
+        AnthropicClaude11 = 20,
 
         /// <summary>
         /// Enum AnthropicClaude12 for value: anthropic/claude-1-2
         /// </summary>
-        AnthropicClaude12 = 22,
+        AnthropicClaude12 = 21,
 
         /// <summary>
         /// Enum AnthropicClaude13 for value: anthropic/claude-1-3
         /// </summary>
-        AnthropicClaude13 = 23,
+        AnthropicClaude13 = 22,
 
         /// <summary>
         /// Enum AnthropicClaude2020230712 for value: anthropic/claude-2-0-2023-07-12
         /// </summary>
-        AnthropicClaude2020230712 = 24,
+        AnthropicClaude2020230712 = 23,
 
         /// <summary>
         /// Enum AnthropicClaude2120231122 for value: anthropic/claude-2-1-2023-11-22
         /// </summary>
-        AnthropicClaude2120231122 = 25,
+        AnthropicClaude2120231122 = 24,
 
         /// <summary>
         /// Enum AnthropicClaude35Haiku20241104 for value: anthropic/claude-3-5-haiku-2024-11-04
         /// </summary>
-        AnthropicClaude35Haiku20241104 = 26,
+        AnthropicClaude35Haiku20241104 = 25,
 
         /// <summary>
         /// Enum AnthropicClaude35Sonnet20240621 for value: anthropic/claude-3-5-sonnet-2024-06-21
         /// </summary>
-        AnthropicClaude35Sonnet20240621 = 27,
+        AnthropicClaude35Sonnet20240621 = 26,
 
         /// <summary>
         /// Enum AnthropicClaude35Sonnet20241022 for value: anthropic/claude-3-5-sonnet-2024-10-22
         /// </summary>
-        AnthropicClaude35Sonnet20241022 = 28,
+        AnthropicClaude35Sonnet20241022 = 27,
 
         /// <summary>
         /// Enum AnthropicClaude37Sonnet20250224 for value: anthropic/claude-3-7-sonnet-2025-02-24
         /// </summary>
-        AnthropicClaude37Sonnet20250224 = 29,
+        AnthropicClaude37Sonnet20250224 = 28,
 
         /// <summary>
         /// Enum AnthropicClaude3Haiku20240313 for value: anthropic/claude-3-haiku-2024-03-13
         /// </summary>
-        AnthropicClaude3Haiku20240313 = 30,
+        AnthropicClaude3Haiku20240313 = 29,
 
         /// <summary>
         /// Enum AnthropicClaude3Opus20240304 for value: anthropic/claude-3-opus-2024-03-04
         /// </summary>
-        AnthropicClaude3Opus20240304 = 31,
+        AnthropicClaude3Opus20240304 = 30,
 
         /// <summary>
         /// Enum AnthropicClaude3Sonnet20240304 for value: anthropic/claude-3-sonnet-2024-03-04
         /// </summary>
-        AnthropicClaude3Sonnet20240304 = 32,
+        AnthropicClaude3Sonnet20240304 = 31,
 
         /// <summary>
         /// Enum AnthropicClaudeHaiku4520251015 for value: anthropic/claude-haiku-4-5-2025-10-15
         /// </summary>
-        AnthropicClaudeHaiku4520251015 = 33,
+        AnthropicClaudeHaiku4520251015 = 32,
 
         /// <summary>
         /// Enum AnthropicClaudeInstant1020230314 for value: anthropic/claude-instant-1-0-2023-03-14
         /// </summary>
-        AnthropicClaudeInstant1020230314 = 34,
+        AnthropicClaudeInstant1020230314 = 33,
 
         /// <summary>
         /// Enum AnthropicClaudeInstant11 for value: anthropic/claude-instant-1-1
         /// </summary>
-        AnthropicClaudeInstant11 = 35,
+        AnthropicClaudeInstant11 = 34,
 
         /// <summary>
         /// Enum AnthropicClaudeInstant1220230809 for value: anthropic/claude-instant-1-2-2023-08-09
         /// </summary>
-        AnthropicClaudeInstant1220230809 = 36,
+        AnthropicClaudeInstant1220230809 = 35,
 
         /// <summary>
         /// Enum AnthropicClaudeOpus4120250805 for value: anthropic/claude-opus-4-1-2025-08-05
         /// </summary>
-        AnthropicClaudeOpus4120250805 = 37,
+        AnthropicClaudeOpus4120250805 = 36,
 
         /// <summary>
         /// Enum AnthropicClaudeOpus420250521 for value: anthropic/claude-opus-4-2025-05-21
         /// </summary>
-        AnthropicClaudeOpus420250521 = 38,
+        AnthropicClaudeOpus420250521 = 37,
 
         /// <summary>
         /// Enum AnthropicClaudeOpus4520251124 for value: anthropic/claude-opus-4-5-2025-11-24
         /// </summary>
-        AnthropicClaudeOpus4520251124 = 39,
+        AnthropicClaudeOpus4520251124 = 38,
 
         /// <summary>
         /// Enum AnthropicClaudeSonnet420250521 for value: anthropic/claude-sonnet-4-2025-05-21
         /// </summary>
-        AnthropicClaudeSonnet420250521 = 40,
+        AnthropicClaudeSonnet420250521 = 39,
 
         /// <summary>
         /// Enum AnthropicClaudeSonnet4520250929 for value: anthropic/claude-sonnet-4-5-2025-09-29
         /// </summary>
-        AnthropicClaudeSonnet4520250929 = 41,
+        AnthropicClaudeSonnet4520250929 = 40,
 
         /// <summary>
         /// Enum BaiduErnie4521bA3b for value: baidu/ernie-4-5-21b-a3b
         /// </summary>
-        BaiduErnie4521bA3b = 42,
+        BaiduErnie4521bA3b = 41,
 
         /// <summary>
         /// Enum BaiduErnie4521bA3bThinking for value: baidu/ernie-4-5-21b-a3b-thinking
         /// </summary>
-        BaiduErnie4521bA3bThinking = 43,
+        BaiduErnie4521bA3bThinking = 42,
 
         /// <summary>
         /// Enum BaiduErnie45300bA47b for value: baidu/ernie-4-5-300b-a47b
         /// </summary>
-        BaiduErnie45300bA47b = 44,
+        BaiduErnie45300bA47b = 43,
 
         /// <summary>
         /// Enum BaiduErnie45Vl28bA3b for value: baidu/ernie-4-5-vl-28b-a3b
         /// </summary>
-        BaiduErnie45Vl28bA3b = 45,
+        BaiduErnie45Vl28bA3b = 44,
 
         /// <summary>
         /// Enum BaiduErnie45Vl424bA47b for value: baidu/ernie-4-5-vl-424b-a47b
         /// </summary>
-        BaiduErnie45Vl424bA47b = 46,
+        BaiduErnie45Vl424bA47b = 45,
 
         /// <summary>
         /// Enum BaiduQianfanVl3b for value: baidu/qianfan-vl-3b
         /// </summary>
-        BaiduQianfanVl3b = 47,
+        BaiduQianfanVl3b = 46,
 
         /// <summary>
         /// Enum BaiduQianfanVl70b for value: baidu/qianfan-vl-70b
         /// </summary>
-        BaiduQianfanVl70b = 48,
+        BaiduQianfanVl70b = 47,
 
         /// <summary>
         /// Enum BaiduQianfanVl8b for value: baidu/qianfan-vl-8b
         /// </summary>
-        BaiduQianfanVl8b = 49,
+        BaiduQianfanVl8b = 48,
 
         /// <summary>
         /// Enum BytedanceSeedCoder8bInstruct for value: bytedance/seed-coder-8b-instruct
         /// </summary>
-        BytedanceSeedCoder8bInstruct = 50,
+        BytedanceSeedCoder8bInstruct = 49,
 
         /// <summary>
         /// Enum BytedanceSeedCoder8bReasoning for value: bytedance/seed-coder-8b-reasoning
         /// </summary>
-        BytedanceSeedCoder8bReasoning = 51,
+        BytedanceSeedCoder8bReasoning = 50,
 
         /// <summary>
         /// Enum BytedanceSeedOss36bInstruct for value: bytedance/seed-oss-36b-instruct
         /// </summary>
-        BytedanceSeedOss36bInstruct = 52,
+        BytedanceSeedOss36bInstruct = 51,
 
         /// <summary>
         /// Enum CohereC4aiAyaExpanse32b for value: cohere/c4ai-aya-expanse-32b
         /// </summary>
-        CohereC4aiAyaExpanse32b = 53,
+        CohereC4aiAyaExpanse32b = 52,
 
         /// <summary>
         /// Enum CohereC4aiAyaExpanse8b for value: cohere/c4ai-aya-expanse-8b
         /// </summary>
-        CohereC4aiAyaExpanse8b = 54,
+        CohereC4aiAyaExpanse8b = 53,
 
         /// <summary>
         /// Enum CohereC4aiAyaVision32b for value: cohere/c4ai-aya-vision-32b
         /// </summary>
-        CohereC4aiAyaVision32b = 55,
+        CohereC4aiAyaVision32b = 54,
 
         /// <summary>
         /// Enum CohereC4aiAyaVision8b for value: cohere/c4ai-aya-vision-8b
         /// </summary>
-        CohereC4aiAyaVision8b = 56,
+        CohereC4aiAyaVision8b = 55,
 
         /// <summary>
         /// Enum CohereCommand for value: cohere/command
         /// </summary>
-        CohereCommand = 57,
+        CohereCommand = 56,
 
         /// <summary>
         /// Enum CohereCommandA20250313 for value: cohere/command-a-2025-03-13
         /// </summary>
-        CohereCommandA20250313 = 58,
+        CohereCommandA20250313 = 57,
 
         /// <summary>
         /// Enum CohereCommandAReasoning20250821 for value: cohere/command-a-reasoning-2025-08-21
         /// </summary>
-        CohereCommandAReasoning20250821 = 59,
+        CohereCommandAReasoning20250821 = 58,
 
         /// <summary>
         /// Enum CohereCommandATranslate20250828 for value: cohere/command-a-translate-2025-08-28
         /// </summary>
-        CohereCommandATranslate20250828 = 60,
+        CohereCommandATranslate20250828 = 59,
 
         /// <summary>
         /// Enum CohereCommandAVision20250731 for value: cohere/command-a-vision-2025-07-31
         /// </summary>
-        CohereCommandAVision20250731 = 61,
+        CohereCommandAVision20250731 = 60,
 
         /// <summary>
         /// Enum CohereCommandLight for value: cohere/command-light
         /// </summary>
-        CohereCommandLight = 62,
+        CohereCommandLight = 61,
 
         /// <summary>
         /// Enum CohereCommandR20240311 for value: cohere/command-r-2024-03-11
         /// </summary>
-        CohereCommandR20240311 = 63,
+        CohereCommandR20240311 = 62,
 
         /// <summary>
         /// Enum CohereCommandR20240830 for value: cohere/command-r-2024-08-30
         /// </summary>
-        CohereCommandR20240830 = 64,
+        CohereCommandR20240830 = 63,
 
         /// <summary>
         /// Enum CohereCommandR7b20241213 for value: cohere/command-r-7b-2024-12-13
         /// </summary>
-        CohereCommandR7b20241213 = 65,
+        CohereCommandR7b20241213 = 64,
 
         /// <summary>
         /// Enum CohereCommandR20240404 for value: cohere/command-r+-2024-04-04
         /// </summary>
-        CohereCommandR20240404 = 66,
+        CohereCommandR20240404 = 65,
 
         /// <summary>
         /// Enum CohereCommandR202408302 for value: cohere/command-r+-2024-08-30
         /// </summary>
-        CohereCommandR202408302 = 67,
+        CohereCommandR202408302 = 66,
 
         /// <summary>
         /// Enum CohereEmbedEnglishLightV20 for value: cohere/embed-english-light-v2-0
         /// </summary>
-        CohereEmbedEnglishLightV20 = 68,
+        CohereEmbedEnglishLightV20 = 67,
 
         /// <summary>
         /// Enum CohereEmbedEnglishLightV3 for value: cohere/embed-english-light-v3
         /// </summary>
-        CohereEmbedEnglishLightV3 = 69,
+        CohereEmbedEnglishLightV3 = 68,
 
         /// <summary>
         /// Enum CohereEmbedEnglishV20 for value: cohere/embed-english-v2-0
         /// </summary>
-        CohereEmbedEnglishV20 = 70,
+        CohereEmbedEnglishV20 = 69,
 
         /// <summary>
         /// Enum CohereEmbedEnglishV3 for value: cohere/embed-english-v3
         /// </summary>
-        CohereEmbedEnglishV3 = 71,
+        CohereEmbedEnglishV3 = 70,
 
         /// <summary>
         /// Enum CohereEmbedMultilingualLightV3 for value: cohere/embed-multilingual-light-v3
         /// </summary>
-        CohereEmbedMultilingualLightV3 = 72,
+        CohereEmbedMultilingualLightV3 = 71,
 
         /// <summary>
         /// Enum CohereEmbedMultilingualV20 for value: cohere/embed-multilingual-v2-0
         /// </summary>
-        CohereEmbedMultilingualV20 = 73,
+        CohereEmbedMultilingualV20 = 72,
 
         /// <summary>
         /// Enum CohereEmbedMultilingualV3 for value: cohere/embed-multilingual-v3
         /// </summary>
-        CohereEmbedMultilingualV3 = 74,
+        CohereEmbedMultilingualV3 = 73,
 
         /// <summary>
         /// Enum CohereEmbedV4 for value: cohere/embed-v4
         /// </summary>
-        CohereEmbedV4 = 75,
+        CohereEmbedV4 = 74,
 
         /// <summary>
         /// Enum CohereRerankMultilingualV3 for value: cohere/rerank-multilingual-v3
         /// </summary>
-        CohereRerankMultilingualV3 = 76,
+        CohereRerankMultilingualV3 = 75,
 
         /// <summary>
         /// Enum CohereRerankV35 for value: cohere/rerank-v3-5
         /// </summary>
-        CohereRerankV35 = 77,
+        CohereRerankV35 = 76,
 
         /// <summary>
         /// Enum CohereRerenkEnglishV3 for value: cohere/rerenk-english-v3
         /// </summary>
-        CohereRerenkEnglishV3 = 78,
+        CohereRerenkEnglishV3 = 77,
 
         /// <summary>
         /// Enum DeepseekDeepseekCoderV220240614 for value: deepseek/deepseek-coder-v2-2024-06-14
         /// </summary>
-        DeepseekDeepseekCoderV220240614 = 79,
+        DeepseekDeepseekCoderV220240614 = 78,
 
         /// <summary>
         /// Enum DeepseekDeepseekCoderV220240724 for value: deepseek/deepseek-coder-v2-2024-07-24
         /// </summary>
-        DeepseekDeepseekCoderV220240724 = 80,
+        DeepseekDeepseekCoderV220240724 = 79,
 
         /// <summary>
         /// Enum DeepseekDeepseekOcr20251020 for value: deepseek/deepseek-ocr-2025-10-20
         /// </summary>
-        DeepseekDeepseekOcr20251020 = 81,
+        DeepseekDeepseekOcr20251020 = 80,
 
         /// <summary>
         /// Enum DeepseekDeepseekR120250120 for value: deepseek/deepseek-r1-2025-01-20
         /// </summary>
-        DeepseekDeepseekR120250120 = 82,
+        DeepseekDeepseekR120250120 = 81,
 
         /// <summary>
         /// Enum DeepseekDeepseekR120250528 for value: deepseek/deepseek-r1-2025-05-28
         /// </summary>
-        DeepseekDeepseekR120250528 = 83,
+        DeepseekDeepseekR120250528 = 82,
 
         /// <summary>
         /// Enum DeepseekDeepseekR1LitePreview for value: deepseek/deepseek-r1-lite-preview
         /// </summary>
-        DeepseekDeepseekR1LitePreview = 84,
+        DeepseekDeepseekR1LitePreview = 83,
 
         /// <summary>
         /// Enum DeepseekDeepseekV220240517 for value: deepseek/deepseek-v2-2024-05-17
         /// </summary>
-        DeepseekDeepseekV220240517 = 85,
+        DeepseekDeepseekV220240517 = 84,
 
         /// <summary>
         /// Enum DeepseekDeepseekV220240628 for value: deepseek/deepseek-v2-2024-06-28
         /// </summary>
-        DeepseekDeepseekV220240628 = 86,
+        DeepseekDeepseekV220240628 = 85,
 
         /// <summary>
         /// Enum DeepseekDeepseekV25 for value: deepseek/deepseek-v2-5
         /// </summary>
-        DeepseekDeepseekV25 = 87,
+        DeepseekDeepseekV25 = 86,
 
         /// <summary>
         /// Enum DeepseekDeepseekV2520240508 for value: deepseek/deepseek-v2-5-2024-05-08
         /// </summary>
-        DeepseekDeepseekV2520240508 = 88,
+        DeepseekDeepseekV2520240508 = 87,
 
         /// <summary>
         /// Enum DeepseekDeepseekV31 for value: deepseek/deepseek-v3-1
         /// </summary>
-        DeepseekDeepseekV31 = 89,
+        DeepseekDeepseekV31 = 88,
 
         /// <summary>
         /// Enum DeepseekDeepseekV31Terminus20250922 for value: deepseek/deepseek-v3-1-terminus-2025-09-22
         /// </summary>
-        DeepseekDeepseekV31Terminus20250922 = 90,
+        DeepseekDeepseekV31Terminus20250922 = 89,
+
+        /// <summary>
+        /// Enum DeepseekDeepseekV3220251201 for value: deepseek/deepseek-v3-2-2025-12-01
+        /// </summary>
+        DeepseekDeepseekV3220251201 = 90,
 
         /// <summary>
         /// Enum DeepseekDeepseekV32Exp20250929 for value: deepseek/deepseek-v3-2-exp-2025-09-29
@@ -2846,9 +2846,6 @@ namespace AIStatsSdk.Model
             if (value.Equals("ai21/jamba-mini-1-7-2025-07-03"))
                 return ModelId.Ai21JambaMini1720250703;
 
-            if (value.Equals("amazon/deepseek-v3-2-2025-12-01"))
-                return ModelId.AmazonDeepseekV3220251201;
-
             if (value.Equals("amazon/nova-2-lite-2025-12-02"))
                 return ModelId.AmazonNova2Lite20251202;
 
@@ -3097,6 +3094,9 @@ namespace AIStatsSdk.Model
 
             if (value.Equals("deepseek/deepseek-v3-1-terminus-2025-09-22"))
                 return ModelId.DeepseekDeepseekV31Terminus20250922;
+
+            if (value.Equals("deepseek/deepseek-v3-2-2025-12-01"))
+                return ModelId.DeepseekDeepseekV3220251201;
 
             if (value.Equals("deepseek/deepseek-v3-2-exp-2025-09-29"))
                 return ModelId.DeepseekDeepseekV32Exp20250929;
@@ -4527,9 +4527,6 @@ namespace AIStatsSdk.Model
             if (value.Equals("ai21/jamba-mini-1-7-2025-07-03"))
                 return ModelId.Ai21JambaMini1720250703;
 
-            if (value.Equals("amazon/deepseek-v3-2-2025-12-01"))
-                return ModelId.AmazonDeepseekV3220251201;
-
             if (value.Equals("amazon/nova-2-lite-2025-12-02"))
                 return ModelId.AmazonNova2Lite20251202;
 
@@ -4778,6 +4775,9 @@ namespace AIStatsSdk.Model
 
             if (value.Equals("deepseek/deepseek-v3-1-terminus-2025-09-22"))
                 return ModelId.DeepseekDeepseekV31Terminus20250922;
+
+            if (value.Equals("deepseek/deepseek-v3-2-2025-12-01"))
+                return ModelId.DeepseekDeepseekV3220251201;
 
             if (value.Equals("deepseek/deepseek-v3-2-exp-2025-09-29"))
                 return ModelId.DeepseekDeepseekV32Exp20250929;
@@ -6209,9 +6209,6 @@ namespace AIStatsSdk.Model
             if (value == ModelId.Ai21JambaMini1720250703)
                 return "ai21/jamba-mini-1-7-2025-07-03";
 
-            if (value == ModelId.AmazonDeepseekV3220251201)
-                return "amazon/deepseek-v3-2-2025-12-01";
-
             if (value == ModelId.AmazonNova2Lite20251202)
                 return "amazon/nova-2-lite-2025-12-02";
 
@@ -6460,6 +6457,9 @@ namespace AIStatsSdk.Model
 
             if (value == ModelId.DeepseekDeepseekV31Terminus20250922)
                 return "deepseek/deepseek-v3-1-terminus-2025-09-22";
+
+            if (value == ModelId.DeepseekDeepseekV3220251201)
+                return "deepseek/deepseek-v3-2-2025-12-01";
 
             if (value == ModelId.DeepseekDeepseekV32Exp20250929)
                 return "deepseek/deepseek-v3-2-exp-2025-09-29";

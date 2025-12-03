@@ -26,7 +26,6 @@ const (
 	MODELID_AI21_JAMBA_MINI_1_5_2024_08_22 ModelId = "ai21/jamba-mini-1-5-2024-08-22"
 	MODELID_AI21_JAMBA_MINI_1_6_2025_03_06 ModelId = "ai21/jamba-mini-1-6-2025-03-06"
 	MODELID_AI21_JAMBA_MINI_1_7_2025_07_03 ModelId = "ai21/jamba-mini-1-7-2025-07-03"
-	MODELID_AMAZON_DEEPSEEK_V3_2_2025_12_01 ModelId = "amazon/deepseek-v3-2-2025-12-01"
 	MODELID_AMAZON_NOVA_2_LITE_2025_12_02 ModelId = "amazon/nova-2-lite-2025-12-02"
 	MODELID_AMAZON_NOVA_2_OMNI_2025_12_02 ModelId = "amazon/nova-2-omni-2025-12-02"
 	MODELID_AMAZON_NOVA_2_PRO_2025_12_02 ModelId = "amazon/nova-2-pro-2025-12-02"
@@ -110,6 +109,7 @@ const (
 	MODELID_DEEPSEEK_DEEPSEEK_V2_5_2024_05_08 ModelId = "deepseek/deepseek-v2-5-2024-05-08"
 	MODELID_DEEPSEEK_DEEPSEEK_V3_1 ModelId = "deepseek/deepseek-v3-1"
 	MODELID_DEEPSEEK_DEEPSEEK_V3_1_TERMINUS_2025_09_22 ModelId = "deepseek/deepseek-v3-1-terminus-2025-09-22"
+	MODELID_DEEPSEEK_DEEPSEEK_V3_2_2025_12_01 ModelId = "deepseek/deepseek-v3-2-2025-12-01"
 	MODELID_DEEPSEEK_DEEPSEEK_V3_2_EXP_2025_09_29 ModelId = "deepseek/deepseek-v3-2-exp-2025-09-29"
 	MODELID_DEEPSEEK_DEEPSEEK_V3_2_SPECIALE_2025_12_01 ModelId = "deepseek/deepseek-v3-2-speciale-2025-12-01"
 	MODELID_DEEPSEEK_DEEPSEEK_V3_2024_12_25 ModelId = "deepseek/deepseek-v3-2024-12-25"
@@ -587,7 +587,6 @@ var AllowedModelIdEnumValues = []ModelId{
 	"ai21/jamba-mini-1-5-2024-08-22",
 	"ai21/jamba-mini-1-6-2025-03-06",
 	"ai21/jamba-mini-1-7-2025-07-03",
-	"amazon/deepseek-v3-2-2025-12-01",
 	"amazon/nova-2-lite-2025-12-02",
 	"amazon/nova-2-omni-2025-12-02",
 	"amazon/nova-2-pro-2025-12-02",
@@ -671,6 +670,7 @@ var AllowedModelIdEnumValues = []ModelId{
 	"deepseek/deepseek-v2-5-2024-05-08",
 	"deepseek/deepseek-v3-1",
 	"deepseek/deepseek-v3-1-terminus-2025-09-22",
+	"deepseek/deepseek-v3-2-2025-12-01",
 	"deepseek/deepseek-v3-2-exp-2025-09-29",
 	"deepseek/deepseek-v3-2-speciale-2025-12-01",
 	"deepseek/deepseek-v3-2024-12-25",

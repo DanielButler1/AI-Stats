@@ -438,7 +438,6 @@ components:
       - ai21/jamba-mini-1-5-2024-08-22
       - ai21/jamba-mini-1-6-2025-03-06
       - ai21/jamba-mini-1-7-2025-07-03
-      - amazon/deepseek-v3-2-2025-12-01
       - amazon/nova-2-lite-2025-12-02
       - amazon/nova-2-omni-2025-12-02
       - amazon/nova-2-pro-2025-12-02
@@ -522,6 +521,7 @@ components:
       - deepseek/deepseek-v2-5-2024-05-08
       - deepseek/deepseek-v3-1
       - deepseek/deepseek-v3-1-terminus-2025-09-22
+      - deepseek/deepseek-v3-2-2025-12-01
       - deepseek/deepseek-v3-2-exp-2025-09-29
       - deepseek/deepseek-v3-2-speciale-2025-12-01
       - deepseek/deepseek-v3-2024-12-25

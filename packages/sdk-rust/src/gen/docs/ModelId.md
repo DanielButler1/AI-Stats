@@ -10,7 +10,6 @@
 | Ai21SlashJambaMini1520240822 | ai21/jamba-mini-1-5-2024-08-22 |
 | Ai21SlashJambaMini1620250306 | ai21/jamba-mini-1-6-2025-03-06 |
 | Ai21SlashJambaMini1720250703 | ai21/jamba-mini-1-7-2025-07-03 |
-| AmazonSlashDeepseekV3220251201 | amazon/deepseek-v3-2-2025-12-01 |
 | AmazonSlashNova2Lite20251202 | amazon/nova-2-lite-2025-12-02 |
 | AmazonSlashNova2Omni20251202 | amazon/nova-2-omni-2025-12-02 |
 | AmazonSlashNova2Pro20251202 | amazon/nova-2-pro-2025-12-02 |
@@ -94,6 +93,7 @@
 | DeepseekSlashDeepseekV2520240508 | deepseek/deepseek-v2-5-2024-05-08 |
 | DeepseekSlashDeepseekV31 | deepseek/deepseek-v3-1 |
 | DeepseekSlashDeepseekV31Terminus20250922 | deepseek/deepseek-v3-1-terminus-2025-09-22 |
+| DeepseekSlashDeepseekV3220251201 | deepseek/deepseek-v3-2-2025-12-01 |
 | DeepseekSlashDeepseekV32Exp20250929 | deepseek/deepseek-v3-2-exp-2025-09-29 |
 | DeepseekSlashDeepseekV32Speciale20251201 | deepseek/deepseek-v3-2-speciale-2025-12-01 |
 | DeepseekSlashDeepseekV320241225 | deepseek/deepseek-v3-2024-12-25 |
