@@ -15,11 +15,23 @@
 
 * `AI21_JAMBA_MINI_1_7_2025_07_03` (value: `"ai21/jamba-mini-1-7-2025-07-03"`)
 
+* `AMAZON_DEEPSEEK_V3_2_2025_12_01` (value: `"amazon/deepseek-v3-2-2025-12-01"`)
+
+* `AMAZON_NOVA_2_LITE_2025_12_02` (value: `"amazon/nova-2-lite-2025-12-02"`)
+
+* `AMAZON_NOVA_2_OMNI_2025_12_02` (value: `"amazon/nova-2-omni-2025-12-02"`)
+
+* `AMAZON_NOVA_2_PRO_2025_12_02` (value: `"amazon/nova-2-pro-2025-12-02"`)
+
+* `AMAZON_NOVA_2_SONIC_2025_12_02` (value: `"amazon/nova-2-sonic-2025-12-02"`)
+
 * `AMAZON_NOVA_CANVAS` (value: `"amazon/nova-canvas"`)
 
 * `AMAZON_NOVA_LITE_1_0_2024_12_04` (value: `"amazon/nova-lite-1-0-2024-12-04"`)
 
 * `AMAZON_NOVA_MICRO_1_0_2024_12_04` (value: `"amazon/nova-micro-1-0-2024-12-04"`)
+
+* `AMAZON_NOVA_MULTIMODAL_EMBEDDINGS_2025_12_02` (value: `"amazon/nova-multimodal-embeddings-2025-12-02"`)
 
 * `AMAZON_NOVA_PREMIER_2025_04_30` (value: `"amazon/nova-premier-2025-04-30"`)
 
@@ -171,7 +183,7 @@
 
 * `DEEPSEEK_DEEPSEEK_V3_1_TERMINUS_2025_09_22` (value: `"deepseek/deepseek-v3-1-terminus-2025-09-22"`)
 
-* `DEEPSEEK_DEEPSEEK_V3_2_2025_09_29` (value: `"deepseek/deepseek-v3-2-2025-09-29"`)
+* `DEEPSEEK_DEEPSEEK_V3_2_EXP_2025_09_29` (value: `"deepseek/deepseek-v3-2-exp-2025-09-29"`)
 
 * `DEEPSEEK_DEEPSEEK_V3_2_SPECIALE_2025_12_01` (value: `"deepseek/deepseek-v3-2-speciale-2025-12-01"`)
 

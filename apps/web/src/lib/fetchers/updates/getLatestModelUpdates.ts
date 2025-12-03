@@ -220,7 +220,7 @@ const getSerialisedModelEventsCached = unstable_cache(
         return events.slice(0, CACHE_LIMIT);
     },
     ["data:model-updates:v1"],
-    { revalidate: 60 * 60 * 24, tags: ["data:model-updates"] }
+    { revalidate: 60 * 30, tags: ["data:model-updates"] }
 );
 
 // --------------------------------------

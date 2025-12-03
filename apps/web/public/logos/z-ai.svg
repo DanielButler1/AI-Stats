@@ -1,35 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 2000 1700">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: url(#_未命名的渐变_6);
-      }
-
-      .cls-2 {
-        fill: url(#_未命名的渐变_6-3);
-      }
-
-      .cls-3 {
-        fill: url(#_未命名的渐变_6-2);
-      }
-    </style>
-    <linearGradient id="_未命名的渐变_6" data-name="未命名的渐变 6" x1="531.58" y1="-4.02" x2="531.58" y2="1661.41" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#070606"/>
-      <stop offset=".37" stop-color="#1b1b1b"/>
-      <stop offset="1" stop-color="#3b3b3b"/>
-    </linearGradient>
-    <linearGradient id="_未命名的渐变_6-2" data-name="未命名的渐变 6" x1="1462.04" y1="-4.02" x2="1462.04" y2="1661.41" xlink:href="#_未命名的渐变_6"/>
-    <linearGradient id="_未命名的渐变_6-3" data-name="未命名的渐变 6" x1="1000" y1="-4.02" x2="1000" y2="1661.41" xlink:href="#_未命名的渐变_6"/>
-  </defs>
-  <!-- Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)  -->
-  <g>
-    <g id="_图层_1" data-name="图层_1">
-      <g>
-        <polygon class="cls-1" points="1008.73 0 827.29 251.03 54.43 251.03 235.74 0 1008.73 0"/>
-        <polygon class="cls-3" points="1937.79 1449.1 1756.47 1700 986.3 1700 1167.48 1449.1 1937.79 1449.1"/>
-        <polygon class="cls-2" points="2000 0 771.98 1700 0 1700 1228.02 0 2000 0"/>
-      </g>
-    </g>
-  </g>
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M23.02 27.02H4C1.79 27.02 0 25.23 0 23.02V4C0 1.79 1.79 0 4 0H23.03C25.24 0 27.03 1.79 27.03 4V23.03C27.02 25.23 25.23 27.02 23.02 27.02Z" fill="#2D2D2D"/>
+<path d="M13.9802 5.6101L12.6802 7.4601C12.4802 7.7501 12.1402 7.9301 11.7802 7.9301H4.68018V5.6001C4.67018 5.6101 13.9802 5.6101 13.9802 5.6101Z" fill="white"/>
+<path d="M22.81 5.60986L11.65 21.4199H4.20996L15.37 5.60986H22.81Z" fill="white"/>
+<path d="M13.04 21.4203L14.35 19.5603C14.55 19.2703 14.89 19.0903 15.25 19.0903H22.34V21.4203H13.04Z" fill="white"/>
 </svg>

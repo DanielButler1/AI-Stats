@@ -26,12 +26,24 @@ pub enum ModelId {
     Ai21SlashJambaMini1620250306,
     #[serde(rename = "ai21/jamba-mini-1-7-2025-07-03")]
     Ai21SlashJambaMini1720250703,
+    #[serde(rename = "amazon/deepseek-v3-2-2025-12-01")]
+    AmazonSlashDeepseekV3220251201,
+    #[serde(rename = "amazon/nova-2-lite-2025-12-02")]
+    AmazonSlashNova2Lite20251202,
+    #[serde(rename = "amazon/nova-2-omni-2025-12-02")]
+    AmazonSlashNova2Omni20251202,
+    #[serde(rename = "amazon/nova-2-pro-2025-12-02")]
+    AmazonSlashNova2Pro20251202,
+    #[serde(rename = "amazon/nova-2-sonic-2025-12-02")]
+    AmazonSlashNova2Sonic20251202,
     #[serde(rename = "amazon/nova-canvas")]
     AmazonSlashNovaCanvas,
     #[serde(rename = "amazon/nova-lite-1-0-2024-12-04")]
     AmazonSlashNovaLite1020241204,
     #[serde(rename = "amazon/nova-micro-1-0-2024-12-04")]
     AmazonSlashNovaMicro1020241204,
+    #[serde(rename = "amazon/nova-multimodal-embeddings-2025-12-02")]
+    AmazonSlashNovaMultimodalEmbeddings20251202,
     #[serde(rename = "amazon/nova-premier-2025-04-30")]
     AmazonSlashNovaPremier20250430,
     #[serde(rename = "amazon/nova-pro-1-0-2024-12-04")]
@@ -182,8 +194,8 @@ pub enum ModelId {
     DeepseekSlashDeepseekV31,
     #[serde(rename = "deepseek/deepseek-v3-1-terminus-2025-09-22")]
     DeepseekSlashDeepseekV31Terminus20250922,
-    #[serde(rename = "deepseek/deepseek-v3-2-2025-09-29")]
-    DeepseekSlashDeepseekV3220250929,
+    #[serde(rename = "deepseek/deepseek-v3-2-exp-2025-09-29")]
+    DeepseekSlashDeepseekV32Exp20250929,
     #[serde(rename = "deepseek/deepseek-v3-2-speciale-2025-12-01")]
     DeepseekSlashDeepseekV32Speciale20251201,
     #[serde(rename = "deepseek/deepseek-v3-2024-12-25")]
@@ -1128,9 +1140,15 @@ impl std::fmt::Display for ModelId {
             Self::Ai21SlashJambaMini1520240822 => write!(f, "ai21/jamba-mini-1-5-2024-08-22"),
             Self::Ai21SlashJambaMini1620250306 => write!(f, "ai21/jamba-mini-1-6-2025-03-06"),
             Self::Ai21SlashJambaMini1720250703 => write!(f, "ai21/jamba-mini-1-7-2025-07-03"),
+            Self::AmazonSlashDeepseekV3220251201 => write!(f, "amazon/deepseek-v3-2-2025-12-01"),
+            Self::AmazonSlashNova2Lite20251202 => write!(f, "amazon/nova-2-lite-2025-12-02"),
+            Self::AmazonSlashNova2Omni20251202 => write!(f, "amazon/nova-2-omni-2025-12-02"),
+            Self::AmazonSlashNova2Pro20251202 => write!(f, "amazon/nova-2-pro-2025-12-02"),
+            Self::AmazonSlashNova2Sonic20251202 => write!(f, "amazon/nova-2-sonic-2025-12-02"),
             Self::AmazonSlashNovaCanvas => write!(f, "amazon/nova-canvas"),
             Self::AmazonSlashNovaLite1020241204 => write!(f, "amazon/nova-lite-1-0-2024-12-04"),
             Self::AmazonSlashNovaMicro1020241204 => write!(f, "amazon/nova-micro-1-0-2024-12-04"),
+            Self::AmazonSlashNovaMultimodalEmbeddings20251202 => write!(f, "amazon/nova-multimodal-embeddings-2025-12-02"),
             Self::AmazonSlashNovaPremier20250430 => write!(f, "amazon/nova-premier-2025-04-30"),
             Self::AmazonSlashNovaPro1020241204 => write!(f, "amazon/nova-pro-1-0-2024-12-04"),
             Self::AmazonSlashNovaReel => write!(f, "amazon/nova-reel"),
@@ -1206,7 +1224,7 @@ impl std::fmt::Display for ModelId {
             Self::DeepseekSlashDeepseekV2520240508 => write!(f, "deepseek/deepseek-v2-5-2024-05-08"),
             Self::DeepseekSlashDeepseekV31 => write!(f, "deepseek/deepseek-v3-1"),
             Self::DeepseekSlashDeepseekV31Terminus20250922 => write!(f, "deepseek/deepseek-v3-1-terminus-2025-09-22"),
-            Self::DeepseekSlashDeepseekV3220250929 => write!(f, "deepseek/deepseek-v3-2-2025-09-29"),
+            Self::DeepseekSlashDeepseekV32Exp20250929 => write!(f, "deepseek/deepseek-v3-2-exp-2025-09-29"),
             Self::DeepseekSlashDeepseekV32Speciale20251201 => write!(f, "deepseek/deepseek-v3-2-speciale-2025-12-01"),
             Self::DeepseekSlashDeepseekV320241225 => write!(f, "deepseek/deepseek-v3-2024-12-25"),
             Self::DeepseekSlashDeepseekV320250325 => write!(f, "deepseek/deepseek-v3-2025-03-25"),

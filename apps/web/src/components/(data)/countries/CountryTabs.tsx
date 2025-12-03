@@ -15,7 +15,6 @@ import {
 const tabs = [
 	{ label: "Overview", key: "overview" },
 	{ label: "Models", key: "models" },
-	{ label: "Trends", key: "trends" },
 ];
 
 interface CountryTabsProps {
@@ -36,14 +35,14 @@ export default function CountryTabs({ iso }: CountryTabsProps) {
 
 	return (
 		<>
-			<div className="hidden gap-4 border-b pb-1 md:flex">
+			<div className="hidden gap-4 border-b mb-4 md:flex">
 				{tabs.map((tab) => {
 					const isActive = activeKey === tab.key;
 					return (
 						<Link
 							key={tab.key}
 							href={hrefFor(tab.key)}
-							className={`pb-2 px-2 text-sm font-semibold transition-colors ${
+							className={`pb-2 px-2 font-medium transition-colors duration-150 ${
 								isActive
 									? "border-b-2 border-primary text-primary"
 									: "border-b-2 border-transparent text-muted-foreground hover:text-primary"
@@ -55,10 +54,10 @@ export default function CountryTabs({ iso }: CountryTabsProps) {
 				})}
 			</div>
 
-			<div className="md:hidden">
+			<div className="mb-4 md:hidden">
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
-						<Button className="group flex w-full items-center justify-between rounded-xl border px-3 py-2 text-base">
+						<Button className="group flex w-full items-center justify-between rounded border bg-background p-2 text-base text-foreground">
 							{tabs.find((tab) => tab.key === activeKey)?.label ?? "Overview"}
 							<ChevronDown className="h-4 w-4 transition-transform group-data-[state=open]:rotate-180" />
 						</Button>

@@ -61,2729 +61,2759 @@ namespace AIStatsSdk.Model
         Ai21JambaMini1720250703 = 6,
 
         /// <summary>
+        /// Enum AmazonDeepseekV3220251201 for value: amazon/deepseek-v3-2-2025-12-01
+        /// </summary>
+        AmazonDeepseekV3220251201 = 7,
+
+        /// <summary>
+        /// Enum AmazonNova2Lite20251202 for value: amazon/nova-2-lite-2025-12-02
+        /// </summary>
+        AmazonNova2Lite20251202 = 8,
+
+        /// <summary>
+        /// Enum AmazonNova2Omni20251202 for value: amazon/nova-2-omni-2025-12-02
+        /// </summary>
+        AmazonNova2Omni20251202 = 9,
+
+        /// <summary>
+        /// Enum AmazonNova2Pro20251202 for value: amazon/nova-2-pro-2025-12-02
+        /// </summary>
+        AmazonNova2Pro20251202 = 10,
+
+        /// <summary>
+        /// Enum AmazonNova2Sonic20251202 for value: amazon/nova-2-sonic-2025-12-02
+        /// </summary>
+        AmazonNova2Sonic20251202 = 11,
+
+        /// <summary>
         /// Enum AmazonNovaCanvas for value: amazon/nova-canvas
         /// </summary>
-        AmazonNovaCanvas = 7,
+        AmazonNovaCanvas = 12,
 
         /// <summary>
         /// Enum AmazonNovaLite1020241204 for value: amazon/nova-lite-1-0-2024-12-04
         /// </summary>
-        AmazonNovaLite1020241204 = 8,
+        AmazonNovaLite1020241204 = 13,
 
         /// <summary>
         /// Enum AmazonNovaMicro1020241204 for value: amazon/nova-micro-1-0-2024-12-04
         /// </summary>
-        AmazonNovaMicro1020241204 = 9,
+        AmazonNovaMicro1020241204 = 14,
+
+        /// <summary>
+        /// Enum AmazonNovaMultimodalEmbeddings20251202 for value: amazon/nova-multimodal-embeddings-2025-12-02
+        /// </summary>
+        AmazonNovaMultimodalEmbeddings20251202 = 15,
 
         /// <summary>
         /// Enum AmazonNovaPremier20250430 for value: amazon/nova-premier-2025-04-30
         /// </summary>
-        AmazonNovaPremier20250430 = 10,
+        AmazonNovaPremier20250430 = 16,
 
         /// <summary>
         /// Enum AmazonNovaPro1020241204 for value: amazon/nova-pro-1-0-2024-12-04
         /// </summary>
-        AmazonNovaPro1020241204 = 11,
+        AmazonNovaPro1020241204 = 17,
 
         /// <summary>
         /// Enum AmazonNovaReel for value: amazon/nova-reel
         /// </summary>
-        AmazonNovaReel = 12,
+        AmazonNovaReel = 18,
 
         /// <summary>
         /// Enum AmazonNovaSonic for value: amazon/nova-sonic
         /// </summary>
-        AmazonNovaSonic = 13,
+        AmazonNovaSonic = 19,
 
         /// <summary>
         /// Enum AnthropicClaude1020230314 for value: anthropic/claude-1-0-2023-03-14
         /// </summary>
-        AnthropicClaude1020230314 = 14,
+        AnthropicClaude1020230314 = 20,
 
         /// <summary>
         /// Enum AnthropicClaude11 for value: anthropic/claude-1-1
         /// </summary>
-        AnthropicClaude11 = 15,
+        AnthropicClaude11 = 21,
 
         /// <summary>
         /// Enum AnthropicClaude12 for value: anthropic/claude-1-2
         /// </summary>
-        AnthropicClaude12 = 16,
+        AnthropicClaude12 = 22,
 
         /// <summary>
         /// Enum AnthropicClaude13 for value: anthropic/claude-1-3
         /// </summary>
-        AnthropicClaude13 = 17,
+        AnthropicClaude13 = 23,
 
         /// <summary>
         /// Enum AnthropicClaude2020230712 for value: anthropic/claude-2-0-2023-07-12
         /// </summary>
-        AnthropicClaude2020230712 = 18,
+        AnthropicClaude2020230712 = 24,
 
         /// <summary>
         /// Enum AnthropicClaude2120231122 for value: anthropic/claude-2-1-2023-11-22
         /// </summary>
-        AnthropicClaude2120231122 = 19,
+        AnthropicClaude2120231122 = 25,
 
         /// <summary>
         /// Enum AnthropicClaude35Haiku20241104 for value: anthropic/claude-3-5-haiku-2024-11-04
         /// </summary>
-        AnthropicClaude35Haiku20241104 = 20,
+        AnthropicClaude35Haiku20241104 = 26,
 
         /// <summary>
         /// Enum AnthropicClaude35Sonnet20240621 for value: anthropic/claude-3-5-sonnet-2024-06-21
         /// </summary>
-        AnthropicClaude35Sonnet20240621 = 21,
+        AnthropicClaude35Sonnet20240621 = 27,
 
         /// <summary>
         /// Enum AnthropicClaude35Sonnet20241022 for value: anthropic/claude-3-5-sonnet-2024-10-22
         /// </summary>
-        AnthropicClaude35Sonnet20241022 = 22,
+        AnthropicClaude35Sonnet20241022 = 28,
 
         /// <summary>
         /// Enum AnthropicClaude37Sonnet20250224 for value: anthropic/claude-3-7-sonnet-2025-02-24
         /// </summary>
-        AnthropicClaude37Sonnet20250224 = 23,
+        AnthropicClaude37Sonnet20250224 = 29,
 
         /// <summary>
         /// Enum AnthropicClaude3Haiku20240313 for value: anthropic/claude-3-haiku-2024-03-13
         /// </summary>
-        AnthropicClaude3Haiku20240313 = 24,
+        AnthropicClaude3Haiku20240313 = 30,
 
         /// <summary>
         /// Enum AnthropicClaude3Opus20240304 for value: anthropic/claude-3-opus-2024-03-04
         /// </summary>
-        AnthropicClaude3Opus20240304 = 25,
+        AnthropicClaude3Opus20240304 = 31,
 
         /// <summary>
         /// Enum AnthropicClaude3Sonnet20240304 for value: anthropic/claude-3-sonnet-2024-03-04
         /// </summary>
-        AnthropicClaude3Sonnet20240304 = 26,
+        AnthropicClaude3Sonnet20240304 = 32,
 
         /// <summary>
         /// Enum AnthropicClaudeHaiku4520251015 for value: anthropic/claude-haiku-4-5-2025-10-15
         /// </summary>
-        AnthropicClaudeHaiku4520251015 = 27,
+        AnthropicClaudeHaiku4520251015 = 33,
 
         /// <summary>
         /// Enum AnthropicClaudeInstant1020230314 for value: anthropic/claude-instant-1-0-2023-03-14
         /// </summary>
-        AnthropicClaudeInstant1020230314 = 28,
+        AnthropicClaudeInstant1020230314 = 34,
 
         /// <summary>
         /// Enum AnthropicClaudeInstant11 for value: anthropic/claude-instant-1-1
         /// </summary>
-        AnthropicClaudeInstant11 = 29,
+        AnthropicClaudeInstant11 = 35,
 
         /// <summary>
         /// Enum AnthropicClaudeInstant1220230809 for value: anthropic/claude-instant-1-2-2023-08-09
         /// </summary>
-        AnthropicClaudeInstant1220230809 = 30,
+        AnthropicClaudeInstant1220230809 = 36,
 
         /// <summary>
         /// Enum AnthropicClaudeOpus4120250805 for value: anthropic/claude-opus-4-1-2025-08-05
         /// </summary>
-        AnthropicClaudeOpus4120250805 = 31,
+        AnthropicClaudeOpus4120250805 = 37,
 
         /// <summary>
         /// Enum AnthropicClaudeOpus420250521 for value: anthropic/claude-opus-4-2025-05-21
         /// </summary>
-        AnthropicClaudeOpus420250521 = 32,
+        AnthropicClaudeOpus420250521 = 38,
 
         /// <summary>
         /// Enum AnthropicClaudeOpus4520251124 for value: anthropic/claude-opus-4-5-2025-11-24
         /// </summary>
-        AnthropicClaudeOpus4520251124 = 33,
+        AnthropicClaudeOpus4520251124 = 39,
 
         /// <summary>
         /// Enum AnthropicClaudeSonnet420250521 for value: anthropic/claude-sonnet-4-2025-05-21
         /// </summary>
-        AnthropicClaudeSonnet420250521 = 34,
+        AnthropicClaudeSonnet420250521 = 40,
 
         /// <summary>
         /// Enum AnthropicClaudeSonnet4520250929 for value: anthropic/claude-sonnet-4-5-2025-09-29
         /// </summary>
-        AnthropicClaudeSonnet4520250929 = 35,
+        AnthropicClaudeSonnet4520250929 = 41,
 
         /// <summary>
         /// Enum BaiduErnie4521bA3b for value: baidu/ernie-4-5-21b-a3b
         /// </summary>
-        BaiduErnie4521bA3b = 36,
+        BaiduErnie4521bA3b = 42,
 
         /// <summary>
         /// Enum BaiduErnie4521bA3bThinking for value: baidu/ernie-4-5-21b-a3b-thinking
         /// </summary>
-        BaiduErnie4521bA3bThinking = 37,
+        BaiduErnie4521bA3bThinking = 43,
 
         /// <summary>
         /// Enum BaiduErnie45300bA47b for value: baidu/ernie-4-5-300b-a47b
         /// </summary>
-        BaiduErnie45300bA47b = 38,
+        BaiduErnie45300bA47b = 44,
 
         /// <summary>
         /// Enum BaiduErnie45Vl28bA3b for value: baidu/ernie-4-5-vl-28b-a3b
         /// </summary>
-        BaiduErnie45Vl28bA3b = 39,
+        BaiduErnie45Vl28bA3b = 45,
 
         /// <summary>
         /// Enum BaiduErnie45Vl424bA47b for value: baidu/ernie-4-5-vl-424b-a47b
         /// </summary>
-        BaiduErnie45Vl424bA47b = 40,
+        BaiduErnie45Vl424bA47b = 46,
 
         /// <summary>
         /// Enum BaiduQianfanVl3b for value: baidu/qianfan-vl-3b
         /// </summary>
-        BaiduQianfanVl3b = 41,
+        BaiduQianfanVl3b = 47,
 
         /// <summary>
         /// Enum BaiduQianfanVl70b for value: baidu/qianfan-vl-70b
         /// </summary>
-        BaiduQianfanVl70b = 42,
+        BaiduQianfanVl70b = 48,
 
         /// <summary>
         /// Enum BaiduQianfanVl8b for value: baidu/qianfan-vl-8b
         /// </summary>
-        BaiduQianfanVl8b = 43,
+        BaiduQianfanVl8b = 49,
 
         /// <summary>
         /// Enum BytedanceSeedCoder8bInstruct for value: bytedance/seed-coder-8b-instruct
         /// </summary>
-        BytedanceSeedCoder8bInstruct = 44,
+        BytedanceSeedCoder8bInstruct = 50,
 
         /// <summary>
         /// Enum BytedanceSeedCoder8bReasoning for value: bytedance/seed-coder-8b-reasoning
         /// </summary>
-        BytedanceSeedCoder8bReasoning = 45,
+        BytedanceSeedCoder8bReasoning = 51,
 
         /// <summary>
         /// Enum BytedanceSeedOss36bInstruct for value: bytedance/seed-oss-36b-instruct
         /// </summary>
-        BytedanceSeedOss36bInstruct = 46,
+        BytedanceSeedOss36bInstruct = 52,
 
         /// <summary>
         /// Enum CohereC4aiAyaExpanse32b for value: cohere/c4ai-aya-expanse-32b
         /// </summary>
-        CohereC4aiAyaExpanse32b = 47,
+        CohereC4aiAyaExpanse32b = 53,
 
         /// <summary>
         /// Enum CohereC4aiAyaExpanse8b for value: cohere/c4ai-aya-expanse-8b
         /// </summary>
-        CohereC4aiAyaExpanse8b = 48,
+        CohereC4aiAyaExpanse8b = 54,
 
         /// <summary>
         /// Enum CohereC4aiAyaVision32b for value: cohere/c4ai-aya-vision-32b
         /// </summary>
-        CohereC4aiAyaVision32b = 49,
+        CohereC4aiAyaVision32b = 55,
 
         /// <summary>
         /// Enum CohereC4aiAyaVision8b for value: cohere/c4ai-aya-vision-8b
         /// </summary>
-        CohereC4aiAyaVision8b = 50,
+        CohereC4aiAyaVision8b = 56,
 
         /// <summary>
         /// Enum CohereCommand for value: cohere/command
         /// </summary>
-        CohereCommand = 51,
+        CohereCommand = 57,
 
         /// <summary>
         /// Enum CohereCommandA20250313 for value: cohere/command-a-2025-03-13
         /// </summary>
-        CohereCommandA20250313 = 52,
+        CohereCommandA20250313 = 58,
 
         /// <summary>
         /// Enum CohereCommandAReasoning20250821 for value: cohere/command-a-reasoning-2025-08-21
         /// </summary>
-        CohereCommandAReasoning20250821 = 53,
+        CohereCommandAReasoning20250821 = 59,
 
         /// <summary>
         /// Enum CohereCommandATranslate20250828 for value: cohere/command-a-translate-2025-08-28
         /// </summary>
-        CohereCommandATranslate20250828 = 54,
+        CohereCommandATranslate20250828 = 60,
 
         /// <summary>
         /// Enum CohereCommandAVision20250731 for value: cohere/command-a-vision-2025-07-31
         /// </summary>
-        CohereCommandAVision20250731 = 55,
+        CohereCommandAVision20250731 = 61,
 
         /// <summary>
         /// Enum CohereCommandLight for value: cohere/command-light
         /// </summary>
-        CohereCommandLight = 56,
+        CohereCommandLight = 62,
 
         /// <summary>
         /// Enum CohereCommandR20240311 for value: cohere/command-r-2024-03-11
         /// </summary>
-        CohereCommandR20240311 = 57,
+        CohereCommandR20240311 = 63,
 
         /// <summary>
         /// Enum CohereCommandR20240830 for value: cohere/command-r-2024-08-30
         /// </summary>
-        CohereCommandR20240830 = 58,
+        CohereCommandR20240830 = 64,
 
         /// <summary>
         /// Enum CohereCommandR7b20241213 for value: cohere/command-r-7b-2024-12-13
         /// </summary>
-        CohereCommandR7b20241213 = 59,
+        CohereCommandR7b20241213 = 65,
 
         /// <summary>
         /// Enum CohereCommandR20240404 for value: cohere/command-r+-2024-04-04
         /// </summary>
-        CohereCommandR20240404 = 60,
+        CohereCommandR20240404 = 66,
 
         /// <summary>
         /// Enum CohereCommandR202408302 for value: cohere/command-r+-2024-08-30
         /// </summary>
-        CohereCommandR202408302 = 61,
+        CohereCommandR202408302 = 67,
 
         /// <summary>
         /// Enum CohereEmbedEnglishLightV20 for value: cohere/embed-english-light-v2-0
         /// </summary>
-        CohereEmbedEnglishLightV20 = 62,
+        CohereEmbedEnglishLightV20 = 68,
 
         /// <summary>
         /// Enum CohereEmbedEnglishLightV3 for value: cohere/embed-english-light-v3
         /// </summary>
-        CohereEmbedEnglishLightV3 = 63,
+        CohereEmbedEnglishLightV3 = 69,
 
         /// <summary>
         /// Enum CohereEmbedEnglishV20 for value: cohere/embed-english-v2-0
         /// </summary>
-        CohereEmbedEnglishV20 = 64,
+        CohereEmbedEnglishV20 = 70,
 
         /// <summary>
         /// Enum CohereEmbedEnglishV3 for value: cohere/embed-english-v3
         /// </summary>
-        CohereEmbedEnglishV3 = 65,
+        CohereEmbedEnglishV3 = 71,
 
         /// <summary>
         /// Enum CohereEmbedMultilingualLightV3 for value: cohere/embed-multilingual-light-v3
         /// </summary>
-        CohereEmbedMultilingualLightV3 = 66,
+        CohereEmbedMultilingualLightV3 = 72,
 
         /// <summary>
         /// Enum CohereEmbedMultilingualV20 for value: cohere/embed-multilingual-v2-0
         /// </summary>
-        CohereEmbedMultilingualV20 = 67,
+        CohereEmbedMultilingualV20 = 73,
 
         /// <summary>
         /// Enum CohereEmbedMultilingualV3 for value: cohere/embed-multilingual-v3
         /// </summary>
-        CohereEmbedMultilingualV3 = 68,
+        CohereEmbedMultilingualV3 = 74,
 
         /// <summary>
         /// Enum CohereEmbedV4 for value: cohere/embed-v4
         /// </summary>
-        CohereEmbedV4 = 69,
+        CohereEmbedV4 = 75,
 
         /// <summary>
         /// Enum CohereRerankMultilingualV3 for value: cohere/rerank-multilingual-v3
         /// </summary>
-        CohereRerankMultilingualV3 = 70,
+        CohereRerankMultilingualV3 = 76,
 
         /// <summary>
         /// Enum CohereRerankV35 for value: cohere/rerank-v3-5
         /// </summary>
-        CohereRerankV35 = 71,
+        CohereRerankV35 = 77,
 
         /// <summary>
         /// Enum CohereRerenkEnglishV3 for value: cohere/rerenk-english-v3
         /// </summary>
-        CohereRerenkEnglishV3 = 72,
+        CohereRerenkEnglishV3 = 78,
 
         /// <summary>
         /// Enum DeepseekDeepseekCoderV220240614 for value: deepseek/deepseek-coder-v2-2024-06-14
         /// </summary>
-        DeepseekDeepseekCoderV220240614 = 73,
+        DeepseekDeepseekCoderV220240614 = 79,
 
         /// <summary>
         /// Enum DeepseekDeepseekCoderV220240724 for value: deepseek/deepseek-coder-v2-2024-07-24
         /// </summary>
-        DeepseekDeepseekCoderV220240724 = 74,
+        DeepseekDeepseekCoderV220240724 = 80,
 
         /// <summary>
         /// Enum DeepseekDeepseekOcr20251020 for value: deepseek/deepseek-ocr-2025-10-20
         /// </summary>
-        DeepseekDeepseekOcr20251020 = 75,
+        DeepseekDeepseekOcr20251020 = 81,
 
         /// <summary>
         /// Enum DeepseekDeepseekR120250120 for value: deepseek/deepseek-r1-2025-01-20
         /// </summary>
-        DeepseekDeepseekR120250120 = 76,
+        DeepseekDeepseekR120250120 = 82,
 
         /// <summary>
         /// Enum DeepseekDeepseekR120250528 for value: deepseek/deepseek-r1-2025-05-28
         /// </summary>
-        DeepseekDeepseekR120250528 = 77,
+        DeepseekDeepseekR120250528 = 83,
 
         /// <summary>
         /// Enum DeepseekDeepseekR1LitePreview for value: deepseek/deepseek-r1-lite-preview
         /// </summary>
-        DeepseekDeepseekR1LitePreview = 78,
+        DeepseekDeepseekR1LitePreview = 84,
 
         /// <summary>
         /// Enum DeepseekDeepseekV220240517 for value: deepseek/deepseek-v2-2024-05-17
         /// </summary>
-        DeepseekDeepseekV220240517 = 79,
+        DeepseekDeepseekV220240517 = 85,
 
         /// <summary>
         /// Enum DeepseekDeepseekV220240628 for value: deepseek/deepseek-v2-2024-06-28
         /// </summary>
-        DeepseekDeepseekV220240628 = 80,
+        DeepseekDeepseekV220240628 = 86,
 
         /// <summary>
         /// Enum DeepseekDeepseekV25 for value: deepseek/deepseek-v2-5
         /// </summary>
-        DeepseekDeepseekV25 = 81,
+        DeepseekDeepseekV25 = 87,
 
         /// <summary>
         /// Enum DeepseekDeepseekV2520240508 for value: deepseek/deepseek-v2-5-2024-05-08
         /// </summary>
-        DeepseekDeepseekV2520240508 = 82,
+        DeepseekDeepseekV2520240508 = 88,
 
         /// <summary>
         /// Enum DeepseekDeepseekV31 for value: deepseek/deepseek-v3-1
         /// </summary>
-        DeepseekDeepseekV31 = 83,
+        DeepseekDeepseekV31 = 89,
 
         /// <summary>
         /// Enum DeepseekDeepseekV31Terminus20250922 for value: deepseek/deepseek-v3-1-terminus-2025-09-22
         /// </summary>
-        DeepseekDeepseekV31Terminus20250922 = 84,
+        DeepseekDeepseekV31Terminus20250922 = 90,
 
         /// <summary>
-        /// Enum DeepseekDeepseekV3220250929 for value: deepseek/deepseek-v3-2-2025-09-29
+        /// Enum DeepseekDeepseekV32Exp20250929 for value: deepseek/deepseek-v3-2-exp-2025-09-29
         /// </summary>
-        DeepseekDeepseekV3220250929 = 85,
+        DeepseekDeepseekV32Exp20250929 = 91,
 
         /// <summary>
         /// Enum DeepseekDeepseekV32Speciale20251201 for value: deepseek/deepseek-v3-2-speciale-2025-12-01
         /// </summary>
-        DeepseekDeepseekV32Speciale20251201 = 86,
+        DeepseekDeepseekV32Speciale20251201 = 92,
 
         /// <summary>
         /// Enum DeepseekDeepseekV320241225 for value: deepseek/deepseek-v3-2024-12-25
         /// </summary>
-        DeepseekDeepseekV320241225 = 87,
+        DeepseekDeepseekV320241225 = 93,
 
         /// <summary>
         /// Enum DeepseekDeepseekV320250325 for value: deepseek/deepseek-v3-2025-03-25
         /// </summary>
-        DeepseekDeepseekV320250325 = 88,
+        DeepseekDeepseekV320250325 = 94,
 
         /// <summary>
         /// Enum DeepseekDeepseekVl220241213 for value: deepseek/deepseek-vl2-2024-12-13
         /// </summary>
-        DeepseekDeepseekVl220241213 = 89,
+        DeepseekDeepseekVl220241213 = 95,
 
         /// <summary>
         /// Enum DeepseekDeepseekVl2Small20241213 for value: deepseek/deepseek-vl2-small-2024-12-13
         /// </summary>
-        DeepseekDeepseekVl2Small20241213 = 90,
+        DeepseekDeepseekVl2Small20241213 = 96,
 
         /// <summary>
         /// Enum DeepseekDeepseekVl2Tiny20241213 for value: deepseek/deepseek-vl2-tiny-2024-12-13
         /// </summary>
-        DeepseekDeepseekVl2Tiny20241213 = 91,
+        DeepseekDeepseekVl2Tiny20241213 = 97,
 
         /// <summary>
         /// Enum GoogleEmbedding00120231213 for value: google/embedding-001-2023-12-13
         /// </summary>
-        GoogleEmbedding00120231213 = 92,
+        GoogleEmbedding00120231213 = 98,
 
         /// <summary>
         /// Enum GoogleEmbeddingGecko00120231213 for value: google/embedding-gecko-001-2023-12-13
         /// </summary>
-        GoogleEmbeddingGecko00120231213 = 93,
+        GoogleEmbeddingGecko00120231213 = 99,
 
         /// <summary>
         /// Enum GoogleGemini10Nano20231206 for value: google/gemini-1-0-nano-2023-12-06
         /// </summary>
-        GoogleGemini10Nano20231206 = 94,
+        GoogleGemini10Nano20231206 = 100,
 
         /// <summary>
         /// Enum GoogleGemini10Pro20231206 for value: google/gemini-1-0-pro-2023-12-06
         /// </summary>
-        GoogleGemini10Pro20231206 = 95,
+        GoogleGemini10Pro20231206 = 101,
 
         /// <summary>
         /// Enum GoogleGemini10Ultra20231206 for value: google/gemini-1-0-ultra-2023-12-06
         /// </summary>
-        GoogleGemini10Ultra20231206 = 96,
+        GoogleGemini10Ultra20231206 = 102,
 
         /// <summary>
         /// Enum GoogleGemini15Flash00120240523 for value: google/gemini-1-5-flash-001-2024-05-23
         /// </summary>
-        GoogleGemini15Flash00120240523 = 97,
+        GoogleGemini15Flash00120240523 = 103,
 
         /// <summary>
         /// Enum GoogleGemini15Flash00220240924 for value: google/gemini-1-5-flash-002-2024-09-24
         /// </summary>
-        GoogleGemini15Flash00220240924 = 98,
+        GoogleGemini15Flash00220240924 = 104,
 
         /// <summary>
         /// Enum GoogleGemini15Flash8b20240315 for value: google/gemini-1-5-flash-8b-2024-03-15
         /// </summary>
-        GoogleGemini15Flash8b20240315 = 99,
+        GoogleGemini15Flash8b20240315 = 105,
 
         /// <summary>
         /// Enum GoogleGemini15Flash8bExp20240827 for value: google/gemini-1-5-flash-8b-exp-2024-08-27
         /// </summary>
-        GoogleGemini15Flash8bExp20240827 = 100,
+        GoogleGemini15Flash8bExp20240827 = 106,
 
         /// <summary>
         /// Enum GoogleGemini15Flash8bExp20240924 for value: google/gemini-1-5-flash-8b-exp-2024-09-24
         /// </summary>
-        GoogleGemini15Flash8bExp20240924 = 101,
+        GoogleGemini15Flash8bExp20240924 = 107,
 
         /// <summary>
         /// Enum GoogleGemini15Pro00120240523 for value: google/gemini-1-5-pro-001-2024-05-23
         /// </summary>
-        GoogleGemini15Pro00120240523 = 102,
+        GoogleGemini15Pro00120240523 = 108,
 
         /// <summary>
         /// Enum GoogleGemini15Pro00220240924 for value: google/gemini-1-5-pro-002-2024-09-24
         /// </summary>
-        GoogleGemini15Pro00220240924 = 103,
+        GoogleGemini15Pro00220240924 = 109,
 
         /// <summary>
         /// Enum GoogleGemini15ProExp20240801 for value: google/gemini-1-5-pro-exp-2024-08-01
         /// </summary>
-        GoogleGemini15ProExp20240801 = 104,
+        GoogleGemini15ProExp20240801 = 110,
 
         /// <summary>
         /// Enum GoogleGemini15ProExp20240827 for value: google/gemini-1-5-pro-exp-2024-08-27
         /// </summary>
-        GoogleGemini15ProExp20240827 = 105,
+        GoogleGemini15ProExp20240827 = 111,
 
         /// <summary>
         /// Enum GoogleGemini20Flash20250205 for value: google/gemini-2-0-flash-2025-02-05
         /// </summary>
-        GoogleGemini20Flash20250205 = 106,
+        GoogleGemini20Flash20250205 = 112,
 
         /// <summary>
         /// Enum GoogleGemini20FlashExp for value: google/gemini-2-0-flash-exp
         /// </summary>
-        GoogleGemini20FlashExp = 107,
+        GoogleGemini20FlashExp = 113,
 
         /// <summary>
         /// Enum GoogleGemini20FlashExpImageGeneration for value: google/gemini-2-0-flash-exp-image-generation
         /// </summary>
-        GoogleGemini20FlashExpImageGeneration = 108,
+        GoogleGemini20FlashExpImageGeneration = 114,
 
         /// <summary>
         /// Enum GoogleGemini20FlashLite20250205 for value: google/gemini-2-0-flash-lite-2025-02-05
         /// </summary>
-        GoogleGemini20FlashLite20250205 = 109,
+        GoogleGemini20FlashLite20250205 = 115,
 
         /// <summary>
         /// Enum GoogleGemini20FlashLive00120250409 for value: google/gemini-2-0-flash-live-001-2025-04-09
         /// </summary>
-        GoogleGemini20FlashLive00120250409 = 110,
+        GoogleGemini20FlashLive00120250409 = 116,
 
         /// <summary>
         /// Enum GoogleGemini20FlashPreviewImageGeneration20250507 for value: google/gemini-2-0-flash-preview-image-generation-2025-05-07
         /// </summary>
-        GoogleGemini20FlashPreviewImageGeneration20250507 = 111,
+        GoogleGemini20FlashPreviewImageGeneration20250507 = 117,
 
         /// <summary>
         /// Enum GoogleGemini20FlashThinkingExp20241219 for value: google/gemini-2-0-flash-thinking-exp-2024-12-19
         /// </summary>
-        GoogleGemini20FlashThinkingExp20241219 = 112,
+        GoogleGemini20FlashThinkingExp20241219 = 118,
 
         /// <summary>
         /// Enum GoogleGemini20FlashThinkingExp20250121 for value: google/gemini-2-0-flash-thinking-exp-2025-01-21
         /// </summary>
-        GoogleGemini20FlashThinkingExp20250121 = 113,
+        GoogleGemini20FlashThinkingExp20250121 = 119,
 
         /// <summary>
         /// Enum GoogleGemini20ProExp20250205 for value: google/gemini-2-0-pro-exp-2025-02-05
         /// </summary>
-        GoogleGemini20ProExp20250205 = 114,
+        GoogleGemini20ProExp20250205 = 120,
 
         /// <summary>
         /// Enum GoogleGemini25ComputerUsePreview20251007 for value: google/gemini-2-5-computer-use-preview-2025-10-07
         /// </summary>
-        GoogleGemini25ComputerUsePreview20251007 = 115,
+        GoogleGemini25ComputerUsePreview20251007 = 121,
 
         /// <summary>
         /// Enum GoogleGemini25FlashExpNativeAudioThinkingDialog for value: google/gemini-2-5-flash-exp-native-audio-thinking-dialog
         /// </summary>
-        GoogleGemini25FlashExpNativeAudioThinkingDialog = 116,
+        GoogleGemini25FlashExpNativeAudioThinkingDialog = 122,
 
         /// <summary>
         /// Enum GoogleGemini25FlashImagePreview for value: google/gemini-2-5-flash-image-preview
         /// </summary>
-        GoogleGemini25FlashImagePreview = 117,
+        GoogleGemini25FlashImagePreview = 123,
 
         /// <summary>
         /// Enum GoogleGemini25FlashLitePreview20250617 for value: google/gemini-2-5-flash-lite-preview-2025-06-17
         /// </summary>
-        GoogleGemini25FlashLitePreview20250617 = 118,
+        GoogleGemini25FlashLitePreview20250617 = 124,
 
         /// <summary>
         /// Enum GoogleGemini25FlashLitePreview20250925 for value: google/gemini-2-5-flash-lite-preview-2025-09-25
         /// </summary>
-        GoogleGemini25FlashLitePreview20250925 = 119,
+        GoogleGemini25FlashLitePreview20250925 = 125,
 
         /// <summary>
         /// Enum GoogleGemini25FlashNativeAudioPreview for value: google/gemini-2-5-flash-native-audio-preview
         /// </summary>
-        GoogleGemini25FlashNativeAudioPreview = 120,
+        GoogleGemini25FlashNativeAudioPreview = 126,
 
         /// <summary>
         /// Enum GoogleGemini25FlashPreview20250417 for value: google/gemini-2-5-flash-preview-2025-04-17
         /// </summary>
-        GoogleGemini25FlashPreview20250417 = 121,
+        GoogleGemini25FlashPreview20250417 = 127,
 
         /// <summary>
         /// Enum GoogleGemini25FlashPreview20250520 for value: google/gemini-2-5-flash-preview-2025-05-20
         /// </summary>
-        GoogleGemini25FlashPreview20250520 = 122,
+        GoogleGemini25FlashPreview20250520 = 128,
 
         /// <summary>
         /// Enum GoogleGemini25FlashPreview20250925 for value: google/gemini-2-5-flash-preview-2025-09-25
         /// </summary>
-        GoogleGemini25FlashPreview20250925 = 123,
+        GoogleGemini25FlashPreview20250925 = 129,
 
         /// <summary>
         /// Enum GoogleGemini25FlashPreviewNativeAudioDialog for value: google/gemini-2-5-flash-preview-native-audio-dialog
         /// </summary>
-        GoogleGemini25FlashPreviewNativeAudioDialog = 124,
+        GoogleGemini25FlashPreviewNativeAudioDialog = 130,
 
         /// <summary>
         /// Enum GoogleGemini25FlashPreviewTts for value: google/gemini-2-5-flash-preview-tts
         /// </summary>
-        GoogleGemini25FlashPreviewTts = 125,
+        GoogleGemini25FlashPreviewTts = 131,
 
         /// <summary>
         /// Enum GoogleGemini25ProExperimental for value: google/gemini-2-5-pro-experimental
         /// </summary>
-        GoogleGemini25ProExperimental = 126,
+        GoogleGemini25ProExperimental = 132,
 
         /// <summary>
         /// Enum GoogleGemini25ProPreview20250506 for value: google/gemini-2-5-pro-preview-2025-05-06
         /// </summary>
-        GoogleGemini25ProPreview20250506 = 127,
+        GoogleGemini25ProPreview20250506 = 133,
 
         /// <summary>
         /// Enum GoogleGemini25ProPreview20250605 for value: google/gemini-2-5-pro-preview-2025-06-05
         /// </summary>
-        GoogleGemini25ProPreview20250605 = 128,
+        GoogleGemini25ProPreview20250605 = 134,
 
         /// <summary>
         /// Enum GoogleGemini25ProPreviewTts for value: google/gemini-2-5-pro-preview-tts
         /// </summary>
-        GoogleGemini25ProPreviewTts = 129,
+        GoogleGemini25ProPreviewTts = 135,
 
         /// <summary>
         /// Enum GoogleGemini30Flash for value: google/gemini-3-0-flash
         /// </summary>
-        GoogleGemini30Flash = 130,
+        GoogleGemini30Flash = 136,
 
         /// <summary>
         /// Enum GoogleGemini30FlashLite for value: google/gemini-3-0-flash-lite
         /// </summary>
-        GoogleGemini30FlashLite = 131,
+        GoogleGemini30FlashLite = 137,
 
         /// <summary>
         /// Enum GoogleGemini30ProPreview20251118 for value: google/gemini-3-0-pro-preview-2025-11-18
         /// </summary>
-        GoogleGemini30ProPreview20251118 = 132,
+        GoogleGemini30ProPreview20251118 = 138,
 
         /// <summary>
         /// Enum GoogleGemini3ProImagePreview20251120 for value: google/gemini-3-pro-image-preview-2025-11-20
         /// </summary>
-        GoogleGemini3ProImagePreview20251120 = 133,
+        GoogleGemini3ProImagePreview20251120 = 139,
 
         /// <summary>
         /// Enum GoogleGeminiDiffusion for value: google/gemini-diffusion
         /// </summary>
-        GoogleGeminiDiffusion = 134,
+        GoogleGeminiDiffusion = 140,
 
         /// <summary>
         /// Enum GoogleGeminiEmbedding00120250520 for value: google/gemini-embedding-001-2025-05-20
         /// </summary>
-        GoogleGeminiEmbedding00120250520 = 135,
+        GoogleGeminiEmbedding00120250520 = 141,
 
         /// <summary>
         /// Enum GoogleGeminiEmbeddingExp030720250307 for value: google/gemini-embedding-exp-0307-2025-03-07
         /// </summary>
-        GoogleGeminiEmbeddingExp030720250307 = 136,
+        GoogleGeminiEmbeddingExp030720250307 = 142,
 
         /// <summary>
         /// Enum GoogleGeminiExp111420241114 for value: google/gemini-exp-1114-2024-11-14
         /// </summary>
-        GoogleGeminiExp111420241114 = 137,
+        GoogleGeminiExp111420241114 = 143,
 
         /// <summary>
         /// Enum GoogleGeminiExp112120241121 for value: google/gemini-exp-1121-2024-11-21
         /// </summary>
-        GoogleGeminiExp112120241121 = 138,
+        GoogleGeminiExp112120241121 = 144,
 
         /// <summary>
         /// Enum GoogleGeminiExp1206 for value: google/gemini-exp-1206
         /// </summary>
-        GoogleGeminiExp1206 = 139,
+        GoogleGeminiExp1206 = 145,
 
         /// <summary>
         /// Enum GoogleGeminiLive25FlashPreview20250409 for value: google/gemini-live-2-5-flash-preview-2025-04-09
         /// </summary>
-        GoogleGeminiLive25FlashPreview20250409 = 140,
+        GoogleGeminiLive25FlashPreview20250409 = 146,
 
         /// <summary>
         /// Enum GoogleGeminiRoboticsEr15Preview for value: google/gemini-robotics-er-1-5-preview
         /// </summary>
-        GoogleGeminiRoboticsEr15Preview = 141,
+        GoogleGeminiRoboticsEr15Preview = 147,
 
         /// <summary>
         /// Enum GoogleGemma12b20240221 for value: google/gemma-1-2b-2024-02-21
         /// </summary>
-        GoogleGemma12b20240221 = 142,
+        GoogleGemma12b20240221 = 148,
 
         /// <summary>
         /// Enum GoogleGemma17b20240221 for value: google/gemma-1-7b-2024-02-21
         /// </summary>
-        GoogleGemma17b20240221 = 143,
+        GoogleGemma17b20240221 = 149,
 
         /// <summary>
         /// Enum GoogleGemma227b20240627 for value: google/gemma-2-27b-2024-06-27
         /// </summary>
-        GoogleGemma227b20240627 = 144,
+        GoogleGemma227b20240627 = 150,
 
         /// <summary>
         /// Enum GoogleGemma22b20240731 for value: google/gemma-2-2b-2024-07-31
         /// </summary>
-        GoogleGemma22b20240731 = 145,
+        GoogleGemma22b20240731 = 151,
 
         /// <summary>
         /// Enum GoogleGemma29b20240627 for value: google/gemma-2-9b-2024-06-27
         /// </summary>
-        GoogleGemma29b20240627 = 146,
+        GoogleGemma29b20240627 = 152,
 
         /// <summary>
         /// Enum GoogleGemma312b20250312 for value: google/gemma-3-12b-2025-03-12
         /// </summary>
-        GoogleGemma312b20250312 = 147,
+        GoogleGemma312b20250312 = 153,
 
         /// <summary>
         /// Enum GoogleGemma31b20250312 for value: google/gemma-3-1b-2025-03-12
         /// </summary>
-        GoogleGemma31b20250312 = 148,
+        GoogleGemma31b20250312 = 154,
 
         /// <summary>
         /// Enum GoogleGemma327b20250312 for value: google/gemma-3-27b-2025-03-12
         /// </summary>
-        GoogleGemma327b20250312 = 149,
+        GoogleGemma327b20250312 = 155,
 
         /// <summary>
         /// Enum GoogleGemma34b20250312 for value: google/gemma-3-4b-2025-03-12
         /// </summary>
-        GoogleGemma34b20250312 = 150,
+        GoogleGemma34b20250312 = 156,
 
         /// <summary>
         /// Enum GoogleGemma3nE2b for value: google/gemma-3n-e2b
         /// </summary>
-        GoogleGemma3nE2b = 151,
+        GoogleGemma3nE2b = 157,
 
         /// <summary>
         /// Enum GoogleGemma3nE4b20250520 for value: google/gemma-3n-e4b-2025-05-20
         /// </summary>
-        GoogleGemma3nE4b20250520 = 152,
+        GoogleGemma3nE4b20250520 = 158,
 
         /// <summary>
         /// Enum GoogleImagen30Generate001 for value: google/imagen-3-0-generate-001
         /// </summary>
-        GoogleImagen30Generate001 = 153,
+        GoogleImagen30Generate001 = 159,
 
         /// <summary>
         /// Enum GoogleImagen30Generate00220250206 for value: google/imagen-3-0-generate-002-2025-02-06
         /// </summary>
-        GoogleImagen30Generate00220250206 = 154,
+        GoogleImagen30Generate00220250206 = 160,
 
         /// <summary>
         /// Enum GoogleImagen40FastGenerate001 for value: google/imagen-4-0-fast-generate-001
         /// </summary>
-        GoogleImagen40FastGenerate001 = 155,
+        GoogleImagen40FastGenerate001 = 161,
 
         /// <summary>
         /// Enum GoogleImagen40Generate00120250814 for value: google/imagen-4-0-generate-001-2025-08-14
         /// </summary>
-        GoogleImagen40Generate00120250814 = 156,
+        GoogleImagen40Generate00120250814 = 162,
 
         /// <summary>
         /// Enum GoogleImagen40UltraGenerate00120250814 for value: google/imagen-4-0-ultra-generate-001-2025-08-14
         /// </summary>
-        GoogleImagen40UltraGenerate00120250814 = 157,
+        GoogleImagen40UltraGenerate00120250814 = 163,
 
         /// <summary>
         /// Enum GoogleImagen4Preview for value: google/imagen-4-preview
         /// </summary>
-        GoogleImagen4Preview = 158,
+        GoogleImagen4Preview = 164,
 
         /// <summary>
         /// Enum GoogleImagen4UltraPreview20250814 for value: google/imagen-4-ultra-preview-2025-08-14
         /// </summary>
-        GoogleImagen4UltraPreview20250814 = 159,
+        GoogleImagen4UltraPreview20250814 = 165,
 
         /// <summary>
         /// Enum GoogleLearnlm15ProExperimental for value: google/learnlm-1-5-pro-experimental
         /// </summary>
-        GoogleLearnlm15ProExperimental = 160,
+        GoogleLearnlm15ProExperimental = 166,
 
         /// <summary>
         /// Enum GoogleLearnlm20FlashExperimental for value: google/learnlm-2-0-flash-experimental
         /// </summary>
-        GoogleLearnlm20FlashExperimental = 161,
+        GoogleLearnlm20FlashExperimental = 167,
 
         /// <summary>
         /// Enum GoogleVeo220250409 for value: google/veo-2-2025-04-09
         /// </summary>
-        GoogleVeo220250409 = 162,
+        GoogleVeo220250409 = 168,
 
         /// <summary>
         /// Enum GoogleVeo30FastGeneratePreview20250717 for value: google/veo-3-0-fast-generate-preview-2025-07-17
         /// </summary>
-        GoogleVeo30FastGeneratePreview20250717 = 163,
+        GoogleVeo30FastGeneratePreview20250717 = 169,
 
         /// <summary>
         /// Enum GoogleVeo30GeneratePreview20250717 for value: google/veo-3-0-generate-preview-2025-07-17
         /// </summary>
-        GoogleVeo30GeneratePreview20250717 = 164,
+        GoogleVeo30GeneratePreview20250717 = 170,
 
         /// <summary>
         /// Enum GoogleVeo31FastPreview20251015 for value: google/veo-3-1-fast-preview-2025-10-15
         /// </summary>
-        GoogleVeo31FastPreview20251015 = 165,
+        GoogleVeo31FastPreview20251015 = 171,
 
         /// <summary>
         /// Enum GoogleVeo31Preview20251015 for value: google/veo-3-1-preview-2025-10-15
         /// </summary>
-        GoogleVeo31Preview20251015 = 166,
+        GoogleVeo31Preview20251015 = 172,
 
         /// <summary>
         /// Enum GoogleVeo320250909 for value: google/veo-3-2025-09-09
         /// </summary>
-        GoogleVeo320250909 = 167,
+        GoogleVeo320250909 = 173,
 
         /// <summary>
         /// Enum GoogleVeo3Fast20250909 for value: google/veo-3-fast-2025-09-09
         /// </summary>
-        GoogleVeo3Fast20250909 = 168,
+        GoogleVeo3Fast20250909 = 174,
 
         /// <summary>
         /// Enum GoogleVeo4 for value: google/veo-4
         /// </summary>
-        GoogleVeo4 = 169,
+        GoogleVeo4 = 175,
 
         /// <summary>
         /// Enum IbmGranite20bCodeInstruct8k for value: ibm/granite-20b-code-instruct-8k
         /// </summary>
-        IbmGranite20bCodeInstruct8k = 170,
+        IbmGranite20bCodeInstruct8k = 176,
 
         /// <summary>
         /// Enum IbmGranite301bA400mInstruct for value: ibm/granite-3-0-1b-a400m-instruct
         /// </summary>
-        IbmGranite301bA400mInstruct = 171,
+        IbmGranite301bA400mInstruct = 177,
 
         /// <summary>
         /// Enum IbmGranite302bInstruct for value: ibm/granite-3-0-2b-instruct
         /// </summary>
-        IbmGranite302bInstruct = 172,
+        IbmGranite302bInstruct = 178,
 
         /// <summary>
         /// Enum IbmGranite303bA800mInstruct for value: ibm/granite-3-0-3b-a800m-instruct
         /// </summary>
-        IbmGranite303bA800mInstruct = 173,
+        IbmGranite303bA800mInstruct = 179,
 
         /// <summary>
         /// Enum IbmGranite308bInstruct for value: ibm/granite-3-0-8b-instruct
         /// </summary>
-        IbmGranite308bInstruct = 174,
+        IbmGranite308bInstruct = 180,
 
         /// <summary>
         /// Enum IbmGranite311bA400mInstruct for value: ibm/granite-3-1-1b-a400m-instruct
         /// </summary>
-        IbmGranite311bA400mInstruct = 175,
+        IbmGranite311bA400mInstruct = 181,
 
         /// <summary>
         /// Enum IbmGranite312bInstruct for value: ibm/granite-3-1-2b-instruct
         /// </summary>
-        IbmGranite312bInstruct = 176,
+        IbmGranite312bInstruct = 182,
 
         /// <summary>
         /// Enum IbmGranite313bA800mInstruct for value: ibm/granite-3-1-3b-a800m-instruct
         /// </summary>
-        IbmGranite313bA800mInstruct = 177,
+        IbmGranite313bA800mInstruct = 183,
 
         /// <summary>
         /// Enum IbmGranite318bInstruct for value: ibm/granite-3-1-8b-instruct
         /// </summary>
-        IbmGranite318bInstruct = 178,
+        IbmGranite318bInstruct = 184,
 
         /// <summary>
         /// Enum IbmGranite322bInstruct for value: ibm/granite-3-2-2b-instruct
         /// </summary>
-        IbmGranite322bInstruct = 179,
+        IbmGranite322bInstruct = 185,
 
         /// <summary>
         /// Enum IbmGranite328bInstruct for value: ibm/granite-3-2-8b-instruct
         /// </summary>
-        IbmGranite328bInstruct = 180,
+        IbmGranite328bInstruct = 186,
 
         /// <summary>
         /// Enum IbmGranite328bInstructPreview for value: ibm/granite-3-2-8b-instruct-preview
         /// </summary>
-        IbmGranite328bInstructPreview = 181,
+        IbmGranite328bInstructPreview = 187,
 
         /// <summary>
         /// Enum IbmGranite332bInstruct20250416 for value: ibm/granite-3-3-2b-instruct-2025-04-16
         /// </summary>
-        IbmGranite332bInstruct20250416 = 182,
+        IbmGranite332bInstruct20250416 = 188,
 
         /// <summary>
         /// Enum IbmGranite338bInstruct20250416 for value: ibm/granite-3-3-8b-instruct-2025-04-16
         /// </summary>
-        IbmGranite338bInstruct20250416 = 183,
+        IbmGranite338bInstruct20250416 = 189,
 
         /// <summary>
         /// Enum IbmGranite34bCodeInstruct8b for value: ibm/granite-34b-code-instruct-8b
         /// </summary>
-        IbmGranite34bCodeInstruct8b = 184,
+        IbmGranite34bCodeInstruct8b = 190,
 
         /// <summary>
         /// Enum IbmGranite3bCodeInstruct128k for value: ibm/granite-3b-code-instruct-128k
         /// </summary>
-        IbmGranite3bCodeInstruct128k = 185,
+        IbmGranite3bCodeInstruct128k = 191,
 
         /// <summary>
         /// Enum IbmGranite3bCodeInstruct2k for value: ibm/granite-3b-code-instruct-2k
         /// </summary>
-        IbmGranite3bCodeInstruct2k = 186,
+        IbmGranite3bCodeInstruct2k = 192,
 
         /// <summary>
         /// Enum IbmGranite40Micro20251002 for value: ibm/granite-4-0-micro-2025-10-02
         /// </summary>
-        IbmGranite40Micro20251002 = 187,
+        IbmGranite40Micro20251002 = 193,
 
         /// <summary>
         /// Enum IbmGranite40Small20251002 for value: ibm/granite-4-0-small-2025-10-02
         /// </summary>
-        IbmGranite40Small20251002 = 188,
+        IbmGranite40Small20251002 = 194,
 
         /// <summary>
         /// Enum IbmGranite40Tiny20251002 for value: ibm/granite-4-0-tiny-2025-10-02
         /// </summary>
-        IbmGranite40Tiny20251002 = 189,
+        IbmGranite40Tiny20251002 = 195,
 
         /// <summary>
         /// Enum IbmGranite40TinyPreview20250502 for value: ibm/granite-4-0-tiny-preview-2025-05-02
         /// </summary>
-        IbmGranite40TinyPreview20250502 = 190,
+        IbmGranite40TinyPreview20250502 = 196,
 
         /// <summary>
         /// Enum IbmGranite8bCodeInstruct128k for value: ibm/granite-8b-code-instruct-128k
         /// </summary>
-        IbmGranite8bCodeInstruct128k = 191,
+        IbmGranite8bCodeInstruct128k = 197,
 
         /// <summary>
         /// Enum IbmGranite8bCodeInstruct4k for value: ibm/granite-8b-code-instruct-4k
         /// </summary>
-        IbmGranite8bCodeInstruct4k = 192,
+        IbmGranite8bCodeInstruct4k = 198,
 
         /// <summary>
         /// Enum IbmGraniteEmbedding107mMultilingual for value: ibm/granite-embedding-107m-multilingual
         /// </summary>
-        IbmGraniteEmbedding107mMultilingual = 193,
+        IbmGraniteEmbedding107mMultilingual = 199,
 
         /// <summary>
         /// Enum IbmGraniteEmbedding125mEnglish for value: ibm/granite-embedding-125m-english
         /// </summary>
-        IbmGraniteEmbedding125mEnglish = 194,
+        IbmGraniteEmbedding125mEnglish = 200,
 
         /// <summary>
         /// Enum IbmGraniteEmbedding278mMultilingual for value: ibm/granite-embedding-278m-multilingual
         /// </summary>
-        IbmGraniteEmbedding278mMultilingual = 195,
+        IbmGraniteEmbedding278mMultilingual = 201,
 
         /// <summary>
         /// Enum IbmGraniteEmbedding30mEnglish for value: ibm/granite-embedding-30m-english
         /// </summary>
-        IbmGraniteEmbedding30mEnglish = 196,
+        IbmGraniteEmbedding30mEnglish = 202,
 
         /// <summary>
         /// Enum IbmGraniteEmbeddingEnglishR2 for value: ibm/granite-embedding-english-r2
         /// </summary>
-        IbmGraniteEmbeddingEnglishR2 = 197,
+        IbmGraniteEmbeddingEnglishR2 = 203,
 
         /// <summary>
         /// Enum IbmGraniteEmbeddingRerankerEnglishR2 for value: ibm/granite-embedding-reranker-english-r2
         /// </summary>
-        IbmGraniteEmbeddingRerankerEnglishR2 = 198,
+        IbmGraniteEmbeddingRerankerEnglishR2 = 204,
 
         /// <summary>
         /// Enum IbmGraniteEmbeddingSmallEnglishR2 for value: ibm/granite-embedding-small-english-r2
         /// </summary>
-        IbmGraniteEmbeddingSmallEnglishR2 = 199,
+        IbmGraniteEmbeddingSmallEnglishR2 = 205,
 
         /// <summary>
         /// Enum IbmGraniteGuardian302b for value: ibm/granite-guardian-3-0-2b
         /// </summary>
-        IbmGraniteGuardian302b = 200,
+        IbmGraniteGuardian302b = 206,
 
         /// <summary>
         /// Enum IbmGraniteGuardian308b for value: ibm/granite-guardian-3-0-8b
         /// </summary>
-        IbmGraniteGuardian308b = 201,
+        IbmGraniteGuardian308b = 207,
 
         /// <summary>
         /// Enum IbmGraniteGuardian312b for value: ibm/granite-guardian-3-1-2b
         /// </summary>
-        IbmGraniteGuardian312b = 202,
+        IbmGraniteGuardian312b = 208,
 
         /// <summary>
         /// Enum IbmGraniteGuardian318b for value: ibm/granite-guardian-3-1-8b
         /// </summary>
-        IbmGraniteGuardian318b = 203,
+        IbmGraniteGuardian318b = 209,
 
         /// <summary>
         /// Enum IbmGraniteGuardian325b for value: ibm/granite-guardian-3-2-5b
         /// </summary>
-        IbmGraniteGuardian325b = 204,
+        IbmGraniteGuardian325b = 210,
 
         /// <summary>
         /// Enum IbmGraniteGuardian338b for value: ibm/granite-guardian-3-3-8b
         /// </summary>
-        IbmGraniteGuardian338b = 205,
+        IbmGraniteGuardian338b = 211,
 
         /// <summary>
         /// Enum IbmGraniteSpeech328b for value: ibm/granite-speech-3-2-8b
         /// </summary>
-        IbmGraniteSpeech328b = 206,
+        IbmGraniteSpeech328b = 212,
 
         /// <summary>
         /// Enum IbmGraniteSpeech332b for value: ibm/granite-speech-3-3-2b
         /// </summary>
-        IbmGraniteSpeech332b = 207,
+        IbmGraniteSpeech332b = 213,
 
         /// <summary>
         /// Enum IbmGraniteSpeech338b for value: ibm/granite-speech-3-3-8b
         /// </summary>
-        IbmGraniteSpeech338b = 208,
+        IbmGraniteSpeech338b = 214,
 
         /// <summary>
         /// Enum IbmGraniteVision312bPreview for value: ibm/granite-vision-3-1-2b-preview
         /// </summary>
-        IbmGraniteVision312bPreview = 209,
+        IbmGraniteVision312bPreview = 215,
 
         /// <summary>
         /// Enum IbmGraniteVision322b for value: ibm/granite-vision-3-2-2b
         /// </summary>
-        IbmGraniteVision322b = 210,
+        IbmGraniteVision322b = 216,
 
         /// <summary>
         /// Enum IbmGraniteVision332b for value: ibm/granite-vision-3-3-2b
         /// </summary>
-        IbmGraniteVision332b = 211,
+        IbmGraniteVision332b = 217,
 
         /// <summary>
         /// Enum IbmGraniteVision332bEmbedding for value: ibm/granite-vision-3-3-2b-embedding
         /// </summary>
-        IbmGraniteVision332bEmbedding = 212,
+        IbmGraniteVision332bEmbedding = 218,
 
         /// <summary>
         /// Enum LgExaone3020240807 for value: lg/exaone-3-0-2024-08-07
         /// </summary>
-        LgExaone3020240807 = 213,
+        LgExaone3020240807 = 219,
 
         /// <summary>
         /// Enum LgExaone3524b20241209 for value: lg/exaone-3-5-2-4b-2024-12-09
         /// </summary>
-        LgExaone3524b20241209 = 214,
+        LgExaone3524b20241209 = 220,
 
         /// <summary>
         /// Enum LgExaone3532b20241209 for value: lg/exaone-3-5-32b-2024-12-09
         /// </summary>
-        LgExaone3532b20241209 = 215,
+        LgExaone3532b20241209 = 221,
 
         /// <summary>
         /// Enum LgExaone3578b20241209 for value: lg/exaone-3-5-7-8b-2024-12-09
         /// </summary>
-        LgExaone3578b20241209 = 216,
+        LgExaone3578b20241209 = 222,
 
         /// <summary>
         /// Enum LgExaone4012b20250715 for value: lg/exaone-4-0-1-2b-2025-07-15
         /// </summary>
-        LgExaone4012b20250715 = 217,
+        LgExaone4012b20250715 = 223,
 
         /// <summary>
         /// Enum LgExaone4032b20250715 for value: lg/exaone-4-0-32b-2025-07-15
         /// </summary>
-        LgExaone4032b20250715 = 218,
+        LgExaone4032b20250715 = 224,
 
         /// <summary>
         /// Enum LgExaoneDeep24b20250318 for value: lg/exaone-deep-2-4b-2025-03-18
         /// </summary>
-        LgExaoneDeep24b20250318 = 219,
+        LgExaoneDeep24b20250318 = 225,
 
         /// <summary>
         /// Enum LgExaoneDeep32b20250318 for value: lg/exaone-deep-32b-2025-03-18
         /// </summary>
-        LgExaoneDeep32b20250318 = 220,
+        LgExaoneDeep32b20250318 = 226,
 
         /// <summary>
         /// Enum LgExaoneDeep78b20250318 for value: lg/exaone-deep-7-8b-2025-03-18
         /// </summary>
-        LgExaoneDeep78b20250318 = 221,
+        LgExaoneDeep78b20250318 = 227,
 
         /// <summary>
         /// Enum MetaLlama213bChat20230620 for value: meta/llama-2-13b-chat-2023-06-20
         /// </summary>
-        MetaLlama213bChat20230620 = 222,
+        MetaLlama213bChat20230620 = 228,
 
         /// <summary>
         /// Enum MetaLlama270bChat20230620 for value: meta/llama-2-70b-chat-2023-06-20
         /// </summary>
-        MetaLlama270bChat20230620 = 223,
+        MetaLlama270bChat20230620 = 229,
 
         /// <summary>
         /// Enum MetaLlama27bChat for value: meta/llama-2-7b-chat
         /// </summary>
-        MetaLlama27bChat = 224,
+        MetaLlama27bChat = 230,
 
         /// <summary>
         /// Enum MetaLlama31405bInstruct20240723 for value: meta/llama-3-1-405b-instruct-2024-07-23
         /// </summary>
-        MetaLlama31405bInstruct20240723 = 225,
+        MetaLlama31405bInstruct20240723 = 231,
 
         /// <summary>
         /// Enum MetaLlama3170bInstruct20240723 for value: meta/llama-3-1-70b-instruct-2024-07-23
         /// </summary>
-        MetaLlama3170bInstruct20240723 = 226,
+        MetaLlama3170bInstruct20240723 = 232,
 
         /// <summary>
         /// Enum MetaLlama318bInstruct20240723 for value: meta/llama-3-1-8b-instruct-2024-07-23
         /// </summary>
-        MetaLlama318bInstruct20240723 = 227,
+        MetaLlama318bInstruct20240723 = 233,
 
         /// <summary>
         /// Enum MetaLlama3211bVisionInstruct for value: meta/llama-3-2-11b-vision-instruct
         /// </summary>
-        MetaLlama3211bVisionInstruct = 228,
+        MetaLlama3211bVisionInstruct = 234,
 
         /// <summary>
         /// Enum MetaLlama321bInstruct20240925 for value: meta/llama-3-2-1b-instruct-2024-09-25
         /// </summary>
-        MetaLlama321bInstruct20240925 = 229,
+        MetaLlama321bInstruct20240925 = 235,
 
         /// <summary>
         /// Enum MetaLlama323bInstruct20240925 for value: meta/llama-3-2-3b-instruct-2024-09-25
         /// </summary>
-        MetaLlama323bInstruct20240925 = 230,
+        MetaLlama323bInstruct20240925 = 236,
 
         /// <summary>
         /// Enum MetaLlama3290bVisionInstruct for value: meta/llama-3-2-90b-vision-instruct
         /// </summary>
-        MetaLlama3290bVisionInstruct = 231,
+        MetaLlama3290bVisionInstruct = 237,
 
         /// <summary>
         /// Enum MetaLlama3370bInstruct20241206 for value: meta/llama-3-3-70b-instruct-2024-12-06
         /// </summary>
-        MetaLlama3370bInstruct20241206 = 232,
+        MetaLlama3370bInstruct20241206 = 238,
 
         /// <summary>
         /// Enum MetaLlama370bInstruct20240418 for value: meta/llama-3-70b-instruct-2024-04-18
         /// </summary>
-        MetaLlama370bInstruct20240418 = 233,
+        MetaLlama370bInstruct20240418 = 239,
 
         /// <summary>
         /// Enum MetaLlama38bInstruct20240418 for value: meta/llama-3-8b-instruct-2024-04-18
         /// </summary>
-        MetaLlama38bInstruct20240418 = 234,
+        MetaLlama38bInstruct20240418 = 240,
 
         /// <summary>
         /// Enum MetaLlama4Maverick20250405 for value: meta/llama-4-maverick-2025-04-05
         /// </summary>
-        MetaLlama4Maverick20250405 = 235,
+        MetaLlama4Maverick20250405 = 241,
 
         /// <summary>
         /// Enum MetaLlama4Scout20250405 for value: meta/llama-4-scout-2025-04-05
         /// </summary>
-        MetaLlama4Scout20250405 = 236,
+        MetaLlama4Scout20250405 = 242,
 
         /// <summary>
         /// Enum MicrosoftPhi1 for value: microsoft/phi-1
         /// </summary>
-        MicrosoftPhi1 = 237,
+        MicrosoftPhi1 = 243,
 
         /// <summary>
         /// Enum MicrosoftPhi15 for value: microsoft/phi-1-5
         /// </summary>
-        MicrosoftPhi15 = 238,
+        MicrosoftPhi15 = 244,
 
         /// <summary>
         /// Enum MicrosoftPhi2 for value: microsoft/phi-2
         /// </summary>
-        MicrosoftPhi2 = 239,
+        MicrosoftPhi2 = 245,
 
         /// <summary>
         /// Enum MicrosoftPhi35MiniInstruct20240823 for value: microsoft/phi-3-5-mini-instruct-2024-08-23
         /// </summary>
-        MicrosoftPhi35MiniInstruct20240823 = 240,
+        MicrosoftPhi35MiniInstruct20240823 = 246,
 
         /// <summary>
         /// Enum MicrosoftPhi35MoeInstruct20240823 for value: microsoft/phi-3-5-moe-instruct-2024-08-23
         /// </summary>
-        MicrosoftPhi35MoeInstruct20240823 = 241,
+        MicrosoftPhi35MoeInstruct20240823 = 247,
 
         /// <summary>
         /// Enum MicrosoftPhi35VisionInstruct20240823 for value: microsoft/phi-3-5-vision-instruct-2024-08-23
         /// </summary>
-        MicrosoftPhi35VisionInstruct20240823 = 242,
+        MicrosoftPhi35VisionInstruct20240823 = 248,
 
         /// <summary>
         /// Enum MicrosoftPhi3Medium128kInstruct for value: microsoft/phi-3-medium-128k-instruct
         /// </summary>
-        MicrosoftPhi3Medium128kInstruct = 243,
+        MicrosoftPhi3Medium128kInstruct = 249,
 
         /// <summary>
         /// Enum MicrosoftPhi3Medium4kInstruct for value: microsoft/phi-3-medium-4k-instruct
         /// </summary>
-        MicrosoftPhi3Medium4kInstruct = 244,
+        MicrosoftPhi3Medium4kInstruct = 250,
 
         /// <summary>
         /// Enum MicrosoftPhi3Mini128kInstruct for value: microsoft/phi-3-mini-128k-instruct
         /// </summary>
-        MicrosoftPhi3Mini128kInstruct = 245,
+        MicrosoftPhi3Mini128kInstruct = 251,
 
         /// <summary>
         /// Enum MicrosoftPhi3Small128kInstruct for value: microsoft/phi-3-small-128k-instruct
         /// </summary>
-        MicrosoftPhi3Small128kInstruct = 246,
+        MicrosoftPhi3Small128kInstruct = 252,
 
         /// <summary>
         /// Enum MicrosoftPhi3Small8kInstruct for value: microsoft/phi-3-small-8k-instruct
         /// </summary>
-        MicrosoftPhi3Small8kInstruct = 247,
+        MicrosoftPhi3Small8kInstruct = 253,
 
         /// <summary>
         /// Enum MicrosoftPhi3Vision128kInstruct for value: microsoft/phi-3-vision-128k-instruct
         /// </summary>
-        MicrosoftPhi3Vision128kInstruct = 248,
+        MicrosoftPhi3Vision128kInstruct = 254,
 
         /// <summary>
         /// Enum MicrosoftPhi420241212 for value: microsoft/phi-4-2024-12-12
         /// </summary>
-        MicrosoftPhi420241212 = 249,
+        MicrosoftPhi420241212 = 255,
 
         /// <summary>
         /// Enum MicrosoftPhi4Mini20250201 for value: microsoft/phi-4-mini-2025-02-01
         /// </summary>
-        MicrosoftPhi4Mini20250201 = 250,
+        MicrosoftPhi4Mini20250201 = 256,
 
         /// <summary>
         /// Enum MicrosoftPhi4MiniFlashReasoning for value: microsoft/phi-4-mini-flash-reasoning
         /// </summary>
-        MicrosoftPhi4MiniFlashReasoning = 251,
+        MicrosoftPhi4MiniFlashReasoning = 257,
 
         /// <summary>
         /// Enum MicrosoftPhi4MiniReasoning20250430 for value: microsoft/phi-4-mini-reasoning-2025-04-30
         /// </summary>
-        MicrosoftPhi4MiniReasoning20250430 = 252,
+        MicrosoftPhi4MiniReasoning20250430 = 258,
 
         /// <summary>
         /// Enum MicrosoftPhi4MultimodalInstruct20250201 for value: microsoft/phi-4-multimodal-instruct-2025-02-01
         /// </summary>
-        MicrosoftPhi4MultimodalInstruct20250201 = 253,
+        MicrosoftPhi4MultimodalInstruct20250201 = 259,
 
         /// <summary>
         /// Enum MicrosoftPhi4Reasoning20250430 for value: microsoft/phi-4-reasoning-2025-04-30
         /// </summary>
-        MicrosoftPhi4Reasoning20250430 = 254,
+        MicrosoftPhi4Reasoning20250430 = 260,
 
         /// <summary>
         /// Enum MicrosoftPhi4ReasoningPlus20250430 for value: microsoft/phi-4-reasoning-plus-2025-04-30
         /// </summary>
-        MicrosoftPhi4ReasoningPlus20250430 = 255,
+        MicrosoftPhi4ReasoningPlus20250430 = 261,
 
         /// <summary>
         /// Enum MinimaxHailuo02 for value: minimax/hailuo-02
         /// </summary>
-        MinimaxHailuo02 = 256,
+        MinimaxHailuo02 = 262,
 
         /// <summary>
         /// Enum MinimaxI2v01Director for value: minimax/i2v-01-director
         /// </summary>
-        MinimaxI2v01Director = 257,
+        MinimaxI2v01Director = 263,
 
         /// <summary>
         /// Enum MinimaxI2v01Live for value: minimax/i2v-01-live
         /// </summary>
-        MinimaxI2v01Live = 258,
+        MinimaxI2v01Live = 264,
 
         /// <summary>
         /// Enum MinimaxImage01 for value: minimax/image-01
         /// </summary>
-        MinimaxImage01 = 259,
+        MinimaxImage01 = 265,
 
         /// <summary>
         /// Enum MinimaxMinimaxM120250616 for value: minimax/minimax-m1-2025-06-16
         /// </summary>
-        MinimaxMinimaxM120250616 = 260,
+        MinimaxMinimaxM120250616 = 266,
 
         /// <summary>
         /// Enum MinimaxMinimaxM140k for value: minimax/minimax-m1-40k
         /// </summary>
-        MinimaxMinimaxM140k = 261,
+        MinimaxMinimaxM140k = 267,
 
         /// <summary>
         /// Enum MinimaxMinimaxM21 for value: minimax/minimax-m2-1
         /// </summary>
-        MinimaxMinimaxM21 = 262,
+        MinimaxMinimaxM21 = 268,
 
         /// <summary>
         /// Enum MinimaxMinimaxM220251027 for value: minimax/minimax-m2-2025-10-27
         /// </summary>
-        MinimaxMinimaxM220251027 = 263,
+        MinimaxMinimaxM220251027 = 269,
 
         /// <summary>
         /// Enum MinimaxMinimaxText01 for value: minimax/minimax-text-01
         /// </summary>
-        MinimaxMinimaxText01 = 264,
+        MinimaxMinimaxText01 = 270,
 
         /// <summary>
         /// Enum MinimaxMinimaxVl01 for value: minimax/minimax-vl-01
         /// </summary>
-        MinimaxMinimaxVl01 = 265,
+        MinimaxMinimaxVl01 = 271,
 
         /// <summary>
         /// Enum MinimaxMusic15 for value: minimax/music-1-5
         /// </summary>
-        MinimaxMusic15 = 266,
+        MinimaxMusic15 = 272,
 
         /// <summary>
         /// Enum MinimaxS2v01 for value: minimax/s2v-01
         /// </summary>
-        MinimaxS2v01 = 267,
+        MinimaxS2v01 = 273,
 
         /// <summary>
         /// Enum MinimaxSpeech01Hd for value: minimax/speech-01-hd
         /// </summary>
-        MinimaxSpeech01Hd = 268,
+        MinimaxSpeech01Hd = 274,
 
         /// <summary>
         /// Enum MinimaxSpeech01Turbo for value: minimax/speech-01-turbo
         /// </summary>
-        MinimaxSpeech01Turbo = 269,
+        MinimaxSpeech01Turbo = 275,
 
         /// <summary>
         /// Enum MinimaxSpeech02Hd for value: minimax/speech-02-hd
         /// </summary>
-        MinimaxSpeech02Hd = 270,
+        MinimaxSpeech02Hd = 276,
 
         /// <summary>
         /// Enum MinimaxSpeech02Turbo for value: minimax/speech-02-turbo
         /// </summary>
-        MinimaxSpeech02Turbo = 271,
+        MinimaxSpeech02Turbo = 277,
 
         /// <summary>
         /// Enum MinimaxSpeech25HdPreview for value: minimax/speech-2-5-hd-preview
         /// </summary>
-        MinimaxSpeech25HdPreview = 272,
+        MinimaxSpeech25HdPreview = 278,
 
         /// <summary>
         /// Enum MinimaxSpeech25TurboPreview for value: minimax/speech-2-5-turbo-preview
         /// </summary>
-        MinimaxSpeech25TurboPreview = 273,
+        MinimaxSpeech25TurboPreview = 279,
 
         /// <summary>
         /// Enum MinimaxT2v01Director for value: minimax/t2v-01-director
         /// </summary>
-        MinimaxT2v01Director = 274,
+        MinimaxT2v01Director = 280,
 
         /// <summary>
         /// Enum MistralCodestral22b20240529 for value: mistral/codestral-22b-2024-05-29
         /// </summary>
-        MistralCodestral22b20240529 = 275,
+        MistralCodestral22b20240529 = 281,
 
         /// <summary>
         /// Enum MistralCodestral2405 for value: mistral/codestral-2405
         /// </summary>
-        MistralCodestral2405 = 276,
+        MistralCodestral2405 = 282,
 
         /// <summary>
         /// Enum MistralCodestral2501 for value: mistral/codestral-2501
         /// </summary>
-        MistralCodestral2501 = 277,
+        MistralCodestral2501 = 283,
 
         /// <summary>
         /// Enum MistralCodestral2508 for value: mistral/codestral-2508
         /// </summary>
-        MistralCodestral2508 = 278,
+        MistralCodestral2508 = 284,
 
         /// <summary>
         /// Enum MistralCodestralEmbed for value: mistral/codestral-embed
         /// </summary>
-        MistralCodestralEmbed = 279,
+        MistralCodestralEmbed = 285,
 
         /// <summary>
         /// Enum MistralDevstralMedium1120250710 for value: mistral/devstral-medium-1-1-2025-07-10
         /// </summary>
-        MistralDevstralMedium1120250710 = 280,
+        MistralDevstralMedium1120250710 = 286,
 
         /// <summary>
         /// Enum MistralDevstralSmall for value: mistral/devstral-small
         /// </summary>
-        MistralDevstralSmall = 281,
+        MistralDevstralSmall = 287,
 
         /// <summary>
         /// Enum MistralDevstralSmall1120250710 for value: mistral/devstral-small-1-1-2025-07-10
         /// </summary>
-        MistralDevstralSmall1120250710 = 282,
+        MistralDevstralSmall1120250710 = 288,
 
         /// <summary>
         /// Enum MistralMagistralMedium20250610 for value: mistral/magistral-medium-2025-06-10
         /// </summary>
-        MistralMagistralMedium20250610 = 283,
+        MistralMagistralMedium20250610 = 289,
 
         /// <summary>
         /// Enum MistralMagistralMedium2507 for value: mistral/magistral-medium-2507
         /// </summary>
-        MistralMagistralMedium2507 = 284,
+        MistralMagistralMedium2507 = 290,
 
         /// <summary>
         /// Enum MistralMagistralMedium2509 for value: mistral/magistral-medium-2509
         /// </summary>
-        MistralMagistralMedium2509 = 285,
+        MistralMagistralMedium2509 = 291,
 
         /// <summary>
         /// Enum MistralMagistralSmall20250610 for value: mistral/magistral-small-2025-06-10
         /// </summary>
-        MistralMagistralSmall20250610 = 286,
+        MistralMagistralSmall20250610 = 292,
 
         /// <summary>
         /// Enum MistralMagistralSmall2507 for value: mistral/magistral-small-2507
         /// </summary>
-        MistralMagistralSmall2507 = 287,
+        MistralMagistralSmall2507 = 293,
 
         /// <summary>
         /// Enum MistralMagistralSmall2509 for value: mistral/magistral-small-2509
         /// </summary>
-        MistralMagistralSmall2509 = 288,
+        MistralMagistralSmall2509 = 294,
 
         /// <summary>
         /// Enum MistralMambaCodestral7b for value: mistral/mamba-codestral-7b
         /// </summary>
-        MistralMambaCodestral7b = 289,
+        MistralMambaCodestral7b = 295,
 
         /// <summary>
         /// Enum MistralMathstral7b for value: mistral/mathstral-7b
         /// </summary>
-        MistralMathstral7b = 290,
+        MistralMathstral7b = 296,
 
         /// <summary>
         /// Enum MistralMinistral314b20251202 for value: mistral/ministral-3-14b-2025-12-02
         /// </summary>
-        MistralMinistral314b20251202 = 291,
+        MistralMinistral314b20251202 = 297,
 
         /// <summary>
         /// Enum MistralMinistral33b20251202 for value: mistral/ministral-3-3b-2025-12-02
         /// </summary>
-        MistralMinistral33b20251202 = 292,
+        MistralMinistral33b20251202 = 298,
 
         /// <summary>
         /// Enum MistralMinistral38b20251202 for value: mistral/ministral-3-8b-2025-12-02
         /// </summary>
-        MistralMinistral38b20251202 = 293,
+        MistralMinistral38b20251202 = 299,
 
         /// <summary>
         /// Enum MistralMinistral3b2410 for value: mistral/ministral-3b-2410
         /// </summary>
-        MistralMinistral3b2410 = 294,
+        MistralMinistral3b2410 = 300,
 
         /// <summary>
         /// Enum MistralMinistral8b2410 for value: mistral/ministral-8b-2410
         /// </summary>
-        MistralMinistral8b2410 = 295,
+        MistralMinistral8b2410 = 301,
 
         /// <summary>
         /// Enum MistralMinistral8bInstruct20241016 for value: mistral/ministral-8b-instruct-2024-10-16
         /// </summary>
-        MistralMinistral8bInstruct20241016 = 296,
+        MistralMinistral8bInstruct20241016 = 302,
 
         /// <summary>
         /// Enum MistralMistral7b for value: mistral/mistral-7b
         /// </summary>
-        MistralMistral7b = 297,
+        MistralMistral7b = 303,
 
         /// <summary>
         /// Enum MistralMistralEmbed for value: mistral/mistral-embed
         /// </summary>
-        MistralMistralEmbed = 298,
+        MistralMistralEmbed = 304,
 
         /// <summary>
         /// Enum MistralMistralLarge220240724 for value: mistral/mistral-large-2-2024-07-24
         /// </summary>
-        MistralMistralLarge220240724 = 299,
+        MistralMistralLarge220240724 = 305,
 
         /// <summary>
         /// Enum MistralMistralLarge2402 for value: mistral/mistral-large-2402
         /// </summary>
-        MistralMistralLarge2402 = 300,
+        MistralMistralLarge2402 = 306,
 
         /// <summary>
         /// Enum MistralMistralLarge2407 for value: mistral/mistral-large-2407
         /// </summary>
-        MistralMistralLarge2407 = 301,
+        MistralMistralLarge2407 = 307,
 
         /// <summary>
         /// Enum MistralMistralLarge2411 for value: mistral/mistral-large-2411
         /// </summary>
-        MistralMistralLarge2411 = 302,
+        MistralMistralLarge2411 = 308,
 
         /// <summary>
         /// Enum MistralMistralLarge3675b20251202 for value: mistral/mistral-large-3-675b-2025-12-02
         /// </summary>
-        MistralMistralLarge3675b20251202 = 303,
+        MistralMistralLarge3675b20251202 = 309,
 
         /// <summary>
         /// Enum MistralMistralMedium2312 for value: mistral/mistral-medium-2312
         /// </summary>
-        MistralMistralMedium2312 = 304,
+        MistralMistralMedium2312 = 310,
 
         /// <summary>
         /// Enum MistralMistralMedium2505 for value: mistral/mistral-medium-2505
         /// </summary>
-        MistralMistralMedium2505 = 305,
+        MistralMistralMedium2505 = 311,
 
         /// <summary>
         /// Enum MistralMistralMedium2508 for value: mistral/mistral-medium-2508
         /// </summary>
-        MistralMistralMedium2508 = 306,
+        MistralMistralMedium2508 = 312,
 
         /// <summary>
         /// Enum MistralMistralModeration2411 for value: mistral/mistral-moderation-2411
         /// </summary>
-        MistralMistralModeration2411 = 307,
+        MistralMistralModeration2411 = 313,
 
         /// <summary>
         /// Enum MistralMistralNemoInstruct20240718 for value: mistral/mistral-nemo-instruct-2024-07-18
         /// </summary>
-        MistralMistralNemoInstruct20240718 = 308,
+        MistralMistralNemoInstruct20240718 = 314,
 
         /// <summary>
         /// Enum MistralMistralOcr2503 for value: mistral/mistral-ocr-2503
         /// </summary>
-        MistralMistralOcr2503 = 309,
+        MistralMistralOcr2503 = 315,
 
         /// <summary>
         /// Enum MistralMistralOcr2505 for value: mistral/mistral-ocr-2505
         /// </summary>
-        MistralMistralOcr2505 = 310,
+        MistralMistralOcr2505 = 316,
 
         /// <summary>
         /// Enum MistralMistralSaba2502 for value: mistral/mistral-saba-2502
         /// </summary>
-        MistralMistralSaba2502 = 311,
+        MistralMistralSaba2502 = 317,
 
         /// <summary>
         /// Enum MistralMistralSmall20240917 for value: mistral/mistral-small-2024-09-17
         /// </summary>
-        MistralMistralSmall20240917 = 312,
+        MistralMistralSmall20240917 = 318,
 
         /// <summary>
         /// Enum MistralMistralSmall2402 for value: mistral/mistral-small-2402
         /// </summary>
-        MistralMistralSmall2402 = 313,
+        MistralMistralSmall2402 = 319,
 
         /// <summary>
         /// Enum MistralMistralSmall2407 for value: mistral/mistral-small-2407
         /// </summary>
-        MistralMistralSmall2407 = 314,
+        MistralMistralSmall2407 = 320,
 
         /// <summary>
         /// Enum MistralMistralSmall2501 for value: mistral/mistral-small-2501
         /// </summary>
-        MistralMistralSmall2501 = 315,
+        MistralMistralSmall2501 = 321,
 
         /// <summary>
         /// Enum MistralMistralSmall2503 for value: mistral/mistral-small-2503
         /// </summary>
-        MistralMistralSmall2503 = 316,
+        MistralMistralSmall2503 = 322,
 
         /// <summary>
         /// Enum MistralMistralSmall2506 for value: mistral/mistral-small-2506
         /// </summary>
-        MistralMistralSmall2506 = 317,
+        MistralMistralSmall2506 = 323,
 
         /// <summary>
         /// Enum MistralMistralSmall3124bBase20250317 for value: mistral/mistral-small-3-1-24b-base-2025-03-17
         /// </summary>
-        MistralMistralSmall3124bBase20250317 = 318,
+        MistralMistralSmall3124bBase20250317 = 324,
 
         /// <summary>
         /// Enum MistralMistralSmall3124bInstruct20250317 for value: mistral/mistral-small-3-1-24b-instruct-2025-03-17
         /// </summary>
-        MistralMistralSmall3124bInstruct20250317 = 319,
+        MistralMistralSmall3124bInstruct20250317 = 325,
 
         /// <summary>
         /// Enum MistralMistralSmall3220250620 for value: mistral/mistral-small-3-2-2025-06-20
         /// </summary>
-        MistralMistralSmall3220250620 = 320,
+        MistralMistralSmall3220250620 = 326,
 
         /// <summary>
         /// Enum MistralMistralSmall324bBase20250130 for value: mistral/mistral-small-3-24b-base-2025-01-30
         /// </summary>
-        MistralMistralSmall324bBase20250130 = 321,
+        MistralMistralSmall324bBase20250130 = 327,
 
         /// <summary>
         /// Enum MistralMistralSmall324bInstruct20250130 for value: mistral/mistral-small-3-24b-instruct-2025-01-30
         /// </summary>
-        MistralMistralSmall324bInstruct20250130 = 322,
+        MistralMistralSmall324bInstruct20250130 = 328,
 
         /// <summary>
         /// Enum MistralMixtral8x22b for value: mistral/mixtral-8x22b
         /// </summary>
-        MistralMixtral8x22b = 323,
+        MistralMixtral8x22b = 329,
 
         /// <summary>
         /// Enum MistralMixtral8x7b for value: mistral/mixtral-8x7b
         /// </summary>
-        MistralMixtral8x7b = 324,
+        MistralMixtral8x7b = 330,
 
         /// <summary>
         /// Enum MistralOpenCodestralMamba for value: mistral/open-codestral-mamba
         /// </summary>
-        MistralOpenCodestralMamba = 325,
+        MistralOpenCodestralMamba = 331,
 
         /// <summary>
         /// Enum MistralOpenMistral7b for value: mistral/open-mistral-7b
         /// </summary>
-        MistralOpenMistral7b = 326,
+        MistralOpenMistral7b = 332,
 
         /// <summary>
         /// Enum MistralOpenMistralNemo for value: mistral/open-mistral-nemo
         /// </summary>
-        MistralOpenMistralNemo = 327,
+        MistralOpenMistralNemo = 333,
 
         /// <summary>
         /// Enum MistralOpenMixtral8x22b for value: mistral/open-mixtral-8x22b
         /// </summary>
-        MistralOpenMixtral8x22b = 328,
+        MistralOpenMixtral8x22b = 334,
 
         /// <summary>
         /// Enum MistralOpenMixtral8x7b for value: mistral/open-mixtral-8x7b
         /// </summary>
-        MistralOpenMixtral8x7b = 329,
+        MistralOpenMixtral8x7b = 335,
 
         /// <summary>
         /// Enum MistralPixtral12bBase20240917 for value: mistral/pixtral-12b-base-2024-09-17
         /// </summary>
-        MistralPixtral12bBase20240917 = 330,
+        MistralPixtral12bBase20240917 = 336,
 
         /// <summary>
         /// Enum MistralPixtralLarge20241118 for value: mistral/pixtral-large-2024-11-18
         /// </summary>
-        MistralPixtralLarge20241118 = 331,
+        MistralPixtralLarge20241118 = 337,
 
         /// <summary>
         /// Enum MistralPixtralLarge2411 for value: mistral/pixtral-large-2411
         /// </summary>
-        MistralPixtralLarge2411 = 332,
+        MistralPixtralLarge2411 = 338,
 
         /// <summary>
         /// Enum MistralVoxtralMini2507 for value: mistral/voxtral-mini-2507
         /// </summary>
-        MistralVoxtralMini2507 = 333,
+        MistralVoxtralMini2507 = 339,
 
         /// <summary>
         /// Enum MistralVoxtralSmall2507 for value: mistral/voxtral-small-2507
         /// </summary>
-        MistralVoxtralSmall2507 = 334,
+        MistralVoxtralSmall2507 = 340,
 
         /// <summary>
         /// Enum MoonshotaiKimiK1520250120 for value: moonshotai/kimi-k1-5-2025-01-20
         /// </summary>
-        MoonshotaiKimiK1520250120 = 335,
+        MoonshotaiKimiK1520250120 = 341,
 
         /// <summary>
         /// Enum MoonshotaiKimiK2Base20250711 for value: moonshotai/kimi-k2-base-2025-07-11
         /// </summary>
-        MoonshotaiKimiK2Base20250711 = 336,
+        MoonshotaiKimiK2Base20250711 = 342,
 
         /// <summary>
         /// Enum MoonshotaiKimiK2Instruct0905 for value: moonshotai/kimi-k2-instruct-0905
         /// </summary>
-        MoonshotaiKimiK2Instruct0905 = 337,
+        MoonshotaiKimiK2Instruct0905 = 343,
 
         /// <summary>
         /// Enum MoonshotaiKimiK2Instruct20250711 for value: moonshotai/kimi-k2-instruct-2025-07-11
         /// </summary>
-        MoonshotaiKimiK2Instruct20250711 = 338,
+        MoonshotaiKimiK2Instruct20250711 = 344,
 
         /// <summary>
         /// Enum MoonshotaiKimiK2Thinking20251106 for value: moonshotai/kimi-k2-thinking-2025-11-06
         /// </summary>
-        MoonshotaiKimiK2Thinking20251106 = 339,
+        MoonshotaiKimiK2Thinking20251106 = 345,
 
         /// <summary>
         /// Enum MoonshotaiKimiVlA3bInstruct for value: moonshotai/kimi-vl-a3b-instruct
         /// </summary>
-        MoonshotaiKimiVlA3bInstruct = 340,
+        MoonshotaiKimiVlA3bInstruct = 346,
 
         /// <summary>
         /// Enum MoonshotaiKimiVlA3bThinking for value: moonshotai/kimi-vl-a3b-thinking
         /// </summary>
-        MoonshotaiKimiVlA3bThinking = 341,
+        MoonshotaiKimiVlA3bThinking = 347,
 
         /// <summary>
         /// Enum MoonshotaiKimiVlA3bThinking2506 for value: moonshotai/kimi-vl-a3b-thinking-2506
         /// </summary>
-        MoonshotaiKimiVlA3bThinking2506 = 342,
+        MoonshotaiKimiVlA3bThinking2506 = 348,
 
         /// <summary>
         /// Enum NousHermes2ProLlama370b for value: nous/hermes-2-pro-llama-3-70b
         /// </summary>
-        NousHermes2ProLlama370b = 343,
+        NousHermes2ProLlama370b = 349,
 
         /// <summary>
         /// Enum NousHermes2ProLlama38b for value: nous/hermes-2-pro-llama-3-8b
         /// </summary>
-        NousHermes2ProLlama38b = 344,
+        NousHermes2ProLlama38b = 350,
 
         /// <summary>
         /// Enum NousHermes2ProMistral7b for value: nous/hermes-2-pro-mistral-7b
         /// </summary>
-        NousHermes2ProMistral7b = 345,
+        NousHermes2ProMistral7b = 351,
 
         /// <summary>
         /// Enum NousHermes2ThetaLlama370b for value: nous/hermes-2-theta-llama-3-70b
         /// </summary>
-        NousHermes2ThetaLlama370b = 346,
+        NousHermes2ThetaLlama370b = 352,
 
         /// <summary>
         /// Enum NousHermes2ThetaLlama38b for value: nous/hermes-2-theta-llama-3-8b
         /// </summary>
-        NousHermes2ThetaLlama38b = 347,
+        NousHermes2ThetaLlama38b = 353,
 
         /// <summary>
         /// Enum NousHermes3Llama31405b for value: nous/hermes-3-llama-3-1-405b
         /// </summary>
-        NousHermes3Llama31405b = 348,
+        NousHermes3Llama31405b = 354,
 
         /// <summary>
         /// Enum NousHermes3Llama3170b for value: nous/hermes-3-llama-3-1-70b
         /// </summary>
-        NousHermes3Llama3170b = 349,
+        NousHermes3Llama3170b = 355,
 
         /// <summary>
         /// Enum NousHermes3Llama318b for value: nous/hermes-3-llama-3-1-8b
         /// </summary>
-        NousHermes3Llama318b = 350,
+        NousHermes3Llama318b = 356,
 
         /// <summary>
         /// Enum NousHermes3Llama323b for value: nous/hermes-3-llama-3-2-3b
         /// </summary>
-        NousHermes3Llama323b = 351,
+        NousHermes3Llama323b = 357,
 
         /// <summary>
         /// Enum NousHermes414b for value: nous/hermes-4-14b
         /// </summary>
-        NousHermes414b = 352,
+        NousHermes414b = 358,
 
         /// <summary>
         /// Enum NousHermes4405b for value: nous/hermes-4-405b
         /// </summary>
-        NousHermes4405b = 353,
+        NousHermes4405b = 359,
 
         /// <summary>
         /// Enum NousHermes470b for value: nous/hermes-4-70b
         /// </summary>
-        NousHermes470b = 354,
+        NousHermes470b = 360,
 
         /// <summary>
         /// Enum NvidiaLlama31Nemotron70bInstruct20241001 for value: nvidia/llama-3-1-nemotron-70b-instruct-2024-10-01
         /// </summary>
-        NvidiaLlama31Nemotron70bInstruct20241001 = 355,
+        NvidiaLlama31Nemotron70bInstruct20241001 = 361,
 
         /// <summary>
         /// Enum NvidiaLlama31NemotronNano4bV11 for value: nvidia/llama-3-1-nemotron-nano-4b-v1-1
         /// </summary>
-        NvidiaLlama31NemotronNano4bV11 = 356,
+        NvidiaLlama31NemotronNano4bV11 = 362,
 
         /// <summary>
         /// Enum NvidiaLlama31NemotronNano8bV120250318 for value: nvidia/llama-3-1-nemotron-nano-8b-v1-2025-03-18
         /// </summary>
-        NvidiaLlama31NemotronNano8bV120250318 = 357,
+        NvidiaLlama31NemotronNano8bV120250318 = 363,
 
         /// <summary>
         /// Enum NvidiaLlama31NemotronUltra253bV120250407 for value: nvidia/llama-3-1-nemotron-ultra-253b-v1-2025-04-07
         /// </summary>
-        NvidiaLlama31NemotronUltra253bV120250407 = 358,
+        NvidiaLlama31NemotronUltra253bV120250407 = 364,
 
         /// <summary>
         /// Enum NvidiaLlama33NemotronSuper49bV120250318 for value: nvidia/llama-3-3-nemotron-super-49b-v1-2025-03-18
         /// </summary>
-        NvidiaLlama33NemotronSuper49bV120250318 = 359,
+        NvidiaLlama33NemotronSuper49bV120250318 = 365,
 
         /// <summary>
         /// Enum NvidiaLlama33NemotronSuper49bV15 for value: nvidia/llama-3-3-nemotron-super-49b-v1-5
         /// </summary>
-        NvidiaLlama33NemotronSuper49bV15 = 360,
+        NvidiaLlama33NemotronSuper49bV15 = 366,
 
         /// <summary>
         /// Enum NvidiaNvidiaNemotronNano12bV2 for value: nvidia/nvidia-nemotron-nano-12b-v2
         /// </summary>
-        NvidiaNvidiaNemotronNano12bV2 = 361,
+        NvidiaNvidiaNemotronNano12bV2 = 367,
 
         /// <summary>
         /// Enum NvidiaNvidiaNemotronNano9bV2 for value: nvidia/nvidia-nemotron-nano-9b-v2
         /// </summary>
-        NvidiaNvidiaNemotronNano9bV2 = 362,
+        NvidiaNvidiaNemotronNano9bV2 = 368,
 
         /// <summary>
         /// Enum NvidiaOpenreasoningNemotron15b for value: nvidia/openreasoning-nemotron-1-5b
         /// </summary>
-        NvidiaOpenreasoningNemotron15b = 363,
+        NvidiaOpenreasoningNemotron15b = 369,
 
         /// <summary>
         /// Enum NvidiaOpenreasoningNemotron14b for value: nvidia/openreasoning-nemotron-14b
         /// </summary>
-        NvidiaOpenreasoningNemotron14b = 364,
+        NvidiaOpenreasoningNemotron14b = 370,
 
         /// <summary>
         /// Enum NvidiaOpenreasoningNemotron32b for value: nvidia/openreasoning-nemotron-32b
         /// </summary>
-        NvidiaOpenreasoningNemotron32b = 365,
+        NvidiaOpenreasoningNemotron32b = 371,
 
         /// <summary>
         /// Enum NvidiaOpenreasoningNemotron7b for value: nvidia/openreasoning-nemotron-7b
         /// </summary>
-        NvidiaOpenreasoningNemotron7b = 366,
+        NvidiaOpenreasoningNemotron7b = 372,
 
         /// <summary>
         /// Enum OpenaiAda20200611 for value: openai/ada-2020-06-11
         /// </summary>
-        OpenaiAda20200611 = 367,
+        OpenaiAda20200611 = 373,
 
         /// <summary>
         /// Enum OpenaiBabbage002 for value: openai/babbage-002
         /// </summary>
-        OpenaiBabbage002 = 368,
+        OpenaiBabbage002 = 374,
 
         /// <summary>
         /// Enum OpenaiBabbage20200611 for value: openai/babbage-2020-06-11
         /// </summary>
-        OpenaiBabbage20200611 = 369,
+        OpenaiBabbage20200611 = 375,
 
         /// <summary>
         /// Enum OpenaiChatgpt4o for value: openai/chatgpt-4o
         /// </summary>
-        OpenaiChatgpt4o = 370,
+        OpenaiChatgpt4o = 376,
 
         /// <summary>
         /// Enum OpenaiCodeCushman001 for value: openai/code-cushman-001
         /// </summary>
-        OpenaiCodeCushman001 = 371,
+        OpenaiCodeCushman001 = 377,
 
         /// <summary>
         /// Enum OpenaiCodeCushman002 for value: openai/code-cushman-002
         /// </summary>
-        OpenaiCodeCushman002 = 372,
+        OpenaiCodeCushman002 = 378,
 
         /// <summary>
         /// Enum OpenaiCodeDavinci001 for value: openai/code-davinci-001
         /// </summary>
-        OpenaiCodeDavinci001 = 373,
+        OpenaiCodeDavinci001 = 379,
 
         /// <summary>
         /// Enum OpenaiCodeDavinci002 for value: openai/code-davinci-002
         /// </summary>
-        OpenaiCodeDavinci002 = 374,
+        OpenaiCodeDavinci002 = 380,
 
         /// <summary>
         /// Enum OpenaiCodeDavinciEdit001 for value: openai/code-davinci-edit-001
         /// </summary>
-        OpenaiCodeDavinciEdit001 = 375,
+        OpenaiCodeDavinciEdit001 = 381,
 
         /// <summary>
         /// Enum OpenaiCodeSearchAdaCode001 for value: openai/code-search-ada-code-001
         /// </summary>
-        OpenaiCodeSearchAdaCode001 = 376,
+        OpenaiCodeSearchAdaCode001 = 382,
 
         /// <summary>
         /// Enum OpenaiCodeSearchBabbageCode001 for value: openai/code-search-babbage-code-001
         /// </summary>
-        OpenaiCodeSearchBabbageCode001 = 377,
+        OpenaiCodeSearchBabbageCode001 = 383,
 
         /// <summary>
         /// Enum OpenaiCodeSearchBabbageText001 for value: openai/code-search-babbage-text-001
         /// </summary>
-        OpenaiCodeSearchBabbageText001 = 378,
+        OpenaiCodeSearchBabbageText001 = 384,
 
         /// <summary>
         /// Enum OpenaiCodesSearchAdaText001 for value: openai/codes-search-ada-text-001
         /// </summary>
-        OpenaiCodesSearchAdaText001 = 379,
+        OpenaiCodesSearchAdaText001 = 385,
 
         /// <summary>
         /// Enum OpenaiCodexMini20250516 for value: openai/codex-mini-2025-05-16
         /// </summary>
-        OpenaiCodexMini20250516 = 380,
+        OpenaiCodexMini20250516 = 386,
 
         /// <summary>
         /// Enum OpenaiComputerUsePreview for value: openai/computer-use-preview
         /// </summary>
-        OpenaiComputerUsePreview = 381,
+        OpenaiComputerUsePreview = 387,
 
         /// <summary>
         /// Enum OpenaiCurie20200611 for value: openai/curie-2020-06-11
         /// </summary>
-        OpenaiCurie20200611 = 382,
+        OpenaiCurie20200611 = 388,
 
         /// <summary>
         /// Enum OpenaiDallE220220928 for value: openai/dall-e-2-2022-09-28
         /// </summary>
-        OpenaiDallE220220928 = 383,
+        OpenaiDallE220220928 = 389,
 
         /// <summary>
         /// Enum OpenaiDallE320231019 for value: openai/dall-e-3-2023-10-19
         /// </summary>
-        OpenaiDallE320231019 = 384,
+        OpenaiDallE320231019 = 390,
 
         /// <summary>
         /// Enum OpenaiDavinci002 for value: openai/davinci-002
         /// </summary>
-        OpenaiDavinci002 = 385,
+        OpenaiDavinci002 = 391,
 
         /// <summary>
         /// Enum OpenaiDavinci20200611 for value: openai/davinci-2020-06-11
         /// </summary>
-        OpenaiDavinci20200611 = 386,
+        OpenaiDavinci20200611 = 392,
 
         /// <summary>
         /// Enum OpenaiGpt120180611 for value: openai/gpt-1-2018-06-11
         /// </summary>
-        OpenaiGpt120180611 = 387,
+        OpenaiGpt120180611 = 393,
 
         /// <summary>
         /// Enum OpenaiGpt220191105 for value: openai/gpt-2-2019-11-05
         /// </summary>
-        OpenaiGpt220191105 = 388,
+        OpenaiGpt220191105 = 394,
 
         /// <summary>
         /// Enum OpenaiGpt320200611 for value: openai/gpt-3-2020-06-11
         /// </summary>
-        OpenaiGpt320200611 = 389,
+        OpenaiGpt320200611 = 395,
 
         /// <summary>
         /// Enum OpenaiGpt35Turbo0613 for value: openai/gpt-3-5-turbo-0613
         /// </summary>
-        OpenaiGpt35Turbo0613 = 390,
+        OpenaiGpt35Turbo0613 = 396,
 
         /// <summary>
         /// Enum OpenaiGpt35Turbo16k061320230613 for value: openai/gpt-3-5-turbo-16k-0613-2023-06-13
         /// </summary>
-        OpenaiGpt35Turbo16k061320230613 = 391,
+        OpenaiGpt35Turbo16k061320230613 = 397,
 
         /// <summary>
         /// Enum OpenaiGpt35Turbo20230321 for value: openai/gpt-3-5-turbo-2023-03-21
         /// </summary>
-        OpenaiGpt35Turbo20230321 = 392,
+        OpenaiGpt35Turbo20230321 = 398,
 
         /// <summary>
         /// Enum OpenaiGpt35Turbo20230928 for value: openai/gpt-3-5-turbo-2023-09-28
         /// </summary>
-        OpenaiGpt35Turbo20230928 = 393,
+        OpenaiGpt35Turbo20230928 = 399,
 
         /// <summary>
         /// Enum OpenaiGpt35Turbo20231106 for value: openai/gpt-3-5-turbo-2023-11-06
         /// </summary>
-        OpenaiGpt35Turbo20231106 = 394,
+        OpenaiGpt35Turbo20231106 = 400,
 
         /// <summary>
         /// Enum OpenaiGpt4120250414 for value: openai/gpt-4-1-2025-04-14
         /// </summary>
-        OpenaiGpt4120250414 = 395,
+        OpenaiGpt4120250414 = 401,
 
         /// <summary>
         /// Enum OpenaiGpt41Mini20250414 for value: openai/gpt-4-1-mini-2025-04-14
         /// </summary>
-        OpenaiGpt41Mini20250414 = 396,
+        OpenaiGpt41Mini20250414 = 402,
 
         /// <summary>
         /// Enum OpenaiGpt41Nano20250414 for value: openai/gpt-4-1-nano-2025-04-14
         /// </summary>
-        OpenaiGpt41Nano20250414 = 397,
+        OpenaiGpt41Nano20250414 = 403,
 
         /// <summary>
         /// Enum OpenaiGpt420230314 for value: openai/gpt-4-2023-03-14
         /// </summary>
-        OpenaiGpt420230314 = 398,
+        OpenaiGpt420230314 = 404,
 
         /// <summary>
         /// Enum OpenaiGpt420230613 for value: openai/gpt-4-2023-06-13
         /// </summary>
-        OpenaiGpt420230613 = 399,
+        OpenaiGpt420230613 = 405,
 
         /// <summary>
         /// Enum OpenaiGpt432k for value: openai/gpt-4-32k
         /// </summary>
-        OpenaiGpt432k = 400,
+        OpenaiGpt432k = 406,
 
         /// <summary>
         /// Enum OpenaiGpt432k0314 for value: openai/gpt-4-32k-0314
         /// </summary>
-        OpenaiGpt432k0314 = 401,
+        OpenaiGpt432k0314 = 407,
 
         /// <summary>
         /// Enum OpenaiGpt432k0613 for value: openai/gpt-4-32k-0613
         /// </summary>
-        OpenaiGpt432k0613 = 402,
+        OpenaiGpt432k0613 = 408,
 
         /// <summary>
         /// Enum OpenaiGpt4520250227 for value: openai/gpt-4-5-2025-02-27
         /// </summary>
-        OpenaiGpt4520250227 = 403,
+        OpenaiGpt4520250227 = 409,
 
         /// <summary>
         /// Enum OpenaiGpt4Turbo20230314 for value: openai/gpt-4-turbo-2023-03-14
         /// </summary>
-        OpenaiGpt4Turbo20230314 = 404,
+        OpenaiGpt4Turbo20230314 = 410,
 
         /// <summary>
         /// Enum OpenaiGpt4Turbo20231106 for value: openai/gpt-4-turbo-2023-11-06
         /// </summary>
-        OpenaiGpt4Turbo20231106 = 405,
+        OpenaiGpt4Turbo20231106 = 411,
 
         /// <summary>
         /// Enum OpenaiGpt4Turbo20240125 for value: openai/gpt-4-turbo-2024-01-25
         /// </summary>
-        OpenaiGpt4Turbo20240125 = 406,
+        OpenaiGpt4Turbo20240125 = 412,
 
         /// <summary>
         /// Enum OpenaiGpt4o20240513 for value: openai/gpt-4o-2024-05-13
         /// </summary>
-        OpenaiGpt4o20240513 = 407,
+        OpenaiGpt4o20240513 = 413,
 
         /// <summary>
         /// Enum OpenaiGpt4o20240806 for value: openai/gpt-4o-2024-08-06
         /// </summary>
-        OpenaiGpt4o20240806 = 408,
+        OpenaiGpt4o20240806 = 414,
 
         /// <summary>
         /// Enum OpenaiGpt4o20241120 for value: openai/gpt-4o-2024-11-20
         /// </summary>
-        OpenaiGpt4o20241120 = 409,
+        OpenaiGpt4o20241120 = 415,
 
         /// <summary>
         /// Enum OpenaiGpt4oAudio20241001 for value: openai/gpt-4o-audio-2024-10-01
         /// </summary>
-        OpenaiGpt4oAudio20241001 = 410,
+        OpenaiGpt4oAudio20241001 = 416,
 
         /// <summary>
         /// Enum OpenaiGpt4oAudio20241217 for value: openai/gpt-4o-audio-2024-12-17
         /// </summary>
-        OpenaiGpt4oAudio20241217 = 411,
+        OpenaiGpt4oAudio20241217 = 417,
 
         /// <summary>
         /// Enum OpenaiGpt4oAudio20250603 for value: openai/gpt-4o-audio-2025-06-03
         /// </summary>
-        OpenaiGpt4oAudio20250603 = 412,
+        OpenaiGpt4oAudio20250603 = 418,
 
         /// <summary>
         /// Enum OpenaiGpt4oMini20240718 for value: openai/gpt-4o-mini-2024-07-18
         /// </summary>
-        OpenaiGpt4oMini20240718 = 413,
+        OpenaiGpt4oMini20240718 = 419,
 
         /// <summary>
         /// Enum OpenaiGpt4oMiniAudioPreview for value: openai/gpt-4o-mini-audio-preview
         /// </summary>
-        OpenaiGpt4oMiniAudioPreview = 414,
+        OpenaiGpt4oMiniAudioPreview = 420,
 
         /// <summary>
         /// Enum OpenaiGpt4oMiniRealtimePreview for value: openai/gpt-4o-mini-realtime-preview
         /// </summary>
-        OpenaiGpt4oMiniRealtimePreview = 415,
+        OpenaiGpt4oMiniRealtimePreview = 421,
 
         /// <summary>
         /// Enum OpenaiGpt4oMiniSearchPreview for value: openai/gpt-4o-mini-search-preview
         /// </summary>
-        OpenaiGpt4oMiniSearchPreview = 416,
+        OpenaiGpt4oMiniSearchPreview = 422,
 
         /// <summary>
         /// Enum OpenaiGpt4oMiniTranscribe for value: openai/gpt-4o-mini-transcribe
         /// </summary>
-        OpenaiGpt4oMiniTranscribe = 417,
+        OpenaiGpt4oMiniTranscribe = 423,
 
         /// <summary>
         /// Enum OpenaiGpt4oMiniTts for value: openai/gpt-4o-mini-tts
         /// </summary>
-        OpenaiGpt4oMiniTts = 418,
+        OpenaiGpt4oMiniTts = 424,
 
         /// <summary>
         /// Enum OpenaiGpt4oRealtimePreview20241001 for value: openai/gpt-4o-realtime-preview-2024-10-01
         /// </summary>
-        OpenaiGpt4oRealtimePreview20241001 = 419,
+        OpenaiGpt4oRealtimePreview20241001 = 425,
 
         /// <summary>
         /// Enum OpenaiGpt4oRealtimePreview20241217 for value: openai/gpt-4o-realtime-preview-2024-12-17
         /// </summary>
-        OpenaiGpt4oRealtimePreview20241217 = 420,
+        OpenaiGpt4oRealtimePreview20241217 = 426,
 
         /// <summary>
         /// Enum OpenaiGpt4oRealtimePreview20250603 for value: openai/gpt-4o-realtime-preview-2025-06-03
         /// </summary>
-        OpenaiGpt4oRealtimePreview20250603 = 421,
+        OpenaiGpt4oRealtimePreview20250603 = 427,
 
         /// <summary>
         /// Enum OpenaiGpt4oSearchPreview for value: openai/gpt-4o-search-preview
         /// </summary>
-        OpenaiGpt4oSearchPreview = 422,
+        OpenaiGpt4oSearchPreview = 428,
 
         /// <summary>
         /// Enum OpenaiGpt4oTranscribe for value: openai/gpt-4o-transcribe
         /// </summary>
-        OpenaiGpt4oTranscribe = 423,
+        OpenaiGpt4oTranscribe = 429,
 
         /// <summary>
         /// Enum OpenaiGpt4oTranscribeDiarize20251015 for value: openai/gpt-4o-transcribe-diarize-2025-10-15
         /// </summary>
-        OpenaiGpt4oTranscribeDiarize20251015 = 424,
+        OpenaiGpt4oTranscribeDiarize20251015 = 430,
 
         /// <summary>
         /// Enum OpenaiGpt5120251112 for value: openai/gpt-5-1-2025-11-12
         /// </summary>
-        OpenaiGpt5120251112 = 425,
+        OpenaiGpt5120251112 = 431,
 
         /// <summary>
         /// Enum OpenaiGpt51Chat20251113 for value: openai/gpt-5-1-chat-2025-11-13
         /// </summary>
-        OpenaiGpt51Chat20251113 = 426,
+        OpenaiGpt51Chat20251113 = 432,
 
         /// <summary>
         /// Enum OpenaiGpt51Codex20251113 for value: openai/gpt-5-1-codex-2025-11-13
         /// </summary>
-        OpenaiGpt51Codex20251113 = 427,
+        OpenaiGpt51Codex20251113 = 433,
 
         /// <summary>
         /// Enum OpenaiGpt51CodexMax20251119 for value: openai/gpt-5-1-codex-max-2025-11-19
         /// </summary>
-        OpenaiGpt51CodexMax20251119 = 428,
+        OpenaiGpt51CodexMax20251119 = 434,
 
         /// <summary>
         /// Enum OpenaiGpt51CodexMini20251113 for value: openai/gpt-5-1-codex-mini-2025-11-13
         /// </summary>
-        OpenaiGpt51CodexMini20251113 = 429,
+        OpenaiGpt51CodexMini20251113 = 435,
 
         /// <summary>
         /// Enum OpenaiGpt51Pro for value: openai/gpt-5-1-pro
         /// </summary>
-        OpenaiGpt51Pro = 430,
+        OpenaiGpt51Pro = 436,
 
         /// <summary>
         /// Enum OpenaiGpt520250807 for value: openai/gpt-5-2025-08-07
         /// </summary>
-        OpenaiGpt520250807 = 431,
+        OpenaiGpt520250807 = 437,
 
         /// <summary>
         /// Enum OpenaiGpt5Chat20250807 for value: openai/gpt-5-chat-2025-08-07
         /// </summary>
-        OpenaiGpt5Chat20250807 = 432,
+        OpenaiGpt5Chat20250807 = 438,
 
         /// <summary>
         /// Enum OpenaiGpt5Codex20250915 for value: openai/gpt-5-codex-2025-09-15
         /// </summary>
-        OpenaiGpt5Codex20250915 = 433,
+        OpenaiGpt5Codex20250915 = 439,
 
         /// <summary>
         /// Enum OpenaiGpt5CodexMini20251107 for value: openai/gpt-5-codex-mini-2025-11-07
         /// </summary>
-        OpenaiGpt5CodexMini20251107 = 434,
+        OpenaiGpt5CodexMini20251107 = 440,
 
         /// <summary>
         /// Enum OpenaiGpt5Mini20250807 for value: openai/gpt-5-mini-2025-08-07
         /// </summary>
-        OpenaiGpt5Mini20250807 = 435,
+        OpenaiGpt5Mini20250807 = 441,
 
         /// <summary>
         /// Enum OpenaiGpt5Nano20250807 for value: openai/gpt-5-nano-2025-08-07
         /// </summary>
-        OpenaiGpt5Nano20250807 = 436,
+        OpenaiGpt5Nano20250807 = 442,
 
         /// <summary>
         /// Enum OpenaiGpt5Pro20250807 for value: openai/gpt-5-pro-2025-08-07
         /// </summary>
-        OpenaiGpt5Pro20250807 = 437,
+        OpenaiGpt5Pro20250807 = 443,
 
         /// <summary>
         /// Enum OpenaiGpt5SearchApi20251014 for value: openai/gpt-5-search-api-2025-10-14
         /// </summary>
-        OpenaiGpt5SearchApi20251014 = 438,
+        OpenaiGpt5SearchApi20251014 = 444,
 
         /// <summary>
         /// Enum OpenaiGpt6 for value: openai/gpt-6
         /// </summary>
-        OpenaiGpt6 = 439,
+        OpenaiGpt6 = 445,
 
         /// <summary>
         /// Enum OpenaiGpt6Mini for value: openai/gpt-6-mini
         /// </summary>
-        OpenaiGpt6Mini = 440,
+        OpenaiGpt6Mini = 446,
 
         /// <summary>
         /// Enum OpenaiGpt6Nano for value: openai/gpt-6-nano
         /// </summary>
-        OpenaiGpt6Nano = 441,
+        OpenaiGpt6Nano = 447,
 
         /// <summary>
         /// Enum OpenaiGpt6Pro for value: openai/gpt-6-pro
         /// </summary>
-        OpenaiGpt6Pro = 442,
+        OpenaiGpt6Pro = 448,
 
         /// <summary>
         /// Enum OpenaiGptAudio for value: openai/gpt-audio
         /// </summary>
-        OpenaiGptAudio = 443,
+        OpenaiGptAudio = 449,
 
         /// <summary>
         /// Enum OpenaiGptAudioMini20251006 for value: openai/gpt-audio-mini-2025-10-06
         /// </summary>
-        OpenaiGptAudioMini20251006 = 444,
+        OpenaiGptAudioMini20251006 = 450,
 
         /// <summary>
         /// Enum OpenaiGptImage1 for value: openai/gpt-image-1
         /// </summary>
-        OpenaiGptImage1 = 445,
+        OpenaiGptImage1 = 451,
 
         /// <summary>
         /// Enum OpenaiGptImage1Mini20251006 for value: openai/gpt-image-1-mini-2025-10-06
         /// </summary>
-        OpenaiGptImage1Mini20251006 = 446,
+        OpenaiGptImage1Mini20251006 = 452,
 
         /// <summary>
         /// Enum OpenaiGptOss120b20250805 for value: openai/gpt-oss-120b-2025-08-05
         /// </summary>
-        OpenaiGptOss120b20250805 = 447,
+        OpenaiGptOss120b20250805 = 453,
 
         /// <summary>
         /// Enum OpenaiGptOss20b20250805 for value: openai/gpt-oss-20b-2025-08-05
         /// </summary>
-        OpenaiGptOss20b20250805 = 448,
+        OpenaiGptOss20b20250805 = 454,
 
         /// <summary>
         /// Enum OpenaiGptOssSafeguard120b20251029 for value: openai/gpt-oss-safeguard-120b-2025-10-29
         /// </summary>
-        OpenaiGptOssSafeguard120b20251029 = 449,
+        OpenaiGptOssSafeguard120b20251029 = 455,
 
         /// <summary>
         /// Enum OpenaiGptOssSafeguard20b20251029 for value: openai/gpt-oss-safeguard-20b-2025-10-29
         /// </summary>
-        OpenaiGptOssSafeguard20b20251029 = 450,
+        OpenaiGptOssSafeguard20b20251029 = 456,
 
         /// <summary>
         /// Enum OpenaiGptRealtime for value: openai/gpt-realtime
         /// </summary>
-        OpenaiGptRealtime = 451,
+        OpenaiGptRealtime = 457,
 
         /// <summary>
         /// Enum OpenaiGptRealtimeMini20251006 for value: openai/gpt-realtime-mini-2025-10-06
         /// </summary>
-        OpenaiGptRealtimeMini20251006 = 452,
+        OpenaiGptRealtimeMini20251006 = 458,
 
         /// <summary>
         /// Enum OpenaiO120241217 for value: openai/o1-2024-12-17
         /// </summary>
-        OpenaiO120241217 = 453,
+        OpenaiO120241217 = 459,
 
         /// <summary>
         /// Enum OpenaiO1Mini20240912 for value: openai/o1-mini-2024-09-12
         /// </summary>
-        OpenaiO1Mini20240912 = 454,
+        OpenaiO1Mini20240912 = 460,
 
         /// <summary>
         /// Enum OpenaiO1Preview20240912 for value: openai/o1-preview-2024-09-12
         /// </summary>
-        OpenaiO1Preview20240912 = 455,
+        OpenaiO1Preview20240912 = 461,
 
         /// <summary>
         /// Enum OpenaiO1Pro20250319 for value: openai/o1-pro-2025-03-19
         /// </summary>
-        OpenaiO1Pro20250319 = 456,
+        OpenaiO1Pro20250319 = 462,
 
         /// <summary>
         /// Enum OpenaiO320250416 for value: openai/o3-2025-04-16
         /// </summary>
-        OpenaiO320250416 = 457,
+        OpenaiO320250416 = 463,
 
         /// <summary>
         /// Enum OpenaiO3DeepResearch20250626 for value: openai/o3-deep-research-2025-06-26
         /// </summary>
-        OpenaiO3DeepResearch20250626 = 458,
+        OpenaiO3DeepResearch20250626 = 464,
 
         /// <summary>
         /// Enum OpenaiO3Mini20250130 for value: openai/o3-mini-2025-01-30
         /// </summary>
-        OpenaiO3Mini20250130 = 459,
+        OpenaiO3Mini20250130 = 465,
 
         /// <summary>
         /// Enum OpenaiO3Preview for value: openai/o3-preview
         /// </summary>
-        OpenaiO3Preview = 460,
+        OpenaiO3Preview = 466,
 
         /// <summary>
         /// Enum OpenaiO3Pro20250610 for value: openai/o3-pro-2025-06-10
         /// </summary>
-        OpenaiO3Pro20250610 = 461,
+        OpenaiO3Pro20250610 = 467,
 
         /// <summary>
         /// Enum OpenaiO4Mini20250416 for value: openai/o4-mini-2025-04-16
         /// </summary>
-        OpenaiO4Mini20250416 = 462,
+        OpenaiO4Mini20250416 = 468,
 
         /// <summary>
         /// Enum OpenaiO4MiniDeepResearch20250626 for value: openai/o4-mini-deep-research-2025-06-26
         /// </summary>
-        OpenaiO4MiniDeepResearch20250626 = 463,
+        OpenaiO4MiniDeepResearch20250626 = 469,
 
         /// <summary>
         /// Enum OpenaiOmniModeration20240926 for value: openai/omni-moderation-2024-09-26
         /// </summary>
-        OpenaiOmniModeration20240926 = 464,
+        OpenaiOmniModeration20240926 = 470,
 
         /// <summary>
         /// Enum OpenaiSora120241209 for value: openai/sora-1-2024-12-09
         /// </summary>
-        OpenaiSora120241209 = 465,
+        OpenaiSora120241209 = 471,
 
         /// <summary>
         /// Enum OpenaiSora220250930 for value: openai/sora-2-2025-09-30
         /// </summary>
-        OpenaiSora220250930 = 466,
+        OpenaiSora220250930 = 472,
 
         /// <summary>
         /// Enum OpenaiSora2Pro20251003 for value: openai/sora-2-pro-2025-10-03
         /// </summary>
-        OpenaiSora2Pro20251003 = 467,
+        OpenaiSora2Pro20251003 = 473,
 
         /// <summary>
         /// Enum OpenaiTextAda001 for value: openai/text-ada-001
         /// </summary>
-        OpenaiTextAda001 = 468,
+        OpenaiTextAda001 = 474,
 
         /// <summary>
         /// Enum OpenaiTextBabbage001 for value: openai/text-babbage-001
         /// </summary>
-        OpenaiTextBabbage001 = 469,
+        OpenaiTextBabbage001 = 475,
 
         /// <summary>
         /// Enum OpenaiTextCurie001 for value: openai/text-curie-001
         /// </summary>
-        OpenaiTextCurie001 = 470,
+        OpenaiTextCurie001 = 476,
 
         /// <summary>
         /// Enum OpenaiTextDavinci001 for value: openai/text-davinci-001
         /// </summary>
-        OpenaiTextDavinci001 = 471,
+        OpenaiTextDavinci001 = 477,
 
         /// <summary>
         /// Enum OpenaiTextDavinci002 for value: openai/text-davinci-002
         /// </summary>
-        OpenaiTextDavinci002 = 472,
+        OpenaiTextDavinci002 = 478,
 
         /// <summary>
         /// Enum OpenaiTextDavinci003 for value: openai/text-davinci-003
         /// </summary>
-        OpenaiTextDavinci003 = 473,
+        OpenaiTextDavinci003 = 479,
 
         /// <summary>
         /// Enum OpenaiTextDavinciEdit001 for value: openai/text-davinci-edit-001
         /// </summary>
-        OpenaiTextDavinciEdit001 = 474,
+        OpenaiTextDavinciEdit001 = 480,
 
         /// <summary>
         /// Enum OpenaiTextEmbedding3Large for value: openai/text-embedding-3-large
         /// </summary>
-        OpenaiTextEmbedding3Large = 475,
+        OpenaiTextEmbedding3Large = 481,
 
         /// <summary>
         /// Enum OpenaiTextEmbedding3Small for value: openai/text-embedding-3-small
         /// </summary>
-        OpenaiTextEmbedding3Small = 476,
+        OpenaiTextEmbedding3Small = 482,
 
         /// <summary>
         /// Enum OpenaiTextEmbeddingAda002 for value: openai/text-embedding-ada-002
         /// </summary>
-        OpenaiTextEmbeddingAda002 = 477,
+        OpenaiTextEmbeddingAda002 = 483,
 
         /// <summary>
         /// Enum OpenaiTextModeration007 for value: openai/text-moderation-007
         /// </summary>
-        OpenaiTextModeration007 = 478,
+        OpenaiTextModeration007 = 484,
 
         /// <summary>
         /// Enum OpenaiTextSearchAdaDoc001 for value: openai/text-search-ada-doc-001
         /// </summary>
-        OpenaiTextSearchAdaDoc001 = 479,
+        OpenaiTextSearchAdaDoc001 = 485,
 
         /// <summary>
         /// Enum OpenaiTextSearchAdaQuery001 for value: openai/text-search-ada-query-001
         /// </summary>
-        OpenaiTextSearchAdaQuery001 = 480,
+        OpenaiTextSearchAdaQuery001 = 486,
 
         /// <summary>
         /// Enum OpenaiTextSearchBabbageDoc001 for value: openai/text-search-babbage-doc-001
         /// </summary>
-        OpenaiTextSearchBabbageDoc001 = 481,
+        OpenaiTextSearchBabbageDoc001 = 487,
 
         /// <summary>
         /// Enum OpenaiTextSearchBabbageQuery001 for value: openai/text-search-babbage-query-001
         /// </summary>
-        OpenaiTextSearchBabbageQuery001 = 482,
+        OpenaiTextSearchBabbageQuery001 = 488,
 
         /// <summary>
         /// Enum OpenaiTextSearchCurieDoc001 for value: openai/text-search-curie-doc-001
         /// </summary>
-        OpenaiTextSearchCurieDoc001 = 483,
+        OpenaiTextSearchCurieDoc001 = 489,
 
         /// <summary>
         /// Enum OpenaiTextSearchCurieQuery001 for value: openai/text-search-curie-query-001
         /// </summary>
-        OpenaiTextSearchCurieQuery001 = 484,
+        OpenaiTextSearchCurieQuery001 = 490,
 
         /// <summary>
         /// Enum OpenaiTextSearchDavinciDoc001 for value: openai/text-search-davinci-doc-001
         /// </summary>
-        OpenaiTextSearchDavinciDoc001 = 485,
+        OpenaiTextSearchDavinciDoc001 = 491,
 
         /// <summary>
         /// Enum OpenaiTextSearchDavinciQuery001 for value: openai/text-search-davinci-query-001
         /// </summary>
-        OpenaiTextSearchDavinciQuery001 = 486,
+        OpenaiTextSearchDavinciQuery001 = 492,
 
         /// <summary>
         /// Enum OpenaiTextSimilarityAda001 for value: openai/text-similarity-ada-001
         /// </summary>
-        OpenaiTextSimilarityAda001 = 487,
+        OpenaiTextSimilarityAda001 = 493,
 
         /// <summary>
         /// Enum OpenaiTextSimilarityBabbage001 for value: openai/text-similarity-babbage-001
         /// </summary>
-        OpenaiTextSimilarityBabbage001 = 488,
+        OpenaiTextSimilarityBabbage001 = 494,
 
         /// <summary>
         /// Enum OpenaiTextSimilarityCurie001 for value: openai/text-similarity-curie-001
         /// </summary>
-        OpenaiTextSimilarityCurie001 = 489,
+        OpenaiTextSimilarityCurie001 = 495,
 
         /// <summary>
         /// Enum OpenaiTextSimilarityDavinci001 for value: openai/text-similarity-davinci-001
         /// </summary>
-        OpenaiTextSimilarityDavinci001 = 490,
+        OpenaiTextSimilarityDavinci001 = 496,
 
         /// <summary>
         /// Enum OpenaiTts1 for value: openai/tts-1
         /// </summary>
-        OpenaiTts1 = 491,
+        OpenaiTts1 = 497,
 
         /// <summary>
         /// Enum OpenaiTts1Hd for value: openai/tts-1-hd
         /// </summary>
-        OpenaiTts1Hd = 492,
+        OpenaiTts1Hd = 498,
 
         /// <summary>
         /// Enum OpenaiWhisper1 for value: openai/whisper-1
         /// </summary>
-        OpenaiWhisper1 = 493,
+        OpenaiWhisper1 = 499,
 
         /// <summary>
         /// Enum QwenQvq72bPreview20241225 for value: qwen/qvq-72b-preview-2024-12-25
         /// </summary>
-        QwenQvq72bPreview20241225 = 494,
+        QwenQvq72bPreview20241225 = 500,
 
         /// <summary>
         /// Enum QwenQwen2514bInstruct20240919 for value: qwen/qwen2-5-14b-instruct-2024-09-19
         /// </summary>
-        QwenQwen2514bInstruct20240919 = 495,
+        QwenQwen2514bInstruct20240919 = 501,
 
         /// <summary>
         /// Enum QwenQwen2532bInstruct20240919 for value: qwen/qwen2-5-32b-instruct-2024-09-19
         /// </summary>
-        QwenQwen2532bInstruct20240919 = 496,
+        QwenQwen2532bInstruct20240919 = 502,
 
         /// <summary>
         /// Enum QwenQwen2572bInstruct20240919 for value: qwen/qwen2-5-72b-instruct-2024-09-19
         /// </summary>
-        QwenQwen2572bInstruct20240919 = 497,
+        QwenQwen2572bInstruct20240919 = 503,
 
         /// <summary>
         /// Enum QwenQwen257bInstruct20240919 for value: qwen/qwen2-5-7b-instruct-2024-09-19
         /// </summary>
-        QwenQwen257bInstruct20240919 = 498,
+        QwenQwen257bInstruct20240919 = 504,
 
         /// <summary>
         /// Enum QwenQwen25Coder32bInstruct20240919 for value: qwen/qwen2-5-coder-32b-instruct-2024-09-19
         /// </summary>
-        QwenQwen25Coder32bInstruct20240919 = 499,
+        QwenQwen25Coder32bInstruct20240919 = 505,
 
         /// <summary>
         /// Enum QwenQwen25Coder7bInstruct20240919 for value: qwen/qwen2-5-coder-7b-instruct-2024-09-19
         /// </summary>
-        QwenQwen25Coder7bInstruct20240919 = 500,
+        QwenQwen25Coder7bInstruct20240919 = 506,
 
         /// <summary>
         /// Enum QwenQwen25Omni7b20250327 for value: qwen/qwen2-5-omni-7b-2025-03-27
         /// </summary>
-        QwenQwen25Omni7b20250327 = 501,
+        QwenQwen25Omni7b20250327 = 507,
 
         /// <summary>
         /// Enum QwenQwen25Vl32bInstruct20250228 for value: qwen/qwen2-5-vl-32b-instruct-2025-02-28
         /// </summary>
-        QwenQwen25Vl32bInstruct20250228 = 502,
+        QwenQwen25Vl32bInstruct20250228 = 508,
 
         /// <summary>
         /// Enum QwenQwen25Vl72bInstruct20250126 for value: qwen/qwen2-5-vl-72b-instruct-2025-01-26
         /// </summary>
-        QwenQwen25Vl72bInstruct20250126 = 503,
+        QwenQwen25Vl72bInstruct20250126 = 509,
 
         /// <summary>
         /// Enum QwenQwen25Vl7bInstruct20250126 for value: qwen/qwen2-5-vl-7b-instruct-2025-01-26
         /// </summary>
-        QwenQwen25Vl7bInstruct20250126 = 504,
+        QwenQwen25Vl7bInstruct20250126 = 510,
 
         /// <summary>
         /// Enum QwenQwen272bInstruct20240723 for value: qwen/qwen2-72b-instruct-2024-07-23
         /// </summary>
-        QwenQwen272bInstruct20240723 = 505,
+        QwenQwen272bInstruct20240723 = 511,
 
         /// <summary>
         /// Enum QwenQwen27bInstruct20240723 for value: qwen/qwen2-7b-instruct-2024-07-23
         /// </summary>
-        QwenQwen27bInstruct20240723 = 506,
+        QwenQwen27bInstruct20240723 = 512,
 
         /// <summary>
         /// Enum QwenQwen2Vl72bInstruct20240829 for value: qwen/qwen2-vl-72b-instruct-2024-08-29
         /// </summary>
-        QwenQwen2Vl72bInstruct20240829 = 507,
+        QwenQwen2Vl72bInstruct20240829 = 513,
 
         /// <summary>
         /// Enum QwenQwen3235bA22b20250429 for value: qwen/qwen3-235b-a22b-2025-04-29
         /// </summary>
-        QwenQwen3235bA22b20250429 = 508,
+        QwenQwen3235bA22b20250429 = 514,
 
         /// <summary>
         /// Enum QwenQwen3235bA22bThinking250720250725 for value: qwen/qwen3-235b-a22b-thinking-2507-2025-07-25
         /// </summary>
-        QwenQwen3235bA22bThinking250720250725 = 509,
+        QwenQwen3235bA22bThinking250720250725 = 515,
 
         /// <summary>
         /// Enum QwenQwen330bA3b20250429 for value: qwen/qwen3-30b-a3b-2025-04-29
         /// </summary>
-        QwenQwen330bA3b20250429 = 510,
+        QwenQwen330bA3b20250429 = 516,
 
         /// <summary>
         /// Enum QwenQwen332b20250429 for value: qwen/qwen3-32b-2025-04-29
         /// </summary>
-        QwenQwen332b20250429 = 511,
+        QwenQwen332b20250429 = 517,
 
         /// <summary>
         /// Enum QwenQwen3A235A22bInstruct250720250721 for value: qwen/qwen3-a235-a22b-instruct-2507-2025-07-21
         /// </summary>
-        QwenQwen3A235A22bInstruct250720250721 = 512,
+        QwenQwen3A235A22bInstruct250720250721 = 518,
 
         /// <summary>
         /// Enum QwenQwen3Coder480bA35bInstruct20250722 for value: qwen/qwen3-coder-480b-a35b-instruct-2025-07-22
         /// </summary>
-        QwenQwen3Coder480bA35bInstruct20250722 = 513,
+        QwenQwen3Coder480bA35bInstruct20250722 = 519,
 
         /// <summary>
         /// Enum QwenQwq32b20250305 for value: qwen/qwq-32b-2025-03-05
         /// </summary>
-        QwenQwq32b20250305 = 514,
+        QwenQwq32b20250305 = 520,
 
         /// <summary>
         /// Enum QwenQwq32bPreview20241128 for value: qwen/qwq-32b-preview-2024-11-28
         /// </summary>
-        QwenQwq32bPreview20241128 = 515,
+        QwenQwq32bPreview20241128 = 521,
 
         /// <summary>
         /// Enum SunoSunoV35 for value: suno/suno-v3-5
         /// </summary>
-        SunoSunoV35 = 516,
+        SunoSunoV35 = 522,
 
         /// <summary>
         /// Enum SunoSunoV4 for value: suno/suno-v4
         /// </summary>
-        SunoSunoV4 = 517,
+        SunoSunoV4 = 523,
 
         /// <summary>
         /// Enum SunoSunoV45 for value: suno/suno-v4-5
         /// </summary>
-        SunoSunoV45 = 518,
+        SunoSunoV45 = 524,
 
         /// <summary>
         /// Enum SunoSunoV452 for value: suno/suno-v4-5+
         /// </summary>
-        SunoSunoV452 = 519,
+        SunoSunoV452 = 525,
 
         /// <summary>
         /// Enum SunoSunoV5 for value: suno/suno-v5
         /// </summary>
-        SunoSunoV5 = 520,
+        SunoSunoV5 = 526,
 
         /// <summary>
         /// Enum XAiGrok0 for value: x-ai/grok-0
         /// </summary>
-        XAiGrok0 = 521,
+        XAiGrok0 = 527,
 
         /// <summary>
         /// Enum XAiGrok1 for value: x-ai/grok-1
         /// </summary>
-        XAiGrok1 = 522,
+        XAiGrok1 = 528,
 
         /// <summary>
         /// Enum XAiGrok1520240328 for value: x-ai/grok-1-5-2024-03-28
         /// </summary>
-        XAiGrok1520240328 = 523,
+        XAiGrok1520240328 = 529,
 
         /// <summary>
         /// Enum XAiGrok15v20240412 for value: x-ai/grok-1-5v-2024-04-12
         /// </summary>
-        XAiGrok15v20240412 = 524,
+        XAiGrok15v20240412 = 530,
 
         /// <summary>
         /// Enum XAiGrok220240813 for value: x-ai/grok-2-2024-08-13
         /// </summary>
-        XAiGrok220240813 = 525,
+        XAiGrok220240813 = 531,
 
         /// <summary>
         /// Enum XAiGrok2Image1212 for value: x-ai/grok-2-image-1212
         /// </summary>
-        XAiGrok2Image1212 = 526,
+        XAiGrok2Image1212 = 532,
 
         /// <summary>
         /// Enum XAiGrok2Mini20240813 for value: x-ai/grok-2-mini-2024-08-13
         /// </summary>
-        XAiGrok2Mini20240813 = 527,
+        XAiGrok2Mini20240813 = 533,
 
         /// <summary>
         /// Enum XAiGrok2Vision1212 for value: x-ai/grok-2-vision-1212
         /// </summary>
-        XAiGrok2Vision1212 = 528,
+        XAiGrok2Vision1212 = 534,
 
         /// <summary>
         /// Enum XAiGrok320250418 for value: x-ai/grok-3-2025-04-18
         /// </summary>
-        XAiGrok320250418 = 529,
+        XAiGrok320250418 = 535,
 
         /// <summary>
         /// Enum XAiGrok3Beta20250219 for value: x-ai/grok-3-beta-2025-02-19
         /// </summary>
-        XAiGrok3Beta20250219 = 530,
+        XAiGrok3Beta20250219 = 536,
 
         /// <summary>
         /// Enum XAiGrok3Mini20250418 for value: x-ai/grok-3-mini-2025-04-18
         /// </summary>
-        XAiGrok3Mini20250418 = 531,
+        XAiGrok3Mini20250418 = 537,
 
         /// <summary>
         /// Enum XAiGrok3MiniBeta20250219 for value: x-ai/grok-3-mini-beta-2025-02-19
         /// </summary>
-        XAiGrok3MiniBeta20250219 = 532,
+        XAiGrok3MiniBeta20250219 = 538,
 
         /// <summary>
         /// Enum XAiGrok41NonThinking20251117 for value: x-ai/grok-4-1-non-thinking-2025-11-17
         /// </summary>
-        XAiGrok41NonThinking20251117 = 533,
+        XAiGrok41NonThinking20251117 = 539,
 
         /// <summary>
         /// Enum XAiGrok41Thinking20251117 for value: x-ai/grok-4-1-thinking-2025-11-17
         /// </summary>
-        XAiGrok41Thinking20251117 = 534,
+        XAiGrok41Thinking20251117 = 540,
 
         /// <summary>
         /// Enum XAiGrok420250710 for value: x-ai/grok-4-2025-07-10
         /// </summary>
-        XAiGrok420250710 = 535,
+        XAiGrok420250710 = 541,
 
         /// <summary>
         /// Enum XAiGrok4FastNonReasoning20250920 for value: x-ai/grok-4-fast-non-reasoning-2025-09-20
         /// </summary>
-        XAiGrok4FastNonReasoning20250920 = 536,
+        XAiGrok4FastNonReasoning20250920 = 542,
 
         /// <summary>
         /// Enum XAiGrok4FastReasoning20250920 for value: x-ai/grok-4-fast-reasoning-2025-09-20
         /// </summary>
-        XAiGrok4FastReasoning20250920 = 537,
+        XAiGrok4FastReasoning20250920 = 543,
 
         /// <summary>
         /// Enum XAiGrok4Heavy20250710 for value: x-ai/grok-4-heavy-2025-07-10
         /// </summary>
-        XAiGrok4Heavy20250710 = 538,
+        XAiGrok4Heavy20250710 = 544,
 
         /// <summary>
         /// Enum XAiGrokCodeFast120250828 for value: x-ai/grok-code-fast-1-2025-08-28
         /// </summary>
-        XAiGrokCodeFast120250828 = 539,
+        XAiGrokCodeFast120250828 = 545,
 
         /// <summary>
         /// Enum ZAiGlm41v9b for value: z-ai/glm-4-1v-9b
         /// </summary>
-        ZAiGlm41v9b = 540,
+        ZAiGlm41v9b = 546,
 
         /// <summary>
         /// Enum ZAiGlm41vThinking9b for value: z-ai/glm-4-1v-thinking-9b
         /// </summary>
-        ZAiGlm41vThinking9b = 541,
+        ZAiGlm41vThinking9b = 547,
 
         /// <summary>
         /// Enum ZAiGlm432b0414 for value: z-ai/glm-4-32b-0414
         /// </summary>
-        ZAiGlm432b0414 = 542,
+        ZAiGlm432b0414 = 548,
 
         /// <summary>
         /// Enum ZAiGlm45 for value: z-ai/glm-4-5
         /// </summary>
-        ZAiGlm45 = 543,
+        ZAiGlm45 = 549,
 
         /// <summary>
         /// Enum ZAiGlm45Air for value: z-ai/glm-4-5-air
         /// </summary>
-        ZAiGlm45Air = 544,
+        ZAiGlm45Air = 550,
 
         /// <summary>
         /// Enum ZAiGlm45v for value: z-ai/glm-4-5v
         /// </summary>
-        ZAiGlm45v = 545,
+        ZAiGlm45v = 551,
 
         /// <summary>
         /// Enum ZAiGlm4620250930 for value: z-ai/glm-4-6-2025-09-30
         /// </summary>
-        ZAiGlm4620250930 = 546,
+        ZAiGlm4620250930 = 552,
 
         /// <summary>
         /// Enum ZAiGlm49b for value: z-ai/glm-4-9b
         /// </summary>
-        ZAiGlm49b = 547,
+        ZAiGlm49b = 553,
 
         /// <summary>
         /// Enum ZAiGlm49b0414 for value: z-ai/glm-4-9b-0414
         /// </summary>
-        ZAiGlm49b0414 = 548,
+        ZAiGlm49b0414 = 554,
 
         /// <summary>
         /// Enum ZAiGlm49bChat for value: z-ai/glm-4-9b-chat
         /// </summary>
-        ZAiGlm49bChat = 549,
+        ZAiGlm49bChat = 555,
 
         /// <summary>
         /// Enum ZAiGlm49bChat1m for value: z-ai/glm-4-9b-chat-1m
         /// </summary>
-        ZAiGlm49bChat1m = 550,
+        ZAiGlm49bChat1m = 556,
 
         /// <summary>
         /// Enum ZAiGlm4v9b for value: z-ai/glm-4v-9b
         /// </summary>
-        ZAiGlm4v9b = 551
+        ZAiGlm4v9b = 557
     }
 
     /// <summary>
@@ -2816,6 +2846,21 @@ namespace AIStatsSdk.Model
             if (value.Equals("ai21/jamba-mini-1-7-2025-07-03"))
                 return ModelId.Ai21JambaMini1720250703;
 
+            if (value.Equals("amazon/deepseek-v3-2-2025-12-01"))
+                return ModelId.AmazonDeepseekV3220251201;
+
+            if (value.Equals("amazon/nova-2-lite-2025-12-02"))
+                return ModelId.AmazonNova2Lite20251202;
+
+            if (value.Equals("amazon/nova-2-omni-2025-12-02"))
+                return ModelId.AmazonNova2Omni20251202;
+
+            if (value.Equals("amazon/nova-2-pro-2025-12-02"))
+                return ModelId.AmazonNova2Pro20251202;
+
+            if (value.Equals("amazon/nova-2-sonic-2025-12-02"))
+                return ModelId.AmazonNova2Sonic20251202;
+
             if (value.Equals("amazon/nova-canvas"))
                 return ModelId.AmazonNovaCanvas;
 
@@ -2824,6 +2869,9 @@ namespace AIStatsSdk.Model
 
             if (value.Equals("amazon/nova-micro-1-0-2024-12-04"))
                 return ModelId.AmazonNovaMicro1020241204;
+
+            if (value.Equals("amazon/nova-multimodal-embeddings-2025-12-02"))
+                return ModelId.AmazonNovaMultimodalEmbeddings20251202;
 
             if (value.Equals("amazon/nova-premier-2025-04-30"))
                 return ModelId.AmazonNovaPremier20250430;
@@ -3050,8 +3098,8 @@ namespace AIStatsSdk.Model
             if (value.Equals("deepseek/deepseek-v3-1-terminus-2025-09-22"))
                 return ModelId.DeepseekDeepseekV31Terminus20250922;
 
-            if (value.Equals("deepseek/deepseek-v3-2-2025-09-29"))
-                return ModelId.DeepseekDeepseekV3220250929;
+            if (value.Equals("deepseek/deepseek-v3-2-exp-2025-09-29"))
+                return ModelId.DeepseekDeepseekV32Exp20250929;
 
             if (value.Equals("deepseek/deepseek-v3-2-speciale-2025-12-01"))
                 return ModelId.DeepseekDeepseekV32Speciale20251201;
@@ -4479,6 +4527,21 @@ namespace AIStatsSdk.Model
             if (value.Equals("ai21/jamba-mini-1-7-2025-07-03"))
                 return ModelId.Ai21JambaMini1720250703;
 
+            if (value.Equals("amazon/deepseek-v3-2-2025-12-01"))
+                return ModelId.AmazonDeepseekV3220251201;
+
+            if (value.Equals("amazon/nova-2-lite-2025-12-02"))
+                return ModelId.AmazonNova2Lite20251202;
+
+            if (value.Equals("amazon/nova-2-omni-2025-12-02"))
+                return ModelId.AmazonNova2Omni20251202;
+
+            if (value.Equals("amazon/nova-2-pro-2025-12-02"))
+                return ModelId.AmazonNova2Pro20251202;
+
+            if (value.Equals("amazon/nova-2-sonic-2025-12-02"))
+                return ModelId.AmazonNova2Sonic20251202;
+
             if (value.Equals("amazon/nova-canvas"))
                 return ModelId.AmazonNovaCanvas;
 
@@ -4487,6 +4550,9 @@ namespace AIStatsSdk.Model
 
             if (value.Equals("amazon/nova-micro-1-0-2024-12-04"))
                 return ModelId.AmazonNovaMicro1020241204;
+
+            if (value.Equals("amazon/nova-multimodal-embeddings-2025-12-02"))
+                return ModelId.AmazonNovaMultimodalEmbeddings20251202;
 
             if (value.Equals("amazon/nova-premier-2025-04-30"))
                 return ModelId.AmazonNovaPremier20250430;
@@ -4713,8 +4779,8 @@ namespace AIStatsSdk.Model
             if (value.Equals("deepseek/deepseek-v3-1-terminus-2025-09-22"))
                 return ModelId.DeepseekDeepseekV31Terminus20250922;
 
-            if (value.Equals("deepseek/deepseek-v3-2-2025-09-29"))
-                return ModelId.DeepseekDeepseekV3220250929;
+            if (value.Equals("deepseek/deepseek-v3-2-exp-2025-09-29"))
+                return ModelId.DeepseekDeepseekV32Exp20250929;
 
             if (value.Equals("deepseek/deepseek-v3-2-speciale-2025-12-01"))
                 return ModelId.DeepseekDeepseekV32Speciale20251201;
@@ -6143,6 +6209,21 @@ namespace AIStatsSdk.Model
             if (value == ModelId.Ai21JambaMini1720250703)
                 return "ai21/jamba-mini-1-7-2025-07-03";
 
+            if (value == ModelId.AmazonDeepseekV3220251201)
+                return "amazon/deepseek-v3-2-2025-12-01";
+
+            if (value == ModelId.AmazonNova2Lite20251202)
+                return "amazon/nova-2-lite-2025-12-02";
+
+            if (value == ModelId.AmazonNova2Omni20251202)
+                return "amazon/nova-2-omni-2025-12-02";
+
+            if (value == ModelId.AmazonNova2Pro20251202)
+                return "amazon/nova-2-pro-2025-12-02";
+
+            if (value == ModelId.AmazonNova2Sonic20251202)
+                return "amazon/nova-2-sonic-2025-12-02";
+
             if (value == ModelId.AmazonNovaCanvas)
                 return "amazon/nova-canvas";
 
@@ -6151,6 +6232,9 @@ namespace AIStatsSdk.Model
 
             if (value == ModelId.AmazonNovaMicro1020241204)
                 return "amazon/nova-micro-1-0-2024-12-04";
+
+            if (value == ModelId.AmazonNovaMultimodalEmbeddings20251202)
+                return "amazon/nova-multimodal-embeddings-2025-12-02";
 
             if (value == ModelId.AmazonNovaPremier20250430)
                 return "amazon/nova-premier-2025-04-30";
@@ -6377,8 +6461,8 @@ namespace AIStatsSdk.Model
             if (value == ModelId.DeepseekDeepseekV31Terminus20250922)
                 return "deepseek/deepseek-v3-1-terminus-2025-09-22";
 
-            if (value == ModelId.DeepseekDeepseekV3220250929)
-                return "deepseek/deepseek-v3-2-2025-09-29";
+            if (value == ModelId.DeepseekDeepseekV32Exp20250929)
+                return "deepseek/deepseek-v3-2-exp-2025-09-29";
 
             if (value == ModelId.DeepseekDeepseekV32Speciale20251201)
                 return "deepseek/deepseek-v3-2-speciale-2025-12-01";

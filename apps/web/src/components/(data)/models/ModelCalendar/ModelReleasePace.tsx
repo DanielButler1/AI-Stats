@@ -12,7 +12,6 @@ const CONFIG = {
 	trend: { label: "3-mo average", color: "#3b82f6" },
 };
 
-const MONTHS_WINDOW = 24;
 // Predictions removed per request; only actuals and 3-mo avg
 
 const MONTH_LABELS = (date: Date) =>
@@ -35,14 +34,18 @@ type ReleasePaceData = {
 
 type ModelReleasePaceProps = {
 	events: ModelEvent[];
+	monthsWindow?: number;
 };
 
-export default function ModelReleasePace({ events }: ModelReleasePaceProps) {
+export default function ModelReleasePace({
+	events,
+	monthsWindow = 24,
+}: ModelReleasePaceProps) {
 	const now = useMemo(() => new Date(), []);
 
 	const data = useMemo<ReleasePaceData[]>(() => {
 		const windowStart = new Date(now.getFullYear(), now.getMonth(), 1);
-		windowStart.setMonth(windowStart.getMonth() - (MONTHS_WINDOW - 1));
+		windowStart.setMonth(windowStart.getMonth() - (monthsWindow - 1));
 
 		const releaseMap = new Map<string, number>();
 
@@ -54,7 +57,7 @@ export default function ModelReleasePace({ events }: ModelReleasePaceProps) {
 			releaseMap.set(key, (releaseMap.get(key) ?? 0) + 1);
 		});
 
-		const months = Array.from({ length: MONTHS_WINDOW }, (_, index) => {
+		const months = Array.from({ length: monthsWindow }, (_, index) => {
 			const point = new Date(windowStart);
 			point.setMonth(windowStart.getMonth() + index);
 			return {
@@ -78,7 +81,7 @@ export default function ModelReleasePace({ events }: ModelReleasePaceProps) {
 				trendActual: Math.round(trend * 100) / 100,
 			};
 		});
-	}, [events, now]);
+	}, [events, monthsWindow, now]);
 
 	const maxRelease = Math.max(...data.map((entry) => entry.releases), 0);
 	const thresholds = [0, Math.round(maxRelease / 2), maxRelease].filter(
@@ -160,7 +163,7 @@ const ReleaseTooltip = ({
 				<div className="flex items-center justify-between gap-4">
 					<div className="flex flex-col gap-1">
 						<h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-							Releases per month (last {MONTHS_WINDOW} months)
+							Releases per month (last {monthsWindow} months)
 						</h3>
 					</div>
 					<Tooltip delayDuration={400}>

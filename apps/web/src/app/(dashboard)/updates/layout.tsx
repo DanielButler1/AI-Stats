@@ -15,7 +15,7 @@ export default function UpdatesLayout({ children }: { children: ReactNode }) {
 
 				<UpdateTabs />
 
-				<div className="mt-10">{children}</div>
+				<div className="my-4">{children}</div>
 			</div>
 		</main>
 	);

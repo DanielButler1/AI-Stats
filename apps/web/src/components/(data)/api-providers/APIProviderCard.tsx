@@ -48,13 +48,17 @@ export default function APIProviderCard({ api_provider }: Props) {
 						</Link>
 						{country && (
 							<span className="mt-1 text-xs text-muted-foreground truncate flex items-center gap-1">
-								<Image
-									src={`/flags/${country.toLowerCase()}.svg`}
-									alt={`${country} flag`}
-									width={20}
-									height={14}
-									className="inline-block rounded-sm border"
-								/>
+								<Link
+									href={`/countries/${country.toLowerCase()}`}
+								>
+									<Image
+										src={`/flags/${country.toLowerCase()}.svg`}
+										alt={`${country} flag`}
+										width={20}
+										height={14}
+										className="inline-block rounded-sm border"
+									/>
+								</Link>
 							</span>
 						)}
 					</CardTitle>

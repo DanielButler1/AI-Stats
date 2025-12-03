@@ -36,12 +36,24 @@ AIStatsModelId::eAIStatsModelId toEnum(const EnumUnderlyingType& val)
         return AIStatsModelId::eAIStatsModelId::AI21_JAMBA_MINI_1_6_2025_03_06;
     if (val == utility::conversions::to_string_t(_XPLATSTR("ai21/jamba-mini-1-7-2025-07-03")))
         return AIStatsModelId::eAIStatsModelId::AI21_JAMBA_MINI_1_7_2025_07_03;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("amazon/deepseek-v3-2-2025-12-01")))
+        return AIStatsModelId::eAIStatsModelId::AMAZON_DEEPSEEK_V3_2_2025_12_01;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("amazon/nova-2-lite-2025-12-02")))
+        return AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_2_LITE_2025_12_02;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("amazon/nova-2-omni-2025-12-02")))
+        return AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_2_OMNI_2025_12_02;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("amazon/nova-2-pro-2025-12-02")))
+        return AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_2_PRO_2025_12_02;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("amazon/nova-2-sonic-2025-12-02")))
+        return AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_2_SONIC_2025_12_02;
     if (val == utility::conversions::to_string_t(_XPLATSTR("amazon/nova-canvas")))
         return AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_CANVAS;
     if (val == utility::conversions::to_string_t(_XPLATSTR("amazon/nova-lite-1-0-2024-12-04")))
         return AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_LITE_1_0_2024_12_04;
     if (val == utility::conversions::to_string_t(_XPLATSTR("amazon/nova-micro-1-0-2024-12-04")))
         return AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_MICRO_1_0_2024_12_04;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("amazon/nova-multimodal-embeddings-2025-12-02")))
+        return AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_MULTIMODAL_EMBEDDINGS_2025_12_02;
     if (val == utility::conversions::to_string_t(_XPLATSTR("amazon/nova-premier-2025-04-30")))
         return AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_PREMIER_2025_04_30;
     if (val == utility::conversions::to_string_t(_XPLATSTR("amazon/nova-pro-1-0-2024-12-04")))
@@ -192,8 +204,8 @@ AIStatsModelId::eAIStatsModelId toEnum(const EnumUnderlyingType& val)
         return AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_1;
     if (val == utility::conversions::to_string_t(_XPLATSTR("deepseek/deepseek-v3-1-terminus-2025-09-22")))
         return AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_1_TERMINUS_2025_09_22;
-    if (val == utility::conversions::to_string_t(_XPLATSTR("deepseek/deepseek-v3-2-2025-09-29")))
-        return AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2_2025_09_29;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("deepseek/deepseek-v3-2-exp-2025-09-29")))
+        return AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2_EXP_2025_09_29;
     if (val == utility::conversions::to_string_t(_XPLATSTR("deepseek/deepseek-v3-2-speciale-2025-12-01")))
         return AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2_SPECIALE_2025_12_01;
     if (val == utility::conversions::to_string_t(_XPLATSTR("deepseek/deepseek-v3-2024-12-25")))
@@ -1145,12 +1157,24 @@ EnumUnderlyingType fromEnum(AIStatsModelId::eAIStatsModelId e)
         return _XPLATSTR("ai21/jamba-mini-1-6-2025-03-06");
     case AIStatsModelId::eAIStatsModelId::AI21_JAMBA_MINI_1_7_2025_07_03:
         return _XPLATSTR("ai21/jamba-mini-1-7-2025-07-03");
+    case AIStatsModelId::eAIStatsModelId::AMAZON_DEEPSEEK_V3_2_2025_12_01:
+        return _XPLATSTR("amazon/deepseek-v3-2-2025-12-01");
+    case AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_2_LITE_2025_12_02:
+        return _XPLATSTR("amazon/nova-2-lite-2025-12-02");
+    case AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_2_OMNI_2025_12_02:
+        return _XPLATSTR("amazon/nova-2-omni-2025-12-02");
+    case AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_2_PRO_2025_12_02:
+        return _XPLATSTR("amazon/nova-2-pro-2025-12-02");
+    case AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_2_SONIC_2025_12_02:
+        return _XPLATSTR("amazon/nova-2-sonic-2025-12-02");
     case AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_CANVAS:
         return _XPLATSTR("amazon/nova-canvas");
     case AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_LITE_1_0_2024_12_04:
         return _XPLATSTR("amazon/nova-lite-1-0-2024-12-04");
     case AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_MICRO_1_0_2024_12_04:
         return _XPLATSTR("amazon/nova-micro-1-0-2024-12-04");
+    case AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_MULTIMODAL_EMBEDDINGS_2025_12_02:
+        return _XPLATSTR("amazon/nova-multimodal-embeddings-2025-12-02");
     case AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_PREMIER_2025_04_30:
         return _XPLATSTR("amazon/nova-premier-2025-04-30");
     case AIStatsModelId::eAIStatsModelId::AMAZON_NOVA_PRO_1_0_2024_12_04:
@@ -1301,8 +1325,8 @@ EnumUnderlyingType fromEnum(AIStatsModelId::eAIStatsModelId e)
         return _XPLATSTR("deepseek/deepseek-v3-1");
     case AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_1_TERMINUS_2025_09_22:
         return _XPLATSTR("deepseek/deepseek-v3-1-terminus-2025-09-22");
-    case AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2_2025_09_29:
-        return _XPLATSTR("deepseek/deepseek-v3-2-2025-09-29");
+    case AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2_EXP_2025_09_29:
+        return _XPLATSTR("deepseek/deepseek-v3-2-exp-2025-09-29");
     case AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2_SPECIALE_2025_12_01:
         return _XPLATSTR("deepseek/deepseek-v3-2-speciale-2025-12-01");
     case AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_V3_2024_12_25:

@@ -4,9 +4,9 @@ import Link from "next/link";
 import CountryDetailShell from "@/components/(data)/countries/CountryDetailShell";
 import CountryOrganisationCard from "@/components/(data)/countries/CountryOrganisationCard";
 import { ModelCard } from "@/components/(data)/models/Models/ModelCard";
+import { Logo } from "@/components/Logo";
 import { formatCountryDate } from "@/components/(data)/countries/utils";
 import {
-	buildCountryModelEvents,
 	getCountrySummaryByIso,
 	getUniqueCountryModels,
 	normaliseIso,
@@ -82,59 +82,97 @@ export default async function CountryDetailPage({
 
 	const organisationEntries = country.organisations;
 	const models = getUniqueCountryModels(country);
-	const modelsToShow = models.slice(0, 9);
+	const modelsToShow = models.slice(1, 10);
 	const latestModel = country.latestModel;
+	const latestAccent = latestModel?.organisation_colour ?? "hsl(222 89% 53%)";
 
 	return (
 		<CountryDetailShell iso={iso} country={country}>
 			<div className="space-y-10">
 				<div className="grid gap-4 md:grid-cols-3">
-					<div className="rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-sm dark:border-zinc-800/80 dark:bg-zinc-900/80">
-						<p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground">
-							Active organisations
-						</p>
-						<p className="mt-2 text-3xl font-semibold text-zinc-950 dark:text-zinc-50">
+					<div className="flex flex-col rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-sm dark:border-zinc-800/80 dark:bg-zinc-900/80">
+						<div className="flex items-center justify-between">
+							<p className="text-sm font-semibold text-muted-foreground">
+								Active organisations
+							</p>
+						</div>
+						<p className="mt-1 text-3xl font-semibold text-zinc-950 dark:text-zinc-50">
 							{country.totalOrganisations}
 						</p>
-						<p className="text-sm text-muted-foreground">
-							HQs or primary offices confirmed for this country.
-						</p>
 					</div>
-					<div className="rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-sm dark:border-zinc-800/80 dark:bg-zinc-900/80">
-						<p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground">
-							Models tracked
-						</p>
-						<p className="mt-2 text-3xl font-semibold text-zinc-950 dark:text-zinc-50">
+					<div className="flex flex-col rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-sm dark:border-zinc-800/80 dark:bg-zinc-900/80">
+						<div className="flex items-center justify-between">
+							<p className="text-sm font-semibold text-muted-foreground">
+								Models tracked
+							</p>
+						</div>
+						<p className="mt-1 text-3xl font-semibold text-zinc-950 dark:text-zinc-50">
 							{country.totalModels}
 						</p>
-						<p className="text-sm text-muted-foreground">
-							Unique model entries mapped to local organisations.
-						</p>
 					</div>
-					<div className="rounded-2xl border border-primary/20 bg-primary/5 p-5 shadow-sm backdrop-blur dark:border-primary/40 dark:bg-primary/10">
-						<p className="text-[11px] uppercase tracking-[0.35em] text-primary">
-							Latest model
-						</p>
+					<div
+						className="rounded-2xl border-2 bg-white p-5 shadow-sm backdrop-blur dark:bg-zinc-900/80"
+						style={{
+							borderColor: latestAccent,
+						}}
+					>
+						<div className="flex items-center justify-between">
+							<p
+								className="text-sm font-semibold"
+								style={{ color: latestAccent }}
+							>
+								Latest model
+							</p>
+							{latestModel?.primary_date ? (
+								<p className="text-xs text-muted-foreground">
+									{formatCountryDate(latestModel.primary_date)}
+								</p>
+							) : null}
+						</div>
 						{latestModel ? (
-							<div className="mt-2 space-y-1">
-								<Link
-									href={`/models/${latestModel.model_id}`}
-									className="text-lg font-semibold leading-tight text-primary hover:underline"
-								>
-									{latestModel.name}
-								</Link>
-								<p className="text-sm text-primary/80">
-									{latestModel.organisation_name ??
-										"Unknown organisation"}
-								</p>
-								<p className="text-[11px] uppercase tracking-[0.32em] text-primary/70">
-									{formatCountryDate(
-										latestModel.primary_date
-									)}
-								</p>
+							<div className="mt-3">
+								<div className="flex items-center gap-3">
+									<Link
+										href={`/organisations/${latestModel.organisation_id}`}
+									>
+										<div className="relative flex h-10 w-10 items-center justify-center rounded-xl border bg-white dark:border-zinc-800 dark:bg-zinc-900">
+											<Logo
+												id={latestModel.organisation_id}
+												alt={
+													latestModel.organisation_name ??
+													"Organisation logo"
+												}
+												className="object-contain"
+												width={30}
+												height={30}
+											/>
+										</div>
+									</Link>
+									<div className="flex flex-col">
+										<Link
+											href={`/models/${latestModel.model_id}`}
+											className="text-lg font-semibold leading-tight text-[inherit]"
+										>
+											<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+												{latestModel.name}
+											</span>
+										</Link>
+										{latestModel.organisation_id && (
+											<Link
+												href={`/organisations/${latestModel.organisation_id}`}
+												className="text-sm font-medium text-muted-foreground hover:text-foreground"
+											>
+												<span className="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+													{latestModel.organisation_name ??
+														"Unknown organisation"}
+												</span>
+											</Link>
+										)}
+									</div>
+								</div>
 							</div>
 						) : (
-							<p className="mt-2 text-sm text-primary/80">
+							<p className="mt-2 text-sm text-muted-foreground">
 								No latest model tracked yet.
 							</p>
 						)}

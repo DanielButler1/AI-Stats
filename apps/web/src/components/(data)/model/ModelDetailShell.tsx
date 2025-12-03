@@ -102,13 +102,17 @@ export default async function ModelDetailShell({
 
 					{header.organisation.country_code && (
 						<div className="mt-2 flex h-full items-center justify-center md:mt-0 md:ml-6">
-							<Image
-								src={`/flags/${header.organisation.country_code.toLowerCase()}.svg`}
-								alt={header.organisation.country_code}
-								width={64}
-								height={48}
-								className="h-auto w-12 rounded-md border object-cover shadow-lg md:w-24"
-							/>
+							<Link
+								href={`/countries/${header.organisation.country_code.toLowerCase()}`}
+							>
+								<Image
+									src={`/flags/${header.organisation.country_code.toLowerCase()}.svg`}
+									alt={header.organisation.country_code}
+									width={64}
+									height={48}
+									className="h-auto w-12 rounded-md border object-cover shadow-lg md:w-24"
+								/>
+							</Link>
 						</div>
 					)}
 				</div>

@@ -142,7 +142,7 @@ const getLatestUpdateRowsCached = unstable_cache(
     },
     ["data:latest-updates:v2"],
     {
-        revalidate: 60 * 60 * 24, // 24 hours
+        revalidate: 60 * 30, // 30 minutes
         tags: ["data:latest-updates"],
     }
 );

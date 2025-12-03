@@ -29,7 +29,7 @@ export default function CountryOrganisationCard({
 					<div className="flex items-center gap-3">
 						<Link
 							href={organisationPath}
-							className="flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-200 bg-white transition hover:border-primary/60 hover:opacity-90 dark:border-zinc-800 dark:bg-zinc-900"
+							className="flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-200 bg-white transition hover:opacity-90 dark:border-zinc-800 dark:bg-zinc-900"
 						>
 							<Logo
 								id={organisation.organisation_id}
@@ -86,7 +86,8 @@ export default function CountryOrganisationCard({
 									aria-label={`View ${model.name}`}
 									style={
 										{
-											"--hover-color": cardBorder ?? "currentColor",
+											"--hover-color":
+												cardBorder ?? "currentColor",
 										} as React.CSSProperties
 									}
 								>

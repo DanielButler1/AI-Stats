@@ -1,7 +1,5 @@
 import { ReactNode } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 
 import CountryTabs from "@/components/(data)/countries/CountryTabs";
 import { CountrySummary } from "@/lib/fetchers/countries/getCountrySummaries";
@@ -25,7 +23,7 @@ export default function CountryDetailShell({
 	return (
 		<main className="flex min-h-screen flex-col">
 			<div className="container mx-auto px-4 py-8">
-				<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+				<div className="mb-8 flex w-full flex-col items-center justify-between gap-4 md:flex-row md:items-start md:gap-0">
 					<div className="flex items-center gap-4">
 						<div className="flex h-12 aspect-4/3 items-center justify-center overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900 md:h-24">
 							{hasFlag ? (
@@ -49,30 +47,11 @@ export default function CountryDetailShell({
 						</div>
 					</div>
 
-					{country ? (
-						<div className="flex flex-wrap gap-3 text-sm">
-							<span className="inline-flex items-center gap-2 rounded-full border border-zinc-200/80 bg-white px-3 py-1.5 font-semibold text-muted-foreground shadow-sm dark:border-zinc-800/80 dark:bg-zinc-900">
-								{country.totalOrganisations} organisations
-							</span>
-							<span className="inline-flex items-center gap-2 rounded-full border border-zinc-200/80 bg-white px-3 py-1.5 font-semibold text-muted-foreground shadow-sm dark:border-zinc-800/80 dark:bg-zinc-900">
-								{country.totalModels} models
-							</span>
-							<span className="inline-flex items-center gap-2 rounded-full border border-zinc-200/80 bg-white px-3 py-1.5 font-semibold text-muted-foreground shadow-sm dark:border-zinc-800/80 dark:bg-zinc-900">
-								Latest: {country.latestModel?.name ?? "Pending"}
-							</span>
-						</div>
-					) : (
-						<div className="rounded-xl border border-dashed border-zinc-300 bg-white px-3 py-2 text-sm text-muted-foreground dark:border-zinc-700 dark:bg-zinc-900">
-							We don&apos;t have data for this country yet.
-						</div>
-					)}
 				</div>
 
-				<div className="mt-6">
-					<CountryTabs iso={isoLabel} />
-				</div>
+				<CountryTabs iso={isoLabel} />
 
-				<div className="mt-6">{children}</div>
+				<div className="mt-6 min-h-full">{children}</div>
 			</div>
 		</main>
 	);

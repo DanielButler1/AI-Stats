@@ -54,11 +54,23 @@ class ModelId
 
     public const AI21_JAMBA_MINI_1_7_2025_07_03 = 'ai21/jamba-mini-1-7-2025-07-03';
 
+    public const AMAZON_DEEPSEEK_V3_2_2025_12_01 = 'amazon/deepseek-v3-2-2025-12-01';
+
+    public const AMAZON_NOVA_2_LITE_2025_12_02 = 'amazon/nova-2-lite-2025-12-02';
+
+    public const AMAZON_NOVA_2_OMNI_2025_12_02 = 'amazon/nova-2-omni-2025-12-02';
+
+    public const AMAZON_NOVA_2_PRO_2025_12_02 = 'amazon/nova-2-pro-2025-12-02';
+
+    public const AMAZON_NOVA_2_SONIC_2025_12_02 = 'amazon/nova-2-sonic-2025-12-02';
+
     public const AMAZON_NOVA_CANVAS = 'amazon/nova-canvas';
 
     public const AMAZON_NOVA_LITE_1_0_2024_12_04 = 'amazon/nova-lite-1-0-2024-12-04';
 
     public const AMAZON_NOVA_MICRO_1_0_2024_12_04 = 'amazon/nova-micro-1-0-2024-12-04';
+
+    public const AMAZON_NOVA_MULTIMODAL_EMBEDDINGS_2025_12_02 = 'amazon/nova-multimodal-embeddings-2025-12-02';
 
     public const AMAZON_NOVA_PREMIER_2025_04_30 = 'amazon/nova-premier-2025-04-30';
 
@@ -210,7 +222,7 @@ class ModelId
 
     public const DEEPSEEK_DEEPSEEK_V3_1_TERMINUS_2025_09_22 = 'deepseek/deepseek-v3-1-terminus-2025-09-22';
 
-    public const DEEPSEEK_DEEPSEEK_V3_2_2025_09_29 = 'deepseek/deepseek-v3-2-2025-09-29';
+    public const DEEPSEEK_DEEPSEEK_V3_2_EXP_2025_09_29 = 'deepseek/deepseek-v3-2-exp-2025-09-29';
 
     public const DEEPSEEK_DEEPSEEK_V3_2_SPECIALE_2025_12_01 = 'deepseek/deepseek-v3-2-speciale-2025-12-01';
 
@@ -1157,9 +1169,15 @@ class ModelId
             self::AI21_JAMBA_MINI_1_5_2024_08_22,
             self::AI21_JAMBA_MINI_1_6_2025_03_06,
             self::AI21_JAMBA_MINI_1_7_2025_07_03,
+            self::AMAZON_DEEPSEEK_V3_2_2025_12_01,
+            self::AMAZON_NOVA_2_LITE_2025_12_02,
+            self::AMAZON_NOVA_2_OMNI_2025_12_02,
+            self::AMAZON_NOVA_2_PRO_2025_12_02,
+            self::AMAZON_NOVA_2_SONIC_2025_12_02,
             self::AMAZON_NOVA_CANVAS,
             self::AMAZON_NOVA_LITE_1_0_2024_12_04,
             self::AMAZON_NOVA_MICRO_1_0_2024_12_04,
+            self::AMAZON_NOVA_MULTIMODAL_EMBEDDINGS_2025_12_02,
             self::AMAZON_NOVA_PREMIER_2025_04_30,
             self::AMAZON_NOVA_PRO_1_0_2024_12_04,
             self::AMAZON_NOVA_REEL,
@@ -1235,7 +1253,7 @@ class ModelId
             self::DEEPSEEK_DEEPSEEK_V2_5_2024_05_08,
             self::DEEPSEEK_DEEPSEEK_V3_1,
             self::DEEPSEEK_DEEPSEEK_V3_1_TERMINUS_2025_09_22,
-            self::DEEPSEEK_DEEPSEEK_V3_2_2025_09_29,
+            self::DEEPSEEK_DEEPSEEK_V3_2_EXP_2025_09_29,
             self::DEEPSEEK_DEEPSEEK_V3_2_SPECIALE_2025_12_01,
             self::DEEPSEEK_DEEPSEEK_V3_2024_12_25,
             self::DEEPSEEK_DEEPSEEK_V3_2025_03_25,

@@ -152,7 +152,7 @@ export function modelEventsToCardModels(events: ModelEvent[]): UpdateCardModel[]
                 event.model.organisation.organisation_id,
             description: null,
             link: {
-                href: `/models/${encodeURIComponent(event.model.model_id)}`,
+                href: `/models/${event.model.model_id}`,
                 cta: "View model",
             },
             dateIso,

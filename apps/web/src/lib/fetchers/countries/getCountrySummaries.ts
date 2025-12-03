@@ -169,7 +169,7 @@ export const getCountrySummariesCached = unstable_cache(
 	},
 	["data:countries:v1"],
 	{
-		revalidate: 60 * 60 * 24,
+		revalidate: 60 * 30, // 30 minutes
 		tags: ["data:organisations", "data:models"],
 	}
 );

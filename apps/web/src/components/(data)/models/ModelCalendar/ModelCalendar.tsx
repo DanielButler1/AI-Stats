@@ -93,13 +93,17 @@ function getWeekdayIndex(date: Date) {
 
 type ModelCalendarProps = {
 	events: ModelEvent[];
+	monthsWindow?: number;
 };
 
 type OrganisationWithColour = ModelEvent["model"]["organisation"] & {
 	colour?: string | null;
 };
 
-export default function ModelCalendar({ events }: ModelCalendarProps) {
+export default function ModelCalendar({
+	events,
+	monthsWindow = 24,
+}: ModelCalendarProps) {
 	const now = useMemo(() => new Date(), []);
 	const currentYear = new Date().getFullYear();
 	const startYear = 2018;
@@ -502,8 +506,8 @@ export default function ModelCalendar({ events }: ModelCalendarProps) {
 				</div>
 			</div>
 
-			<ModelCalendarChart events={events} />
-			<ModelReleasePace events={events} />
+			<ModelCalendarChart events={events} monthsWindow={monthsWindow} />
+			<ModelReleasePace events={events} monthsWindow={monthsWindow} />
 		</section>
 	);
 }

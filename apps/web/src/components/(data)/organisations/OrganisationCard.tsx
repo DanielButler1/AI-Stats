@@ -51,13 +51,17 @@ export default function OrganisationCard({
 					</Link>
 					{organisation.country_code && (
 						<span className="mt-1 text-xs text-muted-foreground truncate flex items-center gap-1">
-							<Image
-								src={`/flags/${organisation.country_code.toLowerCase()}.svg`}
-								alt={organisation.country_code}
-								width={20}
-								height={14}
-								className="inline-block rounded-sm border"
-							/>
+							<Link
+								href={`/countries/${organisation.country_code.toLowerCase()}`}
+							>
+								<Image
+									src={`/flags/${organisation.country_code.toLowerCase()}.svg`}
+									alt={organisation.country_code}
+									width={20}
+									height={14}
+									className="inline-block rounded-sm border"
+								/>
+							</Link>
 						</span>
 					)}
 				</div>

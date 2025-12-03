@@ -164,7 +164,7 @@ export default async function Page({
 				if (a.model_id === modelId) return -1;
 				if (b.model_id === modelId) return 1;
 				return compareByRecency(a, b);
-			})
+		  })
 		: [];
 	const viewingMember = orderedMembers.find(
 		(member) => member.model_id === modelId
@@ -241,7 +241,9 @@ export default async function Page({
 														header.organisation_id
 													}
 													alt={
-														viewingMember?.organisation?.name ??
+														viewingMember
+															?.organisation
+															?.name ??
 														header.organisation.name
 													}
 													fill
@@ -251,10 +253,12 @@ export default async function Page({
 										</div>
 										<div className="min-w-0">
 											<p className="font-semibold leading-tight">
-												{viewingMember?.name ?? header.name}
+												{viewingMember?.name ??
+													header.name}
 											</p>
 											<p className="text-sm text-muted-foreground">
-												{viewingMember?.organisation?.name ??
+												{viewingMember?.organisation
+													?.name ??
 													header.organisation.name}
 											</p>
 										</div>
@@ -271,9 +275,9 @@ export default async function Page({
 										Missing a relative?
 									</p>
 									<p className="text-sm text-muted-foreground">
-										Let us know if a new sibling or updated release
-										date is missing and we&apos;ll add it to the
-										family tree.
+										Let us know if a new sibling or updated
+										release date is missing and we&apos;ll
+										add it to the family tree.
 									</p>
 									<a
 										href="https://github.com/DanielButler1/AI-Stats/discussions/new"
@@ -293,15 +297,18 @@ export default async function Page({
 								<CardHeader>
 									<div className="flex flex-wrap items-center gap-3">
 										<div>
-											<CardTitle>Family members</CardTitle>
+											<CardTitle>
+												Family members
+											</CardTitle>
 											<CardDescription>
-												Dive into each sibling for pricing, benchmarks,
-												and availability.
+												Dive into each sibling for
+												pricing, benchmarks, and
+												availability.
 											</CardDescription>
 										</div>
 									</div>
 								</CardHeader>
-								<CardContent className="space-y-4">
+								<CardContent className="grid grid-cols-1 lg:grid-cols-2 gap-4">
 									{orderedMembers.map((member) => {
 										const isCurrent =
 											member.model_id === modelId;
@@ -336,9 +343,13 @@ export default async function Page({
 														<div className="relative h-12 w-12 rounded-xl border bg-background">
 															{member.organisation_id ? (
 																<Logo
-																	id={member.organisation_id}
+																	id={
+																		member.organisation_id
+																	}
 																	alt={
-																		member.organisation?.name ??
+																		member
+																			.organisation
+																			?.name ??
 																		member.name
 																	}
 																	fill
@@ -346,7 +357,12 @@ export default async function Page({
 																/>
 															) : (
 																<span className="flex h-full w-full items-center justify-center text-xs font-semibold uppercase text-muted-foreground">
-																	{member.name.slice(0, 2).toUpperCase()}
+																	{member.name
+																		.slice(
+																			0,
+																			2
+																		)
+																		.toUpperCase()}
 																</span>
 															)}
 														</div>
@@ -356,7 +372,9 @@ export default async function Page({
 																className="font-semibold leading-tight block"
 															>
 																<span className="relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
-																	{member.name}
+																	{
+																		member.name
+																	}
 																</span>
 															</Link>
 															{member.organisation_id ? (
@@ -365,12 +383,16 @@ export default async function Page({
 																	className="text-sm text-muted-foreground hover:text-foreground"
 																>
 																	<span className="relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
-																		{member.organisation?.name ?? "Provider"}
+																		{member
+																			.organisation
+																			?.name ??
+																			"Provider"}
 																	</span>
 																</Link>
 															) : (
 																<p className="text-sm text-muted-foreground">
-																	Independent release
+																	Independent
+																	release
 																</p>
 															)}
 														</div>
@@ -378,9 +400,12 @@ export default async function Page({
 													<div className="ml-auto flex flex-wrap items-center gap-2">
 														<Badge
 															variant="outline"
-															className={cn(statusClass)}
+															className={cn(
+																statusClass
+															)}
 														>
-															{member.status ?? "Status pending"}
+															{member.status ??
+																"Status pending"}
 														</Badge>
 														{isCurrent && (
 															<Badge variant="secondary">
@@ -395,7 +420,8 @@ export default async function Page({
 															Release window
 														</p>
 														<p className="font-medium text-foreground">
-															{dateMeta.display ?? "Date TBC"}
+															{dateMeta.display ??
+																"Date TBC"}
 														</p>
 													</div>
 													<div>
@@ -403,7 +429,8 @@ export default async function Page({
 															Timeline
 														</p>
 														<p className="font-medium text-foreground">
-															{dateMeta.relative ?? "Awaiting confirmation"}
+															{dateMeta.relative ??
+																"Awaiting confirmation"}
 														</p>
 													</div>
 												</div>
@@ -419,8 +446,9 @@ export default async function Page({
 						<CardHeader>
 							<CardTitle>No family information yet</CardTitle>
 							<CardDescription>
-								We haven&apos;t linked this model to a wider family. Check
-								back soon as we expand our coverage.
+								We haven&apos;t linked this model to a wider
+								family. Check back soon as we expand our
+								coverage.
 							</CardDescription>
 						</CardHeader>
 					</Card>

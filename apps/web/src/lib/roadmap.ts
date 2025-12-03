@@ -101,8 +101,8 @@ export const MILESTONES: RoadmapMilestone[] = [
     {
         key: "countries-pages",
         title: "Countries Pages",
-        status: "Beta",
-        due: "Nov 2025",
+        status: "Shipped",
+        shippedAt: "2025-12-03",
         description: "See all country-specific AI information on one page.",
         icon: "Users",
         href: "/countries",

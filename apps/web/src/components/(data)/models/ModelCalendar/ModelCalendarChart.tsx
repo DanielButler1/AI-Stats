@@ -36,16 +36,20 @@ type ChartEntry = {
 
 type ModelCalendarChartProps = {
 	events: ModelEvent[];
+	monthsWindow?: number;
 };
 
-export default function ModelCalendarChart({ events }: ModelCalendarChartProps) {
+export default function ModelCalendarChart({
+	events,
+	monthsWindow = 24,
+}: ModelCalendarChartProps) {
 	const now = useMemo(() => new Date(), []);
 
 	const chartData = useMemo<ChartEntry[]>(() => {
 		const windowStart = new Date(now.getFullYear(), now.getMonth(), 1);
-		windowStart.setMonth(windowStart.getMonth() - 23);
+		windowStart.setMonth(windowStart.getMonth() - (monthsWindow - 1));
 
-		const months = Array.from({ length: 24 }, (_, index) => {
+		const months = Array.from({ length: monthsWindow }, (_, index) => {
 			const monthDate = new Date(windowStart);
 			monthDate.setMonth(windowStart.getMonth() + index);
 			const key = `${monthDate.getFullYear()}-${padTwo(
