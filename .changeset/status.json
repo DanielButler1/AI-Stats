@@ -1,0 +1,154 @@
+{
+  "changesets": [
+    {
+      "releases": [
+        {
+          "name": "@ai-stats/csharp-sdk",
+          "type": "patch"
+        },
+        {
+          "name": "@ai-stats/ruby-sdk",
+          "type": "patch"
+        },
+        {
+          "name": "@ai-stats/rust-sdk",
+          "type": "patch"
+        },
+        {
+          "name": "@ai-stats/cpp-sdk",
+          "type": "patch"
+        },
+        {
+          "name": "@ai-stats/php-sdk",
+          "type": "patch"
+        },
+        {
+          "name": "@ai-stats/go-sdk",
+          "type": "patch"
+        },
+        {
+          "name": "@ai-stats/py-sdk",
+          "type": "patch"
+        },
+        {
+          "name": "@ai-stats/sdk",
+          "type": "patch"
+        }
+      ],
+      "summary": "Add Nova 2 Models + Adjust Deepseek V3.2",
+      "id": "curly-mice-cry"
+    },
+    {
+      "releases": [
+        {
+          "name": "@ai-stats/docs",
+          "type": "patch"
+        }
+      ],
+      "summary": "Add New Changelog entries",
+      "id": "gold-comics-lie"
+    },
+    {
+      "releases": [
+        {
+          "name": "@ai-stats/web",
+          "type": "patch"
+        }
+      ],
+      "summary": "Fix minor issues with links, update country pages and add dynamic OG images",
+      "id": "whole-tigers-taste"
+    }
+  ],
+  "releases": [
+    {
+      "name": "@ai-stats/csharp-sdk",
+      "type": "patch",
+      "oldVersion": "0.0.0",
+      "changesets": [
+        "curly-mice-cry"
+      ],
+      "newVersion": "0.0.1"
+    },
+    {
+      "name": "@ai-stats/ruby-sdk",
+      "type": "patch",
+      "oldVersion": "0.0.0",
+      "changesets": [
+        "curly-mice-cry"
+      ],
+      "newVersion": "0.0.1"
+    },
+    {
+      "name": "@ai-stats/rust-sdk",
+      "type": "patch",
+      "oldVersion": "0.0.0",
+      "changesets": [
+        "curly-mice-cry"
+      ],
+      "newVersion": "0.0.1"
+    },
+    {
+      "name": "@ai-stats/cpp-sdk",
+      "type": "patch",
+      "oldVersion": "0.0.0",
+      "changesets": [
+        "curly-mice-cry"
+      ],
+      "newVersion": "0.0.1"
+    },
+    {
+      "name": "@ai-stats/php-sdk",
+      "type": "patch",
+      "oldVersion": "0.0.0",
+      "changesets": [
+        "curly-mice-cry"
+      ],
+      "newVersion": "0.0.1"
+    },
+    {
+      "name": "@ai-stats/go-sdk",
+      "type": "patch",
+      "oldVersion": "0.0.0",
+      "changesets": [
+        "curly-mice-cry"
+      ],
+      "newVersion": "0.0.1"
+    },
+    {
+      "name": "@ai-stats/py-sdk",
+      "type": "patch",
+      "oldVersion": "0.1.2",
+      "changesets": [
+        "curly-mice-cry"
+      ],
+      "newVersion": "0.1.3"
+    },
+    {
+      "name": "@ai-stats/sdk",
+      "type": "patch",
+      "oldVersion": "0.1.2",
+      "changesets": [
+        "curly-mice-cry"
+      ],
+      "newVersion": "0.1.3"
+    },
+    {
+      "name": "@ai-stats/docs",
+      "type": "patch",
+      "oldVersion": "0.1.0",
+      "changesets": [
+        "gold-comics-lie"
+      ],
+      "newVersion": "0.1.1"
+    },
+    {
+      "name": "@ai-stats/web",
+      "type": "patch",
+      "oldVersion": "0.1.0",
+      "changesets": [
+        "whole-tigers-taste"
+      ],
+      "newVersion": "0.1.1"
+    }
+  ]
+}
