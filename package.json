@@ -45,7 +45,8 @@
 		"changeset": "changeset",
 		"changeset:version": "pnpm changeset version && pnpm sdk-py:sync-version",
 		"changeset:publish": "pnpm changeset publish",
-		"sdk-py:sync-version": "node scripts/update-pyproject-version.js"
+		"sdk-py:sync-version": "node scripts/update-pyproject-version.js",
+		"release-from-changelogs": "tsx scripts/changesets/create-github-releases-from-changelogs.ts"
 	},
 	"devDependencies": {
 		"@changesets/changelog-github": "^0.5.1",
@@ -55,6 +56,7 @@
 		"dotenv-cli": "^11.0.0",
 		"knip": "^5.67.1",
 		"rimraf": "^6.0.0",
+		"tsx": "^4.21.0",
 		"turbo": "^2.5.6"
 	}
 }

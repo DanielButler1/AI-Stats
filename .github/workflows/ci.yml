@@ -508,4 +508,4 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
-                  pnpm tsx scripts/changesets/create-github-releases-from-changelogs.ts
+                  pnpm release-from-changelogs
