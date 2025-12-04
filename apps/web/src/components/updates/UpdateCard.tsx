@@ -10,28 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 import type React from "react";
 import { Logo } from "@/components/Logo";
-
-// Helper functions
-function isDateToday(dateStr: string | null | undefined) {
-	if (!dateStr) return false;
-	const now = new Date();
-	const date = new Date(dateStr);
-	return (
-		now.getFullYear() === date.getFullYear() &&
-		now.getMonth() === date.getMonth() &&
-		now.getDate() === date.getDate()
-	);
-}
-
-function formatDate(dateStr: string | null | undefined) {
-	if (!dateStr) return null;
-	const date = new Date(dateStr);
-	return date.toLocaleDateString("en-US", {
-		year: "numeric",
-		month: "short",
-		day: "numeric",
-	});
-}
+import TimeDisplay from "./TimeDisplay";
 
 export type UpdateBadge = {
 	label: string;
@@ -61,7 +40,6 @@ type Props = {
 	subtitle?: string | null;
 	link: UpdateLink;
 	dateIso?: string | null;
-	relative?: string | null;
 	accentClass?: string | null;
 	className?: string;
 };
@@ -76,20 +54,17 @@ export default function UpdateCard({
 	tags,
 	link,
 	dateIso,
-	relative,
 	accentClass,
 	className,
 }: Props) {
 	const isModelRelease = badges.some((b) => b.label === "Release");
-	const today = isDateToday(dateIso);
 
 	return (
 		<Card
 			key={id}
 			className={cn(
 				"flex h-full flex-col border border-zinc-200 bg-white transition hover:-translate-y-1 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-950",
-				today &&
-					isModelRelease &&
+				isModelRelease &&
 					"border-amber-300 dark:border-amber-500 bg-amber-50/60 dark:bg-amber-900/20",
 				className
 			)}
@@ -180,22 +155,12 @@ export default function UpdateCard({
 							aria-hidden="true"
 						/>
 					) : null}
-					{isModelRelease ? (
-						today ? (
-							<span className="text-[10px] uppercase tracking-wide font-semibold text-amber-800 bg-amber-200 dark:text-amber-200 dark:bg-amber-800 rounded px-2 py-0.5 border border-amber-300 dark:border-amber-700">
-								Today
-							</span>
-						) : dateIso ? (
-							<time dateTime={dateIso}>
-								{formatDate(dateIso)}
-							</time>
-						) : null
-					) : (
-						relative ??
-						(dateIso ? (
-							<time dateTime={dateIso}>{dateIso}</time>
-						) : null)
-					)}
+					{dateIso ? (
+						<TimeDisplay
+							dateIso={dateIso}
+							isModelRelease={isModelRelease}
+						/>
+					) : null}
 				</div>
 
 				<Link

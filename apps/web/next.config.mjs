@@ -1,39 +1,25 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import type { NextConfig } from "next";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const monorepoRoot = path.join(__dirname, "..", "..");
 
-const nextConfig: NextConfig = {
+// Skip remote font downloads in offline or locked-down environments so builds don't fail.
+process.env.NEXT_FONT_IGNORE_FAILED_DOWNLOADS ||= "true";
+
+/** @type {import("next").NextConfig} */
+const nextConfig = {
+  cacheComponents: true,
   env: {
     NEXT_PUBLIC_DEPLOY_TIME:
       process.env.NEXT_PUBLIC_DEPLOY_TIME ?? new Date().toISOString(),
   },
-  eslint: {
-    // Lint runs in CI; skip during production build to avoid build-time patch issues
-    ignoreDuringBuilds: true,
-  },
-  // typedRoutes: true,
-  experimental: {
-    ppr: 'incremental',
-  },
   outputFileTracingRoot: monorepoRoot,
-
-  // Make Turbopack root the SAME directory
   turbopack: {
     root: monorepoRoot,
   },
-  // 	browserDebugInfoInTerminal: true,
-
-  // logging: {
-  //   fetches: {
-  //     fullUrl: true,
-  //   }
-  // }
-
   async rewrites() {
     return [
       {
@@ -46,8 +32,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-
-  // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
 };
 

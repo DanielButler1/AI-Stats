@@ -106,7 +106,7 @@ function toUpdateCard(row: CachedRow): UpdateCardProps {
 			cta: "Open",
 		},
 		dateIso: created_at,
-		relative: relTime(created_at),
+		// relative: relTime(created_at),
 		badges: [
 			{
 				label: WEB_BADGE_LABEL,

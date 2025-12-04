@@ -1,7 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 import { FileText, Calculator, Code, Terminal } from "lucide-react";
 
 const tools = [
@@ -16,19 +22,20 @@ const tools = [
 	{
 		id: "request-builder",
 		title: "Request Builder",
-		description: "Build API requests interactively and generate code snippets.",
+		description:
+			"Build API requests interactively and generate code snippets.",
 		icon: Terminal,
 		href: "/tools/request-builder",
 		comingSoon: false,
 	},
-	{
-		id: "tokenizer",
-		title: "Token Counter",
-		description: "Estimate token usage for text with various AI models.",
-		icon: Calculator,
-		href: "/tools/tokenizer",
-		comingSoon: false,
-	},
+	// {
+	// 	id: "tokenizer",
+	// 	title: "Token Counter",
+	// 	description: "Estimate token usage for text with various AI models.",
+	// 	icon: Calculator,
+	// 	href: "/tools/tokenizer",
+	// 	comingSoon: false,
+	// },
 	{
 		id: "json-formatter",
 		title: "JSON Formatter",
@@ -45,14 +52,19 @@ export default function ToolsGrid() {
 			{tools.map((tool) => {
 				const Icon = tool.icon;
 				return (
-					<Card key={tool.id} className="hover:shadow-lg transition-shadow">
+					<Card
+						key={tool.id}
+						className="hover:shadow-lg transition-shadow"
+					>
 						<CardHeader>
 							<div className="flex items-center gap-3">
 								<div className="p-2 bg-primary/10 rounded-lg">
 									<Icon className="h-6 w-6 text-primary" />
 								</div>
 								<div>
-									<CardTitle className="text-lg">{tool.title}</CardTitle>
+									<CardTitle className="text-lg">
+										{tool.title}
+									</CardTitle>
 									{tool.comingSoon && (
 										<span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
 											Coming Soon

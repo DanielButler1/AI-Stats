@@ -110,14 +110,12 @@ export default function ModelUpdatesOnThisDay({
 								subtitle={model.organisation.name}
 								source={model.organisation.name}
 								link={{
-									href: `/models/${encodeURIComponent(
-										model.model_id
-									)}`,
+									href: `/models/${model.model_id}`,
 									external: false,
 									cta: "View",
 								}}
 								dateIso={new Date(event.date).toISOString()}
-								relative={getRelativeTime(event.date)}
+								// relative={getRelativeTime(event.date)}
 								accentClass={accentClass}
 							/>
 						);

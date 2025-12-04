@@ -33,7 +33,6 @@ export type UpdateCardProps = {
     subtitle?: string | null;
     link: { href: string; external?: boolean; cta?: string | null };
     dateIso?: string | null;
-    relative?: string | null;
     accentClass?: string | null;
     className?: string;
 };

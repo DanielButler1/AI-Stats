@@ -1,6 +1,4 @@
-import UpdateCard, {
-	type UpdateBadge,
-} from "@/components/updates/UpdateCard";
+import UpdateCard, { type UpdateBadge } from "@/components/updates/UpdateCard";
 import type {
 	EventType,
 	ModelEvent,
@@ -68,7 +66,11 @@ export default function ModelUpdatesRecentReleases({
 										? (opt.icon as React.ComponentType<{
 												className?: string;
 										  }>)
-										: ({ className }: { className?: string }) => (
+										: ({
+												className,
+										  }: {
+												className?: string;
+										  }) => (
 												<span className={className}>
 													{opt.icon}
 												</span>
@@ -114,14 +116,12 @@ export default function ModelUpdatesRecentReleases({
 							subtitle={model.organisation.name}
 							source={model.organisation.name}
 							link={{
-								href: `/models/${encodeURIComponent(
-									model.model_id
-								)}`,
+								href: `/models/${model.model_id}`,
 								external: false,
 								cta: "View",
 							}}
 							dateIso={dateIso}
-							relative={getRelativeLabel(event.date)}
+							// relative={getRelativeLabel(event.date)}
 							accentClass={accentClass}
 						/>
 					);

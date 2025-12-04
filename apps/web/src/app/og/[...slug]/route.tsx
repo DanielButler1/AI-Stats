@@ -32,8 +32,6 @@ type OgPayload = {
 
 const brandLogoPath = "/wordmark_light.svg";
 
-export const runtime = "nodejs";
-
 const ENTITY_LABELS: Record<OgEntity, string> = {
 	organisations: "Organisation",
 	models: "Model",

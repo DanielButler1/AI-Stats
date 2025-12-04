@@ -1,4 +1,4 @@
-// app/page.tsx
+﻿// app/page.tsx
 import Image from "next/image";
 import { Pill, ThemedGitHubIcon, LiveDot } from "@/components/landingPage/Pill";
 import GatewayTeaser from "@/components/landingPage/GatewayTeaser";
@@ -10,91 +10,94 @@ import LatestUpdates from "@/components/landingPage/LatestUpdates";
 import type { Metadata } from "next";
 import { withUTM } from "@/lib/utm";
 import { getGatewayMarketingMetrics } from "@/lib/fetchers/gateway/getMarketingMetrics";
+import { connection } from "next/server";
 
 export const metadata: Metadata = {
-	title: "Home",
-	description:
-		"Discover and compare the world's most comprehensive AI model database and gateway. Browse benchmarks, features, pricing, and access state-of-the-art AI models.",
-	alternates: {
-		canonical: "/",
-	},
+  title: "Home",
+  description:
+    "Discover and compare the world's most comprehensive AI model database and gateway. Browse benchmarks, features, pricing, and access state-of-the-art AI models.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default async function Page() {
-	const featuredEntries = getActiveFeaturedEntries();
-	const gatewayMetrics = await getGatewayMarketingMetrics();
+  await connection();
 
-	return (
-		<div className="container mx-auto mt-12 mb-12 space-y-12 px-4 sm:px-6 lg:px-8">
-			{/* {featuredEntries.length > 0 ? (
-				<FeaturedHighlight entries={featuredEntries} />
-			) : null} */}
+  const featuredEntries = getActiveFeaturedEntries();
+  const gatewayMetrics = await getGatewayMarketingMetrics();
 
-			<section className="space-y-8 text-center">
-				<h1 className="text-4xl font-semibold text-gray-900 drop-shadow-xs animate-fade-in dark:text-gray-100 md:text-5xl">
-					The Most Comprehensive AI Model Database
-				</h1>
+  return (
+    <div className="container mx-auto mt-12 mb-12 space-y-12 px-4 sm:px-6 lg:px-8">
+      {/* {featuredEntries.length > 0 ? (
+        <FeaturedHighlight entries={featuredEntries} />
+      ) : null} */}
 
-				<div className="flex flex-wrap justify-center gap-3">
-					<Pill
-						href={withUTM(
-							"https://github.com/DanielButler1/AI-Stats",
-							{
-								campaign: "hero-pill",
-								content: "github",
-							}
-						)}
-						label="Open Source"
-						icon={<ThemedGitHubIcon />}
-						target="_blank"
-						rel="noopener noreferrer"
-						ariaLabel="Open GitHub repository"
-					/>
-					<Pill
-						href="/updates"
-						label="Instant Updates"
-						icon={<LiveDot className="mr-1" />}
-						rightIcon={null}
-						ariaLabel="Dataset updates as soon as available"
-					/>
-					<Pill
-						href={withUTM("https://discord.gg/zDw73wamdX", {
-							campaign: "hero-pill",
-							content: "discord",
-						})}
-						label="Join our Discord"
-						icon={
-							<Image
-								src="/social/discord.svg"
-								alt="Discord"
-								width={16}
-								height={16}
-								className="h-4 w-4"
-							/>
-						}
-						target="_blank"
-						rel="noopener noreferrer"
-						ariaLabel="Join our Discord"
-					/>
-				</div>
-			</section>
+      <section className="space-y-8 text-center">
+        <h1 className="text-4xl font-semibold text-gray-900 drop-shadow-xs animate-fade-in dark:text-gray-100 md:text-5xl">
+          The Most Comprehensive AI Model Database
+        </h1>
 
-			<DatabaseStats />
+        <div className="flex flex-wrap justify-center gap-3">
+          <Pill
+            href={withUTM(
+              "https://github.com/DanielButler1/AI-Stats",
+              {
+                campaign: "hero-pill",
+                content: "github",
+              }
+            )}
+            label="Open Source"
+            icon={<ThemedGitHubIcon />}
+            target="_blank"
+            rel="noopener noreferrer"
+            ariaLabel="Open GitHub repository"
+          />
+          <Pill
+            href="/updates"
+            label="Instant Updates"
+            icon={<LiveDot className="mr-1" />}
+            rightIcon={null}
+            ariaLabel="Dataset updates as soon as available"
+          />
+          <Pill
+            href={withUTM("https://discord.gg/zDw73wamdX", {
+              campaign: "hero-pill",
+              content: "discord",
+            })}
+            label="Join our Discord"
+            icon={
+              <Image
+                src="/social/discord.svg"
+                alt="Discord"
+                width={16}
+                height={16}
+                className="h-4 w-4"
+              />
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            ariaLabel="Join our Discord"
+          />
+        </div>
+      </section>
 
-			<div className="space-y-8">
-				<LatestUpdates />
-			</div>
+      <DatabaseStats />
 
-			<div className="mt-4 space-y-4 px-4 sm:px-6 lg:px-8">
-				<GatewayTeaser
-					providers={gatewayMetrics.summary.supportedProviders ?? 20}
-					models={gatewayMetrics.summary.supportedModels ?? 500}
-				/>
-				<PartnerLogos />
-			</div>
+      <div className="space-y-8">
+        <LatestUpdates />
+      </div>
 
-			{/* TODO: Build on this and add a detailed trends/analysis section */}
-			{/* <TrendsStrip /> */}
-		</div>
-	);
+      <div className="mt-4 space-y-4 px-4 sm:px-6 lg:px-8">
+        <GatewayTeaser
+          providers={gatewayMetrics.summary.supportedProviders ?? 20}
+          models={gatewayMetrics.summary.supportedModels ?? 500}
+        />
+        <PartnerLogos />
+      </div>
+
+      {/* TODO: Build on this and add a detailed trends/analysis section */}
+      {/* <TrendsStrip /> */}
+    </div>
+  );
 }

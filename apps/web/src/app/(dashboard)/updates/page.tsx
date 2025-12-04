@@ -1,4 +1,4 @@
-import UpdateCard from "@/components/updates/UpdateCard";
+﻿import UpdateCard from "@/components/updates/UpdateCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { UPDATE_ENTRY_META } from "@/lib/content/updates";
 import getRecentModelUpdates from "@/lib/fetchers/updates/getModelUpdates";
@@ -12,9 +12,10 @@ import { getLatestUpdateCards } from "@/lib/fetchers/updates/getLatestUpdates";
 import { getYouTubeUpdatesCached } from "@/lib/fetchers/updates/getYouTubeUpdates";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
+import { cacheLife } from "next/cache";
 
 export const metadata: Metadata = buildMetadata({
-	title: "AI Updates – Latest AI Model, Web & YouTube Changes",
+	title: "AI Updates - Latest AI Model, Web & YouTube Changes",
 	description:
 		"Stay up to date with the latest in AI. See new model launches, deprecations, research drops, data hubs, and YouTube explainers aggregated by AI Stats from across the ecosystem.",
 	path: "/updates",
@@ -107,7 +108,7 @@ function CategorySection({ category, cards }: CategorySectionProps) {
 							subtitle={card.subtitle ?? undefined}
 							link={card.link}
 							dateIso={card.dateIso}
-							relative={card.relative}
+							// relative={card.relative}
 							accentClass={card.accentClass}
 						/>
 					))}
@@ -124,17 +125,12 @@ function CategorySection({ category, cards }: CategorySectionProps) {
 }
 
 export default async function Page() {
-	// Fetch watcher-specific cards and model events in parallel.
-	// Use `getLatestUpdateCards` to populate the overview section and
-	// fallback model cards if the model-events-based cards are empty.
-	// const [overviewCards, allCards, modelEvents] = await Promise.all([
+	"use cache";
+	cacheLife("hours");
+
 	const [allCards, modelEvents, youtubeCardsFromFeed] = await Promise.all([
 		getLatestUpdateCards(
-			Math.max(
-				CATEGORY_LIMIT.web,
-				CATEGORY_LIMIT.youtube
-				// CATEGORY_LIMIT.overview
-			)
+			Math.max(CATEGORY_LIMIT.web, CATEGORY_LIMIT.youtube)
 		),
 		getRecentModelUpdates({ limit: CATEGORY_LIMIT.models }),
 		getYouTubeUpdatesCached(Math.max(CATEGORY_LIMIT.youtube, 1)),
@@ -142,7 +138,6 @@ export default async function Page() {
 
 	const modelCardsFromEvents = modelEventsToCardModels(modelEvents);
 
-	// Ensure the fetched UpdateCardProps arrays conform to UpdateCardModel shape
 	const normalizeCards = (cards: any[] | undefined) =>
 		(cards ?? []).map((c, i) => ({
 			id: c.id ?? `card-${i}`,
@@ -157,7 +152,6 @@ export default async function Page() {
 			category: (c as any).category ?? undefined,
 		})) as UpdateCardModel[];
 
-	// const normalizedOverview = normalizeCards(overviewCards as any[]);
 	const normalizedAll = normalizeCards(allCards as any[]);
 
 	const webCards = normalizedAll.filter((c) =>
@@ -170,18 +164,6 @@ export default async function Page() {
 		0,
 		CATEGORY_LIMIT.youtube
 	);
-
-	// const modelCardsFallback = normalizedOverview
-	// 	.filter(
-	// 		(card) =>
-	// 			(card as any).category === "models" ||
-	// 			(card.badges ?? []).some(
-	// 				(badge) =>
-	// 					badge.label &&
-	// 					String(badge.label).toLowerCase().includes("model")
-	// 			)
-	// 	)
-	// 	.slice(0, CATEGORY_LIMIT.models);
 
 	const modelCards = modelCardsFromEvents;
 
