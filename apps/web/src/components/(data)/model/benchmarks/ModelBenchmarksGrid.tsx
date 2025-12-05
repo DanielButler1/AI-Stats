@@ -60,7 +60,7 @@ export function ModelBenchmarksGrid({ highlights }: ModelBenchmarksGridProps) {
 					return (
 						<Card
 							key={`${highlight.benchmarkId}`}
-							className="flex min-h-0 flex-col justify-center rounded-lg border border-gray-200 border-b-2 border-b-gray-300 bg-white p-3 dark:border-gray-700 dark:border-b-gray-600 dark:bg-zinc-900"
+							className="flex min-h-0 flex-col justify-center rounded-lg border border-gray-200 border-b-2 border-b-gray-300 bg-white p-3 dark:border-gray-700 dark:border-b-gray-600"
 							style={{ minHeight: 0 }}
 						>
 							<div className="flex flex-col gap-1">

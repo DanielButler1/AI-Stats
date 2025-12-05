@@ -141,7 +141,7 @@
       "is_self_reported": true,
       "other_info": "Avg@5, 64k Thinking",
       "source_link": "https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf",
-      "rank": 1
+      "rank": 2
     },
     {
       "benchmark_id": "tau-2-telecom",
@@ -277,7 +277,7 @@
       "is_self_reported": true,
       "other_info": "Avg@5, 64k Thinking, Without Tools",
       "source_link": "https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf",
-      "rank": 1
+      "rank": 2
     },
     {
       "benchmark_id": "aime-2025",
@@ -285,7 +285,7 @@
       "is_self_reported": true,
       "other_info": "Avg@5, 64k Thinking, With Tools",
       "source_link": "https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf",
-      "rank": 1
+      "rank": 2
     }
   ]
 }

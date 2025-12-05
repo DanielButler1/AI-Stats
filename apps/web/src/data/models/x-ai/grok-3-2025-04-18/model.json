@@ -58,7 +58,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://docs.x.ai/docs/models",
-      "rank": 29
+      "rank": 34
     },
     {
       "benchmark_id": "arc-agi-1",
@@ -74,7 +74,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://docs.x.ai/docs/models",
-      "rank": 22
+      "rank": 24
     },
     {
       "benchmark_id": "mmlu-pro",

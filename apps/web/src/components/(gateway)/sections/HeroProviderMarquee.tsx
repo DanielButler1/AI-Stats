@@ -13,14 +13,14 @@ interface HeroProviderMarqueeProps {
 export function HeroProviderMarquee({ logos }: HeroProviderMarqueeProps) {
 	if (!logos.length) {
 		return (
-			<div className="rounded-2xl border border-slate-200 bg-white px-5 py-6 text-center text-sm text-slate-500">
+			<div className="rounded-2xl border border-slate-200 px-5 py-6 text-center text-sm text-slate-500 dark:text-slate-300">
 				Routing across vetted providers right now.
 			</div>
 		);
 	}
 
 	return (
-		<div className="overflow-hidden rounded-2xl border border-slate-200 bg-white px-0 py-1 shadow-sm">
+		<div className="overflow-hidden rounded-2xl border border-slate-200 px-0 py-1 shadow-sm">
 			<Marquee>
 				<MarqueeFade side="left" />
 				<MarqueeFade side="right" />

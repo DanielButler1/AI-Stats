@@ -41,7 +41,7 @@ const labelOverrides: Partial<Record<KnownLogoId, string>> = {
 	ibm: "IBM",
 	lg: "LG",
 	xai: "xAI",
-	"z-ai": "Z.ai",
+	"zai": "Z.ai",
 };
 
 for (const [key, assets] of manifestEntries) {

@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
 	CheckCircle2,
 	XCircle,
@@ -72,7 +70,7 @@ interface ModelAvailabilityProps {
 	subscriptionPlans: SubscriptionPlan[];
 }
 
-export default function ModelAvailability({
+export default async function ModelAvailability({
 	availability,
 	subscriptionPlans,
 }: ModelAvailabilityProps) {

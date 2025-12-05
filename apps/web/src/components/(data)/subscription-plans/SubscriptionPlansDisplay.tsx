@@ -50,7 +50,7 @@ export default function SubscriptionPlansDisplay({
 		<>
 			{/* Title and Search Bar Row */}
 			<div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-2">
-				<h1 className="font-bold text-xl text-black mb-2 md:mb-0">
+				<h1 className="font-bold text-xl mb-2 md:mb-0">
 					Subscription Plans
 				</h1>
 				<div className="flex-1 flex justify-end">

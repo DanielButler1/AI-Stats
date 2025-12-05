@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { Button } from "@/components/ui/button";
 import { BookText, Gamepad2 } from "lucide-react";
 import { ModelOverviewPage } from "@/lib/fetchers/models/getModel";
 import { Logo } from "@/components/Logo";
+import { type LogoTheme } from "@/lib/logos";
 
 interface ModelLinksProps {
 	model: ModelOverviewPage;
@@ -20,7 +22,8 @@ type ModelLink = { url: string; platform?: string };
 
 function getIconForLink(
 	link: { key?: string; url?: string; platform?: string },
-	model: ModelOverviewPage
+	model: ModelOverviewPage,
+	theme: LogoTheme
 ) {
 	// Paper: /social/arxiv.svg
 	const key =
@@ -48,6 +51,7 @@ function getIconForLink(
 					width={16}
 					height={16}
 					className="w-4 h-4 rounded inline-block"
+					forceTheme={theme}
 				/>
 			);
 		}
@@ -97,7 +101,9 @@ function getIconForLink(
 	return null;
 }
 
-export default function ModelLinks({ model }: ModelLinksProps) {
+export default async function ModelLinks({ model }: ModelLinksProps) {
+	const cookieStore = await cookies();
+	const theme = cookieStore.get("theme")?.value === "dark" ? "dark" : "light";
 	// Prefer new `model.model_links` shape when present
 	const rawModelLinks = (model.model_links as ModelLink[] | undefined) ?? [];
 
@@ -134,7 +140,7 @@ export default function ModelLinks({ model }: ModelLinksProps) {
 						variant="outline"
 						className="flex items-center gap-2 px-4 py-1 rounded-full w-full"
 					>
-						{getIconForLink(link as any, model)}
+						{getIconForLink(link as any, model, theme)}
 						{link.label ?? "Link"}
 					</Button>
 				</Link>

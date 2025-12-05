@@ -114,7 +114,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1",
-      "rank": 41
+      "rank": 44
     },
     {
       "benchmark_id": "graphwalks-bfs-lt-128k",
@@ -218,7 +218,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/",
-      "rank": 15
+      "rank": 17
     },
     {
       "benchmark_id": "swe-lancer",

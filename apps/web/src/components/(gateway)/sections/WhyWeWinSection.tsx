@@ -37,15 +37,15 @@ export function WhyWeWinSection() {
 		>
 			<div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
 				<div className="space-y-6">
-					<h2 className="text-3xl font-semibold text-slate-900">
+					<h2 className="text-3xl font-semibold text-slate-900 dark:text-slate-100">
 						Why teams choose the AI Stats Gateway
 					</h2>
-					<p className="text-base text-slate-600">
+					<p className="text-base text-slate-600 dark:text-slate-400">
 						We deliver an open-source routing, telemetry, and
 						compliance stack so teams can move faster without
 						rebuilding plumbing.
 					</p>
-					<ul className="space-y-3 text-sm text-slate-700">
+					<ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
 						<CheckItem>
 							Health data gates and failover logic flip settings
 							across providers in seconds.
@@ -71,7 +71,7 @@ export function WhyWeWinSection() {
 									<CardTitle className="text-base">
 										{title}
 									</CardTitle>
-									<p className="text-sm text-slate-600">
+									<p className="text-sm text-slate-600 dark:text-slate-400">
 										{description}
 									</p>
 								</CardHeader>

@@ -59,7 +59,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort, No Tools",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 10
+      "rank": 11
     },
     {
       "benchmark_id": "browsecomp-long-context-128k",
@@ -139,7 +139,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort, No Tools",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 15
+      "rank": 16
     },
     {
       "benchmark_id": "graphwalks-bfs-lt-128k",
@@ -171,7 +171,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort, No Tools",
       "source_link": "https://openai.com/index/introducing-gpt-5/",
-      "rank": 13
+      "rank": 14
     },
     {
       "benchmark_id": "longfact-concepts-hallucination-rate",
@@ -211,7 +211,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 2
+      "rank": 4
     },
     {
       "benchmark_id": "openai-mrcr-2-needle-128k",
@@ -243,7 +243,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 3
+      "rank": 5
     },
     {
       "benchmark_id": "tau-2-retail",
@@ -251,7 +251,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 3
+      "rank": 4
     },
     {
       "benchmark_id": "tau-2-telecom",
@@ -259,7 +259,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 3
+      "rank": 5
     },
     {
       "benchmark_id": "videomme",

@@ -75,7 +75,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/",
-      "rank": 8
+      "rank": 9
     },
     {
       "benchmark_id": "arc-agi-1",
@@ -155,7 +155,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/",
-      "rank": 16
+      "rank": 17
     },
     {
       "benchmark_id": "gpqa-diamond",
@@ -163,7 +163,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": null,
-      "rank": 16
+      "rank": 17
     },
     {
       "benchmark_id": "graphwalks-bfs-lt-128k",
@@ -187,7 +187,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/introducing-o3-and-o4-mini/",
-      "rank": 11
+      "rank": 12
     },
     {
       "benchmark_id": "lisanbench",

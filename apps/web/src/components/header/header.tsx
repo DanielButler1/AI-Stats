@@ -23,7 +23,12 @@ export default function Header() {
 							<img
 								src="/wordmark_light.svg"
 								alt="AI Stats"
-								className="h-10 select-none dark:invert"
+								className="h-10 select-none dark:hidden"
+							/>
+							<img
+								src="/wordmark_dark.svg"
+								alt="AI Stats"
+								className="h-10 select-none dark:block hidden"
 							/>
 						</Link>
 						<div className="hidden lg:block h-6 w-px bg-zinc-200/70 dark:bg-zinc-800" />

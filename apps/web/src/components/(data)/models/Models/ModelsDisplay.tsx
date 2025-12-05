@@ -6,10 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ModelCard } from "@/lib/fetchers/models/getAllModels";
-import {
-	qParser,
-	yearParser,
-} from "@/app/(dashboard)/models/search-params";
+import { qParser, yearParser } from "@/app/(dashboard)/models/search-params";
 
 interface ModelsDisplayProps {
 	models: ModelCard[];
@@ -28,9 +25,7 @@ export default function ModelsDisplay({
 	return (
 		<>
 			<div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-2">
-				<h1 className="font-bold text-xl text-black mb-2 md:mb-0">
-					Models
-				</h1>
+				<h1 className="font-bold text-xl mb-2 md:mb-0">Models</h1>
 				<div className="relative w-full md:w-1/5">
 					<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
 					<Input

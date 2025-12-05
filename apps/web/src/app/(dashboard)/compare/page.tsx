@@ -10,7 +10,7 @@ import CompareMiniHeader from "@/components/(data)/compare/CompareMiniHeader";
 export const metadata: Metadata = buildMetadata({
 	title: "Compare AI Models Side-by-Side | AI Stats",
 	description:
-		"Stack up to eight AI models with benchmarks in common, gateway performance, pricing, context windows, and subscription availability in one shareable view.",
+		"Stack up to four AI models with benchmarks in common, gateway performance, pricing, context windows, and subscription availability in one shareable view.",
 	path: "/compare",
 	keywords: [
 		"AI model comparison",
@@ -31,8 +31,8 @@ export const metadata: Metadata = buildMetadata({
 
 type PageProps = {
 	searchParams?:
-	| Promise<Record<string, string | string[] | undefined>>
-	| Record<string, string | string[] | undefined>;
+		| Promise<Record<string, string | string[] | undefined>>
+		| Record<string, string | string[] | undefined>;
 };
 
 const decodeModelIdFromUrl = (value: string): string => {

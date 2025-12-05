@@ -50,7 +50,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/news/grok-4",
-      "rank": 3
+      "rank": 4
     },
     {
       "benchmark_id": "aime-2025",
@@ -58,7 +58,7 @@
       "is_self_reported": true,
       "other_info": "No Tools",
       "source_link": "https://x.ai/news/grok-4",
-      "rank": 3
+      "rank": 4
     },
     {
       "benchmark_id": "arc-agi-1",

@@ -29,10 +29,10 @@ export function PricingSection() {
 		<section id="pricing" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
 			<div className="space-y-6">
 				<div className="space-y-3">
-					<h2 className="text-2xl font-semibold text-slate-900">
+					<h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
 						Predictable pricing, with an automatic sliding scale
 					</h2>
-					<p className="text-sm text-slate-600">
+					<p className="text-sm text-slate-600 dark:text-slate-400">
 						Every top-up covers the raw provider bill plus our
 						gateway fee, which starts at 10% and steps down toward
 						7.5% as usage grows. This adaptive scale keeps fees
@@ -57,7 +57,7 @@ export function PricingSection() {
 
 				<div className="overflow-hidden rounded-xl border border-slate-200">
 					<table className="w-full text-left text-sm">
-						<thead className="bg-slate-50 text-slate-600">
+						<thead className="bg-slate-50 text-slate-600 dark:bg-neutral-900 dark:text-slate-300">
 							<tr>
 								<th className="px-4 py-3 font-medium">
 									Scenario
@@ -70,10 +70,10 @@ export function PricingSection() {
 						<tbody className="divide-y divide-slate-100">
 							{PRICING_EXAMPLES.map((row) => (
 								<tr key={row.scenario}>
-									<td className="px-4 py-3 text-slate-700">
+									<td className="px-4 py-3 text-slate-700 dark:text-slate-300">
 										{row.scenario}
 									</td>
-									<td className="px-4 py-3 text-slate-600">
+									<td className="px-4 py-3 text-slate-600 dark:text-slate-400">
 										{row.gateway}
 									</td>
 								</tr>
@@ -81,7 +81,7 @@ export function PricingSection() {
 						</tbody>
 					</table>
 				</div>
-				<p className="text-xs text-slate-500">
+				<p className="text-xs text-slate-500 dark:text-slate-300">
 					Review your live tier and projected discount at{" "}
 					<Link className="underline" href="/settings/tiers">
 						/settings/tiers

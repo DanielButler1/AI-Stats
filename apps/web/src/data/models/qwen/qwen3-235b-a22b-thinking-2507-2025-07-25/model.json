@@ -62,7 +62,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Thinking-2507",
-      "rank": 9
+      "rank": 10
     },
     {
       "benchmark_id": "confabulations",
@@ -86,7 +86,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Thinking-2507",
-      "rank": 17
+      "rank": 18
     },
     {
       "benchmark_id": "hmmt-2025",
@@ -102,7 +102,7 @@
       "is_self_reported": true,
       "other_info": "Text Only",
       "source_link": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Thinking-2507",
-      "rank": 9
+      "rank": 10
     },
     {
       "benchmark_id": "if-eval",
@@ -166,7 +166,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Thinking-2507",
-      "rank": 4
+      "rank": 6
     },
     {
       "benchmark_id": "tau-2-retail",
@@ -174,7 +174,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Thinking-2507",
-      "rank": 4
+      "rank": 6
     },
     {
       "benchmark_id": "tau-2-telecom",
@@ -182,7 +182,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Thinking-2507",
-      "rank": 5
+      "rank": 7
     },
     {
       "benchmark_id": "matharena-apex",

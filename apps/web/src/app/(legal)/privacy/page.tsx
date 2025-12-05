@@ -1,6 +1,7 @@
 // app/privacy/page.tsx
 import Link from "next/link";
 import type { Metadata } from "next";
+import { cacheLife } from "next/cache";
 
 export const metadata: Metadata = {
 	title: "Privacy Policy | AI Stats",
@@ -8,7 +9,10 @@ export const metadata: Metadata = {
 		"How AI Stats collects, uses, and protects personal data related to the Service.",
 };
 
-export default function PrivacyPage() {
+export default async function PrivacyPage() {
+	"use cache";
+	cacheLife("max");
+
 	return (
 		<main className="container mx-auto space-y-8 px-4 py-10 text-sm leading-relaxed text-muted-foreground">
 			<header className="space-y-3">

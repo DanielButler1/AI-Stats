@@ -37,8 +37,8 @@ export default function BenchmarksDisplay({
 		<div>
 			<div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-2">
 				<div>
-					<h1 className="font-bold text-xl text-black mb-2 md:mb-0">
-						All Benchmarks
+					<h1 className="font-bold text-xl mb-2 md:mb-0">
+						Benchmarks
 					</h1>
 				</div>
 				<div className="relative w-full max-w-xs md:w-80">

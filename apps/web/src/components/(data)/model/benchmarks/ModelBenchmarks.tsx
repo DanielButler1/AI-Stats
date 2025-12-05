@@ -42,9 +42,6 @@ export default function ModelBenchmarks({
 			<section className="space-y-3">
 				<div>
 					<h2 className="text-xl font-semibold">Benchmark table</h2>
-					<p className="text-sm text-muted-foreground">
-						Detailed scores across tracked benchmarks.
-					</p>
 				</div>
 				<ModelBenchmarksTable grouped={benchmarkTableData} />
 			</section>

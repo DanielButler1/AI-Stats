@@ -58,7 +58,7 @@
       "is_self_reported": true,
       "other_info": "Pass@1",
       "source_link": "https://mistral.ai/static/research/magistral.pdf",
-      "rank": 27
+      "rank": 32
     },
     {
       "benchmark_id": "arc-agi-1",
@@ -82,7 +82,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://mistral.ai/static/research/magistral.pdf",
-      "rank": 38
+      "rank": 40
     },
     {
       "benchmark_id": "humanitys-last-exam",
@@ -90,7 +90,7 @@
       "is_self_reported": true,
       "other_info": "Text Only Subset",
       "source_link": "https://mistral.ai/static/research/magistral.pdf",
-      "rank": 19
+      "rank": 20
     },
     {
       "benchmark_id": "mmmu",

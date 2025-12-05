@@ -62,7 +62,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large",
-      "rank": 23
+      "rank": 28
     },
     {
       "benchmark_id": "arc-agi-1",
@@ -86,7 +86,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large",
-      "rank": 26
+      "rank": 28
     },
     {
       "benchmark_id": "hmmt-2025",
@@ -94,7 +94,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large",
-      "rank": 7
+      "rank": 9
     },
     {
       "benchmark_id": "if-eval",

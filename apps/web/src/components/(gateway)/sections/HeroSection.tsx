@@ -59,17 +59,17 @@ export function HeroSection({ metrics }: HeroSectionProps) {
 	})();
 
 	return (
-		<section className="border-b border-slate-200 bg-white">
+		<section className="border-b border-slate-200">
 			<div className="mx-auto max-w-7xl px-6 py-16 lg:py-20">
 				<div className="space-y-10">
 					<div className="space-y-5">
-						<h1 className="text-4xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+						<h1 className="text-4xl font-semibold leading-tight tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl lg:text-6xl">
 							<span>World's largest unified AI gateway.</span>
 							<span className="block text-indigo-600">
 								Fully open source.
 							</span>
 						</h1>
-						<p className="text-lg text-slate-600">
+						<p className="text-lg text-slate-600 dark:text-slate-400">
 							One API for chat, vision, audio, and embeddings with
 							live telemetry, compliance controls, and provider
 							failover built in.
@@ -90,9 +90,9 @@ export function HeroSection({ metrics }: HeroSectionProps) {
 						{statCards.map((card) => (
 							<div
 								key={card.label}
-								className="rounded-[1.75rem] border border-slate-200 bg-white p-5 text-slate-900 shadow-sm"
+								className="rounded-[1.75rem] border border-slate-200 p-5 text-slate-900 dark:text-slate-100 shadow-sm"
 							>
-								<div className="text-xs font-semibold text-slate-500">
+								<div className="text-xs font-semibold text-slate-500 dark:text-slate-300">
 									{card.label}
 								</div>
 								<div className="mt-3 text-3xl font-semibold">
@@ -102,7 +102,7 @@ export function HeroSection({ metrics }: HeroSectionProps) {
 						))}
 					</div>
 					<div className="space-y-3">
-						<p className="text-sm font-semibold text-slate-600">
+						<p className="text-sm font-semibold text-slate-600 dark:text-slate-400">
 							Supported providers
 						</p>
 						<HeroProviderMarquee logos={heroProviderLogos} />
