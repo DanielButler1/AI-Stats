@@ -36,19 +36,22 @@ export async function generateMetadata(props: {
 	const params = await props.params;
 	const modelId = getModelIdFromParams(params);
 	const result = await fetchModel(modelId);
+	const path = `/models/${modelId}/gateway`;
+	const imagePath = `/og/models/${modelId}`;
 
 	if (!result) {
 		return buildMetadata({
 			title: "Gateway Integration for Model",
 			description:
 				"Explore gateway support, providers, and routing details for AI models on AI Stats.",
-			path: `/models/${modelId}/gateway`,
+			path,
 			keywords: [
 				"AI gateway",
 				"model routing",
 				"AI providers",
 				"AI Stats",
 			],
+			imagePath,
 		});
 	}
 
@@ -61,8 +64,8 @@ export async function generateMetadata(props: {
 	return buildMetadata({
 		title: `${displayName} Gateway - Providers & Routing Options`,
 		description,
-		path: `/models/${modelId}/gateway`,
-		imagePath: `/models/${modelId}/opengraph-image`,
+		path,
+		imagePath,
 		keywords: [
 			displayName,
 			`${displayName} gateway`,

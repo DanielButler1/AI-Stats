@@ -22,6 +22,8 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
 	const { organisationId } = await props.params;
 	const organisation = await fetchOrganisation(organisationId);
+	const path = `/organisations/${organisationId}/models`;
+	const imagePath = `/og/organisations/${organisationId}`;
 
 	// Fallback if the organisation data can't be loaded
 	if (!organisation) {
@@ -29,13 +31,14 @@ export async function generateMetadata(props: {
 			title: "AI Models Overview by Organisation",
 			description:
 				"Discover AI models from leading organisations and see their gateway availability inside the AI Stats directory.",
-			path: `/organisations/${organisationId}/models`,
+			path,
 			keywords: [
 				"AI models",
 				"AI organisation",
 				"AI providers",
 				"AI Stats",
 			],
+			imagePath,
 		});
 	}
 
@@ -59,8 +62,9 @@ export async function generateMetadata(props: {
 	return buildMetadata({
 		title: `${organisation.name} Models - Catalogue & Gateway Coverage`,
 		description,
-		path: `/organisations/${organisationId}/models`,
+		path,
 		keywords,
+		imagePath,
 	});
 }
 

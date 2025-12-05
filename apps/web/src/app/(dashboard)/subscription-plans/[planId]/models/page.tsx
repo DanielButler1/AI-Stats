@@ -23,6 +23,7 @@ export async function generateMetadata(props: {
 	const { planId } = await props.params;
 	const plan = await fetchPlanForModels(planId);
 	const path = `/subscription-plans/${planId}/models`;
+	const imagePath = `/og/subscription-plans/${planId}`;
 
 	if (!plan) {
 		return buildMetadata({
@@ -36,6 +37,7 @@ export async function generateMetadata(props: {
 				"AI model access",
 				"AI Stats",
 			],
+			imagePath,
 		});
 	}
 
@@ -58,6 +60,7 @@ export async function generateMetadata(props: {
 			"AI subscription models",
 			"AI Stats",
 		],
+		imagePath,
 	});
 }
 

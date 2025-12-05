@@ -36,6 +36,7 @@ export async function generateMetadata(props: {
 	const { apiProvider } = await props.params;
 	const header = await fetchProviderMeta(apiProvider);
 	const path = `/api-providers/${apiProvider}/text-models`;
+	const imagePath = `/og/api-providers/${apiProvider}`;
 
 	// Fallback if provider lookup fails
 	if (!header) {
@@ -51,6 +52,7 @@ export async function generateMetadata(props: {
 				"AI API providers",
 				"AI Stats",
 			],
+			imagePath,
 		});
 	}
 
@@ -75,6 +77,7 @@ export async function generateMetadata(props: {
 			"text models",
 			"AI Stats",
 		],
+		imagePath,
 	});
 }
 

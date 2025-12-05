@@ -26,19 +26,22 @@ export async function generateMetadata(props: {
 	const params = await props.params;
 	const modelId = getModelIdFromParams(params);
 	const model = await fetchModel(modelId);
+	const path = `/models/${modelId}/pricing`;
+	const imagePath = `/og/models/${modelId}`;
 
 	if (!model) {
 		return buildMetadata({
 			title: "Model Pricing Overview",
 			description:
 				"View AI model pricing on AI Stats, including token costs, tiers, and billing details.",
-			path: `/models/${modelId}/pricing`,
+			path,
 			keywords: [
 				"AI model pricing",
 				"token costs",
 				"AI billing",
 				"AI Stats",
 			],
+			imagePath,
 		});
 	}
 
@@ -54,7 +57,7 @@ export async function generateMetadata(props: {
 	return buildMetadata({
 		title: `${model.name} Pricing - Token Costs & Billing Details`,
 		description,
-		path: `/models/${modelId}/pricing`,
+		path,
 		keywords: [
 			model.name,
 			`${model.name} pricing`,
@@ -63,6 +66,7 @@ export async function generateMetadata(props: {
 			"AI billing",
 			"AI Stats",
 		],
+		imagePath,
 	});
 }
 

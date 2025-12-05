@@ -31,14 +31,17 @@ export async function generateMetadata(props: {
 	const params = await props.params;
 	const modelId = getModelIdFromParams(params);
 	const model = await fetchModel(modelId);
+	const path = `/models/${modelId}/benchmarks`;
+	const imagePath = `/og/models/${modelId}`;
 
 	if (!model) {
 		return buildMetadata({
 			title: "Model Benchmarks Overview",
 			description:
 				"Explore detailed benchmark scores for AI models on AI Stats. Compare performance across industry-standard tests.",
-			path: `/models/${modelId}/benchmarks`,
+			path,
 			keywords: ["AI model benchmarks", "AI performance", "AI Stats"],
+			imagePath,
 		});
 	}
 
@@ -54,7 +57,7 @@ export async function generateMetadata(props: {
 	return buildMetadata({
 		title: `${model.name} Benchmarks - Performance Metrics & Comparisons`,
 		description,
-		path: `/models/${modelId}/benchmarks`,
+		path,
 		keywords: [
 			model.name,
 			`${model.name} benchmarks`,
@@ -63,6 +66,7 @@ export async function generateMetadata(props: {
 			"benchmark comparisons",
 			"AI Stats",
 		],
+		imagePath,
 	});
 }
 

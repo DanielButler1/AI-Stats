@@ -29,14 +29,17 @@ export async function generateMetadata(props: {
 	const params = await props.params;
 	const modelId = getModelIdFromParams(params);
 	const model = await fetchModelOverview(modelId);
+	const path = `/models/${modelId}/performance`;
+	const imagePath = `/og/models/${modelId}`;
 
 	if (!model) {
 		return buildMetadata({
 			title: "Model Performance Overview",
 			description:
 				"Track performance metrics and historical usage for AI models on AI Stats.",
-			path: `/models/${modelId}/performance`,
+			path,
 			keywords: ["AI model performance", "AI metrics", "AI Stats"],
+			imagePath,
 		});
 	}
 
@@ -52,7 +55,7 @@ export async function generateMetadata(props: {
 	return buildMetadata({
 		title: `${model.name} Performance - Latency & Token Trajectory`,
 		description,
-		path: `/models/${modelId}/performance`,
+		path,
 		keywords: [
 			model.name,
 			`${model.name} performance`,
@@ -61,6 +64,7 @@ export async function generateMetadata(props: {
 			"token usage",
 			"AI Stats",
 		],
+		imagePath,
 	});
 }
 

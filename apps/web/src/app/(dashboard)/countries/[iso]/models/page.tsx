@@ -18,22 +18,26 @@ export async function generateMetadata({
 	const { iso } = await params;
 	const isoNormalized = normaliseIso(iso);
 	const country = await getCountrySummaryByIso(isoNormalized);
+	const path = `/countries/${isoNormalized.toLowerCase()}/models`;
+	const imagePath = `/og/countries/${isoNormalized.toLowerCase()}`;
 
 	if (!country) {
 		return buildMetadata({
 			title: `${isoNormalized || "Unknown"} Models - Country Catalogue`,
 			description:
 				"Browse AI models by country. This location does not yet have tracked organisations or releases in AI Stats.",
-			path: `/countries/${isoNormalized.toLowerCase()}/models`,
+			path,
 			keywords: ["AI models", "countries", isoNormalized],
+			imagePath,
 		});
 	}
 
 	return buildMetadata({
 		title: `${country.countryName} Models - Catalogue`,
 		description: `See every model we have mapped to ${country.countryName}. Filter through the organisations based in this country and explore their releases.`,
-		path: `/countries/${isoNormalized.toLowerCase()}/models`,
+		path,
 		keywords: [country.countryName, "AI models", "AI Stats"],
+		imagePath,
 	});
 }
 

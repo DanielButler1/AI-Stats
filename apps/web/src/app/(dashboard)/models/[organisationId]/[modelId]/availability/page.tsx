@@ -28,13 +28,15 @@ export async function generateMetadata(props: {
 	const params = await props.params;
 	const modelId = getModelIdFromParams(params);
 	const model = await fetchModel(modelId);
+	const path = `/models/${modelId}/availability`;
+	const imagePath = `/og/models/${modelId}`;
 
 	if (!model) {
 		return buildMetadata({
 			title: "Model Availability Overview",
 			description:
 				"Browse AI model availability on AI Stats, including which providers expose each model and how to access them.",
-			path: `/models/${modelId}/availability`,
+			path,
 			keywords: [
 				"AI model availability",
 				"AI providers",
@@ -42,6 +44,7 @@ export async function generateMetadata(props: {
 				"AI subscription",
 				"AI Stats",
 			],
+			imagePath,
 		});
 	}
 
@@ -57,7 +60,7 @@ export async function generateMetadata(props: {
 	return buildMetadata({
 		title: `${model.name} Availability - Providers & Subscription Plan Access`,
 		description,
-		path: `/models/${modelId}/availability`,
+		path,
 		keywords: [
 			model.name,
 			`${model.name} availability`,
@@ -67,6 +70,7 @@ export async function generateMetadata(props: {
 			"AI Stats",
 			"AI model availability",
 		],
+		imagePath,
 	});
 }
 

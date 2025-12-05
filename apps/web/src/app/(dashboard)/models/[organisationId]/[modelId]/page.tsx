@@ -28,6 +28,8 @@ export async function generateMetadata(props: {
 	const params = await props.params;
 	const modelId = getModelIdFromParams(params);
 	const model = await fetchModel(modelId);
+	const path = `/models/${modelId}`;
+	const imagePath = `/og/models/${modelId}`;
 
 	// Fallback if the model can't be loaded
 	if (!model) {
@@ -35,7 +37,7 @@ export async function generateMetadata(props: {
 			title: "AI Model Overview",
 			description:
 				"Browse individual AI model pages on AI Stats for benchmarks, providers, pricing, and deployment options across the ecosystem.",
-			path: `/models/${modelId}`,
+			path,
 			keywords: [
 				"AI model",
 				"AI benchmarks",
@@ -43,6 +45,7 @@ export async function generateMetadata(props: {
 				"AI Stats",
 				"model comparison",
 			],
+			imagePath,
 		});
 	}
 
@@ -81,7 +84,7 @@ export async function generateMetadata(props: {
 	return buildMetadata({
 		title: `${model.name} - Benchmarks, Pricing & API Access`,
 		description,
-		path: `/models/${modelId}`,
+		path,
 		keywords: [
 			model.name,
 			`${model.name} benchmarks`,
@@ -90,6 +93,7 @@ export async function generateMetadata(props: {
 			"AI Stats",
 			"AI model comparison",
 		],
+		imagePath,
 	});
 }
 
