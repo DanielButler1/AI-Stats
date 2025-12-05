@@ -8,6 +8,7 @@ import {
 	Hammer,
 	FileText,
 	ShieldCheck,
+	Gift,
 } from "lucide-react";
 import {
 	Tooltip,
@@ -190,47 +191,23 @@ export default function Footer() {
 							<Hammer className="h-5 w-5" />
 							<span className="text-xs">Tools</span>
 						</Link>
-						{/* Wrapped - mobile (coming soon) */}
-						<button
-							aria-label="Coming Christmas 2025"
-							disabled
-							className="flex items-center justify-center h-12 rounded-lg border border-border bg-white dark:bg-zinc-950 opacity-60 cursor-not-allowed transition-colors gap-2"
+						{/* Wrapped - mobile */}
+						{/*
+						<Link
+							href="/wrapped"
+							aria-label="Wrapped"
+							className="flex items-center justify-center h-12 rounded-lg border border-border bg-white dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors gap-2"
 						>
-							<span className="inline-block" aria-hidden>
-								<svg
-									width="18"
-									height="18"
-									viewBox="0 0 24 24"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-									className="opacity-80"
-								>
-									<path
-										d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"
-										stroke="currentColor"
-										strokeWidth="1.5"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-									/>
-									<circle
-										cx="12"
-										cy="12"
-										r="2"
-										stroke="currentColor"
-										strokeWidth="1.2"
-									/>
-								</svg>
-							</span>
-							<span className="text-xs">
-								Coming Christmas 2025
-							</span>
-						</button>
+							<Gift className="h-5 w-5" />
+							<span className="text-xs">Wrapped</span>
+						</Link>
+						*/}
 
 						<Separator className="col-span-2" />
 
 						{/* --- Actions --- */}
 						<div className="col-span-2 font-semibold text-sm">
-							Actions
+							More
 						</div>
 						{/* Contribute */}
 						<Link
@@ -278,24 +255,7 @@ export default function Footer() {
 
 						{/* Theme */}
 						<div className="col-span-2 flex items-center justify-center">
-							<TooltipProvider delayDuration={0}>
-								<Tooltip>
-									<TooltipTrigger asChild>
-										{/* Outer span is the trigger so tooltip still appears; inner span disables interaction */}
-										<span className="cursor-default">
-											<span
-												className="pointer-events-none opacity-50"
-												aria-hidden="true"
-											>
-												<ThemeToggle />
-											</span>
-										</span>
-									</TooltipTrigger>
-									<TooltipContent side="top" align="center">
-										Dark Mode Coming Soon!
-									</TooltipContent>
-								</Tooltip>
-							</TooltipProvider>
+							<ThemeToggle />
 						</div>
 					</div>
 
@@ -455,59 +415,30 @@ export default function Footer() {
 								</Tooltip>
 							</TooltipProvider>
 
+							{/*
 							<TooltipProvider delayDuration={0}>
 								<Tooltip>
 									<TooltipTrigger asChild>
-										<span className="cursor-default">
-											<button
-												aria-label="Coming Christmas 2025"
-												disabled
-												className="h-9 w-9 text-primary rounded-full border border-border flex items-center justify-center opacity-60 cursor-not-allowed bg-white dark:bg-zinc-950"
-											>
-												<span
-													className="inline-block"
-													aria-hidden
-												>
-													<svg
-														width="16"
-														height="16"
-														viewBox="0 0 24 24"
-														fill="none"
-														xmlns="http://www.w3.org/2000/svg"
-														className="opacity-80"
-													>
-														<path
-															d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"
-															stroke="currentColor"
-															strokeWidth="1.5"
-															strokeLinecap="round"
-															strokeLinejoin="round"
-														/>
-														<circle
-															cx="12"
-															cy="12"
-															r="2"
-															stroke="currentColor"
-															strokeWidth="1.2"
-														/>
-													</svg>
-												</span>
-											</button>
-										</span>
+										<Link
+											href="/wrapped"
+											aria-label="Wrapped"
+											className="h-9 w-9 text-primary rounded-full border border-border flex items-center justify-center transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900 focus:outline-hidden focus:ring-2 focus:ring-primary"
+										>
+											<Gift className="h-4 w-4" />
+										</Link>
 									</TooltipTrigger>
 									<TooltipContent side="top" align="center">
-										Coming Christmas 2025
+										Wrapped
 									</TooltipContent>
 								</Tooltip>
 							</TooltipProvider>
+							*/}
 						</div>
 					</div>
 
 					{/* --- Desktop: Actions (Contribute, Sources, Theme) --- */}
 					<div className="hidden sm:flex flex-col gap-2 items-center justify-center">
-						<span className="font-semibold text-sm mb-2">
-							Actions
-						</span>
+						<span className="font-semibold text-sm mb-2">More</span>
 						<div className="flex flex-row gap-2">
 							{/* Contribute */}
 							<TooltipProvider delayDuration={0}>
@@ -550,18 +481,10 @@ export default function Footer() {
 							<TooltipProvider delayDuration={0}>
 								<Tooltip>
 									<TooltipTrigger asChild>
-										{/* Outer span is the trigger; inner span disables interaction */}
-										<span className="cursor-default">
-											<span
-												className="pointer-events-none opacity-50"
-												aria-hidden="true"
-											>
-												<ThemeToggle />
-											</span>
-										</span>
+										<ThemeToggle />
 									</TooltipTrigger>
 									<TooltipContent side="top" align="center">
-										Dark Mode Coming Soon!
+										Toggle Theme
 									</TooltipContent>
 								</Tooltip>
 							</TooltipProvider>
