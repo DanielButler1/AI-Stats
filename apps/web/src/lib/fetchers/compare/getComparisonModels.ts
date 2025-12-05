@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 import type { Benchmark, ExtendedModel, Price, Provider } from "@/data/types";
 import {
@@ -301,46 +301,34 @@ function convertModelToExtended(
 	return extended;
 }
 
-const fetchComparisonModels = unstable_cache(
-	async (serializedKey: string): Promise<ComparisonMap> => {
-		if (!serializedKey) return {};
-		const ids = serializedKey.split(",");
-		const results = await Promise.all(
-			ids.map(async (id) => {
-				try {
-					const [model, providerPricing, subscriptionPlans] =
-						await Promise.all([
-							getModelCached(id),
-							getModelPricingCached(id),
-							getModelSubscriptionPlansCached(id),
-						]);
-					return convertModelToExtended(
-						model,
-						providerPricing,
-						subscriptionPlans
-					);
-				} catch (error) {
-					console.error("[compare] Failed to load model data", id, error);
-					return null;
-				}
-			})
-		);
-
-		const map: ComparisonMap = {};
-		ids.forEach((id, index) => {
-			const model = results[index];
-			if (model) {
-				map[id] = model;
+async function fetchComparisonModels(serializedKey: string): Promise<ComparisonMap> {
+	if (!serializedKey) return {};
+	const ids = serializedKey.split(",");
+	const results = await Promise.all(
+		ids.map(async (id) => {
+			try {
+				const [model, providerPricing, subscriptionPlans] = await Promise.all([
+					getModelCached(id),
+					getModelPricingCached(id),
+					getModelSubscriptionPlansCached(id),
+				]);
+				return convertModelToExtended(model, providerPricing, subscriptionPlans);
+			} catch (error) {
+				console.error("[compare] Failed to load model data", id, error);
+				return null;
 			}
-		});
-		return map;
-	},
-	["compare:data:v1"],
-	{
-		revalidate: 60 * 60 * 24,
-		tags: ["data:models"],
-	}
-);
+		})
+	);
+
+	const map: ComparisonMap = {};
+	ids.forEach((id, index) => {
+		const model = results[index];
+		if (model) {
+			map[id] = model;
+		}
+	});
+	return map;
+}
 
 export async function getComparisonModelsCached(
 	modelIds: string[]
@@ -361,7 +349,13 @@ export async function getComparisonModelsCached(
 	console.log("[compare] Resolving comparison models", uniqueOrdered);
 	const cacheKey = [...uniqueOrdered].sort().join(",");
 	console.log("[compare] Fetching models for cache key", cacheKey);
-	let resultMap = await fetchComparisonModels(cacheKey);
+	let resultMap: ComparisonMap;
+	{
+		"use cache";
+		cacheLife("days");
+		cacheTag("data:models");
+		resultMap = await fetchComparisonModels(cacheKey);
+	}
 	console.log("[compare] Received detailed models", resultMap);
 
 	const missingIds = uniqueOrdered.filter((id) => !resultMap[id]);

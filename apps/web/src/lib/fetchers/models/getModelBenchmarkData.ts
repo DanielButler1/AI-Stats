@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 import { createClient } from "@/utils/supabase/client";
 
@@ -586,55 +586,37 @@ async function fetchBenchmarkComparisonCharts(
 	return charts;
 }
 
-export function getModelBenchmarkHighlights(
+export async function getModelBenchmarkHighlights(
 	modelId: string
 ): Promise<ModelBenchmarkHighlight[]> {
-	const cached = unstable_cache(
-		async (id: string) => {
-			const { results } = await loadBenchmarkResults(id);
-			return selectHighlightResults(results);
-		},
-		["model:benchmarks:highlights", modelId],
-		{
-			revalidate: 60 * 60 * 24,
-			tags: [`model:benchmarks:highlights:${modelId}`],
-		}
-	);
+	"use cache";
 
-	return cached(modelId);
+	cacheLife("days");
+	cacheTag(`model:benchmarks:highlights:${modelId}`);
+
+	const { results } = await loadBenchmarkResults(modelId);
+	return selectHighlightResults(results);
 }
 
-export function getModelBenchmarkTableData(
+export async function getModelBenchmarkTableData(
 	modelId: string
 ): Promise<Record<string, ModelBenchmarkResult[]>> {
-	const cached = unstable_cache(
-		async (id: string) => {
-			const { results } = await loadBenchmarkResults(id);
-			return groupResultsByBenchmarkName(results);
-		},
-		["model:benchmarks:table", modelId],
-		{
-			revalidate: 60 * 60 * 24,
-			tags: [`model:benchmarks:table:${modelId}`],
-		}
-	);
+	"use cache";
 
-	return cached(modelId);
+	cacheLife("days");
+	cacheTag(`model:benchmarks:table:${modelId}`);
+
+	const { results } = await loadBenchmarkResults(modelId);
+	return groupResultsByBenchmarkName(results);
 }
 
-export function getModelBenchmarkComparisonData(
+export async function getModelBenchmarkComparisonData(
 	modelId: string
 ): Promise<BenchmarkComparisonChart[]> {
-	const cached = unstable_cache(
-		async (id: string) => {
-			return fetchBenchmarkComparisonCharts(id);
-		},
-		["model:benchmarks:comparisons", modelId],
-		{
-			revalidate: 60 * 60 * 24,
-			tags: [`model:benchmarks:comparisons:${modelId}`],
-		}
-	);
+	"use cache";
 
-	return cached(modelId);
+	cacheLife("days");
+	cacheTag(`model:benchmarks:comparisons:${modelId}`);
+
+	return fetchBenchmarkComparisonCharts(modelId);
 }

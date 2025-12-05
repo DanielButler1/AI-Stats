@@ -22,6 +22,7 @@ export async function generateMetadata(props: {
 	const { planId } = await props.params;
 	const plan = await fetchPlan(planId);
 	const path = `/subscription-plans/${planId}`;
+	const imagePath = `/og/subscription-plans/${planId}`;
 
 	// Fallback if we can't load the plan
 	if (!plan) {
@@ -36,6 +37,7 @@ export async function generateMetadata(props: {
 				"LLM subscription",
 				"AI Stats",
 			],
+			imagePath,
 		});
 	}
 
@@ -77,6 +79,7 @@ export async function generateMetadata(props: {
 			"AI pricing",
 			"AI Stats",
 		],
+		imagePath,
 	});
 }
 

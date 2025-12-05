@@ -1,5 +1,5 @@
 // lib/fetchers/benchmarks/getAllBenchmarks.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 export interface BenchmarkCard {
     benchmark_id: string;
@@ -45,11 +45,12 @@ export async function getAllBenchmarks(sorted = false): Promise<BenchmarkCard[]>
         .filter((b) => b.benchmark_id);
 }
 
-export const getAllBenchmarksCached = unstable_cache(
-    async (sorted = false) => {
-        console.log("[fetch] HIT for benchmarks");
-        return await getAllBenchmarks(sorted);
-    },
-    ["data:benchmarks:v1"],
-    { revalidate: 60 * 60 * 24, tags: ["data:benchmarks"] }
-);
+export async function getAllBenchmarksCached(sorted = false): Promise<BenchmarkCard[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:benchmarks");
+
+    console.log("[fetch] HIT for benchmarks");
+    return getAllBenchmarks(sorted);
+}

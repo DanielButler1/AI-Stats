@@ -34,6 +34,8 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
 	const { benchmarkId } = await props.params;
 	const benchmark = await fetchBenchmark(benchmarkId);
+	const path = `/benchmarks/${benchmarkId}`;
+	const imagePath = `/og/benchmarks/${benchmarkId}`;
 
 	// Fallback if the benchmark can't be loaded
 	if (!benchmark) {
@@ -41,7 +43,7 @@ export async function generateMetadata(props: {
 			title: "AI Benchmark Leaderboard",
 			description:
 				"Explore AI benchmark leaderboards on AI Stats and compare model performance across tasks and datasets.",
-			path: `/benchmarks/${benchmarkId}`,
+			path,
 			keywords: [
 				"AI benchmark",
 				"AI benchmark leaderboard",
@@ -49,6 +51,7 @@ export async function generateMetadata(props: {
 				"AI model performance",
 				"AI Stats",
 			],
+			imagePath,
 		});
 	}
 
@@ -98,7 +101,7 @@ export async function generateMetadata(props: {
 	return buildMetadata({
 		title: `${cleanName} - Benchmark Leaderboard & Model Performance`,
 		description: descriptionParts.filter(Boolean).join(" "),
-		path: `/benchmarks/${benchmarkId}`,
+		path,
 		keywords: [
 			cleanName,
 			`${cleanName} benchmark`,
@@ -108,6 +111,7 @@ export async function generateMetadata(props: {
 			"AI model performance",
 			"AI Stats",
 		],
+		imagePath,
 	});
 }
 

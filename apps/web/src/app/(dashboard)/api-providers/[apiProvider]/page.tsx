@@ -24,6 +24,7 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
 	const { apiProvider } = await props.params;
 	const header = await fetchProviderMeta(apiProvider);
+	const imagePath = `/og/api-providers/${apiProvider}`;
 
 	// Fallback: provider not found / fetch failed
 	if (!header) {
@@ -40,7 +41,7 @@ export async function generateMetadata(props: {
 				"gateway analytics",
 				"AI Stats",
 			],
-			imagePath: `/api-providers/${apiProvider}/opengraph-image`,
+			imagePath,
 			imageAlt: "AI Stats API provider insights",
 			openGraph: {
 				type: "website",
@@ -70,7 +71,7 @@ export async function generateMetadata(props: {
 			"gateway analytics",
 			"AI Stats",
 		],
-		imagePath: `/api-providers/${apiProvider}/opengraph-image`,
+		imagePath,
 		imageAlt: `${providerName} gateway analytics on AI Stats`,
 		openGraph: {
 			type: "website",

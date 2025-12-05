@@ -1,5 +1,5 @@
 // lib/fetchers/api-providers/getAllAPIProviders.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 export interface APIProviderCard {
     api_provider_id: string;
@@ -32,11 +32,12 @@ export async function getAllAPIProviders(): Promise<APIProviderCard[]> {
         .filter((p) => p.api_provider_id);
 }
 
-export const getAllAPIProvidersCached = unstable_cache(
-    async () => {
-        console.log("[fetch] HIT JSON for API providers");
-        return await getAllAPIProviders();
-    },
-    ["data:api_providers:v1"],
-    { revalidate: 60 * 60 * 24, tags: ["data:api_providers"] }
-);
+export async function getAllAPIProvidersCached(): Promise<APIProviderCard[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:api_providers");
+
+    console.log("[fetch] HIT JSON for API providers");
+    return getAllAPIProviders();
+}

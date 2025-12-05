@@ -1,5 +1,4 @@
-import { unstable_cache } from "next/cache";
-import { getModelOverview } from "@/lib/fetchers/models/getModel";
+import { getModelOverviewCached } from "@/lib/fetchers/models/getModel";
 import ModelOverview from "@/components/(data)/model/overview/ModelOverview";
 import Image from "next/image";
 import ModelDetailShell from "@/components/(data)/model/ModelDetailShell";
@@ -13,7 +12,7 @@ import {
 
 async function fetchModel(modelId: string) {
 	try {
-		return await getModelOverview(modelId);
+		return await getModelOverviewCached(modelId);
 	} catch (error) {
 		console.warn("[seo] failed to load model overview for metadata", {
 			modelId,
@@ -29,6 +28,8 @@ export async function generateMetadata(props: {
 	const params = await props.params;
 	const modelId = getModelIdFromParams(params);
 	const model = await fetchModel(modelId);
+	const path = `/models/${modelId}`;
+	const imagePath = `/og/models/${modelId}`;
 
 	// Fallback if the model can't be loaded
 	if (!model) {
@@ -36,7 +37,7 @@ export async function generateMetadata(props: {
 			title: "AI Model Overview",
 			description:
 				"Browse individual AI model pages on AI Stats for benchmarks, providers, pricing, and deployment options across the ecosystem.",
-			path: `/models/${modelId}`,
+			path,
 			keywords: [
 				"AI model",
 				"AI benchmarks",
@@ -44,6 +45,7 @@ export async function generateMetadata(props: {
 				"AI Stats",
 				"model comparison",
 			],
+			imagePath,
 		});
 	}
 
@@ -82,7 +84,7 @@ export async function generateMetadata(props: {
 	return buildMetadata({
 		title: `${model.name} - Benchmarks, Pricing & API Access`,
 		description,
-		path: `/models/${modelId}`,
+		path,
 		keywords: [
 			model.name,
 			`${model.name} benchmarks`,
@@ -91,6 +93,7 @@ export async function generateMetadata(props: {
 			"AI Stats",
 			"AI model comparison",
 		],
+		imagePath,
 	});
 }
 
@@ -102,17 +105,7 @@ export default async function Page({
 	const routeParams = await params;
 	const modelId = getModelIdFromParams(routeParams);
 
-	// Cache per-model; revalidate periodically and tag for on-demand invalidation.
-	const getCachedModel = unstable_cache(
-		async (id: string) => {
-			console.log("[fetch] HIT DB getModelOverview", id);
-			return getModelOverview(id); // make sure this uses a cookie-less/public client
-		},
-		["data:models", modelId],
-		{ revalidate: 604800, tags: ["data:models", `model:${modelId}`] }
-	);
-
-	const model = await getCachedModel(modelId);
+	const model = await getModelOverviewCached(modelId);
 
 	if (!model) {
 		return (

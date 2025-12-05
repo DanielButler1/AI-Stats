@@ -1,6 +1,3 @@
-// app/layout.tsx
-export const experimental_ppr = true;
-
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";

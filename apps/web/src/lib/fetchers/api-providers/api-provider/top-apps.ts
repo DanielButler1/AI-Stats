@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createAdminClient } from "@/utils/supabase/admin";
 
 export type AppStats = {
@@ -59,11 +59,16 @@ export async function getTopApps(
     }
 }
 
-export const getTopAppsCached = unstable_cache(
-    async (apiProviderId: string, period: 'day' | 'week' | 'month' = 'day', count: number = 20) => {
-        console.log(`[fetch] HIT JSON for top apps - ${apiProviderId} - ${period}`);
-        return await getTopApps(apiProviderId, period, count);
-    },
-    ["data:top_apps:v1"],
-    { revalidate: 60 * 60 * 24, tags: ["data:top_apps"] }
-);
+export async function getTopAppsCached(
+    apiProviderId: string,
+    period: "day" | "week" | "month" = "day",
+    count: number = 20
+): Promise<AppStats[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:top_apps");
+
+    console.log(`[fetch] HIT JSON for top apps - ${apiProviderId} - ${period}`);
+    return getTopApps(apiProviderId, period, count);
+}

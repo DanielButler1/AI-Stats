@@ -43,13 +43,15 @@ export async function generateMetadata(props: {
 	const params = await props.params;
 	const modelId = getModelIdFromParams(params);
 	const model = await fetchModel(modelId);
+	const path = `/models/${modelId}/family`;
+	const imagePath = `/og/models/${modelId}`;
 
 	if (!model) {
 		return buildMetadata({
 			title: "Model Family Overview",
 			description:
 				"Explore AI model families on AI Stats, including related variants, benchmarks, and pricing information.",
-			path: `/models/${modelId}/family`,
+			path,
 			keywords: [
 				"AI model family",
 				"related models",
@@ -57,6 +59,7 @@ export async function generateMetadata(props: {
 				"AI providers",
 				"AI Stats",
 			],
+			imagePath,
 		});
 	}
 
@@ -72,7 +75,7 @@ export async function generateMetadata(props: {
 	return buildMetadata({
 		title: `${model.name} Family - Related Models & Variants`,
 		description,
-		path: `/models/${modelId}/family`,
+		path,
 		keywords: [
 			model.name,
 			`${model.name} family`,
@@ -81,6 +84,7 @@ export async function generateMetadata(props: {
 			"AI Stats",
 			"AI model family",
 		],
+		imagePath,
 	});
 }
 

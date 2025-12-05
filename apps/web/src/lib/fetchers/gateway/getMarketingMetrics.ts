@@ -2,6 +2,7 @@
 
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { createClient } from "@/utils/supabase/server";
+import { connection } from "next/server";
 
 type RawGatewayRequest = {
 	created_at: string;
@@ -524,6 +525,7 @@ function buildFallbackMetrics(
 export async function getGatewayMarketingMetrics(
 	hours = HOURS_DEFAULT
 ): Promise<GatewayMarketingMetrics> {
+	await connection();
 	const now = new Date();
 	const client = await createClient();
 
@@ -570,7 +572,7 @@ export async function getGatewayMarketingMetrics(
 			usageSnapshotError ??
 			String(
 				err?.message ??
-					"Unable to load live gateway metrics; falling back to synthetic data."
+				"Unable to load live gateway metrics; falling back to synthetic data."
 			);
 		const fallback = applyUsageSnapshot(
 			buildFallbackMetrics(supportedRows, now, hours, errorMessage),

@@ -26,7 +26,9 @@ export async function generateMetadata({
 	const { iso: isoParamRaw } = await params;
 	const isoParam = normaliseIso(isoParamRaw);
 	const country = await loadCountry(isoParam);
-	const path = `/countries/${isoParam.toLowerCase()}`;
+	const pathIso = isoParam.toLowerCase();
+	const path = `/countries/${pathIso}`;
+	const imagePath = `/og/countries/${pathIso}`;
 
 	if (!country) {
 		return buildMetadata({
@@ -40,6 +42,7 @@ export async function generateMetadata({
 				"AI country view",
 				"AI organisations",
 			],
+			imagePath,
 		});
 	}
 
@@ -57,6 +60,7 @@ export async function generateMetadata({
 			"AI organisations",
 			"AI models",
 		],
+		imagePath,
 	});
 }
 

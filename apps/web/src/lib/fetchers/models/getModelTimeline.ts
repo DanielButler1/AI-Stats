@@ -1,5 +1,5 @@
 // lib/fetchers/models/getModelTimeline.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
 export type RawEvent = {
@@ -47,13 +47,11 @@ export default async function getModelTimeline(modelId: string): Promise<{ event
  * cache key and tags so you can target revalidation per-model.
  */
 export async function getModelTimelineCached(modelId: string) {
-    const cached = unstable_cache(
-        async () => {
-            return await getModelTimeline(modelId);
-        },
-        ["data:modelTimeline:v1", modelId],
-        { revalidate: 60 * 60 * 24, tags: ["data:models", `data:models:${modelId}`] }
-    );
+    "use cache";
 
-    return await cached();
+    cacheLife("days");
+    cacheTag("data:models");
+    cacheTag(`data:models:${modelId}`);
+
+    return getModelTimeline(modelId);
 }

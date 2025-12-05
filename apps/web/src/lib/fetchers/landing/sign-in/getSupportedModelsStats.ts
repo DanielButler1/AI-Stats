@@ -1,4 +1,4 @@
-import { unstable_cache } from 'next/cache';
+import { cacheLife, cacheTag } from 'next/cache';
 import { createClient } from '@/utils/supabase/client';
 
 export interface SupportedModelsStats {
@@ -53,11 +53,12 @@ async function fetchStats(): Promise<SupportedModelsStats> {
     }
 }
 
-export const getSupportedModelsStatsCached = unstable_cache(
-    async () => {
-        console.log('[fetch] HIT for supported models stats');
-        return await fetchStats();
-    },
-    ['data:sign-in:supported-models-stats:v1'],
-    { revalidate: 60 * 60 * 24, tags: ['data:sign-in:supported-models-stats'] }
-);
+export async function getSupportedModelsStatsCached(): Promise<SupportedModelsStats> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:sign-in:supported-models-stats");
+
+    console.log("[fetch] HIT for supported models stats");
+    return fetchStats();
+}

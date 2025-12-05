@@ -1,6 +1,6 @@
 // lib/fetchers/benchmarks/getBenchmark.ts
 import { createClient } from "@/utils/supabase/client";
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 // BenchmarkPage (with results) is defined later in this file.
 export interface Organisation {
@@ -147,15 +147,12 @@ export default async function getBenchmark(benchmark_id: string): Promise<Benchm
     return formatted;
 }
 
-export const getBenchmarkCached = unstable_cache(
-    async (benchmark_id: string) => {
-        console.log("[fetch] HIT DB for benchmark:", benchmark_id);
-        return getBenchmark(benchmark_id);
-    },
-    ["data:benchmarks:v1"],
-    {
-        revalidate: 60 * 60 * 24,
-        // Use a static tag here to avoid referencing the benchmark_id variable outside the cached function.
-        tags: ["data:benchmarks"],
-    }
-);
+export async function getBenchmarkCached(benchmark_id: string): Promise<BenchmarkPage | null> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:benchmarks");
+
+    console.log("[fetch] HIT DB for benchmark:", benchmark_id);
+    return getBenchmark(benchmark_id);
+}

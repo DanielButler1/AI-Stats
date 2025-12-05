@@ -1,5 +1,5 @@
 // lib/fetchers/organisations/getOrganisation.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import {
     ModelCard,
     mapRawToModelCard,
@@ -119,14 +119,18 @@ export async function getOrganisationData(
     return { ...overview, models: groups };
 }
 
-export const getOrganisationDataCached = unstable_cache(
-    async (organisationId: string, latestModelsLimit: number = DEFAULT_LATEST_MODELS_LIMIT) => {
-        console.log(`[fetch] HIT JSON for organisation data ${organisationId}`);
-        return await getOrganisationData(organisationId, latestModelsLimit);
-    },
-    ['data:organisations:full:v1'],
-    { revalidate: 60 * 60 * 24, tags: ['data:organisations'] }
-);
+export async function getOrganisationDataCached(
+    organisationId: string,
+    latestModelsLimit: number = DEFAULT_LATEST_MODELS_LIMIT
+): Promise<OrganisationData> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:organisations");
+
+    console.log(`[fetch] HIT JSON for organisation data ${organisationId}`);
+    return getOrganisationData(organisationId, latestModelsLimit);
+}
 
 // Fetch all models for an organisation (raw, mapped to OrganisationModelCards)
 export async function getOrganisationModels(organisationId: string): Promise<OrganisationModelCards[]> {
@@ -179,11 +183,14 @@ export async function getOrganisationModels(organisationId: string): Promise<Org
     return allModels;
 }
 
-export const getOrganisationModelsCached = unstable_cache(
-    async (organisationId: string) => {
-        console.log(`[fetch] HIT JSON for organisation models ${organisationId}`);
-        return await getOrganisationModels(organisationId);
-    },
-    ['data:organisations:models:v1'],
-    { revalidate: 60 * 60 * 24, tags: ['data:organisations'] }
-);
+export async function getOrganisationModelsCached(
+    organisationId: string
+): Promise<OrganisationModelCards[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:organisations");
+
+    console.log(`[fetch] HIT JSON for organisation models ${organisationId}`);
+    return getOrganisationModels(organisationId);
+}

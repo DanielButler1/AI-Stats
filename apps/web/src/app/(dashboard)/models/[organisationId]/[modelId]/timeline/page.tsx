@@ -26,19 +26,22 @@ export async function generateMetadata(props: {
 	const params = await props.params;
 	const modelId = getModelIdFromParams(params);
 	const model = await fetchModel(modelId);
+	const path = `/models/${modelId}/timeline`;
+	const imagePath = `/og/models/${modelId}`;
 
 	if (!model) {
 		return buildMetadata({
 			title: "Model Timeline Overview",
 			description:
 				"Explore AI model release timelines on AI Stats, including announcements, releases, and retirement dates.",
-			path: `/models/${modelId}/timeline`,
+			path,
 			keywords: [
 				"AI model timeline",
 				"AI releases",
 				"model history",
 				"AI Stats",
 			],
+			imagePath,
 		});
 	}
 
@@ -54,8 +57,8 @@ export async function generateMetadata(props: {
 	return buildMetadata({
 		title: `${model.name} Timeline - Announcements & Release History`,
 		description,
-		path: `/models/${modelId}/timeline`,
-		imagePath: `/models/${modelId}/opengraph-image`,
+		path,
+		imagePath,
 		keywords: [
 			model.name,
 			`${model.name} timeline`,

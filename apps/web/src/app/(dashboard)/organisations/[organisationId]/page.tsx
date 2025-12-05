@@ -23,6 +23,8 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
 	const { organisationId } = await props.params;
 	const organisation = await fetchOrganisation(organisationId);
+	const path = `/organisations/${organisationId}`;
+	const imagePath = `/og/organisations/${organisationId}`;
 
 	// Fallback SEO if the organisation can't be loaded
 	if (!organisation) {
@@ -30,13 +32,14 @@ export async function generateMetadata(props: {
 			title: "AI Organisation Overview",
 			description:
 				"Discover AI organisations, their latest models, and gateway availability inside the AI Stats directory.",
-			path: `/organisations/${organisationId}`,
+			path,
 			keywords: [
 				"AI organisation",
 				"AI provider",
 				"AI models",
 				"AI Stats",
 			],
+			imagePath,
 		});
 	}
 
@@ -65,8 +68,9 @@ export async function generateMetadata(props: {
 	return buildMetadata({
 		title: `${organisation.name} - AI Organisation, Models & Gateway Coverage`,
 		description,
-		path: `/organisations/${organisationId}`,
+		path,
 		keywords,
+		imagePath,
 	});
 }
 

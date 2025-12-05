@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
 export type FamilyModelStatus =
@@ -88,14 +88,12 @@ export default async function getFamilyModels(familyId: string): Promise<FamilyI
  * This wraps the fetcher with `unstable_cache` for at least 1 week of caching.
  */
 export async function getFamilyModelsCached(familyId: string): Promise<FamilyInfo | null> {
-    const cached = unstable_cache(
-        async () => {
-            console.log('[fetch] HIT DB for family models', familyId);
-            return await getFamilyModels(familyId);
-        },
-        ["data:familyModels:v1", familyId],
-        { revalidate: 60 * 60 * 24, tags: ["data:models", `data:families:${familyId}`] }
-    );
+    "use cache";
 
-    return await cached();
+    cacheLife("days");
+    cacheTag("data:models");
+    cacheTag(`data:families:${familyId}`);
+
+    console.log("[fetch] HIT DB for family models", familyId);
+    return getFamilyModels(familyId);
 }

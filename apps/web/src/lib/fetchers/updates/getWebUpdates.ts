@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 import type { UpdateCardProps } from "@/lib/fetchers/updates/getLatestUpdates";
 import type React from "react";
@@ -88,11 +88,14 @@ async function fetchWebUpdateRows(limit: number): Promise<CachedRow[]> {
 	}));
 }
 
-const getWebUpdateRowsCached = unstable_cache(
-	async (limit: number) => await fetchWebUpdateRows(limit),
-	["data:latest-web-updates"],
-	{ revalidate: 60 * 60 * 24, tags: ["data:latest-web-updates"] }
-);
+async function getWebUpdateRowsCached(limit: number): Promise<CachedRow[]> {
+	"use cache";
+
+	cacheLife("days");
+	cacheTag("data:latest-web-updates");
+
+	return fetchWebUpdateRows(limit);
+}
 
 function toUpdateCard(row: CachedRow): UpdateCardProps {
 	const { created_at, ...rest } = row;
@@ -106,7 +109,7 @@ function toUpdateCard(row: CachedRow): UpdateCardProps {
 			cta: "Open",
 		},
 		dateIso: created_at,
-		relative: relTime(created_at),
+		// relative: relTime(created_at),
 		badges: [
 			{
 				label: WEB_BADGE_LABEL,

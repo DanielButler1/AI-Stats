@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createAdminClient } from "@/utils/supabase/admin";
 
 export type ModelTokenTrajectoryPoint = {
@@ -92,8 +92,13 @@ export async function getModelTokenTrajectory(
 	return mapTrajectory(row);
 }
 
-export const getModelTokenTrajectoryCached = unstable_cache(
-	async (modelId: string) => getModelTokenTrajectory(modelId),
-	["model-token-trajectory"],
-	{ revalidate: 60 * 30, tags: ["data:gateway_requests"] }
-);
+export async function getModelTokenTrajectoryCached(
+	modelId: string
+): Promise<ModelTokenTrajectory | null> {
+	"use cache";
+
+	cacheLife("days");
+	cacheTag("data:gateway_requests");
+
+	return getModelTokenTrajectory(modelId);
+}

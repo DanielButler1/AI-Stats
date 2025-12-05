@@ -41,7 +41,6 @@ export default async function Page() {
 							subtitle={card.subtitle ?? undefined}
 							link={card.link}
 							dateIso={card.dateIso}
-							relative={card.relative}
 							accentClass={card.accentClass}
 						/>
 					))}

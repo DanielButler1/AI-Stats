@@ -1,6 +1,6 @@
 // lib/fetchers/api-providers/getAPIProviderHeader.ts
 import { createClient } from "@/utils/supabase/client";
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 export interface APIProviderHeader {
     api_provider_id: string;
@@ -40,17 +40,14 @@ export async function fetchAPIProviderHeader(
 
 // --- Cached wrapper (default export) ---
 // capture organisationId in both key and tags to retain the per-ID tag
-export default function getAPIProviderHeader(
+export default async function getAPIProviderHeader(
     apiProviderId: string
 ): Promise<APIProviderHeader> {
-    const cached = unstable_cache(
-        async (id: string) => {
-            console.log("[cache] COMPUTE getAPIProviderHeader", id);
-            return fetchAPIProviderHeader(id);
-        },
-        ["api_provider:header", apiProviderId], // per-ID cache key
-        { revalidate: 60 * 60 * 24, tags: [`api_provider:header:${apiProviderId}`] } // per-ID tag
-    );
+    "use cache";
 
-    return cached(apiProviderId);
+    cacheLife("days");
+    cacheTag(`api_provider:header:${apiProviderId}`);
+
+    console.log("[cache] COMPUTE getAPIProviderHeader", apiProviderId);
+    return fetchAPIProviderHeader(apiProviderId);
 }

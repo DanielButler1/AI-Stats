@@ -1,5 +1,5 @@
 // lib/fetchers/subscription-plans/getAllSubscriptionPlans.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
 export interface SubscriptionPlanSummary {
@@ -87,11 +87,12 @@ export async function getAllSubscriptionPlans(): Promise<SubscriptionPlanSummary
     return plans;
 }
 
-export const getAllSubscriptionPlansCached = unstable_cache(
-    async () => {
-        console.log('[fetch] HIT DB for subscription plans');
-        return await getAllSubscriptionPlans();
-    },
-    ['data:subscriptionPlans:v1'],
-    { revalidate: 60 * 60 * 24, tags: ['data:subscription_plans'] }
-);
+export async function getAllSubscriptionPlansCached(): Promise<SubscriptionPlanSummary[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:subscription_plans");
+
+    console.log("[fetch] HIT DB for subscription plans");
+    return getAllSubscriptionPlans();
+}

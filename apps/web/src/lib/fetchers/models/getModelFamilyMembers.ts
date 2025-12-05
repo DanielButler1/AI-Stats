@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import getModelOverviewHeader from "./getModelOverviewHeader";
 import getFamilyModels, { FamilyModelItem, getFamilyModelsCached } from "./getFamilyModels";
 
@@ -21,12 +21,15 @@ async function fetchFamilyMembers(modelId: string): Promise<FamilyModelItem[]> {
 /**
  * Cached family members by model id.
  */
-export const getModelFamilyMembersCached = unstable_cache(
-	async (modelId: string) => {
-		return fetchFamilyMembers(modelId);
-	},
-	["data:model-family-members"],
-	{ revalidate: 60 * 60 * 24, tags: ["data:models"] }
-);
+export async function getModelFamilyMembersCached(
+	modelId: string
+): Promise<FamilyModelItem[]> {
+	"use cache";
+
+	cacheLife("days");
+	cacheTag("data:models");
+
+	return fetchFamilyMembers(modelId);
+}
 
 export default fetchFamilyMembers;

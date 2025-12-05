@@ -1,3 +1,4 @@
+import { cacheLife, cacheTag } from "next/cache";
 import { createAdminClient } from "@/utils/supabase/admin";
 
 export type RangeKey = "1h" | "1d" | "1w" | "4w" | "1m" | "1y";
@@ -27,6 +28,12 @@ export async function getAppUsageOverTime(
 	appId: string,
 	range: RangeKey = "4w"
 ): Promise<AppUsageRow[]> {
+	"use cache";
+
+	cacheLife("days");
+	cacheTag("data:app_usage");
+	cacheTag(`data:app_usage:${appId}:${range}`);
+
 	const supabase = await createAdminClient();
 
 	const from = fromForRange(range).toISOString();

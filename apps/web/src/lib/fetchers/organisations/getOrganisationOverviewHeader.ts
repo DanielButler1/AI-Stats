@@ -1,6 +1,6 @@
 // lib/fetchers/organisations/getOrganisationOverviewHeader.ts
 import { createClient } from "@/utils/supabase/client";
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 export interface OrganisationOverviewHeader {
 	organisation_id: string;
@@ -62,17 +62,14 @@ export async function fetchOrganisationOverviewHeader(
 
 // --- Cached wrapper (default export) ---
 // capture organisationId in both key and tags to retain the per-ID tag
-export default function getOrganisationOverviewHeader(
+export default async function getOrganisationOverviewHeader(
 	organisationId: string
 ): Promise<OrganisationOverviewHeader> {
-	const cached = unstable_cache(
-		async (id: string) => {
-			console.log("[cache] COMPUTE getOrganisationOverviewHeader", id);
-			return fetchOrganisationOverviewHeader(id);
-		},
-		["organisation:header", organisationId], // per-ID cache key
-		{ revalidate: 60 * 60 * 24, tags: [`organisation:header:${organisationId}`] } // per-ID tag
-	);
+	"use cache";
 
-	return cached(organisationId);
+	cacheLife("days");
+	cacheTag(`organisation:header:${organisationId}`);
+
+	console.log("[cache] COMPUTE getOrganisationOverviewHeader", organisationId);
+	return fetchOrganisationOverviewHeader(organisationId);
 }
