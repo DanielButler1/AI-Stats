@@ -1,5 +1,5 @@
 // lib/fetchers/updates/getLatestUpdates.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
 import type React from "react";
@@ -135,16 +135,14 @@ async function fetchLatestUpdateRows(limit: number): Promise<DbRow[]> {
 // ------------------------------
 const CACHE_LIMIT = 32;
 
-const getLatestUpdateRowsCached = unstable_cache(
-    async () => {
-        return await fetchLatestUpdateRows(CACHE_LIMIT);
-    },
-    ["data:latest-updates:v2"],
-    {
-        revalidate: 60 * 30, // 30 minutes
-        tags: ["data:latest-updates"],
-    }
-);
+async function getLatestUpdateRowsCached(): Promise<DbRow[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:latest-updates");
+
+    return fetchLatestUpdateRows(CACHE_LIMIT);
+}
 
 // ------------------------------
 // Public API: returns ready-to-render UpdateCard props

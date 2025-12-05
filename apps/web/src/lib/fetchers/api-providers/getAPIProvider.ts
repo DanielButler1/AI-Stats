@@ -1,5 +1,5 @@
 // lib/fetchers/api-providers/getAPIProvider.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 export interface APIProvider {
     api_provider_id: string;
@@ -31,14 +31,15 @@ export async function getAPIProvider(): Promise<APIProvider[]> {
         .filter((p) => p.api_provider_id);
 }
 
-export const getAPIProviderPricesCached = unstable_cache(
-    async () => {
-        console.log("[fetch] HIT JSON for API providers");
-        return await getAPIProvider();
-    },
-    ["data:api_providers:v1"],
-    { revalidate: 60 * 60 * 24, tags: ["data:api_providers"] }
-);
+export async function getAPIProviderPricesCached(): Promise<APIProvider[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:api_providers");
+
+    console.log("[fetch] HIT JSON for API providers");
+    return getAPIProvider();
+}
 
 // -------------------------- GET MODELS BY TYPE -------------------------- //
 
@@ -129,36 +130,46 @@ export async function getAPIProviderModels(apiProviderId: string, outputType: Mo
     return results;
 }
 
-export const getAPIProviderModelsCached = unstable_cache(
-    async (apiProviderId: string, outputType: ModelOutputType) => {
-        console.log(`[fetch] HIT JSON for API providers - ${apiProviderId} / ${outputType}`);
-        return await getAPIProviderModels(apiProviderId, outputType);
-    },
-    ["data:api_providers:v1"],
-    { revalidate: 60 * 60 * 24, tags: ["data:api_providers"] }
-);
+export async function getAPIProviderModelsCached(
+    apiProviderId: string,
+    outputType: ModelOutputType
+): Promise<APIProviderModels[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:api_providers");
+
+    console.log(`[fetch] HIT JSON for API providers - ${apiProviderId} / ${outputType}`);
+    return getAPIProviderModels(apiProviderId, outputType);
+}
 
 // Backwards-compatible wrappers for previous specific functions
 export async function getAPIProviderTextModels(apiProviderId: string): Promise<APIProviderModels[]> {
     return getAPIProviderModels(apiProviderId, 'text');
 }
 
-export const getAPIProviderTextModelsCached = unstable_cache(
-    async (apiProviderId: string) => {
-        return await getAPIProviderModelsCached(apiProviderId, 'text');
-    },
-    ["data:api_providers:v1"],
-    { revalidate: 60 * 60 * 24, tags: ["data:api_providers"] }
-);
+export async function getAPIProviderTextModelsCached(
+    apiProviderId: string
+): Promise<APIProviderModels[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:api_providers");
+
+    return getAPIProviderModels(apiProviderId, "text");
+}
 
 export async function getAPIProviderImageModels(apiProviderId: string): Promise<APIProviderModels[]> {
     return getAPIProviderModels(apiProviderId, 'image');
 }
 
-export const getAPIProviderImageModelsCached = unstable_cache(
-    async (apiProviderId: string) => {
-        return await getAPIProviderModelsCached(apiProviderId, 'image');
-    },
-    ["data:api_providers:v1"],
-    { revalidate: 60 * 60 * 24, tags: ["data:api_providers"] }
-);
+export async function getAPIProviderImageModelsCached(
+    apiProviderId: string
+): Promise<APIProviderModels[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:api_providers");
+
+    return getAPIProviderModels(apiProviderId, "image");
+}

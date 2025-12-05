@@ -1,6 +1,6 @@
 // lib/fetchers/models/getModelOverviewHeader.ts
 import { createClient } from "@/utils/supabase/client";
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 export interface ModelOverviewHeader {
 	model_id: string;
@@ -52,17 +52,14 @@ export async function fetchModelOverviewHeader(
 
 // --- Cached wrapper (default export) ---
 // capture modelId in both key and tags to retain the per-ID tag
-export default function getModelOverviewHeader(
+export default async function getModelOverviewHeader(
 	modelId: string
 ): Promise<ModelOverviewHeader> {
-	const cached = unstable_cache(
-		async (id: string) => {
-			console.log("[cache] COMPUTE getModelOverviewHeader", id);
-			return fetchModelOverviewHeader(id);
-		},
-		["model:header", modelId], // per-ID cache key
-		{ revalidate: 60 * 60 * 24, tags: [`model:header:${modelId}`] } // per-ID tag
-	);
+	"use cache";
 
-	return cached(modelId);
+	cacheLife("days");
+	cacheTag(`model:header:${modelId}`);
+
+	console.log("[cache] COMPUTE getModelOverviewHeader", modelId);
+	return fetchModelOverviewHeader(modelId);
 }

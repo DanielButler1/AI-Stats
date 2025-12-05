@@ -1,5 +1,5 @@
 // lib/fetchers/sources/getAllSources.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 export interface SourceCard {
     api_provider_id: string;
@@ -32,11 +32,12 @@ export async function getAllSources(): Promise<SourceCard[]> {
         .filter((p) => p.api_provider_id);
 }
 
-export const getAllSourcesCached = unstable_cache(
-    async () => {
-        console.log("[fetch] HIT DB for sources");
-        return await getAllSources();
-    },
-    ["data:sources:v1"],
-    { revalidate: 60 * 60 * 24, tags: ["data:sources"] }
-);
+export async function getAllSourcesCached(): Promise<SourceCard[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:sources");
+
+    console.log("[fetch] HIT DB for sources");
+    return getAllSources();
+}

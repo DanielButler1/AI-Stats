@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 import type { UpdateCardProps } from "@/lib/fetchers/updates/getLatestUpdates";
 import type React from "react";
@@ -69,11 +69,14 @@ async function fetchYouTubeUpdateRows(limit: number): Promise<CachedRow[]> {
 	}));
 }
 
-const getYouTubeUpdateRowsCached = unstable_cache(
-	async (limit: number) => await fetchYouTubeUpdateRows(limit),
-	["data:latest-youtube-updates"],
-	{ revalidate: 60 * 60 * 24, tags: ["data:latest-youtube-updates"] }
-);
+async function getYouTubeUpdateRowsCached(limit: number): Promise<CachedRow[]> {
+	"use cache";
+
+	cacheLife("days");
+	cacheTag("data:latest-youtube-updates");
+
+	return fetchYouTubeUpdateRows(limit);
+}
 
 function toUpdateCard(row: CachedRow): UpdateCardProps {
 	const { created_at, ...rest } = row;

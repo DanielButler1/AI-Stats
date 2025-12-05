@@ -1,5 +1,5 @@
 // lib/fetchers/models/getModel.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
 export interface ModelPage {
@@ -250,19 +250,20 @@ export async function getModelOverview(modelId: string): Promise<ModelOverviewPa
  *
  * Usage: await getModelCached(modelId)
  *
- * This wraps the fetcher with `unstable_cache` for at least 1 week of caching.
+ * Uses `use cache` with a ~1-day-ish lifetime and tagging.
  */
 export async function getModelCached(modelId: string): Promise<ModelPage> {
-    const cached = unstable_cache(
-        async () => {
-            console.log('[fetch] HIT DB for model', modelId);
-            return await getModel(modelId);
-        },
-        ["data:model:v1", modelId],
-        { revalidate: 60 * 60 * 24, tags: ["data:models", `data:models:${modelId}`] }
-    );
+    "use cache";
 
-    return await cached();
+    // Rough equivalent of "revalidate: 1 day".
+    // You can tune this or move to a named profile later.
+    cacheLife("days");
+
+    cacheTag("data:models");
+    cacheTag(`data:models:${modelId}`);
+
+    console.log("[getModelCached] Cache-aware fetch for model", modelId);
+    return getModel(modelId);
 }
 
 /**
@@ -270,17 +271,22 @@ export async function getModelCached(modelId: string): Promise<ModelPage> {
  *
  * Usage: await getModelOverviewCached(modelId)
  *
- * This wraps the fetcher with `unstable_cache` for at least 1 week of caching.
+ * Uses `use cache` with a ~1-day-ish lifetime and tagging.
  */
-export async function getModelOverviewCached(modelId: string): Promise<ModelOverviewPage | null> {
-    const cached = unstable_cache(
-        async () => {
-            console.log('[fetch] HIT DB for model overview', modelId);
-            return await getModelOverview(modelId);
-        },
-        ["data:modelOverview:v1", modelId],
-        { revalidate: 60 * 60 * 24, tags: ["data:models", `data:models:${modelId}`] }
-    );
+export async function getModelOverviewCached(
+    modelId: string,
+): Promise<ModelOverviewPage | null> {
+    "use cache";
 
-    return await cached();
+    cacheLife({
+        stale: 60 * 60,
+        revalidate: 60 * 60 * 24,
+        expire: 60 * 60 * 24 * 7,
+    });
+
+    cacheTag("data:models");
+    cacheTag(`data:models:${modelId}`);
+
+    console.log("[getModelOverviewCached] Cache-aware fetch for model overview", modelId);
+    return getModelOverview(modelId);
 }

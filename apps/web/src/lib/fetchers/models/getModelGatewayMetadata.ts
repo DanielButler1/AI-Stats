@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
 export interface GatewayProviderDetails {
@@ -164,14 +164,14 @@ export default async function getModelGatewayMetadata(
  * This wraps the fetcher with `unstable_cache` for at least 1 week of caching.
  */
 export async function getModelGatewayMetadataCached(modelId: string): Promise<ModelGatewayMetadata> {
-    const cached = unstable_cache(
-        async () => {
-            console.log('[fetch] HIT DB for model gateway metadata', modelId);
-            return await getModelGatewayMetadata(modelId);
-        },
-        ["data:modelGatewayMetadata:v1", modelId],
-        { revalidate: 60 * 60 * 24, tags: ["data:models", `data:models:${modelId}`, "data:api_provider_models", "data:model_aliases"] }
-    );
+    "use cache";
 
-    return await cached();
+    cacheLife("days");
+    cacheTag("data:models");
+    cacheTag(`data:models:${modelId}`);
+    cacheTag("data:api_provider_models");
+    cacheTag("data:model_aliases");
+
+    console.log("[fetch] HIT DB for model gateway metadata", modelId);
+    return getModelGatewayMetadata(modelId);
 }

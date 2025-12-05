@@ -1,5 +1,5 @@
 // lib/fetchers/organisations/getAllOrganisations.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
 export interface OrganisationCard {
@@ -35,11 +35,12 @@ export async function getAllOrganisations(): Promise<OrganisationCard[]> {
     return organisations;
 }
 
-export const getAllOrganisationsCached = unstable_cache(
-    async () => {
-        console.log("[fetch] HIT DB for organisations");
-        return await getAllOrganisations();
-    },
-    ["data:organisations:v1"],
-    { revalidate: 60 * 60 * 24, tags: ["data:organisations"] }
-);
+export async function getAllOrganisationsCached(): Promise<OrganisationCard[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:organisations");
+
+    console.log("[fetch] HIT DB for organisations");
+    return getAllOrganisations();
+}

@@ -1,5 +1,4 @@
-import { unstable_cache } from "next/cache";
-import { getModelOverview } from "@/lib/fetchers/models/getModel";
+import { getModelOverviewCached } from "@/lib/fetchers/models/getModel";
 import ModelOverview from "@/components/(data)/model/overview/ModelOverview";
 import Image from "next/image";
 import ModelDetailShell from "@/components/(data)/model/ModelDetailShell";
@@ -13,7 +12,7 @@ import {
 
 async function fetchModel(modelId: string) {
 	try {
-		return await getModelOverview(modelId);
+		return await getModelOverviewCached(modelId);
 	} catch (error) {
 		console.warn("[seo] failed to load model overview for metadata", {
 			modelId,
@@ -102,17 +101,7 @@ export default async function Page({
 	const routeParams = await params;
 	const modelId = getModelIdFromParams(routeParams);
 
-	// Cache per-model; revalidate periodically and tag for on-demand invalidation.
-	const getCachedModel = unstable_cache(
-		async (id: string) => {
-			console.log("[fetch] HIT DB getModelOverview", id);
-			return getModelOverview(id); // make sure this uses a cookie-less/public client
-		},
-		["data:models", modelId],
-		{ revalidate: 604800, tags: ["data:models", `model:${modelId}`] }
-	);
-
-	const model = await getCachedModel(modelId);
+	const model = await getModelOverviewCached(modelId);
 
 	if (!model) {
 		return (

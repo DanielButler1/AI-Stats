@@ -96,17 +96,19 @@ export default function HeaderClient({
 						<nav className="flex flex-col gap-2 px-6 pb-4">
 							{navLinks}
 						</nav>
-						<div className="px-6 py-4 mt-auto border-t flex justify-end">
+						<div className="px-6 py-4 mt-auto border-t">
 							{isLoggedIn ? (
-								<TeamSwitcher
-									user={user}
-									teams={teams}
-									userRole={userRole}
-									onSignOut={handleSignOut}
-									initialActiveTeamId={currentTeamId}
-								/>
+								<div className="flex justify-end">
+									<TeamSwitcher
+										user={user}
+										teams={teams}
+										userRole={userRole}
+										onSignOut={handleSignOut}
+										initialActiveTeamId={currentTeamId}
+									/>
+								</div>
 							) : (
-								<Link href="/sign-in">
+								<Link href="/sign-in" className="w-full block">
 									<Button
 										className="w-full rounded-full text-xs px-4 py-2 font-semibold"
 										variant="outline"

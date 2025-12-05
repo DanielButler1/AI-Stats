@@ -1,5 +1,5 @@
 // lib/fetchers/models/getModelSubscriptionPlans.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
 export interface SubscriptionPlan {
@@ -128,14 +128,14 @@ export default async function getModelSubscriptionPlans(modelId: string): Promis
  * This wraps the fetcher with `unstable_cache` for at least 1 week of caching.
  */
 export async function getModelSubscriptionPlansCached(modelId: string): Promise<SubscriptionPlan[]> {
-    const cached = unstable_cache(
-        async () => {
-            console.log('[fetch] HIT DB for model subscription plans', modelId);
-            return await getModelSubscriptionPlans(modelId);
-        },
-        ["data:modelSubscriptionPlans:v1", modelId],
-        { revalidate: 60 * 60 * 24, tags: ["data:models", `data:models:${modelId}`, "data:subscription_plans", "data:subscription_plan_models"] }
-    );
+    "use cache";
 
-    return await cached();
+    cacheLife("days");
+    cacheTag("data:models");
+    cacheTag(`data:models:${modelId}`);
+    cacheTag("data:subscription_plans");
+    cacheTag("data:subscription_plan_models");
+
+    console.log("[fetch] HIT DB for model subscription plans", modelId);
+    return getModelSubscriptionPlans(modelId);
 }

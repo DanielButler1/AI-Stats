@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createAdminClient } from "@/utils/supabase/admin";
 
 export type AppDetails = {
@@ -62,11 +62,12 @@ export async function getAppDetails(appId: string): Promise<AppDetails | null> {
 	}
 }
 
-export const getAppDetailsCached = unstable_cache(
-	async (appId: string) => {
-		console.log(`[fetch] HIT JSON for app details - ${appId}`);
-		return await getAppDetails(appId);
-	},
-	["data:app_details:v1"],
-	{ revalidate: 300, tags: ["data:app_details"] } // 5 minute cache
-);
+export async function getAppDetailsCached(appId: string): Promise<AppDetails | null> {
+	"use cache";
+
+	cacheLife("days");
+	cacheTag("data:app_details");
+
+	console.log(`[fetch] HIT JSON for app details - ${appId}`);
+	return getAppDetails(appId);
+}

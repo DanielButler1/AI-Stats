@@ -1,5 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { unstable_cache as cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
 type ActiveGatewayModelRow = {
@@ -39,37 +39,34 @@ async function fetchActiveGatewayModels(
     return (data ?? []) as ActiveGatewayModelRow[];
 }
 
-const getCachedGatewaySupportedModels = cache(
-    async (): Promise<GatewaySupportedModel[]> => {
-        const client = await createClient();
-        const rows = await fetchActiveGatewayModels(client, new Date());
-        const seen = new Set<string>();
-        const models: GatewaySupportedModel[] = [];
-
-        for (const row of rows) {
-            if (!row.model_id || !row.api_provider_id) continue;
-            const key = `${row.api_provider_id}:${row.model_id}`;
-            if (seen.has(key)) continue;
-            seen.add(key);
-            models.push({
-                modelId: row.model_id,
-                providerId: row.api_provider_id,
-            });
-        }
-
-        models.sort((a, b) => {
-            if (a.providerId === b.providerId) {
-                return a.modelId.localeCompare(b.modelId);
-            }
-            return a.providerId.localeCompare(b.providerId);
-        });
-
-        return models;
-    },
-    ["gateway-supported-models"],
-    { revalidate: 60 * 60 * 24 }
-);
-
 export async function getGatewaySupportedModels(): Promise<GatewaySupportedModel[]> {
-    return getCachedGatewaySupportedModels();
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("gateway-supported-models");
+
+    const client = await createClient();
+    const rows = await fetchActiveGatewayModels(client, new Date());
+    const seen = new Set<string>();
+    const models: GatewaySupportedModel[] = [];
+
+    for (const row of rows) {
+        if (!row.model_id || !row.api_provider_id) continue;
+        const key = `${row.api_provider_id}:${row.model_id}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        models.push({
+            modelId: row.model_id,
+            providerId: row.api_provider_id,
+        });
+    }
+
+    models.sort((a, b) => {
+        if (a.providerId === b.providerId) {
+            return a.modelId.localeCompare(b.modelId);
+        }
+        return a.providerId.localeCompare(b.providerId);
+    });
+
+    return models;
 }

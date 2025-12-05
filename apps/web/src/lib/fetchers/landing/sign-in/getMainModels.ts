@@ -1,5 +1,5 @@
 // lib/fetchers/landing/sign-in/getMainModels.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from '@/utils/supabase/client';
 
 export interface SignInModel {
@@ -30,11 +30,14 @@ export async function getMainModels(modelIds: string[]): Promise<SignInModel[]> 
     return data.map((r: any) => ({ ...r } as SignInModel));
 }
 
-export const getMainModelsCached = unstable_cache(
-    async (modelIds: string[]) => {
-        console.log('[fetch] HIT for main models', modelIds);
-        return await getMainModels(modelIds);
-    },
-    ['data:sign-in:models:v1'],
-    { revalidate: 60 * 60 * 24, tags: ['data:sign-in:models'] }
-);
+export async function getMainModelsCached(
+    modelIds: string[]
+): Promise<SignInModel[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:sign-in:models");
+
+    console.log("[fetch] HIT for main models", modelIds);
+    return getMainModels(modelIds);
+}

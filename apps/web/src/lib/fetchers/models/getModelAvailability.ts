@@ -1,5 +1,5 @@
 // lib/fetchers/models/getModelAvailability.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
 export interface ModelAvailabilityItem {
@@ -71,14 +71,13 @@ export default async function getModelAvailability(modelId: string): Promise<Mod
  * This wraps the fetcher with `unstable_cache` for at least 1 week of caching.
  */
 export async function getModelAvailabilityCached(modelId: string): Promise<ModelAvailabilityItem[]> {
-    const cached = unstable_cache(
-        async () => {
-            console.log('[fetch] HIT DB for model availability', modelId);
-            return await getModelAvailability(modelId);
-        },
-        ["data:modelAvailability:v1", modelId],
-        { revalidate: 60 * 60 * 24, tags: ["data:models", `data:models:${modelId}`, "data:api_provider_models"] }
-    );
+    "use cache";
 
-    return await cached();
+    cacheLife("days");
+    cacheTag("data:models");
+    cacheTag(`data:models:${modelId}`);
+    cacheTag("data:api_provider_models");
+
+    console.log("[fetch] HIT DB for model availability", modelId);
+    return getModelAvailability(modelId);
 }

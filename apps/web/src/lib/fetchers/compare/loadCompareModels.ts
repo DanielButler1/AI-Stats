@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 import type { ExtendedModel, Provider } from "@/data/types";
 import { createClient } from "@/utils/supabase/client";
@@ -96,14 +96,12 @@ export async function loadCompareModels(): Promise<ExtendedModel[]> {
 	return extendedModels;
 }
 
-export const loadCompareModelsCached = unstable_cache(
-	async () => {
-		console.log("[compare] HIT DB for compare models");
-		return await loadCompareModels();
-	},
-	["compare:models:v3"],
-	{
-		revalidate: 60 * 60 * 24,
-		tags: ["data:models"],
-	}
-);
+export async function loadCompareModelsCached(): Promise<ExtendedModel[]> {
+	"use cache";
+
+	cacheLife("days");
+	cacheTag("data:models");
+
+	console.log("[compare] HIT DB for compare models");
+	return loadCompareModels();
+}

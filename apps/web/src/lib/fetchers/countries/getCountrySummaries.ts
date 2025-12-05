@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 import {
 	getAllModelsCached,
@@ -162,14 +162,13 @@ export async function getCountrySummaries(): Promise<CountrySummary[]> {
 	return summaries;
 }
 
-export const getCountrySummariesCached = unstable_cache(
-	async () => {
-		console.log("[fetch] HIT DB for country summaries");
-		return getCountrySummaries();
-	},
-	["data:countries:v1"],
-	{
-		revalidate: 60 * 30, // 30 minutes
-		tags: ["data:organisations", "data:models"],
-	}
-);
+export async function getCountrySummariesCached(): Promise<CountrySummary[]> {
+	"use cache";
+
+	cacheLife("days");
+	cacheTag("data:organisations");
+	cacheTag("data:models");
+
+	console.log("[fetch] HIT DB for country summaries");
+	return getCountrySummaries();
+}

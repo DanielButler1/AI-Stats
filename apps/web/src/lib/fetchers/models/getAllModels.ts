@@ -1,5 +1,5 @@
 // lib/fetchers/models/getAllModelsNew.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
 export interface ModelCard {
@@ -224,11 +224,12 @@ export async function getModelsFiltered(
     return models;
 }
 
-export const getAllModelsCached = unstable_cache(
-    async () => {
-        console.log("[fetch] HIT DB for models");
-        return await getAllModels();
-    },
-    ["data:models:v1"],
-    { revalidate: 60 * 60 * 24, tags: ["data:models"] }
-);
+export async function getAllModelsCached(): Promise<ModelCard[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:models");
+
+    console.log("[fetch] HIT DB for models");
+    return getAllModels();
+}

@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
 /** mirrors new rules schema */
@@ -192,14 +192,14 @@ export default async function getModelPricing(modelId: string): Promise<Provider
  * This wraps the fetcher with `unstable_cache` for at least 1 week of caching.
  */
 export async function getModelPricingCached(modelId: string): Promise<ProviderPricing[]> {
-    const cached = unstable_cache(
-        async () => {
-            console.log('[fetch] HIT DB for model pricing', modelId);
-            return await getModelPricing(modelId);
-        },
-        ["data:modelPricing:v1", modelId],
-        { revalidate: 60 * 60 * 24, tags: ["data:models", `data:models:${modelId}`, "data:api_pricing_rules", "data:api_provider_models"] }
-    );
+    "use cache";
 
-    return await cached();
+    cacheLife("days");
+    cacheTag("data:models");
+    cacheTag(`data:models:${modelId}`);
+    cacheTag("data:api_pricing_rules");
+    cacheTag("data:api_provider_models");
+
+    console.log("[fetch] HIT DB for model pricing", modelId);
+    return getModelPricing(modelId);
 }

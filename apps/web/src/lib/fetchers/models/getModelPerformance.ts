@@ -1,5 +1,5 @@
 import { createAdminClient } from "@/utils/supabase/admin";
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 const HOURS_DEFAULT = 24 * 7;
 const SUCCESS_WINDOW_HOURS = 24;
@@ -130,12 +130,17 @@ export async function getModelPerformanceMetrics(
 	};
 }
 
-export const getModelPerformanceMetricsCached = unstable_cache(
-	async (modelId: string, hours: number = HOURS_DEFAULT) =>
-		getModelPerformanceMetrics(modelId, hours),
-	["model-performance"],
-	{ revalidate: 60 * 5, tags: ["data:gateway_requests"] }
-);
+export async function getModelPerformanceMetricsCached(
+	modelId: string,
+	hours: number = HOURS_DEFAULT
+): Promise<ModelPerformanceMetrics> {
+	"use cache";
+
+	cacheLife("days");
+	cacheTag("data:gateway_requests");
+
+	return getModelPerformanceMetrics(modelId, hours);
+}
 
 function toNumber(value: any): number | null {
 	if (value === null || value === undefined) return null;

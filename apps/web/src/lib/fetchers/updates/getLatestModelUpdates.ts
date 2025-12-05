@@ -1,5 +1,5 @@
 // lib/fetchers/updates/getLatestModelUpdate.ts
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
 import type React from "react";
@@ -213,15 +213,16 @@ function buildSerialisedEvents(rows: ModelRow[], now = new Date()): SerialisedMo
 // --------------------------------------
 const CACHE_LIMIT = 64;
 
-const getSerialisedModelEventsCached = unstable_cache(
-    async () => {
-        const rows = await fetchAllModelRows();
-        const events = buildSerialisedEvents(rows);
-        return events.slice(0, CACHE_LIMIT);
-    },
-    ["data:model-updates:v1"],
-    { revalidate: 60 * 30, tags: ["data:model-updates"] }
-);
+async function getSerialisedModelEventsCached(): Promise<SerialisedModelEvent[]> {
+    "use cache";
+
+    cacheLife("days");
+    cacheTag("data:model-updates");
+
+    const rows = await fetchAllModelRows();
+    const events = buildSerialisedEvents(rows);
+    return events.slice(0, CACHE_LIMIT);
+}
 
 // --------------------------------------
 // Public: ready-to-render UpdateCard props
