@@ -218,14 +218,18 @@ AIStatsModelId::eAIStatsModelId toEnum(const EnumUnderlyingType& val)
         return AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_VL2_SMALL_2024_12_13;
     if (val == utility::conversions::to_string_t(_XPLATSTR("deepseek/deepseek-vl2-tiny-2024-12-13")))
         return AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_VL2_TINY_2024_12_13;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/chat-bison")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_CHAT_BISON;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/code-becko")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_CODE_BECKO;
     if (val == utility::conversions::to_string_t(_XPLATSTR("google/embedding-001-2023-12-13")))
         return AIStatsModelId::eAIStatsModelId::GOOGLE_EMBEDDING_001_2023_12_13;
-    if (val == utility::conversions::to_string_t(_XPLATSTR("google/embedding-gecko-001-2023-12-13")))
-        return AIStatsModelId::eAIStatsModelId::GOOGLE_EMBEDDING_GECKO_001_2023_12_13;
     if (val == utility::conversions::to_string_t(_XPLATSTR("google/gemini-1-0-nano-2023-12-06")))
         return AIStatsModelId::eAIStatsModelId::GOOGLE_GEMINI_1_0_NANO_2023_12_06;
     if (val == utility::conversions::to_string_t(_XPLATSTR("google/gemini-1-0-pro-2023-12-06")))
         return AIStatsModelId::eAIStatsModelId::GOOGLE_GEMINI_1_0_PRO_2023_12_06;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/gemini-1-0-pro-vision-001")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_GEMINI_1_0_PRO_VISION_001;
     if (val == utility::conversions::to_string_t(_XPLATSTR("google/gemini-1-0-ultra-2023-12-06")))
         return AIStatsModelId::eAIStatsModelId::GOOGLE_GEMINI_1_0_ULTRA_2023_12_06;
     if (val == utility::conversions::to_string_t(_XPLATSTR("google/gemini-1-5-flash-001-2024-05-23")))
@@ -340,6 +344,14 @@ AIStatsModelId::eAIStatsModelId toEnum(const EnumUnderlyingType& val)
         return AIStatsModelId::eAIStatsModelId::GOOGLE_GEMMA_3N_E2B;
     if (val == utility::conversions::to_string_t(_XPLATSTR("google/gemma-3n-e4b-2025-05-20")))
         return AIStatsModelId::eAIStatsModelId::GOOGLE_GEMMA_3N_E4B_2025_05_20;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/image-generation-002")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_IMAGE_GENERATION_002;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/image-generation-005")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_IMAGE_GENERATION_005;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/image-generation-006")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_IMAGE_GENERATION_006;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/image-text")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_IMAGE_TEXT;
     if (val == utility::conversions::to_string_t(_XPLATSTR("google/imagen-3-0-generate-001")))
         return AIStatsModelId::eAIStatsModelId::GOOGLE_IMAGEN_3_0_GENERATE_001;
     if (val == utility::conversions::to_string_t(_XPLATSTR("google/imagen-3-0-generate-002-2025-02-06")))
@@ -358,6 +370,24 @@ AIStatsModelId::eAIStatsModelId toEnum(const EnumUnderlyingType& val)
         return AIStatsModelId::eAIStatsModelId::GOOGLE_LEARNLM_1_5_PRO_EXPERIMENTAL;
     if (val == utility::conversions::to_string_t(_XPLATSTR("google/learnlm-2-0-flash-experimental")))
         return AIStatsModelId::eAIStatsModelId::GOOGLE_LEARNLM_2_0_FLASH_EXPERIMENTAL;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/multimodal-embedding-001")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_MULTIMODAL_EMBEDDING_001;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/text-bison")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_BISON;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/text-embedding-004")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_EMBEDDING_004;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/text-embedding-005")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_EMBEDDING_005;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/text-embedding-gecko-001-2023-12-13")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_EMBEDDING_GECKO_001_2023_12_13;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/text-embedding-gecko-002")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_EMBEDDING_GECKO_002;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/text-embedding-gecko-003")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_EMBEDDING_GECKO_003;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/text-embedding-gecko-multilingual-001")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_EMBEDDING_GECKO_MULTILINGUAL_001;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("google/text-multilingual-embedding-002")))
+        return AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_MULTILINGUAL_EMBEDDING_002;
     if (val == utility::conversions::to_string_t(_XPLATSTR("google/veo-2-2025-04-09")))
         return AIStatsModelId::eAIStatsModelId::GOOGLE_VEO_2_2025_04_09;
     if (val == utility::conversions::to_string_t(_XPLATSTR("google/veo-3-0-fast-generate-preview-2025-07-17")))
@@ -896,6 +926,8 @@ AIStatsModelId::eAIStatsModelId toEnum(const EnumUnderlyingType& val)
         return AIStatsModelId::eAIStatsModelId::OPENAI_GPT_5_1_CODEX_MINI_2025_11_13;
     if (val == utility::conversions::to_string_t(_XPLATSTR("openai/gpt-5-1-pro")))
         return AIStatsModelId::eAIStatsModelId::OPENAI_GPT_5_1_PRO;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("openai/gpt-5-2")))
+        return AIStatsModelId::eAIStatsModelId::OPENAI_GPT_5_2;
     if (val == utility::conversions::to_string_t(_XPLATSTR("openai/gpt-5-2025-08-07")))
         return AIStatsModelId::eAIStatsModelId::OPENAI_GPT_5_2025_08_07;
     if (val == utility::conversions::to_string_t(_XPLATSTR("openai/gpt-5-chat-2025-08-07")))
@@ -1104,6 +1136,8 @@ AIStatsModelId::eAIStatsModelId toEnum(const EnumUnderlyingType& val)
         return AIStatsModelId::eAIStatsModelId::X_AI_GROK_4_1_NON_THINKING_2025_11_17;
     if (val == utility::conversions::to_string_t(_XPLATSTR("x-ai/grok-4-1-thinking-2025-11-17")))
         return AIStatsModelId::eAIStatsModelId::X_AI_GROK_4_1_THINKING_2025_11_17;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("x-ai/grok-4-2")))
+        return AIStatsModelId::eAIStatsModelId::X_AI_GROK_4_2;
     if (val == utility::conversions::to_string_t(_XPLATSTR("x-ai/grok-4-2025-07-10")))
         return AIStatsModelId::eAIStatsModelId::X_AI_GROK_4_2025_07_10;
     if (val == utility::conversions::to_string_t(_XPLATSTR("x-ai/grok-4-fast-non-reasoning-2025-09-20")))
@@ -1339,14 +1373,18 @@ EnumUnderlyingType fromEnum(AIStatsModelId::eAIStatsModelId e)
         return _XPLATSTR("deepseek/deepseek-vl2-small-2024-12-13");
     case AIStatsModelId::eAIStatsModelId::DEEPSEEK_DEEPSEEK_VL2_TINY_2024_12_13:
         return _XPLATSTR("deepseek/deepseek-vl2-tiny-2024-12-13");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_CHAT_BISON:
+        return _XPLATSTR("google/chat-bison");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_CODE_BECKO:
+        return _XPLATSTR("google/code-becko");
     case AIStatsModelId::eAIStatsModelId::GOOGLE_EMBEDDING_001_2023_12_13:
         return _XPLATSTR("google/embedding-001-2023-12-13");
-    case AIStatsModelId::eAIStatsModelId::GOOGLE_EMBEDDING_GECKO_001_2023_12_13:
-        return _XPLATSTR("google/embedding-gecko-001-2023-12-13");
     case AIStatsModelId::eAIStatsModelId::GOOGLE_GEMINI_1_0_NANO_2023_12_06:
         return _XPLATSTR("google/gemini-1-0-nano-2023-12-06");
     case AIStatsModelId::eAIStatsModelId::GOOGLE_GEMINI_1_0_PRO_2023_12_06:
         return _XPLATSTR("google/gemini-1-0-pro-2023-12-06");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_GEMINI_1_0_PRO_VISION_001:
+        return _XPLATSTR("google/gemini-1-0-pro-vision-001");
     case AIStatsModelId::eAIStatsModelId::GOOGLE_GEMINI_1_0_ULTRA_2023_12_06:
         return _XPLATSTR("google/gemini-1-0-ultra-2023-12-06");
     case AIStatsModelId::eAIStatsModelId::GOOGLE_GEMINI_1_5_FLASH_001_2024_05_23:
@@ -1461,6 +1499,14 @@ EnumUnderlyingType fromEnum(AIStatsModelId::eAIStatsModelId e)
         return _XPLATSTR("google/gemma-3n-e2b");
     case AIStatsModelId::eAIStatsModelId::GOOGLE_GEMMA_3N_E4B_2025_05_20:
         return _XPLATSTR("google/gemma-3n-e4b-2025-05-20");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_IMAGE_GENERATION_002:
+        return _XPLATSTR("google/image-generation-002");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_IMAGE_GENERATION_005:
+        return _XPLATSTR("google/image-generation-005");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_IMAGE_GENERATION_006:
+        return _XPLATSTR("google/image-generation-006");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_IMAGE_TEXT:
+        return _XPLATSTR("google/image-text");
     case AIStatsModelId::eAIStatsModelId::GOOGLE_IMAGEN_3_0_GENERATE_001:
         return _XPLATSTR("google/imagen-3-0-generate-001");
     case AIStatsModelId::eAIStatsModelId::GOOGLE_IMAGEN_3_0_GENERATE_002_2025_02_06:
@@ -1479,6 +1525,24 @@ EnumUnderlyingType fromEnum(AIStatsModelId::eAIStatsModelId e)
         return _XPLATSTR("google/learnlm-1-5-pro-experimental");
     case AIStatsModelId::eAIStatsModelId::GOOGLE_LEARNLM_2_0_FLASH_EXPERIMENTAL:
         return _XPLATSTR("google/learnlm-2-0-flash-experimental");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_MULTIMODAL_EMBEDDING_001:
+        return _XPLATSTR("google/multimodal-embedding-001");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_BISON:
+        return _XPLATSTR("google/text-bison");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_EMBEDDING_004:
+        return _XPLATSTR("google/text-embedding-004");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_EMBEDDING_005:
+        return _XPLATSTR("google/text-embedding-005");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_EMBEDDING_GECKO_001_2023_12_13:
+        return _XPLATSTR("google/text-embedding-gecko-001-2023-12-13");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_EMBEDDING_GECKO_002:
+        return _XPLATSTR("google/text-embedding-gecko-002");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_EMBEDDING_GECKO_003:
+        return _XPLATSTR("google/text-embedding-gecko-003");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_EMBEDDING_GECKO_MULTILINGUAL_001:
+        return _XPLATSTR("google/text-embedding-gecko-multilingual-001");
+    case AIStatsModelId::eAIStatsModelId::GOOGLE_TEXT_MULTILINGUAL_EMBEDDING_002:
+        return _XPLATSTR("google/text-multilingual-embedding-002");
     case AIStatsModelId::eAIStatsModelId::GOOGLE_VEO_2_2025_04_09:
         return _XPLATSTR("google/veo-2-2025-04-09");
     case AIStatsModelId::eAIStatsModelId::GOOGLE_VEO_3_0_FAST_GENERATE_PREVIEW_2025_07_17:
@@ -2017,6 +2081,8 @@ EnumUnderlyingType fromEnum(AIStatsModelId::eAIStatsModelId e)
         return _XPLATSTR("openai/gpt-5-1-codex-mini-2025-11-13");
     case AIStatsModelId::eAIStatsModelId::OPENAI_GPT_5_1_PRO:
         return _XPLATSTR("openai/gpt-5-1-pro");
+    case AIStatsModelId::eAIStatsModelId::OPENAI_GPT_5_2:
+        return _XPLATSTR("openai/gpt-5-2");
     case AIStatsModelId::eAIStatsModelId::OPENAI_GPT_5_2025_08_07:
         return _XPLATSTR("openai/gpt-5-2025-08-07");
     case AIStatsModelId::eAIStatsModelId::OPENAI_GPT_5_CHAT_2025_08_07:
@@ -2225,6 +2291,8 @@ EnumUnderlyingType fromEnum(AIStatsModelId::eAIStatsModelId e)
         return _XPLATSTR("x-ai/grok-4-1-non-thinking-2025-11-17");
     case AIStatsModelId::eAIStatsModelId::X_AI_GROK_4_1_THINKING_2025_11_17:
         return _XPLATSTR("x-ai/grok-4-1-thinking-2025-11-17");
+    case AIStatsModelId::eAIStatsModelId::X_AI_GROK_4_2:
+        return _XPLATSTR("x-ai/grok-4-2");
     case AIStatsModelId::eAIStatsModelId::X_AI_GROK_4_2025_07_10:
         return _XPLATSTR("x-ai/grok-4-2025-07-10");
     case AIStatsModelId::eAIStatsModelId::X_AI_GROK_4_FAST_NON_REASONING_2025_09_20:

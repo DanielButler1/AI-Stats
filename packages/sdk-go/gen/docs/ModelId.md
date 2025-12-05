@@ -197,13 +197,17 @@
 
 * `DEEPSEEK_DEEPSEEK_VL2_TINY_2024_12_13` (value: `"deepseek/deepseek-vl2-tiny-2024-12-13"`)
 
-* `GOOGLE_EMBEDDING_001_2023_12_13` (value: `"google/embedding-001-2023-12-13"`)
+* `GOOGLE_CHAT_BISON` (value: `"google/chat-bison"`)
 
-* `GOOGLE_EMBEDDING_GECKO_001_2023_12_13` (value: `"google/embedding-gecko-001-2023-12-13"`)
+* `GOOGLE_CODE_BECKO` (value: `"google/code-becko"`)
+
+* `GOOGLE_EMBEDDING_001_2023_12_13` (value: `"google/embedding-001-2023-12-13"`)
 
 * `GOOGLE_GEMINI_1_0_NANO_2023_12_06` (value: `"google/gemini-1-0-nano-2023-12-06"`)
 
 * `GOOGLE_GEMINI_1_0_PRO_2023_12_06` (value: `"google/gemini-1-0-pro-2023-12-06"`)
+
+* `GOOGLE_GEMINI_1_0_PRO_VISION_001` (value: `"google/gemini-1-0-pro-vision-001"`)
 
 * `GOOGLE_GEMINI_1_0_ULTRA_2023_12_06` (value: `"google/gemini-1-0-ultra-2023-12-06"`)
 
@@ -319,6 +323,14 @@
 
 * `GOOGLE_GEMMA_3N_E4B_2025_05_20` (value: `"google/gemma-3n-e4b-2025-05-20"`)
 
+* `GOOGLE_IMAGE_GENERATION_002` (value: `"google/image-generation-002"`)
+
+* `GOOGLE_IMAGE_GENERATION_005` (value: `"google/image-generation-005"`)
+
+* `GOOGLE_IMAGE_GENERATION_006` (value: `"google/image-generation-006"`)
+
+* `GOOGLE_IMAGE_TEXT` (value: `"google/image-text"`)
+
 * `GOOGLE_IMAGEN_3_0_GENERATE_001` (value: `"google/imagen-3-0-generate-001"`)
 
 * `GOOGLE_IMAGEN_3_0_GENERATE_002_2025_02_06` (value: `"google/imagen-3-0-generate-002-2025-02-06"`)
@@ -336,6 +348,24 @@
 * `GOOGLE_LEARNLM_1_5_PRO_EXPERIMENTAL` (value: `"google/learnlm-1-5-pro-experimental"`)
 
 * `GOOGLE_LEARNLM_2_0_FLASH_EXPERIMENTAL` (value: `"google/learnlm-2-0-flash-experimental"`)
+
+* `GOOGLE_MULTIMODAL_EMBEDDING_001` (value: `"google/multimodal-embedding-001"`)
+
+* `GOOGLE_TEXT_BISON` (value: `"google/text-bison"`)
+
+* `GOOGLE_TEXT_EMBEDDING_004` (value: `"google/text-embedding-004"`)
+
+* `GOOGLE_TEXT_EMBEDDING_005` (value: `"google/text-embedding-005"`)
+
+* `GOOGLE_TEXT_EMBEDDING_GECKO_001_2023_12_13` (value: `"google/text-embedding-gecko-001-2023-12-13"`)
+
+* `GOOGLE_TEXT_EMBEDDING_GECKO_002` (value: `"google/text-embedding-gecko-002"`)
+
+* `GOOGLE_TEXT_EMBEDDING_GECKO_003` (value: `"google/text-embedding-gecko-003"`)
+
+* `GOOGLE_TEXT_EMBEDDING_GECKO_MULTILINGUAL_001` (value: `"google/text-embedding-gecko-multilingual-001"`)
+
+* `GOOGLE_TEXT_MULTILINGUAL_EMBEDDING_002` (value: `"google/text-multilingual-embedding-002"`)
 
 * `GOOGLE_VEO_2_2025_04_09` (value: `"google/veo-2-2025-04-09"`)
 
@@ -875,6 +905,8 @@
 
 * `OPENAI_GPT_5_1_PRO` (value: `"openai/gpt-5-1-pro"`)
 
+* `OPENAI_GPT_5_2` (value: `"openai/gpt-5-2"`)
+
 * `OPENAI_GPT_5_2025_08_07` (value: `"openai/gpt-5-2025-08-07"`)
 
 * `OPENAI_GPT_5_CHAT_2025_08_07` (value: `"openai/gpt-5-chat-2025-08-07"`)
@@ -1082,6 +1114,8 @@
 * `X_AI_GROK_4_1_NON_THINKING_2025_11_17` (value: `"x-ai/grok-4-1-non-thinking-2025-11-17"`)
 
 * `X_AI_GROK_4_1_THINKING_2025_11_17` (value: `"x-ai/grok-4-1-thinking-2025-11-17"`)
+
+* `X_AI_GROK_4_2` (value: `"x-ai/grok-4-2"`)
 
 * `X_AI_GROK_4_2025_07_10` (value: `"x-ai/grok-4-2025-07-10"`)
 

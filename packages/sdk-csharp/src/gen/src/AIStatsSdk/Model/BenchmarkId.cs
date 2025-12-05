@@ -272,364 +272,369 @@ namespace AIStatsSdk.Model
         HumanitysLastExam = 48,
 
         /// <summary>
+        /// Enum IfBench for value: if-bench
+        /// </summary>
+        IfBench = 49,
+
+        /// <summary>
         /// Enum IfEval for value: if-eval
         /// </summary>
-        IfEval = 49,
+        IfEval = 50,
 
         /// <summary>
         /// Enum IqBench for value: iq-bench
         /// </summary>
-        IqBench = 50,
+        IqBench = 51,
 
         /// <summary>
         /// Enum Lisanbench for value: lisanbench
         /// </summary>
-        Lisanbench = 51,
+        Lisanbench = 52,
 
         /// <summary>
         /// Enum Livebench for value: livebench
         /// </summary>
-        Livebench = 52,
+        Livebench = 53,
 
         /// <summary>
         /// Enum LivecodebenchPro for value: livecodebench-pro
         /// </summary>
-        LivecodebenchPro = 53,
+        LivecodebenchPro = 54,
 
         /// <summary>
         /// Enum LivecodebenchV5 for value: livecodebench-v5
         /// </summary>
-        LivecodebenchV5 = 54,
+        LivecodebenchV5 = 55,
 
         /// <summary>
         /// Enum LivecodebenchV6 for value: livecodebench-v6
         /// </summary>
-        LivecodebenchV6 = 55,
+        LivecodebenchV6 = 56,
 
         /// <summary>
         /// Enum LmarenaText for value: lmarena-text
         /// </summary>
-        LmarenaText = 56,
+        LmarenaText = 57,
 
         /// <summary>
         /// Enum LmarenaWebdev for value: lmarena-webdev
         /// </summary>
-        LmarenaWebdev = 57,
+        LmarenaWebdev = 58,
 
         /// <summary>
         /// Enum LongfactConceptsHallucinationRate for value: longfact-concepts-hallucination-rate
         /// </summary>
-        LongfactConceptsHallucinationRate = 58,
+        LongfactConceptsHallucinationRate = 59,
 
         /// <summary>
         /// Enum LongfactObjectsHallucinationRate for value: longfact-objects-hallucination-rate
         /// </summary>
-        LongfactObjectsHallucinationRate = 59,
+        LongfactObjectsHallucinationRate = 60,
 
         /// <summary>
         /// Enum Math for value: math
         /// </summary>
-        Math = 60,
+        Math = 61,
 
         /// <summary>
         /// Enum Math500 for value: math-500
         /// </summary>
-        Math500 = 61,
+        Math500 = 62,
 
         /// <summary>
         /// Enum Matharena for value: matharena
         /// </summary>
-        Matharena = 62,
+        Matharena = 63,
 
         /// <summary>
         /// Enum MatharenaApex for value: matharena-apex
         /// </summary>
-        MatharenaApex = 63,
+        MatharenaApex = 64,
 
         /// <summary>
         /// Enum Mathvista for value: mathvista
         /// </summary>
-        Mathvista = 64,
+        Mathvista = 65,
 
         /// <summary>
         /// Enum McBench for value: mc-bench
         /// </summary>
-        McBench = 65,
+        McBench = 66,
 
         /// <summary>
         /// Enum Metr for value: metr
         /// </summary>
-        Metr = 66,
+        Metr = 67,
 
         /// <summary>
         /// Enum MisguidedAttention for value: misguided-attention
         /// </summary>
-        MisguidedAttention = 67,
+        MisguidedAttention = 68,
 
         /// <summary>
         /// Enum MleBench for value: mle-bench
         /// </summary>
-        MleBench = 68,
+        MleBench = 69,
 
         /// <summary>
         /// Enum Mmlu for value: mmlu
         /// </summary>
-        Mmlu = 69,
+        Mmlu = 70,
 
         /// <summary>
         /// Enum MmluPro for value: mmlu-pro
         /// </summary>
-        MmluPro = 70,
+        MmluPro = 71,
 
         /// <summary>
         /// Enum MmluRedux for value: mmlu-redux
         /// </summary>
-        MmluRedux = 71,
+        MmluRedux = 72,
 
         /// <summary>
         /// Enum MmluRedux20 for value: mmlu-redux-2.0
         /// </summary>
-        MmluRedux20 = 72,
+        MmluRedux20 = 73,
 
         /// <summary>
         /// Enum Mmmlu for value: mmmlu
         /// </summary>
-        Mmmlu = 73,
+        Mmmlu = 74,
 
         /// <summary>
         /// Enum Mmmu for value: mmmu
         /// </summary>
-        Mmmu = 74,
+        Mmmu = 75,
 
         /// <summary>
         /// Enum MmmuPro for value: mmmu-pro
         /// </summary>
-        MmmuPro = 75,
+        MmmuPro = 76,
 
         /// <summary>
         /// Enum MultiChallenge for value: multi-challenge
         /// </summary>
-        MultiChallenge = 76,
+        MultiChallenge = 77,
 
         /// <summary>
         /// Enum MultiPLE for value: multiPL-E
         /// </summary>
-        MultiPLE = 77,
+        MultiPLE = 78,
 
         /// <summary>
         /// Enum NytConnections for value: nyt-connections
         /// </summary>
-        NytConnections = 78,
+        NytConnections = 79,
 
         /// <summary>
         /// Enum Ojbench for value: ojbench
         /// </summary>
-        Ojbench = 79,
+        Ojbench = 80,
 
         /// <summary>
         /// Enum Omnidocbench15 for value: omnidocbench-1.5
         /// </summary>
-        Omnidocbench15 = 80,
+        Omnidocbench15 = 81,
 
         /// <summary>
         /// Enum OpenaiMrcr2Needle128k for value: openai-mrcr-2-needle-128k
         /// </summary>
-        OpenaiMrcr2Needle128k = 81,
+        OpenaiMrcr2Needle128k = 82,
 
         /// <summary>
         /// Enum OpenaiMrcr2Needle256k for value: openai-mrcr-2-needle-256k
         /// </summary>
-        OpenaiMrcr2Needle256k = 82,
+        OpenaiMrcr2Needle256k = 83,
 
         /// <summary>
         /// Enum OpenaiMrcr8Needle128k for value: openai-mrcr-8-needle-128k
         /// </summary>
-        OpenaiMrcr8Needle128k = 83,
+        OpenaiMrcr8Needle128k = 84,
 
         /// <summary>
         /// Enum OpenaiMrcr8Needle1m for value: openai-mrcr-8-needle-1m
         /// </summary>
-        OpenaiMrcr8Needle1m = 84,
+        OpenaiMrcr8Needle1m = 85,
 
         /// <summary>
         /// Enum OsWorld for value: os-world
         /// </summary>
-        OsWorld = 85,
+        OsWorld = 86,
 
         /// <summary>
         /// Enum Paperbench for value: paperbench
         /// </summary>
-        Paperbench = 86,
+        Paperbench = 87,
 
         /// <summary>
         /// Enum Phybench for value: phybench
         /// </summary>
-        Phybench = 87,
+        Phybench = 88,
 
         /// <summary>
         /// Enum PolymathEn for value: polymath-en
         /// </summary>
-        PolymathEn = 88,
+        PolymathEn = 89,
 
         /// <summary>
         /// Enum ScreenspotPro for value: screenspot-pro
         /// </summary>
-        ScreenspotPro = 89,
+        ScreenspotPro = 90,
 
         /// <summary>
         /// Enum SealMultichallenege for value: seal-multichallenege
         /// </summary>
-        SealMultichallenege = 90,
+        SealMultichallenege = 91,
 
         /// <summary>
         /// Enum Simplebench for value: simplebench
         /// </summary>
-        Simplebench = 91,
+        Simplebench = 92,
 
         /// <summary>
         /// Enum Simpleqa for value: simpleqa
         /// </summary>
-        Simpleqa = 92,
+        Simpleqa = 93,
 
         /// <summary>
         /// Enum SmolagentsLlm for value: smolagents-llm
         /// </summary>
-        SmolagentsLlm = 93,
+        SmolagentsLlm = 94,
 
         /// <summary>
         /// Enum SnakeBench for value: snake-bench
         /// </summary>
-        SnakeBench = 94,
+        SnakeBench = 95,
 
         /// <summary>
         /// Enum SoloBench for value: solo-bench
         /// </summary>
-        SoloBench = 95,
+        SoloBench = 96,
 
         /// <summary>
         /// Enum Supergpqa for value: supergpqa
         /// </summary>
-        Supergpqa = 96,
+        Supergpqa = 97,
 
         /// <summary>
         /// Enum SweBench for value: swe-bench
         /// </summary>
-        SweBench = 97,
+        SweBench = 98,
 
         /// <summary>
         /// Enum SweBenchLive for value: swe-bench-live
         /// </summary>
-        SweBenchLive = 98,
+        SweBenchLive = 99,
 
         /// <summary>
         /// Enum SweBenchMultilingual for value: swe-bench-multilingual
         /// </summary>
-        SweBenchMultilingual = 99,
+        SweBenchMultilingual = 100,
 
         /// <summary>
         /// Enum SweBenchPro for value: swe-bench-pro
         /// </summary>
-        SweBenchPro = 100,
+        SweBenchPro = 101,
 
         /// <summary>
         /// Enum SweLancer for value: swe-lancer
         /// </summary>
-        SweLancer = 101,
+        SweLancer = 102,
 
         /// <summary>
         /// Enum SymflowerCoding for value: symflower-coding
         /// </summary>
-        SymflowerCoding = 102,
+        SymflowerCoding = 103,
 
         /// <summary>
         /// Enum Tau2Airline for value: tau-2-airline
         /// </summary>
-        Tau2Airline = 103,
+        Tau2Airline = 104,
 
         /// <summary>
         /// Enum Tau2Bench for value: tau-2-bench
         /// </summary>
-        Tau2Bench = 104,
+        Tau2Bench = 105,
 
         /// <summary>
         /// Enum Tau2Retail for value: tau-2-retail
         /// </summary>
-        Tau2Retail = 105,
+        Tau2Retail = 106,
 
         /// <summary>
         /// Enum Tau2Telecom for value: tau-2-telecom
         /// </summary>
-        Tau2Telecom = 106,
+        Tau2Telecom = 107,
 
         /// <summary>
         /// Enum TauBench for value: tau-bench
         /// </summary>
-        TauBench = 107,
+        TauBench = 108,
 
         /// <summary>
         /// Enum TauBenchAirline for value: tau-bench-airline
         /// </summary>
-        TauBenchAirline = 108,
+        TauBenchAirline = 109,
 
         /// <summary>
         /// Enum TauBenchRetail for value: tau-bench-retail
         /// </summary>
-        TauBenchRetail = 109,
+        TauBenchRetail = 110,
 
         /// <summary>
         /// Enum TerminalBench for value: terminal-bench
         /// </summary>
-        TerminalBench = 110,
+        TerminalBench = 111,
 
         /// <summary>
         /// Enum TerminalBench20 for value: terminal-bench-2.0
         /// </summary>
-        TerminalBench20 = 111,
+        TerminalBench20 = 112,
 
         /// <summary>
         /// Enum ThematicGeneralisation for value: thematic-generalisation
         /// </summary>
-        ThematicGeneralisation = 112,
+        ThematicGeneralisation = 113,
 
         /// <summary>
         /// Enum Triviaqa for value: triviaqa
         /// </summary>
-        Triviaqa = 113,
+        Triviaqa = 114,
 
         /// <summary>
         /// Enum Usamo2025 for value: usamo-2025
         /// </summary>
-        Usamo2025 = 114,
+        Usamo2025 = 115,
 
         /// <summary>
         /// Enum VendingBench2 for value: vending-bench-2
         /// </summary>
-        VendingBench2 = 115,
+        VendingBench2 = 116,
 
         /// <summary>
         /// Enum VideoMmmu for value: video-mmmu
         /// </summary>
-        VideoMmmu = 116,
+        VideoMmmu = 117,
 
         /// <summary>
         /// Enum Videomme for value: videomme
         /// </summary>
-        Videomme = 117,
+        Videomme = 118,
 
         /// <summary>
         /// Enum Weirdml for value: weirdml
         /// </summary>
-        Weirdml = 118,
+        Weirdml = 119,
 
         /// <summary>
         /// Enum XlangAgent for value: xlang-agent
         /// </summary>
-        XlangAgent = 119,
+        XlangAgent = 120,
 
         /// <summary>
         /// Enum Zebralogic for value: zebralogic
         /// </summary>
-        Zebralogic = 120
+        Zebralogic = 121
     }
 
     /// <summary>
@@ -787,6 +792,9 @@ namespace AIStatsSdk.Model
 
             if (value.Equals("humanitys-last-exam"))
                 return BenchmarkId.HumanitysLastExam;
+
+            if (value.Equals("if-bench"))
+                return BenchmarkId.IfBench;
 
             if (value.Equals("if-eval"))
                 return BenchmarkId.IfEval;
@@ -1158,6 +1166,9 @@ namespace AIStatsSdk.Model
             if (value.Equals("humanitys-last-exam"))
                 return BenchmarkId.HumanitysLastExam;
 
+            if (value.Equals("if-bench"))
+                return BenchmarkId.IfBench;
+
             if (value.Equals("if-eval"))
                 return BenchmarkId.IfEval;
 
@@ -1528,6 +1539,9 @@ namespace AIStatsSdk.Model
 
             if (value == BenchmarkId.HumanitysLastExam)
                 return "humanitys-last-exam";
+
+            if (value == BenchmarkId.IfBench)
+                return "if-bench";
 
             if (value == BenchmarkId.IfEval)
                 return "if-eval";

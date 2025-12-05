@@ -68,6 +68,7 @@ const (
 	BENCHMARKID_HMMT_2025 BenchmarkId = "hmmt-2025"
 	BENCHMARKID_HUMANEVAL BenchmarkId = "humaneval"
 	BENCHMARKID_HUMANITYS_LAST_EXAM BenchmarkId = "humanitys-last-exam"
+	BENCHMARKID_IF_BENCH BenchmarkId = "if-bench"
 	BENCHMARKID_IF_EVAL BenchmarkId = "if-eval"
 	BENCHMARKID_IQ_BENCH BenchmarkId = "iq-bench"
 	BENCHMARKID_LISANBENCH BenchmarkId = "lisanbench"
@@ -192,6 +193,7 @@ var AllowedBenchmarkIdEnumValues = []BenchmarkId{
 	"hmmt-2025",
 	"humaneval",
 	"humanitys-last-exam",
+	"if-bench",
 	"if-eval",
 	"iq-bench",
 	"lisanbench",

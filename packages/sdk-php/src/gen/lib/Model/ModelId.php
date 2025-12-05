@@ -236,13 +236,17 @@ class ModelId
 
     public const DEEPSEEK_DEEPSEEK_VL2_TINY_2024_12_13 = 'deepseek/deepseek-vl2-tiny-2024-12-13';
 
-    public const GOOGLE_EMBEDDING_001_2023_12_13 = 'google/embedding-001-2023-12-13';
+    public const GOOGLE_CHAT_BISON = 'google/chat-bison';
 
-    public const GOOGLE_EMBEDDING_GECKO_001_2023_12_13 = 'google/embedding-gecko-001-2023-12-13';
+    public const GOOGLE_CODE_BECKO = 'google/code-becko';
+
+    public const GOOGLE_EMBEDDING_001_2023_12_13 = 'google/embedding-001-2023-12-13';
 
     public const GOOGLE_GEMINI_1_0_NANO_2023_12_06 = 'google/gemini-1-0-nano-2023-12-06';
 
     public const GOOGLE_GEMINI_1_0_PRO_2023_12_06 = 'google/gemini-1-0-pro-2023-12-06';
+
+    public const GOOGLE_GEMINI_1_0_PRO_VISION_001 = 'google/gemini-1-0-pro-vision-001';
 
     public const GOOGLE_GEMINI_1_0_ULTRA_2023_12_06 = 'google/gemini-1-0-ultra-2023-12-06';
 
@@ -358,6 +362,14 @@ class ModelId
 
     public const GOOGLE_GEMMA_3N_E4B_2025_05_20 = 'google/gemma-3n-e4b-2025-05-20';
 
+    public const GOOGLE_IMAGE_GENERATION_002 = 'google/image-generation-002';
+
+    public const GOOGLE_IMAGE_GENERATION_005 = 'google/image-generation-005';
+
+    public const GOOGLE_IMAGE_GENERATION_006 = 'google/image-generation-006';
+
+    public const GOOGLE_IMAGE_TEXT = 'google/image-text';
+
     public const GOOGLE_IMAGEN_3_0_GENERATE_001 = 'google/imagen-3-0-generate-001';
 
     public const GOOGLE_IMAGEN_3_0_GENERATE_002_2025_02_06 = 'google/imagen-3-0-generate-002-2025-02-06';
@@ -375,6 +387,24 @@ class ModelId
     public const GOOGLE_LEARNLM_1_5_PRO_EXPERIMENTAL = 'google/learnlm-1-5-pro-experimental';
 
     public const GOOGLE_LEARNLM_2_0_FLASH_EXPERIMENTAL = 'google/learnlm-2-0-flash-experimental';
+
+    public const GOOGLE_MULTIMODAL_EMBEDDING_001 = 'google/multimodal-embedding-001';
+
+    public const GOOGLE_TEXT_BISON = 'google/text-bison';
+
+    public const GOOGLE_TEXT_EMBEDDING_004 = 'google/text-embedding-004';
+
+    public const GOOGLE_TEXT_EMBEDDING_005 = 'google/text-embedding-005';
+
+    public const GOOGLE_TEXT_EMBEDDING_GECKO_001_2023_12_13 = 'google/text-embedding-gecko-001-2023-12-13';
+
+    public const GOOGLE_TEXT_EMBEDDING_GECKO_002 = 'google/text-embedding-gecko-002';
+
+    public const GOOGLE_TEXT_EMBEDDING_GECKO_003 = 'google/text-embedding-gecko-003';
+
+    public const GOOGLE_TEXT_EMBEDDING_GECKO_MULTILINGUAL_001 = 'google/text-embedding-gecko-multilingual-001';
+
+    public const GOOGLE_TEXT_MULTILINGUAL_EMBEDDING_002 = 'google/text-multilingual-embedding-002';
 
     public const GOOGLE_VEO_2_2025_04_09 = 'google/veo-2-2025-04-09';
 
@@ -914,6 +944,8 @@ class ModelId
 
     public const OPENAI_GPT_5_1_PRO = 'openai/gpt-5-1-pro';
 
+    public const OPENAI_GPT_5_2 = 'openai/gpt-5-2';
+
     public const OPENAI_GPT_5_2025_08_07 = 'openai/gpt-5-2025-08-07';
 
     public const OPENAI_GPT_5_CHAT_2025_08_07 = 'openai/gpt-5-chat-2025-08-07';
@@ -1122,6 +1154,8 @@ class ModelId
 
     public const X_AI_GROK_4_1_THINKING_2025_11_17 = 'x-ai/grok-4-1-thinking-2025-11-17';
 
+    public const X_AI_GROK_4_2 = 'x-ai/grok-4-2';
+
     public const X_AI_GROK_4_2025_07_10 = 'x-ai/grok-4-2025-07-10';
 
     public const X_AI_GROK_4_FAST_NON_REASONING_2025_09_20 = 'x-ai/grok-4-fast-non-reasoning-2025-09-20';
@@ -1260,10 +1294,12 @@ class ModelId
             self::DEEPSEEK_DEEPSEEK_VL2_2024_12_13,
             self::DEEPSEEK_DEEPSEEK_VL2_SMALL_2024_12_13,
             self::DEEPSEEK_DEEPSEEK_VL2_TINY_2024_12_13,
+            self::GOOGLE_CHAT_BISON,
+            self::GOOGLE_CODE_BECKO,
             self::GOOGLE_EMBEDDING_001_2023_12_13,
-            self::GOOGLE_EMBEDDING_GECKO_001_2023_12_13,
             self::GOOGLE_GEMINI_1_0_NANO_2023_12_06,
             self::GOOGLE_GEMINI_1_0_PRO_2023_12_06,
+            self::GOOGLE_GEMINI_1_0_PRO_VISION_001,
             self::GOOGLE_GEMINI_1_0_ULTRA_2023_12_06,
             self::GOOGLE_GEMINI_1_5_FLASH_001_2024_05_23,
             self::GOOGLE_GEMINI_1_5_FLASH_002_2024_09_24,
@@ -1321,6 +1357,10 @@ class ModelId
             self::GOOGLE_GEMMA_3_4B_2025_03_12,
             self::GOOGLE_GEMMA_3N_E2B,
             self::GOOGLE_GEMMA_3N_E4B_2025_05_20,
+            self::GOOGLE_IMAGE_GENERATION_002,
+            self::GOOGLE_IMAGE_GENERATION_005,
+            self::GOOGLE_IMAGE_GENERATION_006,
+            self::GOOGLE_IMAGE_TEXT,
             self::GOOGLE_IMAGEN_3_0_GENERATE_001,
             self::GOOGLE_IMAGEN_3_0_GENERATE_002_2025_02_06,
             self::GOOGLE_IMAGEN_4_0_FAST_GENERATE_001,
@@ -1330,6 +1370,15 @@ class ModelId
             self::GOOGLE_IMAGEN_4_ULTRA_PREVIEW_2025_08_14,
             self::GOOGLE_LEARNLM_1_5_PRO_EXPERIMENTAL,
             self::GOOGLE_LEARNLM_2_0_FLASH_EXPERIMENTAL,
+            self::GOOGLE_MULTIMODAL_EMBEDDING_001,
+            self::GOOGLE_TEXT_BISON,
+            self::GOOGLE_TEXT_EMBEDDING_004,
+            self::GOOGLE_TEXT_EMBEDDING_005,
+            self::GOOGLE_TEXT_EMBEDDING_GECKO_001_2023_12_13,
+            self::GOOGLE_TEXT_EMBEDDING_GECKO_002,
+            self::GOOGLE_TEXT_EMBEDDING_GECKO_003,
+            self::GOOGLE_TEXT_EMBEDDING_GECKO_MULTILINGUAL_001,
+            self::GOOGLE_TEXT_MULTILINGUAL_EMBEDDING_002,
             self::GOOGLE_VEO_2_2025_04_09,
             self::GOOGLE_VEO_3_0_FAST_GENERATE_PREVIEW_2025_07_17,
             self::GOOGLE_VEO_3_0_GENERATE_PREVIEW_2025_07_17,
@@ -1599,6 +1648,7 @@ class ModelId
             self::OPENAI_GPT_5_1_CODEX_MAX_2025_11_19,
             self::OPENAI_GPT_5_1_CODEX_MINI_2025_11_13,
             self::OPENAI_GPT_5_1_PRO,
+            self::OPENAI_GPT_5_2,
             self::OPENAI_GPT_5_2025_08_07,
             self::OPENAI_GPT_5_CHAT_2025_08_07,
             self::OPENAI_GPT_5_CODEX_2025_09_15,
@@ -1703,6 +1753,7 @@ class ModelId
             self::X_AI_GROK_3_MINI_BETA_2025_02_19,
             self::X_AI_GROK_4_1_NON_THINKING_2025_11_17,
             self::X_AI_GROK_4_1_THINKING_2025_11_17,
+            self::X_AI_GROK_4_2,
             self::X_AI_GROK_4_2025_07_10,
             self::X_AI_GROK_4_FAST_NON_REASONING_2025_09_20,
             self::X_AI_GROK_4_FAST_REASONING_2025_09_20,

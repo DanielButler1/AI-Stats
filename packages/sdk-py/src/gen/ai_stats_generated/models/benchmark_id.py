@@ -74,6 +74,7 @@ class BenchmarkId(str, Enum):
     HMMT_MINUS_2025 = 'hmmt-2025'
     HUMANEVAL = 'humaneval'
     HUMANITYS_MINUS_LAST_MINUS_EXAM = 'humanitys-last-exam'
+    IF_MINUS_BENCH = 'if-bench'
     IF_MINUS_EVAL = 'if-eval'
     IQ_MINUS_BENCH = 'iq-bench'
     LISANBENCH = 'lisanbench'
