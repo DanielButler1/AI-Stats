@@ -56,7 +56,7 @@ export async function getTopModelsCached(
 ): Promise<ModelStats[]> {
     "use cache";
 
-    cacheLife("days");
+    cacheLife("hours");
     cacheTag("data:top_models");
 
     console.log(`[fetch] HIT JSON for top models - ${apiProviderId}`);

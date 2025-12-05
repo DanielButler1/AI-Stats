@@ -1,4 +1,4 @@
-// lib/fetchers/models/getAllModelsNew.ts
+// lib/fetchers/models/getAllModels.ts
 import { cacheLife, cacheTag } from "next/cache";
 import { createClient } from "@/utils/supabase/client";
 
