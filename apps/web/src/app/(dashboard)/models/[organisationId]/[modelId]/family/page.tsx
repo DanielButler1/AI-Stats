@@ -236,24 +236,27 @@ export default async function Page({
 										Now viewing
 									</p>
 									<div className="mt-3 flex items-center gap-3">
-										<div className="relative h-12 w-12 rounded-xl border bg-background">
-											{(viewingMember?.organisation_id ||
-												header.organisation_id) && (
-												<Logo
-													id={
-														viewingMember?.organisation_id ??
-														header.organisation_id
-													}
-													alt={
-														viewingMember
-															?.organisation
-															?.name ??
-														header.organisation.name
-													}
-													fill
-													className="object-contain"
-												/>
-											)}
+										<div className="relative h-12 w-12 rounded-xl border bg-background flex items-center justify-center">
+											<div className="w-8 h-8 relative">
+												{(viewingMember?.organisation_id ||
+													header.organisation_id) && (
+													<Logo
+														id={
+															viewingMember?.organisation_id ??
+															header.organisation_id
+														}
+														alt={
+															viewingMember
+																?.organisation
+																?.name ??
+															header.organisation
+																.name
+														}
+														fill
+														className="object-contain"
+													/>
+												)}
+											</div>
 										</div>
 										<div className="min-w-0">
 											<p className="font-semibold leading-tight">
@@ -344,31 +347,33 @@ export default async function Page({
 											>
 												<div className="flex flex-wrap items-center gap-4">
 													<div className="flex items-center gap-3 min-w-0">
-														<div className="relative h-12 w-12 rounded-xl border bg-background">
-															{member.organisation_id ? (
-																<Logo
-																	id={
-																		member.organisation_id
-																	}
-																	alt={
-																		member
-																			.organisation
-																			?.name ??
-																		member.name
-																	}
-																	fill
-																	className="object-contain"
-																/>
-															) : (
-																<span className="flex h-full w-full items-center justify-center text-xs font-semibold uppercase text-muted-foreground">
-																	{member.name
-																		.slice(
-																			0,
-																			2
-																		)
-																		.toUpperCase()}
-																</span>
-															)}
+														<div className="relative h-12 w-12 rounded-xl border bg-background flex items-center justify-center">
+															<div className="w-8 h-8 relative">
+																{member.organisation_id ? (
+																	<Logo
+																		id={
+																			member.organisation_id
+																		}
+																		alt={
+																			member
+																				.organisation
+																				?.name ??
+																			member.name
+																		}
+																		fill
+																		className="object-contain"
+																	/>
+																) : (
+																	<span className="flex h-full w-full items-center justify-center text-xs font-semibold uppercase text-muted-foreground">
+																		{member.name
+																			.slice(
+																				0,
+																				2
+																			)
+																			.toUpperCase()}
+																	</span>
+																)}
+															</div>
 														</div>
 														<div className="min-w-0">
 															<Link

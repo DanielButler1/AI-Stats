@@ -71,7 +71,7 @@
       "is_self_reported": true,
       "other_info": "No Tools",
       "source_link": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf",
-      "rank": 1
+      "rank": 2
     },
     {
       "benchmark_id": "aime-2025",
@@ -79,7 +79,7 @@
       "is_self_reported": true,
       "other_info": "With Code Execution",
       "source_link": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf",
-      "rank": 1
+      "rank": 2
     },
     {
       "benchmark_id": "mmmu-pro",

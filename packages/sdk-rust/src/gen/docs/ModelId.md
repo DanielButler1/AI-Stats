@@ -101,10 +101,12 @@
 | DeepseekSlashDeepseekVl220241213 | deepseek/deepseek-vl2-2024-12-13 |
 | DeepseekSlashDeepseekVl2Small20241213 | deepseek/deepseek-vl2-small-2024-12-13 |
 | DeepseekSlashDeepseekVl2Tiny20241213 | deepseek/deepseek-vl2-tiny-2024-12-13 |
+| GoogleSlashChatBison | google/chat-bison |
+| GoogleSlashCodeBecko | google/code-becko |
 | GoogleSlashEmbedding00120231213 | google/embedding-001-2023-12-13 |
-| GoogleSlashEmbeddingGecko00120231213 | google/embedding-gecko-001-2023-12-13 |
 | GoogleSlashGemini10Nano20231206 | google/gemini-1-0-nano-2023-12-06 |
 | GoogleSlashGemini10Pro20231206 | google/gemini-1-0-pro-2023-12-06 |
+| GoogleSlashGemini10ProVision001 | google/gemini-1-0-pro-vision-001 |
 | GoogleSlashGemini10Ultra20231206 | google/gemini-1-0-ultra-2023-12-06 |
 | GoogleSlashGemini15Flash00120240523 | google/gemini-1-5-flash-001-2024-05-23 |
 | GoogleSlashGemini15Flash00220240924 | google/gemini-1-5-flash-002-2024-09-24 |
@@ -162,6 +164,10 @@
 | GoogleSlashGemma34b20250312 | google/gemma-3-4b-2025-03-12 |
 | GoogleSlashGemma3nE2b | google/gemma-3n-e2b |
 | GoogleSlashGemma3nE4b20250520 | google/gemma-3n-e4b-2025-05-20 |
+| GoogleSlashImageGeneration002 | google/image-generation-002 |
+| GoogleSlashImageGeneration005 | google/image-generation-005 |
+| GoogleSlashImageGeneration006 | google/image-generation-006 |
+| GoogleSlashImageText | google/image-text |
 | GoogleSlashImagen30Generate001 | google/imagen-3-0-generate-001 |
 | GoogleSlashImagen30Generate00220250206 | google/imagen-3-0-generate-002-2025-02-06 |
 | GoogleSlashImagen40FastGenerate001 | google/imagen-4-0-fast-generate-001 |
@@ -171,6 +177,15 @@
 | GoogleSlashImagen4UltraPreview20250814 | google/imagen-4-ultra-preview-2025-08-14 |
 | GoogleSlashLearnlm15ProExperimental | google/learnlm-1-5-pro-experimental |
 | GoogleSlashLearnlm20FlashExperimental | google/learnlm-2-0-flash-experimental |
+| GoogleSlashMultimodalEmbedding001 | google/multimodal-embedding-001 |
+| GoogleSlashTextBison | google/text-bison |
+| GoogleSlashTextEmbedding004 | google/text-embedding-004 |
+| GoogleSlashTextEmbedding005 | google/text-embedding-005 |
+| GoogleSlashTextEmbeddingGecko00120231213 | google/text-embedding-gecko-001-2023-12-13 |
+| GoogleSlashTextEmbeddingGecko002 | google/text-embedding-gecko-002 |
+| GoogleSlashTextEmbeddingGecko003 | google/text-embedding-gecko-003 |
+| GoogleSlashTextEmbeddingGeckoMultilingual001 | google/text-embedding-gecko-multilingual-001 |
+| GoogleSlashTextMultilingualEmbedding002 | google/text-multilingual-embedding-002 |
 | GoogleSlashVeo220250409 | google/veo-2-2025-04-09 |
 | GoogleSlashVeo30FastGeneratePreview20250717 | google/veo-3-0-fast-generate-preview-2025-07-17 |
 | GoogleSlashVeo30GeneratePreview20250717 | google/veo-3-0-generate-preview-2025-07-17 |
@@ -440,6 +455,7 @@
 | OpenaiSlashGpt51CodexMax20251119 | openai/gpt-5-1-codex-max-2025-11-19 |
 | OpenaiSlashGpt51CodexMini20251113 | openai/gpt-5-1-codex-mini-2025-11-13 |
 | OpenaiSlashGpt51Pro | openai/gpt-5-1-pro |
+| OpenaiSlashGpt52 | openai/gpt-5-2 |
 | OpenaiSlashGpt520250807 | openai/gpt-5-2025-08-07 |
 | OpenaiSlashGpt5Chat20250807 | openai/gpt-5-chat-2025-08-07 |
 | OpenaiSlashGpt5Codex20250915 | openai/gpt-5-codex-2025-09-15 |
@@ -544,6 +560,7 @@
 | XAiSlashGrok3MiniBeta20250219 | x-ai/grok-3-mini-beta-2025-02-19 |
 | XAiSlashGrok41NonThinking20251117 | x-ai/grok-4-1-non-thinking-2025-11-17 |
 | XAiSlashGrok41Thinking20251117 | x-ai/grok-4-1-thinking-2025-11-17 |
+| XAiSlashGrok42 | x-ai/grok-4-2 |
 | XAiSlashGrok420250710 | x-ai/grok-4-2025-07-10 |
 | XAiSlashGrok4FastNonReasoning20250920 | x-ai/grok-4-fast-non-reasoning-2025-09-20 |
 | XAiSlashGrok4FastReasoning20250920 | x-ai/grok-4-fast-reasoning-2025-09-20 |

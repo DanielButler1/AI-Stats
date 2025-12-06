@@ -121,7 +121,7 @@ export function ModelBenchmarksTable({ grouped }: ModelBenchmarksTableProps) {
 										<td className="px-4 py-2 font-mono">
 											{getScoreDisplay(top)}
 										</td>
-										<td className="px-4 py-2 text-xs text-zinc-500">
+										<td className="px-4 py-2 text-xs text-zinc-500 dark:text-zinc-300">
 											{top.other_info || "-"}
 										</td>
 										<td className="px-4 py-2 text-center">
@@ -141,12 +141,12 @@ export function ModelBenchmarksTable({ grouped }: ModelBenchmarksTableProps) {
 													href={top.source_link}
 													target="_blank"
 													rel="noopener noreferrer"
-													className="group inline-flex items-center text-indigo-600"
+													className="group inline-flex items-center text-indigo-600 dark:text-indigo-400"
 												>
 													<span className="relative inline-block align-middle truncate text-sm font-normal after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
 														Source
 													</span>
-													<ExternalLink className="ml-1 h-3 w-3 text-indigo-500 opacity-0 transition-all group-hover:opacity-100 group-hover:text-indigo-700" />
+													<ExternalLink className="ml-1 h-3 w-3 text-indigo-500 opacity-0 transition-all group-hover:opacity-100 group-hover:text-indigo-700 dark:text-indigo-400 dark:group-hover:text-indigo-300" />
 												</a>
 											) : (
 												"-"
@@ -172,7 +172,7 @@ export function ModelBenchmarksTable({ grouped }: ModelBenchmarksTableProps) {
 												<td className="px-4 py-2 font-mono">
 													{getScoreDisplay(item)}
 												</td>
-												<td className="px-4 py-2 text-xs text-zinc-500">
+												<td className="px-4 py-2 text-xs text-zinc-500 dark:text-zinc-300">
 													{item.other_info || "-"}
 												</td>
 												<td className="px-4 py-2 text-center">
@@ -195,19 +195,19 @@ export function ModelBenchmarksTable({ grouped }: ModelBenchmarksTableProps) {
 												</td>
 												<td className="px-4 py-2">
 													{item.source_link ? (
-														<a
+														<Link
 															href={
 																item.source_link
 															}
 															target="_blank"
 															rel="noopener noreferrer"
-															className="group inline-flex items-center text-indigo-600"
+															className="group inline-flex items-center text-indigo-600 dark:text-indigo-400"
 														>
 															<span className="relative inline-block align-middle truncate text-sm font-normal after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
 																Source
 															</span>
-															<ExternalLink className="ml-1 h-3 w-3 text-indigo-500 opacity-0 transition-all group-hover:opacity-100 group-hover:text-indigo-700" />
-														</a>
+															<ExternalLink className="ml-1 h-3 w-3 text-indigo-500 opacity-0 transition-all group-hover:opacity-100 group-hover:text-indigo-700 dark:text-indigo-400 dark:group-hover:text-indigo-300" />
+														</Link>
 													) : (
 														"-"
 													)}

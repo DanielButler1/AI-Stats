@@ -13,24 +13,26 @@ function FAQItem({ question, answer }: FAQItemProps) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<div className="rounded-xl border border-slate-200 bg-white">
+		<div className="rounded-xl border border-slate-200">
 			<Button
 				onClick={() => setIsOpen(!isOpen)}
 				variant="ghost"
 				className="flex w-full items-start justify-between gap-3 p-4 h-auto text-left hover:bg-slate-50 whitespace-normal"
 			>
-				<span className="text-sm font-semibold text-slate-900">
+				<span className="text-sm font-semibold text-slate-900 dark:text-slate-100">
 					{question}
 				</span>
 				<ChevronDown
-					className={`h-4 w-4 text-slate-500 transition-transform duration-200 ${
+					className={`h-4 w-4 text-slate-500 dark:text-slate-300 transition-transform duration-200 ${
 						isOpen ? "rotate-180" : ""
 					}`}
 				/>
 			</Button>
 			{isOpen && (
 				<div className="border-t border-slate-100 px-4 pb-4">
-					<p className="mt-2 text-sm text-slate-600">{answer}</p>
+					<p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+						{answer}
+					</p>
 				</div>
 			)}
 		</div>
@@ -44,7 +46,7 @@ export function FAQSection() {
 			className="container mx-auto w-full px-4 py-16 sm:px-6 lg:px-8"
 		>
 			<div className="space-y-6">
-				<h2 className="text-2xl font-semibold text-slate-900">
+				<h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
 					Frequently asked questions
 				</h2>
 

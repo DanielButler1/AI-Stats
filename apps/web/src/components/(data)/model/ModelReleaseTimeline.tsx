@@ -226,10 +226,10 @@ export default async function ModelReleaseTimeline({
 					return (
 						<Card
 							key={`${ev.type}-${ev.date}-${idx}`}
-							className={`relative flex items-center pl-0 overflow-visible border border-gray-200 dark:border-gray-700 border-b-2 ${s.border} rounded-lg bg-white dark:bg-gray-900 shadow-none`}
+							className={`relative flex items-center pl-0 overflow-visible border border-gray-200 dark:border-gray-700 border-b-2 ${s.border} rounded-lg bg-white shadow-none`}
 						>
 							{/* Dot */}
-							<div className="absolute left-[-10px] top-1/2 -translate-y-1/2">
+							<div className="absolute -left-2.5 top-1/2 -translate-y-1/2">
 								<span
 									className={`block w-4 h-4 rounded-full border-2 border-white shadow-xs ${s.dot}`}
 								/>

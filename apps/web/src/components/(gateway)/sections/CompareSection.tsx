@@ -34,17 +34,17 @@ export function CompareSection() {
 		<section id="compare" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
 			<div className="space-y-6">
 				<div>
-					<h2 className="text-2xl font-semibold text-slate-900">
+					<h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
 						How we compare
 					</h2>
-					<p className="mt-2 text-sm text-slate-600">
+					<p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
 						Optimised routing and observability are built in - no
 						homegrown adapters, no hidden markups.
 					</p>
 				</div>
-				<div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+				<div className="overflow-hidden rounded-xl border border-slate-200">
 					<table className="w-full text-left text-sm">
-						<thead className="bg-slate-50 text-slate-600">
+						<thead className="bg-slate-50 text-slate-600 dark:bg-neutral-900 dark:text-slate-300">
 							<tr>
 								<th className="px-4 py-3 font-medium">
 									Capability
@@ -63,16 +63,16 @@ export function CompareSection() {
 						<tbody className="divide-y divide-slate-100">
 							{COMPARISON_ROWS.map((row) => (
 								<tr key={row.capability}>
-									<td className="px-4 py-3 font-medium text-slate-700">
+									<td className="px-4 py-3 font-medium text-slate-700 dark:text-slate-300">
 										{row.capability}
 									</td>
-									<td className="px-4 py-3 text-slate-600">
+									<td className="px-4 py-3 text-slate-600 dark:text-slate-400">
 										{row.gateway}
 									</td>
-									<td className="px-4 py-3 text-slate-600">
+									<td className="px-4 py-3 text-slate-600 dark:text-slate-400">
 										{row.openRouter}
 									</td>
-									<td className="px-4 py-3 text-slate-600">
+									<td className="px-4 py-3 text-slate-600 dark:text-slate-400">
 										{row.vercel}
 									</td>
 								</tr>

@@ -29,7 +29,7 @@ export default async function CountriesPage() {
 			<div className="container mx-auto px-4 py-8 space-y-6">
 				<header className="space-y-2">
 					<div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-						<h1 className="font-bold text-xl text-black mb-2 md:mb-0">
+						<h1 className="font-bold text-xl mb-2 md:mb-0">
 							Countries
 						</h1>
 					</div>

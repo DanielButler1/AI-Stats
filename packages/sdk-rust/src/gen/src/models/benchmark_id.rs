@@ -111,6 +111,8 @@ pub enum BenchmarkId {
     Humaneval,
     #[serde(rename = "humanitys-last-exam")]
     HumanitysLastExam,
+    #[serde(rename = "if-bench")]
+    IfBench,
     #[serde(rename = "if-eval")]
     IfEval,
     #[serde(rename = "iq-bench")]
@@ -309,6 +311,7 @@ impl std::fmt::Display for BenchmarkId {
             Self::Hmmt2025 => write!(f, "hmmt-2025"),
             Self::Humaneval => write!(f, "humaneval"),
             Self::HumanitysLastExam => write!(f, "humanitys-last-exam"),
+            Self::IfBench => write!(f, "if-bench"),
             Self::IfEval => write!(f, "if-eval"),
             Self::IqBench => write!(f, "iq-bench"),
             Self::Lisanbench => write!(f, "lisanbench"),

@@ -52,6 +52,7 @@
 | Hmmt2025 | hmmt-2025 |
 | Humaneval | humaneval |
 | HumanitysLastExam | humanitys-last-exam |
+| IfBench | if-bench |
 | IfEval | if-eval |
 | IqBench | iq-bench |
 | Lisanbench | lisanbench |

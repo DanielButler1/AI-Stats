@@ -75,7 +75,7 @@ export default async function APIProviderDetailShell({
 				<div className="mb-8 flex w-full flex-col items-center justify-between gap-2 md:flex-row md:items-start md:gap-0">
 					<div className="flex flex-col items-center gap-4 md:flex-row">
 						<div className="flex items-center justify-center">
-							<div className="relative flex h-12 w-12 items-center justify-center rounded-xl border bg-white md:h-24 md:w-24">
+							<div className="relative flex h-12 w-12 items-center justify-center rounded-xl border md:h-24 md:w-24">
 								<div className="relative h-10 w-10 md:h-20 md:w-20">
 									<Logo
 										id={header.api_provider_id}

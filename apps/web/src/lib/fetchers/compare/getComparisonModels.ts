@@ -1,5 +1,4 @@
 import { cacheLife, cacheTag } from "next/cache";
-
 import type { Benchmark, ExtendedModel, Price, Provider } from "@/data/types";
 import {
 	type ModelPage,
@@ -302,7 +301,12 @@ function convertModelToExtended(
 }
 
 async function fetchComparisonModels(serializedKey: string): Promise<ComparisonMap> {
+	"use cache";
+	cacheLife("days");              // use preset profile
+	cacheTag("data:models");        // tag for revalidation
+
 	if (!serializedKey) return {};
+
 	const ids = serializedKey.split(",");
 	const results = await Promise.all(
 		ids.map(async (id) => {
@@ -347,15 +351,14 @@ export async function getComparisonModelsCached(
 	if (uniqueOrdered.length === 0) return [];
 
 	console.log("[compare] Resolving comparison models", uniqueOrdered);
+
+	// stable key so different orderings share the same cache entry
 	const cacheKey = [...uniqueOrdered].sort().join(",");
 	console.log("[compare] Fetching models for cache key", cacheKey);
-	let resultMap: ComparisonMap;
-	{
-		"use cache";
-		cacheLife("days");
-		cacheTag("data:models");
-		resultMap = await fetchComparisonModels(cacheKey);
-	}
+
+	// 👇 no cacheLife/cacheTag here any more
+	let resultMap = await fetchComparisonModels(cacheKey);
+
 	console.log("[compare] Received detailed models", resultMap);
 
 	const missingIds = uniqueOrdered.filter((id) => !resultMap[id]);
@@ -364,14 +367,17 @@ export async function getComparisonModelsCached(
 			"[compare] Missing detailed data for some models, falling back to cached list:",
 			missingIds
 		);
+
 		const fallbackModels = await loadCompareModelsCached();
 		console.log(
 			"[compare] Fallback compare models count",
 			fallbackModels.length
 		);
+
 		const fallbackMap = new Map(
 			fallbackModels.map((model) => [model.id, model])
 		);
+
 		resultMap = {
 			...resultMap,
 			...Object.fromEntries(

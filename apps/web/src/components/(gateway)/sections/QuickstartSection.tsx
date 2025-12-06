@@ -564,13 +564,13 @@ export function QuickstartSection({ metrics }: QuickstartSectionProps) {
 	}, [codeSnippets, selectedLanguage]);
 
 	return (
-		<section id="quickstart" className="bg-slate-50 py-16">
+		<section id="quickstart" className="py-16">
 			<div className="mx-auto max-w-7xl space-y-8 px-6 lg:px-8">
 				<div className="max-w-3xl space-y-3">
-					<h2 className="text-2xl font-semibold text-slate-900">
+					<h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
 						Every endpoint, one schema
 					</h2>
-					<p className="text-sm text-slate-600">
+					<p className="text-sm text-slate-600 dark:text-slate-400">
 						Swap endpoints and models without touching your
 						integration. Use the TypeScript SDK (`@ai-stats/ts-sdk`)
 						or Python SDK (`ai-stats-py-sdk`), or call the Gateway
@@ -585,7 +585,7 @@ export function QuickstartSection({ metrics }: QuickstartSectionProps) {
 								<CardTitle className="text-xl">
 									{currentConfig.label}
 								</CardTitle>
-								<p className="text-sm text-slate-600">
+								<p className="text-sm text-slate-600 dark:text-slate-400">
 									{currentConfig.summary}
 								</p>
 							</div>
@@ -610,7 +610,7 @@ export function QuickstartSection({ metrics }: QuickstartSectionProps) {
 										>
 											<div className="flex flex-col">
 												<span>{config.label}</span>
-												<span className="text-xs text-slate-500">
+												<span className="text-xs text-slate-500 dark:text-slate-300">
 													{config.summary}
 												</span>
 											</div>
@@ -631,7 +631,7 @@ export function QuickstartSection({ metrics }: QuickstartSectionProps) {
 											{LANGUAGE_LABELS[selectedLanguage]}
 										</span>
 										{LANGUAGE_BADGES[selectedLanguage] ? (
-											<span className="rounded-full border px-2 py-0.5 text-[0.6rem] uppercase text-slate-500">
+											<span className="rounded-full border px-2 py-0.5 text-[0.6rem] uppercase text-slate-500 dark:text-slate-300">
 												{
 													LANGUAGE_BADGES[
 														selectedLanguage
@@ -657,7 +657,7 @@ export function QuickstartSection({ metrics }: QuickstartSectionProps) {
 													{LANGUAGE_LABELS[option]}
 												</span>
 												{LANGUAGE_BADGES[option] ? (
-													<span className="rounded-full border px-2 py-0.5 text-[0.6rem] uppercase text-slate-500">
+													<span className="rounded-full border px-2 py-0.5 text-[0.6rem] uppercase text-slate-500 dark:text-slate-300">
 														{
 															LANGUAGE_BADGES[
 																option
@@ -679,11 +679,11 @@ export function QuickstartSection({ metrics }: QuickstartSectionProps) {
 								<Copy className="h-4 w-4" />
 								{copied ? "Copied" : "Copy code"}
 							</Button>
-							<p className="text-xs text-slate-500">
+							<p className="text-xs text-slate-500 dark:text-slate-300">
 								OpenAI options (Beta) may change as adapters
 								mature.
 							</p>
-							<p className="text-xs text-slate-500">
+							<p className="text-xs text-slate-500 dark:text-slate-300">
 								Base URL: {BASE_URL}
 								{currentConfig.path}
 							</p>
@@ -710,7 +710,7 @@ export function QuickstartSection({ metrics }: QuickstartSectionProps) {
 							return (
 								<div className="space-y-3">
 									<div className="space-y-2">
-										<p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+										<p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">
 											Model
 										</p>
 										<DropdownMenu>
@@ -745,7 +745,7 @@ export function QuickstartSection({ metrics }: QuickstartSectionProps) {
 												)}
 											</DropdownMenuContent>
 										</DropdownMenu>
-										<p className="text-xs text-slate-500">
+										<p className="text-xs text-slate-500 dark:text-slate-300">
 											Every model uses the same base
 											request payload—swap the `model`
 											value.

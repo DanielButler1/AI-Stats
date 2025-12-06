@@ -1,8 +1,5 @@
-"use client";
-
-import { type ReactNode, useMemo } from "react";
+import type { ReactNode } from "react";
 import Image, { type ImageProps } from "next/image";
-import { useTheme } from "next-themes";
 import { resolveLogo, type LogoVariant, type LogoTheme } from "@/lib/logos";
 
 type LogoImageProps = Omit<ImageProps, "src" | "alt"> & {
@@ -21,27 +18,82 @@ export function Logo({
 	forceTheme,
 	fallback = null,
 	fallbackToColor = true,
+	className,
 	...imageProps
 }: LogoImageProps) {
-	const { resolvedTheme } = useTheme();
+	// If a theme is forced, render a single static variant
+	if (forceTheme) {
+		const resolved = resolveLogo(id, {
+			variant,
+			theme: forceTheme,
+			fallbackToColor,
+		});
 
-	const theme: LogoTheme =
-		forceTheme ?? (resolvedTheme === "dark" ? "dark" : "light");
+		if (!resolved.src) return fallback;
 
-	const resolved = useMemo(
-		() =>
-			resolveLogo(id, {
-				variant,
-				theme,
-				fallbackToColor,
-			}),
-		[id, variant, theme, fallbackToColor]
-	);
+		return (
+			<Image
+				src={resolved.src}
+				alt={alt ?? resolved.label}
+				className={className}
+				{...imageProps}
+			/>
+		);
+	}
 
-	if (!resolved.src) return fallback;
+	// Otherwise, pre-resolve both light and dark variants.
+	// Theme switching is handled purely via CSS (.dark class).
+	const light = resolveLogo(id, {
+		variant,
+		theme: "light",
+		fallbackToColor,
+	});
+	const dark = resolveLogo(id, {
+		variant,
+		theme: "dark",
+		fallbackToColor,
+	});
+
+	if (!light.src && !dark.src) return fallback;
+
+	const label = alt ?? light.label ?? dark.label;
+
+	// If both variants resolve to the same asset (e.g. colour-only logo),
+	// just render a single image.
+	if (light.src && dark.src && light.src === dark.src) {
+		return (
+			<Image
+				src={light.src}
+				alt={label}
+				className={className}
+				{...imageProps}
+			/>
+		);
+	}
 
 	return (
-		<Image alt={alt ?? resolved.label} src={resolved.src} {...imageProps} />
+		<>
+			{light.src && (
+				<Image
+					src={light.src}
+					alt={label}
+					className={["block dark:hidden", className]
+						.filter(Boolean)
+						.join(" ")}
+					{...imageProps}
+				/>
+			)}
+			{dark.src && (
+				<Image
+					src={dark.src}
+					alt={label}
+					className={["hidden dark:block", className]
+						.filter(Boolean)
+						.join(" ")}
+					{...imageProps}
+				/>
+			)}
+		</>
 	);
 }
 

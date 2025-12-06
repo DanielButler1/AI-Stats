@@ -99,6 +99,8 @@
 
 * `HUMANITYS_LAST_EXAM` (value: `"humanitys-last-exam"`)
 
+* `IF_BENCH` (value: `"if-bench"`)
+
 * `IF_EVAL` (value: `"if-eval"`)
 
 * `IQ_BENCH` (value: `"iq-bench"`)

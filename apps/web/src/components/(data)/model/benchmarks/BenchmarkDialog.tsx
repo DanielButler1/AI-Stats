@@ -287,13 +287,19 @@ export function BenchmarkDialog({
 									dataKey="modelName"
 									width={yAxisWidth}
 									interval={0}
-									tick={{ fontSize: 12 }}
+									tick={{
+										fontSize: 12,
+										fill: "var(--chart-axis-color)",
+									}}
 									axisLine
 								/>
 								<XAxis
 									type="number"
 									domain={domain}
 									tickFormatter={axisTickFormatter}
+									tick={{
+										fill: "var(--chart-axis-color)",
+									}}
 								/>
 								<Tooltip
 									wrapperStyle={{ zIndex: 10000 }}

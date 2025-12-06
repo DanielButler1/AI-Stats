@@ -59,7 +59,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort, No Tools",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 15
+      "rank": 17
     },
     {
       "benchmark_id": "browsecomp-long-context-128k",
@@ -123,7 +123,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort, No Tools",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 34
+      "rank": 36
     },
     {
       "benchmark_id": "graphwalks-bfs-lt-128k",
@@ -155,7 +155,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort, No Tools",
       "source_link": "https://openai.com/index/introducing-gpt-5/",
-      "rank": 17
+      "rank": 18
     },
     {
       "benchmark_id": "longfact-concepts-hallucination-rate",
@@ -187,7 +187,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 4
+      "rank": 5
     },
     {
       "benchmark_id": "multi-challenge",
@@ -195,7 +195,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 3
+      "rank": 5
     },
     {
       "benchmark_id": "openai-mrcr-2-needle-128k",
@@ -219,7 +219,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort, No Tools",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 14
+      "rank": 16
     },
     {
       "benchmark_id": "tau-2-airline",
@@ -227,7 +227,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 6
+      "rank": 8
     },
     {
       "benchmark_id": "tau-2-retail",
@@ -235,7 +235,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 6
+      "rank": 8
     },
     {
       "benchmark_id": "tau-2-telecom",
@@ -243,7 +243,7 @@
       "is_self_reported": true,
       "other_info": "High Reasoning Effort",
       "source_link": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "rank": 6
+      "rank": 8
     },
     {
       "benchmark_id": "videomme",

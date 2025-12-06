@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export default async function GatewayMarketingPage() {
 	const metrics = await getGatewayMarketingMetrics();
 	return (
-		<main className="bg-white text-slate-900">
+		<main>
 			<HeroSection metrics={metrics} />
 			<WhyWeWinSection />
 			<CompareSection />

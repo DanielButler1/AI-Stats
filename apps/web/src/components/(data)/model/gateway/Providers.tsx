@@ -5,10 +5,8 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { resolveLogo } from "@/lib/logos";
+import { Logo } from "@/components/Logo";
 import type { GatewayProviderModel } from "@/lib/fetchers/models/getModelGatewayMetadata";
-import Image from "next/image";
 import Link from "next/link";
 
 interface ProvidersProps {
@@ -41,9 +39,8 @@ function ProviderList({
 				const providerId =
 					provider.provider?.api_provider_id ??
 					provider.api_provider_id;
-				const logo = resolveLogo(providerId);
-				const logoLabel = logo.label ?? providerId;
 				const displayName = provider.provider?.api_provider_name;
+				const logoLabel = displayName ?? providerId;
 
 				return (
 					<div
@@ -51,19 +48,13 @@ function ProviderList({
 						className="flex flex-col gap-4 rounded-xl border border-border bg-card p-4 shadow-sm transition hover:border-primary/60"
 					>
 						<div className="flex items-center gap-3">
-							{logo.src ? (
-								<Image
-									alt={logoLabel}
-									src={logo.src}
-									width={40}
-									height={40}
-									className="h-10 w-10 rounded-full bg-white/80 object-contain"
-								/>
-							) : (
-								<div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted text-xs font-semibold uppercase text-muted-foreground">
-									{logoLabel.charAt(0)}
-								</div>
-							)}
+							<Logo
+								id={providerId}
+								alt={logoLabel}
+								width={32}
+								height={32}
+								className="h-8 w-8 rounded-full object-contain"
+							/>
 							<div className="flex-1 min-w-0">
 								<Link
 									href={`/api-providers/${providerId}`}

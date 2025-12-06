@@ -1,12 +1,14 @@
 export const logoManifest = {
 	ai21: {
-		color: "/logos/ai21.svg",
+		light: "/logos/ai21_light.svg",
+		dark: "/logos/ai21_dark.svg",
 	},
 	alibaba: {
 		color: "/logos/alibaba.svg",
 	},
 	amazon: {
-		color: "/logos/amazon.svg",
+		light: "/logos/amazon_light.svg",
+		dark: "/logos/amazon_dark.svg",
 	},
 	"amazon-bedrock": {
 		color: "/logos/amazon-bedrock.svg",
@@ -16,7 +18,8 @@ export const logoManifest = {
 		dark: "/logos/anthropic_dark.svg",
 	},
 	"atlas-cloud": {
-		color: "/logos/atlas-cloud.svg",
+		light: "/logos/atlas-cloud_light.svg",
+		dark: "/logos/atlas-cloud_dark.svg",
 	},
 	azure: {
 		color: "/logos/azure.svg",
@@ -35,10 +38,12 @@ export const logoManifest = {
 		color: "/logos/bytedance.svg",
 	},
 	cerebras: {
-		color: "/logos/cerebras.svg",
+		light: "/logos/cerebras_light.svg",
+		dark: "/logos/cerebras_dark.svg",
 	},
 	chutes: {
-		color: "/logos/chutes.svg",
+		light: "/logos/chutes_light.svg",
+		dark: "/logos/chutes_dark.svg",
 	},
 	cohere: {
 		color: "/logos/cohere.svg",
@@ -50,13 +55,15 @@ export const logoManifest = {
 		color: "/logos/deepseek.svg",
 	},
 	"eleven-labs": {
-		color: "/logos/eleven-labs.svg",
+		light: "/logos/eleven-labs_light.svg",
+		dark: "/logos/eleven-labs_dark.svg",
 	},
 	google: {
 		color: "/logos/google.svg",
 	},
 	"google-ai-studio": {
-		color: "/logos/google-ai-studio.svg",
+		light: "/logos/google-ai-studio_light.svg",
+		dark: "/logos/google-ai-studio_dark.svg",
 	},
 	"google-vertex": {
 		color: "/logos/google-vertex.svg",
@@ -86,10 +93,12 @@ export const logoManifest = {
 		color: "/logos/mistral.svg",
 	},
 	moonshotai: {
-		color: "/logos/moonshotai.svg",
+		light: "/logos/moonshotai_light.svg",
+		dark: "/logos/moonshotai_dark.svg",
 	},
 	nous: {
-		color: "/logos/nous.svg",
+		light: "/logos/nous_light.svg",
+		dark: "/logos/nous_dark.svg",
 	},
 	novitaai: {
 		color: "/logos/novitaai.svg",
@@ -102,7 +111,8 @@ export const logoManifest = {
 		dark: "/logos/openai_dark.svg",
 	},
 	parasail: {
-		color: "/logos/parasail.svg",
+		light: "/logos/parasail_light.svg",
+		dark: "/logos/parasail_dark.svg",
 	},
 	perplexity: {
 		color: "/logos/perplexity.svg",
@@ -114,7 +124,8 @@ export const logoManifest = {
 		color: "/logos/scira.svg",
 	},
 	suno: {
-		color: "/logos/suno.svg",
+		light: "/logos/suno_light.svg",
+		dark: "/logos/suno_dark.svg",
 	},
 	t3: {
 		color: "/logos/t3.svg",
@@ -126,8 +137,9 @@ export const logoManifest = {
 		light: "/logos/xai_light.svg",
 		dark: "/logos/xai_dark.svg",
 	},
-	"z-ai": {
-		color: "/logos/z-ai.svg",
+	zai: {
+		light: "/logos/zai_light.svg",
+		dark: "/logos/zai_dark.svg",
 	},
 	typescript: {
 		color: "/languages/typescript.svg",

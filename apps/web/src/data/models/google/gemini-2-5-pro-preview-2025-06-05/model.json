@@ -63,7 +63,7 @@
       "is_self_reported": true,
       "other_info": "Single Attempt",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif",
-      "rank": 12
+      "rank": 14
     },
     {
       "benchmark_id": "arc-agi-1",
@@ -167,7 +167,7 @@
       "is_self_reported": true,
       "other_info": "No Tools",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif",
-      "rank": 6
+      "rank": 7
     },
     {
       "benchmark_id": "lmarena-text",
@@ -231,7 +231,7 @@
       "is_self_reported": true,
       "other_info": "Multiple Attempts",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif",
-      "rank": 8
+      "rank": 9
     },
     {
       "benchmark_id": "swe-bench",
@@ -239,7 +239,7 @@
       "is_self_reported": true,
       "other_info": "Single Attempt",
       "source_link": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/gemini_2-5_procomp_benchmarks_cropped_light_3.gif",
-      "rank": 8
+      "rank": 9
     },
     {
       "benchmark_id": "thematic-generalisation",

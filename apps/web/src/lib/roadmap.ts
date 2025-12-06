@@ -111,7 +111,7 @@ export const MILESTONES: RoadmapMilestone[] = [
         key: "sources",
         title: "Sources",
         status: "Planned",
-        due: "Early Dec 2025",
+        due: "Dec 2025",
         description:
             "Transparent citations for every data point with badges and one-click links to our sources.",
         icon: "BookOpen",
@@ -120,7 +120,7 @@ export const MILESTONES: RoadmapMilestone[] = [
         key: "database-updates",
         title: "Database Updates",
         status: "Planned",
-        due: "Nov 2025",
+        due: "Dec 2025 - Jan 2026",
         description:
             "An expansion of Latest Updates - this will show all changes made to the database allowing you to see what's changing in the database.",
         icon: "BookOpen",
@@ -166,7 +166,7 @@ export const MILESTONES: RoadmapMilestone[] = [
         key: "provisioning-keys",
         title: "Provisioning Keys",
         status: "Planned",
-        due: "Dec 2025",
+        due: "Jan 2026",
         description:
             "Automated provisioning and management of API keys for users.",
         icon: "BadgeDollarSign",
@@ -175,7 +175,7 @@ export const MILESTONES: RoadmapMilestone[] = [
         key: "presets",
         title: "Presets",
         status: "Planned",
-        due: "Dec 2025",
+        due: "Jan 2026",
         description:
             "Predefined configurations and presets for common AI use cases.",
         icon: "Sparkles",

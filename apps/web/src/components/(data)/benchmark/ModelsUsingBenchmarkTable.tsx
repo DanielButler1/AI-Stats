@@ -51,22 +51,22 @@ export default function ModelsUsingBenchmarkClient({
 		return rawScore;
 	}
 
-function sortResults(resultsArr: any[], isLowerBetter = false) {
-	return [...resultsArr].sort((a, b) => {
-		if (a.rank != null && b.rank != null) {
-			const diff = a.rank - b.rank;
-			if (diff !== 0) return diff;
-		}
-		const pa = parseScore(a.score ?? "");
-		const pb = parseScore(b.score ?? "");
-		if (pa != null && pb != null) {
-			return isLowerBetter ? pa - pb : pb - pa;
-		}
-		return (a.score || "")
-			.toString()
-			.localeCompare((b.score || "").toString());
-	});
-}
+	function sortResults(resultsArr: any[], isLowerBetter = false) {
+		return [...resultsArr].sort((a, b) => {
+			if (a.rank != null && b.rank != null) {
+				const diff = a.rank - b.rank;
+				if (diff !== 0) return diff;
+			}
+			const pa = parseScore(a.score ?? "");
+			const pb = parseScore(b.score ?? "");
+			if (pa != null && pb != null) {
+				return isLowerBetter ? pa - pb : pb - pa;
+			}
+			return (a.score || "")
+				.toString()
+				.localeCompare((b.score || "").toString());
+		});
+	}
 
 	return (
 		<div className="space-y-4">
@@ -84,7 +84,9 @@ function sortResults(resultsArr: any[], isLowerBetter = false) {
 									Organisation
 								</th>
 								<th className="px-4 py-2 text-left">Model</th>
-								<th className="px-4 py-2 text-left">Reported</th>
+								<th className="px-4 py-2 text-left">
+									Reported
+								</th>
 								<th className="px-4 py-2 text-left">
 									Top Score
 								</th>
@@ -101,12 +103,11 @@ function sortResults(resultsArr: any[], isLowerBetter = false) {
 									model.benchmark_results || [],
 									isLowerBetter
 								);
-								const top = model.top_score ?? sorted[0] ?? null;
+								const top =
+									model.top_score ?? sorted[0] ?? null;
 								const topId = top?.id;
 								const extraScores = topId
-									? sorted.filter(
-											(item) => item.id !== topId
-									  )
+									? sorted.filter((item) => item.id !== topId)
 									: sorted.slice(1);
 								const anySelf = sorted.some(
 									(s) => s.is_self_reported
@@ -169,14 +170,20 @@ function sortResults(resultsArr: any[], isLowerBetter = false) {
 
 													{organisationHref ? (
 														<Link
-															href={organisationHref}
+															href={
+																organisationHref
+															}
 															className="group inline-block"
 														>
-															{organisationNameElement}
+															{
+																organisationNameElement
+															}
 														</Link>
 													) : (
 														<span className="group inline-block">
-															{organisationNameElement}
+															{
+																organisationNameElement
+															}
 														</span>
 													)}
 												</div>
@@ -221,14 +228,16 @@ function sortResults(resultsArr: any[], isLowerBetter = false) {
 												</Link>
 											</td>
 											<td className="px-4 py-2 text-left">
-												{formatReportedDate(model.reported_date)}
+												{formatReportedDate(
+													model.reported_date
+												)}
 											</td>
 											<td className="px-4 py-2 font-mono">
 												{top
 													? formatScoreDisplay(top)
 													: "-"}
 											</td>
-											<td className="px-4 py-2 text-xs text-zinc-500">
+											<td className="px-4 py-2 text-xs text-zinc-500 dark:text-zinc-300">
 												{top?.other_info || "-"}
 											</td>
 											<td className="px-4 py-2 text-center">
@@ -248,12 +257,12 @@ function sortResults(resultsArr: any[], isLowerBetter = false) {
 														href={top.source_link}
 														target="_blank"
 														rel="noopener noreferrer"
-														className="group inline-flex items-center text-indigo-600"
+														className="group inline-flex items-center text-indigo-600 dark:text-indigo-400"
 													>
 														<span className="relative inline-block align-middle truncate text-sm font-normal after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
 															Source
 														</span>
-														<ExternalLink className="ml-1 h-3 w-3 text-indigo-500 opacity-0 transition-all group-hover:opacity-100 group-hover:text-indigo-700" />
+														<ExternalLink className="ml-1 h-3 w-3 text-indigo-500 opacity-0 transition-all group-hover:opacity-100 group-hover:text-indigo-700 dark:text-indigo-400 dark:group-hover:text-indigo-300" />
 													</a>
 												) : (
 													"-"
@@ -264,67 +273,70 @@ function sortResults(resultsArr: any[], isLowerBetter = false) {
 										{hasMultiple &&
 											isOpen &&
 											extraScores.map(
-												(
-													item: any,
-													idx: number
-												) => (
+												(item: any, idx: number) => (
 													<tr
 														key={`${item.id}-${idx}`}
-														className={`border-t border-zinc-200 bg-zinc-50 text-xs dark:border-zinc-800 dark:bg-zinc-900 ${idx === extraScores.length - 1 ? "rounded-b-xl" : ""}`}
+														className={`border-t border-zinc-200 bg-zinc-50 text-xs dark:border-zinc-800 dark:bg-zinc-900 ${
+															idx ===
+															extraScores.length -
+																1
+																? "rounded-b-xl"
+																: ""
+														}`}
 													>
-															<td
-																className="px-4 py-2 pl-8 font-mono"
-																colSpan={3}
-															></td>
-															<td className="px-4 py-2 font-mono">
-																{formatScoreDisplay(
-																	item
-																)}
-															</td>
-															<td className="px-4 py-2 text-xs text-zinc-500">
-																{item.other_info ||
-																	"-"}
-															</td>
-															<td className="px-4 py-2 text-center">
-																<span
-																	className={
-																		item.is_self_reported
-																			? "rounded bg-yellow-100 px-2 py-1 text-xs font-semibold text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
-																			: "rounded bg-green-100 px-2 py-1 text-xs font-semibold text-green-800 dark:bg-green-900 dark:text-green-200"
+														<td
+															className="px-4 py-2 pl-8 font-mono"
+															colSpan={3}
+														></td>
+														<td className="px-4 py-2 font-mono">
+															{formatScoreDisplay(
+																item
+															)}
+														</td>
+														<td className="px-4 py-2 text-xs text-zinc-500 dark:text-zinc-300">
+															{item.other_info ||
+																"-"}
+														</td>
+														<td className="px-4 py-2 text-center">
+															<span
+																className={
+																	item.is_self_reported
+																		? "rounded bg-yellow-100 px-2 py-1 text-xs font-semibold text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
+																		: "rounded bg-green-100 px-2 py-1 text-xs font-semibold text-green-800 dark:bg-green-900 dark:text-green-200"
+																}
+																title={
+																	item.is_self_reported
+																		? "Self-reported (may be less reliable)"
+																		: "Not self-reported (more reliable)"
+																}
+															>
+																{item.is_self_reported
+																	? "Yes"
+																	: "No"}
+															</span>
+														</td>
+														<td className="px-4 py-2">
+															{item.source_link ? (
+																<a
+																	href={
+																		item.source_link
 																	}
-																	title={
-																		item.is_self_reported
-																			? "Self-reported (may be less reliable)"
-																			: "Not self-reported (more reliable)"
-																	}
+																	target="_blank"
+																	rel="noopener noreferrer"
+																	className="group inline-flex items-center text-indigo-600 dark:text-indigo-400"
 																>
-																	{item.is_self_reported
-																		? "Yes"
-																		: "No"}
-																</span>
-															</td>
-															<td className="px-4 py-2">
-																{item.source_link ? (
-																	<a
-																		href={
-																			item.source_link
-																		}
-																		target="_blank"
-																		rel="noopener noreferrer"
-																		className="group inline-flex items-center text-indigo-600"
-																	>
-																		<span className="relative inline-block align-middle truncate text-sm font-normal after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
-																			Source
-																		</span>
-																		<ExternalLink className="ml-1 h-3 w-3 text-indigo-500 opacity-0 transition-all group-hover:opacity-100 group-hover:text-indigo-700" />
-																	</a>
-																) : (
-																	"-"
-																)}
-															</td>
-														</tr>
-													)
-												)}
+																	<span className="relative inline-block align-middle truncate text-sm font-normal after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
+																		Source
+																	</span>
+																	<ExternalLink className="ml-1 h-3 w-3 text-indigo-500 opacity-0 transition-all group-hover:opacity-100 group-hover:text-indigo-700 dark:text-indigo-400 dark:group-hover:text-indigo-300" />
+																</a>
+															) : (
+																"-"
+															)}
+														</td>
+													</tr>
+												)
+											)}
 									</React.Fragment>
 								);
 							})}

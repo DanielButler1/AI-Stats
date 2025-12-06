@@ -117,10 +117,12 @@ const (
 	MODELID_DEEPSEEK_DEEPSEEK_VL2_2024_12_13 ModelId = "deepseek/deepseek-vl2-2024-12-13"
 	MODELID_DEEPSEEK_DEEPSEEK_VL2_SMALL_2024_12_13 ModelId = "deepseek/deepseek-vl2-small-2024-12-13"
 	MODELID_DEEPSEEK_DEEPSEEK_VL2_TINY_2024_12_13 ModelId = "deepseek/deepseek-vl2-tiny-2024-12-13"
+	MODELID_GOOGLE_CHAT_BISON ModelId = "google/chat-bison"
+	MODELID_GOOGLE_CODE_BECKO ModelId = "google/code-becko"
 	MODELID_GOOGLE_EMBEDDING_001_2023_12_13 ModelId = "google/embedding-001-2023-12-13"
-	MODELID_GOOGLE_EMBEDDING_GECKO_001_2023_12_13 ModelId = "google/embedding-gecko-001-2023-12-13"
 	MODELID_GOOGLE_GEMINI_1_0_NANO_2023_12_06 ModelId = "google/gemini-1-0-nano-2023-12-06"
 	MODELID_GOOGLE_GEMINI_1_0_PRO_2023_12_06 ModelId = "google/gemini-1-0-pro-2023-12-06"
+	MODELID_GOOGLE_GEMINI_1_0_PRO_VISION_001 ModelId = "google/gemini-1-0-pro-vision-001"
 	MODELID_GOOGLE_GEMINI_1_0_ULTRA_2023_12_06 ModelId = "google/gemini-1-0-ultra-2023-12-06"
 	MODELID_GOOGLE_GEMINI_1_5_FLASH_001_2024_05_23 ModelId = "google/gemini-1-5-flash-001-2024-05-23"
 	MODELID_GOOGLE_GEMINI_1_5_FLASH_002_2024_09_24 ModelId = "google/gemini-1-5-flash-002-2024-09-24"
@@ -178,6 +180,10 @@ const (
 	MODELID_GOOGLE_GEMMA_3_4B_2025_03_12 ModelId = "google/gemma-3-4b-2025-03-12"
 	MODELID_GOOGLE_GEMMA_3N_E2B ModelId = "google/gemma-3n-e2b"
 	MODELID_GOOGLE_GEMMA_3N_E4B_2025_05_20 ModelId = "google/gemma-3n-e4b-2025-05-20"
+	MODELID_GOOGLE_IMAGE_GENERATION_002 ModelId = "google/image-generation-002"
+	MODELID_GOOGLE_IMAGE_GENERATION_005 ModelId = "google/image-generation-005"
+	MODELID_GOOGLE_IMAGE_GENERATION_006 ModelId = "google/image-generation-006"
+	MODELID_GOOGLE_IMAGE_TEXT ModelId = "google/image-text"
 	MODELID_GOOGLE_IMAGEN_3_0_GENERATE_001 ModelId = "google/imagen-3-0-generate-001"
 	MODELID_GOOGLE_IMAGEN_3_0_GENERATE_002_2025_02_06 ModelId = "google/imagen-3-0-generate-002-2025-02-06"
 	MODELID_GOOGLE_IMAGEN_4_0_FAST_GENERATE_001 ModelId = "google/imagen-4-0-fast-generate-001"
@@ -187,6 +193,15 @@ const (
 	MODELID_GOOGLE_IMAGEN_4_ULTRA_PREVIEW_2025_08_14 ModelId = "google/imagen-4-ultra-preview-2025-08-14"
 	MODELID_GOOGLE_LEARNLM_1_5_PRO_EXPERIMENTAL ModelId = "google/learnlm-1-5-pro-experimental"
 	MODELID_GOOGLE_LEARNLM_2_0_FLASH_EXPERIMENTAL ModelId = "google/learnlm-2-0-flash-experimental"
+	MODELID_GOOGLE_MULTIMODAL_EMBEDDING_001 ModelId = "google/multimodal-embedding-001"
+	MODELID_GOOGLE_TEXT_BISON ModelId = "google/text-bison"
+	MODELID_GOOGLE_TEXT_EMBEDDING_004 ModelId = "google/text-embedding-004"
+	MODELID_GOOGLE_TEXT_EMBEDDING_005 ModelId = "google/text-embedding-005"
+	MODELID_GOOGLE_TEXT_EMBEDDING_GECKO_001_2023_12_13 ModelId = "google/text-embedding-gecko-001-2023-12-13"
+	MODELID_GOOGLE_TEXT_EMBEDDING_GECKO_002 ModelId = "google/text-embedding-gecko-002"
+	MODELID_GOOGLE_TEXT_EMBEDDING_GECKO_003 ModelId = "google/text-embedding-gecko-003"
+	MODELID_GOOGLE_TEXT_EMBEDDING_GECKO_MULTILINGUAL_001 ModelId = "google/text-embedding-gecko-multilingual-001"
+	MODELID_GOOGLE_TEXT_MULTILINGUAL_EMBEDDING_002 ModelId = "google/text-multilingual-embedding-002"
 	MODELID_GOOGLE_VEO_2_2025_04_09 ModelId = "google/veo-2-2025-04-09"
 	MODELID_GOOGLE_VEO_3_0_FAST_GENERATE_PREVIEW_2025_07_17 ModelId = "google/veo-3-0-fast-generate-preview-2025-07-17"
 	MODELID_GOOGLE_VEO_3_0_GENERATE_PREVIEW_2025_07_17 ModelId = "google/veo-3-0-generate-preview-2025-07-17"
@@ -456,6 +471,7 @@ const (
 	MODELID_OPENAI_GPT_5_1_CODEX_MAX_2025_11_19 ModelId = "openai/gpt-5-1-codex-max-2025-11-19"
 	MODELID_OPENAI_GPT_5_1_CODEX_MINI_2025_11_13 ModelId = "openai/gpt-5-1-codex-mini-2025-11-13"
 	MODELID_OPENAI_GPT_5_1_PRO ModelId = "openai/gpt-5-1-pro"
+	MODELID_OPENAI_GPT_5_2 ModelId = "openai/gpt-5-2"
 	MODELID_OPENAI_GPT_5_2025_08_07 ModelId = "openai/gpt-5-2025-08-07"
 	MODELID_OPENAI_GPT_5_CHAT_2025_08_07 ModelId = "openai/gpt-5-chat-2025-08-07"
 	MODELID_OPENAI_GPT_5_CODEX_2025_09_15 ModelId = "openai/gpt-5-codex-2025-09-15"
@@ -560,6 +576,7 @@ const (
 	MODELID_X_AI_GROK_3_MINI_BETA_2025_02_19 ModelId = "x-ai/grok-3-mini-beta-2025-02-19"
 	MODELID_X_AI_GROK_4_1_NON_THINKING_2025_11_17 ModelId = "x-ai/grok-4-1-non-thinking-2025-11-17"
 	MODELID_X_AI_GROK_4_1_THINKING_2025_11_17 ModelId = "x-ai/grok-4-1-thinking-2025-11-17"
+	MODELID_X_AI_GROK_4_2 ModelId = "x-ai/grok-4-2"
 	MODELID_X_AI_GROK_4_2025_07_10 ModelId = "x-ai/grok-4-2025-07-10"
 	MODELID_X_AI_GROK_4_FAST_NON_REASONING_2025_09_20 ModelId = "x-ai/grok-4-fast-non-reasoning-2025-09-20"
 	MODELID_X_AI_GROK_4_FAST_REASONING_2025_09_20 ModelId = "x-ai/grok-4-fast-reasoning-2025-09-20"
@@ -678,10 +695,12 @@ var AllowedModelIdEnumValues = []ModelId{
 	"deepseek/deepseek-vl2-2024-12-13",
 	"deepseek/deepseek-vl2-small-2024-12-13",
 	"deepseek/deepseek-vl2-tiny-2024-12-13",
+	"google/chat-bison",
+	"google/code-becko",
 	"google/embedding-001-2023-12-13",
-	"google/embedding-gecko-001-2023-12-13",
 	"google/gemini-1-0-nano-2023-12-06",
 	"google/gemini-1-0-pro-2023-12-06",
+	"google/gemini-1-0-pro-vision-001",
 	"google/gemini-1-0-ultra-2023-12-06",
 	"google/gemini-1-5-flash-001-2024-05-23",
 	"google/gemini-1-5-flash-002-2024-09-24",
@@ -739,6 +758,10 @@ var AllowedModelIdEnumValues = []ModelId{
 	"google/gemma-3-4b-2025-03-12",
 	"google/gemma-3n-e2b",
 	"google/gemma-3n-e4b-2025-05-20",
+	"google/image-generation-002",
+	"google/image-generation-005",
+	"google/image-generation-006",
+	"google/image-text",
 	"google/imagen-3-0-generate-001",
 	"google/imagen-3-0-generate-002-2025-02-06",
 	"google/imagen-4-0-fast-generate-001",
@@ -748,6 +771,15 @@ var AllowedModelIdEnumValues = []ModelId{
 	"google/imagen-4-ultra-preview-2025-08-14",
 	"google/learnlm-1-5-pro-experimental",
 	"google/learnlm-2-0-flash-experimental",
+	"google/multimodal-embedding-001",
+	"google/text-bison",
+	"google/text-embedding-004",
+	"google/text-embedding-005",
+	"google/text-embedding-gecko-001-2023-12-13",
+	"google/text-embedding-gecko-002",
+	"google/text-embedding-gecko-003",
+	"google/text-embedding-gecko-multilingual-001",
+	"google/text-multilingual-embedding-002",
 	"google/veo-2-2025-04-09",
 	"google/veo-3-0-fast-generate-preview-2025-07-17",
 	"google/veo-3-0-generate-preview-2025-07-17",
@@ -1017,6 +1049,7 @@ var AllowedModelIdEnumValues = []ModelId{
 	"openai/gpt-5-1-codex-max-2025-11-19",
 	"openai/gpt-5-1-codex-mini-2025-11-13",
 	"openai/gpt-5-1-pro",
+	"openai/gpt-5-2",
 	"openai/gpt-5-2025-08-07",
 	"openai/gpt-5-chat-2025-08-07",
 	"openai/gpt-5-codex-2025-09-15",
@@ -1121,6 +1154,7 @@ var AllowedModelIdEnumValues = []ModelId{
 	"x-ai/grok-3-mini-beta-2025-02-19",
 	"x-ai/grok-4-1-non-thinking-2025-11-17",
 	"x-ai/grok-4-1-thinking-2025-11-17",
+	"x-ai/grok-4-2",
 	"x-ai/grok-4-2025-07-10",
 	"x-ai/grok-4-fast-non-reasoning-2025-09-20",
 	"x-ai/grok-4-fast-reasoning-2025-09-20",

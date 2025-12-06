@@ -86,7 +86,7 @@
       "is_self_reported": true,
       "other_info": "Avg@64",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
-      "rank": 30
+      "rank": 35
     },
     {
       "benchmark_id": "autologi",
@@ -142,7 +142,7 @@
       "is_self_reported": true,
       "other_info": "Avg@8",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
-      "rank": 29
+      "rank": 31
     },
     {
       "benchmark_id": "hmmt-2025",
@@ -150,7 +150,7 @@
       "is_self_reported": true,
       "other_info": "Avg@32",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
-      "rank": 8
+      "rank": 11
     },
     {
       "benchmark_id": "humanitys-last-exam",
@@ -158,7 +158,7 @@
       "is_self_reported": true,
       "other_info": "Text Only",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
-      "rank": 21
+      "rank": 22
     },
     {
       "benchmark_id": "if-eval",
@@ -206,7 +206,7 @@
       "is_self_reported": true,
       "other_info": "EM",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
-      "rank": 6
+      "rank": 7
     },
     {
       "benchmark_id": "mmlu-redux",
@@ -222,7 +222,7 @@
       "is_self_reported": true,
       "other_info": "Acc",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
-      "rank": 4
+      "rank": 6
     },
     {
       "benchmark_id": "multiPL-E",
@@ -302,7 +302,7 @@
       "is_self_reported": true,
       "other_info": "Avg@4",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
-      "rank": 5
+      "rank": 7
     },
     {
       "benchmark_id": "tau-2-retail",
@@ -310,7 +310,7 @@
       "is_self_reported": true,
       "other_info": "Avg@4",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
-      "rank": 5
+      "rank": 7
     },
     {
       "benchmark_id": "tau-2-telecom",
@@ -318,7 +318,7 @@
       "is_self_reported": true,
       "other_info": "Avg@4",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
-      "rank": 4
+      "rank": 6
     },
     {
       "benchmark_id": "terminal-bench",
@@ -326,7 +326,7 @@
       "is_self_reported": true,
       "other_info": "Inhouse Framework (Acc)",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
-      "rank": 3
+      "rank": 5
     },
     {
       "benchmark_id": "terminal-bench",
@@ -334,7 +334,7 @@
       "is_self_reported": true,
       "other_info": "Terminus (Acc)",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Instruct",
-      "rank": 3
+      "rank": 5
     },
     {
       "benchmark_id": "thematic-generalisation",

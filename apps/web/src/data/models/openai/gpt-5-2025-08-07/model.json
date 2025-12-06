@@ -67,7 +67,7 @@
       "is_self_reported": true,
       "other_info": "Thinking, With Python, Pass @ 1",
       "source_link": "https://openai.com/index/introducing-gpt-5/",
-      "rank": 2
+      "rank": 3
     },
     {
       "benchmark_id": "aime-2025",
@@ -75,7 +75,7 @@
       "is_self_reported": true,
       "other_info": "Thinking, No Tools, Pass @ 1",
       "source_link": "https://openai.com/index/introducing-gpt-5/",
-      "rank": 2
+      "rank": 3
     },
     {
       "benchmark_id": "aime-2025",
@@ -83,7 +83,7 @@
       "is_self_reported": true,
       "other_info": "Without Thinking, With Python, Pass @ 1",
       "source_link": "https://openai.com/index/introducing-gpt-5/",
-      "rank": 2
+      "rank": 3
     },
     {
       "benchmark_id": "aime-2025",
@@ -91,7 +91,7 @@
       "is_self_reported": true,
       "other_info": "Without Thinking, No Tools, Pass @ 1",
       "source_link": "https://openai.com/index/introducing-gpt-5/",
-      "rank": 2
+      "rank": 3
     },
     {
       "benchmark_id": "browsecomp",
@@ -371,7 +371,7 @@
       "is_self_reported": true,
       "other_info": "With Thinking, Pass @ 1",
       "source_link": "https://openai.com/index/introducing-gpt-5/",
-      "rank": 1
+      "rank": 3
     },
     {
       "benchmark_id": "multi-challenge",
@@ -379,7 +379,7 @@
       "is_self_reported": true,
       "other_info": "Without Thinking, Pass @ 1",
       "source_link": "https://openai.com/index/introducing-gpt-5/",
-      "rank": 1
+      "rank": 3
     },
     {
       "benchmark_id": "openai-mrcr-2-needle-128k",
@@ -427,7 +427,7 @@
       "is_self_reported": true,
       "other_info": "With Thinking, Pass @ 1",
       "source_link": "https://openai.com/index/introducing-gpt-5/",
-      "rank": 2
+      "rank": 4
     },
     {
       "benchmark_id": "tau-2-airline",
@@ -435,7 +435,7 @@
       "is_self_reported": true,
       "other_info": "Without Thinking, Pass @ 1",
       "source_link": "https://openai.com/index/introducing-gpt-5/",
-      "rank": 2
+      "rank": 4
     },
     {
       "benchmark_id": "tau-2-retail",
@@ -443,7 +443,7 @@
       "is_self_reported": true,
       "other_info": "With Thinking, Pass @ 1",
       "source_link": "https://openai.com/index/introducing-gpt-5/",
-      "rank": 2
+      "rank": 3
     },
     {
       "benchmark_id": "tau-2-retail",
@@ -451,7 +451,7 @@
       "is_self_reported": true,
       "other_info": "Without Thinking, Pass @ 1",
       "source_link": "https://openai.com/index/introducing-gpt-5/",
-      "rank": 2
+      "rank": 3
     },
     {
       "benchmark_id": "tau-2-telecom",

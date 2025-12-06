@@ -139,6 +139,8 @@ class BenchmarkId
 
     public const HUMANITYS_LAST_EXAM = 'humanitys-last-exam';
 
+    public const IF_BENCH = 'if-bench';
+
     public const IF_EVAL = 'if-eval';
 
     public const IQ_BENCH = 'iq-bench';
@@ -338,6 +340,7 @@ class BenchmarkId
             self::HMMT_2025,
             self::HUMANEVAL,
             self::HUMANITYS_LAST_EXAM,
+            self::IF_BENCH,
             self::IF_EVAL,
             self::IQ_BENCH,
             self::LISANBENCH,

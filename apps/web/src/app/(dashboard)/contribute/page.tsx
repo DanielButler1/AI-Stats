@@ -8,6 +8,7 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import type { Metadata } from "next";
+import { cacheLife } from "next/cache";
 
 type StaticContributor = {
 	name?: string;
@@ -58,6 +59,9 @@ function getContributorProfileUrl(contributor: StaticContributor) {
 }
 
 export default async function Page() {
+	"use cache";
+	cacheLife("days");
+
 	let contributors: StaticContributor[] = [];
 	try {
 		const response = await fetch(

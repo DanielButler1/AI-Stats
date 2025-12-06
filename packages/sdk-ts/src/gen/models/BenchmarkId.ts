@@ -66,6 +66,7 @@ export enum BenchmarkId {
     hmmt_2025 = 'hmmt-2025',
     humaneval = 'humaneval',
     humanitys_last_exam = 'humanitys-last-exam',
+    if_bench = 'if-bench',
     if_eval = 'if-eval',
     iq_bench = 'iq-bench',
     lisanbench = 'lisanbench',

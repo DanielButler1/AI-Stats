@@ -18,5 +18,102 @@
     }
   ],
   "details": [],
-  "benchmarks": []
+  "benchmarks": [
+    {
+      "benchmark_id": "math",
+      "score": 0.676,
+      "is_self_reported": true,
+      "other_info": "Reasoning, 2 Shot",
+      "source_link": "https://mistral.ai/news/mistral-3",
+      "rank": 1
+    },
+    {
+      "benchmark_id": "mmlu-redux",
+      "score": 0.82,
+      "is_self_reported": true,
+      "other_info": "5 Shot",
+      "source_link": "https://mistral.ai/news/mistral-3",
+      "rank": 5
+    },
+    {
+      "benchmark_id": "triviaqa",
+      "score": 0.749,
+      "is_self_reported": true,
+      "other_info": "5 Shot",
+      "source_link": "https://mistral.ai/news/mistral-3",
+      "rank": 2
+    },
+    {
+      "benchmark_id": "mmlu-multilingual",
+      "score": 0.742,
+      "is_self_reported": true,
+      "other_info": "5 Shot",
+      "source_link": "https://mistral.ai/news/mistral-3",
+      "rank": 1
+    },
+    {
+      "benchmark_id": "wildbench",
+      "score": 0.685,
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/news/mistral-3",
+      "rank": 1
+    },
+    {
+      "benchmark_id": "arena-hard",
+      "score": 0.551,
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/news/mistral-3",
+      "rank": 1
+    },
+    {
+      "benchmark_id": "math",
+      "score": 0.904,
+      "is_self_reported": true,
+      "other_info": "Majority @ 1",
+      "source_link": "https://mistral.ai/news/mistral-3",
+      "rank": 1
+    },
+    {
+      "benchmark_id": "mm-mt-bench",
+      "score": 0.849,
+      "is_self_reported": true,
+      "other_info": "Multimodal",
+      "source_link": "https://mistral.ai/news/mistral-3",
+      "rank": 1
+    },
+    {
+      "benchmark_id": "aime-2025",
+      "score": 0.85,
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/news/mistral-3",
+      "rank": 18
+    },
+    {
+      "benchmark_id": "livecodebench",
+      "score": 0.646,
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/news/mistral-3",
+      "rank": 2
+    },
+    {
+      "benchmark_id": "gpqa-diamond",
+      "score": 0.712,
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/news/mistral-3",
+      "rank": 36
+    },
+    {
+      "benchmark_id": "hmmt-2025",
+      "score": 0.675,
+      "is_self_reported": true,
+      "other_info": null,
+      "source_link": "https://mistral.ai/news/mistral-3",
+      "rank": 7
+    }
+  ]
 }

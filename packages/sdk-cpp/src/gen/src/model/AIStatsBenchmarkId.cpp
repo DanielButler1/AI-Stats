@@ -120,6 +120,8 @@ AIStatsBenchmarkId::eAIStatsBenchmarkId toEnum(const EnumUnderlyingType& val)
         return AIStatsBenchmarkId::eAIStatsBenchmarkId::HUMANEVAL;
     if (val == utility::conversions::to_string_t(_XPLATSTR("humanitys-last-exam")))
         return AIStatsBenchmarkId::eAIStatsBenchmarkId::HUMANITYS_LAST_EXAM;
+    if (val == utility::conversions::to_string_t(_XPLATSTR("if-bench")))
+        return AIStatsBenchmarkId::eAIStatsBenchmarkId::IF_BENCH;
     if (val == utility::conversions::to_string_t(_XPLATSTR("if-eval")))
         return AIStatsBenchmarkId::eAIStatsBenchmarkId::IF_EVAL;
     if (val == utility::conversions::to_string_t(_XPLATSTR("iq-bench")))
@@ -367,6 +369,8 @@ EnumUnderlyingType fromEnum(AIStatsBenchmarkId::eAIStatsBenchmarkId e)
         return _XPLATSTR("humaneval");
     case AIStatsBenchmarkId::eAIStatsBenchmarkId::HUMANITYS_LAST_EXAM:
         return _XPLATSTR("humanitys-last-exam");
+    case AIStatsBenchmarkId::eAIStatsBenchmarkId::IF_BENCH:
+        return _XPLATSTR("if-bench");
     case AIStatsBenchmarkId::eAIStatsBenchmarkId::IF_EVAL:
         return _XPLATSTR("if-eval");
     case AIStatsBenchmarkId::eAIStatsBenchmarkId::IQ_BENCH:

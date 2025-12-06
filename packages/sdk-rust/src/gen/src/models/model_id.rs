@@ -208,14 +208,18 @@ pub enum ModelId {
     DeepseekSlashDeepseekVl2Small20241213,
     #[serde(rename = "deepseek/deepseek-vl2-tiny-2024-12-13")]
     DeepseekSlashDeepseekVl2Tiny20241213,
+    #[serde(rename = "google/chat-bison")]
+    GoogleSlashChatBison,
+    #[serde(rename = "google/code-becko")]
+    GoogleSlashCodeBecko,
     #[serde(rename = "google/embedding-001-2023-12-13")]
     GoogleSlashEmbedding00120231213,
-    #[serde(rename = "google/embedding-gecko-001-2023-12-13")]
-    GoogleSlashEmbeddingGecko00120231213,
     #[serde(rename = "google/gemini-1-0-nano-2023-12-06")]
     GoogleSlashGemini10Nano20231206,
     #[serde(rename = "google/gemini-1-0-pro-2023-12-06")]
     GoogleSlashGemini10Pro20231206,
+    #[serde(rename = "google/gemini-1-0-pro-vision-001")]
+    GoogleSlashGemini10ProVision001,
     #[serde(rename = "google/gemini-1-0-ultra-2023-12-06")]
     GoogleSlashGemini10Ultra20231206,
     #[serde(rename = "google/gemini-1-5-flash-001-2024-05-23")]
@@ -330,6 +334,14 @@ pub enum ModelId {
     GoogleSlashGemma3nE2b,
     #[serde(rename = "google/gemma-3n-e4b-2025-05-20")]
     GoogleSlashGemma3nE4b20250520,
+    #[serde(rename = "google/image-generation-002")]
+    GoogleSlashImageGeneration002,
+    #[serde(rename = "google/image-generation-005")]
+    GoogleSlashImageGeneration005,
+    #[serde(rename = "google/image-generation-006")]
+    GoogleSlashImageGeneration006,
+    #[serde(rename = "google/image-text")]
+    GoogleSlashImageText,
     #[serde(rename = "google/imagen-3-0-generate-001")]
     GoogleSlashImagen30Generate001,
     #[serde(rename = "google/imagen-3-0-generate-002-2025-02-06")]
@@ -348,6 +360,24 @@ pub enum ModelId {
     GoogleSlashLearnlm15ProExperimental,
     #[serde(rename = "google/learnlm-2-0-flash-experimental")]
     GoogleSlashLearnlm20FlashExperimental,
+    #[serde(rename = "google/multimodal-embedding-001")]
+    GoogleSlashMultimodalEmbedding001,
+    #[serde(rename = "google/text-bison")]
+    GoogleSlashTextBison,
+    #[serde(rename = "google/text-embedding-004")]
+    GoogleSlashTextEmbedding004,
+    #[serde(rename = "google/text-embedding-005")]
+    GoogleSlashTextEmbedding005,
+    #[serde(rename = "google/text-embedding-gecko-001-2023-12-13")]
+    GoogleSlashTextEmbeddingGecko00120231213,
+    #[serde(rename = "google/text-embedding-gecko-002")]
+    GoogleSlashTextEmbeddingGecko002,
+    #[serde(rename = "google/text-embedding-gecko-003")]
+    GoogleSlashTextEmbeddingGecko003,
+    #[serde(rename = "google/text-embedding-gecko-multilingual-001")]
+    GoogleSlashTextEmbeddingGeckoMultilingual001,
+    #[serde(rename = "google/text-multilingual-embedding-002")]
+    GoogleSlashTextMultilingualEmbedding002,
     #[serde(rename = "google/veo-2-2025-04-09")]
     GoogleSlashVeo220250409,
     #[serde(rename = "google/veo-3-0-fast-generate-preview-2025-07-17")]
@@ -886,6 +916,8 @@ pub enum ModelId {
     OpenaiSlashGpt51CodexMini20251113,
     #[serde(rename = "openai/gpt-5-1-pro")]
     OpenaiSlashGpt51Pro,
+    #[serde(rename = "openai/gpt-5-2")]
+    OpenaiSlashGpt52,
     #[serde(rename = "openai/gpt-5-2025-08-07")]
     OpenaiSlashGpt520250807,
     #[serde(rename = "openai/gpt-5-chat-2025-08-07")]
@@ -1094,6 +1126,8 @@ pub enum ModelId {
     XAiSlashGrok41NonThinking20251117,
     #[serde(rename = "x-ai/grok-4-1-thinking-2025-11-17")]
     XAiSlashGrok41Thinking20251117,
+    #[serde(rename = "x-ai/grok-4-2")]
+    XAiSlashGrok42,
     #[serde(rename = "x-ai/grok-4-2025-07-10")]
     XAiSlashGrok420250710,
     #[serde(rename = "x-ai/grok-4-fast-non-reasoning-2025-09-20")]
@@ -1231,10 +1265,12 @@ impl std::fmt::Display for ModelId {
             Self::DeepseekSlashDeepseekVl220241213 => write!(f, "deepseek/deepseek-vl2-2024-12-13"),
             Self::DeepseekSlashDeepseekVl2Small20241213 => write!(f, "deepseek/deepseek-vl2-small-2024-12-13"),
             Self::DeepseekSlashDeepseekVl2Tiny20241213 => write!(f, "deepseek/deepseek-vl2-tiny-2024-12-13"),
+            Self::GoogleSlashChatBison => write!(f, "google/chat-bison"),
+            Self::GoogleSlashCodeBecko => write!(f, "google/code-becko"),
             Self::GoogleSlashEmbedding00120231213 => write!(f, "google/embedding-001-2023-12-13"),
-            Self::GoogleSlashEmbeddingGecko00120231213 => write!(f, "google/embedding-gecko-001-2023-12-13"),
             Self::GoogleSlashGemini10Nano20231206 => write!(f, "google/gemini-1-0-nano-2023-12-06"),
             Self::GoogleSlashGemini10Pro20231206 => write!(f, "google/gemini-1-0-pro-2023-12-06"),
+            Self::GoogleSlashGemini10ProVision001 => write!(f, "google/gemini-1-0-pro-vision-001"),
             Self::GoogleSlashGemini10Ultra20231206 => write!(f, "google/gemini-1-0-ultra-2023-12-06"),
             Self::GoogleSlashGemini15Flash00120240523 => write!(f, "google/gemini-1-5-flash-001-2024-05-23"),
             Self::GoogleSlashGemini15Flash00220240924 => write!(f, "google/gemini-1-5-flash-002-2024-09-24"),
@@ -1292,6 +1328,10 @@ impl std::fmt::Display for ModelId {
             Self::GoogleSlashGemma34b20250312 => write!(f, "google/gemma-3-4b-2025-03-12"),
             Self::GoogleSlashGemma3nE2b => write!(f, "google/gemma-3n-e2b"),
             Self::GoogleSlashGemma3nE4b20250520 => write!(f, "google/gemma-3n-e4b-2025-05-20"),
+            Self::GoogleSlashImageGeneration002 => write!(f, "google/image-generation-002"),
+            Self::GoogleSlashImageGeneration005 => write!(f, "google/image-generation-005"),
+            Self::GoogleSlashImageGeneration006 => write!(f, "google/image-generation-006"),
+            Self::GoogleSlashImageText => write!(f, "google/image-text"),
             Self::GoogleSlashImagen30Generate001 => write!(f, "google/imagen-3-0-generate-001"),
             Self::GoogleSlashImagen30Generate00220250206 => write!(f, "google/imagen-3-0-generate-002-2025-02-06"),
             Self::GoogleSlashImagen40FastGenerate001 => write!(f, "google/imagen-4-0-fast-generate-001"),
@@ -1301,6 +1341,15 @@ impl std::fmt::Display for ModelId {
             Self::GoogleSlashImagen4UltraPreview20250814 => write!(f, "google/imagen-4-ultra-preview-2025-08-14"),
             Self::GoogleSlashLearnlm15ProExperimental => write!(f, "google/learnlm-1-5-pro-experimental"),
             Self::GoogleSlashLearnlm20FlashExperimental => write!(f, "google/learnlm-2-0-flash-experimental"),
+            Self::GoogleSlashMultimodalEmbedding001 => write!(f, "google/multimodal-embedding-001"),
+            Self::GoogleSlashTextBison => write!(f, "google/text-bison"),
+            Self::GoogleSlashTextEmbedding004 => write!(f, "google/text-embedding-004"),
+            Self::GoogleSlashTextEmbedding005 => write!(f, "google/text-embedding-005"),
+            Self::GoogleSlashTextEmbeddingGecko00120231213 => write!(f, "google/text-embedding-gecko-001-2023-12-13"),
+            Self::GoogleSlashTextEmbeddingGecko002 => write!(f, "google/text-embedding-gecko-002"),
+            Self::GoogleSlashTextEmbeddingGecko003 => write!(f, "google/text-embedding-gecko-003"),
+            Self::GoogleSlashTextEmbeddingGeckoMultilingual001 => write!(f, "google/text-embedding-gecko-multilingual-001"),
+            Self::GoogleSlashTextMultilingualEmbedding002 => write!(f, "google/text-multilingual-embedding-002"),
             Self::GoogleSlashVeo220250409 => write!(f, "google/veo-2-2025-04-09"),
             Self::GoogleSlashVeo30FastGeneratePreview20250717 => write!(f, "google/veo-3-0-fast-generate-preview-2025-07-17"),
             Self::GoogleSlashVeo30GeneratePreview20250717 => write!(f, "google/veo-3-0-generate-preview-2025-07-17"),
@@ -1570,6 +1619,7 @@ impl std::fmt::Display for ModelId {
             Self::OpenaiSlashGpt51CodexMax20251119 => write!(f, "openai/gpt-5-1-codex-max-2025-11-19"),
             Self::OpenaiSlashGpt51CodexMini20251113 => write!(f, "openai/gpt-5-1-codex-mini-2025-11-13"),
             Self::OpenaiSlashGpt51Pro => write!(f, "openai/gpt-5-1-pro"),
+            Self::OpenaiSlashGpt52 => write!(f, "openai/gpt-5-2"),
             Self::OpenaiSlashGpt520250807 => write!(f, "openai/gpt-5-2025-08-07"),
             Self::OpenaiSlashGpt5Chat20250807 => write!(f, "openai/gpt-5-chat-2025-08-07"),
             Self::OpenaiSlashGpt5Codex20250915 => write!(f, "openai/gpt-5-codex-2025-09-15"),
@@ -1674,6 +1724,7 @@ impl std::fmt::Display for ModelId {
             Self::XAiSlashGrok3MiniBeta20250219 => write!(f, "x-ai/grok-3-mini-beta-2025-02-19"),
             Self::XAiSlashGrok41NonThinking20251117 => write!(f, "x-ai/grok-4-1-non-thinking-2025-11-17"),
             Self::XAiSlashGrok41Thinking20251117 => write!(f, "x-ai/grok-4-1-thinking-2025-11-17"),
+            Self::XAiSlashGrok42 => write!(f, "x-ai/grok-4-2"),
             Self::XAiSlashGrok420250710 => write!(f, "x-ai/grok-4-2025-07-10"),
             Self::XAiSlashGrok4FastNonReasoning20250920 => write!(f, "x-ai/grok-4-fast-non-reasoning-2025-09-20"),
             Self::XAiSlashGrok4FastReasoning20250920 => write!(f, "x-ai/grok-4-fast-reasoning-2025-09-20"),

@@ -11,7 +11,7 @@ export default function OrganisationsDisplay({
 	return (
 		<>
 			<div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-2">
-				<h1 className="font-bold text-xl text-black mb-2 md:mb-0">
+				<h1 className="font-bold text-xl mb-2 md:mb-0">
 					Organisations
 				</h1>
 			</div>

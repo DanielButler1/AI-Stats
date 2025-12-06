@@ -13,12 +13,7 @@ import {
 	type TooltipProps,
 } from "recharts";
 import { Card } from "@/components/ui/card";
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableRow,
-} from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import type {
 	ModelTokenTrajectory,
 	ModelTokenMilestone,
@@ -33,6 +28,14 @@ import {
 	EmptyDescription,
 } from "@/components/ui/empty";
 import { BarChart3 } from "lucide-react";
+import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
+
+const cumulativeTokensChartConfig: ChartConfig = {
+	cumulativeTokens: {
+		label: "Cumulative Tokens",
+		color: "hsl(142, 76%, 50%)",
+	},
+};
 
 function formatCompact(value: number): string {
 	if (value >= 1_000_000_000) {
@@ -103,7 +106,9 @@ function MilestoneTable({
 						<TableCell className="font-medium">
 							{formatCompact(milestone.threshold)} tokens
 						</TableCell>
-						<TableCell>{formatDays(milestone.daysSinceRelease)}</TableCell>
+						<TableCell>
+							{formatDays(milestone.daysSinceRelease)}
+						</TableCell>
 						<TableCell className="text-muted-foreground">
 							{formatDate(milestone.reachedOn)}
 						</TableCell>
@@ -225,13 +230,11 @@ export default function ModelTokenTrajectoryChart({
 	}: TooltipProps<number, string>) => {
 		if (!active || !payload?.length) return null;
 		const point = payload[0].payload as ModelTokenTrajectoryPoint;
-		const previous =
-			pointByDay.get(point.daysSinceRelease - 1) ?? null;
+		const previous = pointByDay.get(point.daysSinceRelease - 1) ?? null;
 		const dailyChange = previous
 			? point.cumulativeTokens - previous.cumulativeTokens
 			: point.cumulativeTokens;
-		const milestoneHits =
-			milestoneLookup.get(point.daysSinceRelease) ?? [];
+		const milestoneHits = milestoneLookup.get(point.daysSinceRelease) ?? [];
 		const successorHit =
 			successorLookup.get(point.daysSinceRelease) ?? null;
 		const isDeprecationDay =
@@ -325,7 +328,10 @@ export default function ModelTokenTrajectoryChart({
 					</span>
 				</div>
 				<div className="mt-4 h-[360px]">
-					<ResponsiveContainer width="100%" height="100%">
+					<ChartContainer
+						config={cumulativeTokensChartConfig}
+						className="h-[360px] w-full"
+					>
 						<AreaChart data={data.points}>
 							<CartesianGrid
 								strokeDasharray="3 3"
@@ -340,7 +346,7 @@ export default function ModelTokenTrajectoryChart({
 								tickLine={false}
 								tick={{
 									fontSize: 12,
-									fill: "hsl(var(--muted-foreground))",
+									fill: "var(--chart-axis-color)",
 								}}
 							/>
 							<YAxis
@@ -348,7 +354,7 @@ export default function ModelTokenTrajectoryChart({
 								tickLine={false}
 								tick={{
 									fontSize: 12,
-									fill: "hsl(var(--muted-foreground))",
+									fill: "var(--chart-axis-color)",
 								}}
 								tickFormatter={(value) => formatCompact(value)}
 							/>
@@ -356,8 +362,8 @@ export default function ModelTokenTrajectoryChart({
 							<Area
 								type="monotone"
 								dataKey="cumulativeTokens"
-								stroke="hsl(var(--color-e2eLatency))"
-								fill="hsl(var(--color-e2eLatency))"
+								stroke="var(--color-cumulativeTokens)"
+								fill="var(--color-cumulativeTokens)"
 								fillOpacity={0.2}
 								strokeWidth={2}
 							/>
@@ -387,7 +393,7 @@ export default function ModelTokenTrajectoryChart({
 								/>
 							)}
 						</AreaChart>
-					</ResponsiveContainer>
+					</ChartContainer>
 				</div>
 			</Card>
 
@@ -446,9 +452,7 @@ export default function ModelTokenTrajectoryChart({
 							Release milestones
 						</h3>
 					</div>
-					<SuccessorList
-						successors={data.successorMilestones}
-					/>
+					<SuccessorList successors={data.successorMilestones} />
 				</Card>
 			</div>
 		</div>

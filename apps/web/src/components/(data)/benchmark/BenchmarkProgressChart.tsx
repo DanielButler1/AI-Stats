@@ -234,6 +234,9 @@ export default function BenchmarkProgressChart({
 										monthFormatter.format(new Date(value))
 									}
 									domain={["dataMin", "dataMax"]}
+									tick={{
+										fill: "var(--chart-axis-color)",
+									}}
 								/>
 								<YAxis
 									tickLine={false}
@@ -242,6 +245,9 @@ export default function BenchmarkProgressChart({
 									tickFormatter={(value) =>
 										tooltipValueFormatter(value) as string
 									}
+									tick={{
+										fill: "var(--chart-axis-color)",
+									}}
 								/>
 								<ZAxis range={[50, 50]} />
 								<ChartTooltip

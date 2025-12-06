@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { cookies } from "next/headers";
 
 import getModelOverviewHeader from "@/lib/fetchers/models/getModelOverviewHeader";
 import TabBar from "@/components/(data)/model/ModelTabs";

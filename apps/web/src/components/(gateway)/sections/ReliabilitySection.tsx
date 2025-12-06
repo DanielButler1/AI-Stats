@@ -115,14 +115,14 @@ export function ReliabilitySection({ metrics }: ReliabilitySectionProps) {
 	}));
 
 	return (
-		<section id="reliability-open" className="bg-slate-50 py-16">
+		<section id="reliability-open" className="py-16">
 			<div className="mx-auto max-w-7xl space-y-10 px-6 lg:px-8">
 				<div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,500px)]">
 					<div className="space-y-4">
-						<h2 className="text-2xl font-semibold text-slate-900">
+						<h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
 							Reliability you can trust. Openness you can verify.
 						</h2>
-						<p className="text-sm text-slate-600">
+						<p className="text-sm text-slate-600 dark:text-slate-400">
 							Latency, uptime, and throughput telemetry feed
 							directly into routing. Every adapter, health probe,
 							and ingestion script lives under an open source
@@ -132,10 +132,10 @@ export function ReliabilitySection({ metrics }: ReliabilitySectionProps) {
 					<Card className="border-slate-200">
 						<CardHeader className="space-y-3">
 							<CardTitle className="flex items-center gap-2 text-base">
-								<CircuitBoard className="h-4 w-4 text-slate-500" />
+								<CircuitBoard className="h-4 w-4 text-slate-500 dark:text-slate-300" />
 								Last 24 hours
 							</CardTitle>
-							<div className="grid grid-cols-2 gap-4 text-sm text-slate-700">
+							<div className="grid grid-cols-2 gap-4 text-sm text-slate-700 dark:text-slate-300">
 								<div className="flex items-center justify-between">
 									<span>Uptime</span>
 									<span className="font-semibold">
@@ -177,10 +177,10 @@ export function ReliabilitySection({ metrics }: ReliabilitySectionProps) {
 				<Card className="border-slate-200">
 					<CardHeader className="space-y-2">
 						<CardTitle className="flex items-center gap-2 text-base">
-							<BarChart3 className="h-4 w-4 text-slate-500" />
+							<BarChart3 className="h-4 w-4 text-slate-500 dark:text-slate-300" />
 							Gateway tokens per hour (24h)
 						</CardTitle>
-						<p className="text-sm text-slate-600">
+						<p className="text-sm text-slate-600 dark:text-slate-400">
 							Healthy token volume and stability driven by
 							community contributions and enterprise adoption.
 						</p>

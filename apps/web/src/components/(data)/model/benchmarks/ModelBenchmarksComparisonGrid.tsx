@@ -403,7 +403,7 @@ export function ModelBenchmarksComparisonGrid({
 
 	return (
 		<div className="space-y-4">
-			<Card className="flex flex-col gap-5 rounded-lg border border-gray-200 border-b-2 border-b-gray-300 bg-white p-5 dark:border-gray-700 dark:border-b-gray-600 dark:bg-zinc-900">
+			<Card className="flex flex-col gap-5 rounded-lg border border-gray-200 border-b-2 border-b-gray-300 bg-white p-5 dark:border-gray-700 dark:border-b-gray-600">
 				<div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
 					<div className="flex flex-col gap-1">
 						<h4 className="text-lg font-semibold">
@@ -509,13 +509,16 @@ export function ModelBenchmarksComparisonGrid({
 										axisLine
 										tick={{
 											fontSize: 12,
-											fill: "#4c4c4c",
+											fill: "var(--chart-axis-color)",
 										}}
 									/>
 									<XAxis
 										type="number"
 										domain={domain}
 										tickFormatter={xAxisTickFormatter}
+										tick={{
+											fill: "var(--chart-axis-color)",
+										}}
 									/>
 									<RechartsTooltip
 										cursor={{ fill: "rgba(0,0,0,0.05)" }}
