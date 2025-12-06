@@ -51,11 +51,11 @@ export default function Footer() {
 	return (
 		<footer className="w-full border-t border-border mt-auto bg-white dark:bg-zinc-950 px-4">
 			<div className="container mx-auto py-4 text-xs text-muted-foreground flex flex-col gap-4">
-				<div className="w-full grid grid-cols-1 sm:grid-cols-4 gap-6">
+				<div className="w-full grid grid-cols-1 lg:grid-cols-4 gap-6">
 					{/* Mobile grid with icon and text for all actions */}
-					<div className="grid grid-cols-2 gap-3 sm:hidden mb-4">
+					<div className="grid grid-cols-2 md:grid-cols-3 gap-3 lg:hidden mb-4">
 						{/* --- Social --- */}
-						<div className="col-span-2 font-semibold text-sm">
+						<div className="col-span-2 md:col-span-3 font-semibold text-sm">
 							Social
 						</div>
 						{/* Social: Discord */}
@@ -158,10 +158,10 @@ export default function Footer() {
 							<span className="text-xs">X</span>
 						</Link>
 
-						<Separator className="col-span-2" />
+						<Separator className="col-span-2 md:col-span-3" />
 
 						{/* --- Explore --- */}
-						<div className="col-span-2 font-semibold text-sm">
+						<div className="col-span-2 md:col-span-3 font-semibold text-sm">
 							Explore
 						</div>
 						{/* Docs - mobile */}
@@ -203,10 +203,10 @@ export default function Footer() {
 						</Link>
 						*/}
 
-						<Separator className="col-span-2" />
+						<Separator className="col-span-2 md:col-span-3" />
 
 						{/* --- Actions --- */}
-						<div className="col-span-2 font-semibold text-sm">
+						<div className="col-span-2 md:col-span-3 font-semibold text-sm">
 							More
 						</div>
 						{/* Contribute */}
@@ -228,10 +228,10 @@ export default function Footer() {
 							<span className="text-xs">Sources</span>
 						</Link>
 
-						<Separator className="col-span-2" />
+						<Separator className="col-span-2 md:col-span-3" />
 
 						{/* --- Legal --- */}
-						<div className="col-span-2 font-semibold text-sm">
+						<div className="col-span-2 md:col-span-3 font-semibold text-sm">
 							Legal
 						</div>
 						<Link
@@ -251,17 +251,17 @@ export default function Footer() {
 							<span className="text-xs">Privacy</span>
 						</Link>
 
-						<Separator className="col-span-2" />
+						<Separator className="col-span-2 md:col-span-3" />
 
 						{/* Theme */}
-						<div className="col-span-2 flex items-center justify-center">
+						<div className="col-span-2 md:col-span-3 flex items-center justify-center">
 							<ThemeToggle />
 						</div>
 					</div>
 
 					{/* --- Desktop: Social --- */}
-					<div className="hidden sm:flex flex-col gap-2 items-center sm:items-start">
-						<span className="font-semibold text-sm mb-1">
+					<div className="hidden lg:flex flex-col gap-2 items-center lg:items-start">
+						<span className="font-semibold text-sm mb-2">
 							Social
 						</span>
 						<div className="flex flex-row gap-2">
@@ -359,7 +359,7 @@ export default function Footer() {
 
 					{/* --- Desktop: Explore (Docs + Roadmap + Wrapped) --- */}
 					{/* <div className="hidden sm:flex flex-col items-center justify-center"> */}
-					<div className="hidden sm:flex flex-col gap-2 items-center">
+					<div className="hidden lg:flex flex-col gap-2 items-center">
 						<span className="font-semibold text-sm mb-2">
 							Explore
 						</span>
@@ -437,7 +437,7 @@ export default function Footer() {
 					</div>
 
 					{/* --- Desktop: Actions (Contribute, Sources, Theme) --- */}
-					<div className="hidden sm:flex flex-col gap-2 items-center justify-center">
+					<div className="hidden lg:flex flex-col gap-2 items-center justify-center">
 						<span className="font-semibold text-sm mb-2">More</span>
 						<div className="flex flex-row gap-2">
 							{/* Contribute */}
@@ -491,7 +491,7 @@ export default function Footer() {
 						</div>
 					</div>
 					{/* --- Desktop: Legal --- */}
-					<div className="hidden sm:flex flex-col gap-2 items-end justify-center">
+					<div className="hidden lg:flex flex-col gap-2 items-end justify-center">
 						<span className="font-semibold text-sm mb-2">
 							Legal
 						</span>

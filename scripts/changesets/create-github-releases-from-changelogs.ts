@@ -165,6 +165,9 @@ function main() {
         throw new Error("GITHUB_TOKEN is required");
     }
 
+    // Push any local tags to remote before creating releases
+    execSync("git push --tags", { stdio: "inherit" });
+
     for (const pkg of PACKAGES) {
         const current = getCurrentVersion(pkg);
         if (!current) {
