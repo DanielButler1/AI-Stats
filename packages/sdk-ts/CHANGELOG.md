@@ -1,5 +1,11 @@
 # @ai-stats/sdk
 
+## 0.1.4
+
+### Patch Changes
+
+- [#6](https://github.com/DanielButler1/AI-Stats/pull/6) [`4322886`](https://github.com/DanielButler1/AI-Stats/commit/4322886327dde92030846969718c9131a2a30431) Thanks [@DanielButler1](https://github.com/DanielButler1)! - Add some older Google Models + IF Bench
+
 ## 0.1.3
 
 ### Patch Changes
