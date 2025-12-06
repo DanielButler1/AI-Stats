@@ -1,0 +1,8 @@
+{
+  "benchmark_id": "mmlu-multilingual",
+  "benchmark_name": "MMLU Multilingual",
+  "category": null,
+  "ascending_order": null,
+  "link": null,
+  "total_models": 3
+}

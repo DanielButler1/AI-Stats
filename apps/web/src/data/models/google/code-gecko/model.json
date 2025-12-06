@@ -1,7 +1,7 @@
 {
-  "model_id": "google/code-becko",
+  "model_id": "google/code-gecko",
   "organisation_id": "google",
-  "name": "Code Becko",
+  "name": "Code Gecko",
   "status": null,
   "previous_model_id": null,
   "announced_date": null,
