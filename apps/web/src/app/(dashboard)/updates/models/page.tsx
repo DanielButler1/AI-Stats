@@ -5,46 +5,46 @@ import { buildMetadata } from "@/lib/seo";
 import { cacheLife } from "next/cache";
 
 export const metadata: Metadata = buildMetadata({
-  title: "AI Model Updates",
-  description:
-    "Stay up to date with the latest AI model changes. Track new releases, deprecations, major upgrades and benchmark highlights across leading LLMs and multimodal models.",
-  path: "/updates/models",
-  keywords: [
-    "AI model updates",
-    "LLM updates",
-    "AI releases",
-    "model changelog",
-    "AI benchmarks",
-    "new AI models",
-    "AI Stats",
-    "GPT-5.1",
-    "Claude 4.5",
-    "Gemini 2.5",
-    "Grok 4",
-  ],
+	title: "AI Model Updates",
+	description:
+		"Stay up to date with the latest AI model changes. Track new releases, deprecations, major upgrades and benchmark highlights across leading LLMs and multimodal models.",
+	path: "/updates/models",
+	keywords: [
+		"AI model updates",
+		"LLM updates",
+		"AI releases",
+		"model changelog",
+		"AI benchmarks",
+		"new AI models",
+		"AI Stats",
+		"GPT-5.1",
+		"Claude 4.5",
+		"Gemini 2.5",
+		"Grok 4",
+	],
 });
 
 export default async function Page() {
-  "use cache";
-  cacheLife("days");
+	"use cache";
+	cacheLife("days");
 
-  // Fetch recent model update events (same source as landing page)
-  const { past: pastEvents, future: upcomingEvents } =
-    await getRecentModelUpdatesSplit({
-      limit: 250,
-      upcomingLimit: 4,
-    });
+	// Fetch recent model update events (same source as landing page)
+	const { past: pastEvents, future: upcomingEvents } =
+		await getRecentModelUpdatesSplit({
+			limit: 250,
+			upcomingLimit: 4,
+		});
 
-  return (
-    <main className="flex min-h-screen flex-col">
-      <div className="container mx-auto flex flex-1">
-        <div className="flex-1">
-          <ModelUpdatesPage
-            pastEvents={pastEvents}
-            upcomingEvents={upcomingEvents}
-          />
-        </div>
-      </div>
-    </main>
-  );
+	return (
+		<main className="flex min-h-screen flex-col">
+			<div className="container mx-auto flex flex-1">
+				<div className="flex-1">
+					<ModelUpdatesPage
+						pastEvents={pastEvents}
+						upcomingEvents={upcomingEvents}
+					/>
+				</div>
+			</div>
+		</main>
+	);
 }

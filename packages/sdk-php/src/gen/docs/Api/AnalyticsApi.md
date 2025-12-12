@@ -1,23 +1,24 @@
 # AIStats\\Sdk\AnalyticsApi
 
-Telemetry, health, and performance insights.
+Lightweight health checks and analytics (coming soon).
 
 All URIs are relative to https://api.ai-stats.phaseo.app/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**healthGet()**](AnalyticsApi.md#healthGet) | **GET** /health | Inspect provider health |
+| [**analyticsPost()**](AnalyticsApi.md#analyticsPost) | **POST** /analytics | Aggregated usage analytics (coming soon) |
+| [**healthzGet()**](AnalyticsApi.md#healthzGet) | **GET** /healthz | Gateway health check |
 
 
-## `healthGet()`
+## `analyticsPost()`
 
 ```php
-healthGet($provider, $model, $endpoint): \AIStats\\Sdk\Model\GatewayHealthResponse
+analyticsPost($analytics_post_request): \AIStats\\Sdk\Model\AnalyticsPost200Response
 ```
 
-Inspect provider health
+Aggregated usage analytics (coming soon)
 
-Returns the most recent latency, success rate, and breaker status for each configured provider.
+Accepts an access token and will return aggregated analytics. A placeholder response is returned today while analytics is being built.
 
 ### Example
 
@@ -36,15 +37,13 @@ $apiInstance = new AIStats\\Sdk\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$provider = 'provider_example'; // string | Filter to a specific provider name.
-$model = new \AIStats\\Sdk\Model\\AIStats\\Sdk\Model\ModelId(); // \AIStats\\Sdk\Model\ModelId | Optional model id used to resolve candidate providers.
-$endpoint = 'endpoint_example'; // string | Endpoint identifier paired with `model` when deriving providers.
+$analytics_post_request = new \AIStats\\Sdk\Model\AnalyticsPostRequest(); // \AIStats\\Sdk\Model\AnalyticsPostRequest
 
 try {
-    $result = $apiInstance->healthGet($provider, $model, $endpoint);
+    $result = $apiInstance->analyticsPost($analytics_post_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AnalyticsApi->healthGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AnalyticsApi->analyticsPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -52,13 +51,68 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **provider** | **string**| Filter to a specific provider name. | [optional] |
-| **model** | [**\AIStats\\Sdk\Model\ModelId**](../Model/.md)| Optional model id used to resolve candidate providers. | [optional] |
-| **endpoint** | **string**| Endpoint identifier paired with &#x60;model&#x60; when deriving providers. | [optional] |
+| **analytics_post_request** | [**\AIStats\\Sdk\Model\AnalyticsPostRequest**](../Model/AnalyticsPostRequest.md)|  | |
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\GatewayHealthResponse**](../Model/GatewayHealthResponse.md)
+[**\AIStats\\Sdk\Model\AnalyticsPost200Response**](../Model/AnalyticsPost200Response.md)
+
+### Authorization
+
+[GatewayAuth](../../README.md#GatewayAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `healthzGet()`
+
+```php
+healthzGet(): \AIStats\\Sdk\Model\HealthzGet200Response
+```
+
+Gateway health check
+
+Returns a simple liveness signal for the gateway.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (Gateway API key) authorization: GatewayAuth
+$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new AIStats\\Sdk\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->healthzGet();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->healthzGet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\AIStats\\Sdk\Model\HealthzGet200Response**](../Model/HealthzGet200Response.md)
 
 ### Authorization
 

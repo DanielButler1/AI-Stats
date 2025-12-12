@@ -29,7 +29,7 @@ import (
 )
 
 func main() {
-	moderationRequest := *openapiclient.NewModerationRequest("Model_example", interface{}(123)) // ModerationRequest | 
+	moderationRequest := *openapiclient.NewModerationRequest("Model_example", openapiclient.ModerationRequestInput{ArrayOfModerationInputContentItem: new([]ModerationInputContentItem)}) // ModerationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

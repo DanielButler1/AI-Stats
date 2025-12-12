@@ -90,7 +90,7 @@
       "is_self_reported": true,
       "other_info": "Avg@8",
       "source_link": "https://huggingface.co/moonshotai/Kimi-K2-Base",
-      "rank": 63
+      "rank": 65
     },
     {
       "benchmark_id": "gsm8k",

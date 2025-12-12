@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import {
 	getModelIdFromParams,
 	type ModelRouteParams,
-} from "@/app/(dashboard)/models/model-route-helpers";
+} from "@/components/(data)/model/model-route-helpers";
 
 async function fetchModel(modelId: string) {
 	try {
@@ -79,7 +79,7 @@ export default async function Page({
 	const model = await fetchModel(modelId);
 
 	return (
-		<ModelDetailShell modelId={modelId}>
+		<ModelDetailShell modelId={modelId} tab="timeline">
 			<ModelReleaseTimeline modelId={modelId} />
 		</ModelDetailShell>
 	);

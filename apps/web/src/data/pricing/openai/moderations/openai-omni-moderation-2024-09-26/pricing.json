@@ -7,7 +7,8 @@
   "provider_model_slug": "omni-moderation-latest",
   "is_active_gateway": true,
   "input_modalities": [
-    "text"
+    "text",
+    "image"
   ],
   "output_modalities": [
     "text"

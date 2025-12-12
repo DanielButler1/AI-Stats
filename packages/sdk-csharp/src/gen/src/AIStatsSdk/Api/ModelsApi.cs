@@ -39,44 +39,36 @@ namespace AIStatsSdk.Api
         /// List all gateway models
         /// </summary>
         /// <remarks>
-        /// Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date (falling back to announcement date) in descending order.
+        /// Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date in descending order.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Filter results to models served by one or more provider identifiers. (optional)</param>
-        /// <param name="limit">Maximum number of models to return (default 50). (optional)</param>
-        /// <param name="offset">Number of models to skip before starting the page. (optional)</param>
+        /// <param name="endpoints">Only return models that support at least one of the specified gateway endpoints. (optional)</param>
         /// <param name="organisation">Restrict results to models associated with one or more organisation identifiers. (optional)</param>
-        /// <param name="includeEndpoints">Only return models that support at least one of the specified gateway endpoints. (optional)</param>
-        /// <param name="excludeEndpoints">Exclude models that support any of the specified gateway endpoints. (optional)</param>
         /// <param name="inputTypes">Only return models that advertise support for at least one of the requested input content types. (optional)</param>
         /// <param name="outputTypes">Only return models that advertise support for at least one of the requested output content types. (optional)</param>
-        /// <param name="includeRumoured">Whether to include models marked as rumoured in the response (default true). (optional, default to true)</param>
-        /// <param name="includeDeprecated">Whether to include models marked as deprecated in the response (default true). (optional, default to true)</param>
-        /// <param name="includeRetired">Whether to include models marked as retired in the response (default true). (optional, default to true)</param>
+        /// <param name="varParams">Only return models that support at least one of the specified parameters. (optional)</param>
+        /// <param name="limit">Maximum number of models to return (default 50). (optional)</param>
+        /// <param name="offset">Number of models to skip before starting the page. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IModelsGetApiResponse"/>&gt;</returns>
-        Task<IModelsGetApiResponse> ModelsGetAsync(Option<ModelsGetProviderParameter> provider = default, Option<int> limit = default, Option<int> offset = default, Option<ModelsGetOrganisationParameter> organisation = default, Option<ModelsGetIncludeEndpointsParameter> includeEndpoints = default, Option<ModelsGetIncludeEndpointsParameter> excludeEndpoints = default, Option<ModelsGetProviderParameter> inputTypes = default, Option<ModelsGetProviderParameter> outputTypes = default, Option<bool> includeRumoured = default, Option<bool> includeDeprecated = default, Option<bool> includeRetired = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IModelsGetApiResponse> ModelsGetAsync(Option<ModelsGetEndpointsParameter> endpoints = default, Option<ModelsGetOrganisationParameter> organisation = default, Option<ModelsGetInputTypesParameter> inputTypes = default, Option<ModelsGetInputTypesParameter> outputTypes = default, Option<ModelsGetInputTypesParameter> varParams = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List all gateway models
         /// </summary>
         /// <remarks>
-        /// Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date (falling back to announcement date) in descending order.
+        /// Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date in descending order.
         /// </remarks>
-        /// <param name="provider">Filter results to models served by one or more provider identifiers. (optional)</param>
-        /// <param name="limit">Maximum number of models to return (default 50). (optional)</param>
-        /// <param name="offset">Number of models to skip before starting the page. (optional)</param>
+        /// <param name="endpoints">Only return models that support at least one of the specified gateway endpoints. (optional)</param>
         /// <param name="organisation">Restrict results to models associated with one or more organisation identifiers. (optional)</param>
-        /// <param name="includeEndpoints">Only return models that support at least one of the specified gateway endpoints. (optional)</param>
-        /// <param name="excludeEndpoints">Exclude models that support any of the specified gateway endpoints. (optional)</param>
         /// <param name="inputTypes">Only return models that advertise support for at least one of the requested input content types. (optional)</param>
         /// <param name="outputTypes">Only return models that advertise support for at least one of the requested output content types. (optional)</param>
-        /// <param name="includeRumoured">Whether to include models marked as rumoured in the response (default true). (optional, default to true)</param>
-        /// <param name="includeDeprecated">Whether to include models marked as deprecated in the response (default true). (optional, default to true)</param>
-        /// <param name="includeRetired">Whether to include models marked as retired in the response (default true). (optional, default to true)</param>
+        /// <param name="varParams">Only return models that support at least one of the specified parameters. (optional)</param>
+        /// <param name="limit">Maximum number of models to return (default 50). (optional)</param>
+        /// <param name="offset">Number of models to skip before starting the page. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IModelsGetApiResponse"/>?&gt;</returns>
-        Task<IModelsGetApiResponse?> ModelsGetOrDefaultAsync(Option<ModelsGetProviderParameter> provider = default, Option<int> limit = default, Option<int> offset = default, Option<ModelsGetOrganisationParameter> organisation = default, Option<ModelsGetIncludeEndpointsParameter> includeEndpoints = default, Option<ModelsGetIncludeEndpointsParameter> excludeEndpoints = default, Option<ModelsGetProviderParameter> inputTypes = default, Option<ModelsGetProviderParameter> outputTypes = default, Option<bool> includeRumoured = default, Option<bool> includeDeprecated = default, Option<bool> includeRetired = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IModelsGetApiResponse?> ModelsGetOrDefaultAsync(Option<ModelsGetEndpointsParameter> endpoints = default, Option<ModelsGetOrganisationParameter> organisation = default, Option<ModelsGetInputTypesParameter> inputTypes = default, Option<ModelsGetInputTypesParameter> outputTypes = default, Option<ModelsGetInputTypesParameter> varParams = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -182,58 +174,50 @@ namespace AIStatsSdk.Api
             BearerTokenProvider = bearerTokenProvider;
         }
 
-        partial void FormatModelsGet(Option<ModelsGetProviderParameter> provider, ref Option<int> limit, ref Option<int> offset, Option<ModelsGetOrganisationParameter> organisation, Option<ModelsGetIncludeEndpointsParameter> includeEndpoints, Option<ModelsGetIncludeEndpointsParameter> excludeEndpoints, Option<ModelsGetProviderParameter> inputTypes, Option<ModelsGetProviderParameter> outputTypes, ref Option<bool> includeRumoured, ref Option<bool> includeDeprecated, ref Option<bool> includeRetired);
+        partial void FormatModelsGet(Option<ModelsGetEndpointsParameter> endpoints, Option<ModelsGetOrganisationParameter> organisation, Option<ModelsGetInputTypesParameter> inputTypes, Option<ModelsGetInputTypesParameter> outputTypes, Option<ModelsGetInputTypesParameter> varParams, ref Option<int> limit, ref Option<int> offset);
 
         /// <summary>
         /// Validates the request parameters
         /// </summary>
-        /// <param name="provider"></param>
+        /// <param name="endpoints"></param>
         /// <param name="organisation"></param>
-        /// <param name="includeEndpoints"></param>
-        /// <param name="excludeEndpoints"></param>
         /// <param name="inputTypes"></param>
         /// <param name="outputTypes"></param>
+        /// <param name="varParams"></param>
         /// <returns></returns>
-        private void ValidateModelsGet(Option<ModelsGetProviderParameter> provider, Option<ModelsGetOrganisationParameter> organisation, Option<ModelsGetIncludeEndpointsParameter> includeEndpoints, Option<ModelsGetIncludeEndpointsParameter> excludeEndpoints, Option<ModelsGetProviderParameter> inputTypes, Option<ModelsGetProviderParameter> outputTypes)
+        private void ValidateModelsGet(Option<ModelsGetEndpointsParameter> endpoints, Option<ModelsGetOrganisationParameter> organisation, Option<ModelsGetInputTypesParameter> inputTypes, Option<ModelsGetInputTypesParameter> outputTypes, Option<ModelsGetInputTypesParameter> varParams)
         {
-            if (provider.IsSet && provider.Value == null)
-                throw new ArgumentNullException(nameof(provider));
+            if (endpoints.IsSet && endpoints.Value == null)
+                throw new ArgumentNullException(nameof(endpoints));
 
             if (organisation.IsSet && organisation.Value == null)
                 throw new ArgumentNullException(nameof(organisation));
-
-            if (includeEndpoints.IsSet && includeEndpoints.Value == null)
-                throw new ArgumentNullException(nameof(includeEndpoints));
-
-            if (excludeEndpoints.IsSet && excludeEndpoints.Value == null)
-                throw new ArgumentNullException(nameof(excludeEndpoints));
 
             if (inputTypes.IsSet && inputTypes.Value == null)
                 throw new ArgumentNullException(nameof(inputTypes));
 
             if (outputTypes.IsSet && outputTypes.Value == null)
                 throw new ArgumentNullException(nameof(outputTypes));
+
+            if (varParams.IsSet && varParams.Value == null)
+                throw new ArgumentNullException(nameof(varParams));
         }
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="provider"></param>
-        /// <param name="limit"></param>
-        /// <param name="offset"></param>
+        /// <param name="endpoints"></param>
         /// <param name="organisation"></param>
-        /// <param name="includeEndpoints"></param>
-        /// <param name="excludeEndpoints"></param>
         /// <param name="inputTypes"></param>
         /// <param name="outputTypes"></param>
-        /// <param name="includeRumoured"></param>
-        /// <param name="includeDeprecated"></param>
-        /// <param name="includeRetired"></param>
-        private void AfterModelsGetDefaultImplementation(IModelsGetApiResponse apiResponseLocalVar, Option<ModelsGetProviderParameter> provider, Option<int> limit, Option<int> offset, Option<ModelsGetOrganisationParameter> organisation, Option<ModelsGetIncludeEndpointsParameter> includeEndpoints, Option<ModelsGetIncludeEndpointsParameter> excludeEndpoints, Option<ModelsGetProviderParameter> inputTypes, Option<ModelsGetProviderParameter> outputTypes, Option<bool> includeRumoured, Option<bool> includeDeprecated, Option<bool> includeRetired)
+        /// <param name="varParams"></param>
+        /// <param name="limit"></param>
+        /// <param name="offset"></param>
+        private void AfterModelsGetDefaultImplementation(IModelsGetApiResponse apiResponseLocalVar, Option<ModelsGetEndpointsParameter> endpoints, Option<ModelsGetOrganisationParameter> organisation, Option<ModelsGetInputTypesParameter> inputTypes, Option<ModelsGetInputTypesParameter> outputTypes, Option<ModelsGetInputTypesParameter> varParams, Option<int> limit, Option<int> offset)
         {
             bool suppressDefaultLog = false;
-            AfterModelsGet(ref suppressDefaultLog, apiResponseLocalVar, provider, limit, offset, organisation, includeEndpoints, excludeEndpoints, inputTypes, outputTypes, includeRumoured, includeDeprecated, includeRetired);
+            AfterModelsGet(ref suppressDefaultLog, apiResponseLocalVar, endpoints, organisation, inputTypes, outputTypes, varParams, limit, offset);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {3}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -243,18 +227,14 @@ namespace AIStatsSdk.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="provider"></param>
-        /// <param name="limit"></param>
-        /// <param name="offset"></param>
+        /// <param name="endpoints"></param>
         /// <param name="organisation"></param>
-        /// <param name="includeEndpoints"></param>
-        /// <param name="excludeEndpoints"></param>
         /// <param name="inputTypes"></param>
         /// <param name="outputTypes"></param>
-        /// <param name="includeRumoured"></param>
-        /// <param name="includeDeprecated"></param>
-        /// <param name="includeRetired"></param>
-        partial void AfterModelsGet(ref bool suppressDefaultLog, IModelsGetApiResponse apiResponseLocalVar, Option<ModelsGetProviderParameter> provider, Option<int> limit, Option<int> offset, Option<ModelsGetOrganisationParameter> organisation, Option<ModelsGetIncludeEndpointsParameter> includeEndpoints, Option<ModelsGetIncludeEndpointsParameter> excludeEndpoints, Option<ModelsGetProviderParameter> inputTypes, Option<ModelsGetProviderParameter> outputTypes, Option<bool> includeRumoured, Option<bool> includeDeprecated, Option<bool> includeRetired);
+        /// <param name="varParams"></param>
+        /// <param name="limit"></param>
+        /// <param name="offset"></param>
+        partial void AfterModelsGet(ref bool suppressDefaultLog, IModelsGetApiResponse apiResponseLocalVar, Option<ModelsGetEndpointsParameter> endpoints, Option<ModelsGetOrganisationParameter> organisation, Option<ModelsGetInputTypesParameter> inputTypes, Option<ModelsGetInputTypesParameter> outputTypes, Option<ModelsGetInputTypesParameter> varParams, Option<int> limit, Option<int> offset);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -262,21 +242,17 @@ namespace AIStatsSdk.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="provider"></param>
-        /// <param name="limit"></param>
-        /// <param name="offset"></param>
+        /// <param name="endpoints"></param>
         /// <param name="organisation"></param>
-        /// <param name="includeEndpoints"></param>
-        /// <param name="excludeEndpoints"></param>
         /// <param name="inputTypes"></param>
         /// <param name="outputTypes"></param>
-        /// <param name="includeRumoured"></param>
-        /// <param name="includeDeprecated"></param>
-        /// <param name="includeRetired"></param>
-        private void OnErrorModelsGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<ModelsGetProviderParameter> provider, Option<int> limit, Option<int> offset, Option<ModelsGetOrganisationParameter> organisation, Option<ModelsGetIncludeEndpointsParameter> includeEndpoints, Option<ModelsGetIncludeEndpointsParameter> excludeEndpoints, Option<ModelsGetProviderParameter> inputTypes, Option<ModelsGetProviderParameter> outputTypes, Option<bool> includeRumoured, Option<bool> includeDeprecated, Option<bool> includeRetired)
+        /// <param name="varParams"></param>
+        /// <param name="limit"></param>
+        /// <param name="offset"></param>
+        private void OnErrorModelsGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<ModelsGetEndpointsParameter> endpoints, Option<ModelsGetOrganisationParameter> organisation, Option<ModelsGetInputTypesParameter> inputTypes, Option<ModelsGetInputTypesParameter> outputTypes, Option<ModelsGetInputTypesParameter> varParams, Option<int> limit, Option<int> offset)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorModelsGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, provider, limit, offset, organisation, includeEndpoints, excludeEndpoints, inputTypes, outputTypes, includeRumoured, includeDeprecated, includeRetired);
+            OnErrorModelsGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, endpoints, organisation, inputTypes, outputTypes, varParams, limit, offset);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -288,40 +264,32 @@ namespace AIStatsSdk.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="provider"></param>
-        /// <param name="limit"></param>
-        /// <param name="offset"></param>
+        /// <param name="endpoints"></param>
         /// <param name="organisation"></param>
-        /// <param name="includeEndpoints"></param>
-        /// <param name="excludeEndpoints"></param>
         /// <param name="inputTypes"></param>
         /// <param name="outputTypes"></param>
-        /// <param name="includeRumoured"></param>
-        /// <param name="includeDeprecated"></param>
-        /// <param name="includeRetired"></param>
-        partial void OnErrorModelsGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<ModelsGetProviderParameter> provider, Option<int> limit, Option<int> offset, Option<ModelsGetOrganisationParameter> organisation, Option<ModelsGetIncludeEndpointsParameter> includeEndpoints, Option<ModelsGetIncludeEndpointsParameter> excludeEndpoints, Option<ModelsGetProviderParameter> inputTypes, Option<ModelsGetProviderParameter> outputTypes, Option<bool> includeRumoured, Option<bool> includeDeprecated, Option<bool> includeRetired);
+        /// <param name="varParams"></param>
+        /// <param name="limit"></param>
+        /// <param name="offset"></param>
+        partial void OnErrorModelsGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<ModelsGetEndpointsParameter> endpoints, Option<ModelsGetOrganisationParameter> organisation, Option<ModelsGetInputTypesParameter> inputTypes, Option<ModelsGetInputTypesParameter> outputTypes, Option<ModelsGetInputTypesParameter> varParams, Option<int> limit, Option<int> offset);
 
         /// <summary>
-        /// List all gateway models Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date (falling back to announcement date) in descending order.
+        /// List all gateway models Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date in descending order.
         /// </summary>
-        /// <param name="provider">Filter results to models served by one or more provider identifiers. (optional)</param>
-        /// <param name="limit">Maximum number of models to return (default 50). (optional)</param>
-        /// <param name="offset">Number of models to skip before starting the page. (optional)</param>
+        /// <param name="endpoints">Only return models that support at least one of the specified gateway endpoints. (optional)</param>
         /// <param name="organisation">Restrict results to models associated with one or more organisation identifiers. (optional)</param>
-        /// <param name="includeEndpoints">Only return models that support at least one of the specified gateway endpoints. (optional)</param>
-        /// <param name="excludeEndpoints">Exclude models that support any of the specified gateway endpoints. (optional)</param>
         /// <param name="inputTypes">Only return models that advertise support for at least one of the requested input content types. (optional)</param>
         /// <param name="outputTypes">Only return models that advertise support for at least one of the requested output content types. (optional)</param>
-        /// <param name="includeRumoured">Whether to include models marked as rumoured in the response (default true). (optional, default to true)</param>
-        /// <param name="includeDeprecated">Whether to include models marked as deprecated in the response (default true). (optional, default to true)</param>
-        /// <param name="includeRetired">Whether to include models marked as retired in the response (default true). (optional, default to true)</param>
+        /// <param name="varParams">Only return models that support at least one of the specified parameters. (optional)</param>
+        /// <param name="limit">Maximum number of models to return (default 50). (optional)</param>
+        /// <param name="offset">Number of models to skip before starting the page. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IModelsGetApiResponse"/>&gt;</returns>
-        public async Task<IModelsGetApiResponse?> ModelsGetOrDefaultAsync(Option<ModelsGetProviderParameter> provider = default, Option<int> limit = default, Option<int> offset = default, Option<ModelsGetOrganisationParameter> organisation = default, Option<ModelsGetIncludeEndpointsParameter> includeEndpoints = default, Option<ModelsGetIncludeEndpointsParameter> excludeEndpoints = default, Option<ModelsGetProviderParameter> inputTypes = default, Option<ModelsGetProviderParameter> outputTypes = default, Option<bool> includeRumoured = default, Option<bool> includeDeprecated = default, Option<bool> includeRetired = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IModelsGetApiResponse?> ModelsGetOrDefaultAsync(Option<ModelsGetEndpointsParameter> endpoints = default, Option<ModelsGetOrganisationParameter> organisation = default, Option<ModelsGetInputTypesParameter> inputTypes = default, Option<ModelsGetInputTypesParameter> outputTypes = default, Option<ModelsGetInputTypesParameter> varParams = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ModelsGetAsync(provider, limit, offset, organisation, includeEndpoints, excludeEndpoints, inputTypes, outputTypes, includeRumoured, includeDeprecated, includeRetired, cancellationToken).ConfigureAwait(false);
+                return await ModelsGetAsync(endpoints, organisation, inputTypes, outputTypes, varParams, limit, offset, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -330,31 +298,27 @@ namespace AIStatsSdk.Api
         }
 
         /// <summary>
-        /// List all gateway models Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date (falling back to announcement date) in descending order.
+        /// List all gateway models Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date in descending order.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Filter results to models served by one or more provider identifiers. (optional)</param>
-        /// <param name="limit">Maximum number of models to return (default 50). (optional)</param>
-        /// <param name="offset">Number of models to skip before starting the page. (optional)</param>
+        /// <param name="endpoints">Only return models that support at least one of the specified gateway endpoints. (optional)</param>
         /// <param name="organisation">Restrict results to models associated with one or more organisation identifiers. (optional)</param>
-        /// <param name="includeEndpoints">Only return models that support at least one of the specified gateway endpoints. (optional)</param>
-        /// <param name="excludeEndpoints">Exclude models that support any of the specified gateway endpoints. (optional)</param>
         /// <param name="inputTypes">Only return models that advertise support for at least one of the requested input content types. (optional)</param>
         /// <param name="outputTypes">Only return models that advertise support for at least one of the requested output content types. (optional)</param>
-        /// <param name="includeRumoured">Whether to include models marked as rumoured in the response (default true). (optional, default to true)</param>
-        /// <param name="includeDeprecated">Whether to include models marked as deprecated in the response (default true). (optional, default to true)</param>
-        /// <param name="includeRetired">Whether to include models marked as retired in the response (default true). (optional, default to true)</param>
+        /// <param name="varParams">Only return models that support at least one of the specified parameters. (optional)</param>
+        /// <param name="limit">Maximum number of models to return (default 50). (optional)</param>
+        /// <param name="offset">Number of models to skip before starting the page. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IModelsGetApiResponse"/>&gt;</returns>
-        public async Task<IModelsGetApiResponse> ModelsGetAsync(Option<ModelsGetProviderParameter> provider = default, Option<int> limit = default, Option<int> offset = default, Option<ModelsGetOrganisationParameter> organisation = default, Option<ModelsGetIncludeEndpointsParameter> includeEndpoints = default, Option<ModelsGetIncludeEndpointsParameter> excludeEndpoints = default, Option<ModelsGetProviderParameter> inputTypes = default, Option<ModelsGetProviderParameter> outputTypes = default, Option<bool> includeRumoured = default, Option<bool> includeDeprecated = default, Option<bool> includeRetired = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IModelsGetApiResponse> ModelsGetAsync(Option<ModelsGetEndpointsParameter> endpoints = default, Option<ModelsGetOrganisationParameter> organisation = default, Option<ModelsGetInputTypesParameter> inputTypes = default, Option<ModelsGetInputTypesParameter> outputTypes = default, Option<ModelsGetInputTypesParameter> varParams = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                ValidateModelsGet(provider, organisation, includeEndpoints, excludeEndpoints, inputTypes, outputTypes);
+                ValidateModelsGet(endpoints, organisation, inputTypes, outputTypes, varParams);
 
-                FormatModelsGet(provider, ref limit, ref offset, organisation, includeEndpoints, excludeEndpoints, inputTypes, outputTypes, ref includeRumoured, ref includeDeprecated, ref includeRetired);
+                FormatModelsGet(endpoints, organisation, inputTypes, outputTypes, varParams, ref limit, ref offset);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -367,23 +331,11 @@ namespace AIStatsSdk.Api
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
-                    if (provider.IsSet)
-                        parseQueryStringLocalVar["provider"] = ClientUtils.ParameterToString(provider.Value);
-
-                    if (limit.IsSet)
-                        parseQueryStringLocalVar["limit"] = ClientUtils.ParameterToString(limit.Value);
-
-                    if (offset.IsSet)
-                        parseQueryStringLocalVar["offset"] = ClientUtils.ParameterToString(offset.Value);
+                    if (endpoints.IsSet)
+                        parseQueryStringLocalVar["endpoints"] = ClientUtils.ParameterToString(endpoints.Value);
 
                     if (organisation.IsSet)
                         parseQueryStringLocalVar["organisation"] = ClientUtils.ParameterToString(organisation.Value);
-
-                    if (includeEndpoints.IsSet)
-                        parseQueryStringLocalVar["include_endpoints"] = ClientUtils.ParameterToString(includeEndpoints.Value);
-
-                    if (excludeEndpoints.IsSet)
-                        parseQueryStringLocalVar["exclude_endpoints"] = ClientUtils.ParameterToString(excludeEndpoints.Value);
 
                     if (inputTypes.IsSet)
                         parseQueryStringLocalVar["input_types"] = ClientUtils.ParameterToString(inputTypes.Value);
@@ -391,14 +343,14 @@ namespace AIStatsSdk.Api
                     if (outputTypes.IsSet)
                         parseQueryStringLocalVar["output_types"] = ClientUtils.ParameterToString(outputTypes.Value);
 
-                    if (includeRumoured.IsSet)
-                        parseQueryStringLocalVar["include_rumoured"] = ClientUtils.ParameterToString(includeRumoured.Value);
+                    if (varParams.IsSet)
+                        parseQueryStringLocalVar["params"] = ClientUtils.ParameterToString(varParams.Value);
 
-                    if (includeDeprecated.IsSet)
-                        parseQueryStringLocalVar["include_deprecated"] = ClientUtils.ParameterToString(includeDeprecated.Value);
+                    if (limit.IsSet)
+                        parseQueryStringLocalVar["limit"] = ClientUtils.ParameterToString(limit.Value);
 
-                    if (includeRetired.IsSet)
-                        parseQueryStringLocalVar["include_retired"] = ClientUtils.ParameterToString(includeRetired.Value);
+                    if (offset.IsSet)
+                        parseQueryStringLocalVar["offset"] = ClientUtils.ParameterToString(offset.Value);
 
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
@@ -438,7 +390,7 @@ namespace AIStatsSdk.Api
                             }
                         }
 
-                        AfterModelsGetDefaultImplementation(apiResponseLocalVar, provider, limit, offset, organisation, includeEndpoints, excludeEndpoints, inputTypes, outputTypes, includeRumoured, includeDeprecated, includeRetired);
+                        AfterModelsGetDefaultImplementation(apiResponseLocalVar, endpoints, organisation, inputTypes, outputTypes, varParams, limit, offset);
 
                         Events.ExecuteOnModelsGet(apiResponseLocalVar);
 
@@ -452,7 +404,7 @@ namespace AIStatsSdk.Api
             }
             catch(Exception e)
             {
-                OnErrorModelsGetDefaultImplementation(e, "/models", uriBuilderLocalVar.Path, provider, limit, offset, organisation, includeEndpoints, excludeEndpoints, inputTypes, outputTypes, includeRumoured, includeDeprecated, includeRetired);
+                OnErrorModelsGetDefaultImplementation(e, "/models", uriBuilderLocalVar.Path, endpoints, organisation, inputTypes, outputTypes, varParams, limit, offset);
                 Events.ExecuteOnErrorModelsGet(e);
                 throw;
             }

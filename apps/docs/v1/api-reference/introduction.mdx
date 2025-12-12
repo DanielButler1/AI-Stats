@@ -12,7 +12,7 @@ client automatically.
 <Card
 	title="AI Stats Gateway OpenAPI"
 	icon="list-bullet"
-	href="https://github.com/DanielButler1/AI-Stats/blob/main/apps/docs/openapi/v1/openapi.json"
+	href="https://github.com/DanielButler1/AI-Stats/blob/main/apps/docs/openapi/v1/openapi.yaml"
 >
 	View the specification file
 </Card>
@@ -38,22 +38,22 @@ The table below outlines the main endpoints available in the AI Stats Gateway ri
 
 | Endpoint                    | Description                                                                                    |
 | --------------------------- | ---------------------------------------------------------------------------------------------- |
-| `POST /v1/chat/completions` | Route chat completions to the healthiest configured provider, with optional streaming via SSE. |
-| `POST /v1/moderation`       | Score text input against provider moderation policies.                                         |
-| `POST /v1/embeddings`       | Generate embeddings for text input.                                                            |
-| `GET /v1/generation/{id}`   | Retrieve the stored audit record for a previous request.                                       |
-| `GET /v1/health`            | Inspect provider health, routing scores, and breaker status.                                   |
-| `GET /v1/models`            | List available models across all providers along with their capabilities.                      |
+| `POST /chat/completions` | Route chat completions to the healthiest configured provider, with optional streaming via SSE. |
+| `POST /moderation`       | Score text input against provider moderation policies.                                         |
+| `POST /embeddings`       | Generate embeddings for text input.                                                            |
+| `GET /generation`   | Retrieve the stored audit record for a previous request.                                       |
+| `GET /health`            | Inspect provider health, routing scores, and breaker status.                                   |
+| `GET /models`            | List available models across all providers along with their capabilities.                      |
 
-Use the `include_endpoints` query parameter on `GET /v1/models` to reproduce the per-surface catalogues (chat, moderations, embeddings, images, video, or audio) without bouncing between separate endpoints.
+Use the `include_endpoints` query parameter on `GET /models` to reproduce the per-surface catalogues (chat, moderations, embeddings, images, video, or audio) without bouncing between separate endpoints.
 
 With the table below showing the upcoming endpoints planned for future releases:
 | Endpoint | Description |
 | ----------------------------- | ---------------------------------------------------------------------------------------------- |
-| `POST /v1/images/generations` | Generate one or more images from a prompt. |
-| `POST /v1/video/generation` | Submit a video generation job to the upstream provider. |
-| `POST /v1/audio` | Use an audio model. |
-| `GET /v1/api-keys` | List and manage your API keys. |
+| `POST /images/generations` | Generate one or more images from a prompt. |
+| `POST /video/generation` | Submit a video generation job to the upstream provider. |
+| `POST /audio` | Use an audio model. |
+| `GET /api-keys` | List and manage your API keys. |
 
 Responses include an optional `usage` and `meta` object with your usage, in both tokens and pricing, broken down into clear lines to
 see what costs what, as well as detailed timing and performance metadata, such as throughput, latency, and generation time,
@@ -66,4 +66,4 @@ we are working to get higher rate limits from the upstream providers to ensure t
 
 We apply credit checks prior to all requests made, ensuring that you have a minimum of $1.00 of credit in the team wallet.
 We do this to ensure that users do not accidentally rack up large bills on their accounts. You can top up your team wallet
-via the dashboard at any time, with payments typically going through within a few minutes. 
+via the dashboard at any time, with payments typically going through within a few minutes.

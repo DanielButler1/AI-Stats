@@ -10,7 +10,7 @@
 | **model** | [**ModelId**](ModelId.md) |  |  |
 | **app_title** | **String** |  | [optional] |
 | **referer** | **String** |  | [optional] |
-| **timing** | **Object** | Optional timing information captured during the request lifecycle. | [optional] |
+| **timing** | **Hash&lt;String, Object&gt;** | Optional timing information captured during the request lifecycle. | [optional] |
 
 ## Example
 

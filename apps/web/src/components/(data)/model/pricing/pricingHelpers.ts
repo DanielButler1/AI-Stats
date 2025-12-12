@@ -114,6 +114,12 @@ export function conciseConditionLabel(conds?: Condition[] | null, pref: Conditio
         const c = conds.find(x => x.path?.toLowerCase().includes(key));
         if (c) {
             const val = Array.isArray(c.value) ? c.value.join(" | ") : String(c.value);
+            if (key === "cache_ttl" && val.toLowerCase() === "nx") {
+                return "No cache";
+            }
+            if (key === "cache_ttl") {
+                return `${val} Cache TTL`;
+            }
             return `${key} = ${val}`;
         }
     }
@@ -189,7 +195,20 @@ export function buildProviderSections(p: ProviderPricing, plan: string): Provide
         otherRules: [],
     };
 
-    for (const r of rules as any[]) {
+    // Deduplicate rules that are essentially the same but for different endpoints
+    // (e.g., chat.completions vs responses pricing)
+    const deduplicatedRules = rules.filter((rule, index, arr) => {
+        // Keep the first occurrence of rules with same meter, price, and conditions
+        return arr.findIndex(r => 
+            r.meter === rule.meter && 
+            r.price_per_unit === rule.price_per_unit &&
+            r.unit === rule.unit &&
+            r.unit_size === rule.unit_size &&
+            JSON.stringify(r.match) === JSON.stringify(rule.match)
+        ) === index;
+    });
+
+    for (const r of deduplicatedRules as any[]) {
         const { dir, mod, unit } = parseMeter(r.meter || "");
         const unitSize = r.unit_size ?? 1;
         const price = Number(r.price_per_unit ?? 0);

@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Model** | **string** |  | 
-**Input** | **interface{}** |  | 
+**Input** | [**ModerationRequestInput**](ModerationRequestInput.md) |  | 
 
 ## Methods
 
 ### NewModerationRequest
 
-`func NewModerationRequest(model string, input interface{}, ) *ModerationRequest`
+`func NewModerationRequest(model string, input ModerationRequestInput, ) *ModerationRequest`
 
 NewModerationRequest instantiates a new ModerationRequest object
 This constructor will assign default values to properties that have it defined,
@@ -48,34 +48,24 @@ SetModel sets Model field to given value.
 
 ### GetInput
 
-`func (o *ModerationRequest) GetInput() interface{}`
+`func (o *ModerationRequest) GetInput() ModerationRequestInput`
 
 GetInput returns the Input field if non-nil, zero value otherwise.
 
 ### GetInputOk
 
-`func (o *ModerationRequest) GetInputOk() (*interface{}, bool)`
+`func (o *ModerationRequest) GetInputOk() (*ModerationRequestInput, bool)`
 
 GetInputOk returns a tuple with the Input field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInput
 
-`func (o *ModerationRequest) SetInput(v interface{})`
+`func (o *ModerationRequest) SetInput(v ModerationRequestInput)`
 
 SetInput sets Input field to given value.
 
 
-### SetInputNil
-
-`func (o *ModerationRequest) SetInputNil(b bool)`
-
- SetInputNil sets the value for Input to be an explicit nil
-
-### UnsetInput
-`func (o *ModerationRequest) UnsetInput()`
-
-UnsetInput ensures that no value is present for Input, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -2,7 +2,7 @@
   "model_id": "z-ai/glm-4-9b-chat",
   "organisation_id": "z-ai",
   "name": "GLM 4 9B Chat",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,

@@ -4,13 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **native_response_id** | **String** |  | [optional] |
-| **provider** | **String** |  |  |
-| **meta** | [**GatewayMetadata**](GatewayMetadata.md) |  |  |
-| **usage** | [**GatewayUsage**](GatewayUsage.md) |  | [optional] |
-| **created** | **Integer** | Unix timestamp in seconds. |  |
-| **model** | **String** |  |  |
-| **choices** | [**Array&lt;GatewayChatChoice&gt;**](GatewayChatChoice.md) |  |  |
+| **id** | **String** |  | [optional] |
+| **object** | **String** |  | [optional] |
+| **created** | **Integer** |  | [optional] |
+| **model** | **String** |  | [optional] |
+| **choices** | [**Array&lt;ChatChoice&gt;**](ChatChoice.md) |  | [optional] |
+| **usage** | [**Usage**](Usage.md) |  | [optional] |
 
 ## Example
 
@@ -18,13 +17,12 @@
 require 'ai_stats_sdk'
 
 instance = AIStatsSdk::ChatCompletionsResponse.new(
-  native_response_id: null,
-  provider: null,
-  meta: null,
-  usage: null,
+  id: null,
+  object: null,
   created: null,
   model: null,
-  choices: null
+  choices: null,
+  usage: null
 )
 ```
 

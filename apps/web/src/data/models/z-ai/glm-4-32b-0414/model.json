@@ -2,7 +2,7 @@
   "model_id": "z-ai/glm-4-32b-0414",
   "organisation_id": "z-ai",
   "name": "GLM 4 32B 0414",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,

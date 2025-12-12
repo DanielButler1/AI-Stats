@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **team_id** | Option<**String**> |  | [optional]
 **model** | Option<**String**> |  | [optional]
 **meta** | Option<[**models::GatewayErrorMeta**](GatewayError_meta.md)> |  | [optional]
-**timing** | Option<[**serde_json::Value**](.md)> |  | [optional]
+**timing** | Option<[**std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -17,20 +17,20 @@ pub struct GatewayError {
     pub ok: Option<bool>,
     #[serde(rename = "error")]
     pub error: String,
-    #[serde(rename = "reason", skip_serializing_if = "Option::is_none")]
-    pub reason: Option<String>,
-    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
-    pub message: Option<String>,
-    #[serde(rename = "request_id", skip_serializing_if = "Option::is_none")]
-    pub request_id: Option<String>,
-    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
-    pub team_id: Option<String>,
-    #[serde(rename = "model", skip_serializing_if = "Option::is_none")]
-    pub model: Option<String>,
+    #[serde(rename = "reason", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub reason: Option<Option<String>>,
+    #[serde(rename = "message", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub message: Option<Option<String>>,
+    #[serde(rename = "request_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub request_id: Option<Option<String>>,
+    #[serde(rename = "team_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub team_id: Option<Option<String>>,
+    #[serde(rename = "model", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub model: Option<Option<String>>,
     #[serde(rename = "meta", skip_serializing_if = "Option::is_none")]
-    pub meta: Option<Box<models::GatewayErrorMeta>>,
+    pub meta: Option<models::GatewayErrorMeta>,
     #[serde(rename = "timing", skip_serializing_if = "Option::is_none")]
-    pub timing: Option<serde_json::Value>,
+    pub timing: Option<std::collections::HashMap<String, serde_json::Value>>,
 }
 
 impl GatewayError {

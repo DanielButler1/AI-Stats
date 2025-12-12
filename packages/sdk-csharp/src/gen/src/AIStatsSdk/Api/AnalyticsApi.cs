@@ -36,37 +36,54 @@ namespace AIStatsSdk.Api
         AnalyticsApiEvents Events { get; }
 
         /// <summary>
-        /// Inspect provider health
+        /// Aggregated usage analytics (coming soon)
         /// </summary>
         /// <remarks>
-        /// Returns the most recent latency, success rate, and breaker status for each configured provider.
+        /// Accepts an access token and will return aggregated analytics. A placeholder response is returned today while analytics is being built.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Filter to a specific provider name. (optional)</param>
-        /// <param name="model">Optional model id used to resolve candidate providers. (optional)</param>
-        /// <param name="endpoint">Endpoint identifier paired with &#x60;model&#x60; when deriving providers. (optional)</param>
+        /// <param name="analyticsPostRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IHealthGetApiResponse"/>&gt;</returns>
-        Task<IHealthGetApiResponse> HealthGetAsync(Option<string> provider = default, Option<ModelId> model = default, Option<string> endpoint = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns><see cref="Task"/>&lt;<see cref="IAnalyticsPostApiResponse"/>&gt;</returns>
+        Task<IAnalyticsPostApiResponse> AnalyticsPostAsync(AnalyticsPostRequest analyticsPostRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Inspect provider health
+        /// Aggregated usage analytics (coming soon)
         /// </summary>
         /// <remarks>
-        /// Returns the most recent latency, success rate, and breaker status for each configured provider.
+        /// Accepts an access token and will return aggregated analytics. A placeholder response is returned today while analytics is being built.
         /// </remarks>
-        /// <param name="provider">Filter to a specific provider name. (optional)</param>
-        /// <param name="model">Optional model id used to resolve candidate providers. (optional)</param>
-        /// <param name="endpoint">Endpoint identifier paired with &#x60;model&#x60; when deriving providers. (optional)</param>
+        /// <param name="analyticsPostRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IHealthGetApiResponse"/>?&gt;</returns>
-        Task<IHealthGetApiResponse?> HealthGetOrDefaultAsync(Option<string> provider = default, Option<ModelId> model = default, Option<string> endpoint = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns><see cref="Task"/>&lt;<see cref="IAnalyticsPostApiResponse"/>?&gt;</returns>
+        Task<IAnalyticsPostApiResponse?> AnalyticsPostOrDefaultAsync(AnalyticsPostRequest analyticsPostRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Gateway health check
+        /// </summary>
+        /// <remarks>
+        /// Returns a simple liveness signal for the gateway.
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IHealthzGetApiResponse"/>&gt;</returns>
+        Task<IHealthzGetApiResponse> HealthzGetAsync(System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Gateway health check
+        /// </summary>
+        /// <remarks>
+        /// Returns a simple liveness signal for the gateway.
+        /// </remarks>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IHealthzGetApiResponse"/>?&gt;</returns>
+        Task<IHealthzGetApiResponse?> HealthzGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
-    /// The <see cref="IHealthGetApiResponse"/>
+    /// The <see cref="IAnalyticsPostApiResponse"/>
     /// </summary>
-    public interface IHealthGetApiResponse : AIStatsSdk.Client.IApiResponse, IOk<AIStatsSdk.Model.GatewayHealthResponse?>, INotFound<AIStatsSdk.Model.GatewayError?>, IInternalServerError<AIStatsSdk.Model.GatewayError?>
+    public interface IAnalyticsPostApiResponse : AIStatsSdk.Client.IApiResponse, IOk<AIStatsSdk.Model.AnalyticsPost200Response?>, IBadRequest<AIStatsSdk.Model.GatewayError?>, IInternalServerError<AIStatsSdk.Model.GatewayError?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -75,10 +92,28 @@ namespace AIStatsSdk.Api
         bool IsOk { get; }
 
         /// <summary>
-        /// Returns true if the response is 404 NotFound
+        /// Returns true if the response is 400 BadRequest
         /// </summary>
         /// <returns></returns>
-        bool IsNotFound { get; }
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
+    }
+
+    /// <summary>
+    /// The <see cref="IHealthzGetApiResponse"/>
+    /// </summary>
+    public interface IHealthzGetApiResponse : AIStatsSdk.Client.IApiResponse, IOk<AIStatsSdk.Model.HealthzGet200Response?>, IInternalServerError<AIStatsSdk.Model.GatewayError?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
 
         /// <summary>
         /// Returns true if the response is 500 InternalServerError
@@ -95,21 +130,41 @@ namespace AIStatsSdk.Api
         /// <summary>
         /// The event raised after the server response
         /// </summary>
-        public event EventHandler<ApiResponseEventArgs>? OnHealthGet;
+        public event EventHandler<ApiResponseEventArgs>? OnAnalyticsPost;
 
         /// <summary>
         /// The event raised after an error querying the server
         /// </summary>
-        public event EventHandler<ExceptionEventArgs>? OnErrorHealthGet;
+        public event EventHandler<ExceptionEventArgs>? OnErrorAnalyticsPost;
 
-        internal void ExecuteOnHealthGet(AnalyticsApi.HealthGetApiResponse apiResponse)
+        internal void ExecuteOnAnalyticsPost(AnalyticsApi.AnalyticsPostApiResponse apiResponse)
         {
-            OnHealthGet?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+            OnAnalyticsPost?.Invoke(this, new ApiResponseEventArgs(apiResponse));
         }
 
-        internal void ExecuteOnErrorHealthGet(Exception exception)
+        internal void ExecuteOnErrorAnalyticsPost(Exception exception)
         {
-            OnErrorHealthGet?.Invoke(this, new ExceptionEventArgs(exception));
+            OnErrorAnalyticsPost?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnHealthzGet;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorHealthzGet;
+
+        internal void ExecuteOnHealthzGet(AnalyticsApi.HealthzGetApiResponse apiResponse)
+        {
+            OnHealthzGet?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorHealthzGet(Exception exception)
+        {
+            OnErrorHealthzGet?.Invoke(this, new ExceptionEventArgs(exception));
         }
     }
 
@@ -160,34 +215,28 @@ namespace AIStatsSdk.Api
             BearerTokenProvider = bearerTokenProvider;
         }
 
-        partial void FormatHealthGet(ref Option<string> provider, ref Option<ModelId> model, ref Option<string> endpoint);
+        partial void FormatAnalyticsPost(AnalyticsPostRequest analyticsPostRequest);
 
         /// <summary>
         /// Validates the request parameters
         /// </summary>
-        /// <param name="provider"></param>
-        /// <param name="endpoint"></param>
+        /// <param name="analyticsPostRequest"></param>
         /// <returns></returns>
-        private void ValidateHealthGet(Option<string> provider, Option<string> endpoint)
+        private void ValidateAnalyticsPost(AnalyticsPostRequest analyticsPostRequest)
         {
-            if (provider.IsSet && provider.Value == null)
-                throw new ArgumentNullException(nameof(provider));
-
-            if (endpoint.IsSet && endpoint.Value == null)
-                throw new ArgumentNullException(nameof(endpoint));
+            if (analyticsPostRequest == null)
+                throw new ArgumentNullException(nameof(analyticsPostRequest));
         }
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="provider"></param>
-        /// <param name="model"></param>
-        /// <param name="endpoint"></param>
-        private void AfterHealthGetDefaultImplementation(IHealthGetApiResponse apiResponseLocalVar, Option<string> provider, Option<ModelId> model, Option<string> endpoint)
+        /// <param name="analyticsPostRequest"></param>
+        private void AfterAnalyticsPostDefaultImplementation(IAnalyticsPostApiResponse apiResponseLocalVar, AnalyticsPostRequest analyticsPostRequest)
         {
             bool suppressDefaultLog = false;
-            AfterHealthGet(ref suppressDefaultLog, apiResponseLocalVar, provider, model, endpoint);
+            AfterAnalyticsPost(ref suppressDefaultLog, apiResponseLocalVar, analyticsPostRequest);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {3}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -197,10 +246,8 @@ namespace AIStatsSdk.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="provider"></param>
-        /// <param name="model"></param>
-        /// <param name="endpoint"></param>
-        partial void AfterHealthGet(ref bool suppressDefaultLog, IHealthGetApiResponse apiResponseLocalVar, Option<string> provider, Option<ModelId> model, Option<string> endpoint);
+        /// <param name="analyticsPostRequest"></param>
+        partial void AfterAnalyticsPost(ref bool suppressDefaultLog, IAnalyticsPostApiResponse apiResponseLocalVar, AnalyticsPostRequest analyticsPostRequest);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -208,13 +255,11 @@ namespace AIStatsSdk.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="provider"></param>
-        /// <param name="model"></param>
-        /// <param name="endpoint"></param>
-        private void OnErrorHealthGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> provider, Option<ModelId> model, Option<string> endpoint)
+        /// <param name="analyticsPostRequest"></param>
+        private void OnErrorAnalyticsPostDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, AnalyticsPostRequest analyticsPostRequest)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorHealthGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, provider, model, endpoint);
+            OnErrorAnalyticsPost(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, analyticsPostRequest);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -226,24 +271,20 @@ namespace AIStatsSdk.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="provider"></param>
-        /// <param name="model"></param>
-        /// <param name="endpoint"></param>
-        partial void OnErrorHealthGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> provider, Option<ModelId> model, Option<string> endpoint);
+        /// <param name="analyticsPostRequest"></param>
+        partial void OnErrorAnalyticsPost(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, AnalyticsPostRequest analyticsPostRequest);
 
         /// <summary>
-        /// Inspect provider health Returns the most recent latency, success rate, and breaker status for each configured provider.
+        /// Aggregated usage analytics (coming soon) Accepts an access token and will return aggregated analytics. A placeholder response is returned today while analytics is being built.
         /// </summary>
-        /// <param name="provider">Filter to a specific provider name. (optional)</param>
-        /// <param name="model">Optional model id used to resolve candidate providers. (optional)</param>
-        /// <param name="endpoint">Endpoint identifier paired with &#x60;model&#x60; when deriving providers. (optional)</param>
+        /// <param name="analyticsPostRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IHealthGetApiResponse"/>&gt;</returns>
-        public async Task<IHealthGetApiResponse?> HealthGetOrDefaultAsync(Option<string> provider = default, Option<ModelId> model = default, Option<string> endpoint = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns><see cref="Task"/>&lt;<see cref="IAnalyticsPostApiResponse"/>&gt;</returns>
+        public async Task<IAnalyticsPostApiResponse?> AnalyticsPostOrDefaultAsync(AnalyticsPostRequest analyticsPostRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await HealthGetAsync(provider, model, endpoint, cancellationToken).ConfigureAwait(false);
+                return await AnalyticsPostAsync(analyticsPostRequest, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -252,23 +293,21 @@ namespace AIStatsSdk.Api
         }
 
         /// <summary>
-        /// Inspect provider health Returns the most recent latency, success rate, and breaker status for each configured provider.
+        /// Aggregated usage analytics (coming soon) Accepts an access token and will return aggregated analytics. A placeholder response is returned today while analytics is being built.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider">Filter to a specific provider name. (optional)</param>
-        /// <param name="model">Optional model id used to resolve candidate providers. (optional)</param>
-        /// <param name="endpoint">Endpoint identifier paired with &#x60;model&#x60; when deriving providers. (optional)</param>
+        /// <param name="analyticsPostRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IHealthGetApiResponse"/>&gt;</returns>
-        public async Task<IHealthGetApiResponse> HealthGetAsync(Option<string> provider = default, Option<ModelId> model = default, Option<string> endpoint = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns><see cref="Task"/>&lt;<see cref="IAnalyticsPostApiResponse"/>&gt;</returns>
+        public async Task<IAnalyticsPostApiResponse> AnalyticsPostAsync(AnalyticsPostRequest analyticsPostRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                ValidateHealthGet(provider, endpoint);
+                ValidateAnalyticsPost(analyticsPostRequest);
 
-                FormatHealthGet(ref provider, ref model, ref endpoint);
+                FormatAnalyticsPost(analyticsPostRequest);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -276,21 +315,326 @@ namespace AIStatsSdk.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/health"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/health");
+                        ? "/analytics"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/analytics");
 
-                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+                    httpRequestMessageLocalVar.Content = (analyticsPostRequest as object) is System.IO.Stream stream
+                        ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
+                        : httpRequestMessageLocalVar.Content = new StringContent(JsonSerializer.Serialize(analyticsPostRequest, _jsonSerializerOptions));
 
-                    if (provider.IsSet)
-                        parseQueryStringLocalVar["provider"] = ClientUtils.ParameterToString(provider.Value);
+                    List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
-                    if (model.IsSet)
-                        parseQueryStringLocalVar["model"] = ClientUtils.ParameterToString(model.Value);
+                    BearerToken bearerTokenLocalVar1 = (BearerToken) await BearerTokenProvider.GetAsync(cancellation: cancellationToken).ConfigureAwait(false);
 
-                    if (endpoint.IsSet)
-                        parseQueryStringLocalVar["endpoint"] = ClientUtils.ParameterToString(endpoint.Value);
+                    tokenBaseLocalVars.Add(bearerTokenLocalVar1);
 
-                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
+                    bearerTokenLocalVar1.UseInHeader(httpRequestMessageLocalVar, "");
+
+                    string[] contentTypes = new string[] {
+                        "application/json"
+                    };
+
+                    string? contentTypeLocalVar = ClientUtils.SelectHeaderContentType(contentTypes);
+
+                    if (contentTypeLocalVar != null && httpRequestMessageLocalVar.Content != null)
+                        httpRequestMessageLocalVar.Content.Headers.ContentType = new MediaTypeHeaderValue(contentTypeLocalVar);
+
+                    string[] acceptLocalVars = new string[] {
+                        "application/json"
+                    };
+
+                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+
+                    if (acceptLocalVar != null)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Post;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        ILogger<AnalyticsPostApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<AnalyticsPostApiResponse>();
+                        AnalyticsPostApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/analytics", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterAnalyticsPostDefaultImplementation(apiResponseLocalVar, analyticsPostRequest);
+
+                        Events.ExecuteOnAnalyticsPost(apiResponseLocalVar);
+
+                        if (apiResponseLocalVar.StatusCode == (HttpStatusCode) 429)
+                            foreach(TokenBase tokenBaseLocalVar in tokenBaseLocalVars)
+                                tokenBaseLocalVar.BeginRateLimit();
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorAnalyticsPostDefaultImplementation(e, "/analytics", uriBuilderLocalVar.Path, analyticsPostRequest);
+                Events.ExecuteOnErrorAnalyticsPost(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="AnalyticsPostApiResponse"/>
+        /// </summary>
+        public partial class AnalyticsPostApiResponse : AIStatsSdk.Client.ApiResponse, IAnalyticsPostApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<AnalyticsPostApiResponse> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="AnalyticsPostApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public AnalyticsPostApiResponse(ILogger<AnalyticsPostApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="AnalyticsPostApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public AnalyticsPostApiResponse(ILogger<AnalyticsPostApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public AIStatsSdk.Model.AnalyticsPost200Response? Ok()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<AIStatsSdk.Model.AnalyticsPost200Response>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out AIStatsSdk.Model.AnalyticsPost200Response? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public AIStatsSdk.Model.GatewayError? BadRequest()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsBadRequest
+                    ? System.Text.Json.JsonSerializer.Deserialize<AIStatsSdk.Model.GatewayError>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryBadRequest([NotNullWhen(true)]out AIStatsSdk.Model.GatewayError? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = BadRequest();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)400);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public AIStatsSdk.Model.GatewayError? InternalServerError()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsInternalServerError
+                    ? System.Text.Json.JsonSerializer.Deserialize<AIStatsSdk.Model.GatewayError>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryInternalServerError([NotNullWhen(true)]out AIStatsSdk.Model.GatewayError? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = InternalServerError();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)500);
+                }
+
+                return result != null;
+            }
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        private void AfterHealthzGetDefaultImplementation(IHealthzGetApiResponse apiResponseLocalVar)
+        {
+            bool suppressDefaultLog = false;
+            AfterHealthzGet(ref suppressDefaultLog, apiResponseLocalVar);
+            if (!suppressDefaultLog)
+                Logger.LogInformation("{0,-9} | {1} | {3}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        partial void AfterHealthzGet(ref bool suppressDefaultLog, IHealthzGetApiResponse apiResponseLocalVar);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        private void OnErrorHealthzGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorHealthzGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        partial void OnErrorHealthzGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
+
+        /// <summary>
+        /// Gateway health check Returns a simple liveness signal for the gateway.
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IHealthzGetApiResponse"/>&gt;</returns>
+        public async Task<IHealthzGetApiResponse?> HealthzGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await HealthzGetAsync(cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Gateway health check Returns a simple liveness signal for the gateway.
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IHealthzGetApiResponse"/>&gt;</returns>
+        public async Task<IHealthzGetApiResponse> HealthzGetAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/healthz"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/healthz");
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -316,21 +660,21 @@ namespace AIStatsSdk.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<HealthGetApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<HealthGetApiResponse>();
-                        HealthGetApiResponse apiResponseLocalVar;
+                        ILogger<HealthzGetApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<HealthzGetApiResponse>();
+                        HealthzGetApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/health", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/healthz", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterHealthGetDefaultImplementation(apiResponseLocalVar, provider, model, endpoint);
+                        AfterHealthzGetDefaultImplementation(apiResponseLocalVar);
 
-                        Events.ExecuteOnHealthGet(apiResponseLocalVar);
+                        Events.ExecuteOnHealthzGet(apiResponseLocalVar);
 
                         if (apiResponseLocalVar.StatusCode == (HttpStatusCode) 429)
                             foreach(TokenBase tokenBaseLocalVar in tokenBaseLocalVars)
@@ -342,24 +686,24 @@ namespace AIStatsSdk.Api
             }
             catch(Exception e)
             {
-                OnErrorHealthGetDefaultImplementation(e, "/health", uriBuilderLocalVar.Path, provider, model, endpoint);
-                Events.ExecuteOnErrorHealthGet(e);
+                OnErrorHealthzGetDefaultImplementation(e, "/healthz", uriBuilderLocalVar.Path);
+                Events.ExecuteOnErrorHealthzGet(e);
                 throw;
             }
         }
 
         /// <summary>
-        /// The <see cref="HealthGetApiResponse"/>
+        /// The <see cref="HealthzGetApiResponse"/>
         /// </summary>
-        public partial class HealthGetApiResponse : AIStatsSdk.Client.ApiResponse, IHealthGetApiResponse
+        public partial class HealthzGetApiResponse : AIStatsSdk.Client.ApiResponse, IHealthzGetApiResponse
         {
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<HealthGetApiResponse> Logger { get; }
+            public ILogger<HealthzGetApiResponse> Logger { get; }
 
             /// <summary>
-            /// The <see cref="HealthGetApiResponse"/>
+            /// The <see cref="HealthzGetApiResponse"/>
             /// </summary>
             /// <param name="logger"></param>
             /// <param name="httpRequestMessage"></param>
@@ -368,14 +712,14 @@ namespace AIStatsSdk.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public HealthGetApiResponse(ILogger<HealthGetApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public HealthzGetApiResponse(ILogger<HealthzGetApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
             }
 
             /// <summary>
-            /// The <see cref="HealthGetApiResponse"/>
+            /// The <see cref="HealthzGetApiResponse"/>
             /// </summary>
             /// <param name="logger"></param>
             /// <param name="httpRequestMessage"></param>
@@ -384,7 +728,7 @@ namespace AIStatsSdk.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public HealthGetApiResponse(ILogger<HealthGetApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public HealthzGetApiResponse(ILogger<HealthzGetApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -402,11 +746,11 @@ namespace AIStatsSdk.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public AIStatsSdk.Model.GatewayHealthResponse? Ok()
+            public AIStatsSdk.Model.HealthzGet200Response? Ok()
             {
                 // This logic may be modified with the AsModel.mustache template
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<AIStatsSdk.Model.GatewayHealthResponse>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<AIStatsSdk.Model.HealthzGet200Response>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
@@ -415,7 +759,7 @@ namespace AIStatsSdk.Api
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out AIStatsSdk.Model.GatewayHealthResponse? result)
+            public bool TryOk([NotNullWhen(true)]out AIStatsSdk.Model.HealthzGet200Response? result)
             {
                 result = null;
 
@@ -425,44 +769,6 @@ namespace AIStatsSdk.Api
                 } catch (Exception e)
                 {
                     OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
-                }
-
-                return result != null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 404 NotFound
-            /// </summary>
-            /// <returns></returns>
-            public bool IsNotFound => 404 == (int)StatusCode;
-
-            /// <summary>
-            /// Deserializes the response if the response is 404 NotFound
-            /// </summary>
-            /// <returns></returns>
-            public AIStatsSdk.Model.GatewayError? NotFound()
-            {
-                // This logic may be modified with the AsModel.mustache template
-                return IsNotFound
-                    ? System.Text.Json.JsonSerializer.Deserialize<AIStatsSdk.Model.GatewayError>(RawContent, _jsonSerializerOptions)
-                    : null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 404 NotFound and the deserialized response is not null
-            /// </summary>
-            /// <param name="result"></param>
-            /// <returns></returns>
-            public bool TryNotFound([NotNullWhen(true)]out AIStatsSdk.Model.GatewayError? result)
-            {
-                result = null;
-
-                try
-                {
-                    result = NotFound();
-                } catch (Exception e)
-                {
-                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)404);
                 }
 
                 return result != null;

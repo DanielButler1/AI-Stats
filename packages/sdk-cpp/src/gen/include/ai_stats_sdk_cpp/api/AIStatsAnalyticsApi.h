@@ -23,9 +23,9 @@
 #include "ai_stats_sdk_cpp/ApiClient.h"
 
 #include "ai_stats_sdk_cpp/model/AIStatsAIStatsGatewayError.h"
-#include "ai_stats_sdk_cpp/model/AIStatsAIStatsGatewayHealthResponse.h"
-#include "ai_stats_sdk_cpp/model/AIStatsAIStatsModelId.h"
-#include <cpprest/details/basic_types.h>
+#include "ai_stats_sdk_cpp/model/AIStatsAIStats_analytics_post_200_response.h"
+#include "ai_stats_sdk_cpp/model/AIStatsAIStats_analytics_post_request.h"
+#include "ai_stats_sdk_cpp/model/AIStatsAIStats_healthz_get_200_response.h"
 #include <boost/optional.hpp>
 
 namespace org {
@@ -46,18 +46,22 @@ public:
     virtual ~AIStatsAnalyticsApi();
 
     /// <summary>
-    /// Inspect provider health
+    /// Aggregated usage analytics (coming soon)
     /// </summary>
     /// <remarks>
-    /// Returns the most recent latency, success rate, and breaker status for each configured provider.
+    /// Accepts an access token and will return aggregated analytics. A placeholder response is returned today while analytics is being built.
     /// </remarks>
-    /// <param name="provider">Filter to a specific provider name. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
-    /// <param name="model">Optional model id used to resolve candidate providers. (optional, default to new AIStatsModelId())</param>
-    /// <param name="endpoint">Endpoint identifier paired with &#x60;model&#x60; when deriving providers. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
-    pplx::task<std::shared_ptr<AIStatsGatewayHealthResponse>> healthGet(
-        boost::optional<utility::string_t> provider,
-        boost::optional<std::shared_ptr<AIStatsModelId>> model,
-        boost::optional<utility::string_t> endpoint
+    /// <param name="aIStatsAnalyticsPostRequest"></param>
+    pplx::task<std::shared_ptr<AIStats_analytics_post_200_response>> analyticsPost(
+        std::shared_ptr<AIStatsAIStats_analytics_post_request> aIStatsAnalyticsPostRequest
+    ) const;
+    /// <summary>
+    /// Gateway health check
+    /// </summary>
+    /// <remarks>
+    /// Returns a simple liveness signal for the gateway.
+    /// </remarks>
+    pplx::task<std::shared_ptr<AIStats_healthz_get_200_response>> healthzGet(
     ) const;
 
 protected:

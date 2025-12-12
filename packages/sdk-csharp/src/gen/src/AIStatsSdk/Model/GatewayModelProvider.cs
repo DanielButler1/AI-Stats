@@ -292,6 +292,12 @@ namespace AIStatsSdk.Model
         public DateTime? EffectiveTo { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -310,6 +316,7 @@ namespace AIStatsSdk.Model
             sb.Append("  ProviderModelSlug: ").Append(ProviderModelSlug).Append("\n");
             sb.Append("  EffectiveFrom: ").Append(EffectiveFrom).Append("\n");
             sb.Append("  EffectiveTo: ").Append(EffectiveTo).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

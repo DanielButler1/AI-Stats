@@ -17,46 +17,46 @@ pub struct GatewayGenerationRecord {
     pub request_id: String,
     #[serde(rename = "team_id")]
     pub team_id: String,
-    #[serde(rename = "app_id", skip_serializing_if = "Option::is_none")]
-    pub app_id: Option<String>,
-    #[serde(rename = "app_title", skip_serializing_if = "Option::is_none")]
-    pub app_title: Option<String>,
-    #[serde(rename = "referer", skip_serializing_if = "Option::is_none")]
-    pub referer: Option<String>,
+    #[serde(rename = "app_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub app_id: Option<Option<String>>,
+    #[serde(rename = "app_title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub app_title: Option<Option<String>>,
+    #[serde(rename = "referer", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub referer: Option<Option<String>>,
     #[serde(rename = "endpoint")]
     pub endpoint: String,
-    #[serde(rename = "model_id", skip_serializing_if = "Option::is_none")]
-    pub model_id: Option<String>,
-    #[serde(rename = "provider", skip_serializing_if = "Option::is_none")]
-    pub provider: Option<String>,
-    #[serde(rename = "native_response_id", skip_serializing_if = "Option::is_none")]
-    pub native_response_id: Option<String>,
+    #[serde(rename = "model_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub model_id: Option<Option<String>>,
+    #[serde(rename = "provider", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub provider: Option<Option<String>>,
+    #[serde(rename = "native_response_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub native_response_id: Option<Option<String>>,
     #[serde(rename = "stream", skip_serializing_if = "Option::is_none")]
     pub stream: Option<bool>,
     #[serde(rename = "byok", skip_serializing_if = "Option::is_none")]
     pub byok: Option<bool>,
-    #[serde(rename = "status_code", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<i32>,
+    #[serde(rename = "status_code", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub status_code: Option<Option<i32>>,
     #[serde(rename = "success")]
     pub success: bool,
-    #[serde(rename = "error_code", skip_serializing_if = "Option::is_none")]
-    pub error_code: Option<String>,
-    #[serde(rename = "error_message", skip_serializing_if = "Option::is_none")]
-    pub error_message: Option<String>,
+    #[serde(rename = "error_code", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub error_code: Option<Option<String>>,
+    #[serde(rename = "error_message", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub error_message: Option<Option<String>>,
     #[serde(rename = "before", skip_serializing_if = "Option::is_none")]
-    pub before: Option<serde_json::Value>,
+    pub before: Option<std::collections::HashMap<String, serde_json::Value>>,
     #[serde(rename = "execute", skip_serializing_if = "Option::is_none")]
-    pub execute: Option<serde_json::Value>,
-    #[serde(rename = "latency_ms", skip_serializing_if = "Option::is_none")]
-    pub latency_ms: Option<f64>,
-    #[serde(rename = "generation_ms", skip_serializing_if = "Option::is_none")]
-    pub generation_ms: Option<f64>,
+    pub execute: Option<std::collections::HashMap<String, serde_json::Value>>,
+    #[serde(rename = "latency_ms", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub latency_ms: Option<Option<f64>>,
+    #[serde(rename = "generation_ms", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub generation_ms: Option<Option<f64>>,
     #[serde(rename = "usage", skip_serializing_if = "Option::is_none")]
-    pub usage: Option<serde_json::Value>,
-    #[serde(rename = "cost_nanos", skip_serializing_if = "Option::is_none")]
-    pub cost_nanos: Option<i32>,
-    #[serde(rename = "currency", skip_serializing_if = "Option::is_none")]
-    pub currency: Option<String>,
+    pub usage: Option<std::collections::HashMap<String, serde_json::Value>>,
+    #[serde(rename = "cost_nanos", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub cost_nanos: Option<Option<i32>>,
+    #[serde(rename = "currency", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub currency: Option<Option<String>>,
     #[serde(rename = "pricing_lines", skip_serializing_if = "Option::is_none")]
     pub pricing_lines: Option<Vec<serde_json::Value>>,
 }

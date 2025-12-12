@@ -72,6 +72,12 @@ namespace AIStatsSdk.Model
         public string? Referer { get { return this.RefererOption; } set { this.RefererOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +87,7 @@ namespace AIStatsSdk.Model
             sb.Append("class GatewayErrorMeta {\n");
             sb.Append("  AppTitle: ").Append(AppTitle).Append("\n");
             sb.Append("  Referer: ").Append(Referer).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,22 +144,16 @@ namespace AIStatsSdk.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "appTitle":
-                            appTitle = new Option<string?>(utf8JsonReader.GetString()!);
+                            appTitle = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "referer":
-                            referer = new Option<string?>(utf8JsonReader.GetString()!);
+                            referer = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         default:
                             break;
                     }
                 }
             }
-
-            if (appTitle.IsSet && appTitle.Value == null)
-                throw new ArgumentNullException(nameof(appTitle), "Property is not nullable for class GatewayErrorMeta.");
-
-            if (referer.IsSet && referer.Value == null)
-                throw new ArgumentNullException(nameof(referer), "Property is not nullable for class GatewayErrorMeta.");
 
             return new GatewayErrorMeta(appTitle, referer);
         }
@@ -181,17 +182,17 @@ namespace AIStatsSdk.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, GatewayErrorMeta gatewayErrorMeta, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (gatewayErrorMeta.AppTitleOption.IsSet && gatewayErrorMeta.AppTitle == null)
-                throw new ArgumentNullException(nameof(gatewayErrorMeta.AppTitle), "Property is required for class GatewayErrorMeta.");
-
-            if (gatewayErrorMeta.RefererOption.IsSet && gatewayErrorMeta.Referer == null)
-                throw new ArgumentNullException(nameof(gatewayErrorMeta.Referer), "Property is required for class GatewayErrorMeta.");
-
             if (gatewayErrorMeta.AppTitleOption.IsSet)
-                writer.WriteString("appTitle", gatewayErrorMeta.AppTitle);
+                if (gatewayErrorMeta.AppTitleOption.Value != null)
+                    writer.WriteString("appTitle", gatewayErrorMeta.AppTitle);
+                else
+                    writer.WriteNull("appTitle");
 
             if (gatewayErrorMeta.RefererOption.IsSet)
-                writer.WriteString("referer", gatewayErrorMeta.Referer);
+                if (gatewayErrorMeta.RefererOption.Value != null)
+                    writer.WriteString("referer", gatewayErrorMeta.Referer);
+                else
+                    writer.WriteNull("referer");
         }
     }
 }

@@ -1,0 +1,28 @@
+---
+title: "Files"
+description: "Call /files with the Ruby SDK."
+---
+
+**Methods**: `FilesApi#files_post`, `FilesApi#files_get`, `FilesApi#files_file_id_get`.
+
+### Example
+```ruby
+require 'ai_stats_sdk'
+
+config = AIStatsSdk::Configuration.default
+config.access_token = 'your_api_key'
+api_client = AIStatsSdk::ApiClient.new(config)
+files_api = AIStatsSdk::FilesApi.new(api_client)
+
+uploaded = files_api.files_post(purpose: 'batch', file: file_data)
+files = files_api.files_get
+file = files_api.files_file_id_get(uploaded.id)
+```
+
+### Key parameters
+- `file` (required for upload): File data.
+- `purpose` (required for upload): e.g., `batch`.
+
+### Returns
+`FileObject` (upload/get) or `FileListResponse` (list)
+

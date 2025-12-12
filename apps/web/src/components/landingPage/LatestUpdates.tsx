@@ -25,7 +25,7 @@ export default async function LatestUpdates() {
 					<h2 className="text-3xl font-semibold text-zinc-900 dark:text-zinc-50">
 						The Latest Updates{" "}
 						<span className="text-zinc-500 font-normal">
-							from AI-Stats
+							from AI Stats
 						</span>
 					</h2>
 				</div>

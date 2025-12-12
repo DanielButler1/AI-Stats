@@ -14,19 +14,7 @@
   "features": [],
   "models": [
     {
-      "model_id": "anthropic/claude-sonnet-4-2025-05-21",
-      "model_info": null,
-      "rate_limit": null,
-      "other_info": null
-    },
-    {
-      "model_id": "anthropic/claude-sonnet-4-2025-05-21",
-      "model_info": null,
-      "rate_limit": null,
-      "other_info": null
-    },
-    {
-      "model_id": "anthropic/claude-opus-4-2025-05-21",
+      "model_id": "anthropic/claude-3-5-haiku-2024-11-04",
       "model_info": null,
       "rate_limit": null,
       "other_info": null
@@ -44,7 +32,19 @@
       "other_info": null
     },
     {
-      "model_id": "anthropic/claude-3-5-haiku-2024-11-04",
+      "model_id": "anthropic/claude-opus-4-2025-05-21",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "model_id": "anthropic/claude-sonnet-4-2025-05-21",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
+    },
+    {
+      "model_id": "anthropic/claude-sonnet-4-2025-05-21",
       "model_info": null,
       "rate_limit": null,
       "other_info": null

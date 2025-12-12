@@ -23,7 +23,7 @@ import type { CSSProperties } from "react";
 import {
 	getModelIdFromParams,
 	type ModelRouteParams,
-} from "@/app/(dashboard)/models/model-route-helpers";
+} from "@/components/(data)/model/model-route-helpers";
 
 async function fetchModel(modelId: string) {
 	try {
@@ -193,7 +193,7 @@ export default async function Page({
 			: null;
 
 	return (
-		<ModelDetailShell modelId={modelId}>
+		<ModelDetailShell modelId={modelId} tab="family">
 			<div className="mx-auto w-full space-y-6">
 				{hasFamily ? (
 					<div className="grid gap-6 lg:grid-cols-[320px,minmax(0,1fr)]">

@@ -74,7 +74,10 @@ class AnalyticsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'healthGet' => [
+        'analyticsPost' => [
+            'application/json',
+        ],
+        'healthzGet' => [
             'application/json',
         ],
     ];
@@ -126,42 +129,38 @@ class AnalyticsApi
     }
 
     /**
-     * Operation healthGet
+     * Operation analyticsPost
      *
-     * Inspect provider health
+     * Aggregated usage analytics (coming soon)
      *
-     * @param  string|null $provider Filter to a specific provider name. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelId|null $model Optional model id used to resolve candidate providers. (optional)
-     * @param  string|null $endpoint Endpoint identifier paired with &#x60;model&#x60; when deriving providers. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthGet'] to see the possible values for this operation
+     * @param  \AIStats\\Sdk\Model\AnalyticsPostRequest $analytics_post_request analytics_post_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['analyticsPost'] to see the possible values for this operation
      *
      * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\GatewayHealthResponse|\AIStats\\Sdk\Model\GatewayError|\AIStats\\Sdk\Model\GatewayError
+     * @return \AIStats\\Sdk\Model\AnalyticsPost200Response|\AIStats\\Sdk\Model\GatewayError|\AIStats\\Sdk\Model\GatewayError
      */
-    public function healthGet($provider = null, $model = null, $endpoint = null, string $contentType = self::contentTypes['healthGet'][0])
+    public function analyticsPost($analytics_post_request, string $contentType = self::contentTypes['analyticsPost'][0])
     {
-        list($response) = $this->healthGetWithHttpInfo($provider, $model, $endpoint, $contentType);
+        list($response) = $this->analyticsPostWithHttpInfo($analytics_post_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation healthGetWithHttpInfo
+     * Operation analyticsPostWithHttpInfo
      *
-     * Inspect provider health
+     * Aggregated usage analytics (coming soon)
      *
-     * @param  string|null $provider Filter to a specific provider name. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelId|null $model Optional model id used to resolve candidate providers. (optional)
-     * @param  string|null $endpoint Endpoint identifier paired with &#x60;model&#x60; when deriving providers. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthGet'] to see the possible values for this operation
+     * @param  \AIStats\\Sdk\Model\AnalyticsPostRequest $analytics_post_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['analyticsPost'] to see the possible values for this operation
      *
      * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\GatewayHealthResponse|\AIStats\\Sdk\Model\GatewayError|\AIStats\\Sdk\Model\GatewayError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\\Sdk\Model\AnalyticsPost200Response|\AIStats\\Sdk\Model\GatewayError|\AIStats\\Sdk\Model\GatewayError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function healthGetWithHttpInfo($provider = null, $model = null, $endpoint = null, string $contentType = self::contentTypes['healthGet'][0])
+    public function analyticsPostWithHttpInfo($analytics_post_request, string $contentType = self::contentTypes['analyticsPost'][0])
     {
-        $request = $this->healthGetRequest($provider, $model, $endpoint, $contentType);
+        $request = $this->analyticsPostRequest($analytics_post_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -189,11 +188,11 @@ class AnalyticsApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\GatewayHealthResponse',
+                        '\AIStats\\Sdk\Model\AnalyticsPost200Response',
                         $request,
                         $response,
                     );
-                case 404:
+                case 400:
                     return $this->handleResponseWithDataType(
                         '\AIStats\\Sdk\Model\GatewayError',
                         $request,
@@ -223,7 +222,7 @@ class AnalyticsApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\GatewayHealthResponse',
+                '\AIStats\\Sdk\Model\AnalyticsPost200Response',
                 $request,
                 $response,
             );
@@ -232,12 +231,12 @@ class AnalyticsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\GatewayHealthResponse',
+                        '\AIStats\\Sdk\Model\AnalyticsPost200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
                     throw $e;
-                case 404:
+                case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\AIStats\\Sdk\Model\GatewayError',
@@ -261,21 +260,19 @@ class AnalyticsApi
     }
 
     /**
-     * Operation healthGetAsync
+     * Operation analyticsPostAsync
      *
-     * Inspect provider health
+     * Aggregated usage analytics (coming soon)
      *
-     * @param  string|null $provider Filter to a specific provider name. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelId|null $model Optional model id used to resolve candidate providers. (optional)
-     * @param  string|null $endpoint Endpoint identifier paired with &#x60;model&#x60; when deriving providers. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthGet'] to see the possible values for this operation
+     * @param  \AIStats\\Sdk\Model\AnalyticsPostRequest $analytics_post_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['analyticsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function healthGetAsync($provider = null, $model = null, $endpoint = null, string $contentType = self::contentTypes['healthGet'][0])
+    public function analyticsPostAsync($analytics_post_request, string $contentType = self::contentTypes['analyticsPost'][0])
     {
-        return $this->healthGetAsyncWithHttpInfo($provider, $model, $endpoint, $contentType)
+        return $this->analyticsPostAsyncWithHttpInfo($analytics_post_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -284,22 +281,20 @@ class AnalyticsApi
     }
 
     /**
-     * Operation healthGetAsyncWithHttpInfo
+     * Operation analyticsPostAsyncWithHttpInfo
      *
-     * Inspect provider health
+     * Aggregated usage analytics (coming soon)
      *
-     * @param  string|null $provider Filter to a specific provider name. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelId|null $model Optional model id used to resolve candidate providers. (optional)
-     * @param  string|null $endpoint Endpoint identifier paired with &#x60;model&#x60; when deriving providers. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthGet'] to see the possible values for this operation
+     * @param  \AIStats\\Sdk\Model\AnalyticsPostRequest $analytics_post_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['analyticsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function healthGetAsyncWithHttpInfo($provider = null, $model = null, $endpoint = null, string $contentType = self::contentTypes['healthGet'][0])
+    public function analyticsPostAsyncWithHttpInfo($analytics_post_request, string $contentType = self::contentTypes['analyticsPost'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\GatewayHealthResponse';
-        $request = $this->healthGetRequest($provider, $model, $endpoint, $contentType);
+        $returnType = '\AIStats\\Sdk\Model\AnalyticsPost200Response';
+        $request = $this->analyticsPostRequest($analytics_post_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -338,57 +333,305 @@ class AnalyticsApi
     }
 
     /**
-     * Create request for operation 'healthGet'
+     * Create request for operation 'analyticsPost'
      *
-     * @param  string|null $provider Filter to a specific provider name. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelId|null $model Optional model id used to resolve candidate providers. (optional)
-     * @param  string|null $endpoint Endpoint identifier paired with &#x60;model&#x60; when deriving providers. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthGet'] to see the possible values for this operation
+     * @param  \AIStats\\Sdk\Model\AnalyticsPostRequest $analytics_post_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['analyticsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function healthGetRequest($provider = null, $model = null, $endpoint = null, string $contentType = self::contentTypes['healthGet'][0])
+    public function analyticsPostRequest($analytics_post_request, string $contentType = self::contentTypes['analyticsPost'][0])
     {
 
+        // verify the required parameter 'analytics_post_request' is set
+        if ($analytics_post_request === null || (is_array($analytics_post_request) && count($analytics_post_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $analytics_post_request when calling analyticsPost'
+            );
+        }
 
 
-
-
-        $resourcePath = '/health';
+        $resourcePath = '/analytics';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $provider,
-            'provider', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $model,
-            'model', // param base name
-            'ModelId', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $endpoint,
-            'endpoint', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($analytics_post_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($analytics_post_request));
+            } else {
+                $httpBody = $analytics_post_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (Gateway API key) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation healthzGet
+     *
+     * Gateway health check
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthzGet'] to see the possible values for this operation
+     *
+     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \AIStats\\Sdk\Model\HealthzGet200Response|\AIStats\\Sdk\Model\GatewayError
+     */
+    public function healthzGet(string $contentType = self::contentTypes['healthzGet'][0])
+    {
+        list($response) = $this->healthzGetWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation healthzGetWithHttpInfo
+     *
+     * Gateway health check
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthzGet'] to see the possible values for this operation
+     *
+     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \AIStats\\Sdk\Model\HealthzGet200Response|\AIStats\\Sdk\Model\GatewayError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function healthzGetWithHttpInfo(string $contentType = self::contentTypes['healthzGet'][0])
+    {
+        $request = $this->healthzGetRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\AIStats\\Sdk\Model\HealthzGet200Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\AIStats\\Sdk\Model\GatewayError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\AIStats\\Sdk\Model\HealthzGet200Response',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\AIStats\\Sdk\Model\HealthzGet200Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\AIStats\\Sdk\Model\GatewayError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation healthzGetAsync
+     *
+     * Gateway health check
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthzGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function healthzGetAsync(string $contentType = self::contentTypes['healthzGet'][0])
+    {
+        return $this->healthzGetAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation healthzGetAsyncWithHttpInfo
+     *
+     * Gateway health check
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthzGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function healthzGetAsyncWithHttpInfo(string $contentType = self::contentTypes['healthzGet'][0])
+    {
+        $returnType = '\AIStats\\Sdk\Model\HealthzGet200Response';
+        $request = $this->healthzGetRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'healthzGet'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthzGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function healthzGetRequest(string $contentType = self::contentTypes['healthzGet'][0])
+    {
+
+
+        $resourcePath = '/healthz';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
 
 
 

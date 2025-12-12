@@ -1,7 +1,7 @@
 {
   "model_id": "openai/gpt-6-nano",
   "organisation_id": "openai",
-  "name": "GPT 6 nano",
+  "name": "GPT 6 Nano",
   "status": "Rumoured",
   "previous_model_id": "openai/gpt-5-nano-2025-08-07",
   "announced_date": null,

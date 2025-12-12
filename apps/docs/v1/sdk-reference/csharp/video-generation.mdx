@@ -1,0 +1,27 @@
+---
+title: "Video generation"
+description: "Call /video/generation with the C# SDK."
+---
+
+**Method**: `client.VideoApi.VideoGenerationPostAsync()`
+
+### Example
+```csharp
+var client = new Client(apiKey);
+
+var request = new VideoGenerationRequest(
+    model: "openai/gpt-video-1",
+    prompt: "A calm ocean at dusk"
+);
+
+var response = client.VideoApi.VideoGenerationPostAsync(request).Result;
+```
+
+### Key parameters
+- `model` (required): Video-capable model id.
+- `prompt` (required): Text description of the video.
+- Optional provider-specific controls (per API spec), e.g., duration, format, or aspect (when supported by the upstream).
+
+### Returns
+`VideoGenerationResponse`
+

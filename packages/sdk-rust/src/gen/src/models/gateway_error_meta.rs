@@ -13,10 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GatewayErrorMeta {
-    #[serde(rename = "appTitle", skip_serializing_if = "Option::is_none")]
-    pub app_title: Option<String>,
-    #[serde(rename = "referer", skip_serializing_if = "Option::is_none")]
-    pub referer: Option<String>,
+    #[serde(rename = "appTitle", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub app_title: Option<Option<String>>,
+    #[serde(rename = "referer", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub referer: Option<Option<String>>,
 }
 
 impl GatewayErrorMeta {

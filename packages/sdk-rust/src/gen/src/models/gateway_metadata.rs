@@ -22,13 +22,13 @@ pub struct GatewayMetadata {
     pub endpoint: String,
     #[serde(rename = "model")]
     pub model: models::ModelId,
-    #[serde(rename = "appTitle", skip_serializing_if = "Option::is_none")]
-    pub app_title: Option<String>,
-    #[serde(rename = "referer", skip_serializing_if = "Option::is_none")]
-    pub referer: Option<String>,
+    #[serde(rename = "appTitle", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub app_title: Option<Option<String>>,
+    #[serde(rename = "referer", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub referer: Option<Option<String>>,
     /// Optional timing information captured during the request lifecycle.
     #[serde(rename = "timing", skip_serializing_if = "Option::is_none")]
-    pub timing: Option<serde_json::Value>,
+    pub timing: Option<std::collections::HashMap<String, serde_json::Value>>,
 }
 
 impl GatewayMetadata {

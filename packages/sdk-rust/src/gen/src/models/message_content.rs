@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 #[serde(untagged)]
 pub enum MessageContent {
     String(String),
-    ArrayVecserde_json::Value(Vec<serde_json::Value>),
+    ArrayVecstd::collections::HashMap<String, serde_json::Value>(Vec<std::collections::HashMap<String, serde_json::Value>>),
 }
 
 impl Default for MessageContent {

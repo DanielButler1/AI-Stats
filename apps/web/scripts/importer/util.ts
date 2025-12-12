@@ -1,11 +1,18 @@
 // apps/web/scripts/importer/util.ts
 import { promises as fs } from "fs";
 import { join } from "path";
+import { createHash } from "crypto";
 
 const VERBOSE = process.argv.includes("--verbose");
 
 export async function readJson<T = any>(p: string): Promise<T> {
     return JSON.parse(await fs.readFile(p, "utf-8"));
+}
+
+export async function readJsonWithHash<T = any>(p: string): Promise<{ data: T; hash: string }> {
+    const raw = await fs.readFile(p, "utf-8");
+    const hash = createHash("md5").update(raw).digest("hex");
+    return { data: JSON.parse(raw), hash };
 }
 
 export async function listDirs(dir: string): Promise<string[]> {

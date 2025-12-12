@@ -1,6 +1,6 @@
 # @ai-stats/ts-sdk
 
-TypeScript client for the AI Stats Gateway. The SDK is generated from `apps/docs/openapi/v1/openapi.json` and wrapped with a small helper class for the common “AI SDK” style helpers (generate/stream and resource getters).
+TypeScript client for the AI Stats Gateway. The SDK is generated from `apps/docs/openapi/v1/openapi.yaml` and wrapped with a small helper class for the common “AI SDK” style helpers (generate/stream and resource getters).
 
 ## Generator workflow
 
@@ -19,16 +19,16 @@ const client = new AIStats({ apiKey: process.env.AI_STATS_API_KEY! });
 
 // text
 const completion = await client.generateText({
-  model: MODEL_IDS[0],
-  messages: [{ role: "user", content: "Say hi." }],
+	model: MODEL_IDS[0],
+	messages: [{ role: "user", content: "Say hi." }],
 });
 
 // streaming text
 for await (const chunk of client.streamText({
-  model: MODEL_IDS[0],
-  messages: [{ role: "user", content: "Stream hi." }],
+	model: MODEL_IDS[0],
+	messages: [{ role: "user", content: "Stream hi." }],
 })) {
-  process.stdout.write(chunk);
+	process.stdout.write(chunk);
 }
 
 // models
@@ -41,7 +41,10 @@ await client.generateEmbedding({ input: "hello", model: MODEL_IDS[0] });
 await client.generateModeration({ model: MODEL_IDS[0], input: "Safe?" });
 await client.generateVideo({ model: "video-alpha", prompt: "A calm ocean" });
 await client.generateSpeech({ model: "tts-alpha", input: "Hello!" });
-await client.generateTranscription({ model: "whisper-alpha", file: "<base64>" });
+await client.generateTranscription({
+	model: "whisper-alpha",
+	file: "<base64>",
+});
 ```
 
 ## Smoke test

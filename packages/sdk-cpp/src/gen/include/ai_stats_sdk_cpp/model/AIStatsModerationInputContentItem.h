@@ -18,9 +18,15 @@
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_AIStatsModerationInputContentItem_H_
 #define ORG_OPENAPITOOLS_CLIENT_MODEL_AIStatsModerationInputContentItem_H_
 
+#include <stdexcept>
+#include <variant>
 
 #include "ai_stats_sdk_cpp/ModelBase.h"
 
+#include <cpprest/details/basic_types.h>
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsModerationInputTextItem.h"
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsModerationInputImageUrlItem_image_url.h"
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsModerationInputImageUrlItem.h"
 
 namespace org {
 namespace openapitools {
@@ -29,35 +35,56 @@ namespace model {
 
 
 
-/// <summary>
-/// A single moderation content item: text or image_url.
-/// </summary>
 class  AIStatsModerationInputContentItem
-    : public ModelBase
 {
 public:
-    AIStatsModerationInputContentItem();
-    virtual ~AIStatsModerationInputContentItem();
+    AIStatsModerationInputContentItem() = default;
+    ~AIStatsModerationInputContentItem() = default;
 
     /////////////////////////////////////////////
-    /// ModelBase overrides
 
-    void validate() override;
+    void validate();
 
-    web::json::value toJson() const override;
-    bool fromJson(const web::json::value& json) override;
+    web::json::value toJson() const;
 
-    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
-    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
+    template<typename Target>
+    bool fromJson(const web::json::value& json) {
+        // convert json to Target type
+        Target target;
+        if (!target.fromJson(json)) {
+            return false;
+        }
 
+        m_variantValue = target;
+        return true;
+    }
+
+    void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const;
+
+    template<typename Target>
+    bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) {
+        // convert multipart to Target type
+        Target target;
+        if (!target.fromMultiPart(multipart, namePrefix)) {
+            return false;
+        }
+
+        m_variantValue = target;
+        return true;
+    }
 
     /////////////////////////////////////////////
     /// AIStatsModerationInputContentItem members
 
+    using VariantType = std::variant<AIStatsModerationInputImageUrlItem, AIStatsModerationInputTextItem>;
 
+    const VariantType& getVariant() const;
+    void setVariant(VariantType value);
 
 protected:
+    VariantType m_variantValue;
 };
+
 
 
 }

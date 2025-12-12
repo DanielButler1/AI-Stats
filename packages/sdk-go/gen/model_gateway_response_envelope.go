@@ -21,7 +21,7 @@ var _ MappedNullable = &GatewayResponseEnvelope{}
 
 // GatewayResponseEnvelope Common fields present on all successful gateway responses.
 type GatewayResponseEnvelope struct {
-	NativeResponseId *string `json:"nativeResponseId,omitempty"`
+	NativeResponseId NullableString `json:"nativeResponseId,omitempty"`
 	Provider string `json:"provider"`
 	Meta GatewayMetadata `json:"meta"`
 	Usage *GatewayUsage `json:"usage,omitempty"`
@@ -48,36 +48,46 @@ func NewGatewayResponseEnvelopeWithDefaults() *GatewayResponseEnvelope {
 	return &this
 }
 
-// GetNativeResponseId returns the NativeResponseId field value if set, zero value otherwise.
+// GetNativeResponseId returns the NativeResponseId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayResponseEnvelope) GetNativeResponseId() string {
-	if o == nil || IsNil(o.NativeResponseId) {
+	if o == nil || IsNil(o.NativeResponseId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.NativeResponseId
+	return *o.NativeResponseId.Get()
 }
 
 // GetNativeResponseIdOk returns a tuple with the NativeResponseId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayResponseEnvelope) GetNativeResponseIdOk() (*string, bool) {
-	if o == nil || IsNil(o.NativeResponseId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NativeResponseId, true
+	return o.NativeResponseId.Get(), o.NativeResponseId.IsSet()
 }
 
 // HasNativeResponseId returns a boolean if a field has been set.
 func (o *GatewayResponseEnvelope) HasNativeResponseId() bool {
-	if o != nil && !IsNil(o.NativeResponseId) {
+	if o != nil && o.NativeResponseId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNativeResponseId gets a reference to the given string and assigns it to the NativeResponseId field.
+// SetNativeResponseId gets a reference to the given NullableString and assigns it to the NativeResponseId field.
 func (o *GatewayResponseEnvelope) SetNativeResponseId(v string) {
-	o.NativeResponseId = &v
+	o.NativeResponseId.Set(&v)
+}
+// SetNativeResponseIdNil sets the value for NativeResponseId to be an explicit nil
+func (o *GatewayResponseEnvelope) SetNativeResponseIdNil() {
+	o.NativeResponseId.Set(nil)
+}
+
+// UnsetNativeResponseId ensures that no value is present for NativeResponseId, not even an explicit nil
+func (o *GatewayResponseEnvelope) UnsetNativeResponseId() {
+	o.NativeResponseId.Unset()
 }
 
 // GetProvider returns the Provider field value
@@ -170,8 +180,8 @@ func (o GatewayResponseEnvelope) MarshalJSON() ([]byte, error) {
 
 func (o GatewayResponseEnvelope) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.NativeResponseId) {
-		toSerialize["nativeResponseId"] = o.NativeResponseId
+	if o.NativeResponseId.IsSet() {
+		toSerialize["nativeResponseId"] = o.NativeResponseId.Get()
 	}
 	toSerialize["provider"] = o.Provider
 	toSerialize["meta"] = o.Meta

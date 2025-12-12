@@ -1,8 +1,139 @@
-﻿---
+---
 title: "Changelog"
 description: "Product updates, releases, and fixes across AI Stats."
 rss: true
 ---
+
+<Update label="12th December 2025">
+# Improving Our API
+
+## API
+
+The API has received a major breaking change update, introducing OpenAI Compatibility, with the `/responses` endpoint added for unified model responses supporting text, images, and other modalities. We have done this to align with the OpenAI API structure, making it easier for us to add more models, whilst also making it easier for developers to integrate with our gateway if they are already familiar with the OpenAI API. We will always maintain a superset of the OpenAI API to ensure we can support all models and features available on our gateway.
+
+Additionally, the existing `/chat/completions`, `/moderations` and `/embeddings` endpoints have been updated to align with the OpenAI API structure. Other endpoints will be coming soon to provide full OpenAI API compatibility while maintaining the gateway's unified interface and metadata. To be transparent about our future plans, we have added placeholder endpoints and their corresponding documentation. However, models for these endpoints have yet to be enabled. We are looking to bring as many of these endpoints online as soon as possible, providing as many models and as many providers for these models too.
+
+## SDKs
+
+The SDKs have been updated to reflect breaking changes made to the API, this means if you are using the SDKs, you will need to update to the latest major versions and adapt. If any help is needed with this migration, please get in touch and we will be happy to help!
+
+We have also made some substantial progress on SDKs for other languages, with initial versions hoped to be released by the end of 2025 - these will likely be spotted around the website, and documentation, whilst they aren't all available yet, we are working as hard as we can to get them available as soon as possible.
+
+### Updating SDKs
+
+Due to breaking changes, please update your SDKs to the latest versions:
+
+#### Python SDK
+
+```bash
+pip install --upgrade ai-stats-py-sdk
+```
+
+#### TypeScript / JavaScript SDK
+
+<CodeGroup>
+
+    ```bash title="npm"
+    npm update @ai-stats/sdk
+    ```
+
+    ```bash title="pnpm"
+    pnpm update @ai-stats/sdk
+    ```
+
+    ```bash title="yarn"
+    yarn upgrade @ai-stats/sdk
+    ```
+
+    ```bash title="bun"
+    bun update @ai-stats/sdk
+    ```
+
+    </CodeGroup>
+
+### Reviewing API Implementations
+
+This is a major milestone on our journey to a V1 API. We hope this will be the last breaking change to the API as we take the decision to align with OpenAI's Standard. Please review your REST API implementations and refer to the updated [API reference](/v1/api-reference) for the latest schema and endpoints. The changes are rather minor, however, please review them.
+
+## Website
+
+The website has undergone significant updates to the Model Gateway Page and Model Pricing Page. The Model Gateway Page is now a Quickstart page, supporting more code samples to get up and running quicker, as well as trimming of unnecessary information on the page. This information has largely been moved to the updated Model Pricing Page, which has been enhanced to provide clearer pricing information and set up for future enhancements across all providers.
+
+We have also added full Cookie Preferences for better user control over privacy settings.
+
+Additionally, we fixed an issue where Model Updates were incorrectly showing as "Today" even when they occurred on historical dates due to our Upgrade to Next.js 16.
+
+We have also tweaked Web Watchers to be more useful.
+
+## Data Changes
+
+A whole host of data changes have been made behind the scenes to improve data accuracy and consistency. We are still working on improving data coverage and accuracy, so please reach out if you spot any issues or have suggestions on how we can improve further!
+
+We are also investigating any quicker ways to gather and update data, so if you have any ideas or suggestions, please get in touch!
+
+## Documentation
+
+We have expanded the SDK documentation in preperation for launching these shortly, with more examples and improved guides for each endpoint to help developers integrate our APIs more easily.
+
+## Infrastructure
+
+We have implemented a Nightly CI process to automatically update model statuses based on their release dates, ensuring the data remains current and accurate.
+
+## Model Additions
+
+We added the following new models:
+
+-   [GPT 5.2](https://ai-stats.phaseo.app/models/openai/gpt-5-2-2025-12-12)
+-   [GPT 5.2 Chat](https://ai-stats.phaseo.app/models/openai/gpt-5-2-chat-2025-12-12)
+-   [GPT 5.2 Pro](https://ai-stats.phaseo.app/models/openai/gpt-5-2-pro-2025-12-12)
+-   [Rerank V4 Pro](https://ai-stats.phaseo.app/models/cohere/rerank-v4-pro-2025-12-12)
+-   [Rerank V4 Fast](https://ai-stats.phaseo.app/models/cohere/rerank-v4-fast-2025-12-12)
+-   [GPT 5.2 Mini](https://ai-stats.phaseo.app/models/openai/gpt-5-2-mini-2025-12-12)
+
+</Update>
+
+<Update label="10th December 2025">
+# Model Additions
+
+We added the following new model:
+
+-   [Qwen 3 Omni Flash](https://ai-stats.phaseo.app/models/alibaba/qwen-3-omni-flash-2025-12-10)
+
+</Update>
+
+<Update label="9th December 2025">
+# Model Additions
+
+We added the following new models:
+
+-   [Devstral 2](https://ai-stats.phaseo.app/models/mistral/devstral-2-2025-12-09)
+-   [Devstral Small 2](https://ai-stats.phaseo.app/models/mistral/devstral-small-2-2025-12-09)
+-   [Nomos 1](https://ai-stats.phaseo.app/models/nomos/nomos-1-2025-12-09)
+
+</Update>
+
+<Update label="8th December 2025">
+# Model Additions
+
+We added the following new models:
+
+-   [Essential AI Rnj-1](https://ai-stats.phaseo.app/models/essential-ai/rnj-1-2025-12-08)
+-   [Nous Research Hermes 4.3](https://ai-stats.phaseo.app/models/nous-research/hermes-4-3-2025-12-08)
+-   [Jamba Reasoning 3B](https://ai-stats.phaseo.app/models/jamba/reasoning-3b-2025-12-08)
+-   [GLM 4.6V](https://ai-stats.phaseo.app/models/zhipu/glm-4-6v-2025-12-08)
+-   [GLM 4.6V Flash](https://ai-stats.phaseo.app/models/zhipu/glm-4-6v-flash-2025-12-08)
+-   [Qwen 3 TTS](https://ai-stats.phaseo.app/models/alibaba/qwen-3-tts-2025-12-08)
+-   [Gemini 3 Flash Image (Nano Banana Flash)](https://ai-stats.phaseo.app/models/google/gemini-3-flash-image-nano-banana-flash-2025-12-08)
+
+# Model Updates
+
+We added a provisional release date of December 9, 2025 for GPT 5.2 based on recent rumours ([source](https://www.theverge.com/report/838857/openai-gpt-5-2-release-date-code-red-google-response)).
+
+Updated statuses for many models.
+
+We added an automated status changer based on dates which runs nightly.
+
+</Update>
 
 <Update label="5th December 2025">
 # UI Improvements
@@ -116,19 +247,19 @@ The TypeScript/JavaScript SDK makes it easy to integrate AI models into web and 
 <CodeGroup>
 
     ```bash title="npm"
-    npm install @ai-stats/ts-sdk
+    npm install @ai-stats/sdk
     ```
 
     ```bash title="pnpm"
-    pnpm install @ai-stats/ts-sdk
+    pnpm install @ai-stats/sdk
     ```
 
     ```bash title="yarn"
-    yarn add @ai-stats/ts-sdk
+    yarn add @ai-stats/sdk
     ```
 
     ```bash title="bun"
-    bun add @ai-stats/ts-sdk
+    bun add @ai-stats/sdk
     ```
 
     </CodeGroup>

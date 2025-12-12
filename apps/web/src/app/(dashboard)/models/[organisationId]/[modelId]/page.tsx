@@ -8,7 +8,7 @@ import { withUTM } from "@/lib/utm";
 import {
 	getModelIdFromParams,
 	type ModelRouteParams,
-} from "@/app/(dashboard)/models/model-route-helpers";
+} from "@/components/(data)/model/model-route-helpers";
 
 async function fetchModel(modelId: string) {
 	try {
@@ -159,7 +159,7 @@ export default async function Page({
 	// console.log("ModelPage model:", model);
 
 	return (
-		<ModelDetailShell modelId={modelId}>
+		<ModelDetailShell modelId={modelId} tab="overview">
 			<ModelOverview model={model} />
 		</ModelDetailShell>
 	);

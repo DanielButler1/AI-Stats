@@ -25,8 +25,8 @@ type GatewayMetadata struct {
 	Provider string `json:"provider"`
 	Endpoint string `json:"endpoint"`
 	Model ModelId `json:"model"`
-	AppTitle *string `json:"appTitle,omitempty"`
-	Referer *string `json:"referer,omitempty"`
+	AppTitle NullableString `json:"appTitle,omitempty"`
+	Referer NullableString `json:"referer,omitempty"`
 	// Optional timing information captured during the request lifecycle.
 	Timing map[string]interface{} `json:"timing,omitempty"`
 }
@@ -150,68 +150,88 @@ func (o *GatewayMetadata) SetModel(v ModelId) {
 	o.Model = v
 }
 
-// GetAppTitle returns the AppTitle field value if set, zero value otherwise.
+// GetAppTitle returns the AppTitle field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayMetadata) GetAppTitle() string {
-	if o == nil || IsNil(o.AppTitle) {
+	if o == nil || IsNil(o.AppTitle.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AppTitle
+	return *o.AppTitle.Get()
 }
 
 // GetAppTitleOk returns a tuple with the AppTitle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayMetadata) GetAppTitleOk() (*string, bool) {
-	if o == nil || IsNil(o.AppTitle) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AppTitle, true
+	return o.AppTitle.Get(), o.AppTitle.IsSet()
 }
 
 // HasAppTitle returns a boolean if a field has been set.
 func (o *GatewayMetadata) HasAppTitle() bool {
-	if o != nil && !IsNil(o.AppTitle) {
+	if o != nil && o.AppTitle.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAppTitle gets a reference to the given string and assigns it to the AppTitle field.
+// SetAppTitle gets a reference to the given NullableString and assigns it to the AppTitle field.
 func (o *GatewayMetadata) SetAppTitle(v string) {
-	o.AppTitle = &v
+	o.AppTitle.Set(&v)
+}
+// SetAppTitleNil sets the value for AppTitle to be an explicit nil
+func (o *GatewayMetadata) SetAppTitleNil() {
+	o.AppTitle.Set(nil)
 }
 
-// GetReferer returns the Referer field value if set, zero value otherwise.
+// UnsetAppTitle ensures that no value is present for AppTitle, not even an explicit nil
+func (o *GatewayMetadata) UnsetAppTitle() {
+	o.AppTitle.Unset()
+}
+
+// GetReferer returns the Referer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayMetadata) GetReferer() string {
-	if o == nil || IsNil(o.Referer) {
+	if o == nil || IsNil(o.Referer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Referer
+	return *o.Referer.Get()
 }
 
 // GetRefererOk returns a tuple with the Referer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayMetadata) GetRefererOk() (*string, bool) {
-	if o == nil || IsNil(o.Referer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Referer, true
+	return o.Referer.Get(), o.Referer.IsSet()
 }
 
 // HasReferer returns a boolean if a field has been set.
 func (o *GatewayMetadata) HasReferer() bool {
-	if o != nil && !IsNil(o.Referer) {
+	if o != nil && o.Referer.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetReferer gets a reference to the given string and assigns it to the Referer field.
+// SetReferer gets a reference to the given NullableString and assigns it to the Referer field.
 func (o *GatewayMetadata) SetReferer(v string) {
-	o.Referer = &v
+	o.Referer.Set(&v)
+}
+// SetRefererNil sets the value for Referer to be an explicit nil
+func (o *GatewayMetadata) SetRefererNil() {
+	o.Referer.Set(nil)
+}
+
+// UnsetReferer ensures that no value is present for Referer, not even an explicit nil
+func (o *GatewayMetadata) UnsetReferer() {
+	o.Referer.Unset()
 }
 
 // GetTiming returns the Timing field value if set, zero value otherwise.
@@ -260,11 +280,11 @@ func (o GatewayMetadata) ToMap() (map[string]interface{}, error) {
 	toSerialize["provider"] = o.Provider
 	toSerialize["endpoint"] = o.Endpoint
 	toSerialize["model"] = o.Model
-	if !IsNil(o.AppTitle) {
-		toSerialize["appTitle"] = o.AppTitle
+	if o.AppTitle.IsSet() {
+		toSerialize["appTitle"] = o.AppTitle.Get()
 	}
-	if !IsNil(o.Referer) {
-		toSerialize["referer"] = o.Referer
+	if o.Referer.IsSet() {
+		toSerialize["referer"] = o.Referer.Get()
 	}
 	if !IsNil(o.Timing) {
 		toSerialize["timing"] = o.Timing

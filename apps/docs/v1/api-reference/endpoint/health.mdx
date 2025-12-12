@@ -1,8 +1,6 @@
 ﻿---
-title: "Analytics & health"
-openapi: "GET /health"
+title: "Health check"
+openapi: "GET /healthz"
 ---
 
-Returns the most recent latency, success rate, and breaker status for each configured provider. Optionally filter by `provider`, `model`, and `endpoint` query parameters to focus on a single surface (for example `chat.completions`).
-
-Use this endpoint as the starting point for dashboards and alerts: it shows which providers are up, which ones are degraded, and how long each provider has been probing or tripped.
+A lightweight liveness probe. Returns `{ "status": "ok" }` when the gateway is reachable and able to serve requests.

@@ -41,14 +41,13 @@ module AIStatsSdk
     def self.openapi_types
       {
         :'model' => :'String',
-        :'input' => :'Object'
+        :'input' => :'ModerationRequestInput'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'input'
       ])
     end
 
@@ -90,6 +89,10 @@ module AIStatsSdk
         invalid_properties.push('invalid value for "model", model cannot be nil.')
       end
 
+      if @input.nil?
+        invalid_properties.push('invalid value for "input", input cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -98,6 +101,7 @@ module AIStatsSdk
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @model.nil?
+      return false if @input.nil?
       true
     end
 
@@ -109,6 +113,16 @@ module AIStatsSdk
       end
 
       @model = model
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] input Value to be assigned
+    def input=(input)
+      if input.nil?
+        fail ArgumentError, 'input cannot be nil'
+      end
+
+      @input = input
     end
 
     # Checks equality by comparing each attribute.

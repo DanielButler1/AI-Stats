@@ -4,10 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**index** | **int** |  |
-**flagged** | **bool** |  |
-**categories** | **array<string,bool>** |  |
-**scores** | **array<string,float>** |  |
-**applied_input_types** | **array<string,string[]>** |  | [optional]
+**flagged** | **bool** |  | [optional]
+**categories** | [**\AIStats\\Sdk\Model\ModerationCategories**](ModerationCategories.md) |  | [optional]
+**category_scores** | [**\AIStats\\Sdk\Model\ModerationCategoryScores**](ModerationCategoryScores.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

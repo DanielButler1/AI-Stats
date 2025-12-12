@@ -19,41 +19,96 @@ module AIStatsSdk
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Inspect provider health
-    # Returns the most recent latency, success rate, and breaker status for each configured provider.
+    # Aggregated usage analytics (coming soon)
+    # Accepts an access token and will return aggregated analytics. A placeholder response is returned today while analytics is being built.
+    # @param analytics_post_request [AnalyticsPostRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :provider Filter to a specific provider name.
-    # @option opts [ModelId] :model Optional model id used to resolve candidate providers.
-    # @option opts [String] :endpoint Endpoint identifier paired with &#x60;model&#x60; when deriving providers.
-    # @return [GatewayHealthResponse]
-    def health_get(opts = {})
-      data, _status_code, _headers = health_get_with_http_info(opts)
+    # @return [AnalyticsPost200Response]
+    def analytics_post(analytics_post_request, opts = {})
+      data, _status_code, _headers = analytics_post_with_http_info(analytics_post_request, opts)
       data
     end
 
-    # Inspect provider health
-    # Returns the most recent latency, success rate, and breaker status for each configured provider.
+    # Aggregated usage analytics (coming soon)
+    # Accepts an access token and will return aggregated analytics. A placeholder response is returned today while analytics is being built.
+    # @param analytics_post_request [AnalyticsPostRequest] 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :provider Filter to a specific provider name.
-    # @option opts [ModelId] :model Optional model id used to resolve candidate providers.
-    # @option opts [String] :endpoint Endpoint identifier paired with &#x60;model&#x60; when deriving providers.
-    # @return [Array<(GatewayHealthResponse, Integer, Hash)>] GatewayHealthResponse data, response status code and response headers
-    def health_get_with_http_info(opts = {})
+    # @return [Array<(AnalyticsPost200Response, Integer, Hash)>] AnalyticsPost200Response data, response status code and response headers
+    def analytics_post_with_http_info(analytics_post_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AnalyticsApi.health_get ...'
+        @api_client.config.logger.debug 'Calling API: AnalyticsApi.analytics_post ...'
       end
-      allowable_values = ["chat.completions", "images.generations", "audio.speech", "audio.transcription", "moderations", "video.generation"]
-      if @api_client.config.client_side_validation && opts[:'endpoint'] && !allowable_values.include?(opts[:'endpoint'])
-        fail ArgumentError, "invalid value for \"endpoint\", must be one of #{allowable_values}"
+      # verify the required parameter 'analytics_post_request' is set
+      if @api_client.config.client_side_validation && analytics_post_request.nil?
+        fail ArgumentError, "Missing the required parameter 'analytics_post_request' when calling AnalyticsApi.analytics_post"
       end
       # resource path
-      local_var_path = '/health'
+      local_var_path = '/analytics'
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'provider'] = opts[:'provider'] if !opts[:'provider'].nil?
-      query_params[:'model'] = opts[:'model'] if !opts[:'model'].nil?
-      query_params[:'endpoint'] = opts[:'endpoint'] if !opts[:'endpoint'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(analytics_post_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AnalyticsPost200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['GatewayAuth']
+
+      new_options = opts.merge(
+        :operation => :"AnalyticsApi.analytics_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AnalyticsApi#analytics_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Gateway health check
+    # Returns a simple liveness signal for the gateway.
+    # @param [Hash] opts the optional parameters
+    # @return [HealthzGet200Response]
+    def healthz_get(opts = {})
+      data, _status_code, _headers = healthz_get_with_http_info(opts)
+      data
+    end
+
+    # Gateway health check
+    # Returns a simple liveness signal for the gateway.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(HealthzGet200Response, Integer, Hash)>] HealthzGet200Response data, response status code and response headers
+    def healthz_get_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AnalyticsApi.healthz_get ...'
+      end
+      # resource path
+      local_var_path = '/healthz'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -67,13 +122,13 @@ module AIStatsSdk
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'GatewayHealthResponse'
+      return_type = opts[:debug_return_type] || 'HealthzGet200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['GatewayAuth']
 
       new_options = opts.merge(
-        :operation => :"AnalyticsApi.health_get",
+        :operation => :"AnalyticsApi.healthz_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -84,7 +139,7 @@ module AIStatsSdk
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AnalyticsApi#health_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: AnalyticsApi#healthz_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

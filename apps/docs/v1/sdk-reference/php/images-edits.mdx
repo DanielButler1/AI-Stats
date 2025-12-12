@@ -1,0 +1,48 @@
+---
+title: "Image edits"
+description: "Call /images/edits with the PHP SDK."
+---
+
+**Method**: ImagesApi#imagesEditsPost
+
+### Example
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use AIStats\Sdk\Api\ImagesApi;
+use AIStats\Sdk\Configuration;
+use AIStats\Sdk\Model\ImagesEditRequest;
+
+$apiKey = getenv('AI_STATS_API_KEY');
+$config = Configuration::getDefaultConfiguration()
+    ->setHost('https://api.ai-stats.phaseo.app/v1')
+    ->setApiKey('GatewayAuth', 'Bearer ' . $apiKey);
+
+$imagesApi = new ImagesApi(null, $config);
+
+$request = new ImagesEditRequest([
+    'model' => 'openai/gpt-image-1',
+    'prompt' => 'Make it sunset',
+    'image' => 'data:image/png;base64,...',
+    'mask' => 'data:image/png;base64,...'
+]);
+
+$response = $imagesApi->imagesEditsPost($request);
+echo $response->getData()[0]->getUrl();
+```
+
+### Key parameters
+- `model` (required): Image-edit capable model id.
+- `image` (required): Base64 data URL or URL to source image.
+- `prompt`: Optional new instruction for the edit.
+- `mask`: Optional mask (transparent regions edited).
+- `n` (1–10): Number of edited variants.
+- `size`: e.g., `1024x1024`, `1024x1792`, `1792x1024`.
+- `response_format`: `url` or `b64_json`.
+- `user`: Optional end-user tag.
+
+### Returns
+ImageGenerationResponse
+

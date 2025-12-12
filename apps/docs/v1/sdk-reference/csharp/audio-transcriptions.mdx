@@ -1,0 +1,31 @@
+---
+title: "Audio transcriptions"
+description: "Call /audio/transcriptions with the C# SDK."
+---
+
+**Method**: `client.AudioApi.AudioTranscriptionsPostAsync()`
+
+### Example
+```csharp
+var client = new Client(apiKey);
+
+var request = new AudioTranscriptionRequest(
+    model: "openai/gpt-4o-transcribe",
+    file: new FileParameter(new MemoryStream(audioBytes), "audio.mp3"),
+    language: "en"
+);
+
+var response = client.AudioApi.AudioTranscriptionsPostAsync(request).Result;
+```
+
+### Key parameters
+- `model` (required): Transcription-capable model id.
+- `file` (required): Audio data (stream or file).
+- `language`: Hint language code (e.g., `en`).
+- `prompt`: Optional context to improve accuracy.
+- `temperature` (0–2): Sampling randomness.
+- `response_format`: `json`, `text`, `srt`, `verbose_json`, etc.
+
+### Returns
+`AudioTranscriptionResponse`
+

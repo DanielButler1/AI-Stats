@@ -1,2 +1,4 @@
 .dev.vars
 .wrangler/
+openapi.anthropic.json
+openapi.openai.yml

@@ -12,15 +12,31 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 /// ModerationInputContentItem : A single moderation content item: text or image_url.
-#[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ModerationInputContentItem {
+/// A single moderation content item: text or image_url.
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ModerationInputContentItem {
+    ModerationInputTextItem(models::ModerationInputTextItem),
+    ModerationInputImageUrlItem(models::ModerationInputImageUrlItem),
 }
 
-impl ModerationInputContentItem {
-    /// A single moderation content item: text or image_url.
-    pub fn new() -> ModerationInputContentItem {
-        ModerationInputContentItem {
-        }
+impl Default for ModerationInputContentItem {
+    fn default() -> Self {
+        Self::ModerationInputTextItem(Default::default())
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Type {
+    #[serde(rename = "text")]
+    Text,
+    #[serde(rename = "image_url")]
+    ImageUrl,
+}
+
+impl Default for Type {
+    fn default() -> Type {
+        Self::Text
     }
 }
 

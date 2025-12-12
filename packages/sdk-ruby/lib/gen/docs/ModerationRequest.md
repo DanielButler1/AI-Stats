@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **model** | **String** |  |  |
-| **input** | **Object** |  |  |
+| **input** | [**ModerationRequestInput**](ModerationRequestInput.md) |  |  |
 
 ## Example
 

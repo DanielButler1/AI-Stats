@@ -2,12 +2,12 @@
   "model_id": "ai21/jamba-large-1-5-2024-08-22",
   "organisation_id": "ai21",
   "name": "Jamba Large 1.5",
-  "status": "Deprecated",
+  "status": "Retired",
   "previous_model_id": null,
   "announced_date": "2024-08-22T00:00:00",
   "release_date": "2024-08-22T00:00:00",
   "deprecation_date": "2025-05-06T00:00:00",
-  "retirement_date": null,
+  "retirement_date": "2025-05-06T00:00:00",
   "license": "Jamba Open Model License",
   "input_types": "text",
   "output_types": "text",
@@ -59,7 +59,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/ai21labs/AI21-Jamba-1.5-Large",
-      "rank": 81
+      "rank": 83
     },
     {
       "benchmark_id": "lmarena-text",

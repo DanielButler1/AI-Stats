@@ -1,9 +1,10 @@
 import { join } from "path";
 import { DIR_MODELS, DIR_FAMILIES } from "../paths";
-import { listDirs, readJson, chunk, toInList } from "../util";
+import { listDirs, readJson, readJsonWithHash, chunk, toInList } from "../util";
 import { client, isDryRun, logWrite, assertOk, pruneRowsByColumn } from "../supa";
 import { buildTimeline, type ModelRow, type ProviderEvent } from "../compute/timeline";
 import { createHash } from "crypto";
+import { ChangeTracker } from "../state";
 
 function benchDigest(score: unknown, other_info?: string | null, source_link?: string | null, is_self_reported?: boolean) {
     const payload = JSON.stringify({
@@ -47,8 +48,15 @@ type FamilyJSON = {
     organisation_id: string;
 };
 
-export async function loadModels() {
+type ModelFileMeta = {
+    model_id: string;
+    organisation_id: string;
+    previous_model_id: string | null;
+};
+
+export async function loadModels(tracker: ChangeTracker) {
     const supa = client();
+    tracker.touchPrefix(DIR_MODELS);
 
     // ---------- 1) Read ALL JSON up front (no DB reads) ----------
     const famDirs = await listDirs(DIR_FAMILIES);
@@ -62,14 +70,44 @@ export async function loadModels() {
     const orgDirs = await listDirs(DIR_MODELS);
     const models: ModelJSON[] = [];
     const modelIds = new Set<string>();
+    const changedModels = new Set<string>();
+    const timelineHints = new Set<string>();
+
     for (const orgPath of orgDirs) {
         const modelDirs = await listDirs(orgPath);
         for (const md of modelDirs) {
-            const modelJson = await readJson<ModelJSON>(join(md, "model.json"));
+            const fp = join(md, "model.json");
+            const { data: modelJson, hash } = await readJsonWithHash<ModelJSON>(fp);
+            const change = tracker.track(fp, hash, {
+                model_id: modelJson.model_id,
+                organisation_id: modelJson.organisation_id,
+                previous_model_id: modelJson.previous_model_id ?? null,
+            } as ModelFileMeta);
+
             models.push(modelJson);
             modelIds.add(modelJson.model_id);
+
+            if (change.status !== "unchanged") {
+                changedModels.add(modelJson.model_id);
+                const prevPrev = change.previous?.meta?.previous_model_id ?? null;
+                const newPrev = modelJson.previous_model_id ?? null;
+                if (newPrev) timelineHints.add(newPrev);
+                if (prevPrev && prevPrev !== newPrev) timelineHints.add(prevPrev);
+            }
         }
     }
+
+    const deletedModels = tracker.getDeleted(DIR_MODELS);
+    const deletedParents = new Set<string>();
+    for (const d of deletedModels) {
+        const meta = d.info.meta as ModelFileMeta | undefined;
+        if (meta?.previous_model_id) deletedParents.add(meta.previous_model_id);
+    }
+
+    deletedParents.forEach(p => timelineHints.add(p));
+
+    const hasChanges = changedModels.size > 0 || deletedModels.length > 0;
+    if (!hasChanges) return;
 
     // ---------- 2) Build lineage maps (JSON-only) ----------
     const byId = new Map<string, ModelJSON>(models.map(m => [m.model_id, m]));
@@ -113,7 +151,7 @@ export async function loadModels() {
     };
 
     // ---------- 3) UPSERT core models ----------
-    const coreRows = models.map(m => ({
+    const coreRows = models.filter(m => changedModels.has(m.model_id)).map(m => ({
         name: m.name,
         organisation_id: m.organisation_id,
         status: m.status ?? null,
@@ -145,6 +183,7 @@ export async function loadModels() {
 
     // ---------- 4) UPSERT children + targeted prune (no reads) ----------
     for (const m of models) {
+        if (!changedModels.has(m.model_id)) continue;
         const model_id = m.model_id;
 
         // LINKS
@@ -271,7 +310,34 @@ export async function loadModels() {
 
     // ---------- 5) Build timeline JSON with YOUR buildTimeline ----------
     // (Providers optional—left empty here; wire from JSON later if you want.)
-    for (const m of models) {
+    const timelineTargets = new Set<string>([
+        ...changedModels,
+        ...timelineHints,
+    ]);
+
+    const queue = [...timelineTargets];
+    while (queue.length) {
+        const id = queue.pop()!;
+        const m = byId.get(id);
+        if (!m) continue;
+
+        const parent = m.previous_model_id ?? null;
+        if (parent && !timelineTargets.has(parent)) {
+            timelineTargets.add(parent);
+            queue.push(parent);
+        }
+        const kids = children[id] ?? [];
+        for (const kid of kids) {
+            if (!timelineTargets.has(kid)) {
+                timelineTargets.add(kid);
+                queue.push(kid);
+            }
+        }
+    }
+
+    for (const id of timelineTargets) {
+        const m = byId.get(id);
+        if (!m) continue;
         const self = jsonToModelRow(m);
         const past = pastOf(m);
         const future = futureOf(m);

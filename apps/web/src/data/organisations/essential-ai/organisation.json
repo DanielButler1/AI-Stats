@@ -1,0 +1,29 @@
+{
+  "organisation_id": "essential-ai",
+  "name": "Essential AI",
+  "country_code": "US",
+  "description": null,
+  "colour": "#3b0c91",
+  "organisation_links": [
+    {
+      "platform": "website",
+      "url": "https://essential.ai/"
+    },
+    {
+      "platform": "hugging_face",
+      "url": "https://huggingface.co/EssentialAI"
+    },
+    {
+      "platform": "github",
+      "url": "https://github.com/Essential-AI"
+    },
+    {
+      "platform": "x",
+      "url": "https://x.com/essential_ai"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/essentialai/"
+    }
+  ]
+}

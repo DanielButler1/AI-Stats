@@ -2,7 +2,7 @@
   "model_id": "baidu/qianfan-vl-70b",
   "organisation_id": "baidu",
   "name": "Qianfan VL 70B",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,

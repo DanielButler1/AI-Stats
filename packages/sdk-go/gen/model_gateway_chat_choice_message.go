@@ -12,7 +12,6 @@ package ai_stats_sdk
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -23,6 +22,7 @@ var _ MappedNullable = &GatewayChatChoiceMessage{}
 type GatewayChatChoiceMessage struct {
 	Role string `json:"role"`
 	Content string `json:"content"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _GatewayChatChoiceMessage GatewayChatChoiceMessage
@@ -106,6 +106,11 @@ func (o GatewayChatChoiceMessage) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["role"] = o.Role
 	toSerialize["content"] = o.Content
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -134,15 +139,21 @@ func (o *GatewayChatChoiceMessage) UnmarshalJSON(data []byte) (err error) {
 
 	varGatewayChatChoiceMessage := _GatewayChatChoiceMessage{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGatewayChatChoiceMessage)
+	err = json.Unmarshal(data, &varGatewayChatChoiceMessage)
 
 	if err != nil {
 		return err
 	}
 
 	*o = GatewayChatChoiceMessage(varGatewayChatChoiceMessage)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "role")
+		delete(additionalProperties, "content")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

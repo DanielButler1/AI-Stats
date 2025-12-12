@@ -16,14 +16,14 @@ pub struct ModerationInputImageUrlItem {
     #[serde(rename = "type")]
     pub r#type: Type,
     #[serde(rename = "image_url")]
-    pub image_url: Box<models::ModerationInputImageUrlItemImageUrl>,
+    pub image_url: models::ModerationInputImageUrlItemImageUrl,
 }
 
 impl ModerationInputImageUrlItem {
     pub fn new(r#type: Type, image_url: models::ModerationInputImageUrlItemImageUrl) -> ModerationInputImageUrlItem {
         ModerationInputImageUrlItem {
             r#type,
-            image_url: Box::new(image_url),
+            image_url,
         }
     }
 }

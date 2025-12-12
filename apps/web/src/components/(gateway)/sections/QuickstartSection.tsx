@@ -16,10 +16,10 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import CodeBlock from "@/components/(data)/model/gateway/CodeBlock";
+import CodeBlock from "@/components/(data)/model/quickstart/CodeBlock";
 import type { GatewayMarketingMetrics } from "@/lib/fetchers/gateway/getMarketingMetrics";
-import { BASE_URL } from "@/components/(data)/model/gateway/config";
-import type { ShikiLang } from "@/components/(data)/model/gateway/shiki";
+import { BASE_URL } from "@/components/(data)/model/quickstart/config";
+import type { ShikiLang } from "@/components/(data)/model/quickstart/shiki";
 
 const LANGUAGE_OPTIONS = [
 	"curl",

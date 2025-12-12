@@ -69,13 +69,18 @@ module AIStatsSdk
         :'team_id' => :'String',
         :'model' => :'String',
         :'meta' => :'GatewayErrorMeta',
-        :'timing' => :'Object'
+        :'timing' => :'Hash<String, Object>'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'reason',
+        :'message',
+        :'request_id',
+        :'team_id',
+        :'model',
       ])
     end
 
@@ -130,7 +135,9 @@ module AIStatsSdk
       end
 
       if attributes.key?(:'timing')
-        self.timing = attributes[:'timing']
+        if (value = attributes[:'timing']).is_a?(Hash)
+          self.timing = value
+        end
       end
     end
 

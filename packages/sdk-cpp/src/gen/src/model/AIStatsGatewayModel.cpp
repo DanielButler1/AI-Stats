@@ -25,15 +25,15 @@ AIStatsGatewayModel::AIStatsGatewayModel()
     m_Name = utility::conversions::to_string_t("");
     m_NameIsSet = false;
     m_Release_dateIsSet = false;
-    m_Announcement_dateIsSet = false;
     m_Status = utility::conversions::to_string_t("");
     m_StatusIsSet = false;
-    m_OrganisationIsSet = false;
+    m_Organisation_id = utility::conversions::to_string_t("");
+    m_Organisation_idIsSet = false;
     m_AliasesIsSet = false;
     m_EndpointsIsSet = false;
-    m_ProvidersIsSet = false;
     m_Input_typesIsSet = false;
     m_Output_typesIsSet = false;
+    m_ProvidersIsSet = false;
 }
 
 AIStatsGatewayModel::~AIStatsGatewayModel()
@@ -63,20 +63,15 @@ web::json::value AIStatsGatewayModel::toJson() const
         
         val[utility::conversions::to_string_t(_XPLATSTR("release_date"))] = ModelBase::toJson(m_Release_date);
     }
-    if(m_Announcement_dateIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(_XPLATSTR("announcement_date"))] = ModelBase::toJson(m_Announcement_date);
-    }
     if(m_StatusIsSet)
     {   
         
         val[utility::conversions::to_string_t(_XPLATSTR("status"))] = ModelBase::toJson(m_Status);
     }
-    if(m_OrganisationIsSet)
+    if(m_Organisation_idIsSet)
     {   
         
-        val[utility::conversions::to_string_t(_XPLATSTR("organisation"))] = ModelBase::toJson(m_Organisation);
+        val[utility::conversions::to_string_t(_XPLATSTR("organisation_id"))] = ModelBase::toJson(m_Organisation_id);
     }
     if(m_AliasesIsSet)
     {   
@@ -90,11 +85,6 @@ web::json::value AIStatsGatewayModel::toJson() const
         val[utility::conversions::to_string_t(_XPLATSTR("endpoints"))] = ModelBase::toJson(refVal);
         
     }
-    if(m_ProvidersIsSet)
-    {   
-        
-        val[utility::conversions::to_string_t(_XPLATSTR("providers"))] = ModelBase::toJson(m_Providers);
-    }
     if(m_Input_typesIsSet)
     {   
         
@@ -104,6 +94,11 @@ web::json::value AIStatsGatewayModel::toJson() const
     {   
         
         val[utility::conversions::to_string_t(_XPLATSTR("output_types"))] = ModelBase::toJson(m_Output_types);
+    }
+    if(m_ProvidersIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("providers"))] = ModelBase::toJson(m_Providers);
     }
 
     return val;
@@ -145,17 +140,6 @@ bool AIStatsGatewayModel::fromJson(const web::json::value& val)
             
         }
     }
-    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("announcement_date"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("announcement_date")));
-        if(!fieldValue.is_null())
-        {
-            utility::datetime refVal_setAnnouncementDate;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setAnnouncementDate);
-            setAnnouncementDate(refVal_setAnnouncementDate);
-            
-        }
-    }
     if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("status"))))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("status")));
@@ -167,14 +151,14 @@ bool AIStatsGatewayModel::fromJson(const web::json::value& val)
             
         }
     }
-    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("organisation"))))
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("organisation_id"))))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("organisation")));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("organisation_id")));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<AIStatsOrganisationId> refVal_setOrganisation;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setOrganisation);
-            setOrganisation(refVal_setOrganisation);
+            utility::string_t refVal_setOrganisationId;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setOrganisationId);
+            setOrganisationId(refVal_setOrganisationId);
             
         }
     }
@@ -201,17 +185,6 @@ bool AIStatsGatewayModel::fromJson(const web::json::value& val)
             
         }
     }
-    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("providers"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("providers")));
-        if(!fieldValue.is_null())
-        {
-            std::vector<std::shared_ptr<AIStatsGatewayModelProvider>> refVal_setProviders;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setProviders);
-            setProviders(refVal_setProviders);
-            
-        }
-    }
     if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("input_types"))))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("input_types")));
@@ -231,6 +204,17 @@ bool AIStatsGatewayModel::fromJson(const web::json::value& val)
             std::vector<utility::string_t> refVal_setOutputTypes;
             ok &= ModelBase::fromJson(fieldValue, refVal_setOutputTypes);
             setOutputTypes(refVal_setOutputTypes);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("providers"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("providers")));
+        if(!fieldValue.is_null())
+        {
+            std::vector<std::shared_ptr<AIStatsProviderInfo>> refVal_setProviders;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setProviders);
+            setProviders(refVal_setProviders);
             
         }
     }
@@ -256,17 +240,13 @@ void AIStatsGatewayModel::toMultipart(std::shared_ptr<MultipartFormData> multipa
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("release_date")), m_Release_date));
     }
-    if(m_Announcement_dateIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("announcement_date")), m_Announcement_date));
-    }
     if(m_StatusIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("status")), m_Status));
     }
-    if(m_OrganisationIsSet)
+    if(m_Organisation_idIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("organisation")), m_Organisation));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("organisation_id")), m_Organisation_id));
     }
     if(m_AliasesIsSet)
     {
@@ -276,10 +256,6 @@ void AIStatsGatewayModel::toMultipart(std::shared_ptr<MultipartFormData> multipa
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("endpoints")), fromEndpointsEnum(m_Endpoints)));
             }
-    if(m_ProvidersIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("providers")), m_Providers));
-    }
     if(m_Input_typesIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("input_types")), m_Input_types));
@@ -287,6 +263,10 @@ void AIStatsGatewayModel::toMultipart(std::shared_ptr<MultipartFormData> multipa
     if(m_Output_typesIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("output_types")), m_Output_types));
+    }
+    if(m_ProvidersIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("providers")), m_Providers));
     }
 }
 
@@ -317,23 +297,17 @@ bool AIStatsGatewayModel::fromMultiPart(std::shared_ptr<MultipartFormData> multi
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("release_date"))), refVal_setReleaseDate );
         setReleaseDate(refVal_setReleaseDate);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("announcement_date"))))
-    {
-        utility::datetime refVal_setAnnouncementDate;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("announcement_date"))), refVal_setAnnouncementDate );
-        setAnnouncementDate(refVal_setAnnouncementDate);
-    }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("status"))))
     {
         utility::string_t refVal_setStatus;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("status"))), refVal_setStatus );
         setStatus(refVal_setStatus);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("organisation"))))
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("organisation_id"))))
     {
-        std::shared_ptr<AIStatsOrganisationId> refVal_setOrganisation;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("organisation"))), refVal_setOrganisation );
-        setOrganisation(refVal_setOrganisation);
+        utility::string_t refVal_setOrganisationId;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("organisation_id"))), refVal_setOrganisationId );
+        setOrganisationId(refVal_setOrganisationId);
     }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("aliases"))))
     {
@@ -347,12 +321,6 @@ bool AIStatsGatewayModel::fromMultiPart(std::shared_ptr<MultipartFormData> multi
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("endpoints"))), refVal_setEndpoints );
         setEndpoints(toEndpointsEnum(refVal_setEndpoints));
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("providers"))))
-    {
-        std::vector<std::shared_ptr<AIStatsGatewayModelProvider>> refVal_setProviders;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("providers"))), refVal_setProviders );
-        setProviders(refVal_setProviders);
-    }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("input_types"))))
     {
         std::vector<utility::string_t> refVal_setInputTypes;
@@ -364,6 +332,12 @@ bool AIStatsGatewayModel::fromMultiPart(std::shared_ptr<MultipartFormData> multi
         std::vector<utility::string_t> refVal_setOutputTypes;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("output_types"))), refVal_setOutputTypes );
         setOutputTypes(refVal_setOutputTypes);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("providers"))))
+    {
+        std::vector<std::shared_ptr<AIStatsProviderInfo>> refVal_setProviders;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("providers"))), refVal_setProviders );
+        setProviders(refVal_setProviders);
     }
     return ok;
 }
@@ -511,27 +485,6 @@ void AIStatsGatewayModel::unsetRelease_date()
 {
     m_Release_dateIsSet = false;
 }
-utility::datetime AIStatsGatewayModel::getAnnouncementDate() const
-{
-    return m_Announcement_date;
-}
-
-
-void AIStatsGatewayModel::setAnnouncementDate(const utility::datetime& value)
-{
-    m_Announcement_date = value;
-    m_Announcement_dateIsSet = true;
-}
-
-bool AIStatsGatewayModel::announcementDateIsSet() const
-{
-    return m_Announcement_dateIsSet;
-}
-
-void AIStatsGatewayModel::unsetAnnouncement_date()
-{
-    m_Announcement_dateIsSet = false;
-}
 utility::string_t AIStatsGatewayModel::getStatus() const
 {
     return m_Status;
@@ -553,26 +506,26 @@ void AIStatsGatewayModel::unsetStatus()
 {
     m_StatusIsSet = false;
 }
-std::shared_ptr<AIStatsOrganisationId> AIStatsGatewayModel::getOrganisation() const
+utility::string_t AIStatsGatewayModel::getOrganisationId() const
 {
-    return m_Organisation;
+    return m_Organisation_id;
 }
 
 
-void AIStatsGatewayModel::setOrganisation(const std::shared_ptr<AIStatsOrganisationId>& value)
+void AIStatsGatewayModel::setOrganisationId(const utility::string_t& value)
 {
-    m_Organisation = value;
-    m_OrganisationIsSet = true;
+    m_Organisation_id = value;
+    m_Organisation_idIsSet = true;
 }
 
-bool AIStatsGatewayModel::organisationIsSet() const
+bool AIStatsGatewayModel::organisationIdIsSet() const
 {
-    return m_OrganisationIsSet;
+    return m_Organisation_idIsSet;
 }
 
-void AIStatsGatewayModel::unsetOrganisation()
+void AIStatsGatewayModel::unsetOrganisation_id()
 {
-    m_OrganisationIsSet = false;
+    m_Organisation_idIsSet = false;
 }
 std::vector<utility::string_t> AIStatsGatewayModel::getAliases() const
 {
@@ -616,27 +569,6 @@ void AIStatsGatewayModel::unsetEndpoints()
 {
     m_EndpointsIsSet = false;
 }
-std::vector<std::shared_ptr<AIStatsGatewayModelProvider>> AIStatsGatewayModel::getProviders() const
-{
-    return m_Providers;
-}
-
-
-void AIStatsGatewayModel::setProviders(const std::vector<std::shared_ptr<AIStatsGatewayModelProvider>>& value)
-{
-    m_Providers = value;
-    m_ProvidersIsSet = true;
-}
-
-bool AIStatsGatewayModel::providersIsSet() const
-{
-    return m_ProvidersIsSet;
-}
-
-void AIStatsGatewayModel::unsetProviders()
-{
-    m_ProvidersIsSet = false;
-}
 std::vector<utility::string_t> AIStatsGatewayModel::getInputTypes() const
 {
     return m_Input_types;
@@ -678,6 +610,27 @@ bool AIStatsGatewayModel::outputTypesIsSet() const
 void AIStatsGatewayModel::unsetOutput_types()
 {
     m_Output_typesIsSet = false;
+}
+std::vector<std::shared_ptr<AIStatsProviderInfo>> AIStatsGatewayModel::getProviders() const
+{
+    return m_Providers;
+}
+
+
+void AIStatsGatewayModel::setProviders(const std::vector<std::shared_ptr<AIStatsProviderInfo>>& value)
+{
+    m_Providers = value;
+    m_ProvidersIsSet = true;
+}
+
+bool AIStatsGatewayModel::providersIsSet() const
+{
+    return m_ProvidersIsSet;
+}
+
+void AIStatsGatewayModel::unsetProviders()
+{
+    m_ProvidersIsSet = false;
 }
 
 }

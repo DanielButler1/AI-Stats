@@ -22,9 +22,10 @@
 
 #include "ai_stats_sdk_cpp/ModelBase.h"
 
-#include "ai_stats_sdk_cpp/Object.h"
 #include <cpprest/details/basic_types.h>
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsAnyType.h"
 #include "ai_stats_sdk_cpp/model/AIStatsAIStatsModelId.h"
+#include <map>
 
 namespace org {
 namespace openapitools {
@@ -92,10 +93,10 @@ public:
     /// <summary>
     /// Optional timing information captured during the request lifecycle.
     /// </summary>
-    std::shared_ptr<Object> getTiming() const;
+    std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> getTiming() const;
     bool timingIsSet() const;
     void unsetTiming();
-    void setTiming(const std::shared_ptr<Object>& value);
+    void setTiming(const std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>>& value);
 
 
 protected:
@@ -117,7 +118,7 @@ protected:
     utility::string_t m_Referer;
     bool m_RefererIsSet;
 
-    std::shared_ptr<Object> m_Timing;
+    std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> m_Timing;
     bool m_TimingIsSet;
 
 };

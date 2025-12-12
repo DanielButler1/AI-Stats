@@ -1,0 +1,29 @@
+---
+title: "Audio translations"
+description: "Call /audio/translations with the C# SDK."
+---
+
+**Method**: `client.AudioApi.AudioTranslationsPostAsync()`
+
+### Example
+```csharp
+var client = new Client(apiKey);
+
+var request = new AudioTranslationRequest(
+    model: "openai/gpt-4o-translate",
+    file: new FileParameter(new MemoryStream(audioBytes), "audio.mp3")
+);
+
+var response = client.AudioApi.AudioTranslationsPostAsync(request).Result;
+```
+
+### Key parameters
+- `model` (required): Translation-capable model id.
+- `file` (required): Audio data to translate.
+- `prompt`: Optional context to guide translation.
+- `temperature` (0–2): Sampling randomness.
+- `response_format`: `json`, `text`, `srt`, `verbose_json`, etc.
+
+### Returns
+`AudioTranscriptionResponse`
+

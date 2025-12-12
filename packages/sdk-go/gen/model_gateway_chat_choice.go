@@ -25,7 +25,7 @@ type GatewayChatChoice struct {
 	// Why the model stopped generating tokens.
 	FinishReason NullableString `json:"finish_reason"`
 	// True when the choice contains provider reasoning traces.
-	Reasoning *bool `json:"reasoning,omitempty"`
+	Reasoning NullableBool `json:"reasoning,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -125,36 +125,46 @@ func (o *GatewayChatChoice) SetFinishReason(v string) {
 	o.FinishReason.Set(&v)
 }
 
-// GetReasoning returns the Reasoning field value if set, zero value otherwise.
+// GetReasoning returns the Reasoning field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayChatChoice) GetReasoning() bool {
-	if o == nil || IsNil(o.Reasoning) {
+	if o == nil || IsNil(o.Reasoning.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.Reasoning
+	return *o.Reasoning.Get()
 }
 
 // GetReasoningOk returns a tuple with the Reasoning field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayChatChoice) GetReasoningOk() (*bool, bool) {
-	if o == nil || IsNil(o.Reasoning) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Reasoning, true
+	return o.Reasoning.Get(), o.Reasoning.IsSet()
 }
 
 // HasReasoning returns a boolean if a field has been set.
 func (o *GatewayChatChoice) HasReasoning() bool {
-	if o != nil && !IsNil(o.Reasoning) {
+	if o != nil && o.Reasoning.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetReasoning gets a reference to the given bool and assigns it to the Reasoning field.
+// SetReasoning gets a reference to the given NullableBool and assigns it to the Reasoning field.
 func (o *GatewayChatChoice) SetReasoning(v bool) {
-	o.Reasoning = &v
+	o.Reasoning.Set(&v)
+}
+// SetReasoningNil sets the value for Reasoning to be an explicit nil
+func (o *GatewayChatChoice) SetReasoningNil() {
+	o.Reasoning.Set(nil)
+}
+
+// UnsetReasoning ensures that no value is present for Reasoning, not even an explicit nil
+func (o *GatewayChatChoice) UnsetReasoning() {
+	o.Reasoning.Unset()
 }
 
 func (o GatewayChatChoice) MarshalJSON() ([]byte, error) {
@@ -170,8 +180,8 @@ func (o GatewayChatChoice) ToMap() (map[string]interface{}, error) {
 	toSerialize["index"] = o.Index
 	toSerialize["message"] = o.Message
 	toSerialize["finish_reason"] = o.FinishReason.Get()
-	if !IsNil(o.Reasoning) {
-		toSerialize["reasoning"] = o.Reasoning
+	if o.Reasoning.IsSet() {
+		toSerialize["reasoning"] = o.Reasoning.Get()
 	}
 
 	for key, value := range o.AdditionalProperties {

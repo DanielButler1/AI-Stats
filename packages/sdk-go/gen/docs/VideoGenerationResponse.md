@@ -4,16 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NativeResponseId** | Pointer to **string** |  | [optional] 
-**Provider** | **string** |  | 
-**Meta** | [**GatewayMetadata**](GatewayMetadata.md) |  | 
-**Usage** | Pointer to [**GatewayUsage**](GatewayUsage.md) |  | [optional] 
+**Id** | Pointer to **string** |  | [optional] 
+**Model** | Pointer to **string** |  | [optional] 
+**Status** | Pointer to **string** |  | [optional] 
+**Created** | Pointer to **int32** |  | [optional] 
+**Object** | Pointer to **string** |  | [optional] 
+**Output** | Pointer to [**[]VideoGenerationResponseOutputInner**](VideoGenerationResponseOutputInner.md) |  | [optional] 
 
 ## Methods
 
 ### NewVideoGenerationResponse
 
-`func NewVideoGenerationResponse(provider string, meta GatewayMetadata, ) *VideoGenerationResponse`
+`func NewVideoGenerationResponse() *VideoGenerationResponse`
 
 NewVideoGenerationResponse instantiates a new VideoGenerationResponse object
 This constructor will assign default values to properties that have it defined,
@@ -28,95 +30,155 @@ NewVideoGenerationResponseWithDefaults instantiates a new VideoGenerationRespons
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetNativeResponseId
+### GetId
 
-`func (o *VideoGenerationResponse) GetNativeResponseId() string`
+`func (o *VideoGenerationResponse) GetId() string`
 
-GetNativeResponseId returns the NativeResponseId field if non-nil, zero value otherwise.
+GetId returns the Id field if non-nil, zero value otherwise.
 
-### GetNativeResponseIdOk
+### GetIdOk
 
-`func (o *VideoGenerationResponse) GetNativeResponseIdOk() (*string, bool)`
+`func (o *VideoGenerationResponse) GetIdOk() (*string, bool)`
 
-GetNativeResponseIdOk returns a tuple with the NativeResponseId field if it's non-nil, zero value otherwise
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetNativeResponseId
+### SetId
 
-`func (o *VideoGenerationResponse) SetNativeResponseId(v string)`
+`func (o *VideoGenerationResponse) SetId(v string)`
 
-SetNativeResponseId sets NativeResponseId field to given value.
+SetId sets Id field to given value.
 
-### HasNativeResponseId
+### HasId
 
-`func (o *VideoGenerationResponse) HasNativeResponseId() bool`
+`func (o *VideoGenerationResponse) HasId() bool`
 
-HasNativeResponseId returns a boolean if a field has been set.
+HasId returns a boolean if a field has been set.
 
-### GetProvider
+### GetModel
 
-`func (o *VideoGenerationResponse) GetProvider() string`
+`func (o *VideoGenerationResponse) GetModel() string`
 
-GetProvider returns the Provider field if non-nil, zero value otherwise.
+GetModel returns the Model field if non-nil, zero value otherwise.
 
-### GetProviderOk
+### GetModelOk
 
-`func (o *VideoGenerationResponse) GetProviderOk() (*string, bool)`
+`func (o *VideoGenerationResponse) GetModelOk() (*string, bool)`
 
-GetProviderOk returns a tuple with the Provider field if it's non-nil, zero value otherwise
+GetModelOk returns a tuple with the Model field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProvider
+### SetModel
 
-`func (o *VideoGenerationResponse) SetProvider(v string)`
+`func (o *VideoGenerationResponse) SetModel(v string)`
 
-SetProvider sets Provider field to given value.
+SetModel sets Model field to given value.
 
+### HasModel
 
-### GetMeta
+`func (o *VideoGenerationResponse) HasModel() bool`
 
-`func (o *VideoGenerationResponse) GetMeta() GatewayMetadata`
+HasModel returns a boolean if a field has been set.
 
-GetMeta returns the Meta field if non-nil, zero value otherwise.
+### GetStatus
 
-### GetMetaOk
+`func (o *VideoGenerationResponse) GetStatus() string`
 
-`func (o *VideoGenerationResponse) GetMetaOk() (*GatewayMetadata, bool)`
+GetStatus returns the Status field if non-nil, zero value otherwise.
 
-GetMetaOk returns a tuple with the Meta field if it's non-nil, zero value otherwise
+### GetStatusOk
+
+`func (o *VideoGenerationResponse) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMeta
+### SetStatus
 
-`func (o *VideoGenerationResponse) SetMeta(v GatewayMetadata)`
+`func (o *VideoGenerationResponse) SetStatus(v string)`
 
-SetMeta sets Meta field to given value.
+SetStatus sets Status field to given value.
 
+### HasStatus
 
-### GetUsage
+`func (o *VideoGenerationResponse) HasStatus() bool`
 
-`func (o *VideoGenerationResponse) GetUsage() GatewayUsage`
+HasStatus returns a boolean if a field has been set.
 
-GetUsage returns the Usage field if non-nil, zero value otherwise.
+### GetCreated
 
-### GetUsageOk
+`func (o *VideoGenerationResponse) GetCreated() int32`
 
-`func (o *VideoGenerationResponse) GetUsageOk() (*GatewayUsage, bool)`
+GetCreated returns the Created field if non-nil, zero value otherwise.
 
-GetUsageOk returns a tuple with the Usage field if it's non-nil, zero value otherwise
+### GetCreatedOk
+
+`func (o *VideoGenerationResponse) GetCreatedOk() (*int32, bool)`
+
+GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUsage
+### SetCreated
 
-`func (o *VideoGenerationResponse) SetUsage(v GatewayUsage)`
+`func (o *VideoGenerationResponse) SetCreated(v int32)`
 
-SetUsage sets Usage field to given value.
+SetCreated sets Created field to given value.
 
-### HasUsage
+### HasCreated
 
-`func (o *VideoGenerationResponse) HasUsage() bool`
+`func (o *VideoGenerationResponse) HasCreated() bool`
 
-HasUsage returns a boolean if a field has been set.
+HasCreated returns a boolean if a field has been set.
+
+### GetObject
+
+`func (o *VideoGenerationResponse) GetObject() string`
+
+GetObject returns the Object field if non-nil, zero value otherwise.
+
+### GetObjectOk
+
+`func (o *VideoGenerationResponse) GetObjectOk() (*string, bool)`
+
+GetObjectOk returns a tuple with the Object field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObject
+
+`func (o *VideoGenerationResponse) SetObject(v string)`
+
+SetObject sets Object field to given value.
+
+### HasObject
+
+`func (o *VideoGenerationResponse) HasObject() bool`
+
+HasObject returns a boolean if a field has been set.
+
+### GetOutput
+
+`func (o *VideoGenerationResponse) GetOutput() []VideoGenerationResponseOutputInner`
+
+GetOutput returns the Output field if non-nil, zero value otherwise.
+
+### GetOutputOk
+
+`func (o *VideoGenerationResponse) GetOutputOk() (*[]VideoGenerationResponseOutputInner, bool)`
+
+GetOutputOk returns a tuple with the Output field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOutput
+
+`func (o *VideoGenerationResponse) SetOutput(v []VideoGenerationResponseOutputInner)`
+
+SetOutput sets Output field to given value.
+
+### HasOutput
+
+`func (o *VideoGenerationResponse) HasOutput() bool`
+
+HasOutput returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

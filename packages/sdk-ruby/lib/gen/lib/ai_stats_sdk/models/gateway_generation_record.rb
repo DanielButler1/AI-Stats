@@ -118,11 +118,11 @@ module AIStatsSdk
         :'success' => :'Boolean',
         :'error_code' => :'String',
         :'error_message' => :'String',
-        :'before' => :'Object',
-        :'execute' => :'Object',
+        :'before' => :'Hash<String, Object>',
+        :'execute' => :'Hash<String, Object>',
         :'latency_ms' => :'Float',
         :'generation_ms' => :'Float',
-        :'usage' => :'Object',
+        :'usage' => :'Hash<String, Object>',
         :'cost_nanos' => :'Integer',
         :'currency' => :'String',
         :'pricing_lines' => :'Array<Object>'
@@ -132,6 +132,19 @@ module AIStatsSdk
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'app_id',
+        :'app_title',
+        :'referer',
+        :'model_id',
+        :'provider',
+        :'native_response_id',
+        :'status_code',
+        :'error_code',
+        :'error_message',
+        :'latency_ms',
+        :'generation_ms',
+        :'cost_nanos',
+        :'currency',
       ])
     end
 
@@ -220,11 +233,15 @@ module AIStatsSdk
       end
 
       if attributes.key?(:'before')
-        self.before = attributes[:'before']
+        if (value = attributes[:'before']).is_a?(Hash)
+          self.before = value
+        end
       end
 
       if attributes.key?(:'execute')
-        self.execute = attributes[:'execute']
+        if (value = attributes[:'execute']).is_a?(Hash)
+          self.execute = value
+        end
       end
 
       if attributes.key?(:'latency_ms')
@@ -236,7 +253,9 @@ module AIStatsSdk
       end
 
       if attributes.key?(:'usage')
-        self.usage = attributes[:'usage']
+        if (value = attributes[:'usage']).is_a?(Hash)
+          self.usage = value
+        end
       end
 
       if attributes.key?(:'cost_nanos')

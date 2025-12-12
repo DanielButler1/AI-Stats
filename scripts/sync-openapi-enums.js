@@ -1,10 +1,15 @@
 const fs = require("fs");
 const path = require("path");
+const yaml = require("js-yaml");
 
 const ROOT = path.join(__dirname, "..");
-const OPENAPI_PATH = path.join(ROOT, "apps", "docs", "openapi", "v1", "openapi.json");
+const OPENAPI_PATH = path.join(ROOT, "apps", "docs", "openapi", "v1", "openapi.yaml");
 const MANIFEST_PATH = path.join(ROOT, "apps", "web", "src", "data", "manifest.json");
 const BENCHMARKS_DIR = path.join(ROOT, "apps", "web", "src", "data", "benchmarks");
+
+function readYaml(file) {
+    return yaml.load(fs.readFileSync(file, "utf8"));
+}
 
 function readJson(file) {
     return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -63,10 +68,19 @@ function main() {
     const organisationIds = loadOrganisationIds();
     const benchmarkIds = loadBenchmarkIds();
 
-    const openapi = readJson(OPENAPI_PATH);
+    const openapi = readYaml(OPENAPI_PATH);
     const schemas = openapi.components?.schemas;
-    if (!schemas?.ModelId) {
-        throw new Error("ModelId schema not found in OpenAPI document");
+    if (!schemas) {
+        throw new Error("Schemas not found in OpenAPI document");
+    }
+
+    // Ensure ModelId schema exists
+    if (!schemas.ModelId) {
+        schemas.ModelId = {
+            type: "string",
+            description: "Model identifier.",
+            enum: []
+        };
     }
 
     // Sync model ids
@@ -111,7 +125,7 @@ function main() {
         }
     }
 
-    fs.writeFileSync(OPENAPI_PATH, JSON.stringify(openapi, null, 2) + "\n");
+    fs.writeFileSync(OPENAPI_PATH, yaml.dump(openapi, { indent: 2 }));
 
     console.log(`Synced enums -> models: ${modelIds.length}, organisations: ${organisationIds.length}, benchmarks: ${benchmarkIds.length}`);
 }

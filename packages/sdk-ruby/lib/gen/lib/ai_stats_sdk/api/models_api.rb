@@ -20,19 +20,15 @@ module AIStatsSdk
       @api_client = api_client
     end
     # List all gateway models
-    # Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date (falling back to announcement date) in descending order.
+    # Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date in descending order.
     # @param [Hash] opts the optional parameters
-    # @option opts [ModelsGetProviderParameter] :provider Filter results to models served by one or more provider identifiers.
+    # @option opts [ModelsGetEndpointsParameter] :endpoints Only return models that support at least one of the specified gateway endpoints.
+    # @option opts [ModelsGetOrganisationParameter] :organisation Restrict results to models associated with one or more organisation identifiers.
+    # @option opts [ModelsGetInputTypesParameter] :input_types Only return models that advertise support for at least one of the requested input content types.
+    # @option opts [ModelsGetInputTypesParameter] :output_types Only return models that advertise support for at least one of the requested output content types.
+    # @option opts [ModelsGetInputTypesParameter] :params Only return models that support at least one of the specified parameters.
     # @option opts [Integer] :limit Maximum number of models to return (default 50).
     # @option opts [Integer] :offset Number of models to skip before starting the page.
-    # @option opts [ModelsGetOrganisationParameter] :organisation Restrict results to models associated with one or more organisation identifiers.
-    # @option opts [ModelsGetIncludeEndpointsParameter] :include_endpoints Only return models that support at least one of the specified gateway endpoints.
-    # @option opts [ModelsGetIncludeEndpointsParameter] :exclude_endpoints Exclude models that support any of the specified gateway endpoints.
-    # @option opts [ModelsGetProviderParameter] :input_types Only return models that advertise support for at least one of the requested input content types.
-    # @option opts [ModelsGetProviderParameter] :output_types Only return models that advertise support for at least one of the requested output content types.
-    # @option opts [Boolean] :include_rumoured Whether to include models marked as rumoured in the response (default true). (default to true)
-    # @option opts [Boolean] :include_deprecated Whether to include models marked as deprecated in the response (default true). (default to true)
-    # @option opts [Boolean] :include_retired Whether to include models marked as retired in the response (default true). (default to true)
     # @return [ModelListResponse]
     def models_get(opts = {})
       data, _status_code, _headers = models_get_with_http_info(opts)
@@ -40,19 +36,15 @@ module AIStatsSdk
     end
 
     # List all gateway models
-    # Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date (falling back to announcement date) in descending order.
+    # Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date in descending order.
     # @param [Hash] opts the optional parameters
-    # @option opts [ModelsGetProviderParameter] :provider Filter results to models served by one or more provider identifiers.
+    # @option opts [ModelsGetEndpointsParameter] :endpoints Only return models that support at least one of the specified gateway endpoints.
+    # @option opts [ModelsGetOrganisationParameter] :organisation Restrict results to models associated with one or more organisation identifiers.
+    # @option opts [ModelsGetInputTypesParameter] :input_types Only return models that advertise support for at least one of the requested input content types.
+    # @option opts [ModelsGetInputTypesParameter] :output_types Only return models that advertise support for at least one of the requested output content types.
+    # @option opts [ModelsGetInputTypesParameter] :params Only return models that support at least one of the specified parameters.
     # @option opts [Integer] :limit Maximum number of models to return (default 50).
     # @option opts [Integer] :offset Number of models to skip before starting the page.
-    # @option opts [ModelsGetOrganisationParameter] :organisation Restrict results to models associated with one or more organisation identifiers.
-    # @option opts [ModelsGetIncludeEndpointsParameter] :include_endpoints Only return models that support at least one of the specified gateway endpoints.
-    # @option opts [ModelsGetIncludeEndpointsParameter] :exclude_endpoints Exclude models that support any of the specified gateway endpoints.
-    # @option opts [ModelsGetProviderParameter] :input_types Only return models that advertise support for at least one of the requested input content types.
-    # @option opts [ModelsGetProviderParameter] :output_types Only return models that advertise support for at least one of the requested output content types.
-    # @option opts [Boolean] :include_rumoured Whether to include models marked as rumoured in the response (default true). (default to true)
-    # @option opts [Boolean] :include_deprecated Whether to include models marked as deprecated in the response (default true). (default to true)
-    # @option opts [Boolean] :include_retired Whether to include models marked as retired in the response (default true). (default to true)
     # @return [Array<(ModelListResponse, Integer, Hash)>] ModelListResponse data, response status code and response headers
     def models_get_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -75,17 +67,13 @@ module AIStatsSdk
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'provider'] = opts[:'provider'] if !opts[:'provider'].nil?
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'endpoints'] = opts[:'endpoints'] if !opts[:'endpoints'].nil?
       query_params[:'organisation'] = opts[:'organisation'] if !opts[:'organisation'].nil?
-      query_params[:'include_endpoints'] = opts[:'include_endpoints'] if !opts[:'include_endpoints'].nil?
-      query_params[:'exclude_endpoints'] = opts[:'exclude_endpoints'] if !opts[:'exclude_endpoints'].nil?
       query_params[:'input_types'] = opts[:'input_types'] if !opts[:'input_types'].nil?
       query_params[:'output_types'] = opts[:'output_types'] if !opts[:'output_types'].nil?
-      query_params[:'include_rumoured'] = opts[:'include_rumoured'] if !opts[:'include_rumoured'].nil?
-      query_params[:'include_deprecated'] = opts[:'include_deprecated'] if !opts[:'include_deprecated'].nil?
-      query_params[:'include_retired'] = opts[:'include_retired'] if !opts[:'include_retired'].nil?
+      query_params[:'params'] = opts[:'params'] if !opts[:'params'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

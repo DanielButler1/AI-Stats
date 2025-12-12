@@ -25,6 +25,7 @@
 #include "ai_stats_sdk_cpp/model/AIStatsAIStatsGatewayError.h"
 #include "ai_stats_sdk_cpp/model/AIStatsAIStatsImageGenerationRequest.h"
 #include "ai_stats_sdk_cpp/model/AIStatsAIStatsImageGenerationResponse.h"
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsImagesEditRequest.h"
 #include <boost/optional.hpp>
 
 namespace org {
@@ -44,6 +45,16 @@ public:
 
     virtual ~AIStatsImagesApi();
 
+    /// <summary>
+    /// Edit an image
+    /// </summary>
+    /// <remarks>
+    /// Applies edits to an existing image using the specified model and prompt.
+    /// </remarks>
+    /// <param name="aIStatsImagesEditRequest"></param>
+    pplx::task<std::shared_ptr<AIStatsImageGenerationResponse>> imagesEditsPost(
+        std::shared_ptr<AIStatsAIStatsImagesEditRequest> aIStatsImagesEditRequest
+    ) const;
     /// <summary>
     /// Generate images
     /// </summary>

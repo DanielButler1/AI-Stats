@@ -1,11 +1,11 @@
 # ChatCompletionsRequestReasoning
 
-## Properties
+## Enum Variants
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**effort** | Option<**String**> |  | [optional]
-**summary** | Option<**String**> |  | [optional]
+| Name | Description |
+|---- | -----|
+| ReasoningConfig |  |
+| Vec<models::ReasoningConfig> |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,0 +1,80 @@
+---
+title: "C# SDK Usage"
+description: "Examples for calling each endpoint with the C# SDK facade."
+---
+
+```csharp
+using AiStatsSdk;
+using AiStatsSdk.Model;
+
+var client = new Client("<API_KEY>");
+```
+
+### Chat completions
+
+```csharp
+var completion = client.GenerateText(new ChatCompletionsRequest(
+    model: "openai/gpt-4o-mini",
+    messages: new List<ChatMessage> { new ChatMessage(role: "user", content: "Hello!") }
+));
+```
+
+### Responses
+
+```csharp
+var resp = client.GenerateResponse(new ResponsesRequest(
+    model: "openai/gpt-4.1",
+    input: new List<Dictionary<string, object>>
+    {
+        new()
+        {
+            ["role"] = "user",
+            ["content"] = new List<Dictionary<string, object>>
+            {
+                new() { ["type"] = "output_text", ["text"] = "Summarise" }
+            }
+        }
+    }
+));
+```
+
+### Images
+
+```csharp
+var image = client.ImagesApi.ImagesGenerationsPost(new ImageGenerationRequest(
+    model: "openai/gpt-image-1",
+    prompt: "A lighthouse at golden hour"
+));
+```
+
+### Audio
+
+```csharp
+var speech = client.AudioApi.AudioSpeechPost(new AudioSpeechRequest(model: "openai/gpt-4o-mini-tts", input: "Hello"));
+```
+
+### Video
+
+```csharp
+var video = client.VideoApi.VideoGenerationPost(new VideoGenerationRequest(model: "openai/gpt-video-1", prompt: "Ocean at dusk"));
+```
+
+### Moderations
+
+```csharp
+var mod = client.ModerationsApi.ModerationsPost(new ModerationRequest(model: "openai/omni-moderation-latest", input: "Text"));
+```
+
+### Batch & files
+
+```csharp
+var batch = client.CreateBatch(new BatchRequest(endpoint: "responses"));
+var files = client.ListFiles();
+```
+
+### Models & health
+
+```csharp
+var models = client.GetModels();
+var health = client.GetHealth();
+```

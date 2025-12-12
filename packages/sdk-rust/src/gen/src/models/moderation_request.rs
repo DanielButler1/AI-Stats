@@ -15,15 +15,15 @@ use serde::{Deserialize, Serialize};
 pub struct ModerationRequest {
     #[serde(rename = "model")]
     pub model: String,
-    #[serde(rename = "input", deserialize_with = "Option::deserialize")]
-    pub input: Option<serde_json::Value>,
+    #[serde(rename = "input")]
+    pub input: Box<models::ModerationRequestInput>,
 }
 
 impl ModerationRequest {
-    pub fn new(model: String, input: Option<serde_json::Value>) -> ModerationRequest {
+    pub fn new(model: String, input: models::ModerationRequestInput) -> ModerationRequest {
         ModerationRequest {
             model,
-            input,
+            input: Box::new(input),
         }
     }
 }

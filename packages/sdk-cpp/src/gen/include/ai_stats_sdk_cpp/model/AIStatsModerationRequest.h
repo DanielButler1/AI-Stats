@@ -21,8 +21,10 @@
 
 #include "ai_stats_sdk_cpp/ModelBase.h"
 
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsModerationRequestInput.h"
 #include <cpprest/details/basic_types.h>
 #include "ai_stats_sdk_cpp/model/AIStatsAIStatsAnyType.h"
+#include <map>
 
 namespace org {
 namespace openapitools {
@@ -59,17 +61,17 @@ public:
     void unsetModel();
     void setModel(const utility::string_t& value);
 
-    std::shared_ptr<AIStatsAnyType> getInput() const;
+    std::shared_ptr<AIStatsModerationRequestInput> getInput() const;
     bool inputIsSet() const;
     void unsetInput();
-    void setInput(const std::shared_ptr<AIStatsAnyType>& value);
+    void setInput(const std::shared_ptr<AIStatsModerationRequestInput>& value);
 
 
 protected:
     utility::string_t m_Model;
     bool m_ModelIsSet;
 
-    std::shared_ptr<AIStatsAnyType> m_Input;
+    std::shared_ptr<AIStatsModerationRequestInput> m_Input;
     bool m_InputIsSet;
 
 };

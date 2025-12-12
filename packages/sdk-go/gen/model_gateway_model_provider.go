@@ -13,7 +13,6 @@ package ai_stats_sdk
 import (
 	"encoding/json"
 	"time"
-	"bytes"
 	"fmt"
 )
 
@@ -44,6 +43,7 @@ type GatewayModelProvider struct {
 	EffectiveFrom NullableTime `json:"effective_from"`
 	// Timestamp when the pairing stops being effective.
 	EffectiveTo NullableTime `json:"effective_to"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _GatewayModelProvider GatewayModelProvider
@@ -373,6 +373,11 @@ func (o GatewayModelProvider) ToMap() (map[string]interface{}, error) {
 	toSerialize["output_modalities"] = o.OutputModalities
 	toSerialize["effective_from"] = o.EffectiveFrom.Get()
 	toSerialize["effective_to"] = o.EffectiveTo.Get()
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -410,15 +415,30 @@ func (o *GatewayModelProvider) UnmarshalJSON(data []byte) (err error) {
 
 	varGatewayModelProvider := _GatewayModelProvider{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGatewayModelProvider)
+	err = json.Unmarshal(data, &varGatewayModelProvider)
 
 	if err != nil {
 		return err
 	}
 
 	*o = GatewayModelProvider(varGatewayModelProvider)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "api_provider_id")
+		delete(additionalProperties, "api_provider_name")
+		delete(additionalProperties, "link")
+		delete(additionalProperties, "country_code")
+		delete(additionalProperties, "endpoint")
+		delete(additionalProperties, "provider_model_slug")
+		delete(additionalProperties, "is_active_gateway")
+		delete(additionalProperties, "input_modalities")
+		delete(additionalProperties, "output_modalities")
+		delete(additionalProperties, "effective_from")
+		delete(additionalProperties, "effective_to")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -22,26 +22,26 @@ var _ MappedNullable = &GatewayGenerationRecord{}
 type GatewayGenerationRecord struct {
 	RequestId string `json:"request_id"`
 	TeamId string `json:"team_id"`
-	AppId *string `json:"app_id,omitempty"`
-	AppTitle *string `json:"app_title,omitempty"`
-	Referer *string `json:"referer,omitempty"`
+	AppId NullableString `json:"app_id,omitempty"`
+	AppTitle NullableString `json:"app_title,omitempty"`
+	Referer NullableString `json:"referer,omitempty"`
 	Endpoint string `json:"endpoint"`
-	ModelId *string `json:"model_id,omitempty"`
-	Provider *string `json:"provider,omitempty"`
-	NativeResponseId *string `json:"native_response_id,omitempty"`
+	ModelId NullableString `json:"model_id,omitempty"`
+	Provider NullableString `json:"provider,omitempty"`
+	NativeResponseId NullableString `json:"native_response_id,omitempty"`
 	Stream *bool `json:"stream,omitempty"`
 	Byok *bool `json:"byok,omitempty"`
-	StatusCode *int32 `json:"status_code,omitempty"`
+	StatusCode NullableInt32 `json:"status_code,omitempty"`
 	Success bool `json:"success"`
-	ErrorCode *string `json:"error_code,omitempty"`
-	ErrorMessage *string `json:"error_message,omitempty"`
+	ErrorCode NullableString `json:"error_code,omitempty"`
+	ErrorMessage NullableString `json:"error_message,omitempty"`
 	Before map[string]interface{} `json:"before,omitempty"`
 	Execute map[string]interface{} `json:"execute,omitempty"`
-	LatencyMs *float32 `json:"latency_ms,omitempty"`
-	GenerationMs *float32 `json:"generation_ms,omitempty"`
+	LatencyMs NullableFloat32 `json:"latency_ms,omitempty"`
+	GenerationMs NullableFloat32 `json:"generation_ms,omitempty"`
 	Usage map[string]interface{} `json:"usage,omitempty"`
-	CostNanos *int32 `json:"cost_nanos,omitempty"`
-	Currency *string `json:"currency,omitempty"`
+	CostNanos NullableInt32 `json:"cost_nanos,omitempty"`
+	Currency NullableString `json:"currency,omitempty"`
 	PricingLines []map[string]interface{} `json:"pricing_lines,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -117,100 +117,130 @@ func (o *GatewayGenerationRecord) SetTeamId(v string) {
 	o.TeamId = v
 }
 
-// GetAppId returns the AppId field value if set, zero value otherwise.
+// GetAppId returns the AppId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayGenerationRecord) GetAppId() string {
-	if o == nil || IsNil(o.AppId) {
+	if o == nil || IsNil(o.AppId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AppId
+	return *o.AppId.Get()
 }
 
 // GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayGenerationRecord) GetAppIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AppId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AppId, true
+	return o.AppId.Get(), o.AppId.IsSet()
 }
 
 // HasAppId returns a boolean if a field has been set.
 func (o *GatewayGenerationRecord) HasAppId() bool {
-	if o != nil && !IsNil(o.AppId) {
+	if o != nil && o.AppId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAppId gets a reference to the given string and assigns it to the AppId field.
+// SetAppId gets a reference to the given NullableString and assigns it to the AppId field.
 func (o *GatewayGenerationRecord) SetAppId(v string) {
-	o.AppId = &v
+	o.AppId.Set(&v)
+}
+// SetAppIdNil sets the value for AppId to be an explicit nil
+func (o *GatewayGenerationRecord) SetAppIdNil() {
+	o.AppId.Set(nil)
 }
 
-// GetAppTitle returns the AppTitle field value if set, zero value otherwise.
+// UnsetAppId ensures that no value is present for AppId, not even an explicit nil
+func (o *GatewayGenerationRecord) UnsetAppId() {
+	o.AppId.Unset()
+}
+
+// GetAppTitle returns the AppTitle field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayGenerationRecord) GetAppTitle() string {
-	if o == nil || IsNil(o.AppTitle) {
+	if o == nil || IsNil(o.AppTitle.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AppTitle
+	return *o.AppTitle.Get()
 }
 
 // GetAppTitleOk returns a tuple with the AppTitle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayGenerationRecord) GetAppTitleOk() (*string, bool) {
-	if o == nil || IsNil(o.AppTitle) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AppTitle, true
+	return o.AppTitle.Get(), o.AppTitle.IsSet()
 }
 
 // HasAppTitle returns a boolean if a field has been set.
 func (o *GatewayGenerationRecord) HasAppTitle() bool {
-	if o != nil && !IsNil(o.AppTitle) {
+	if o != nil && o.AppTitle.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAppTitle gets a reference to the given string and assigns it to the AppTitle field.
+// SetAppTitle gets a reference to the given NullableString and assigns it to the AppTitle field.
 func (o *GatewayGenerationRecord) SetAppTitle(v string) {
-	o.AppTitle = &v
+	o.AppTitle.Set(&v)
+}
+// SetAppTitleNil sets the value for AppTitle to be an explicit nil
+func (o *GatewayGenerationRecord) SetAppTitleNil() {
+	o.AppTitle.Set(nil)
 }
 
-// GetReferer returns the Referer field value if set, zero value otherwise.
+// UnsetAppTitle ensures that no value is present for AppTitle, not even an explicit nil
+func (o *GatewayGenerationRecord) UnsetAppTitle() {
+	o.AppTitle.Unset()
+}
+
+// GetReferer returns the Referer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayGenerationRecord) GetReferer() string {
-	if o == nil || IsNil(o.Referer) {
+	if o == nil || IsNil(o.Referer.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Referer
+	return *o.Referer.Get()
 }
 
 // GetRefererOk returns a tuple with the Referer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayGenerationRecord) GetRefererOk() (*string, bool) {
-	if o == nil || IsNil(o.Referer) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Referer, true
+	return o.Referer.Get(), o.Referer.IsSet()
 }
 
 // HasReferer returns a boolean if a field has been set.
 func (o *GatewayGenerationRecord) HasReferer() bool {
-	if o != nil && !IsNil(o.Referer) {
+	if o != nil && o.Referer.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetReferer gets a reference to the given string and assigns it to the Referer field.
+// SetReferer gets a reference to the given NullableString and assigns it to the Referer field.
 func (o *GatewayGenerationRecord) SetReferer(v string) {
-	o.Referer = &v
+	o.Referer.Set(&v)
+}
+// SetRefererNil sets the value for Referer to be an explicit nil
+func (o *GatewayGenerationRecord) SetRefererNil() {
+	o.Referer.Set(nil)
+}
+
+// UnsetReferer ensures that no value is present for Referer, not even an explicit nil
+func (o *GatewayGenerationRecord) UnsetReferer() {
+	o.Referer.Unset()
 }
 
 // GetEndpoint returns the Endpoint field value
@@ -237,100 +267,130 @@ func (o *GatewayGenerationRecord) SetEndpoint(v string) {
 	o.Endpoint = v
 }
 
-// GetModelId returns the ModelId field value if set, zero value otherwise.
+// GetModelId returns the ModelId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayGenerationRecord) GetModelId() string {
-	if o == nil || IsNil(o.ModelId) {
+	if o == nil || IsNil(o.ModelId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ModelId
+	return *o.ModelId.Get()
 }
 
 // GetModelIdOk returns a tuple with the ModelId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayGenerationRecord) GetModelIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ModelId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ModelId, true
+	return o.ModelId.Get(), o.ModelId.IsSet()
 }
 
 // HasModelId returns a boolean if a field has been set.
 func (o *GatewayGenerationRecord) HasModelId() bool {
-	if o != nil && !IsNil(o.ModelId) {
+	if o != nil && o.ModelId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetModelId gets a reference to the given string and assigns it to the ModelId field.
+// SetModelId gets a reference to the given NullableString and assigns it to the ModelId field.
 func (o *GatewayGenerationRecord) SetModelId(v string) {
-	o.ModelId = &v
+	o.ModelId.Set(&v)
+}
+// SetModelIdNil sets the value for ModelId to be an explicit nil
+func (o *GatewayGenerationRecord) SetModelIdNil() {
+	o.ModelId.Set(nil)
 }
 
-// GetProvider returns the Provider field value if set, zero value otherwise.
+// UnsetModelId ensures that no value is present for ModelId, not even an explicit nil
+func (o *GatewayGenerationRecord) UnsetModelId() {
+	o.ModelId.Unset()
+}
+
+// GetProvider returns the Provider field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayGenerationRecord) GetProvider() string {
-	if o == nil || IsNil(o.Provider) {
+	if o == nil || IsNil(o.Provider.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Provider
+	return *o.Provider.Get()
 }
 
 // GetProviderOk returns a tuple with the Provider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayGenerationRecord) GetProviderOk() (*string, bool) {
-	if o == nil || IsNil(o.Provider) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Provider, true
+	return o.Provider.Get(), o.Provider.IsSet()
 }
 
 // HasProvider returns a boolean if a field has been set.
 func (o *GatewayGenerationRecord) HasProvider() bool {
-	if o != nil && !IsNil(o.Provider) {
+	if o != nil && o.Provider.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetProvider gets a reference to the given string and assigns it to the Provider field.
+// SetProvider gets a reference to the given NullableString and assigns it to the Provider field.
 func (o *GatewayGenerationRecord) SetProvider(v string) {
-	o.Provider = &v
+	o.Provider.Set(&v)
+}
+// SetProviderNil sets the value for Provider to be an explicit nil
+func (o *GatewayGenerationRecord) SetProviderNil() {
+	o.Provider.Set(nil)
 }
 
-// GetNativeResponseId returns the NativeResponseId field value if set, zero value otherwise.
+// UnsetProvider ensures that no value is present for Provider, not even an explicit nil
+func (o *GatewayGenerationRecord) UnsetProvider() {
+	o.Provider.Unset()
+}
+
+// GetNativeResponseId returns the NativeResponseId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayGenerationRecord) GetNativeResponseId() string {
-	if o == nil || IsNil(o.NativeResponseId) {
+	if o == nil || IsNil(o.NativeResponseId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.NativeResponseId
+	return *o.NativeResponseId.Get()
 }
 
 // GetNativeResponseIdOk returns a tuple with the NativeResponseId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayGenerationRecord) GetNativeResponseIdOk() (*string, bool) {
-	if o == nil || IsNil(o.NativeResponseId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NativeResponseId, true
+	return o.NativeResponseId.Get(), o.NativeResponseId.IsSet()
 }
 
 // HasNativeResponseId returns a boolean if a field has been set.
 func (o *GatewayGenerationRecord) HasNativeResponseId() bool {
-	if o != nil && !IsNil(o.NativeResponseId) {
+	if o != nil && o.NativeResponseId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNativeResponseId gets a reference to the given string and assigns it to the NativeResponseId field.
+// SetNativeResponseId gets a reference to the given NullableString and assigns it to the NativeResponseId field.
 func (o *GatewayGenerationRecord) SetNativeResponseId(v string) {
-	o.NativeResponseId = &v
+	o.NativeResponseId.Set(&v)
+}
+// SetNativeResponseIdNil sets the value for NativeResponseId to be an explicit nil
+func (o *GatewayGenerationRecord) SetNativeResponseIdNil() {
+	o.NativeResponseId.Set(nil)
+}
+
+// UnsetNativeResponseId ensures that no value is present for NativeResponseId, not even an explicit nil
+func (o *GatewayGenerationRecord) UnsetNativeResponseId() {
+	o.NativeResponseId.Unset()
 }
 
 // GetStream returns the Stream field value if set, zero value otherwise.
@@ -397,36 +457,46 @@ func (o *GatewayGenerationRecord) SetByok(v bool) {
 	o.Byok = &v
 }
 
-// GetStatusCode returns the StatusCode field value if set, zero value otherwise.
+// GetStatusCode returns the StatusCode field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayGenerationRecord) GetStatusCode() int32 {
-	if o == nil || IsNil(o.StatusCode) {
+	if o == nil || IsNil(o.StatusCode.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.StatusCode
+	return *o.StatusCode.Get()
 }
 
 // GetStatusCodeOk returns a tuple with the StatusCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayGenerationRecord) GetStatusCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.StatusCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StatusCode, true
+	return o.StatusCode.Get(), o.StatusCode.IsSet()
 }
 
 // HasStatusCode returns a boolean if a field has been set.
 func (o *GatewayGenerationRecord) HasStatusCode() bool {
-	if o != nil && !IsNil(o.StatusCode) {
+	if o != nil && o.StatusCode.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStatusCode gets a reference to the given int32 and assigns it to the StatusCode field.
+// SetStatusCode gets a reference to the given NullableInt32 and assigns it to the StatusCode field.
 func (o *GatewayGenerationRecord) SetStatusCode(v int32) {
-	o.StatusCode = &v
+	o.StatusCode.Set(&v)
+}
+// SetStatusCodeNil sets the value for StatusCode to be an explicit nil
+func (o *GatewayGenerationRecord) SetStatusCodeNil() {
+	o.StatusCode.Set(nil)
+}
+
+// UnsetStatusCode ensures that no value is present for StatusCode, not even an explicit nil
+func (o *GatewayGenerationRecord) UnsetStatusCode() {
+	o.StatusCode.Unset()
 }
 
 // GetSuccess returns the Success field value
@@ -453,68 +523,88 @@ func (o *GatewayGenerationRecord) SetSuccess(v bool) {
 	o.Success = v
 }
 
-// GetErrorCode returns the ErrorCode field value if set, zero value otherwise.
+// GetErrorCode returns the ErrorCode field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayGenerationRecord) GetErrorCode() string {
-	if o == nil || IsNil(o.ErrorCode) {
+	if o == nil || IsNil(o.ErrorCode.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ErrorCode
+	return *o.ErrorCode.Get()
 }
 
 // GetErrorCodeOk returns a tuple with the ErrorCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayGenerationRecord) GetErrorCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.ErrorCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ErrorCode, true
+	return o.ErrorCode.Get(), o.ErrorCode.IsSet()
 }
 
 // HasErrorCode returns a boolean if a field has been set.
 func (o *GatewayGenerationRecord) HasErrorCode() bool {
-	if o != nil && !IsNil(o.ErrorCode) {
+	if o != nil && o.ErrorCode.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetErrorCode gets a reference to the given string and assigns it to the ErrorCode field.
+// SetErrorCode gets a reference to the given NullableString and assigns it to the ErrorCode field.
 func (o *GatewayGenerationRecord) SetErrorCode(v string) {
-	o.ErrorCode = &v
+	o.ErrorCode.Set(&v)
+}
+// SetErrorCodeNil sets the value for ErrorCode to be an explicit nil
+func (o *GatewayGenerationRecord) SetErrorCodeNil() {
+	o.ErrorCode.Set(nil)
 }
 
-// GetErrorMessage returns the ErrorMessage field value if set, zero value otherwise.
+// UnsetErrorCode ensures that no value is present for ErrorCode, not even an explicit nil
+func (o *GatewayGenerationRecord) UnsetErrorCode() {
+	o.ErrorCode.Unset()
+}
+
+// GetErrorMessage returns the ErrorMessage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayGenerationRecord) GetErrorMessage() string {
-	if o == nil || IsNil(o.ErrorMessage) {
+	if o == nil || IsNil(o.ErrorMessage.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ErrorMessage
+	return *o.ErrorMessage.Get()
 }
 
 // GetErrorMessageOk returns a tuple with the ErrorMessage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayGenerationRecord) GetErrorMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.ErrorMessage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ErrorMessage, true
+	return o.ErrorMessage.Get(), o.ErrorMessage.IsSet()
 }
 
 // HasErrorMessage returns a boolean if a field has been set.
 func (o *GatewayGenerationRecord) HasErrorMessage() bool {
-	if o != nil && !IsNil(o.ErrorMessage) {
+	if o != nil && o.ErrorMessage.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetErrorMessage gets a reference to the given string and assigns it to the ErrorMessage field.
+// SetErrorMessage gets a reference to the given NullableString and assigns it to the ErrorMessage field.
 func (o *GatewayGenerationRecord) SetErrorMessage(v string) {
-	o.ErrorMessage = &v
+	o.ErrorMessage.Set(&v)
+}
+// SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
+func (o *GatewayGenerationRecord) SetErrorMessageNil() {
+	o.ErrorMessage.Set(nil)
+}
+
+// UnsetErrorMessage ensures that no value is present for ErrorMessage, not even an explicit nil
+func (o *GatewayGenerationRecord) UnsetErrorMessage() {
+	o.ErrorMessage.Unset()
 }
 
 // GetBefore returns the Before field value if set, zero value otherwise.
@@ -581,68 +671,88 @@ func (o *GatewayGenerationRecord) SetExecute(v map[string]interface{}) {
 	o.Execute = v
 }
 
-// GetLatencyMs returns the LatencyMs field value if set, zero value otherwise.
+// GetLatencyMs returns the LatencyMs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayGenerationRecord) GetLatencyMs() float32 {
-	if o == nil || IsNil(o.LatencyMs) {
+	if o == nil || IsNil(o.LatencyMs.Get()) {
 		var ret float32
 		return ret
 	}
-	return *o.LatencyMs
+	return *o.LatencyMs.Get()
 }
 
 // GetLatencyMsOk returns a tuple with the LatencyMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayGenerationRecord) GetLatencyMsOk() (*float32, bool) {
-	if o == nil || IsNil(o.LatencyMs) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LatencyMs, true
+	return o.LatencyMs.Get(), o.LatencyMs.IsSet()
 }
 
 // HasLatencyMs returns a boolean if a field has been set.
 func (o *GatewayGenerationRecord) HasLatencyMs() bool {
-	if o != nil && !IsNil(o.LatencyMs) {
+	if o != nil && o.LatencyMs.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLatencyMs gets a reference to the given float32 and assigns it to the LatencyMs field.
+// SetLatencyMs gets a reference to the given NullableFloat32 and assigns it to the LatencyMs field.
 func (o *GatewayGenerationRecord) SetLatencyMs(v float32) {
-	o.LatencyMs = &v
+	o.LatencyMs.Set(&v)
+}
+// SetLatencyMsNil sets the value for LatencyMs to be an explicit nil
+func (o *GatewayGenerationRecord) SetLatencyMsNil() {
+	o.LatencyMs.Set(nil)
 }
 
-// GetGenerationMs returns the GenerationMs field value if set, zero value otherwise.
+// UnsetLatencyMs ensures that no value is present for LatencyMs, not even an explicit nil
+func (o *GatewayGenerationRecord) UnsetLatencyMs() {
+	o.LatencyMs.Unset()
+}
+
+// GetGenerationMs returns the GenerationMs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayGenerationRecord) GetGenerationMs() float32 {
-	if o == nil || IsNil(o.GenerationMs) {
+	if o == nil || IsNil(o.GenerationMs.Get()) {
 		var ret float32
 		return ret
 	}
-	return *o.GenerationMs
+	return *o.GenerationMs.Get()
 }
 
 // GetGenerationMsOk returns a tuple with the GenerationMs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayGenerationRecord) GetGenerationMsOk() (*float32, bool) {
-	if o == nil || IsNil(o.GenerationMs) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GenerationMs, true
+	return o.GenerationMs.Get(), o.GenerationMs.IsSet()
 }
 
 // HasGenerationMs returns a boolean if a field has been set.
 func (o *GatewayGenerationRecord) HasGenerationMs() bool {
-	if o != nil && !IsNil(o.GenerationMs) {
+	if o != nil && o.GenerationMs.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetGenerationMs gets a reference to the given float32 and assigns it to the GenerationMs field.
+// SetGenerationMs gets a reference to the given NullableFloat32 and assigns it to the GenerationMs field.
 func (o *GatewayGenerationRecord) SetGenerationMs(v float32) {
-	o.GenerationMs = &v
+	o.GenerationMs.Set(&v)
+}
+// SetGenerationMsNil sets the value for GenerationMs to be an explicit nil
+func (o *GatewayGenerationRecord) SetGenerationMsNil() {
+	o.GenerationMs.Set(nil)
+}
+
+// UnsetGenerationMs ensures that no value is present for GenerationMs, not even an explicit nil
+func (o *GatewayGenerationRecord) UnsetGenerationMs() {
+	o.GenerationMs.Unset()
 }
 
 // GetUsage returns the Usage field value if set, zero value otherwise.
@@ -677,68 +787,88 @@ func (o *GatewayGenerationRecord) SetUsage(v map[string]interface{}) {
 	o.Usage = v
 }
 
-// GetCostNanos returns the CostNanos field value if set, zero value otherwise.
+// GetCostNanos returns the CostNanos field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayGenerationRecord) GetCostNanos() int32 {
-	if o == nil || IsNil(o.CostNanos) {
+	if o == nil || IsNil(o.CostNanos.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.CostNanos
+	return *o.CostNanos.Get()
 }
 
 // GetCostNanosOk returns a tuple with the CostNanos field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayGenerationRecord) GetCostNanosOk() (*int32, bool) {
-	if o == nil || IsNil(o.CostNanos) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CostNanos, true
+	return o.CostNanos.Get(), o.CostNanos.IsSet()
 }
 
 // HasCostNanos returns a boolean if a field has been set.
 func (o *GatewayGenerationRecord) HasCostNanos() bool {
-	if o != nil && !IsNil(o.CostNanos) {
+	if o != nil && o.CostNanos.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCostNanos gets a reference to the given int32 and assigns it to the CostNanos field.
+// SetCostNanos gets a reference to the given NullableInt32 and assigns it to the CostNanos field.
 func (o *GatewayGenerationRecord) SetCostNanos(v int32) {
-	o.CostNanos = &v
+	o.CostNanos.Set(&v)
+}
+// SetCostNanosNil sets the value for CostNanos to be an explicit nil
+func (o *GatewayGenerationRecord) SetCostNanosNil() {
+	o.CostNanos.Set(nil)
 }
 
-// GetCurrency returns the Currency field value if set, zero value otherwise.
+// UnsetCostNanos ensures that no value is present for CostNanos, not even an explicit nil
+func (o *GatewayGenerationRecord) UnsetCostNanos() {
+	o.CostNanos.Unset()
+}
+
+// GetCurrency returns the Currency field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayGenerationRecord) GetCurrency() string {
-	if o == nil || IsNil(o.Currency) {
+	if o == nil || IsNil(o.Currency.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Currency
+	return *o.Currency.Get()
 }
 
 // GetCurrencyOk returns a tuple with the Currency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayGenerationRecord) GetCurrencyOk() (*string, bool) {
-	if o == nil || IsNil(o.Currency) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Currency, true
+	return o.Currency.Get(), o.Currency.IsSet()
 }
 
 // HasCurrency returns a boolean if a field has been set.
 func (o *GatewayGenerationRecord) HasCurrency() bool {
-	if o != nil && !IsNil(o.Currency) {
+	if o != nil && o.Currency.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCurrency gets a reference to the given string and assigns it to the Currency field.
+// SetCurrency gets a reference to the given NullableString and assigns it to the Currency field.
 func (o *GatewayGenerationRecord) SetCurrency(v string) {
-	o.Currency = &v
+	o.Currency.Set(&v)
+}
+// SetCurrencyNil sets the value for Currency to be an explicit nil
+func (o *GatewayGenerationRecord) SetCurrencyNil() {
+	o.Currency.Set(nil)
+}
+
+// UnsetCurrency ensures that no value is present for Currency, not even an explicit nil
+func (o *GatewayGenerationRecord) UnsetCurrency() {
+	o.Currency.Unset()
 }
 
 // GetPricingLines returns the PricingLines field value if set, zero value otherwise.
@@ -785,24 +915,24 @@ func (o GatewayGenerationRecord) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["request_id"] = o.RequestId
 	toSerialize["team_id"] = o.TeamId
-	if !IsNil(o.AppId) {
-		toSerialize["app_id"] = o.AppId
+	if o.AppId.IsSet() {
+		toSerialize["app_id"] = o.AppId.Get()
 	}
-	if !IsNil(o.AppTitle) {
-		toSerialize["app_title"] = o.AppTitle
+	if o.AppTitle.IsSet() {
+		toSerialize["app_title"] = o.AppTitle.Get()
 	}
-	if !IsNil(o.Referer) {
-		toSerialize["referer"] = o.Referer
+	if o.Referer.IsSet() {
+		toSerialize["referer"] = o.Referer.Get()
 	}
 	toSerialize["endpoint"] = o.Endpoint
-	if !IsNil(o.ModelId) {
-		toSerialize["model_id"] = o.ModelId
+	if o.ModelId.IsSet() {
+		toSerialize["model_id"] = o.ModelId.Get()
 	}
-	if !IsNil(o.Provider) {
-		toSerialize["provider"] = o.Provider
+	if o.Provider.IsSet() {
+		toSerialize["provider"] = o.Provider.Get()
 	}
-	if !IsNil(o.NativeResponseId) {
-		toSerialize["native_response_id"] = o.NativeResponseId
+	if o.NativeResponseId.IsSet() {
+		toSerialize["native_response_id"] = o.NativeResponseId.Get()
 	}
 	if !IsNil(o.Stream) {
 		toSerialize["stream"] = o.Stream
@@ -810,15 +940,15 @@ func (o GatewayGenerationRecord) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Byok) {
 		toSerialize["byok"] = o.Byok
 	}
-	if !IsNil(o.StatusCode) {
-		toSerialize["status_code"] = o.StatusCode
+	if o.StatusCode.IsSet() {
+		toSerialize["status_code"] = o.StatusCode.Get()
 	}
 	toSerialize["success"] = o.Success
-	if !IsNil(o.ErrorCode) {
-		toSerialize["error_code"] = o.ErrorCode
+	if o.ErrorCode.IsSet() {
+		toSerialize["error_code"] = o.ErrorCode.Get()
 	}
-	if !IsNil(o.ErrorMessage) {
-		toSerialize["error_message"] = o.ErrorMessage
+	if o.ErrorMessage.IsSet() {
+		toSerialize["error_message"] = o.ErrorMessage.Get()
 	}
 	if !IsNil(o.Before) {
 		toSerialize["before"] = o.Before
@@ -826,20 +956,20 @@ func (o GatewayGenerationRecord) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Execute) {
 		toSerialize["execute"] = o.Execute
 	}
-	if !IsNil(o.LatencyMs) {
-		toSerialize["latency_ms"] = o.LatencyMs
+	if o.LatencyMs.IsSet() {
+		toSerialize["latency_ms"] = o.LatencyMs.Get()
 	}
-	if !IsNil(o.GenerationMs) {
-		toSerialize["generation_ms"] = o.GenerationMs
+	if o.GenerationMs.IsSet() {
+		toSerialize["generation_ms"] = o.GenerationMs.Get()
 	}
 	if !IsNil(o.Usage) {
 		toSerialize["usage"] = o.Usage
 	}
-	if !IsNil(o.CostNanos) {
-		toSerialize["cost_nanos"] = o.CostNanos
+	if o.CostNanos.IsSet() {
+		toSerialize["cost_nanos"] = o.CostNanos.Get()
 	}
-	if !IsNil(o.Currency) {
-		toSerialize["currency"] = o.Currency
+	if o.Currency.IsSet() {
+		toSerialize["currency"] = o.Currency.Get()
 	}
 	if !IsNil(o.PricingLines) {
 		toSerialize["pricing_lines"] = o.PricingLines

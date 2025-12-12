@@ -1,0 +1,36 @@
+---
+title: "Audio speech"
+description: "Call /audio/speech with the C++ SDK."
+---
+
+**Method**: `AIStatsAudioApi::audioSpeechPost()`.
+
+### Example
+```cpp
+#include "ai_stats_sdk_cpp/ApiClient.h"
+#include "ai_stats_sdk_cpp/ApiConfiguration.h"
+#include "ai_stats_sdk_cpp/api/AIStatsAudioApi.h"
+#include "ai_stats_sdk_cpp/model/AIStatsAudioSpeechRequest.h"
+
+// Setup config and apiClient as in usage.mdx
+AIStatsAudioApi audioApi(apiClient);
+
+auto request = std::make_shared<AIStatsAudioSpeechRequest>();
+request->setModel("openai/gpt-4o-mini-tts");
+request->setInput("Hello world");
+request->setVoice("alloy");
+request->setFormat("mp3");
+
+auto response = audioApi.audioSpeechPost(request).get();
+```
+
+### Key parameters
+- `model` (required): TTS-capable model id.
+- `input` (required): Text to synthesize.
+- `voice`: Voice preset (model-dependent, e.g., `alloy`).
+- `format`: `mp3`, `wav`, `flac`, etc.
+- `speed`: Playback speed multiplier (typically 0.25–4).
+
+### Returns
+Audio binary (HttpContent)
+

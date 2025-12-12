@@ -65,7 +65,7 @@ class GatewayError implements ModelInterface, ArrayAccess, \JsonSerializable
         'team_id' => 'string',
         'model' => 'string',
         'meta' => '\AIStats\\Sdk\Model\GatewayErrorMeta',
-        'timing' => 'object'
+        'timing' => 'array<string,mixed>'
     ];
 
     /**
@@ -95,11 +95,11 @@ class GatewayError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'ok' => false,
         'error' => false,
-        'reason' => false,
-        'message' => false,
-        'request_id' => false,
-        'team_id' => false,
-        'model' => false,
+        'reason' => true,
+        'message' => true,
+        'request_id' => true,
+        'team_id' => true,
+        'model' => true,
         'meta' => false,
         'timing' => false
     ];
@@ -422,7 +422,14 @@ class GatewayError implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setReason($reason)
     {
         if (is_null($reason)) {
-            throw new \InvalidArgumentException('non-nullable reason cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reason');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reason', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reason'] = $reason;
 
@@ -449,7 +456,14 @@ class GatewayError implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMessage($message)
     {
         if (is_null($message)) {
-            throw new \InvalidArgumentException('non-nullable message cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'message');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('message', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['message'] = $message;
 
@@ -476,7 +490,14 @@ class GatewayError implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRequestId($request_id)
     {
         if (is_null($request_id)) {
-            throw new \InvalidArgumentException('non-nullable request_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'request_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('request_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['request_id'] = $request_id;
 
@@ -503,7 +524,14 @@ class GatewayError implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTeamId($team_id)
     {
         if (is_null($team_id)) {
-            throw new \InvalidArgumentException('non-nullable team_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'team_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('team_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['team_id'] = $team_id;
 
@@ -530,7 +558,14 @@ class GatewayError implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setModel($model)
     {
         if (is_null($model)) {
-            throw new \InvalidArgumentException('non-nullable model cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'model');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('model', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['model'] = $model;
 
@@ -567,7 +602,7 @@ class GatewayError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets timing
      *
-     * @return object|null
+     * @return array<string,mixed>|null
      */
     public function getTiming()
     {
@@ -577,7 +612,7 @@ class GatewayError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets timing
      *
-     * @param object|null $timing timing
+     * @param array<string,mixed>|null $timing timing
      *
      * @return self
      */

@@ -26,47 +26,37 @@ export default function ModelPricingClient({
 	const [plan, setPlan] = useState<string>(availablePlans[0] || "standard");
 
 	return (
-		<div className="space-y-6">
+		<div className="space-y-8">
 			<div className="flex items-center justify-between gap-3 flex-wrap">
-				<h2 className="text-xl font-semibold">Pricing</h2>
+				<div>
+					<h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+						Pricing by Provider
+					</h2>
+				</div>
 				<div className="flex items-center gap-3">
-					{/* Dropdown is only visible on small screens as a fallback */}
-					{availablePlans.length > 0 && (
-						<div className="sm:hidden">
-							<PricingPlanSelect
-								value={plan}
-								onChange={setPlan}
-								plans={availablePlans}
-							/>
-						</div>
+					{availablePlans.length === 1 ? (
+						<span className="text-sm font-medium capitalize px-3 py-1 bg-muted rounded-md">
+							{availablePlans[0]} Tier
+						</span>
+					) : (
+						<PricingPlanSelect
+							value={plan}
+							onChange={setPlan}
+							plans={availablePlans}
+						/>
 					)}
-					{/* Badges are primary selector on sm+ screens. Click to change plan. */}
-					<div className="hidden sm:flex items-center gap-2">
-						{availablePlans.map((p) => (
-							<Badge
-								key={p}
-								variant={p === plan ? "default" : "outline"}
-								className="capitalize cursor-pointer"
-								onClick={() => setPlan(p)}
-								role="button"
-								aria-pressed={p === plan}
-							>
-								{p}
-							</Badge>
-						))}
-					</div>
 				</div>
 			</div>
 
-			<Separator />
-
-			{providers.map((prov) => (
-				<ProviderCard
-					key={prov.provider.api_provider_id}
-					provider={prov}
-					plan={plan}
-				/>
-			))}
+			<div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+				{providers.map((prov) => (
+					<ProviderCard
+						key={prov.provider.api_provider_id}
+						provider={prov}
+						plan={plan}
+					/>
+				))}
+			</div>
 		</div>
 	);
 }

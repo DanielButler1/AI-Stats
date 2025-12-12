@@ -1,21 +1,22 @@
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { cookies } from "next/headers";
-
 import getModelOverviewHeader from "@/lib/fetchers/models/getModelOverviewHeader";
 import TabBar from "@/components/(data)/model/ModelTabs";
 import { Logo } from "@/components/Logo";
 import { withUTM } from "@/lib/utm";
+import ModelEditButton from "./edit/ModelEditButton";
 
 interface ModelDetailShellProps {
 	modelId: string;
 	children: ReactNode;
+	tab?: string;
 }
 
 export default async function ModelDetailShell({
 	modelId,
 	children,
+	tab,
 }: ModelDetailShellProps) {
 	const header = await getModelOverviewHeader(modelId);
 
@@ -90,6 +91,9 @@ export default async function ModelDetailShell({
 								<h1 className="mb-1 text-center text-3xl font-bold md:text-left md:text-5xl">
 									{header.name}
 								</h1>
+								<Suspense fallback={null}>
+									<ModelEditButton modelId={modelId} tab={tab} />
+								</Suspense>
 							</div>
 							<Link
 								href={`/organisations/${header.organisation_id}`}

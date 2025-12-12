@@ -84,7 +84,7 @@ class GatewayResponseEnvelope implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'native_response_id' => false,
+        'native_response_id' => true,
         'provider' => false,
         'meta' => false,
         'usage' => false
@@ -337,7 +337,14 @@ class GatewayResponseEnvelope implements ModelInterface, ArrayAccess, \JsonSeria
     public function setNativeResponseId($native_response_id)
     {
         if (is_null($native_response_id)) {
-            throw new \InvalidArgumentException('non-nullable native_response_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'native_response_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('native_response_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['native_response_id'] = $native_response_id;
 

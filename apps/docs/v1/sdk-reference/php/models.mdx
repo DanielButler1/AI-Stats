@@ -1,0 +1,56 @@
+---
+title: "Models"
+description: "List models with the PHP SDK."
+---
+
+**Method**: Client#getModels()
+
+### Example
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use AIStats\Sdk\Client;
+
+$apiKey = getenv('AI_STATS_API_KEY');
+$client = new Client($apiKey);
+
+$models = $client->getModels(['limit' => 5]);
+echo "Found " . count($models->getModels()) . " models\n";
+```
+
+### Parameters
+- Optional filters: `provider`, `organisation`, `endpoints[]`, `limit`, `offset`.
+
+### Returns
+ModelListResponse
+
+```json
+{
+  "ok": true,
+  "limit": 50,
+  "offset": 0,
+  "total": 123,
+  "models": [
+    {
+      "model_id": "openai/gpt-4o-mini",
+      "name": "GPT-4o Mini",
+      "release_date": "2024-07-18",
+      "status": "active",
+      "organisation_id": "openai",
+      "aliases": ["gpt-4o-mini"],
+      "endpoints": ["chat/completions", "responses"],
+      "input_types": ["text"],
+      "output_types": ["text"],
+      "providers": [
+        {
+          "api_provider_id": "openai",
+          "params": ["temperature", "max_tokens"]
+        }
+      ]
+    }
+  ]
+}
+```
+

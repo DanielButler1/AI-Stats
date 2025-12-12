@@ -1,105 +1,140 @@
 ---
 title: "TypeScript SDK Usage"
-description: "Complete guide to using the AI Stats TypeScript SDK"
+description: "Endpoint-by-endpoint examples using the TypeScript SDK."
 ---
 
-## Basic Usage
+## Setup
 
 ```typescript
-import { AIStats, type ChatCompletionsRequest } from "@ai-stats/ts-sdk";
+import { AIStats } from "@ai-stats/sdk";
 
 const client = new AIStats({ apiKey: process.env.AI_STATS_API_KEY! });
-
-// Chat completions
-const response = await client.generateText({
-	model: "openai/gpt-4o-mini",
-	messages: [
-		{ role: "system", content: "You are a helpful assistant." },
-		{ role: "user", content: "What is AI Stats?" },
-	],
-	temperature: 0.7,
-	max_tokens: 1000,
-});
-
-console.log(response.choices[0].message.content);
 ```
 
-## Available Methods
-
-### Chat Completions
+## Chat completions
 
 ```typescript
 const completion = await client.generateText({
-	model: "anthropic/claude-3-haiku",
-	messages: [{ role: "user", content: "Explain quantum computing" }],
-	temperature: 0.3,
+  model: "openai/gpt-4o-mini",
+  messages: [
+    { role: "system", content: "You are a helpful assistant." },
+    { role: "user", content: "What is AI Stats?" },
+  ],
+  temperature: 0.7,
 });
-```
 
-The primary method for generating text responses from AI models. Supports all standard parameters including temperature, max_tokens, and message history.
-
-### Models
-
-```typescript
-// List all available models
-const models = await client.getModels();
-
-// Get a specific model
-const model = await client.getModel({ model: "openai/gpt-4o" });
-```
-
-Retrieve information about available models or get details about a specific model including capabilities, pricing, and metadata.
-
-## Error Handling
-
-```typescript
-try {
-	const response = await client.generateText({
-		model: "invalid-model",
-		messages: [{ role: "user", content: "Hello" }],
-	});
-} catch (error) {
-	console.error("API Error:", error.message);
-	// Handle rate limits, authentication errors, etc.
+for await (const line of client.streamText({
+  model: "openai/gpt-4o-mini",
+  messages: [{ role: "user", content: "Tell me a story" }],
+})) {
+  console.log(line);
 }
 ```
 
-Handle API errors gracefully including rate limits, authentication failures, and network issues.
-
-## Configuration Options
+## Responses
 
 ```typescript
-const client = new AIStats({
-	apiKey: "your-api-key",
-	baseURL: "https://api.ai-stats.phaseo.app/v1", // Optional custom base URL
-	timeout: 30000, // Request timeout in milliseconds
+const response = await client.generateResponse({
+  model: "openai/gpt-4.1",
+  input: [{ role: "user", content: [{ type: "output_text", text: "Summarise this" }] }],
+});
+
+for await (const line of client.streamResponse({
+  model: "openai/gpt-4.1",
+  input: [{ role: "user", content: [{ type: "output_text", text: "Stream this" }] }],
+  stream: true,
+})) {
+  console.log(line);
+}
+```
+
+## Images
+
+```typescript
+await client.generateImage({
+  model: "openai/gpt-image-1",
+  prompt: "A lighthouse at golden hour",
+});
+
+await client.generateImageEdit({
+  model: "openai/gpt-image-1",
+  prompt: "Make it sunset",
+  image: "data:image/png;base64,...",
 });
 ```
 
-Customize client behavior with base URLs, timeouts, and other configuration options.
-
-## TypeScript Support
+## Audio
 
 ```typescript
-import type {
-	ChatCompletionsRequest,
-	ChatCompletionsResponse,
-	Model,
-	CreditsResponse,
-} from "@ai-stats/ts-sdk";
+await client.generateSpeech({
+  model: "openai/gpt-4o-mini-tts",
+  input: "Hello world",
+});
 
-// All parameters and responses are fully typed
-const request: ChatCompletionsRequest = {
-	model: "openai/gpt-4o",
-	messages: [{ role: "user", content: "Hello" }],
-};
+await client.generateTranscription({
+  model: "openai/gpt-4o-transcribe",
+  file: "data:audio/mp3;base64,...",
+});
+
+await client.generateTranslation({
+  model: "openai/gpt-4o-translate",
+  file: "data:audio/mp3;base64,...",
+});
 ```
 
-Full TypeScript support with generated types for all request/response objects and parameters.
+## Video
 
-## Best Practices
+```typescript
+await client.generateVideo({
+  model: "openai/gpt-video-1",
+  prompt: "A serene mountain lake at sunrise",
+});
+```
 
--   Store your API key securely (environment variables, not in code)
--   Handle rate limits gracefully with exponential backoff
--   Use appropriate timeouts for your use case
--   Check credits before making expensive requests
+## Embeddings
+
+```typescript
+const embedding = await client.generateEmbedding({
+  model: "openai/text-embedding-3-large",
+  input: "Sample text",
+});
+```
+
+## Moderations
+
+```typescript
+await client.generateModeration({
+  model: "openai/omni-moderation-latest",
+  input: "Some text to check",
+});
+```
+
+## Batch & files
+
+```typescript
+const file = await client.uploadFile({ purpose: "batch", file: new Blob(["{}"], { type: "application/json" }) });
+const batch = await client.createBatch({
+  input_file_id: file.id,
+  endpoint: "responses",
+  completion_window: "24h",
+});
+const batchStatus = await client.getBatch(batch.id);
+const files = await client.listFiles();
+```
+
+## Models & health
+
+```typescript
+const models = await client.getModels();
+const health = await client.getHealth();
+```
+
+## Error handling
+
+```typescript
+try {
+  await client.generateText({ model: "invalid", messages: [] });
+} catch (error) {
+  console.error("API Error:", (error as Error).message);
+}
+```

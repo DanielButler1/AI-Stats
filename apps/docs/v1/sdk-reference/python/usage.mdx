@@ -1,121 +1,103 @@
 ---
 title: "Python SDK Usage"
-description: "Complete guide to using the AI Stats Python SDK"
+description: "Endpoint-by-endpoint examples using the Python SDK."
 ---
 
-## Async Usage
+## Setup
 
 ```python
-import asyncio
 from ai_stats import AIStats
 
-async def main():
-    async with AIStats(api_key="your-api-key") as client:
-        # Chat completions
-        response = await client.chat_completions(
-            model="openai/gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": "What is AI Stats?"}
-            ],
-            temperature=0.7,
-            max_tokens=1000
-        )
-        print(response["choices"][0]["message"]["content"])
-
-asyncio.run(main())
+client = AIStats(api_key="your-api-key")
 ```
 
-## Sync Usage
+## Chat completions
 
 ```python
-from ai_stats import AIStatsSync
-
-with AIStatsSync(api_key="your-api-key") as client:
-    response = client.chat_completions(
-        model="openai/gpt-4o-mini",
-        messages=[{"role": "user", "content": "Hello!"}]
-    )
-    print(response["choices"][0]["message"]["content"])
-```
-
-## Available Methods
-
-### Chat Completions
-
-```python
-# Async
-response = await client.chat_completions(
-    model="anthropic/claude-3-haiku",
-    messages=[{"role": "user", "content": "Explain quantum computing"}],
-    temperature=0.3
+completion = client.generate_text(
+    {"model": "openai/gpt-4o-mini", "messages": [{"role": "user", "content": "Hi!"}]}
 )
 
-# Sync
-response = client.chat_completions(
-    model="anthropic/claude-3-haiku",
-    messages=[{"role": "user", "content": "Explain quantum computing"}]
+for line in client.stream_text(
+    {"model": "openai/gpt-4o-mini", "messages": [{"role": "user", "content": "Stream a story"}]}
+):
+    print(line)
+```
+
+## Responses
+
+```python
+resp = client.generate_response(
+    {"model": "openai/gpt-4.1", "input": [{"role": "user", "content": [{"type": "output_text", "text": "Summarise"}]}]}
+)
+
+for line in client.stream_response(
+    {"model": "openai/gpt-4.1", "input": [{"role": "user", "content": [{"type": "output_text", "text": "Stream it"}]}]}
+):
+    print(line)
+```
+
+## Images
+
+```python
+client.generate_image(
+    ImageGenerationRequest.model_validate({"model": "openai/gpt-image-1", "prompt": "A lighthouse at dusk"})
+)
+
+client.generate_image_edit(
+    ImageGenerationRequest.model_validate({"model": "openai/gpt-image-1", "prompt": "Make it sunset", "image": "data:image/png;base64,..."})
 )
 ```
 
-The primary method for generating text responses from AI models. Supports both async and sync interfaces with all standard parameters.
-
-### Streaming Responses
+## Audio
 
 ```python
-# Async streaming
-async with AIStats(api_key="your-api-key") as client:
-    async for chunk in client.stream_chat_completions(
-        model="openai/gpt-4o-mini",
-        messages=[{"role": "user", "content": "Tell me a story"}]
-    ):
-        delta = chunk["choices"][0]["delta"]
-        if "content" in delta:
-            print(delta["content"], end="", flush=True)
-
-# Sync streaming
-with AIStatsSync(api_key="your-api-key") as client:
-    for chunk in client.stream_chat_completions(
-        model="openai/gpt-4o-mini",
-        messages=[{"role": "user", "content": "Tell me a story"}]
-    ):
-        delta = chunk["choices"][0]["delta"]
-        if "content" in delta:
-            print(delta["content"], end="", flush=True)
+client.generate_speech({"model": "openai/gpt-4o-mini-tts", "input": "Hello world"})
+client.generate_transcription({"model": "openai/gpt-4o-transcribe", "file": "data:audio/mp3;base64,..."})
+client.generate_translation({"model": "openai/gpt-4o-translate", "file": "data:audio/mp3;base64,..."})
 ```
 
-Stream responses in real-time for better user experience. Available in both async and sync variants.
-
-### Models
+## Video
 
 ```python
-# List all models
-models = await client.models()
-print(f"Available models: {len(models['data'])}")
-
-# Get specific model
-model = await client.models(model="openai/gpt-4o")
-print(f"Model: {model['id']}")
+client.generate_video({"model": "openai/gpt-video-1", "prompt": "A serene mountain lake at sunrise"})
 ```
 
-Retrieve information about available models or get details about a specific model including capabilities and metadata.
-
-### Credits & Billing
+## Embeddings
 
 ```python
-# Check credits
-credits = await client.credits()
-print(f"Remaining credits: {credits['credits']}")
+embedding = client.generate_embedding({"model": "openai/text-embedding-3-large", "input": "Sample text"})
 ```
 
-Monitor your API usage and remaining credits to manage costs effectively.
-
-### Health & Status
+## Moderations
 
 ```python
-# API health
-health = await client.health()
-print(f"Status: {health['status']}")
+client.generate_moderation({"model": "openai/omni-moderation-latest", "input": "Text to check"})
+```
+
+## Batch & files
+
+```python
+uploaded = client.upload_file(purpose="batch", file=open("batchinput.jsonl", "rb"))
+batch = client.create_batch({"input_file_id": uploaded.id, "endpoint": "responses", "completion_window": "24h"})
+batch_status = client.get_batch(batch.id)
+files = client.list_files()
+```
+
+## Models & health
+
+```python
+models = client.get_models()
+health = client.get_health()
+```
+
+## Errors
+
+```python
+try:
+    client.generate_text({"model": "invalid", "messages": []})
+except Exception as exc:
+    print(f"API error: {exc}")
 ```
 
 Verify the API is operational and check system status.

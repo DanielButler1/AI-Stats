@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**native_response_id** | **string** |  | [optional]
-**provider** | **string** |  |
-**meta** | [**\AIStats\\Sdk\Model\GatewayMetadata**](GatewayMetadata.md) |  |
-**usage** | [**\AIStats\\Sdk\Model\GatewayUsage**](GatewayUsage.md) |  | [optional]
+**id** | **string** |  | [optional]
+**model** | **string** |  | [optional]
+**status** | **string** |  | [optional]
+**created** | **int** |  | [optional]
+**object** | **string** |  | [optional]
+**output** | [**\AIStats\\Sdk\Model\VideoGenerationResponseOutputInner[]**](VideoGenerationResponseOutputInner.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

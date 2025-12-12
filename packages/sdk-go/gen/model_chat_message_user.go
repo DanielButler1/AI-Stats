@@ -12,7 +12,6 @@ package ai_stats_sdk
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -24,6 +23,7 @@ type ChatMessageUser struct {
 	Role string `json:"role"`
 	Content MessageContent `json:"content"`
 	Name *string `json:"name,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ChatMessageUser ChatMessageUser
@@ -142,6 +142,11 @@ func (o ChatMessageUser) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -170,15 +175,22 @@ func (o *ChatMessageUser) UnmarshalJSON(data []byte) (err error) {
 
 	varChatMessageUser := _ChatMessageUser{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChatMessageUser)
+	err = json.Unmarshal(data, &varChatMessageUser)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ChatMessageUser(varChatMessageUser)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "role")
+		delete(additionalProperties, "content")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

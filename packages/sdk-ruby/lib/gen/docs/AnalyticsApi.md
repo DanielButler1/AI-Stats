@@ -4,16 +4,17 @@ All URIs are relative to *https://api.ai-stats.phaseo.app/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**health_get**](AnalyticsApi.md#health_get) | **GET** /health | Inspect provider health |
+| [**analytics_post**](AnalyticsApi.md#analytics_post) | **POST** /analytics | Aggregated usage analytics (coming soon) |
+| [**healthz_get**](AnalyticsApi.md#healthz_get) | **GET** /healthz | Gateway health check |
 
 
-## health_get
+## analytics_post
 
-> <GatewayHealthResponse> health_get(opts)
+> <AnalyticsPost200Response> analytics_post(analytics_post_request)
 
-Inspect provider health
+Aggregated usage analytics (coming soon)
 
-Returns the most recent latency, success rate, and breaker status for each configured provider.
+Accepts an access token and will return aggregated analytics. A placeholder response is returned today while analytics is being built.
 
 ### Examples
 
@@ -27,36 +28,32 @@ AIStatsSdk.configure do |config|
 end
 
 api_instance = AIStatsSdk::AnalyticsApi.new
-opts = {
-  provider: 'provider_example', # String | Filter to a specific provider name.
-  model: AIStatsSdk::ModelId::AI21_JAMBA_LARGE_1_5_2024_08_22, # ModelId | Optional model id used to resolve candidate providers.
-  endpoint: 'chat.completions' # String | Endpoint identifier paired with `model` when deriving providers.
-}
+analytics_post_request = AIStatsSdk::AnalyticsPostRequest.new({access_token: 'access_token_example'}) # AnalyticsPostRequest | 
 
 begin
-  # Inspect provider health
-  result = api_instance.health_get(opts)
+  # Aggregated usage analytics (coming soon)
+  result = api_instance.analytics_post(analytics_post_request)
   p result
 rescue AIStatsSdk::ApiError => e
-  puts "Error when calling AnalyticsApi->health_get: #{e}"
+  puts "Error when calling AnalyticsApi->analytics_post: #{e}"
 end
 ```
 
-#### Using the health_get_with_http_info variant
+#### Using the analytics_post_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GatewayHealthResponse>, Integer, Hash)> health_get_with_http_info(opts)
+> <Array(<AnalyticsPost200Response>, Integer, Hash)> analytics_post_with_http_info(analytics_post_request)
 
 ```ruby
 begin
-  # Inspect provider health
-  data, status_code, headers = api_instance.health_get_with_http_info(opts)
+  # Aggregated usage analytics (coming soon)
+  data, status_code, headers = api_instance.analytics_post_with_http_info(analytics_post_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GatewayHealthResponse>
+  p data # => <AnalyticsPost200Response>
 rescue AIStatsSdk::ApiError => e
-  puts "Error when calling AnalyticsApi->health_get_with_http_info: #{e}"
+  puts "Error when calling AnalyticsApi->analytics_post_with_http_info: #{e}"
 end
 ```
 
@@ -64,13 +61,77 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **provider** | **String** | Filter to a specific provider name. | [optional] |
-| **model** | [**ModelId**](.md) | Optional model id used to resolve candidate providers. | [optional] |
-| **endpoint** | **String** | Endpoint identifier paired with &#x60;model&#x60; when deriving providers. | [optional] |
+| **analytics_post_request** | [**AnalyticsPostRequest**](AnalyticsPostRequest.md) |  |  |
 
 ### Return type
 
-[**GatewayHealthResponse**](GatewayHealthResponse.md)
+[**AnalyticsPost200Response**](AnalyticsPost200Response.md)
+
+### Authorization
+
+[GatewayAuth](../README.md#GatewayAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## healthz_get
+
+> <HealthzGet200Response> healthz_get
+
+Gateway health check
+
+Returns a simple liveness signal for the gateway.
+
+### Examples
+
+```ruby
+require 'time'
+require 'ai_stats_sdk'
+# setup authorization
+AIStatsSdk.configure do |config|
+  # Configure Bearer authorization (Gateway API key): GatewayAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = AIStatsSdk::AnalyticsApi.new
+
+begin
+  # Gateway health check
+  result = api_instance.healthz_get
+  p result
+rescue AIStatsSdk::ApiError => e
+  puts "Error when calling AnalyticsApi->healthz_get: #{e}"
+end
+```
+
+#### Using the healthz_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HealthzGet200Response>, Integer, Hash)> healthz_get_with_http_info
+
+```ruby
+begin
+  # Gateway health check
+  data, status_code, headers = api_instance.healthz_get_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HealthzGet200Response>
+rescue AIStatsSdk::ApiError => e
+  puts "Error when calling AnalyticsApi->healthz_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**HealthzGet200Response**](HealthzGet200Response.md)
 
 ### Authorization
 

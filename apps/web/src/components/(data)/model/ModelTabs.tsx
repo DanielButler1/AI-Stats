@@ -19,7 +19,7 @@ const tabs = [
 	{ label: "Benchmarks", key: "benchmarks" },
 	{ label: "Availability", key: "availability" },
 	{ label: "Pricing", key: "pricing" },
-	{ label: "Gateway", key: "gateway" },
+	{ label: "Quickstart", key: "quickstart" },
 	{ label: "Performance", key: "performance" },
 ];
 
@@ -30,12 +30,6 @@ export default function TabBar({ modelId }: { modelId: string }) {
 		? pathname.split("/").filter(Boolean)
 		: [];
 
-	// Model ids are namespaced (org/model); grab the portion after "/models/"
-	const modelsIndex = pathnameSegments.indexOf("models");
-	const modelPathSegments =
-		modelsIndex >= 0
-			? pathnameSegments.slice(modelsIndex + 1)
-			: [];
 	const lastSegment = pathnameSegments[pathnameSegments.length - 1];
 	const activeKey = tabs.some((t) => t.key === lastSegment)
 		? (lastSegment as string)

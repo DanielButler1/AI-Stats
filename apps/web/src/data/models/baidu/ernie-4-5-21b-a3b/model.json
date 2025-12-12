@@ -2,7 +2,7 @@
   "model_id": "baidu/ernie-4-5-21b-a3b",
   "organisation_id": "baidu",
   "name": "Ernie 4.5 21B A3B",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,

@@ -1,0 +1,37 @@
+---
+title: "Image generations"
+description: "Call /images/generations with the Rust SDK."
+---
+
+**Method**: `images_api::images_generations_post()`.
+
+### Example
+```rust
+use ai_stats_sdk::apis::{configuration::Configuration, images_api};
+use ai_stats_sdk::models::ImageGenerationRequest;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let mut config = Configuration::new();
+    config.bearer_access_token = Some("your-api-key".to_string());
+
+    let request = ImageGenerationRequest::new(
+        "openai/dall-e-3".to_string(),
+        "A futuristic cityscape".to_string()
+    );
+
+    let response = images_api::images_generations_post(&config, request).await?;
+    println!("Generated images: {:?}", response);
+    Ok(())
+}
+```
+
+### Key parameters
+- `model` (required): The model to use for image generation.
+- `prompt` (required): Description of the image to generate.
+- `size` (optional): Size of the output image.
+- `n` (optional): Number of images to generate.
+
+### Returns
+`ImageGenerationResponse` containing the generated images.
+

@@ -86,7 +86,7 @@ class GatewayChatChoice implements ModelInterface, ArrayAccess, \JsonSerializabl
         'index' => false,
         'message' => false,
         'finish_reason' => true,
-        'reasoning' => false
+        'reasoning' => true
     ];
 
     /**
@@ -476,7 +476,14 @@ class GatewayChatChoice implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setReasoning($reasoning)
     {
         if (is_null($reasoning)) {
-            throw new \InvalidArgumentException('non-nullable reasoning cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reasoning');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reasoning', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['reasoning'] = $reasoning;
 

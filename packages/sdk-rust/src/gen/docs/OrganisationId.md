@@ -13,6 +13,7 @@
 | Cohere | cohere |
 | Deepseek | deepseek |
 | ElevenLabs | eleven-labs |
+| EssentialAi | essential-ai |
 | Google | google |
 | Ibm | ibm |
 | Inclusionai | inclusionai |

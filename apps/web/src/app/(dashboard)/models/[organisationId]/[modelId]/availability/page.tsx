@@ -8,7 +8,7 @@ import ModelAvailability from "@/components/(data)/model/ModelAvailability";
 import {
 	getModelIdFromParams,
 	type ModelRouteParams,
-} from "@/app/(dashboard)/models/model-route-helpers";
+} from "@/components/(data)/model/model-route-helpers";
 
 async function fetchModel(modelId: string) {
 	try {
@@ -91,7 +91,7 @@ export default async function Page({
 	});
 
 	return (
-		<ModelDetailShell modelId={modelId}>
+		<ModelDetailShell modelId={modelId} tab="availability">
 			<ModelAvailability
 				availability={availability}
 				subscriptionPlans={subscriptionPlans}

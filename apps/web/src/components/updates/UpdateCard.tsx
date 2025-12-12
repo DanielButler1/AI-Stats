@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
 	Card,
-	CardContent,
 	CardDescription,
 	CardFooter,
 	CardHeader,
@@ -50,21 +49,25 @@ export default function UpdateCard({
 	avatar,
 	title,
 	subtitle,
-	source,
-	tags,
+	source: _source,
+	tags: _tags,
 	link,
 	dateIso,
 	accentClass,
 	className,
 }: Props) {
-	const isModelRelease = badges.some((b) => b.label === "Release");
+	const isTodayRelease =
+		badges.some((b) => b.label === "Release") &&
+		(dateIso
+			? new Date(dateIso).toDateString() === new Date().toDateString()
+			: false);
 
 	return (
 		<Card
 			key={id}
 			className={cn(
 				"flex h-full flex-col border border-zinc-200 bg-white transition hover:-translate-y-1 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-950",
-				isModelRelease &&
+				isTodayRelease &&
 					"border-amber-300 dark:border-amber-500 bg-amber-50/60 dark:bg-amber-900/20",
 				className
 			)}
@@ -158,7 +161,7 @@ export default function UpdateCard({
 					{dateIso ? (
 						<TimeDisplay
 							dateIso={dateIso}
-							isModelRelease={isModelRelease}
+							isModelRelease={isTodayRelease}
 						/>
 					) : null}
 				</div>

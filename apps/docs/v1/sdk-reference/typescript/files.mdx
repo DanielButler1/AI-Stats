@@ -1,0 +1,50 @@
+---
+title: "Files"
+description: "Call /files with the TypeScript SDK."
+---
+
+**Methods**: `client.uploadFile()`, `client.listFiles()`, `client.getFile()`.
+
+### Example
+```typescript
+const uploaded = await client.uploadFile({ purpose: "batch", file: new Blob(["{}"]) });
+const files = await client.listFiles();
+const file = await client.getFile(uploaded.id);
+```
+
+### Key parameters
+- `file` (required for upload): Blob/File/base64/string.
+- `purpose` (required for upload): e.g., `batch`.
+
+### Returns
+`FileObject` (upload/get)
+
+```json
+{
+  "id": "file-123",
+  "object": "file",
+  "filename": "data.json",
+  "purpose": "batch",
+  "status": "processed",
+  "created_at": 1677610602,
+  "bytes": 123
+}
+```
+
+Or `FileListResponse` (list)
+
+```json
+{
+  "data": [
+    {
+      "id": "file-123",
+      "object": "file",
+      "filename": "data.json",
+      "purpose": "batch",
+      "status": "processed",
+      "created_at": 1677610602,
+      "bytes": 123
+    }
+  ]
+}
+```

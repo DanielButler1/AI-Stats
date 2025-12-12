@@ -7,7 +7,8 @@ import Search from "./Search/Search";
 import { HeaderAnnouncements } from "./HeaderAnnouncements";
 
 const releaseMessage = "Introducing Our Model Gateway";
-const changelogLink = "https://docs.ai-stats.phaseo.app/changelog";
+const changelogLink =
+	"https://docs.ai-stats.phaseo.app/v1/changelog#introducing-the-new-ai-stats";
 
 export default function Header() {
 	return (

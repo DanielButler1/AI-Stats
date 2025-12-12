@@ -2,7 +2,7 @@
   "model_id": "suno/suno-v3-5",
   "organisation_id": "suno",
   "name": "Suno V3.5",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,

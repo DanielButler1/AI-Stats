@@ -2,7 +2,7 @@
   "model_id": "baidu/ernie-4-5-vl-28b-a3b",
   "organisation_id": "baidu",
   "name": "Ernie 4.5 VL 28B A3B",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,

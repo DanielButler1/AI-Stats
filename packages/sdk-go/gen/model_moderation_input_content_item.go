@@ -12,43 +12,124 @@ package ai_stats_sdk
 
 import (
 	"encoding/json"
+	"fmt"
+	"gopkg.in/validator.v2"
 )
 
-// checks if the ModerationInputContentItem type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModerationInputContentItem{}
-
-// ModerationInputContentItem A single moderation content item: text or image_url.
+// ModerationInputContentItem - A single moderation content item: text or image_url.
 type ModerationInputContentItem struct {
+	ModerationInputImageUrlItem *ModerationInputImageUrlItem
+	ModerationInputTextItem *ModerationInputTextItem
 }
 
-// NewModerationInputContentItem instantiates a new ModerationInputContentItem object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewModerationInputContentItem() *ModerationInputContentItem {
-	this := ModerationInputContentItem{}
-	return &this
-}
-
-// NewModerationInputContentItemWithDefaults instantiates a new ModerationInputContentItem object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewModerationInputContentItemWithDefaults() *ModerationInputContentItem {
-	this := ModerationInputContentItem{}
-	return &this
-}
-
-func (o ModerationInputContentItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
-	if err != nil {
-		return []byte{}, err
+// ModerationInputImageUrlItemAsModerationInputContentItem is a convenience function that returns ModerationInputImageUrlItem wrapped in ModerationInputContentItem
+func ModerationInputImageUrlItemAsModerationInputContentItem(v *ModerationInputImageUrlItem) ModerationInputContentItem {
+	return ModerationInputContentItem{
+		ModerationInputImageUrlItem: v,
 	}
-	return json.Marshal(toSerialize)
 }
 
-func (o ModerationInputContentItem) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
-	return toSerialize, nil
+// ModerationInputTextItemAsModerationInputContentItem is a convenience function that returns ModerationInputTextItem wrapped in ModerationInputContentItem
+func ModerationInputTextItemAsModerationInputContentItem(v *ModerationInputTextItem) ModerationInputContentItem {
+	return ModerationInputContentItem{
+		ModerationInputTextItem: v,
+	}
+}
+
+
+// Unmarshal JSON data into one of the pointers in the struct
+func (dst *ModerationInputContentItem) UnmarshalJSON(data []byte) error {
+	var err error
+	match := 0
+	// try to unmarshal data into ModerationInputImageUrlItem
+	err = newStrictDecoder(data).Decode(&dst.ModerationInputImageUrlItem)
+	if err == nil {
+		jsonModerationInputImageUrlItem, _ := json.Marshal(dst.ModerationInputImageUrlItem)
+		if string(jsonModerationInputImageUrlItem) == "{}" { // empty struct
+			dst.ModerationInputImageUrlItem = nil
+		} else {
+			if err = validator.Validate(dst.ModerationInputImageUrlItem); err != nil {
+				dst.ModerationInputImageUrlItem = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.ModerationInputImageUrlItem = nil
+	}
+
+	// try to unmarshal data into ModerationInputTextItem
+	err = newStrictDecoder(data).Decode(&dst.ModerationInputTextItem)
+	if err == nil {
+		jsonModerationInputTextItem, _ := json.Marshal(dst.ModerationInputTextItem)
+		if string(jsonModerationInputTextItem) == "{}" { // empty struct
+			dst.ModerationInputTextItem = nil
+		} else {
+			if err = validator.Validate(dst.ModerationInputTextItem); err != nil {
+				dst.ModerationInputTextItem = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.ModerationInputTextItem = nil
+	}
+
+	if match > 1 { // more than 1 match
+		// reset to nil
+		dst.ModerationInputImageUrlItem = nil
+		dst.ModerationInputTextItem = nil
+
+		return fmt.Errorf("data matches more than one schema in oneOf(ModerationInputContentItem)")
+	} else if match == 1 {
+		return nil // exactly one match
+	} else { // no match
+		return fmt.Errorf("data failed to match schemas in oneOf(ModerationInputContentItem)")
+	}
+}
+
+// Marshal data from the first non-nil pointers in the struct to JSON
+func (src ModerationInputContentItem) MarshalJSON() ([]byte, error) {
+	if src.ModerationInputImageUrlItem != nil {
+		return json.Marshal(&src.ModerationInputImageUrlItem)
+	}
+
+	if src.ModerationInputTextItem != nil {
+		return json.Marshal(&src.ModerationInputTextItem)
+	}
+
+	return nil, nil // no data in oneOf schemas
+}
+
+// Get the actual instance
+func (obj *ModerationInputContentItem) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
+	if obj.ModerationInputImageUrlItem != nil {
+		return obj.ModerationInputImageUrlItem
+	}
+
+	if obj.ModerationInputTextItem != nil {
+		return obj.ModerationInputTextItem
+	}
+
+	// all schemas are nil
+	return nil
+}
+
+// Get the actual instance value
+func (obj ModerationInputContentItem) GetActualInstanceValue() (interface{}) {
+	if obj.ModerationInputImageUrlItem != nil {
+		return *obj.ModerationInputImageUrlItem
+	}
+
+	if obj.ModerationInputTextItem != nil {
+		return *obj.ModerationInputTextItem
+	}
+
+	// all schemas are nil
+	return nil
 }
 
 type NullableModerationInputContentItem struct {

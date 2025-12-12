@@ -299,7 +299,7 @@ function buildTokenBreakdown(
 
 function DialogHeaderSection({ selected }: { selected: SuccessfulRow | null }) {
 	return (
-		<div className="relative bg-slate-100 text-slate-900">
+		<div>
 			<div className="px-5 py-4 sm:px-6 sm:py-5">
 				<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 					<div>

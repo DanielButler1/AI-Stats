@@ -2,12 +2,12 @@
   "model_id": "ai21/jamba-large-1-6-2025-03-06",
   "organisation_id": "ai21",
   "name": "Jamba Large 1.6",
-  "status": "Deprecated",
+  "status": "Retired",
   "previous_model_id": "ai21/jamba-large-1-5-2024-08-22",
   "announced_date": "2025-03-06T00:00:00",
   "release_date": "2025-03-06T00:00:00",
   "deprecation_date": "2025-08-03T00:00:00",
-  "retirement_date": null,
+  "retirement_date": "2025-08-03T00:00:00",
   "license": "Jamba Open Model License",
   "input_types": "text",
   "output_types": "text",
@@ -63,7 +63,7 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://artificialanalysis.ai/models/jamba-1-6-large#intelligence-evaluations",
-      "rank": 79
+      "rank": 81
     },
     {
       "benchmark_id": "if-eval",

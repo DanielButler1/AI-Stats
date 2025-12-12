@@ -6,26 +6,26 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RequestId** | **string** |  | 
 **TeamId** | **string** |  | 
-**AppId** | Pointer to **string** |  | [optional] 
-**AppTitle** | Pointer to **string** |  | [optional] 
-**Referer** | Pointer to **string** |  | [optional] 
+**AppId** | Pointer to **NullableString** |  | [optional] 
+**AppTitle** | Pointer to **NullableString** |  | [optional] 
+**Referer** | Pointer to **NullableString** |  | [optional] 
 **Endpoint** | **string** |  | 
-**ModelId** | Pointer to **string** |  | [optional] 
-**Provider** | Pointer to **string** |  | [optional] 
-**NativeResponseId** | Pointer to **string** |  | [optional] 
+**ModelId** | Pointer to **NullableString** |  | [optional] 
+**Provider** | Pointer to **NullableString** |  | [optional] 
+**NativeResponseId** | Pointer to **NullableString** |  | [optional] 
 **Stream** | Pointer to **bool** |  | [optional] 
 **Byok** | Pointer to **bool** |  | [optional] 
-**StatusCode** | Pointer to **int32** |  | [optional] 
+**StatusCode** | Pointer to **NullableInt32** |  | [optional] 
 **Success** | **bool** |  | 
-**ErrorCode** | Pointer to **string** |  | [optional] 
-**ErrorMessage** | Pointer to **string** |  | [optional] 
+**ErrorCode** | Pointer to **NullableString** |  | [optional] 
+**ErrorMessage** | Pointer to **NullableString** |  | [optional] 
 **Before** | Pointer to **map[string]interface{}** |  | [optional] 
 **Execute** | Pointer to **map[string]interface{}** |  | [optional] 
-**LatencyMs** | Pointer to **float32** |  | [optional] 
-**GenerationMs** | Pointer to **float32** |  | [optional] 
+**LatencyMs** | Pointer to **NullableFloat32** |  | [optional] 
+**GenerationMs** | Pointer to **NullableFloat32** |  | [optional] 
 **Usage** | Pointer to **map[string]interface{}** |  | [optional] 
-**CostNanos** | Pointer to **int32** |  | [optional] 
-**Currency** | Pointer to **string** |  | [optional] 
+**CostNanos** | Pointer to **NullableInt32** |  | [optional] 
+**Currency** | Pointer to **NullableString** |  | [optional] 
 **PricingLines** | Pointer to **[]map[string]interface{}** |  | [optional] 
 
 ## Methods
@@ -112,6 +112,16 @@ SetAppId sets AppId field to given value.
 
 HasAppId returns a boolean if a field has been set.
 
+### SetAppIdNil
+
+`func (o *GatewayGenerationRecord) SetAppIdNil(b bool)`
+
+ SetAppIdNil sets the value for AppId to be an explicit nil
+
+### UnsetAppId
+`func (o *GatewayGenerationRecord) UnsetAppId()`
+
+UnsetAppId ensures that no value is present for AppId, not even an explicit nil
 ### GetAppTitle
 
 `func (o *GatewayGenerationRecord) GetAppTitle() string`
@@ -137,6 +147,16 @@ SetAppTitle sets AppTitle field to given value.
 
 HasAppTitle returns a boolean if a field has been set.
 
+### SetAppTitleNil
+
+`func (o *GatewayGenerationRecord) SetAppTitleNil(b bool)`
+
+ SetAppTitleNil sets the value for AppTitle to be an explicit nil
+
+### UnsetAppTitle
+`func (o *GatewayGenerationRecord) UnsetAppTitle()`
+
+UnsetAppTitle ensures that no value is present for AppTitle, not even an explicit nil
 ### GetReferer
 
 `func (o *GatewayGenerationRecord) GetReferer() string`
@@ -162,6 +182,16 @@ SetReferer sets Referer field to given value.
 
 HasReferer returns a boolean if a field has been set.
 
+### SetRefererNil
+
+`func (o *GatewayGenerationRecord) SetRefererNil(b bool)`
+
+ SetRefererNil sets the value for Referer to be an explicit nil
+
+### UnsetReferer
+`func (o *GatewayGenerationRecord) UnsetReferer()`
+
+UnsetReferer ensures that no value is present for Referer, not even an explicit nil
 ### GetEndpoint
 
 `func (o *GatewayGenerationRecord) GetEndpoint() string`
@@ -207,6 +237,16 @@ SetModelId sets ModelId field to given value.
 
 HasModelId returns a boolean if a field has been set.
 
+### SetModelIdNil
+
+`func (o *GatewayGenerationRecord) SetModelIdNil(b bool)`
+
+ SetModelIdNil sets the value for ModelId to be an explicit nil
+
+### UnsetModelId
+`func (o *GatewayGenerationRecord) UnsetModelId()`
+
+UnsetModelId ensures that no value is present for ModelId, not even an explicit nil
 ### GetProvider
 
 `func (o *GatewayGenerationRecord) GetProvider() string`
@@ -232,6 +272,16 @@ SetProvider sets Provider field to given value.
 
 HasProvider returns a boolean if a field has been set.
 
+### SetProviderNil
+
+`func (o *GatewayGenerationRecord) SetProviderNil(b bool)`
+
+ SetProviderNil sets the value for Provider to be an explicit nil
+
+### UnsetProvider
+`func (o *GatewayGenerationRecord) UnsetProvider()`
+
+UnsetProvider ensures that no value is present for Provider, not even an explicit nil
 ### GetNativeResponseId
 
 `func (o *GatewayGenerationRecord) GetNativeResponseId() string`
@@ -257,6 +307,16 @@ SetNativeResponseId sets NativeResponseId field to given value.
 
 HasNativeResponseId returns a boolean if a field has been set.
 
+### SetNativeResponseIdNil
+
+`func (o *GatewayGenerationRecord) SetNativeResponseIdNil(b bool)`
+
+ SetNativeResponseIdNil sets the value for NativeResponseId to be an explicit nil
+
+### UnsetNativeResponseId
+`func (o *GatewayGenerationRecord) UnsetNativeResponseId()`
+
+UnsetNativeResponseId ensures that no value is present for NativeResponseId, not even an explicit nil
 ### GetStream
 
 `func (o *GatewayGenerationRecord) GetStream() bool`
@@ -332,6 +392,16 @@ SetStatusCode sets StatusCode field to given value.
 
 HasStatusCode returns a boolean if a field has been set.
 
+### SetStatusCodeNil
+
+`func (o *GatewayGenerationRecord) SetStatusCodeNil(b bool)`
+
+ SetStatusCodeNil sets the value for StatusCode to be an explicit nil
+
+### UnsetStatusCode
+`func (o *GatewayGenerationRecord) UnsetStatusCode()`
+
+UnsetStatusCode ensures that no value is present for StatusCode, not even an explicit nil
 ### GetSuccess
 
 `func (o *GatewayGenerationRecord) GetSuccess() bool`
@@ -377,6 +447,16 @@ SetErrorCode sets ErrorCode field to given value.
 
 HasErrorCode returns a boolean if a field has been set.
 
+### SetErrorCodeNil
+
+`func (o *GatewayGenerationRecord) SetErrorCodeNil(b bool)`
+
+ SetErrorCodeNil sets the value for ErrorCode to be an explicit nil
+
+### UnsetErrorCode
+`func (o *GatewayGenerationRecord) UnsetErrorCode()`
+
+UnsetErrorCode ensures that no value is present for ErrorCode, not even an explicit nil
 ### GetErrorMessage
 
 `func (o *GatewayGenerationRecord) GetErrorMessage() string`
@@ -402,6 +482,16 @@ SetErrorMessage sets ErrorMessage field to given value.
 
 HasErrorMessage returns a boolean if a field has been set.
 
+### SetErrorMessageNil
+
+`func (o *GatewayGenerationRecord) SetErrorMessageNil(b bool)`
+
+ SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
+
+### UnsetErrorMessage
+`func (o *GatewayGenerationRecord) UnsetErrorMessage()`
+
+UnsetErrorMessage ensures that no value is present for ErrorMessage, not even an explicit nil
 ### GetBefore
 
 `func (o *GatewayGenerationRecord) GetBefore() map[string]interface{}`
@@ -477,6 +567,16 @@ SetLatencyMs sets LatencyMs field to given value.
 
 HasLatencyMs returns a boolean if a field has been set.
 
+### SetLatencyMsNil
+
+`func (o *GatewayGenerationRecord) SetLatencyMsNil(b bool)`
+
+ SetLatencyMsNil sets the value for LatencyMs to be an explicit nil
+
+### UnsetLatencyMs
+`func (o *GatewayGenerationRecord) UnsetLatencyMs()`
+
+UnsetLatencyMs ensures that no value is present for LatencyMs, not even an explicit nil
 ### GetGenerationMs
 
 `func (o *GatewayGenerationRecord) GetGenerationMs() float32`
@@ -502,6 +602,16 @@ SetGenerationMs sets GenerationMs field to given value.
 
 HasGenerationMs returns a boolean if a field has been set.
 
+### SetGenerationMsNil
+
+`func (o *GatewayGenerationRecord) SetGenerationMsNil(b bool)`
+
+ SetGenerationMsNil sets the value for GenerationMs to be an explicit nil
+
+### UnsetGenerationMs
+`func (o *GatewayGenerationRecord) UnsetGenerationMs()`
+
+UnsetGenerationMs ensures that no value is present for GenerationMs, not even an explicit nil
 ### GetUsage
 
 `func (o *GatewayGenerationRecord) GetUsage() map[string]interface{}`
@@ -552,6 +662,16 @@ SetCostNanos sets CostNanos field to given value.
 
 HasCostNanos returns a boolean if a field has been set.
 
+### SetCostNanosNil
+
+`func (o *GatewayGenerationRecord) SetCostNanosNil(b bool)`
+
+ SetCostNanosNil sets the value for CostNanos to be an explicit nil
+
+### UnsetCostNanos
+`func (o *GatewayGenerationRecord) UnsetCostNanos()`
+
+UnsetCostNanos ensures that no value is present for CostNanos, not even an explicit nil
 ### GetCurrency
 
 `func (o *GatewayGenerationRecord) GetCurrency() string`
@@ -577,6 +697,16 @@ SetCurrency sets Currency field to given value.
 
 HasCurrency returns a boolean if a field has been set.
 
+### SetCurrencyNil
+
+`func (o *GatewayGenerationRecord) SetCurrencyNil(b bool)`
+
+ SetCurrencyNil sets the value for Currency to be an explicit nil
+
+### UnsetCurrency
+`func (o *GatewayGenerationRecord) UnsetCurrency()`
+
+UnsetCurrency ensures that no value is present for Currency, not even an explicit nil
 ### GetPricingLines
 
 `func (o *GatewayGenerationRecord) GetPricingLines() []map[string]interface{}`

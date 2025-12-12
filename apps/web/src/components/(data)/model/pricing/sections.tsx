@@ -22,22 +22,21 @@ import { fmtUSD } from "./pricingHelpers";
 export function TierTiles({ tiers }: { tiers: TokenTier[] }) {
 	if (!tiers?.length)
 		return <div className="text-sm text-muted-foreground">—</div>;
-	const cols =
-		tiers.length === 1
-			? "grid-cols-1"
-			: tiers.length === 2
-			? "grid-cols-1 sm:grid-cols-2"
-			: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+	
 	return (
-		<div className={`grid ${cols} gap-2`}>
+		<div className="space-y-2">
 			{tiers.map((t, i) => (
-				<div key={i} className="rounded-md border px-3 py-2">
-					<div className="text-xs text-muted-foreground mb-1">
-						{t.label}
-					</div>
-					<div className="text-lg font-semibold">
-						{fmtUSD(t.per1M)}
-					</div>
+				<div key={i}>
+					{t.label === "All usage" ? (
+						<div className="text-sm font-semibold">
+							{fmtUSD(t.per1M)}
+						</div>
+					) : (
+						<div className="flex justify-between items-center">
+							<span className="text-sm font-semibold">{fmtUSD(t.per1M)}</span>
+							<span className="text-xs text-muted-foreground">{t.label}</span>
+						</div>
+					)}
 				</div>
 			))}
 		</div>
@@ -98,32 +97,30 @@ function Tile({ title, value }: { title: string; value: string }) {
 export function ImageGenSection({ rows }: { rows?: QualityRow[] }) {
 	if (!rows || !rows.length) return null;
 	return (
-		<div className="space-y-3">
+		<div className="space-y-2">
 			<div className="flex items-center justify-between">
 				<h4 className="text-sm font-semibold">Image generation</h4>
-				<span className="text-xs text-muted-foreground">Per image</span>
+				<span className="text-xs text-muted-foreground">
+					Per image
+				</span>
 			</div>
-			{rows.map((q) => (
-				<div
-					key={q.quality}
-					className="grid grid-cols-1 sm:grid-cols-4 gap-3"
-				>
-					<Tile
-						title="Quality"
-						value={
-							q.quality.charAt(0).toUpperCase() +
-							q.quality.slice(1)
-						}
-					/>
-					{q.items.map((it) => (
-						<Tile
-							key={it.label}
-							title={it.label}
-							value={fmtUSD(it.price)}
-						/>
-					))}
-				</div>
-			))}
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+				{rows.map((q) => (
+					<div key={q.quality} className="rounded-lg border p-3">
+						<div className="text-xs text-muted-foreground mb-2">
+							{q.quality.charAt(0).toUpperCase() + q.quality.slice(1)}
+						</div>
+						<div className="space-y-2">
+							{q.items.map((it) => (
+								<div key={it.label} className="flex justify-between items-center">
+									<span className="text-sm font-semibold">{fmtUSD(it.price)}</span>
+									<span className="text-xs text-muted-foreground">{it.label}</span>
+								</div>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
 		</div>
 	);
 }
@@ -134,7 +131,7 @@ export function VideoGenSection({ rows }: { rows?: ResolutionRow[] }) {
 	for (const r of rows) (byUnit[r.unitLabel] ??= []).push(r);
 
 	return (
-		<div className="space-y-3">
+		<div className="space-y-2">
 			<h4 className="text-sm font-semibold">Video generation</h4>
 			{Object.entries(byUnit).map(([unit, list]) => (
 				<div key={unit} className="space-y-2">
@@ -143,17 +140,18 @@ export function VideoGenSection({ rows }: { rows?: ResolutionRow[] }) {
 							{unit}
 						</span>
 					</div>
-					<div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
 						{list
 							.sort((a, b) =>
 								a.resolution.localeCompare(b.resolution)
 							)
 							.map((r, i) => (
-								<Tile
-									key={i}
-									title={r.resolution}
-									value={fmtUSD(r.price)}
-								/>
+								<div key={i} className="rounded-lg border p-3">
+									<div className="flex justify-between items-center">
+										<span className="text-sm font-semibold">{fmtUSD(r.price)}</span>
+										<span className="text-xs text-muted-foreground">{r.resolution}</span>
+									</div>
+								</div>
 							))}
 					</div>
 				</div>
@@ -167,15 +165,29 @@ export function CacheWriteSection({ rows }: { rows?: TokenTier[] }) {
 	return (
 		<div className="space-y-2">
 			<div className="flex items-center justify-between">
-				<div className="flex items-center gap-2">
-					<h4 className="text-sm font-semibold">Cache writes</h4>
-					<Badge variant="outline">Per 1M tokens</Badge>
-				</div>
+				<h4 className="text-sm font-semibold">Cache Writes</h4>
 				<span className="text-xs text-muted-foreground">
-					Labels reflect cache_ttl or matching condition
+					Per 1M tokens
 				</span>
 			</div>
-			<TierTiles tiers={rows} />
+			<div className="rounded-lg border p-3">
+				<div className="space-y-2">
+					{rows.map((t, i) => (
+						<div key={i}>
+							{t.label === "All usage" ? (
+								<div className="text-sm font-semibold">
+									{fmtUSD(t.per1M)}
+								</div>
+							) : (
+								<div className="flex justify-between items-center">
+									<span className="text-sm font-semibold">{fmtUSD(t.per1M)}</span>
+									<span className="text-xs text-muted-foreground">{t.label}</span>
+								</div>
+							)}
+						</div>
+					))}
+				</div>
+			</div>
 		</div>
 	);
 }

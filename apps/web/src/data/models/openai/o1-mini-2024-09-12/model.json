@@ -2,7 +2,7 @@
   "model_id": "openai/o1-mini-2024-09-12",
   "organisation_id": "openai",
   "name": "o1 mini",
-  "status": "Deprecated",
+  "status": "Retired",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2024-09-12T00:00:00",
@@ -46,7 +46,7 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard",
-      "rank": 23
+      "rank": 25
     },
     {
       "benchmark_id": "arc-agi-2",
@@ -54,7 +54,7 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard",
-      "rank": 17
+      "rank": 19
     },
     {
       "benchmark_id": "confabulations",
@@ -70,7 +70,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/",
-      "rank": 48
+      "rank": 50
     },
     {
       "benchmark_id": "lmarena-text",

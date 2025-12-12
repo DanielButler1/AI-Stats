@@ -27,7 +27,7 @@ AIStatsSdk.configure do |config|
 end
 
 api_instance = AIStatsSdk::ModerationsApi.new
-moderation_request = AIStatsSdk::ModerationRequest.new({model: 'model_example', input: 3.56}) # ModerationRequest | 
+moderation_request = AIStatsSdk::ModerationRequest.new({model: 'model_example', input: nil}) # ModerationRequest | 
 
 begin
   # Score content with moderation models

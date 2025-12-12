@@ -23,10 +23,12 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import {
-	HoverCard,
-	HoverCardContent,
-	HoverCardTrigger,
-} from "@/components/ui/hover-card";
+	Dialog,
+	DialogContent,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const WEEKDAY_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -197,7 +199,6 @@ export default function ModelCalendar({
 		const isToday = dateKey === todayKey;
 		const visibleEvents = cell.events.slice(0, MAX_EVENTS_PER_DAY);
 		const hiddenCount = cell.events.length - visibleEvents.length;
-		const extraEvents = cell.events.slice(MAX_EVENTS_PER_DAY);
 
 		return (
 			<div
@@ -251,25 +252,28 @@ export default function ModelCalendar({
 										href={`/organisations/${encodeURIComponent(
 											org.organisation_id
 										)}`}
-										className="flex h-4 w-4 items-center justify-center overflow-hidden rounded-2xl bg-white text-white shadow-sm dark:bg-zinc-900"
+										className="group"
 									>
-										<Logo
-											id={org.organisation_id}
-											alt={
-												org.name ?? org.organisation_id
-											}
-											width={12}
-											height={12}
-											className="h-full w-full object-contain"
-										/>
+										<div className="h-4 w-4 relative flex items-center justify-center rounded-xl border">
+											<div className="h-3 w-3 relative">
+												<Logo
+													id={org.organisation_id}
+													alt={
+														org.name ?? org.organisation_id
+													}
+													className="object-contain"
+													fill
+												/>
+											</div>
+										</div>
 									</Link>
 									<div className="min-w-0 flex-1">
 										<Tooltip delayDuration={500}>
 											<TooltipTrigger asChild>
 												<Link
-													href={`/models/${encodeURIComponent(
+													href={`/models/${
 														event.model.model_id
-													)}`}
+													}`}
 													className="block truncate text-xs font-semibold leading-tight text-zinc-900 dark:text-zinc-50"
 												>
 													{event.model.name}
@@ -287,75 +291,93 @@ export default function ModelCalendar({
 				</div>
 
 				{hiddenCount > 0 ? (
-					<HoverCard openDelay={100}>
-						<HoverCardTrigger asChild>
-							<p className="mt-2 text-[11px] font-semibold text-zinc-700 dark:text-zinc-400 cursor-pointer">
+					<Dialog>
+						<DialogTrigger asChild>
+							<button
+								type="button"
+								className="mt-2 text-[11px] font-semibold text-zinc-700 dark:text-zinc-400 cursor-pointer"
+							>
 								+{hiddenCount} more
-							</p>
-						</HoverCardTrigger>
-						<HoverCardContent className="w-56 rounded-2xl border border-zinc-200 bg-white p-2 shadow-lg dark:border-zinc-800 dark:bg-zinc-950">
-							<div className="space-y-3">
-								{extraEvents.map((event, idx) => {
-									const org = event.model.organisation;
-									const eventType =
-										event.types[0] ?? "Announced";
-									const borderColor =
-										EVENT_TYPE_BORDER_COLOR[eventType];
-									const key = `${event.model.model_id}-${event.date}-extra-${idx}`;
-									return (
-										<div
-											key={key}
-											className="rounded-2xl border-2 bg-white/80 p-3 text-xs transition dark:bg-zinc-950/70"
-											style={{ borderColor }}
-										>
-											<div className="flex items-center gap-2">
-												<Link
-													href={`/organisations/${encodeURIComponent(
-														org.organisation_id
-													)}`}
-													className="flex h-7 w-7 items-center justify-center overflow-hidden rounded-2xl bg-white text-white shadow-sm dark:bg-zinc-900"
-												>
-													<Logo
-														id={org.organisation_id}
-														alt={
-															org.name ??
-															org.organisation_id
-														}
-														width={28}
-														height={28}
-														className="h-full w-full object-contain"
-													/>
-												</Link>
-												<div className="min-w-0 flex-1">
-													<Tooltip
-														delayDuration={500}
+							</button>
+						</DialogTrigger>
+						<DialogContent className="max-w-2xl">
+							<DialogHeader>
+								<DialogTitle>
+									Releases on {cell.date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+								</DialogTitle>
+							</DialogHeader>
+							<ScrollArea className="max-h-96">
+								<div className="space-y-4 pr-4">
+									{(() => {
+										const eventsByOrg = new Map<string, ModelEvent[]>();
+										for (const event of cell.events) {
+											const orgId = event.model.organisation.organisation_id;
+											if (!eventsByOrg.has(orgId)) {
+												eventsByOrg.set(orgId, []);
+											}
+											eventsByOrg.get(orgId)!.push(event);
+										}
+										return Array.from(eventsByOrg.entries()).map(([orgId, orgEvents]) => {
+											const org = orgEvents[0].model.organisation;
+											return (
+												<div key={orgId} className="space-y-2">
+													<Link
+														href={`/organisations/${encodeURIComponent(org.organisation_id)}`}
+														className="flex items-center gap-2 group"
 													>
-														<TooltipTrigger asChild>
-															<Link
-																href={`/models/${encodeURIComponent(
-																	event.model
-																		.model_id
-																)}`}
-																className="block truncate text-[12px] font-semibold text-zinc-900 dark:text-zinc-50"
-															>
-																{
-																	event.model
-																		.name
-																}
-															</Link>
-														</TooltipTrigger>
-														<TooltipContent side="top">
-															{event.model.name}
-														</TooltipContent>
-													</Tooltip>
+														<div className="h-6 w-6 relative flex items-center justify-center rounded-xl border">
+															<div className="h-5 w-5 relative">
+																<Logo
+																	id={org.organisation_id}
+																	alt={org.name ?? org.organisation_id}
+																	className="object-contain"
+																	fill
+																/>
+															</div>
+														</div>
+														<span className="font-semibold text-sm relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
+															{org.name ?? org.organisation_id}
+														</span>
+													</Link>
+													<div className="space-y-1 ml-8">
+														{orgEvents.map((event, idx) => {
+															const eventType = event.types[0] ?? "Announced";
+															const borderColor = EVENT_TYPE_BORDER_COLOR[eventType];
+															const key = `${event.model.model_id}-${event.date}-${idx}`;
+															return (
+																<div
+																	key={key}
+																	className="rounded-2xl border-2 bg-white/80 p-2 text-xs transition dark:bg-zinc-950/70"
+																	style={{ borderColor }}
+																>
+																	<div className="flex items-center gap-2">
+																		<Tooltip delayDuration={500}>
+																			<TooltipTrigger asChild>
+																				<Link
+																					href={`/models/${event.model.model_id}`}
+																					className="font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
+																				>
+																					{event.model.name}
+																				</Link>
+																			</TooltipTrigger>
+																			<TooltipContent side="top">
+																				{event.model.name}
+																			</TooltipContent>
+																		</Tooltip>
+																		<span className="text-zinc-500 dark:text-zinc-400">({eventType})</span>
+																	</div>
+																</div>
+															);
+														})}
+													</div>
 												</div>
-											</div>
-										</div>
-									);
-								})}
-							</div>
-						</HoverCardContent>
-					</HoverCard>
+											);
+										});
+									})()}
+								</div>
+							</ScrollArea>
+						</DialogContent>
+					</Dialog>
 				) : null}
 			</div>
 		);

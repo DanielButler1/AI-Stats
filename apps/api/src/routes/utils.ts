@@ -1,7 +1,7 @@
 import type { Context } from "hono";
 import type { GatewayBindings } from "@/runtime/env";
 import { configureRuntime, setWaitUntil, clearRuntime } from "@/runtime/env";
-import { sanitizeRequestHeaders } from "@/lib/main-endpoints/http/sanitize-headers";
+import { sanitizeRequestHeaders } from "@/lib/gateway/http/sanitize-headers";
 
 type Handler = (req: Request) => Promise<Response>;
 

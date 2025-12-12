@@ -6,8 +6,6 @@ import {
 	modelEventsToCardModels,
 	type UpdateCardModel,
 } from "@/lib/updates/cardModels";
-import type { LucideIcon } from "lucide-react";
-import { Sparkles } from "lucide-react";
 import { getLatestUpdateCards } from "@/lib/fetchers/updates/getLatestUpdates";
 import { getYouTubeUpdatesCached } from "@/lib/fetchers/updates/getYouTubeUpdates";
 import type { Metadata } from "next";
@@ -36,7 +34,6 @@ type UpdateFeedCategory = "overview" | "models" | "web" | "youtube";
 type CategoryDescriptor = {
 	label: string;
 	description: string;
-	icon: LucideIcon;
 };
 
 const CATEGORY_META: Record<UpdateFeedCategory, CategoryDescriptor> = {
@@ -44,25 +41,21 @@ const CATEGORY_META: Record<UpdateFeedCategory, CategoryDescriptor> = {
 		label: "Overview",
 		description:
 			"Roll-up of every watcher and feed. Start here for a panoramic view across the AI Stats ecosystem.",
-		icon: Sparkles,
 	},
 	models: {
 		label: "Model updates",
 		description:
 			"Launches, deprecations, eval highlights, and lifecycle changes spotted by the model watcher.",
-		icon: UPDATE_ENTRY_META.models.icon,
 	},
 	web: {
 		label: "Web updates",
 		description:
 			"New destinations, research drops, and data hubs surfaced by the web watcher.",
-		icon: UPDATE_ENTRY_META.web.icon,
 	},
 	youtube: {
 		label: "YouTube updates",
 		description:
 			"Livestreams, explainers, and release breakdowns from our video channels.",
-		icon: UPDATE_ENTRY_META.youtube.icon,
 	},
 };
 
@@ -86,12 +79,9 @@ function CategorySection({ category, cards }: CategorySectionProps) {
 	return (
 		<section className="space-y-4">
 			<div className="space-y-1">
-				<div className="flex items-center gap-2">
-					<meta.icon className="h-5 w-5 text-zinc-900 dark:text-zinc-100" />
-					<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
-						{meta.label}
-					</h2>
-				</div>
+				<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
+					{meta.label}
+				</h2>
 				<p className="max-w-3xl text-sm text-zinc-600 dark:text-zinc-400">
 					{meta.description}
 				</p>

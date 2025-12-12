@@ -1,20 +1,25 @@
 import { join } from "path";
 import { createHash } from "crypto";
 import { DIR_SUBSCRIPTION_PLANS } from "../paths";
-import { listDirs, readJson } from "../util";
+import { listDirs, readJsonWithHash } from "../util";
 import { client, isDryRun, logWrite, assertOk, pruneRowsByColumn } from "../supa";
+import { ChangeTracker } from "../state";
 
 function generateDeterministicUUID(input: string): string {
     const hash = createHash('md5').update(input).digest('hex');
     return hash.replace(/^(.{8})(.{4})(.{4})(.{4})(.{12})$/, '$1-$2-$3-$4-$5');
 }
 
-export async function loadSubscriptionPlans() {
+export async function loadSubscriptionPlans(tracker: ChangeTracker) {
     const supa = client();
+    tracker.touchPrefix(DIR_SUBSCRIPTION_PLANS);
     const planUuids = new Set<string>();
     const dirs = await listDirs(DIR_SUBSCRIPTION_PLANS);
+    let touched = false;
     for (const d of dirs) {
-        const j = await readJson<any>(join(d, "plan.json"));
+        const fp = join(d, "plan.json");
+        const { data: j, hash } = await readJsonWithHash<any>(fp);
+        const change = tracker.track(fp, hash, { plan_id: j.plan_id, organisation_id: j.organisation_id });
 
         if (!j.plan_id || !j.name || !j.organisation_id) {
             console.error(`Skipping ${d}: missing required fields plan_id, name, or organisation_id`);
@@ -33,6 +38,8 @@ export async function loadSubscriptionPlans() {
                 continue;
             }
 
+            const shouldWrite = change.status !== "unchanged";
+
             // Insert/update the subscription plan
             const planRow = {
                 plan_uuid: generateDeterministicUUID(`${j.plan_id}-${option.frequency}-${j.organisation_id}`),
@@ -48,6 +55,8 @@ export async function loadSubscriptionPlans() {
             };
 
             planUuids.add(planRow.plan_uuid);
+            if (!shouldWrite) continue;
+            touched = true;
 
             if (isDryRun()) {
                 logWrite("public.data_subscription_plans", "UPSERT", planRow, { onConflict: "plan_uuid" });
@@ -77,6 +86,8 @@ export async function loadSubscriptionPlans() {
                         other_info: model.other_info ?? {},
                     };
 
+                    if (!shouldWrite) continue;
+
                     if (isDryRun()) {
                         logWrite("public.data_subscription_plan_models", "UPSERT", modelRow, { onConflict: "plan_uuid,model_id" });
                     } else {
@@ -103,6 +114,8 @@ export async function loadSubscriptionPlans() {
                         other_info: detail.other_info ?? {},
                     };
 
+                    if (!shouldWrite) continue;
+
                     if (isDryRun()) {
                         logWrite("public.data_subscription_plan_features", "UPSERT", featureRow, { onConflict: "plan_uuid,feature_name" });
                     } else {
@@ -115,6 +128,10 @@ export async function loadSubscriptionPlans() {
             }
         }
     }
+
+    const deletions = tracker.getDeleted(DIR_SUBSCRIPTION_PLANS);
+    touched = touched || deletions.length > 0;
+    if (!touched) return;
 
     await pruneRowsByColumn(
         supa,

@@ -12,12 +12,12 @@ All URIs are relative to https://api.ai-stats.phaseo.app/v1, except if the opera
 ## `modelsGet()`
 
 ```php
-modelsGet($provider, $limit, $offset, $organisation, $include_endpoints, $exclude_endpoints, $input_types, $output_types, $include_rumoured, $include_deprecated, $include_retired): \AIStats\\Sdk\Model\ModelListResponse
+modelsGet($endpoints, $organisation, $input_types, $output_types, $params, $limit, $offset): \AIStats\\Sdk\Model\ModelListResponse
 ```
 
 List all gateway models
 
-Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date (falling back to announcement date) in descending order.
+Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date in descending order.
 
 ### Example
 
@@ -36,20 +36,16 @@ $apiInstance = new AIStats\\Sdk\Api\ModelsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$provider = new \AIStats\\Sdk\Model\\AIStats\\Sdk\Model\ModelsGetProviderParameter(); // \AIStats\\Sdk\Model\ModelsGetProviderParameter | Filter results to models served by one or more provider identifiers.
+$endpoints = new \AIStats\\Sdk\Model\\AIStats\\Sdk\Model\ModelsGetEndpointsParameter(); // \AIStats\\Sdk\Model\ModelsGetEndpointsParameter | Only return models that support at least one of the specified gateway endpoints.
+$organisation = new \AIStats\\Sdk\Model\\AIStats\\Sdk\Model\ModelsGetOrganisationParameter(); // \AIStats\\Sdk\Model\ModelsGetOrganisationParameter | Restrict results to models associated with one or more organisation identifiers.
+$input_types = new \AIStats\\Sdk\Model\\AIStats\\Sdk\Model\ModelsGetInputTypesParameter(); // \AIStats\\Sdk\Model\ModelsGetInputTypesParameter | Only return models that advertise support for at least one of the requested input content types.
+$output_types = new \AIStats\\Sdk\Model\\AIStats\\Sdk\Model\ModelsGetInputTypesParameter(); // \AIStats\\Sdk\Model\ModelsGetInputTypesParameter | Only return models that advertise support for at least one of the requested output content types.
+$params = new \AIStats\\Sdk\Model\\AIStats\\Sdk\Model\ModelsGetInputTypesParameter(); // \AIStats\\Sdk\Model\ModelsGetInputTypesParameter | Only return models that support at least one of the specified parameters.
 $limit = 56; // int | Maximum number of models to return (default 50).
 $offset = 56; // int | Number of models to skip before starting the page.
-$organisation = new \AIStats\\Sdk\Model\\AIStats\\Sdk\Model\ModelsGetOrganisationParameter(); // \AIStats\\Sdk\Model\ModelsGetOrganisationParameter | Restrict results to models associated with one or more organisation identifiers.
-$include_endpoints = new \AIStats\\Sdk\Model\\AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter(); // \AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter | Only return models that support at least one of the specified gateway endpoints.
-$exclude_endpoints = new \AIStats\\Sdk\Model\\AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter(); // \AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter | Exclude models that support any of the specified gateway endpoints.
-$input_types = new \AIStats\\Sdk\Model\\AIStats\\Sdk\Model\ModelsGetProviderParameter(); // \AIStats\\Sdk\Model\ModelsGetProviderParameter | Only return models that advertise support for at least one of the requested input content types.
-$output_types = new \AIStats\\Sdk\Model\\AIStats\\Sdk\Model\ModelsGetProviderParameter(); // \AIStats\\Sdk\Model\ModelsGetProviderParameter | Only return models that advertise support for at least one of the requested output content types.
-$include_rumoured = true; // bool | Whether to include models marked as rumoured in the response (default true).
-$include_deprecated = true; // bool | Whether to include models marked as deprecated in the response (default true).
-$include_retired = true; // bool | Whether to include models marked as retired in the response (default true).
 
 try {
-    $result = $apiInstance->modelsGet($provider, $limit, $offset, $organisation, $include_endpoints, $exclude_endpoints, $input_types, $output_types, $include_rumoured, $include_deprecated, $include_retired);
+    $result = $apiInstance->modelsGet($endpoints, $organisation, $input_types, $output_types, $params, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModelsApi->modelsGet: ', $e->getMessage(), PHP_EOL;
@@ -60,17 +56,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **provider** | [**\AIStats\\Sdk\Model\ModelsGetProviderParameter**](../Model/.md)| Filter results to models served by one or more provider identifiers. | [optional] |
+| **endpoints** | [**\AIStats\\Sdk\Model\ModelsGetEndpointsParameter**](../Model/.md)| Only return models that support at least one of the specified gateway endpoints. | [optional] |
+| **organisation** | [**\AIStats\\Sdk\Model\ModelsGetOrganisationParameter**](../Model/.md)| Restrict results to models associated with one or more organisation identifiers. | [optional] |
+| **input_types** | [**\AIStats\\Sdk\Model\ModelsGetInputTypesParameter**](../Model/.md)| Only return models that advertise support for at least one of the requested input content types. | [optional] |
+| **output_types** | [**\AIStats\\Sdk\Model\ModelsGetInputTypesParameter**](../Model/.md)| Only return models that advertise support for at least one of the requested output content types. | [optional] |
+| **params** | [**\AIStats\\Sdk\Model\ModelsGetInputTypesParameter**](../Model/.md)| Only return models that support at least one of the specified parameters. | [optional] |
 | **limit** | **int**| Maximum number of models to return (default 50). | [optional] |
 | **offset** | **int**| Number of models to skip before starting the page. | [optional] |
-| **organisation** | [**\AIStats\\Sdk\Model\ModelsGetOrganisationParameter**](../Model/.md)| Restrict results to models associated with one or more organisation identifiers. | [optional] |
-| **include_endpoints** | [**\AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter**](../Model/.md)| Only return models that support at least one of the specified gateway endpoints. | [optional] |
-| **exclude_endpoints** | [**\AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter**](../Model/.md)| Exclude models that support any of the specified gateway endpoints. | [optional] |
-| **input_types** | [**\AIStats\\Sdk\Model\ModelsGetProviderParameter**](../Model/.md)| Only return models that advertise support for at least one of the requested input content types. | [optional] |
-| **output_types** | [**\AIStats\\Sdk\Model\ModelsGetProviderParameter**](../Model/.md)| Only return models that advertise support for at least one of the requested output content types. | [optional] |
-| **include_rumoured** | **bool**| Whether to include models marked as rumoured in the response (default true). | [optional] [default to true] |
-| **include_deprecated** | **bool**| Whether to include models marked as deprecated in the response (default true). | [optional] [default to true] |
-| **include_retired** | **bool**| Whether to include models marked as retired in the response (default true). | [optional] [default to true] |
 
 ### Return type
 

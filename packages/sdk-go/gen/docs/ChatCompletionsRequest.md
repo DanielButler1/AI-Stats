@@ -4,26 +4,30 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Model** | **string** |  | 
+**System** | Pointer to **string** |  | [optional] 
+**Messages** | [**[]ChatMessage**](ChatMessage.md) |  | 
 **Reasoning** | Pointer to [**ChatCompletionsRequestReasoning**](ChatCompletionsRequestReasoning.md) |  | [optional] 
 **FrequencyPenalty** | Pointer to **float32** |  | [optional] 
 **LogitBias** | Pointer to **map[string]float32** |  | [optional] 
 **MaxOutputTokens** | Pointer to **int32** |  | [optional] 
-**MaxCompletionsTokens** | Pointer to **int32** |  | [optional] 
-**Meta** | Pointer to **bool** | Include gateway metadata in the response. | [optional] [default to false]
-**Model** | **string** |  | 
-**Messages** | [**[]ChatMessage**](ChatMessage.md) |  | 
+**Meta** | Pointer to **bool** |  | [optional] [default to false]
 **PresencePenalty** | Pointer to **float32** |  | [optional] 
 **Seed** | Pointer to **int32** |  | [optional] 
 **Stream** | Pointer to **bool** |  | [optional] [default to false]
-**Temperature** | Pointer to **float32** |  | [optional] 
-**Tools** | Pointer to **[]map[string]interface{}** |  | [optional] 
+**Temperature** | Pointer to **float32** |  | [optional] [default to 1]
+**Tools** | Pointer to [**[]ChatCompletionsRequestToolsInner**](ChatCompletionsRequestToolsInner.md) |  | [optional] 
 **MaxToolCalls** | Pointer to **int32** |  | [optional] 
 **ParallelToolCalls** | Pointer to **bool** |  | [optional] [default to true]
 **ToolChoice** | Pointer to [**ChatCompletionsRequestToolChoice**](ChatCompletionsRequestToolChoice.md) |  | [optional] 
-**Logprobs** | Pointer to **bool** |  | [optional] 
+**TopK** | Pointer to **int32** |  | [optional] 
+**Logprobs** | Pointer to **bool** |  | [optional] [default to false]
 **TopLogprobs** | Pointer to **int32** |  | [optional] 
 **TopP** | Pointer to **float32** |  | [optional] 
-**Usage** | Pointer to **bool** | Include token usage details in the response. | [optional] [default to true]
+**ResponseFormat** | Pointer to [**ChatCompletionsRequestResponseFormat**](ChatCompletionsRequestResponseFormat.md) |  | [optional] 
+**Usage** | Pointer to **bool** |  | [optional] 
+**UserId** | Pointer to **string** |  | [optional] 
+**ServiceTier** | Pointer to **string** |  | [optional] [default to "standard"]
 
 ## Methods
 
@@ -43,6 +47,71 @@ will change when the set of required properties is changed
 NewChatCompletionsRequestWithDefaults instantiates a new ChatCompletionsRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetModel
+
+`func (o *ChatCompletionsRequest) GetModel() string`
+
+GetModel returns the Model field if non-nil, zero value otherwise.
+
+### GetModelOk
+
+`func (o *ChatCompletionsRequest) GetModelOk() (*string, bool)`
+
+GetModelOk returns a tuple with the Model field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModel
+
+`func (o *ChatCompletionsRequest) SetModel(v string)`
+
+SetModel sets Model field to given value.
+
+
+### GetSystem
+
+`func (o *ChatCompletionsRequest) GetSystem() string`
+
+GetSystem returns the System field if non-nil, zero value otherwise.
+
+### GetSystemOk
+
+`func (o *ChatCompletionsRequest) GetSystemOk() (*string, bool)`
+
+GetSystemOk returns a tuple with the System field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSystem
+
+`func (o *ChatCompletionsRequest) SetSystem(v string)`
+
+SetSystem sets System field to given value.
+
+### HasSystem
+
+`func (o *ChatCompletionsRequest) HasSystem() bool`
+
+HasSystem returns a boolean if a field has been set.
+
+### GetMessages
+
+`func (o *ChatCompletionsRequest) GetMessages() []ChatMessage`
+
+GetMessages returns the Messages field if non-nil, zero value otherwise.
+
+### GetMessagesOk
+
+`func (o *ChatCompletionsRequest) GetMessagesOk() (*[]ChatMessage, bool)`
+
+GetMessagesOk returns a tuple with the Messages field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMessages
+
+`func (o *ChatCompletionsRequest) SetMessages(v []ChatMessage)`
+
+SetMessages sets Messages field to given value.
+
 
 ### GetReasoning
 
@@ -144,31 +213,6 @@ SetMaxOutputTokens sets MaxOutputTokens field to given value.
 
 HasMaxOutputTokens returns a boolean if a field has been set.
 
-### GetMaxCompletionsTokens
-
-`func (o *ChatCompletionsRequest) GetMaxCompletionsTokens() int32`
-
-GetMaxCompletionsTokens returns the MaxCompletionsTokens field if non-nil, zero value otherwise.
-
-### GetMaxCompletionsTokensOk
-
-`func (o *ChatCompletionsRequest) GetMaxCompletionsTokensOk() (*int32, bool)`
-
-GetMaxCompletionsTokensOk returns a tuple with the MaxCompletionsTokens field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMaxCompletionsTokens
-
-`func (o *ChatCompletionsRequest) SetMaxCompletionsTokens(v int32)`
-
-SetMaxCompletionsTokens sets MaxCompletionsTokens field to given value.
-
-### HasMaxCompletionsTokens
-
-`func (o *ChatCompletionsRequest) HasMaxCompletionsTokens() bool`
-
-HasMaxCompletionsTokens returns a boolean if a field has been set.
-
 ### GetMeta
 
 `func (o *ChatCompletionsRequest) GetMeta() bool`
@@ -193,46 +237,6 @@ SetMeta sets Meta field to given value.
 `func (o *ChatCompletionsRequest) HasMeta() bool`
 
 HasMeta returns a boolean if a field has been set.
-
-### GetModel
-
-`func (o *ChatCompletionsRequest) GetModel() string`
-
-GetModel returns the Model field if non-nil, zero value otherwise.
-
-### GetModelOk
-
-`func (o *ChatCompletionsRequest) GetModelOk() (*string, bool)`
-
-GetModelOk returns a tuple with the Model field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetModel
-
-`func (o *ChatCompletionsRequest) SetModel(v string)`
-
-SetModel sets Model field to given value.
-
-
-### GetMessages
-
-`func (o *ChatCompletionsRequest) GetMessages() []ChatMessage`
-
-GetMessages returns the Messages field if non-nil, zero value otherwise.
-
-### GetMessagesOk
-
-`func (o *ChatCompletionsRequest) GetMessagesOk() (*[]ChatMessage, bool)`
-
-GetMessagesOk returns a tuple with the Messages field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMessages
-
-`func (o *ChatCompletionsRequest) SetMessages(v []ChatMessage)`
-
-SetMessages sets Messages field to given value.
-
 
 ### GetPresencePenalty
 
@@ -336,20 +340,20 @@ HasTemperature returns a boolean if a field has been set.
 
 ### GetTools
 
-`func (o *ChatCompletionsRequest) GetTools() []map[string]interface{}`
+`func (o *ChatCompletionsRequest) GetTools() []ChatCompletionsRequestToolsInner`
 
 GetTools returns the Tools field if non-nil, zero value otherwise.
 
 ### GetToolsOk
 
-`func (o *ChatCompletionsRequest) GetToolsOk() (*[]map[string]interface{}, bool)`
+`func (o *ChatCompletionsRequest) GetToolsOk() (*[]ChatCompletionsRequestToolsInner, bool)`
 
 GetToolsOk returns a tuple with the Tools field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTools
 
-`func (o *ChatCompletionsRequest) SetTools(v []map[string]interface{})`
+`func (o *ChatCompletionsRequest) SetTools(v []ChatCompletionsRequestToolsInner)`
 
 SetTools sets Tools field to given value.
 
@@ -434,6 +438,31 @@ SetToolChoice sets ToolChoice field to given value.
 
 HasToolChoice returns a boolean if a field has been set.
 
+### GetTopK
+
+`func (o *ChatCompletionsRequest) GetTopK() int32`
+
+GetTopK returns the TopK field if non-nil, zero value otherwise.
+
+### GetTopKOk
+
+`func (o *ChatCompletionsRequest) GetTopKOk() (*int32, bool)`
+
+GetTopKOk returns a tuple with the TopK field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTopK
+
+`func (o *ChatCompletionsRequest) SetTopK(v int32)`
+
+SetTopK sets TopK field to given value.
+
+### HasTopK
+
+`func (o *ChatCompletionsRequest) HasTopK() bool`
+
+HasTopK returns a boolean if a field has been set.
+
 ### GetLogprobs
 
 `func (o *ChatCompletionsRequest) GetLogprobs() bool`
@@ -509,6 +538,31 @@ SetTopP sets TopP field to given value.
 
 HasTopP returns a boolean if a field has been set.
 
+### GetResponseFormat
+
+`func (o *ChatCompletionsRequest) GetResponseFormat() ChatCompletionsRequestResponseFormat`
+
+GetResponseFormat returns the ResponseFormat field if non-nil, zero value otherwise.
+
+### GetResponseFormatOk
+
+`func (o *ChatCompletionsRequest) GetResponseFormatOk() (*ChatCompletionsRequestResponseFormat, bool)`
+
+GetResponseFormatOk returns a tuple with the ResponseFormat field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResponseFormat
+
+`func (o *ChatCompletionsRequest) SetResponseFormat(v ChatCompletionsRequestResponseFormat)`
+
+SetResponseFormat sets ResponseFormat field to given value.
+
+### HasResponseFormat
+
+`func (o *ChatCompletionsRequest) HasResponseFormat() bool`
+
+HasResponseFormat returns a boolean if a field has been set.
+
 ### GetUsage
 
 `func (o *ChatCompletionsRequest) GetUsage() bool`
@@ -533,6 +587,56 @@ SetUsage sets Usage field to given value.
 `func (o *ChatCompletionsRequest) HasUsage() bool`
 
 HasUsage returns a boolean if a field has been set.
+
+### GetUserId
+
+`func (o *ChatCompletionsRequest) GetUserId() string`
+
+GetUserId returns the UserId field if non-nil, zero value otherwise.
+
+### GetUserIdOk
+
+`func (o *ChatCompletionsRequest) GetUserIdOk() (*string, bool)`
+
+GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserId
+
+`func (o *ChatCompletionsRequest) SetUserId(v string)`
+
+SetUserId sets UserId field to given value.
+
+### HasUserId
+
+`func (o *ChatCompletionsRequest) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
+
+### GetServiceTier
+
+`func (o *ChatCompletionsRequest) GetServiceTier() string`
+
+GetServiceTier returns the ServiceTier field if non-nil, zero value otherwise.
+
+### GetServiceTierOk
+
+`func (o *ChatCompletionsRequest) GetServiceTierOk() (*string, bool)`
+
+GetServiceTierOk returns a tuple with the ServiceTier field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceTier
+
+`func (o *ChatCompletionsRequest) SetServiceTier(v string)`
+
+SetServiceTier sets ServiceTier field to given value.
+
+### HasServiceTier
+
+`func (o *ChatCompletionsRequest) HasServiceTier() bool`
+
+HasServiceTier returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

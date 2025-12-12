@@ -1,0 +1,82 @@
+---
+title: "Go SDK Usage"
+description: "Examples for calling each endpoint with the Go SDK facade."
+---
+
+```go
+import (
+  "context"
+  aistats "packages/sdk-go"
+  gen "packages/sdk-go/gen"
+)
+
+client := aistats.New("<API_KEY>", "https://api.ai-stats.phaseo.app/v1")
+```
+
+### Chat completions
+
+```go
+resp, _, err := client.GenerateText(context.Background(), gen.ChatCompletionsRequest{
+  Model:    "openai/gpt-4o-mini",
+  Messages: []gen.ChatMessage{{Role: "user", Content: "Hello!"}},
+})
+```
+
+### Responses
+
+```go
+resp, _, err := client.GenerateResponse(context.Background(), gen.ResponsesRequest{
+  Model: "openai/gpt-4.1",
+  Input: []map[string]interface{}{{"role": "user", "content": []map[string]string{{"type": "output_text", "text": "Hi"}}}},
+})
+```
+
+### Images
+
+```go
+img, _, err := client.Images.ImagesGenerationsPost(context.Background(), gen.ImageGenerationRequest{
+  Model:  "openai/gpt-image-1",
+  Prompt: "A lighthouse at golden hour",
+})
+```
+
+### Audio
+
+```go
+speech, _, err := client.Audio.AudioSpeechPost(context.Background(), gen.AudioSpeechRequest{
+  Model: "openai/gpt-4o-mini-tts",
+  Input: "Hello",
+})
+```
+
+### Video
+
+```go
+video, _, err := client.Video.VideoGenerationPost(context.Background(), gen.VideoGenerationRequest{
+  Model:  "openai/gpt-video-1",
+  Prompt: "Calm ocean at sunset",
+})
+```
+
+### Moderations
+
+```go
+mod, _, err := client.Moderations.ModerationsPost(context.Background(), gen.ModerationRequest{
+  Model: "openai/omni-moderation-latest",
+  Input: "Text to check",
+})
+```
+
+### Batch & files
+
+```go
+batch, _, err := client.CreateBatch(context.Background(), gen.BatchRequest{Endpoint: "responses"})
+fileList, _, _ := client.Files.FilesGet(context.Background())
+```
+
+### Models & health
+
+```go
+models, _, _ := client.GetModels(context.Background(), nil)
+health, _, _ := client.Analytics.HealthzGet(context.Background())
+```

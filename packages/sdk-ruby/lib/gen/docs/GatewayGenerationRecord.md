@@ -19,11 +19,11 @@
 | **success** | **Boolean** |  |  |
 | **error_code** | **String** |  | [optional] |
 | **error_message** | **String** |  | [optional] |
-| **before** | **Object** |  | [optional] |
-| **execute** | **Object** |  | [optional] |
+| **before** | **Hash&lt;String, Object&gt;** |  | [optional] |
+| **execute** | **Hash&lt;String, Object&gt;** |  | [optional] |
 | **latency_ms** | **Float** |  | [optional] |
 | **generation_ms** | **Float** |  | [optional] |
-| **usage** | **Object** |  | [optional] |
+| **usage** | **Hash&lt;String, Object&gt;** |  | [optional] |
 | **cost_nanos** | **Integer** |  | [optional] |
 | **currency** | **String** |  | [optional] |
 | **pricing_lines** | **Array&lt;Object&gt;** |  | [optional] |

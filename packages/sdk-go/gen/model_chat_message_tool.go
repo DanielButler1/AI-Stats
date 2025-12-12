@@ -12,7 +12,6 @@ package ai_stats_sdk
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ChatMessageTool struct {
 	Content MessageContent `json:"content"`
 	Name *string `json:"name,omitempty"`
 	ToolCallId string `json:"tool_call_id"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ChatMessageTool ChatMessageTool
@@ -169,6 +169,11 @@ func (o ChatMessageTool) ToMap() (map[string]interface{}, error) {
 		toSerialize["name"] = o.Name
 	}
 	toSerialize["tool_call_id"] = o.ToolCallId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -198,15 +203,23 @@ func (o *ChatMessageTool) UnmarshalJSON(data []byte) (err error) {
 
 	varChatMessageTool := _ChatMessageTool{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChatMessageTool)
+	err = json.Unmarshal(data, &varChatMessageTool)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ChatMessageTool(varChatMessageTool)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "role")
+		delete(additionalProperties, "content")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "tool_call_id")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

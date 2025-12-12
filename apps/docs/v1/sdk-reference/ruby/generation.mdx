@@ -1,0 +1,56 @@
+---
+title: "Generation lookup"
+description: "Call /generation to retrieve a past generation."
+---
+
+**Method**: `GenerationsApi#generation_get`.
+
+### Example
+```ruby
+require 'ai_stats_sdk'
+
+config = AIStatsSdk::Configuration.default
+config.access_token = 'your_api_key'
+api_client = AIStatsSdk::ApiClient.new(config)
+generations_api = AIStatsSdk::GenerationsApi.new(api_client)
+
+record = generations_api.generation_get('G-01ABC...')
+```
+
+### Parameters
+- `id` (string, required): Request id returned by a previous call.
+
+### Returns
+Generation record (JSON)
+
+```json
+{
+  "request_id": "G-01ABC123",
+  "team_id": "team-123",
+  "app_id": "app-123",
+  "endpoint": "chat/completions",
+  "model_id": "openai/gpt-4o-mini",
+  "provider": "openai",
+  "native_response_id": "chatcmpl-123",
+  "stream": false,
+  "byok": false,
+  "status_code": 200,
+  "success": true,
+  "error_code": null,
+  "error_message": null,
+  "latency_ms": 1500,
+  "generation_ms": 1400,
+  "usage": {
+    "prompt_tokens": 9,
+    "completion_tokens": 9,
+    "total_tokens": 18
+  },
+  "cost_nanos": 1000000,
+  "currency": "USD",
+  "pricing_lines": [],
+  "key_id": "key-123",
+  "throughput": null
+}
+```
+
+
