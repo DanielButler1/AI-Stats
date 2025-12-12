@@ -2,7 +2,7 @@
   "model_id": "nous/hermes-3-llama-3-1-405b",
   "organisation_id": "nous",
   "name": "Hermes 3 Llama 3.1 405B",
-  "status": null,
+  "status": "Deprecated",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,

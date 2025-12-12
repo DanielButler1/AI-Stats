@@ -1,0 +1,16 @@
+{
+  "key": "openai:openai/whisper-1:audio.translations",
+  "api_provider_id": "openai",
+  "provider_slug": "openai",
+  "model_id": "openai/whisper-1",
+  "endpoint": "audio.translations",
+  "provider_model_slug": "whisper-1",
+  "is_active_gateway": false,
+  "input_modalities": [],
+  "output_modalities": [],
+  "effective_from": null,
+  "effective_to": null,
+  "capability": {},
+  "params": [],
+  "rules": []
+}

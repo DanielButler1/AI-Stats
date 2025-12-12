@@ -16,14 +16,7 @@
   "effective_from": null,
   "effective_to": null,
   "capability": {},
-  "params": [
-    {
-      "name": "temperature",
-      "default": 1,
-      "min": 0.0,
-      "max": 2.0
-    }
-  ],
+  "params": [],
   "rules": [
     {
       "meter": "input_text_tokens",

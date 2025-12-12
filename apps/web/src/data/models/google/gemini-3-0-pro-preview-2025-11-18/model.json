@@ -47,7 +47,7 @@
       "is_self_reported": true,
       "other_info": "No Tools",
       "source_link": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf",
-      "rank": 1
+      "rank": 2
     },
     {
       "benchmark_id": "arc-agi-2",
@@ -55,7 +55,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf",
-      "rank": 1
+      "rank": 3
     },
     {
       "benchmark_id": "gpqa-diamond",
@@ -111,7 +111,7 @@
       "is_self_reported": true,
       "other_info": "Single Attempt",
       "source_link": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf",
-      "rank": 2
+      "rank": 3
     },
     {
       "benchmark_id": "simpleqa",
@@ -143,7 +143,7 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard",
-      "rank": 1
+      "rank": 2
     },
     {
       "benchmark_id": "arc-agi-1",
@@ -151,7 +151,7 @@
       "is_self_reported": false,
       "other_info": "Deep Think",
       "source_link": "https://arcprize.org/leaderboard",
-      "rank": 1
+      "rank": 2
     },
     {
       "benchmark_id": "arc-agi-2",
@@ -159,7 +159,7 @@
       "is_self_reported": false,
       "other_info": "Deep Think, With Tools",
       "source_link": "https://arcprize.org/leaderboard",
-      "rank": 1
+      "rank": 3
     },
     {
       "benchmark_id": "humanitys-last-exam",
@@ -167,7 +167,7 @@
       "is_self_reported": true,
       "other_info": "With Search & Code Execution",
       "source_link": "https://storage.googleapis.com/deepmind-media/gemini/gemini_3_pro_model_evaluation.pdf",
-      "rank": 1
+      "rank": 2
     },
     {
       "benchmark_id": "matharena-apex",
@@ -255,7 +255,7 @@
       "is_self_reported": true,
       "other_info": "Deep Think, Tools Off",
       "source_link": "https://blog.google/products/gemini/gemini-3/",
-      "rank": 1
+      "rank": 2
     },
     {
       "benchmark_id": "gpqa-diamond",

@@ -1,7 +1,7 @@
 {
   "model_id": "openai/gpt-4o-2024-11-20",
   "organisation_id": "openai",
-  "name": "GPT 4o",
+  "name": "GPT 4o (2024-11-20)",
   "status": "Available",
   "previous_model_id": "openai/gpt-4o-2024-05-13",
   "announced_date": null,

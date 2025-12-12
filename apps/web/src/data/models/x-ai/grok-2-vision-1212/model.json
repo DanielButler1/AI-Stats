@@ -2,7 +2,7 @@
   "model_id": "x-ai/grok-2-vision-1212",
   "organisation_id": "x-ai",
   "name": "Grok 2 Vision 1212",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,

@@ -2,7 +2,7 @@
   "model_id": "deepseek/deepseek-v2-5",
   "organisation_id": "deepseek",
   "name": "DeepSeek V2.5 (2024-12-10)",
-  "status": null,
+  "status": "Retired",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,

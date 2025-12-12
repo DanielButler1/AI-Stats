@@ -2,7 +2,7 @@
   "model_id": "cohere/embed-english-light-v2-0",
   "organisation_id": "cohere",
   "name": "Embed English Light V2.0",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,

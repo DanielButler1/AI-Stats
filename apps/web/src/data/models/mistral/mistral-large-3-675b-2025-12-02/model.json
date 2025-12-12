@@ -25,7 +25,7 @@
       "is_self_reported": true,
       "other_info": "8-Lang Average",
       "source_link": "https://mistral.ai/news/mistral-3",
-      "rank": 4
+      "rank": 5
     },
     {
       "benchmark_id": "gpqa-diamond",
@@ -33,7 +33,7 @@
       "is_self_reported": true,
       "other_info": "5 Shot, No Reasoning",
       "source_link": "https://mistral.ai/news/mistral-3",
-      "rank": 70
+      "rank": 72
     },
     {
       "benchmark_id": "simpleqa",

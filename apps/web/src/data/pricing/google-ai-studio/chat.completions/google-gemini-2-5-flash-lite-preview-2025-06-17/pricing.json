@@ -34,7 +34,7 @@
     },
     {
       "meter": "input_image_tokens",
-      "unit": "image",
+      "unit": "token",
       "unit_size": 1,
       "price_per_unit": 1e-07,
       "currency": "USD",
@@ -46,7 +46,7 @@
     },
     {
       "meter": "input_video_tokens",
-      "unit": "video",
+      "unit": "token",
       "unit_size": 1,
       "price_per_unit": 1e-07,
       "currency": "USD",
@@ -58,7 +58,7 @@
     },
     {
       "meter": "input_audio_tokens",
-      "unit": "audio",
+      "unit": "token",
       "unit_size": 1,
       "price_per_unit": 3e-07,
       "currency": "USD",

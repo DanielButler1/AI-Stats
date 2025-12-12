@@ -2,7 +2,7 @@
   "model_id": "z-ai/glm-4v-9b",
   "organisation_id": "z-ai",
   "name": "GLM 4V 9B",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,

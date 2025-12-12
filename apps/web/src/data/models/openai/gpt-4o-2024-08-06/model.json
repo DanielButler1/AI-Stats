@@ -1,7 +1,7 @@
 {
   "model_id": "openai/gpt-4o-2024-08-06",
   "organisation_id": "openai",
-  "name": "GPT 4o",
+  "name": "GPT 4o (2024-08-06)",
   "status": "Available",
   "previous_model_id": "openai/gpt-4o-2024-11-20",
   "announced_date": null,
@@ -59,7 +59,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/",
-      "rank": 67
+      "rank": 69
     },
     {
       "benchmark_id": "nyt-connections",
@@ -75,7 +75,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/",
-      "rank": 21
+      "rank": 22
     }
   ]
 }

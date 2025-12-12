@@ -2,7 +2,7 @@
   "model_id": "nous/hermes-4-14b",
   "organisation_id": "nous",
   "name": "Hermes 4 14B",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,
