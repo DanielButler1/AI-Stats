@@ -8,7 +8,7 @@ import { getModelOverviewCached } from "@/lib/fetchers/models/getModel";
 import {
 	getModelIdFromParams,
 	type ModelRouteParams,
-} from "@/app/(dashboard)/models/model-route-helpers";
+} from "@/components/(data)/model/model-route-helpers";
 import { Suspense } from "react";
 
 async function fetchModelOverview(modelId: string) {
@@ -76,11 +76,14 @@ export default async function Page({
 	const routeParams = await params;
 	const modelId = getModelIdFromParams(routeParams);
 
-	const performanceMetricsPromise = getModelPerformanceMetricsCached(modelId, 24);
+	const performanceMetricsPromise = getModelPerformanceMetricsCached(
+		modelId,
+		24
+	);
 	const tokenTrajectoryPromise = getModelTokenTrajectoryCached(modelId);
 
 	return (
-		<ModelDetailShell modelId={modelId}>
+		<ModelDetailShell modelId={modelId} tab="performance">
 			<Suspense fallback={<PerformanceSkeleton />}>
 				<PerformancePanel
 					metricsPromise={performanceMetricsPromise}

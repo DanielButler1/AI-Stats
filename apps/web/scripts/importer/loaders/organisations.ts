@@ -1,14 +1,19 @@
 import { join } from "path";
 import { DIR_ORGS } from "../paths";
-import { listDirs, readJson } from "../util";
+import { listDirs, readJsonWithHash } from "../util";
 import { client, isDryRun, logWrite, assertOk, pruneRowsByColumn } from "../supa";
+import { ChangeTracker } from "../state";
 
-export async function loadOrganisations() {
+export async function loadOrganisations(tracker: ChangeTracker) {
+    tracker.touchPrefix(DIR_ORGS);
     const dirs = await listDirs(DIR_ORGS);
     const supa = client();
     const organisationIds = new Set<string>();
+    let touched = false;
     for (const d of dirs) {
-        const j = await readJson<any>(join(d, "organisation.json"));
+        const fp = join(d, "organisation.json");
+        const { data: j, hash } = await readJsonWithHash<any>(fp);
+        const change = tracker.track(fp, hash, { organisation_id: j.organisation_id });
 
         const orgRow = {
             organisation_id: j.organisation_id,
@@ -26,6 +31,8 @@ export async function loadOrganisations() {
         }));
         const platformsIncoming = new Set(links.map(l => l.platform));
         organisationIds.add(j.organisation_id);
+        if (change.status === "unchanged") continue;
+        touched = true;
 
         if (isDryRun()) {
             logWrite("public.data_organisations", "UPSERT", orgRow, { onConflict: "organisation_id" });
@@ -75,6 +82,10 @@ export async function loadOrganisations() {
             );
         }
     }
+
+    const deletions = tracker.getDeleted(DIR_ORGS);
+    touched = touched || deletions.length > 0;
+    if (!touched) return;
 
     await pruneRowsByColumn(supa, "data_organisations", "organisation_id", organisationIds, "data_organisations");
     await pruneRowsByColumn(supa, "data_organisation_links", "organisation_id", organisationIds, "data_organisation_links");

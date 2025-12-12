@@ -7,13 +7,19 @@ import {
 	CardTitle,
 	CardDescription,
 } from "@/components/ui/card";
-import CodeBlock from "@/components/(data)/model/gateway/CodeBlock";
+import CodeBlock from "@/components/(data)/model/quickstart/CodeBlock";
 import { Separator } from "@/components/ui/separator";
 import { BASE_URL } from "./config";
 import { safeDecodeURIComponent } from "@/lib/utils/safe-decode";
 import { resolveGatewayPath } from "./endpoint-paths";
 
-export default async function Streaming({ modelId, endpoint }: { modelId?: string; endpoint?: string | null }) {
+export default async function Streaming({
+	modelId,
+	endpoint,
+}: {
+	modelId?: string;
+	endpoint?: string | null;
+}) {
 	const model = safeDecodeURIComponent(modelId) || "model_id_here";
 	const endpointPath = resolveGatewayPath(endpoint);
 	const endpointUrl = `${BASE_URL}${endpointPath}`;

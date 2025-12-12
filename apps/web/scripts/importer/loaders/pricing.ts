@@ -1,8 +1,9 @@
 import { join, basename } from "path";
 import { DIR_PRICING } from "../paths";
-import { listDirs, readJson, chunk, toInList } from "../util";
+import { listDirs, readJsonWithHash, chunk, toInList } from "../util";
 import { client, isDryRun, logWrite, assertOk, pruneRowsByColumn } from "../supa";
 import { createHash } from "crypto";
+import { ChangeTracker } from "../state";
 
 function toFixed10(n: number) {
     // match numeric(20,10) for pricing rules storage
@@ -74,10 +75,48 @@ type PricingMatch = {
     value: string | number | Array<any>;
 }
 
-export async function loadPricing() {
+type EndpointState = {
+    api_provider_id: string;
+    endpoint: string;
+    ruleReplacements: Array<{ model_key: string; rows: PricingRuleRow[] }>;
+    dirtyModels: Array<{
+        id?: string;
+        api_provider_id: string;
+        model_id: string;
+        provider_model_slug: string | null;
+        endpoint: string;
+        is_active_gateway: boolean;
+        input_modalities: string;
+        output_modalities: string;
+        effective_from: string | null;
+        effective_to: string | null;
+        params: unknown[];
+    }>;
+    keepModelIds: Set<string>;
+};
+
+type PricingRuleRow = {
+    model_key: string;
+    pricing_plan: string;
+    meter: string;
+    unit: string;
+    unit_size: number;
+    price_per_unit: string;
+    currency: string;
+    tiering_mode: string | null;
+    note: string | null;
+    match: unknown[];
+    priority: number;
+};
+
+export async function loadPricing(tracker: ChangeTracker) {
     const supa = client();
+    tracker.touchPrefix(DIR_PRICING);
     const providerModelIds = new Set<string>();
     const pricingRuleKeys = new Set<string>();
+    let hasChanges = false;
+
+    const endpoints = new Map<string, EndpointState>();
 
     const providerDirs = await listDirs(DIR_PRICING);
 
@@ -87,49 +126,34 @@ export async function loadPricing() {
         for (const epPath of endpointDirs) {
             const endpoint = basename(epPath);
             const modelDirs = await listDirs(epPath);
+            const endpointKey = `${api_provider_id}::${endpoint}`;
 
-            // Accumulate desired rows for this (provider, endpoint) scope
-            // Now matches table: key (PK), api_provider_id, provider_slug, model_id, endpoint,
-            // provider_model_slug, is_active_gateway, input_modalities (text[]), output_modalities (text[]),
-            // effective_from, effective_to, capability (jsonb), params (jsonb)
-            const desiredProviderModels: Array<{
-                id?: string;
-                api_provider_id: string;
-                model_id: string;
-                provider_model_slug: string | null;
-                endpoint: string;
-                is_active_gateway: boolean;
-                input_modalities: string;
-                output_modalities: string;
-                effective_from: string | null;
-                effective_to: string | null;
-                params: unknown[];
-            }> = [];
-
-            const desiredRules: Array<{
-                model_key: string;
-                pricing_plan: string;
-                meter: string;
-                unit: string;
-                unit_size: number;
-                price_per_unit: string; // stored as numeric(20,10) string
-                currency: string;
-                tiering_mode: string | null;
-                note: string | null;
-                match: unknown[];
-                priority: number;
-            }> = [];
+            const endpointState: EndpointState = endpoints.get(endpointKey) ?? {
+                api_provider_id,
+                endpoint,
+                dirtyModels: [],
+                keepModelIds: new Set<string>(),
+                ruleReplacements: [],
+            };
 
             for (const mPath of modelDirs) {
-                const j = await readJson<PricingJSON>(join(mPath, "pricing.json"));
+                const fp = join(mPath, "pricing.json");
+                const { data: j, hash } = await readJsonWithHash<PricingJSON>(fp);
+                const computedKey = j.key && j.key.trim() ? j.key : `${j.api_provider_id}:${j.model_id}:${j.endpoint}`;
+                const change = tracker.track(fp, hash, {
+                    api_provider_id: j.api_provider_id,
+                    endpoint: j.endpoint,
+                    model_id: j.model_id,
+                    model_key: computedKey,
+                });
 
                 const provider_model_slug = (j.provider_model_slug ?? j.model_id ?? null);
-                const computedKey = j.key && j.key.trim() ? j.key : `${j.api_provider_id}:${j.model_id}:${j.endpoint}`;
                 const id = computedKey; // table requires an `id` primary key; use composed key
 
                 providerModelIds.add(id);
+                endpointState.keepModelIds.add(j.model_id);
 
-                desiredProviderModels.push({
+                const providerModelRow = {
                     id,
                     api_provider_id: j.api_provider_id,
                     model_id: j.model_id,
@@ -141,15 +165,19 @@ export async function loadPricing() {
                     effective_from: j.effective_from ?? null,
                     effective_to: j.effective_to ?? null,
                     params: j.params ?? [],
-                });
+                };
+
+                if (change.status !== "unchanged") {
+                    endpointState.dirtyModels.push(providerModelRow);
+                    hasChanges = true;
+                }
 
                 // Per-file duplicate handling (exact dupes get :occur suffix; near-dupes differ by hash)
                 const ruleRows = j.rules || [];
-                if (ruleRows.length) {
-                    pricingRuleKeys.add(computedKey);
-                }
+                if (ruleRows.length) pricingRuleKeys.add(computedKey);
 
                 const seenBuckets = new Map<string, number>(); // key: provider|model|ep|meter|prio|digest
+                const desiredRules: PricingRuleRow[] = [];
 
                 for (const r of ruleRows) {
                     const prio = r.priority ?? 100;
@@ -157,10 +185,6 @@ export async function loadPricing() {
                     const bucket = `${j.api_provider_id}|${j.model_id}|${j.endpoint}|${r.meter}|${prio}|${digest}`;
                     const occur = (seenBuckets.get(bucket) ?? 0) + 1;
                     seenBuckets.set(bucket, occur);
-
-                    // Construct a stable rule identifier (used for logging/debugging)
-                    const rule_id_base = `${j.api_provider_id}:${j.model_id}:${j.endpoint}:${r.meter}:${prio}:${digest}`;
-                    const rule_id = rule_id_base + (occur > 1 ? `:${occur}` : "");
 
                     // Map incoming fields to the DB schema
                     const pricing_plan = r.pricing_plan;
@@ -181,94 +205,130 @@ export async function loadPricing() {
                         priority: prio,
                     });
                 }
-            }
 
-            // ---- UPSERT provider_models in batches; now using `key` as PK; prune by (provider, endpoint) & key ----
-            if (isDryRun()) {
-                for (const r of desiredProviderModels) {
-                    logWrite("public.data_api_provider_models", "UPSERT", r, {
-                        onConflict: "api_provider_id,endpoint,model_id",
-                    });
-                }
-            } else {
-                for (const group of chunk(desiredProviderModels, 500)) {
-                    assertOk(
-                        await supa
-                            .from("data_api_provider_models")
-                            .upsert(group, { onConflict: "api_provider_id,endpoint,model_id" }),
-                        "upsert data_api_provider_models"
-                    );
-                }
-
-                const keepModelIds = [...new Set(desiredProviderModels.map(r => r.model_id))];
-
-                if (keepModelIds.length) {
-                    assertOk(
-                        await supa
-                            .from("data_api_provider_models")
-                            .delete()
-                            .eq("api_provider_id", api_provider_id)
-                            .eq("endpoint", endpoint)
-                            .not("model_id", "in", toInList(keepModelIds)),
-                        "prune data_api_provider_models"
-                    );
-                } else {
-                    assertOk(
-                        await supa
-                            .from("data_api_provider_models")
-                            .delete()
-                            .eq("api_provider_id", api_provider_id)
-                            .eq("endpoint", endpoint),
-                        "prune-all data_api_provider_models"
-                    );
+                if (change.status !== "unchanged") {
+                    endpointState.ruleReplacements.push({ model_key: computedKey, rows: desiredRules });
+                    hasChanges = true;
                 }
             }
 
-            // ---- INSERT pricing_rules; prune by model_key under the same scope ----
-            if (isDryRun()) {
-                for (const r of desiredRules) {
-                    logWrite("public.data_api_pricing_rules", "INSERT", r, { onConflict: null });
-                }
+            endpoints.set(endpointKey, endpointState);
+        }
+    }
+
+    const deleted = tracker.getDeleted(DIR_PRICING);
+    if (deleted.length) hasChanges = true;
+    const deletedByEndpoint = new Map<string, Array<{ model_key?: string; model_id?: string }>>();
+    for (const d of deleted) {
+        const meta = d.info.meta || {};
+        const api_provider_id = meta.api_provider_id;
+        const endpoint = meta.endpoint;
+        if (!api_provider_id || !endpoint) continue;
+        const endpointKey = `${api_provider_id}::${endpoint}`;
+        const arr = deletedByEndpoint.get(endpointKey) ?? [];
+        arr.push({ model_key: meta.model_key, model_id: meta.model_id });
+        deletedByEndpoint.set(endpointKey, arr);
+    }
+
+    for (const endpointKey of new Set([...endpoints.keys(), ...deletedByEndpoint.keys()])) {
+        const endpointState = endpoints.get(endpointKey);
+        const [api_provider_id, endpoint] = endpointKey.split("::");
+
+        const keepModelIds = endpointState
+            ? [...endpointState.keepModelIds]
+            : [];
+
+        const dirtyProviderModels = endpointState?.dirtyModels ?? [];
+        const ruleReplacements = endpointState?.ruleReplacements ?? [];
+        const deletedEntries = deletedByEndpoint.get(endpointKey) ?? [];
+
+        const hasEndpointChanges =
+            dirtyProviderModels.length > 0 ||
+            ruleReplacements.length > 0 ||
+            deletedEntries.length > 0;
+
+        if (!hasEndpointChanges) continue;
+
+        // ---- provider_models ----
+        if (isDryRun()) {
+            for (const r of dirtyProviderModels) {
+                logWrite("public.data_api_provider_models", "UPSERT", r, {
+                    onConflict: "api_provider_id,endpoint,model_id",
+                });
+            }
+        } else if (dirtyProviderModels.length) {
+            for (const group of chunk(dirtyProviderModels, 500)) {
+                assertOk(
+                    await supa
+                        .from("data_api_provider_models")
+                        .upsert(group, { onConflict: "api_provider_id,endpoint,model_id" }),
+                    "upsert data_api_provider_models"
+                );
+            }
+        }
+
+        // Delete rows for models removed from this endpoint
+        if (!isDryRun()) {
+            if (keepModelIds.length) {
+                assertOk(
+                    await supa
+                        .from("data_api_provider_models")
+                        .delete()
+                        .eq("api_provider_id", api_provider_id)
+                        .eq("endpoint", endpoint)
+                        .not("model_id", "in", toInList(keepModelIds)),
+                    "prune data_api_provider_models"
+                );
             } else {
-                // Delete existing rules for the provider+endpoint scope by joining via model_key
-                // We'll collect all model_keys we care about and delete rules whose model_key is
-                // linked to models under this provider+endpoint.
+                assertOk(
+                    await supa
+                        .from("data_api_provider_models")
+                        .delete()
+                        .eq("api_provider_id", api_provider_id)
+                        .eq("endpoint", endpoint),
+                    "prune-all data_api_provider_models"
+                );
+            }
+        }
 
-                const keepModelKeys = [...new Set(desiredProviderModels.map(m => `${m.api_provider_id}:${m.model_id}:${m.endpoint}`))];
+        // ---- pricing_rules for dirty/deleted model_keys ----
+        const ruleDeletes = new Set<string>();
+        for (const repl of ruleReplacements) ruleDeletes.add(repl.model_key);
+        for (const del of deletedEntries) if (del.model_key) ruleDeletes.add(del.model_key);
 
-                if (keepModelKeys.length) {
-                    // Delete rules where model_key is in the set of models for this provider+endpoint
-                    assertOk(
-                        await supa
-                            .from("data_api_pricing_rules")
-                            .delete()
-                            .in("model_key", keepModelKeys),
-                        "prune data_api_pricing_rules"
-                    );
-                } else {
-                    // If no models, delete all rules for provider by matching model keys that start with provider id prefix
-                    // This is a conservative fallback: delete where model_key LIKE 'provider:%'
-                    assertOk(
-                        await supa
-                            .from("data_api_pricing_rules")
-                            .delete()
-                            .like("model_key", `${api_provider_id}:%`),
-                        "prune-all data_api_pricing_rules"
-                    );
-                }
+        const rowsToInsert = ruleReplacements.flatMap(r => r.rows);
 
-                // Insert new rules in chunks
-                for (const group of chunk(desiredRules, 500)) {
-                    assertOk(
-                        await supa
-                            .from("data_api_pricing_rules")
-                            .insert(group),
-                        "insert data_api_pricing_rules"
-                    );
-                }
+        if (isDryRun()) {
+            for (const key of ruleDeletes) {
+                logWrite("public.data_api_pricing_rules", "DELETE", { model_key: key });
+            }
+            for (const row of rowsToInsert) {
+                logWrite("public.data_api_pricing_rules", "INSERT", row, { onConflict: null });
+            }
+        } else {
+            if (ruleDeletes.size) {
+                assertOk(
+                    await supa
+                        .from("data_api_pricing_rules")
+                        .delete()
+                        .in("model_key", [...ruleDeletes]),
+                    "prune data_api_pricing_rules (targeted)"
+                );
+            }
+
+            for (const group of chunk(rowsToInsert, 500)) {
+                if (!group.length) continue;
+                assertOk(
+                    await supa
+                        .from("data_api_pricing_rules")
+                        .insert(group),
+                    "insert data_api_pricing_rules"
+                );
             }
         }
     }
+
+    if (!hasChanges) return;
 
     await pruneRowsByColumn(
         supa,

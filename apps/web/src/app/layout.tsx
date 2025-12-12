@@ -4,13 +4,15 @@ import { Toaster } from "sonner";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Analytics } from "@vercel/analytics/next";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { Montserrat } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { Metadata } from "next";
 import { METADATA_BASE } from "@/lib/seo";
 import { ChatWidget } from "@/components/chat-widget";
+import { ConsentProvider } from "@/components/analytics/ConsentProvider";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -64,19 +66,23 @@ export default function RootLayout({
 					"min-h-screen h-full bg-background antialiased"
 				)}
 			>
-				<GoogleAnalytics gaId="G-BG2L1NPYGL" />
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="light"
-					enableSystem={false}
-					disableTransitionOnChange
-				>
-					<TooltipProvider>
-						<NuqsAdapter>{children}</NuqsAdapter>
-						<ChatWidget />
-						<TailwindIndicator />
-					</TooltipProvider>
-				</ThemeProvider>
+				<ConsentProvider>
+					{GA_MEASUREMENT_ID ? (
+						<GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+					) : null}
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="light"
+						enableSystem={false}
+						disableTransitionOnChange
+					>
+						<TooltipProvider>
+							<NuqsAdapter>{children}</NuqsAdapter>
+							<ChatWidget />
+							<TailwindIndicator />
+						</TooltipProvider>
+					</ThemeProvider>
+				</ConsentProvider>
 				<Toaster richColors />
 				<Analytics />
 			</body>

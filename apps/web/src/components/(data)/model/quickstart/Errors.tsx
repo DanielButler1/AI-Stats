@@ -9,7 +9,7 @@ import {
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import CodeBlock from "@/components/(data)/model/gateway/CodeBlock";
+import CodeBlock from "@/components/(data)/model/quickstart/CodeBlock";
 import {
 	Shield,
 	LifeBuoy,

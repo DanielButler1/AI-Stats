@@ -13,10 +13,10 @@ type Sdk = {
 const SDKS: Sdk[] = [
 	{
 		name: "TypeScript SDK",
-		packageName: "@ai-stats/ts-sdk",
-		installCommand: "npm install @ai-stats/ts-sdk",
+		packageName: "@ai-stats/sdk",
+		installCommand: "npm install @ai-stats/sdk",
 		logoId: "typescript",
-		managerLink: "https://www.npmjs.com/package/@ai-stats/ts-sdk",
+		managerLink: "https://www.npmjs.com/package/@ai-stats/sdk",
 		supported: true,
 	},
 	{

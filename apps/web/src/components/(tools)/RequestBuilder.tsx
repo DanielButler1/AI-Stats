@@ -32,7 +32,7 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { BASE_URL } from "@/components/(data)/model/gateway/config";
+import { BASE_URL } from "@/components/(data)/model/quickstart/config";
 import { Switch } from "@/components/ui/switch";
 import {
 	Accordion,

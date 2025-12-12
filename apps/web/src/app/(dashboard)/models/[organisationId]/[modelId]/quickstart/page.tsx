@@ -1,6 +1,6 @@
 // src/app/(dashboard)/models/[modelId]/(data)/model/gateway/page.tsx
 import { buildMetadata } from "@/lib/seo";
-import ModelGateway from "@/components/(data)/model/gateway/ModelGateway";
+import ModelGateway from "@/components/(data)/model/quickstart/ModelGateway";
 import ModelDetailShell from "@/components/(data)/model/ModelDetailShell";
 import getModelGatewayMetadata, {
 	getModelGatewayMetadataCached,
@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 import {
 	getModelIdFromParams,
 	type ModelRouteParams,
-} from "@/app/(dashboard)/models/model-route-helpers";
+} from "@/components/(data)/model/model-route-helpers";
 import type { ModelGatewayMetadata } from "@/lib/fetchers/models/getModelGatewayMetadata";
 import getModelOverviewHeader from "@/lib/fetchers/models/getModelOverviewHeader";
 
@@ -58,7 +58,9 @@ export async function generateMetadata(props: {
 	const { metadata, header } = result;
 	const displayName = header?.name ?? metadata.modelId;
 	const organisationName =
-		header?.organisation?.name ?? (metadata as any)?.providerName ?? "AI provider";
+		header?.organisation?.name ??
+		(metadata as any)?.providerName ??
+		"AI provider";
 	const description = `${displayName} gateway support on AI Stats. View providers, streaming support, and routing options for this model.`;
 
 	return buildMetadata({
@@ -83,10 +85,12 @@ export default async function Page({
 }) {
 	const routeParams = await params;
 	const modelId = getModelIdFromParams(routeParams);
-	const metadata = (await getModelGatewayMetadataCached(modelId)) as ModelGatewayMetadata;
+	const metadata = (await getModelGatewayMetadataCached(
+		modelId
+	)) as ModelGatewayMetadata;
 
 	return (
-		<ModelDetailShell modelId={modelId}>
+		<ModelDetailShell modelId={modelId} tab="quickstart">
 			<ModelGateway metadata={metadata} />
 		</ModelDetailShell>
 	);

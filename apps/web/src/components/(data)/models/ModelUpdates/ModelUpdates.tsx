@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import ModelUpdatesFilters from "./ModelUpdatesFilters";
 import ModelUpdatesOnThisDay from "./ModelUpdatesOnThisDay";
 import ModelUpdatesRecentReleases from "./ModelUpdatesRecentReleases";
 import { Megaphone, Rocket, Ban, Archive } from "lucide-react";
@@ -79,33 +78,6 @@ export default function ModelUpdatesPage({
 	pastEvents,
 	upcomingEvents,
 }: ModelUpdatesPageProps) {
-	// Filter states
-	const [selectedProviders, setSelectedProviders] = React.useState<string[]>(
-		[]
-	);
-	const [selectedEvents, setSelectedEvents] = React.useState<EventType[]>([]);
-
-	// Providers derived from events
-	const allProviders = React.useMemo(() => {
-		const seen = new Set<string>();
-		const arr: { id: string; name: string }[] = [];
-		pastEvents.forEach((e) => {
-			const org = e.model.organisation;
-			if (!org) return;
-			if (!seen.has(org.organisation_id)) {
-				arr.push({
-					id: org.organisation_id,
-					name: org.name ?? "Unknown",
-				});
-				seen.add(org.organisation_id);
-			}
-		});
-		// Sort providers alphabetically by name (case-insensitive)
-		return arr.sort((a, b) =>
-			a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
-		);
-	}, [pastEvents]);
-
 	// events are passed in; keep stable reference
 	const allEvents = React.useMemo(() => pastEvents, [pastEvents]);
 
@@ -125,21 +97,8 @@ export default function ModelUpdatesPage({
 	const filteredEvents = React.useMemo(() => {
 		return allEvents
 			.filter((e) => {
-				// Provider filter
-				if (
-					selectedProviders.length > 0 &&
-					!selectedProviders.includes(
-						e.model.organisation?.organisation_id ?? ""
-					)
-				)
-					return false;
-				// Event type filter
-				if (
-					selectedEvents.length > 0 &&
-					!selectedEvents.some((type) => e.types.includes(type))
-				)
-					return false;
 				// Only show events up to today
+				// eslint-disable-next-line react-hooks/purity
 				if (new Date(e.date).getTime() > Date.now()) return false;
 				return true;
 			})
@@ -147,7 +106,7 @@ export default function ModelUpdatesPage({
 				(a, b) =>
 					new Date(b.date).getTime() - new Date(a.date).getTime()
 			);
-	}, [allEvents, selectedProviders, selectedEvents]);
+	}, [allEvents]);
 
 	const upcomingList = React.useMemo(
 		() => upcomingEvents.slice(0, 3),
@@ -194,16 +153,6 @@ export default function ModelUpdatesPage({
 	// Layout
 	return (
 		<div className="w-full">
-			{/* <ModelUpdatesFilters
-				allProviders={allProviders}
-				eventTypeOptions={eventTypeOptions}
-				selectedProviders={selectedProviders}
-				setSelectedProviders={setSelectedProviders}
-				selectedEvents={selectedEvents.map((e) => e as string)}
-				setSelectedEvents={(vals) =>
-					setSelectedEvents(vals.map((v) => v as EventType))
-				}
-			/> */}
 			<ModelUpdatesRecentReleases
 				title="Upcoming Model Updates"
 				events={upcomingList}

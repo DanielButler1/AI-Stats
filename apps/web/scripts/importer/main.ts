@@ -1,5 +1,6 @@
 import "dotenv/config";
 import { isDryRun } from "./supa";
+import { ChangeTracker } from "./state";
 import { loadModels } from "./loaders/models";
 import { loadPricing } from "./loaders/pricing";
 import { loadAliases } from "./loaders/aliases";
@@ -12,7 +13,7 @@ import { DATA_ROOT } from "./paths";
 
 const VERBOSE = process.argv.includes("--verbose");
 
-const tasks: Record<string, () => Promise<void>> = {
+const tasks: Record<string, (tracker: ChangeTracker) => Promise<void>> = {
     families: loadFamilies,
     models: loadModels,
     pricing: loadPricing,
@@ -21,19 +22,21 @@ const tasks: Record<string, () => Promise<void>> = {
     providers: loadProviders,
     aliases: loadAliases,
     subscription_plans: loadSubscriptionPlans,
-    all: async () => {
-        await loadOrganisations();
-        await loadBenchmarks();
-        await loadFamilies();
-        await loadModels();
-        await loadAliases(); // optional: if you have the aliases loader
-        await loadProviders();
-        await loadPricing();
-        await loadSubscriptionPlans();
+    all: async tracker => {
+        await loadOrganisations(tracker);
+        await loadBenchmarks(tracker);
+        await loadFamilies(tracker);
+        await loadModels(tracker);
+        await loadAliases(tracker); // optional: if you have the aliases loader
+        await loadProviders(tracker);
+        await loadPricing(tracker);
+        await loadSubscriptionPlans(tracker);
     },
 };
 
 async function main() {
+    const tracker = await ChangeTracker.init();
+
     const section = (process.argv.find(a => a.startsWith("--section="))?.split("=")[1]) || "all";
     const fn = tasks[section];
     if (!fn) {
@@ -45,7 +48,8 @@ async function main() {
     if (VERBOSE) console.log(`DATA_ROOT: ${DATA_ROOT}`);
 
     console.log(`>> Importing: ${section}`);
-    await fn();
+    await fn(tracker);
+    await tracker.persist({ dryRun: isDryRun() });
     console.log(">> Done.");
 }
 

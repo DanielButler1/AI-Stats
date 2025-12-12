@@ -17,8 +17,16 @@ interface HeroProps {
 }
 
 export default function Hero({ metadata }: HeroProps) {
-	const activeCount = metadata.activeProviders.length;
-	const inactiveCount = metadata.inactiveProviders.length;
+	const activeProviderIds = new Set(
+		metadata.activeProviders.map((p) => p.api_provider_id)
+	);
+	const inactiveProviderIds = new Set(
+		metadata.inactiveProviders
+			.map((p) => p.api_provider_id)
+			.filter((id) => !activeProviderIds.has(id))
+	);
+	const activeCount = activeProviderIds.size;
+	const inactiveCount = inactiveProviderIds.size;
 	const isAvailable = activeCount > 0;
 
 	const StatusIcon = isAvailable ? CheckCircle2 : CircleSlash;

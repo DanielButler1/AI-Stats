@@ -12,7 +12,11 @@ export async function handleAnthropic(supabase: any): Promise<Array<{ type: "web
         "https://www.anthropic.com/learn/claude-for-you",
         "https://www.anthropic.com/learn/claude-for-work",
         "https://www.anthropic.com/learn/build-with-claude",
-        "https://www.anthropic.com/learn"
+        "https://www.anthropic.com/learn",
+        "https://www.anthropic.com/unsubscribe",
+        "https://www.anthropic.com/supported-countries",
+        "https://www.anthropic.com/company",
+        "https://www.anthropic.com/careers"
     ]);
 
     // Query existing links

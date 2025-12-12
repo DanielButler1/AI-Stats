@@ -6,7 +6,7 @@ import {
 	CardTitle,
 	CardDescription,
 } from "@/components/ui/card";
-import CodeBlock from "@/components/(data)/model/gateway/CodeBlock";
+import CodeBlock from "@/components/(data)/model/quickstart/CodeBlock";
 import { BASE_URL } from "./config";
 import { Server } from "lucide-react";
 import PathCell from "./PathCell";
