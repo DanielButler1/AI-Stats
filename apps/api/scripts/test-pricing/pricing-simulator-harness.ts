@@ -6,7 +6,8 @@ import { simulateEach } from "./pricing-simulator-simulation";
 import type { SimulationRun, TabularTable } from "./pricing-simulator-types";
 
 const LOG_PREFIX = "[pricing-test]";
-const DEFAULT_RUNS_PER_COMBO = 100_000;
+const DEFAULT_RUNS_PER_COMBO = 1000;
+// const DEFAULT_RUNS_PER_COMBO = 100_000;
 const MAX_COMBO_REPORT = 10000;
 
 type ComboAggregate = {

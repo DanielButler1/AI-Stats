@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Role** | **string** |  | 
-**Content** | [**MessageContent**](MessageContent.md) |  | 
+**Content** | Pointer to [**ChatMessageContent**](ChatMessageContent.md) |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **ToolCalls** | Pointer to [**[]ToolCall**](ToolCall.md) |  | [optional] 
-**ToolCallId** | **string** |  | 
+**ToolCallId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewChatMessage
 
-`func NewChatMessage(role string, content MessageContent, toolCallId string, ) *ChatMessage`
+`func NewChatMessage(role string, ) *ChatMessage`
 
 NewChatMessage instantiates a new ChatMessage object
 This constructor will assign default values to properties that have it defined,
@@ -51,23 +51,28 @@ SetRole sets Role field to given value.
 
 ### GetContent
 
-`func (o *ChatMessage) GetContent() MessageContent`
+`func (o *ChatMessage) GetContent() ChatMessageContent`
 
 GetContent returns the Content field if non-nil, zero value otherwise.
 
 ### GetContentOk
 
-`func (o *ChatMessage) GetContentOk() (*MessageContent, bool)`
+`func (o *ChatMessage) GetContentOk() (*ChatMessageContent, bool)`
 
 GetContentOk returns a tuple with the Content field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetContent
 
-`func (o *ChatMessage) SetContent(v MessageContent)`
+`func (o *ChatMessage) SetContent(v ChatMessageContent)`
 
 SetContent sets Content field to given value.
 
+### HasContent
+
+`func (o *ChatMessage) HasContent() bool`
+
+HasContent returns a boolean if a field has been set.
 
 ### GetName
 
@@ -138,6 +143,11 @@ and a boolean to check if the value has been set.
 
 SetToolCallId sets ToolCallId field to given value.
 
+### HasToolCallId
+
+`func (o *ChatMessage) HasToolCallId() bool`
+
+HasToolCallId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

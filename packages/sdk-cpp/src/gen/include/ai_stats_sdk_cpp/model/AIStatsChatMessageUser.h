@@ -23,6 +23,8 @@
 #include "ai_stats_sdk_cpp/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsAnyType.h"
+#include <map>
 #include "ai_stats_sdk_cpp/model/AIStatsAIStatsMessageContent.h"
 
 namespace org {

@@ -1,0 +1,49 @@
+---
+title: "Batches"
+description: "Call /batches with the Go SDK."
+---
+
+**Methods**: `client.CreateBatch()`, `client.GetBatch()`.
+
+### Example
+```go
+import (
+    "context"
+    "fmt"
+    "log"
+
+    aistats "packages/sdk-go"
+    "packages/sdk-go/gen"
+)
+
+ctx := context.Background()
+client := aistats.New("your-api-key", "https://api.ai-stats.dev")
+
+req := gen.BatchRequest{
+    Endpoint: "responses",
+    InputFileId: "file_123",
+    CompletionWindow: &"24h",
+}
+
+batch, _, err := client.CreateBatch(ctx, req)
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Println("Batch created:", batch.Id)
+
+status, _, err := client.GetBatch(ctx, batch.Id)
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Println("Batch status:", status.Status)
+```
+
+### Key parameters
+- `endpoint` (required): Target endpoint for batch items (e.g., `responses`).
+- `input_file_id` (required): File id uploaded via `/files`.
+- `completion_window`: e.g., `24h`.
+- `metadata`: Optional object stored with the batch.
+
+### Returns
+`BatchResponse`
+

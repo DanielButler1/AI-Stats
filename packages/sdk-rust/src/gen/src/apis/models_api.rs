@@ -26,41 +26,25 @@ pub enum ModelsGetError {
 }
 
 
-/// Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date (falling back to announcement date) in descending order.
-pub async fn models_get(configuration: &configuration::Configuration, provider: Option<models::ModelsGetProviderParameter>, limit: Option<i32>, offset: Option<i32>, organisation: Option<models::ModelsGetOrganisationParameter>, include_endpoints: Option<models::ModelsGetIncludeEndpointsParameter>, exclude_endpoints: Option<models::ModelsGetIncludeEndpointsParameter>, input_types: Option<models::ModelsGetProviderParameter>, output_types: Option<models::ModelsGetProviderParameter>, include_rumoured: Option<bool>, include_deprecated: Option<bool>, include_retired: Option<bool>) -> Result<models::ModelListResponse, Error<ModelsGetError>> {
+/// Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date in descending order.
+pub async fn models_get(configuration: &configuration::Configuration, endpoints: Option<models::ModelsGetEndpointsParameter>, organisation: Option<models::ModelsGetOrganisationParameter>, input_types: Option<models::ModelsGetInputTypesParameter>, output_types: Option<models::ModelsGetInputTypesParameter>, params: Option<models::ModelsGetInputTypesParameter>, limit: Option<i32>, offset: Option<i32>) -> Result<models::ModelListResponse, Error<ModelsGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_query_provider = provider;
-    let p_query_limit = limit;
-    let p_query_offset = offset;
+    let p_query_endpoints = endpoints;
     let p_query_organisation = organisation;
-    let p_query_include_endpoints = include_endpoints;
-    let p_query_exclude_endpoints = exclude_endpoints;
     let p_query_input_types = input_types;
     let p_query_output_types = output_types;
-    let p_query_include_rumoured = include_rumoured;
-    let p_query_include_deprecated = include_deprecated;
-    let p_query_include_retired = include_retired;
+    let p_query_params = params;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!("{}/models", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_query_provider {
-        req_builder = req_builder.query(&[("provider", &serde_json::to_string(param_value)?)]);
-    }
-    if let Some(ref param_value) = p_query_limit {
-        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_query_offset {
-        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
+    if let Some(ref param_value) = p_query_endpoints {
+        req_builder = req_builder.query(&[("endpoints", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = p_query_organisation {
         req_builder = req_builder.query(&[("organisation", &serde_json::to_string(param_value)?)]);
-    }
-    if let Some(ref param_value) = p_query_include_endpoints {
-        req_builder = req_builder.query(&[("include_endpoints", &serde_json::to_string(param_value)?)]);
-    }
-    if let Some(ref param_value) = p_query_exclude_endpoints {
-        req_builder = req_builder.query(&[("exclude_endpoints", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = p_query_input_types {
         req_builder = req_builder.query(&[("input_types", &serde_json::to_string(param_value)?)]);
@@ -68,14 +52,14 @@ pub async fn models_get(configuration: &configuration::Configuration, provider: 
     if let Some(ref param_value) = p_query_output_types {
         req_builder = req_builder.query(&[("output_types", &serde_json::to_string(param_value)?)]);
     }
-    if let Some(ref param_value) = p_query_include_rumoured {
-        req_builder = req_builder.query(&[("include_rumoured", &param_value.to_string())]);
+    if let Some(ref param_value) = p_query_params {
+        req_builder = req_builder.query(&[("params", &serde_json::to_string(param_value)?)]);
     }
-    if let Some(ref param_value) = p_query_include_deprecated {
-        req_builder = req_builder.query(&[("include_deprecated", &param_value.to_string())]);
+    if let Some(ref param_value) = p_query_limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_query_include_retired {
-        req_builder = req_builder.query(&[("include_retired", &param_value.to_string())]);
+    if let Some(ref param_value) = p_query_offset {
+        req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

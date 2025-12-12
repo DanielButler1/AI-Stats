@@ -1,0 +1,47 @@
+---
+title: "Embeddings"
+description: "Call /embeddings with the PHP SDK."
+---
+
+**Method**: Direct HTTP POST /embeddings
+
+### Example
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use AIStats\Sdk\Configuration;
+use GuzzleHttp\Client;
+
+$apiKey = getenv('AI_STATS_API_KEY');
+$config = Configuration::getDefaultConfiguration()
+    ->setHost('https://api.ai-stats.phaseo.app/v1')
+    ->setApiKey('GatewayAuth', 'Bearer ' . $apiKey);
+
+$client = new Client();
+$response = $client->post($config->getHost() . '/embeddings', [
+    'headers' => [
+        'Authorization' => 'Bearer ' . $apiKey,
+        'Content-Type' => 'application/json',
+    ],
+    'json' => [
+        'model' => 'openai/text-embedding-3-large',
+        'input' => 'Sample text'
+    ]
+]);
+
+$data = json_decode($response->getBody(), true);
+echo $data['data'][0]['embedding'][0];
+```
+
+### Key parameters
+- `model` (required): Embedding model id (e.g., `openai/text-embedding-3-large`).
+- `input` (required): String or array of strings.
+- `encoding_format`: `float` (default) or `base64`.
+- `dimensions`: Optional integer to truncate embedding length (model-dependent).
+- `user`: Optional end-user tag.
+
+### Returns
+Embedding payload (JSON)
+

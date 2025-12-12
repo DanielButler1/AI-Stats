@@ -1,0 +1,37 @@
+---
+title: "Video generation"
+description: "Call /video/generation with the Rust SDK."
+---
+
+**Method**: `video_api::video_generation_post()`.
+
+### Example
+```rust
+use ai_stats_sdk::apis::{configuration::Configuration, video_api};
+use ai_stats_sdk::models::VideoGenerationRequest;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let mut config = Configuration::new();
+    config.bearer_access_token = Some("your-api-key".to_string());
+
+    let request = VideoGenerationRequest::new(
+        "openai/gpt-video-1".to_string(),
+        "A serene mountain lake at sunrise".to_string()
+    );
+
+    let response = video_api::video_generation_post(&config, request).await?;
+    println!("Video generation: {:?}", response);
+    Ok(())
+}
+```
+
+### Key parameters
+- `model` (required): The model to use for video generation.
+- `prompt` (required): Description of the video to generate.
+- `duration` (optional): Duration of the video.
+- `ratio` (optional): Aspect ratio of the video.
+
+### Returns
+`VideoGenerationResponse` containing the generated video details.
+

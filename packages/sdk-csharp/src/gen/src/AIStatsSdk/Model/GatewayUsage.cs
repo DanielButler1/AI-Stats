@@ -117,6 +117,12 @@ namespace AIStatsSdk.Model
         public int? CachedReadTextTokens { get { return this.CachedReadTextTokensOption; } set { this.CachedReadTextTokensOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -129,6 +135,7 @@ namespace AIStatsSdk.Model
             sb.Append("  OutputTextTokens: ").Append(OutputTextTokens).Append("\n");
             sb.Append("  ReasoningTokens: ").Append(ReasoningTokens).Append("\n");
             sb.Append("  CachedReadTextTokens: ").Append(CachedReadTextTokens).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -247,12 +254,6 @@ namespace AIStatsSdk.Model
             if (outputTextTokens.IsSet && outputTextTokens.Value == null)
                 throw new ArgumentNullException(nameof(outputTextTokens), "Property is not nullable for class GatewayUsage.");
 
-            if (reasoningTokens.IsSet && reasoningTokens.Value == null)
-                throw new ArgumentNullException(nameof(reasoningTokens), "Property is not nullable for class GatewayUsage.");
-
-            if (cachedReadTextTokens.IsSet && cachedReadTextTokens.Value == null)
-                throw new ArgumentNullException(nameof(cachedReadTextTokens), "Property is not nullable for class GatewayUsage.");
-
             return new GatewayUsage(totalTokens, inputTextTokens, outputTextTokens, reasoningTokens, cachedReadTextTokens);
         }
 
@@ -290,10 +291,16 @@ namespace AIStatsSdk.Model
                 writer.WriteNumber("output_text_tokens", gatewayUsage.OutputTextTokensOption.Value!.Value);
 
             if (gatewayUsage.ReasoningTokensOption.IsSet)
-                writer.WriteNumber("reasoning_tokens", gatewayUsage.ReasoningTokensOption.Value!.Value);
+                if (gatewayUsage.ReasoningTokensOption.Value != null)
+                    writer.WriteNumber("reasoning_tokens", gatewayUsage.ReasoningTokensOption.Value!.Value);
+                else
+                    writer.WriteNull("reasoning_tokens");
 
             if (gatewayUsage.CachedReadTextTokensOption.IsSet)
-                writer.WriteNumber("cached_read_text_tokens", gatewayUsage.CachedReadTextTokensOption.Value!.Value);
+                if (gatewayUsage.CachedReadTextTokensOption.Value != null)
+                    writer.WriteNumber("cached_read_text_tokens", gatewayUsage.CachedReadTextTokensOption.Value!.Value);
+                else
+                    writer.WriteNull("cached_read_text_tokens");
         }
     }
 }

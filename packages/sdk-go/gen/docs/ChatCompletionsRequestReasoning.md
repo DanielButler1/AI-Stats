@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Effort** | Pointer to **string** |  | [optional] 
-**Summary** | Pointer to **string** |  | [optional] 
+**Effort** | Pointer to **string** |  | [optional] [default to "medium"]
+**Summary** | Pointer to **string** |  | [optional] [default to "auto"]
 
 ## Methods
 

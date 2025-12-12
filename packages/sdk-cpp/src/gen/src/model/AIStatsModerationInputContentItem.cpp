@@ -18,54 +18,51 @@ namespace openapitools {
 namespace client {
 namespace model {
 
-AIStatsModerationInputContentItem::AIStatsModerationInputContentItem()
-{
-}
-
-AIStatsModerationInputContentItem::~AIStatsModerationInputContentItem()
-{
-}
-
 void AIStatsModerationInputContentItem::validate()
 {
     // TODO: implement validation
+}
+
+const AIStatsModerationInputContentItem::VariantType& AIStatsModerationInputContentItem::getVariant() const
+{
+    return m_variantValue;
+}
+
+void AIStatsModerationInputContentItem::setVariant(AIStatsModerationInputContentItem::VariantType value)
+{
+    m_variantValue = value;
 }
 
 web::json::value AIStatsModerationInputContentItem::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    return val;
-}
+    std::visit([&](auto&& arg) {
+        using T = std::decay_t<decltype(arg)>;
+        if constexpr (std::is_same_v<T, std::monostate>) {
+            val = web::json::value::null();
+        } else {
+            val = arg.toJson();
+        }
+    }, m_variantValue);
 
-bool AIStatsModerationInputContentItem::fromJson(const web::json::value& val)
-{
-    bool ok = true;
-    return ok;
+    return val;
 }
 
 void AIStatsModerationInputContentItem::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(_XPLATSTR(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(_XPLATSTR("."));
-    }
+    std::visit([&](auto&& arg) {
+        using T = std::decay_t<decltype(arg)>;
+        if constexpr (!std::is_same_v<T, std::monostate>) {
+          arg.toMultipart(multipart, prefix);
+        }
+    }, m_variantValue);
 }
 
-bool AIStatsModerationInputContentItem::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
-{
-    bool ok = true;
-    utility::string_t namePrefix = prefix;
-    if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(_XPLATSTR(".")))
-    {
-        namePrefix += utility::conversions::to_string_t(_XPLATSTR("."));
-    }
-
-    return ok;
-}
-
-
+template bool AIStatsModerationInputContentItem::fromJson<AIStatsModerationInputImageUrlItem>(const web::json::value& json);
+template bool AIStatsModerationInputContentItem::fromMultiPart<AIStatsModerationInputImageUrlItem>(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix);
+template bool AIStatsModerationInputContentItem::fromJson<AIStatsModerationInputTextItem>(const web::json::value& json);
+template bool AIStatsModerationInputContentItem::fromMultiPart<AIStatsModerationInputTextItem>(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix);
 
 }
 }

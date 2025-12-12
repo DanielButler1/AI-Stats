@@ -1,0 +1,29 @@
+---
+title: "Image edits"
+description: "Call /images/edits with the Python SDK."
+---
+
+**Method**: `client.generate_image_edit()`.
+
+### Example
+```python
+edited = client.generate_image_edit({
+    "model": "openai/gpt-image-1",
+    "prompt": "Make it sunset",
+    "image": "data:image/png;base64,...",
+    "mask": "data:image/png;base64,...",
+})
+```
+
+### Key parameters
+- `model` (required): Image-edit capable model id.
+- `image` (required): Base64 data URL or URL to source image.
+- `prompt`: Optional new instruction for the edit.
+- `mask`: Optional mask (transparent regions edited).
+- `n` (1–10): Number of edited variants.
+- `size`: e.g., `1024x1024`, `1024x1792`, `1792x1024`.
+- `response_format`: `url` or `b64_json`.
+- `user`: Optional end-user tag.
+
+### Returns
+`ImageGenerationResponse`

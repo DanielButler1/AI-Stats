@@ -130,26 +130,22 @@ class ModelsApi
      *
      * List all gateway models
      *
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $provider Filter results to models served by one or more provider identifiers. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetEndpointsParameter|null $endpoints Only return models that support at least one of the specified gateway endpoints. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetOrganisationParameter|null $organisation Restrict results to models associated with one or more organisation identifiers. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $input_types Only return models that advertise support for at least one of the requested input content types. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $output_types Only return models that advertise support for at least one of the requested output content types. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $params Only return models that support at least one of the specified parameters. (optional)
      * @param  int|null $limit Maximum number of models to return (default 50). (optional)
      * @param  int|null $offset Number of models to skip before starting the page. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetOrganisationParameter|null $organisation Restrict results to models associated with one or more organisation identifiers. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter|null $include_endpoints Only return models that support at least one of the specified gateway endpoints. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter|null $exclude_endpoints Exclude models that support any of the specified gateway endpoints. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $input_types Only return models that advertise support for at least one of the requested input content types. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $output_types Only return models that advertise support for at least one of the requested output content types. (optional)
-     * @param  bool|null $include_rumoured Whether to include models marked as rumoured in the response (default true). (optional, default to true)
-     * @param  bool|null $include_deprecated Whether to include models marked as deprecated in the response (default true). (optional, default to true)
-     * @param  bool|null $include_retired Whether to include models marked as retired in the response (default true). (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modelsGet'] to see the possible values for this operation
      *
      * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \AIStats\\Sdk\Model\ModelListResponse|\AIStats\\Sdk\Model\GatewayError|\AIStats\\Sdk\Model\GatewayError|\AIStats\\Sdk\Model\GatewayError
      */
-    public function modelsGet($provider = null, $limit = null, $offset = null, $organisation = null, $include_endpoints = null, $exclude_endpoints = null, $input_types = null, $output_types = null, $include_rumoured = true, $include_deprecated = true, $include_retired = true, string $contentType = self::contentTypes['modelsGet'][0])
+    public function modelsGet($endpoints = null, $organisation = null, $input_types = null, $output_types = null, $params = null, $limit = null, $offset = null, string $contentType = self::contentTypes['modelsGet'][0])
     {
-        list($response) = $this->modelsGetWithHttpInfo($provider, $limit, $offset, $organisation, $include_endpoints, $exclude_endpoints, $input_types, $output_types, $include_rumoured, $include_deprecated, $include_retired, $contentType);
+        list($response) = $this->modelsGetWithHttpInfo($endpoints, $organisation, $input_types, $output_types, $params, $limit, $offset, $contentType);
         return $response;
     }
 
@@ -158,26 +154,22 @@ class ModelsApi
      *
      * List all gateway models
      *
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $provider Filter results to models served by one or more provider identifiers. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetEndpointsParameter|null $endpoints Only return models that support at least one of the specified gateway endpoints. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetOrganisationParameter|null $organisation Restrict results to models associated with one or more organisation identifiers. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $input_types Only return models that advertise support for at least one of the requested input content types. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $output_types Only return models that advertise support for at least one of the requested output content types. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $params Only return models that support at least one of the specified parameters. (optional)
      * @param  int|null $limit Maximum number of models to return (default 50). (optional)
      * @param  int|null $offset Number of models to skip before starting the page. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetOrganisationParameter|null $organisation Restrict results to models associated with one or more organisation identifiers. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter|null $include_endpoints Only return models that support at least one of the specified gateway endpoints. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter|null $exclude_endpoints Exclude models that support any of the specified gateway endpoints. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $input_types Only return models that advertise support for at least one of the requested input content types. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $output_types Only return models that advertise support for at least one of the requested output content types. (optional)
-     * @param  bool|null $include_rumoured Whether to include models marked as rumoured in the response (default true). (optional, default to true)
-     * @param  bool|null $include_deprecated Whether to include models marked as deprecated in the response (default true). (optional, default to true)
-     * @param  bool|null $include_retired Whether to include models marked as retired in the response (default true). (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modelsGet'] to see the possible values for this operation
      *
      * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \AIStats\\Sdk\Model\ModelListResponse|\AIStats\\Sdk\Model\GatewayError|\AIStats\\Sdk\Model\GatewayError|\AIStats\\Sdk\Model\GatewayError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function modelsGetWithHttpInfo($provider = null, $limit = null, $offset = null, $organisation = null, $include_endpoints = null, $exclude_endpoints = null, $input_types = null, $output_types = null, $include_rumoured = true, $include_deprecated = true, $include_retired = true, string $contentType = self::contentTypes['modelsGet'][0])
+    public function modelsGetWithHttpInfo($endpoints = null, $organisation = null, $input_types = null, $output_types = null, $params = null, $limit = null, $offset = null, string $contentType = self::contentTypes['modelsGet'][0])
     {
-        $request = $this->modelsGetRequest($provider, $limit, $offset, $organisation, $include_endpoints, $exclude_endpoints, $input_types, $output_types, $include_rumoured, $include_deprecated, $include_retired, $contentType);
+        $request = $this->modelsGetRequest($endpoints, $organisation, $input_types, $output_types, $params, $limit, $offset, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -295,25 +287,21 @@ class ModelsApi
      *
      * List all gateway models
      *
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $provider Filter results to models served by one or more provider identifiers. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetEndpointsParameter|null $endpoints Only return models that support at least one of the specified gateway endpoints. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetOrganisationParameter|null $organisation Restrict results to models associated with one or more organisation identifiers. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $input_types Only return models that advertise support for at least one of the requested input content types. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $output_types Only return models that advertise support for at least one of the requested output content types. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $params Only return models that support at least one of the specified parameters. (optional)
      * @param  int|null $limit Maximum number of models to return (default 50). (optional)
      * @param  int|null $offset Number of models to skip before starting the page. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetOrganisationParameter|null $organisation Restrict results to models associated with one or more organisation identifiers. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter|null $include_endpoints Only return models that support at least one of the specified gateway endpoints. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter|null $exclude_endpoints Exclude models that support any of the specified gateway endpoints. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $input_types Only return models that advertise support for at least one of the requested input content types. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $output_types Only return models that advertise support for at least one of the requested output content types. (optional)
-     * @param  bool|null $include_rumoured Whether to include models marked as rumoured in the response (default true). (optional, default to true)
-     * @param  bool|null $include_deprecated Whether to include models marked as deprecated in the response (default true). (optional, default to true)
-     * @param  bool|null $include_retired Whether to include models marked as retired in the response (default true). (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modelsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function modelsGetAsync($provider = null, $limit = null, $offset = null, $organisation = null, $include_endpoints = null, $exclude_endpoints = null, $input_types = null, $output_types = null, $include_rumoured = true, $include_deprecated = true, $include_retired = true, string $contentType = self::contentTypes['modelsGet'][0])
+    public function modelsGetAsync($endpoints = null, $organisation = null, $input_types = null, $output_types = null, $params = null, $limit = null, $offset = null, string $contentType = self::contentTypes['modelsGet'][0])
     {
-        return $this->modelsGetAsyncWithHttpInfo($provider, $limit, $offset, $organisation, $include_endpoints, $exclude_endpoints, $input_types, $output_types, $include_rumoured, $include_deprecated, $include_retired, $contentType)
+        return $this->modelsGetAsyncWithHttpInfo($endpoints, $organisation, $input_types, $output_types, $params, $limit, $offset, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -326,26 +314,22 @@ class ModelsApi
      *
      * List all gateway models
      *
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $provider Filter results to models served by one or more provider identifiers. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetEndpointsParameter|null $endpoints Only return models that support at least one of the specified gateway endpoints. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetOrganisationParameter|null $organisation Restrict results to models associated with one or more organisation identifiers. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $input_types Only return models that advertise support for at least one of the requested input content types. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $output_types Only return models that advertise support for at least one of the requested output content types. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $params Only return models that support at least one of the specified parameters. (optional)
      * @param  int|null $limit Maximum number of models to return (default 50). (optional)
      * @param  int|null $offset Number of models to skip before starting the page. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetOrganisationParameter|null $organisation Restrict results to models associated with one or more organisation identifiers. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter|null $include_endpoints Only return models that support at least one of the specified gateway endpoints. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter|null $exclude_endpoints Exclude models that support any of the specified gateway endpoints. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $input_types Only return models that advertise support for at least one of the requested input content types. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $output_types Only return models that advertise support for at least one of the requested output content types. (optional)
-     * @param  bool|null $include_rumoured Whether to include models marked as rumoured in the response (default true). (optional, default to true)
-     * @param  bool|null $include_deprecated Whether to include models marked as deprecated in the response (default true). (optional, default to true)
-     * @param  bool|null $include_retired Whether to include models marked as retired in the response (default true). (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modelsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function modelsGetAsyncWithHttpInfo($provider = null, $limit = null, $offset = null, $organisation = null, $include_endpoints = null, $exclude_endpoints = null, $input_types = null, $output_types = null, $include_rumoured = true, $include_deprecated = true, $include_retired = true, string $contentType = self::contentTypes['modelsGet'][0])
+    public function modelsGetAsyncWithHttpInfo($endpoints = null, $organisation = null, $input_types = null, $output_types = null, $params = null, $limit = null, $offset = null, string $contentType = self::contentTypes['modelsGet'][0])
     {
         $returnType = '\AIStats\\Sdk\Model\ModelListResponse';
-        $request = $this->modelsGetRequest($provider, $limit, $offset, $organisation, $include_endpoints, $exclude_endpoints, $input_types, $output_types, $include_rumoured, $include_deprecated, $include_retired, $contentType);
+        $request = $this->modelsGetRequest($endpoints, $organisation, $input_types, $output_types, $params, $limit, $offset, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -386,24 +370,24 @@ class ModelsApi
     /**
      * Create request for operation 'modelsGet'
      *
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $provider Filter results to models served by one or more provider identifiers. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetEndpointsParameter|null $endpoints Only return models that support at least one of the specified gateway endpoints. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetOrganisationParameter|null $organisation Restrict results to models associated with one or more organisation identifiers. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $input_types Only return models that advertise support for at least one of the requested input content types. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $output_types Only return models that advertise support for at least one of the requested output content types. (optional)
+     * @param  \AIStats\\Sdk\Model\ModelsGetInputTypesParameter|null $params Only return models that support at least one of the specified parameters. (optional)
      * @param  int|null $limit Maximum number of models to return (default 50). (optional)
      * @param  int|null $offset Number of models to skip before starting the page. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetOrganisationParameter|null $organisation Restrict results to models associated with one or more organisation identifiers. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter|null $include_endpoints Only return models that support at least one of the specified gateway endpoints. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetIncludeEndpointsParameter|null $exclude_endpoints Exclude models that support any of the specified gateway endpoints. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $input_types Only return models that advertise support for at least one of the requested input content types. (optional)
-     * @param  \AIStats\\Sdk\Model\ModelsGetProviderParameter|null $output_types Only return models that advertise support for at least one of the requested output content types. (optional)
-     * @param  bool|null $include_rumoured Whether to include models marked as rumoured in the response (default true). (optional, default to true)
-     * @param  bool|null $include_deprecated Whether to include models marked as deprecated in the response (default true). (optional, default to true)
-     * @param  bool|null $include_retired Whether to include models marked as retired in the response (default true). (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['modelsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function modelsGetRequest($provider = null, $limit = null, $offset = null, $organisation = null, $include_endpoints = null, $exclude_endpoints = null, $input_types = null, $output_types = null, $include_rumoured = true, $include_deprecated = true, $include_retired = true, string $contentType = self::contentTypes['modelsGet'][0])
+    public function modelsGetRequest($endpoints = null, $organisation = null, $input_types = null, $output_types = null, $params = null, $limit = null, $offset = null, string $contentType = self::contentTypes['modelsGet'][0])
     {
+
+
+
+
 
 
         if ($limit !== null && $limit > 250) {
@@ -418,14 +402,6 @@ class ModelsApi
         }
         
 
-
-
-
-
-
-
-
-
         $resourcePath = '/models';
         $formParams = [];
         $queryParams = [];
@@ -435,27 +411,9 @@ class ModelsApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $provider,
-            'provider', // param base name
+            $endpoints,
+            'endpoints', // param base name
             'string|string[]', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $limit,
-            'limit', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $offset,
-            'offset', // param base name
-            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -465,24 +423,6 @@ class ModelsApi
             $organisation,
             'organisation', // param base name
             '\AIStats\\Sdk\Model\OrganisationId|\AIStats\\Sdk\Model\OrganisationId[]', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $include_endpoints,
-            'include_endpoints', // param base name
-            'string|string[]', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $exclude_endpoints,
-            'exclude_endpoints', // param base name
-            'string|string[]', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -507,27 +447,27 @@ class ModelsApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $include_rumoured,
-            'include_rumoured', // param base name
-            'boolean', // openApiType
+            $params,
+            'params', // param base name
+            'string|string[]', // openApiType
             'form', // style
             true, // explode
             false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $include_deprecated,
-            'include_deprecated', // param base name
-            'boolean', // openApiType
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $include_retired,
-            'include_retired', // param base name
-            'boolean', // openApiType
+            $offset,
+            'offset', // param base name
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required

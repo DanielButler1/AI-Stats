@@ -12,7 +12,6 @@ package ai_stats_sdk
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -27,21 +26,21 @@ type GatewayModel struct {
 	Name NullableString `json:"name"`
 	// Earliest known public release date.
 	ReleaseDate NullableString `json:"release_date"`
-	// Earliest known public announcement date if different from release.
-	AnnouncementDate NullableString `json:"announcement_date"`
 	// Lifecycle status of the model (Rumoured, Announced, Available, Deprecated, Retired).
 	Status NullableString `json:"status"`
-	Organisation NullableOrganisationId `json:"organisation"`
+	// Organisation identifier responsible for the model.
+	OrganisationId NullableString `json:"organisation_id"`
 	// Enabled aliases that resolve to this model.
 	Aliases []string `json:"aliases"`
 	// Gateway endpoints that currently route to this model.
 	Endpoints []string `json:"endpoints"`
-	// Provider mappings that can serve this model.
-	Providers []GatewayModelProvider `json:"providers"`
 	// Input content types supported by the model itself.
 	InputTypes []string `json:"input_types"`
 	// Output content types supported by the model itself.
 	OutputTypes []string `json:"output_types"`
+	// Providers that support this model with their parameters.
+	Providers []ProviderInfo `json:"providers"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _GatewayModel GatewayModel
@@ -50,19 +49,18 @@ type _GatewayModel GatewayModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGatewayModel(modelId string, name NullableString, releaseDate NullableString, announcementDate NullableString, status NullableString, organisation NullableOrganisationId, aliases []string, endpoints []string, providers []GatewayModelProvider, inputTypes []string, outputTypes []string) *GatewayModel {
+func NewGatewayModel(modelId string, name NullableString, releaseDate NullableString, status NullableString, organisationId NullableString, aliases []string, endpoints []string, inputTypes []string, outputTypes []string, providers []ProviderInfo) *GatewayModel {
 	this := GatewayModel{}
 	this.ModelId = modelId
 	this.Name = name
 	this.ReleaseDate = releaseDate
-	this.AnnouncementDate = announcementDate
 	this.Status = status
-	this.Organisation = organisation
+	this.OrganisationId = organisationId
 	this.Aliases = aliases
 	this.Endpoints = endpoints
-	this.Providers = providers
 	this.InputTypes = inputTypes
 	this.OutputTypes = outputTypes
+	this.Providers = providers
 	return &this
 }
 
@@ -150,32 +148,6 @@ func (o *GatewayModel) SetReleaseDate(v string) {
 	o.ReleaseDate.Set(&v)
 }
 
-// GetAnnouncementDate returns the AnnouncementDate field value
-// If the value is explicit nil, the zero value for string will be returned
-func (o *GatewayModel) GetAnnouncementDate() string {
-	if o == nil || o.AnnouncementDate.Get() == nil {
-		var ret string
-		return ret
-	}
-
-	return *o.AnnouncementDate.Get()
-}
-
-// GetAnnouncementDateOk returns a tuple with the AnnouncementDate field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GatewayModel) GetAnnouncementDateOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AnnouncementDate.Get(), o.AnnouncementDate.IsSet()
-}
-
-// SetAnnouncementDate sets field value
-func (o *GatewayModel) SetAnnouncementDate(v string) {
-	o.AnnouncementDate.Set(&v)
-}
-
 // GetStatus returns the Status field value
 // If the value is explicit nil, the zero value for string will be returned
 func (o *GatewayModel) GetStatus() string {
@@ -202,30 +174,30 @@ func (o *GatewayModel) SetStatus(v string) {
 	o.Status.Set(&v)
 }
 
-// GetOrganisation returns the Organisation field value
-// If the value is explicit nil, the zero value for OrganisationId will be returned
-func (o *GatewayModel) GetOrganisation() OrganisationId {
-	if o == nil || o.Organisation.Get() == nil {
-		var ret OrganisationId
+// GetOrganisationId returns the OrganisationId field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *GatewayModel) GetOrganisationId() string {
+	if o == nil || o.OrganisationId.Get() == nil {
+		var ret string
 		return ret
 	}
 
-	return *o.Organisation.Get()
+	return *o.OrganisationId.Get()
 }
 
-// GetOrganisationOk returns a tuple with the Organisation field value
+// GetOrganisationIdOk returns a tuple with the OrganisationId field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GatewayModel) GetOrganisationOk() (*OrganisationId, bool) {
+func (o *GatewayModel) GetOrganisationIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Organisation.Get(), o.Organisation.IsSet()
+	return o.OrganisationId.Get(), o.OrganisationId.IsSet()
 }
 
-// SetOrganisation sets field value
-func (o *GatewayModel) SetOrganisation(v OrganisationId) {
-	o.Organisation.Set(&v)
+// SetOrganisationId sets field value
+func (o *GatewayModel) SetOrganisationId(v string) {
+	o.OrganisationId.Set(&v)
 }
 
 // GetAliases returns the Aliases field value
@@ -276,30 +248,6 @@ func (o *GatewayModel) SetEndpoints(v []string) {
 	o.Endpoints = v
 }
 
-// GetProviders returns the Providers field value
-func (o *GatewayModel) GetProviders() []GatewayModelProvider {
-	if o == nil {
-		var ret []GatewayModelProvider
-		return ret
-	}
-
-	return o.Providers
-}
-
-// GetProvidersOk returns a tuple with the Providers field value
-// and a boolean to check if the value has been set.
-func (o *GatewayModel) GetProvidersOk() ([]GatewayModelProvider, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Providers, true
-}
-
-// SetProviders sets field value
-func (o *GatewayModel) SetProviders(v []GatewayModelProvider) {
-	o.Providers = v
-}
-
 // GetInputTypes returns the InputTypes field value
 func (o *GatewayModel) GetInputTypes() []string {
 	if o == nil {
@@ -348,6 +296,30 @@ func (o *GatewayModel) SetOutputTypes(v []string) {
 	o.OutputTypes = v
 }
 
+// GetProviders returns the Providers field value
+func (o *GatewayModel) GetProviders() []ProviderInfo {
+	if o == nil {
+		var ret []ProviderInfo
+		return ret
+	}
+
+	return o.Providers
+}
+
+// GetProvidersOk returns a tuple with the Providers field value
+// and a boolean to check if the value has been set.
+func (o *GatewayModel) GetProvidersOk() ([]ProviderInfo, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Providers, true
+}
+
+// SetProviders sets field value
+func (o *GatewayModel) SetProviders(v []ProviderInfo) {
+	o.Providers = v
+}
+
 func (o GatewayModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -361,14 +333,18 @@ func (o GatewayModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["model_id"] = o.ModelId
 	toSerialize["name"] = o.Name.Get()
 	toSerialize["release_date"] = o.ReleaseDate.Get()
-	toSerialize["announcement_date"] = o.AnnouncementDate.Get()
 	toSerialize["status"] = o.Status.Get()
-	toSerialize["organisation"] = o.Organisation.Get()
+	toSerialize["organisation_id"] = o.OrganisationId.Get()
 	toSerialize["aliases"] = o.Aliases
 	toSerialize["endpoints"] = o.Endpoints
-	toSerialize["providers"] = o.Providers
 	toSerialize["input_types"] = o.InputTypes
 	toSerialize["output_types"] = o.OutputTypes
+	toSerialize["providers"] = o.Providers
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -380,14 +356,13 @@ func (o *GatewayModel) UnmarshalJSON(data []byte) (err error) {
 		"model_id",
 		"name",
 		"release_date",
-		"announcement_date",
 		"status",
-		"organisation",
+		"organisation_id",
 		"aliases",
 		"endpoints",
-		"providers",
 		"input_types",
 		"output_types",
+		"providers",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -406,15 +381,29 @@ func (o *GatewayModel) UnmarshalJSON(data []byte) (err error) {
 
 	varGatewayModel := _GatewayModel{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGatewayModel)
+	err = json.Unmarshal(data, &varGatewayModel)
 
 	if err != nil {
 		return err
 	}
 
 	*o = GatewayModel(varGatewayModel)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "model_id")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "release_date")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "organisation_id")
+		delete(additionalProperties, "aliases")
+		delete(additionalProperties, "endpoints")
+		delete(additionalProperties, "input_types")
+		delete(additionalProperties, "output_types")
+		delete(additionalProperties, "providers")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

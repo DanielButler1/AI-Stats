@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Index** | **int32** |  | 
 **Message** | [**GatewayChatChoiceMessage**](GatewayChatChoiceMessage.md) |  | 
 **FinishReason** | **NullableString** | Why the model stopped generating tokens. | 
-**Reasoning** | Pointer to **bool** | True when the choice contains provider reasoning traces. | [optional] 
+**Reasoning** | Pointer to **NullableBool** | True when the choice contains provider reasoning traces. | [optional] 
 
 ## Methods
 
@@ -123,6 +123,16 @@ SetReasoning sets Reasoning field to given value.
 
 HasReasoning returns a boolean if a field has been set.
 
+### SetReasoningNil
+
+`func (o *GatewayChatChoice) SetReasoningNil(b bool)`
+
+ SetReasoningNil sets the value for Reasoning to be an explicit nil
+
+### UnsetReasoning
+`func (o *GatewayChatChoice) UnsetReasoning()`
+
+UnsetReasoning ensures that no value is present for Reasoning, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

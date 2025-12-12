@@ -12,7 +12,6 @@ package ai_stats_sdk
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ImageGenerationRequest struct {
 	Prompt string `json:"prompt"`
 	Size *string `json:"size,omitempty"`
 	N *int32 `json:"n,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ImageGenerationRequest ImageGenerationRequest
@@ -178,6 +178,11 @@ func (o ImageGenerationRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.N) {
 		toSerialize["n"] = o.N
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -206,15 +211,23 @@ func (o *ImageGenerationRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varImageGenerationRequest := _ImageGenerationRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varImageGenerationRequest)
+	err = json.Unmarshal(data, &varImageGenerationRequest)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ImageGenerationRequest(varImageGenerationRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "model")
+		delete(additionalProperties, "prompt")
+		delete(additionalProperties, "size")
+		delete(additionalProperties, "n")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Ok** | Pointer to **bool** |  | [optional] 
 **Error** | **string** |  | 
-**Reason** | Pointer to **string** |  | [optional] 
-**Message** | Pointer to **string** |  | [optional] 
-**RequestId** | Pointer to **string** |  | [optional] 
-**TeamId** | Pointer to **string** |  | [optional] 
-**Model** | Pointer to **string** |  | [optional] 
+**Reason** | Pointer to **NullableString** |  | [optional] 
+**Message** | Pointer to **NullableString** |  | [optional] 
+**RequestId** | Pointer to **NullableString** |  | [optional] 
+**TeamId** | Pointer to **NullableString** |  | [optional] 
+**Model** | Pointer to **NullableString** |  | [optional] 
 **Meta** | Pointer to [**GatewayErrorMeta**](GatewayErrorMeta.md) |  | [optional] 
 **Timing** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -103,6 +103,16 @@ SetReason sets Reason field to given value.
 
 HasReason returns a boolean if a field has been set.
 
+### SetReasonNil
+
+`func (o *GatewayError) SetReasonNil(b bool)`
+
+ SetReasonNil sets the value for Reason to be an explicit nil
+
+### UnsetReason
+`func (o *GatewayError) UnsetReason()`
+
+UnsetReason ensures that no value is present for Reason, not even an explicit nil
 ### GetMessage
 
 `func (o *GatewayError) GetMessage() string`
@@ -128,6 +138,16 @@ SetMessage sets Message field to given value.
 
 HasMessage returns a boolean if a field has been set.
 
+### SetMessageNil
+
+`func (o *GatewayError) SetMessageNil(b bool)`
+
+ SetMessageNil sets the value for Message to be an explicit nil
+
+### UnsetMessage
+`func (o *GatewayError) UnsetMessage()`
+
+UnsetMessage ensures that no value is present for Message, not even an explicit nil
 ### GetRequestId
 
 `func (o *GatewayError) GetRequestId() string`
@@ -153,6 +173,16 @@ SetRequestId sets RequestId field to given value.
 
 HasRequestId returns a boolean if a field has been set.
 
+### SetRequestIdNil
+
+`func (o *GatewayError) SetRequestIdNil(b bool)`
+
+ SetRequestIdNil sets the value for RequestId to be an explicit nil
+
+### UnsetRequestId
+`func (o *GatewayError) UnsetRequestId()`
+
+UnsetRequestId ensures that no value is present for RequestId, not even an explicit nil
 ### GetTeamId
 
 `func (o *GatewayError) GetTeamId() string`
@@ -178,6 +208,16 @@ SetTeamId sets TeamId field to given value.
 
 HasTeamId returns a boolean if a field has been set.
 
+### SetTeamIdNil
+
+`func (o *GatewayError) SetTeamIdNil(b bool)`
+
+ SetTeamIdNil sets the value for TeamId to be an explicit nil
+
+### UnsetTeamId
+`func (o *GatewayError) UnsetTeamId()`
+
+UnsetTeamId ensures that no value is present for TeamId, not even an explicit nil
 ### GetModel
 
 `func (o *GatewayError) GetModel() string`
@@ -203,6 +243,16 @@ SetModel sets Model field to given value.
 
 HasModel returns a boolean if a field has been set.
 
+### SetModelNil
+
+`func (o *GatewayError) SetModelNil(b bool)`
+
+ SetModelNil sets the value for Model to be an explicit nil
+
+### UnsetModel
+`func (o *GatewayError) UnsetModel()`
+
+UnsetModel ensures that no value is present for Model, not even an explicit nil
 ### GetMeta
 
 `func (o *GatewayError) GetMeta() GatewayErrorMeta`

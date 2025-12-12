@@ -368,7 +368,7 @@ bool AIStatsGatewayGenerationRecord::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("before")));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<Object> refVal_setBefore;
+            std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> refVal_setBefore;
             ok &= ModelBase::fromJson(fieldValue, refVal_setBefore);
             setBefore(refVal_setBefore);
             
@@ -379,7 +379,7 @@ bool AIStatsGatewayGenerationRecord::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("execute")));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<Object> refVal_setExecute;
+            std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> refVal_setExecute;
             ok &= ModelBase::fromJson(fieldValue, refVal_setExecute);
             setExecute(refVal_setExecute);
             
@@ -412,7 +412,7 @@ bool AIStatsGatewayGenerationRecord::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("usage")));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<Object> refVal_setUsage;
+            std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> refVal_setUsage;
             ok &= ModelBase::fromJson(fieldValue, refVal_setUsage);
             setUsage(refVal_setUsage);
             
@@ -656,13 +656,13 @@ bool AIStatsGatewayGenerationRecord::fromMultiPart(std::shared_ptr<MultipartForm
     }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("before"))))
     {
-        std::shared_ptr<Object> refVal_setBefore;
+        std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> refVal_setBefore;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("before"))), refVal_setBefore );
         setBefore(refVal_setBefore);
     }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("execute"))))
     {
-        std::shared_ptr<Object> refVal_setExecute;
+        std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> refVal_setExecute;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("execute"))), refVal_setExecute );
         setExecute(refVal_setExecute);
     }
@@ -680,7 +680,7 @@ bool AIStatsGatewayGenerationRecord::fromMultiPart(std::shared_ptr<MultipartForm
     }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("usage"))))
     {
-        std::shared_ptr<Object> refVal_setUsage;
+        std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> refVal_setUsage;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("usage"))), refVal_setUsage );
         setUsage(refVal_setUsage);
     }
@@ -1017,13 +1017,13 @@ void AIStatsGatewayGenerationRecord::unsetError_message()
 {
     m_Error_messageIsSet = false;
 }
-std::shared_ptr<Object> AIStatsGatewayGenerationRecord::getBefore() const
+std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> AIStatsGatewayGenerationRecord::getBefore() const
 {
     return m_Before;
 }
 
 
-void AIStatsGatewayGenerationRecord::setBefore(const std::shared_ptr<Object>& value)
+void AIStatsGatewayGenerationRecord::setBefore(const std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>>& value)
 {
     m_Before = value;
     m_BeforeIsSet = true;
@@ -1038,13 +1038,13 @@ void AIStatsGatewayGenerationRecord::unsetBefore()
 {
     m_BeforeIsSet = false;
 }
-std::shared_ptr<Object> AIStatsGatewayGenerationRecord::getExecute() const
+std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> AIStatsGatewayGenerationRecord::getExecute() const
 {
     return m_Execute;
 }
 
 
-void AIStatsGatewayGenerationRecord::setExecute(const std::shared_ptr<Object>& value)
+void AIStatsGatewayGenerationRecord::setExecute(const std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>>& value)
 {
     m_Execute = value;
     m_ExecuteIsSet = true;
@@ -1099,13 +1099,13 @@ void AIStatsGatewayGenerationRecord::unsetGeneration_ms()
 {
     m_Generation_msIsSet = false;
 }
-std::shared_ptr<Object> AIStatsGatewayGenerationRecord::getUsage() const
+std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> AIStatsGatewayGenerationRecord::getUsage() const
 {
     return m_Usage;
 }
 
 
-void AIStatsGatewayGenerationRecord::setUsage(const std::shared_ptr<Object>& value)
+void AIStatsGatewayGenerationRecord::setUsage(const std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>>& value)
 {
     m_Usage = value;
     m_UsageIsSet = true;

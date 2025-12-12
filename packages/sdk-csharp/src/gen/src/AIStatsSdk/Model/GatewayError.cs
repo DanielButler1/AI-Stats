@@ -43,7 +43,7 @@ namespace AIStatsSdk.Model
         /// <param name="meta">meta</param>
         /// <param name="timing">timing</param>
         [JsonConstructor]
-        public GatewayError(string error, Option<bool?> ok = default, Option<string?> reason = default, Option<string?> message = default, Option<string?> requestId = default, Option<string?> teamId = default, Option<string?> model = default, Option<GatewayErrorMeta?> meta = default, Option<Object?> timing = default)
+        public GatewayError(string error, Option<bool?> ok = default, Option<string?> reason = default, Option<string?> message = default, Option<string?> requestId = default, Option<string?> teamId = default, Option<string?> model = default, Option<GatewayErrorMeta?> meta = default, Option<Dictionary<string, Object>?> timing = default)
         {
             Error = error;
             OkOption = ok;
@@ -161,13 +161,13 @@ namespace AIStatsSdk.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<Object?> TimingOption { get; private set; }
+        public Option<Dictionary<string, Object>?> TimingOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Timing
         /// </summary>
         [JsonPropertyName("timing")]
-        public Object? Timing { get { return this.TimingOption; } set { this.TimingOption = new(value); } }
+        public Dictionary<string, Object>? Timing { get { return this.TimingOption; } set { this.TimingOption = new(value); } }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -238,7 +238,7 @@ namespace AIStatsSdk.Model
             Option<string?> teamId = default;
             Option<string?> model = default;
             Option<GatewayErrorMeta?> meta = default;
-            Option<Object?> timing = default;
+            Option<Dictionary<string, Object>?> timing = default;
 
             while (utf8JsonReader.Read())
             {
@@ -262,25 +262,25 @@ namespace AIStatsSdk.Model
                             ok = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "reason":
-                            reason = new Option<string?>(utf8JsonReader.GetString()!);
+                            reason = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "message":
-                            message = new Option<string?>(utf8JsonReader.GetString()!);
+                            message = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "request_id":
-                            requestId = new Option<string?>(utf8JsonReader.GetString()!);
+                            requestId = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "team_id":
-                            teamId = new Option<string?>(utf8JsonReader.GetString()!);
+                            teamId = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "model":
-                            model = new Option<string?>(utf8JsonReader.GetString()!);
+                            model = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "meta":
                             meta = new Option<GatewayErrorMeta?>(JsonSerializer.Deserialize<GatewayErrorMeta>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "timing":
-                            timing = new Option<Object?>(JsonSerializer.Deserialize<Object>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            timing = new Option<Dictionary<string, Object>?>(JsonSerializer.Deserialize<Dictionary<string, Object>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
@@ -296,21 +296,6 @@ namespace AIStatsSdk.Model
 
             if (ok.IsSet && ok.Value == null)
                 throw new ArgumentNullException(nameof(ok), "Property is not nullable for class GatewayError.");
-
-            if (reason.IsSet && reason.Value == null)
-                throw new ArgumentNullException(nameof(reason), "Property is not nullable for class GatewayError.");
-
-            if (message.IsSet && message.Value == null)
-                throw new ArgumentNullException(nameof(message), "Property is not nullable for class GatewayError.");
-
-            if (requestId.IsSet && requestId.Value == null)
-                throw new ArgumentNullException(nameof(requestId), "Property is not nullable for class GatewayError.");
-
-            if (teamId.IsSet && teamId.Value == null)
-                throw new ArgumentNullException(nameof(teamId), "Property is not nullable for class GatewayError.");
-
-            if (model.IsSet && model.Value == null)
-                throw new ArgumentNullException(nameof(model), "Property is not nullable for class GatewayError.");
 
             if (meta.IsSet && meta.Value == null)
                 throw new ArgumentNullException(nameof(meta), "Property is not nullable for class GatewayError.");
@@ -348,21 +333,6 @@ namespace AIStatsSdk.Model
             if (gatewayError.Error == null)
                 throw new ArgumentNullException(nameof(gatewayError.Error), "Property is required for class GatewayError.");
 
-            if (gatewayError.ReasonOption.IsSet && gatewayError.Reason == null)
-                throw new ArgumentNullException(nameof(gatewayError.Reason), "Property is required for class GatewayError.");
-
-            if (gatewayError.MessageOption.IsSet && gatewayError.Message == null)
-                throw new ArgumentNullException(nameof(gatewayError.Message), "Property is required for class GatewayError.");
-
-            if (gatewayError.RequestIdOption.IsSet && gatewayError.RequestId == null)
-                throw new ArgumentNullException(nameof(gatewayError.RequestId), "Property is required for class GatewayError.");
-
-            if (gatewayError.TeamIdOption.IsSet && gatewayError.TeamId == null)
-                throw new ArgumentNullException(nameof(gatewayError.TeamId), "Property is required for class GatewayError.");
-
-            if (gatewayError.ModelOption.IsSet && gatewayError.Model == null)
-                throw new ArgumentNullException(nameof(gatewayError.Model), "Property is required for class GatewayError.");
-
             if (gatewayError.MetaOption.IsSet && gatewayError.Meta == null)
                 throw new ArgumentNullException(nameof(gatewayError.Meta), "Property is required for class GatewayError.");
 
@@ -375,19 +345,34 @@ namespace AIStatsSdk.Model
                 writer.WriteBoolean("ok", gatewayError.OkOption.Value!.Value);
 
             if (gatewayError.ReasonOption.IsSet)
-                writer.WriteString("reason", gatewayError.Reason);
+                if (gatewayError.ReasonOption.Value != null)
+                    writer.WriteString("reason", gatewayError.Reason);
+                else
+                    writer.WriteNull("reason");
 
             if (gatewayError.MessageOption.IsSet)
-                writer.WriteString("message", gatewayError.Message);
+                if (gatewayError.MessageOption.Value != null)
+                    writer.WriteString("message", gatewayError.Message);
+                else
+                    writer.WriteNull("message");
 
             if (gatewayError.RequestIdOption.IsSet)
-                writer.WriteString("request_id", gatewayError.RequestId);
+                if (gatewayError.RequestIdOption.Value != null)
+                    writer.WriteString("request_id", gatewayError.RequestId);
+                else
+                    writer.WriteNull("request_id");
 
             if (gatewayError.TeamIdOption.IsSet)
-                writer.WriteString("team_id", gatewayError.TeamId);
+                if (gatewayError.TeamIdOption.Value != null)
+                    writer.WriteString("team_id", gatewayError.TeamId);
+                else
+                    writer.WriteNull("team_id");
 
             if (gatewayError.ModelOption.IsSet)
-                writer.WriteString("model", gatewayError.Model);
+                if (gatewayError.ModelOption.Value != null)
+                    writer.WriteString("model", gatewayError.Model);
+                else
+                    writer.WriteNull("model");
 
             if (gatewayError.MetaOption.IsSet)
             {

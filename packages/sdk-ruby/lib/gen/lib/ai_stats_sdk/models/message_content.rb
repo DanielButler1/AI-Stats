@@ -19,7 +19,7 @@ module AIStatsSdk
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'Array<Object>',
+          :'Array<Hash<String, Object>>',
           :'String'
         ]
       end

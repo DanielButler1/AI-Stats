@@ -70,7 +70,7 @@ bool AIStatsModerationRequest::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("input")));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<AIStatsAnyType> refVal_setInput;
+            std::shared_ptr<AIStatsModerationRequestInput> refVal_setInput;
             ok &= ModelBase::fromJson(fieldValue, refVal_setInput);
             setInput(refVal_setInput);
             
@@ -113,7 +113,7 @@ bool AIStatsModerationRequest::fromMultiPart(std::shared_ptr<MultipartFormData> 
     }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("input"))))
     {
-        std::shared_ptr<AIStatsAnyType> refVal_setInput;
+        std::shared_ptr<AIStatsModerationRequestInput> refVal_setInput;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("input"))), refVal_setInput );
         setInput(refVal_setInput);
     }
@@ -142,13 +142,13 @@ void AIStatsModerationRequest::unsetModel()
 {
     m_ModelIsSet = false;
 }
-std::shared_ptr<AIStatsAnyType> AIStatsModerationRequest::getInput() const
+std::shared_ptr<AIStatsModerationRequestInput> AIStatsModerationRequest::getInput() const
 {
     return m_Input;
 }
 
 
-void AIStatsModerationRequest::setInput(const std::shared_ptr<AIStatsAnyType>& value)
+void AIStatsModerationRequest::setInput(const std::shared_ptr<AIStatsModerationRequestInput>& value)
 {
     m_Input = value;
     m_InputIsSet = true;

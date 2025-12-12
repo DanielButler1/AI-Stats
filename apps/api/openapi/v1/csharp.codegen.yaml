@@ -1,6 +1,6 @@
 generatorName: csharp
 outputDir: ../../../../packages/sdk-csharp/src/gen
-inputSpec: apps/docs/openapi/v1/openapi.json
+inputSpec: apps/docs/openapi/v1/openapi.yaml
 additionalProperties:
     packageName: AIStatsSdk
     targetFramework: net8.0

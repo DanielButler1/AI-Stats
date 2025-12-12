@@ -22,7 +22,7 @@
 
 #include "ai_stats_sdk_cpp/ModelBase.h"
 
-#include "ai_stats_sdk_cpp/model/AIStatsAIStatsAnyType.h"
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsModerationInputContentItem.h"
 
 namespace org {
 namespace openapitools {
@@ -72,7 +72,7 @@ public:
     /////////////////////////////////////////////
     /// AIStatsModerationRequestInput members
 
-    using VariantType = std::variant<std::vector<std::shared_ptr<AIStatsAnyType>>, utility::string_t>;
+    using VariantType = std::variant<std::vector<std::shared_ptr<AIStatsModerationInputContentItem>>, utility::string_t>;
 
     const VariantType& getVariant() const;
     void setVariant(VariantType value);

@@ -1,0 +1,39 @@
+---
+title: "Responses"
+description: "Call /responses with the Rust SDK."
+---
+
+**Method**: `responses_api::create_response()`.
+
+### Example
+```rust
+use ai_stats_sdk::apis::{configuration::Configuration, responses_api};
+use ai_stats_sdk::models::ResponsesRequest;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let mut config = Configuration::new();
+    config.bearer_access_token = Some("your-api-key".to_string());
+
+    let mut request = ResponsesRequest::new("openai/gpt-4o-mini".to_string());
+    request.text = Some(serde_json::json!("Summarise this text"));
+
+    let response = responses_api::create_response(&config, request).await?;
+    println!("Response: {:?}", response);
+    Ok(())
+}
+```
+
+### Key parameters
+- `model` (required): Target model id.
+- `text` (optional): Text input for the response.
+- `input` (optional): Input data.
+- `input_items` (optional): Array of input items.
+- Sampling: `temperature` (0–2), `top_p` (0–1).
+- Length/penalties: `max_output_tokens` (int).
+- Tools: `tools`, `tool_choice`, `max_tool_calls`, `parallel_tool_calls`.
+- Output: `stream` (bool), `usage` (bool), `meta` (bool).
+
+### Returns
+`ResponsesResponse` JSON.
+

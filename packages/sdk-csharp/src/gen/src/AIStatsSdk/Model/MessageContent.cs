@@ -44,7 +44,7 @@ namespace AIStatsSdk.Model
         /// Initializes a new instance of the <see cref="MessageContent" /> class.
         /// </summary>
         /// <param name="list"></param>
-        internal MessageContent(List<Object> list)
+        internal MessageContent(List<Dictionary<string, Object>> list)
         {
             List = list;
             OnCreated();
@@ -60,7 +60,7 @@ namespace AIStatsSdk.Model
         /// <summary>
         /// Gets or Sets List
         /// </summary>
-        public List<Object>? List { get; set; }
+        public List<Dictionary<string, Object>>? List { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -108,7 +108,7 @@ namespace AIStatsSdk.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             string? varString = default;
-            List<Object>? list = default;
+            List<Dictionary<string, Object>>? list = default;
 
             Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
             while (utf8JsonReaderOneOf.Read())
@@ -125,7 +125,7 @@ namespace AIStatsSdk.Model
                     ClientUtils.TryDeserialize<string?>(ref utf8JsonReaderString, jsonSerializerOptions, out varString);
 
                     Utf8JsonReader utf8JsonReaderList = utf8JsonReader;
-                    ClientUtils.TryDeserialize<List<Object>?>(ref utf8JsonReaderList, jsonSerializerOptions, out list);
+                    ClientUtils.TryDeserialize<List<Dictionary<string, Object>>?>(ref utf8JsonReaderList, jsonSerializerOptions, out list);
                 }
             }
 

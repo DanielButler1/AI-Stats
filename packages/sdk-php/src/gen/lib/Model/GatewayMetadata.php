@@ -64,7 +64,7 @@ class GatewayMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => '\AIStats\\Sdk\Model\ModelId',
         'app_title' => 'string',
         'referer' => 'string',
-        'timing' => 'object'
+        'timing' => 'array<string,mixed>'
     ];
 
     /**
@@ -94,8 +94,8 @@ class GatewayMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
         'provider' => false,
         'endpoint' => false,
         'model' => false,
-        'app_title' => false,
-        'referer' => false,
+        'app_title' => true,
+        'referer' => true,
         'timing' => false
     ];
 
@@ -472,7 +472,14 @@ class GatewayMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAppTitle($app_title)
     {
         if (is_null($app_title)) {
-            throw new \InvalidArgumentException('non-nullable app_title cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'app_title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('app_title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['app_title'] = $app_title;
 
@@ -499,7 +506,14 @@ class GatewayMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setReferer($referer)
     {
         if (is_null($referer)) {
-            throw new \InvalidArgumentException('non-nullable referer cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'referer');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('referer', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['referer'] = $referer;
 
@@ -509,7 +523,7 @@ class GatewayMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets timing
      *
-     * @return object|null
+     * @return array<string,mixed>|null
      */
     public function getTiming()
     {
@@ -519,7 +533,7 @@ class GatewayMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets timing
      *
-     * @param object|null $timing Optional timing information captured during the request lifecycle.
+     * @param array<string,mixed>|null $timing Optional timing information captured during the request lifecycle.
      *
      * @return self
      */

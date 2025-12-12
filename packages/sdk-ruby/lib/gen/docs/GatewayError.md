@@ -12,7 +12,7 @@
 | **team_id** | **String** |  | [optional] |
 | **model** | **String** |  | [optional] |
 | **meta** | [**GatewayErrorMeta**](GatewayErrorMeta.md) |  | [optional] |
-| **timing** | **Object** |  | [optional] |
+| **timing** | **Hash&lt;String, Object&gt;** |  | [optional] |
 
 ## Example
 

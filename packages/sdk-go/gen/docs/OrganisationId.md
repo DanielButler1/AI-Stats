@@ -21,6 +21,8 @@
 
 * `ELEVEN_LABS` (value: `"eleven-labs"`)
 
+* `ESSENTIAL_AI` (value: `"essential-ai"`)
+
 * `GOOGLE` (value: `"google"`)
 
 * `IBM` (value: `"ibm"`)

@@ -4,15 +4,16 @@ All URIs are relative to *https://api.ai-stats.phaseo.app/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**HealthGet**](AnalyticsAPI.md#HealthGet) | **Get** /health | Inspect provider health
+[**AnalyticsPost**](AnalyticsAPI.md#AnalyticsPost) | **Post** /analytics | Aggregated usage analytics (coming soon)
+[**HealthzGet**](AnalyticsAPI.md#HealthzGet) | **Get** /healthz | Gateway health check
 
 
 
-## HealthGet
+## AnalyticsPost
 
-> GatewayHealthResponse HealthGet(ctx).Provider(provider).Model(model).Endpoint(endpoint).Execute()
+> AnalyticsPost200Response AnalyticsPost(ctx).AnalyticsPostRequest(analyticsPostRequest).Execute()
 
-Inspect provider health
+Aggregated usage analytics (coming soon)
 
 
 
@@ -29,19 +30,17 @@ import (
 )
 
 func main() {
-	provider := "provider_example" // string | Filter to a specific provider name. (optional)
-	model := openapiclient.ModelId("ai21/jamba-large-1-5-2024-08-22") // ModelId | Optional model id used to resolve candidate providers. (optional)
-	endpoint := "endpoint_example" // string | Endpoint identifier paired with `model` when deriving providers. (optional)
+	analyticsPostRequest := *openapiclient.NewAnalyticsPostRequest("AccessToken_example") // AnalyticsPostRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AnalyticsAPI.HealthGet(context.Background()).Provider(provider).Model(model).Endpoint(endpoint).Execute()
+	resp, r, err := apiClient.AnalyticsAPI.AnalyticsPost(context.Background()).AnalyticsPostRequest(analyticsPostRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.HealthGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.AnalyticsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `HealthGet`: GatewayHealthResponse
-	fmt.Fprintf(os.Stdout, "Response from `AnalyticsAPI.HealthGet`: %v\n", resp)
+	// response from `AnalyticsPost`: AnalyticsPost200Response
+	fmt.Fprintf(os.Stdout, "Response from `AnalyticsAPI.AnalyticsPost`: %v\n", resp)
 }
 ```
 
@@ -51,18 +50,77 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiHealthGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAnalyticsPostRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **provider** | **string** | Filter to a specific provider name. | 
- **model** | [**ModelId**](ModelId.md) | Optional model id used to resolve candidate providers. | 
- **endpoint** | **string** | Endpoint identifier paired with &#x60;model&#x60; when deriving providers. | 
+ **analyticsPostRequest** | [**AnalyticsPostRequest**](AnalyticsPostRequest.md) |  | 
 
 ### Return type
 
-[**GatewayHealthResponse**](GatewayHealthResponse.md)
+[**AnalyticsPost200Response**](AnalyticsPost200Response.md)
+
+### Authorization
+
+[GatewayAuth](../README.md#GatewayAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## HealthzGet
+
+> HealthzGet200Response HealthzGet(ctx).Execute()
+
+Gateway health check
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AnalyticsAPI.HealthzGet(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.HealthzGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `HealthzGet`: HealthzGet200Response
+	fmt.Fprintf(os.Stdout, "Response from `AnalyticsAPI.HealthzGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHealthzGetRequest struct via the builder pattern
+
+
+### Return type
+
+[**HealthzGet200Response**](HealthzGet200Response.md)
 
 ### Authorization
 

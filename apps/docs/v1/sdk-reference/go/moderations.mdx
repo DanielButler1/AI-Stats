@@ -1,0 +1,41 @@
+---
+title: "Moderations"
+description: "Call /moderations with the Go SDK."
+---
+
+**Method**: `client.Moderations.ModerationsPost()`.
+
+### Example
+```go
+import (
+    "context"
+    "fmt"
+    "log"
+
+    aistats "packages/sdk-go"
+    "packages/sdk-go/gen"
+)
+
+ctx := context.Background()
+client := aistats.New("your-api-key", "https://api.ai-stats.dev")
+
+req := gen.ModerationRequest{
+    Model: "openai/omni-moderation-latest",
+    Input: gen.StringAsModerationRequestInput(&"Text to classify"),
+}
+
+moderation, _, err := client.Moderations.ModerationsPost(ctx).ModerationRequest(req).Execute()
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Println("Moderation result:", moderation.Results[0].Flagged)
+```
+
+### Key parameters
+- `model` (required): Moderation model id (e.g., `openai/omni-moderation-latest`).
+- `input` (required): String or array of content items (text or image_url).
+- Optional: `categories`/`severity` filters (when supported), `user` tag.
+
+### Returns
+`ModerationResponse`
+

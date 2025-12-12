@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **model** | [**\AIStats\\Sdk\Model\ModelId**](ModelId.md) |  |
 **app_title** | **string** |  | [optional]
 **referer** | **string** |  | [optional]
-**timing** | **object** | Optional timing information captured during the request lifecycle. | [optional]
+**timing** | **array<string,mixed>** | Optional timing information captured during the request lifecycle. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

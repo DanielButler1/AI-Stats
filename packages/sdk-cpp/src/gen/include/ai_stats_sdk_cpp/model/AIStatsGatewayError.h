@@ -22,15 +22,15 @@
 #include "ai_stats_sdk_cpp/ModelBase.h"
 
 #include "ai_stats_sdk_cpp/model/AIStatsAIStatsGatewayError_meta.h"
-#include "ai_stats_sdk_cpp/Object.h"
 #include <cpprest/details/basic_types.h>
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsAnyType.h"
+#include <map>
 
 namespace org {
 namespace openapitools {
 namespace client {
 namespace model {
 
-class AIStatsGatewayError_meta;
 
 
 class  AIStatsGatewayError
@@ -96,10 +96,10 @@ public:
     void unsetMeta();
     void setMeta(const std::shared_ptr<AIStatsGatewayError_meta>& value);
 
-    std::shared_ptr<Object> getTiming() const;
+    std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> getTiming() const;
     bool timingIsSet() const;
     void unsetTiming();
-    void setTiming(const std::shared_ptr<Object>& value);
+    void setTiming(const std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>>& value);
 
 
 protected:
@@ -127,7 +127,7 @@ protected:
     std::shared_ptr<AIStatsGatewayError_meta> m_Meta;
     bool m_MetaIsSet;
 
-    std::shared_ptr<Object> m_Timing;
+    std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> m_Timing;
     bool m_TimingIsSet;
 
 };

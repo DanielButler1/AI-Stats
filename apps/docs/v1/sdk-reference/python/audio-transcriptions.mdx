@@ -1,0 +1,26 @@
+---
+title: "Audio transcriptions"
+description: "Call /audio/transcriptions with the Python SDK."
+---
+
+**Method**: `client.generate_transcription()`.
+
+### Example
+```python
+transcript = client.generate_transcription({
+    "model": "openai/gpt-4o-transcribe",
+    "file": "data:audio/mp3;base64,...",
+    "language": "en",
+})
+```
+
+### Key parameters
+- `model` (required): Transcription-capable model id.
+- `file` (required): Audio data (URL, base64, or binary).
+- `language`: Hint language code (e.g., `en`).
+- `prompt`: Optional context to improve accuracy.
+- `temperature` (0–2): Sampling randomness.
+- `response_format`: `json`, `text`, `srt`, `verbose_json`, etc.
+
+### Returns
+`AudioTranscriptionResponse`

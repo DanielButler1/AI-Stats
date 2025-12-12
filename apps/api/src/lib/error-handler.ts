@@ -1,7 +1,7 @@
 // src/lib/gateway/error-handler.ts
 import type { Endpoint } from "./types";
-import type { PipelineContext } from "./main-endpoints/before/types";
-import { readAttributionHeaders } from "./main-endpoints/after/attribution";
+import type { PipelineContext } from "./gateway/before/types";
+import { readAttributionHeaders } from "./gateway/after/attribution";
 
 // Helper to extract error code from a response body
 export function extractErrorCode(body: any, fallback: string): string {

@@ -59,8 +59,8 @@ void AIStatsMessageContent::toMultipart(std::shared_ptr<MultipartFormData> multi
     }, m_variantValue);
 }
 
-template bool AIStatsMessageContent::fromJson<std::vector&lt;std::shared_ptr&lt;Object&gt;&gt;>(const web::json::value& json);
-template bool AIStatsMessageContent::fromMultiPart<std::vector&lt;std::shared_ptr&lt;Object&gt;&gt;>(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix);
+template bool AIStatsMessageContent::fromJson<std::vector&lt;std::map&lt;utility::string_t, std::shared_ptr&lt;AIStatsAnyType&gt;&gt;&gt;>(const web::json::value& json);
+template bool AIStatsMessageContent::fromMultiPart<std::vector&lt;std::map&lt;utility::string_t, std::shared_ptr&lt;AIStatsAnyType&gt;&gt;&gt;>(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix);
 template bool AIStatsMessageContent::fromJson<utility::string_t>(const web::json::value& json);
 template bool AIStatsMessageContent::fromMultiPart<utility::string_t>(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix);
 

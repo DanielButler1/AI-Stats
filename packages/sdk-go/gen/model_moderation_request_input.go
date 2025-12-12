@@ -18,14 +18,14 @@ import (
 
 // ModerationRequestInput - Input to classify. A single text string or an array of rich content items.
 type ModerationRequestInput struct {
-	ArrayOfAny *[]interface{}
+	ArrayOfModerationInputContentItem *[]ModerationInputContentItem
 	String *string
 }
 
-// []interface{}AsModerationRequestInput is a convenience function that returns []interface{} wrapped in ModerationRequestInput
-func ArrayOfAnyAsModerationRequestInput(v *[]interface{}) ModerationRequestInput {
+// []ModerationInputContentItemAsModerationRequestInput is a convenience function that returns []ModerationInputContentItem wrapped in ModerationRequestInput
+func ArrayOfModerationInputContentItemAsModerationRequestInput(v *[]ModerationInputContentItem) ModerationRequestInput {
 	return ModerationRequestInput{
-		ArrayOfAny: v,
+		ArrayOfModerationInputContentItem: v,
 	}
 }
 
@@ -41,21 +41,21 @@ func StringAsModerationRequestInput(v *string) ModerationRequestInput {
 func (dst *ModerationRequestInput) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into ArrayOfAny
-	err = newStrictDecoder(data).Decode(&dst.ArrayOfAny)
+	// try to unmarshal data into ArrayOfModerationInputContentItem
+	err = newStrictDecoder(data).Decode(&dst.ArrayOfModerationInputContentItem)
 	if err == nil {
-		jsonArrayOfAny, _ := json.Marshal(dst.ArrayOfAny)
-		if string(jsonArrayOfAny) == "{}" { // empty struct
-			dst.ArrayOfAny = nil
+		jsonArrayOfModerationInputContentItem, _ := json.Marshal(dst.ArrayOfModerationInputContentItem)
+		if string(jsonArrayOfModerationInputContentItem) == "{}" { // empty struct
+			dst.ArrayOfModerationInputContentItem = nil
 		} else {
-			if err = validator.Validate(dst.ArrayOfAny); err != nil {
-				dst.ArrayOfAny = nil
+			if err = validator.Validate(dst.ArrayOfModerationInputContentItem); err != nil {
+				dst.ArrayOfModerationInputContentItem = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.ArrayOfAny = nil
+		dst.ArrayOfModerationInputContentItem = nil
 	}
 
 	// try to unmarshal data into String
@@ -77,7 +77,7 @@ func (dst *ModerationRequestInput) UnmarshalJSON(data []byte) error {
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.ArrayOfAny = nil
+		dst.ArrayOfModerationInputContentItem = nil
 		dst.String = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(ModerationRequestInput)")
@@ -90,8 +90,8 @@ func (dst *ModerationRequestInput) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src ModerationRequestInput) MarshalJSON() ([]byte, error) {
-	if src.ArrayOfAny != nil {
-		return json.Marshal(&src.ArrayOfAny)
+	if src.ArrayOfModerationInputContentItem != nil {
+		return json.Marshal(&src.ArrayOfModerationInputContentItem)
 	}
 
 	if src.String != nil {
@@ -106,8 +106,8 @@ func (obj *ModerationRequestInput) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.ArrayOfAny != nil {
-		return obj.ArrayOfAny
+	if obj.ArrayOfModerationInputContentItem != nil {
+		return obj.ArrayOfModerationInputContentItem
 	}
 
 	if obj.String != nil {
@@ -120,8 +120,8 @@ func (obj *ModerationRequestInput) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj ModerationRequestInput) GetActualInstanceValue() (interface{}) {
-	if obj.ArrayOfAny != nil {
-		return *obj.ArrayOfAny
+	if obj.ArrayOfModerationInputContentItem != nil {
+		return *obj.ArrayOfModerationInputContentItem
 	}
 
 	if obj.String != nil {

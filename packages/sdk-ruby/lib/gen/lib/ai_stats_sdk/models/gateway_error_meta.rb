@@ -48,6 +48,8 @@ module AIStatsSdk
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'app_title',
+        :'referer'
       ])
     end
 

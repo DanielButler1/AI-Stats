@@ -3,10 +3,56 @@ import type { Endpoint } from "./types";
 
 // Batch schema
 export const BatchSchema = z.object({
-    requests: z.array(z.any()).min(1), // Each item should be a valid request for the target endpoint
-    endpoint: z.string().min(1), // The endpoint to batch (e.g., "chat.completions")
+    input_file_id: z.string().min(1),
+    endpoint: z.string().min(1),
+    completion_window: z.string().optional(),
+    metadata: z.record(z.any()).optional(),
 });
 export type BatchRequest = z.infer<typeof BatchSchema>;
+
+// Responses schema (OAI Responses API)
+export const ResponsesSchema = z.object({
+    model: z.string().min(1),
+    input: z.any().optional(),
+    input_items: z.array(z.any()).optional(),
+    conversation: z.union([z.string(), z.record(z.any())]).optional(),
+    include: z.array(z.string()).optional(),
+    instructions: z.string().optional(),
+    max_output_tokens: z.number().int().positive().optional(),
+    max_tool_calls: z.number().int().nonnegative().optional(),
+    metadata: z.record(z.string()).optional(),
+    parallel_tool_calls: z.boolean().optional(),
+    previous_response_id: z.string().optional(),
+    prompt: z.object({
+        id: z.string(),
+        variables: z.record(z.any()).optional(),
+        version: z.string().optional(),
+    }).optional(),
+    prompt_cache_key: z.string().optional(),
+    prompt_cache_retention: z.string().optional(),
+    reasoning: z.object({
+        effort: z.enum(["none", "minimal", "low", "medium", "high", "xhigh"]).nullable().optional(),
+        summary: z.string().nullable().optional(),
+    }).optional(),
+    safety_identifier: z.string().optional(),
+    service_tier: z.string().optional(),
+    store: z.boolean().optional(),
+    stream: z.boolean().optional(),
+    stream_options: z.record(z.any()).optional(),
+    temperature: z.number().min(0).max(2).optional(),
+    text: z.record(z.any()).optional(),
+    tool_choice: z.union([z.string(), z.record(z.any())]).optional(),
+    tools: z.array(z.record(z.any())).optional(),
+    top_logprobs: z.number().int().min(0).max(20).optional(),
+    top_p: z.number().min(0).max(1).optional(),
+    truncation: z.string().optional(),
+    background: z.boolean().optional(),
+    user: z.string().optional(),
+    // Gateway-only flags (not forwarded upstream)
+    usage: z.boolean().optional(),
+    meta: z.boolean().optional(),
+}).passthrough();
+export type ResponsesRequest = z.infer<typeof ResponsesSchema>;
 
 // Embeddings schema
 export const EmbeddingsSchema = z.object({
@@ -120,12 +166,12 @@ export const ChatCompletionsSchema = z.object({
     reasoning: z
         .union([
             z.object({
-                effort: z.enum(["none", "minimal", "low", "medium", "high"]).optional().default("medium"),
+                effort: z.enum(["none", "minimal", "low", "medium", "high", "xhigh"]).optional().default("medium"),
                 summary: z.enum(["auto", "concise", "detailed"]).optional().default("auto"),
             }),
             z.array(
                 z.object({
-                    effort: z.enum(["none", "minimal", "low", "medium", "high"]).optional().default("medium"),
+                    effort: z.enum(["none", "minimal", "low", "medium", "high", "xhigh"]).optional().default("medium"),
                     summary: z.enum(["auto", "concise", "detailed"]).optional().default("auto"),
                 })
             ),
@@ -185,6 +231,20 @@ export const ImagesGenerationSchema = z.object({
 });
 export type ImagesGenerationRequest = z.infer<typeof ImagesGenerationSchema>;
 
+// Images Edit schema (OpenAI compatible)
+export const ImagesEditSchema = z.object({
+    model: z.string().min(1),
+    image: z.string().min(1), // base64 or URL for now
+    mask: z.string().optional(),
+    prompt: z.string().min(1),
+    size: z.string().optional(),
+    n: z.number().int().min(1).max(10).optional(),
+    user: z.string().optional(),
+    meta: z.boolean().optional(),
+    usage: z.boolean().optional(),
+});
+export type ImagesEditRequest = z.infer<typeof ImagesEditSchema>;
+
 // Moderations schema
 export const ModerationsSchema = z.object({
     model: z.string().min(1),
@@ -235,6 +295,17 @@ export const AudioTranscriptionSchema = z.object({
 });
 export type AudioTranscriptionRequest = z.infer<typeof AudioTranscriptionSchema>;
 
+// Audio Translation schema
+export const AudioTranslationSchema = z.object({
+    model: z.string().min(1),
+    audio_url: z.string().url().optional(),
+    audio_b64: z.string().optional(),
+    language: z.string().optional(),
+    prompt: z.string().optional(),
+    temperature: z.number().min(0).max(2).optional(),
+});
+export type AudioTranslationRequest = z.infer<typeof AudioTranslationSchema>;
+
 // Video Generation schema
 export const VideoGenerationSchema = z.object({
     model: z.string().min(1),
@@ -244,16 +315,55 @@ export const VideoGenerationSchema = z.object({
 });
 export type VideoGenerationRequest = z.infer<typeof VideoGenerationSchema>;
 
+// Generation response schema
+export const GenerationResponseSchema = z.object({
+    request_id: z.string(),
+    team_id: z.string(),
+    app_id: z.string().nullable(),
+    endpoint: z.string(),
+    model_id: z.string(),
+    provider: z.string(),
+    native_response_id: z.string().nullable(),
+    stream: z.boolean(),
+    byok: z.boolean(),
+    status_code: z.number(),
+    success: z.boolean(),
+    error_code: z.string().nullable(),
+    error_message: z.string().nullable(),
+    latency_ms: z.number(),
+    generation_ms: z.number(),
+    usage: z.object({
+        prompt_tokens: z.number(),
+        completion_tokens: z.number(),
+        total_tokens: z.number(),
+    }).nullable(),
+    cost_nanos: z.number(),
+    currency: z.string(),
+    pricing_lines: z.array(z.any()),
+    key_id: z.string(),
+    throughput: z.number().nullable(),
+});
+export type GenerationResponse = z.infer<typeof GenerationResponseSchema>;
+
 // Function to get schema for a given endpoint
-export function schemaFor(endpoint: Endpoint) {
+export function schemaFor(endpoint: Endpoint): z.ZodTypeAny | null {
     switch (endpoint) {
         case "chat.completions": return ChatCompletionsSchema;
+        case "responses": return ResponsesSchema;
         case "moderations": return ModerationsSchema;
         case "audio.speech": return AudioSpeechSchema;
         case "audio.transcription": return AudioTranscriptionSchema;
+        case "audio.translations": return AudioTranslationSchema;
         case "images.generations": return ImagesGenerationSchema;
+        case "images.edits": return ImagesEditSchema;
         case "video.generation": return VideoGenerationSchema;
-        case "batch": return BatchSchema;
         case "embeddings": return EmbeddingsSchema;
+        case "batch": return BatchSchema;
+        case "files.upload":
+        case "files.list":
+        case "files.retrieve":
+            return null; // No schema for files endpoints
+        default:
+            return null;
     }
 }

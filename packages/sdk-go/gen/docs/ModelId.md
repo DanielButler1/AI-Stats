@@ -15,6 +15,8 @@
 
 * `AI21_JAMBA_MINI_1_7_2025_07_03` (value: `"ai21/jamba-mini-1-7-2025-07-03"`)
 
+* `AI21_JAMBA_REASONING_3B_2025_10_08` (value: `"ai21/jamba-reasoning-3b-2025-10-08"`)
+
 * `AMAZON_NOVA_2_LITE_2025_12_02` (value: `"amazon/nova-2-lite-2025-12-02"`)
 
 * `AMAZON_NOVA_2_OMNI_2025_12_02` (value: `"amazon/nova-2-omni-2025-12-02"`)
@@ -197,9 +199,11 @@
 
 * `DEEPSEEK_DEEPSEEK_VL2_TINY_2024_12_13` (value: `"deepseek/deepseek-vl2-tiny-2024-12-13"`)
 
+* `ESSENTIAL_AI_RNJ_1_2025_12_06` (value: `"essential-ai/rnj-1-2025-12-06"`)
+
 * `GOOGLE_CHAT_BISON` (value: `"google/chat-bison"`)
 
-* `GOOGLE_CODE_BECKO` (value: `"google/code-becko"`)
+* `GOOGLE_CODE_GECKO` (value: `"google/code-gecko"`)
 
 * `GOOGLE_EMBEDDING_001_2023_12_13` (value: `"google/embedding-001-2023-12-13"`)
 
@@ -269,6 +273,8 @@
 
 * `GOOGLE_GEMINI_2_5_FLASH_PREVIEW_TTS` (value: `"google/gemini-2-5-flash-preview-tts"`)
 
+* `GOOGLE_GEMINI_2_5_FLASH_PREVIEW_TTS_2025_12_10` (value: `"google/gemini-2-5-flash-preview-tts-2025-12-10"`)
+
 * `GOOGLE_GEMINI_2_5_PRO_EXPERIMENTAL` (value: `"google/gemini-2-5-pro-experimental"`)
 
 * `GOOGLE_GEMINI_2_5_PRO_PREVIEW_2025_05_06` (value: `"google/gemini-2-5-pro-preview-2025-05-06"`)
@@ -277,11 +283,15 @@
 
 * `GOOGLE_GEMINI_2_5_PRO_PREVIEW_TTS` (value: `"google/gemini-2-5-pro-preview-tts"`)
 
+* `GOOGLE_GEMINI_2_5_PRO_PREVIEW_TTS_2025_12_10` (value: `"google/gemini-2-5-pro-preview-tts-2025-12-10"`)
+
 * `GOOGLE_GEMINI_3_0_FLASH` (value: `"google/gemini-3-0-flash"`)
 
 * `GOOGLE_GEMINI_3_0_FLASH_LITE` (value: `"google/gemini-3-0-flash-lite"`)
 
 * `GOOGLE_GEMINI_3_0_PRO_PREVIEW_2025_11_18` (value: `"google/gemini-3-0-pro-preview-2025-11-18"`)
+
+* `GOOGLE_GEMINI_3_FLASH_IMAGE` (value: `"google/gemini-3-flash-image"`)
 
 * `GOOGLE_GEMINI_3_PRO_IMAGE_PREVIEW_2025_11_20` (value: `"google/gemini-3-pro-image-preview-2025-11-20"`)
 
@@ -603,11 +613,15 @@
 
 * `MISTRAL_CODESTRAL_EMBED` (value: `"mistral/codestral-embed"`)
 
+* `MISTRAL_DEVSTRAL_2_2025_12_09` (value: `"mistral/devstral-2-2025-12-09"`)
+
 * `MISTRAL_DEVSTRAL_MEDIUM_1_1_2025_07_10` (value: `"mistral/devstral-medium-1-1-2025-07-10"`)
 
 * `MISTRAL_DEVSTRAL_SMALL` (value: `"mistral/devstral-small"`)
 
 * `MISTRAL_DEVSTRAL_SMALL_1_1_2025_07_10` (value: `"mistral/devstral-small-1-1-2025-07-10"`)
+
+* `MISTRAL_DEVSTRAL_SMALL_2_2025_12_09` (value: `"mistral/devstral-small-2-2025-12-09"`)
 
 * `MISTRAL_MAGISTRAL_MEDIUM_2025_06_10` (value: `"mistral/magistral-medium-2025-06-10"`)
 
@@ -749,9 +763,13 @@
 
 * `NOUS_HERMES_4_14B` (value: `"nous/hermes-4-14b"`)
 
+* `NOUS_HERMES_4_3_36B_2025_12_03` (value: `"nous/hermes-4-3-36b-2025-12-03"`)
+
 * `NOUS_HERMES_4_405B` (value: `"nous/hermes-4-405b"`)
 
 * `NOUS_HERMES_4_70B` (value: `"nous/hermes-4-70b"`)
+
+* `NOUS_NOMOS_1_2025_12_09` (value: `"nous/nomos-1-2025-12-09"`)
 
 * `NVIDIA_LLAMA_3_1_NEMOTRON_70B_INSTRUCT_2024_10_01` (value: `"nvidia/llama-3-1-nemotron-70b-instruct-2024-10-01"`)
 
@@ -764,6 +782,8 @@
 * `NVIDIA_LLAMA_3_3_NEMOTRON_SUPER_49B_V1_2025_03_18` (value: `"nvidia/llama-3-3-nemotron-super-49b-v1-2025-03-18"`)
 
 * `NVIDIA_LLAMA_3_3_NEMOTRON_SUPER_49B_V1_5` (value: `"nvidia/llama-3-3-nemotron-super-49b-v1-5"`)
+
+* `NVIDIA_NEMOTRON_NANO_3_30B_A3B` (value: `"nvidia/nemotron-nano-3-30b-a3b"`)
 
 * `NVIDIA_NVIDIA_NEMOTRON_NANO_12B_V2` (value: `"nvidia/nvidia-nemotron-nano-12b-v2"`)
 
@@ -905,7 +925,11 @@
 
 * `OPENAI_GPT_5_1_PRO` (value: `"openai/gpt-5-1-pro"`)
 
-* `OPENAI_GPT_5_2` (value: `"openai/gpt-5-2"`)
+* `OPENAI_GPT_5_2_2025_12_11` (value: `"openai/gpt-5-2-2025-12-11"`)
+
+* `OPENAI_GPT_5_2_CHAT_2025_12_11` (value: `"openai/gpt-5-2-chat-2025-12-11"`)
+
+* `OPENAI_GPT_5_2_PRO_2025_12_11` (value: `"openai/gpt-5-2-pro-2025-12-11"`)
 
 * `OPENAI_GPT_5_2025_08_07` (value: `"openai/gpt-5-2025-08-07"`)
 
@@ -1035,6 +1059,10 @@
 
 * `QWEN_QVQ_72B_PREVIEW_2024_12_25` (value: `"qwen/qvq-72b-preview-2024-12-25"`)
 
+* `QWEN_QWEN_3_OMNI_FLASH_2025_12_08` (value: `"qwen/qwen-3-omni-flash-2025-12-08"`)
+
+* `QWEN_QWEN_3_TTS_2025_12_05` (value: `"qwen/qwen-3-tts-2025-12-05"`)
+
 * `QWEN_QWEN2_5_14B_INSTRUCT_2024_09_19` (value: `"qwen/qwen2-5-14b-instruct-2024-09-19"`)
 
 * `QWEN_QWEN2_5_32B_INSTRUCT_2024_09_19` (value: `"qwen/qwen2-5-32b-instruct-2024-09-19"`)
@@ -1140,6 +1168,10 @@
 * `Z_AI_GLM_4_5V` (value: `"z-ai/glm-4-5v"`)
 
 * `Z_AI_GLM_4_6_2025_09_30` (value: `"z-ai/glm-4-6-2025-09-30"`)
+
+* `Z_AI_GLM_4_6V_2025_12_08` (value: `"z-ai/glm-4-6v-2025-12-08"`)
+
+* `Z_AI_GLM_4_6V_FLASH_2025_12_08` (value: `"z-ai/glm-4-6v-flash-2025-12-08"`)
 
 * `Z_AI_GLM_4_9B` (value: `"z-ai/glm-4-9b"`)
 

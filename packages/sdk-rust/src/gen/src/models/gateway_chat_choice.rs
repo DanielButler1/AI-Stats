@@ -16,20 +16,20 @@ pub struct GatewayChatChoice {
     #[serde(rename = "index")]
     pub index: i32,
     #[serde(rename = "message")]
-    pub message: Box<models::GatewayChatChoiceMessage>,
+    pub message: models::GatewayChatChoiceMessage,
     /// Why the model stopped generating tokens.
     #[serde(rename = "finish_reason", deserialize_with = "Option::deserialize")]
     pub finish_reason: Option<FinishReason>,
     /// True when the choice contains provider reasoning traces.
-    #[serde(rename = "reasoning", skip_serializing_if = "Option::is_none")]
-    pub reasoning: Option<bool>,
+    #[serde(rename = "reasoning", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub reasoning: Option<Option<bool>>,
 }
 
 impl GatewayChatChoice {
     pub fn new(index: i32, message: models::GatewayChatChoiceMessage, finish_reason: Option<FinishReason>) -> GatewayChatChoice {
         GatewayChatChoice {
             index,
-            message: Box::new(message),
+            message,
             finish_reason,
             reasoning: None,
         }

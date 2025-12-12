@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **TotalTokens** | Pointer to **int32** |  | [optional] 
 **InputTextTokens** | Pointer to **int32** |  | [optional] 
 **OutputTextTokens** | Pointer to **int32** |  | [optional] 
-**ReasoningTokens** | Pointer to **int32** |  | [optional] 
-**CachedReadTextTokens** | Pointer to **int32** |  | [optional] 
+**ReasoningTokens** | Pointer to **NullableInt32** |  | [optional] 
+**CachedReadTextTokens** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
@@ -129,6 +129,16 @@ SetReasoningTokens sets ReasoningTokens field to given value.
 
 HasReasoningTokens returns a boolean if a field has been set.
 
+### SetReasoningTokensNil
+
+`func (o *GatewayUsage) SetReasoningTokensNil(b bool)`
+
+ SetReasoningTokensNil sets the value for ReasoningTokens to be an explicit nil
+
+### UnsetReasoningTokens
+`func (o *GatewayUsage) UnsetReasoningTokens()`
+
+UnsetReasoningTokens ensures that no value is present for ReasoningTokens, not even an explicit nil
 ### GetCachedReadTextTokens
 
 `func (o *GatewayUsage) GetCachedReadTextTokens() int32`
@@ -154,6 +164,16 @@ SetCachedReadTextTokens sets CachedReadTextTokens field to given value.
 
 HasCachedReadTextTokens returns a boolean if a field has been set.
 
+### SetCachedReadTextTokensNil
+
+`func (o *GatewayUsage) SetCachedReadTextTokensNil(b bool)`
+
+ SetCachedReadTextTokensNil sets the value for CachedReadTextTokens to be an explicit nil
+
+### UnsetCachedReadTextTokens
+`func (o *GatewayUsage) UnsetCachedReadTextTokens()`
+
+UnsetCachedReadTextTokens ensures that no value is present for CachedReadTextTokens, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

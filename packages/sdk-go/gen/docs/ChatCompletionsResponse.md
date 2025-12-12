@@ -4,19 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NativeResponseId** | Pointer to **string** |  | [optional] 
-**Provider** | **string** |  | 
-**Meta** | [**GatewayMetadata**](GatewayMetadata.md) |  | 
-**Usage** | Pointer to [**GatewayUsage**](GatewayUsage.md) |  | [optional] 
-**Created** | **int32** | Unix timestamp in seconds. | 
-**Model** | **string** |  | 
-**Choices** | [**[]GatewayChatChoice**](GatewayChatChoice.md) |  | 
+**Id** | Pointer to **string** |  | [optional] 
+**Object** | Pointer to **string** |  | [optional] 
+**Created** | Pointer to **int32** |  | [optional] 
+**Model** | Pointer to **string** |  | [optional] 
+**Choices** | Pointer to [**[]ChatChoice**](ChatChoice.md) |  | [optional] 
+**Usage** | Pointer to [**Usage**](Usage.md) |  | [optional] 
 
 ## Methods
 
 ### NewChatCompletionsResponse
 
-`func NewChatCompletionsResponse(provider string, meta GatewayMetadata, created int32, model string, choices []GatewayChatChoice, ) *ChatCompletionsResponse`
+`func NewChatCompletionsResponse() *ChatCompletionsResponse`
 
 NewChatCompletionsResponse instantiates a new ChatCompletionsResponse object
 This constructor will assign default values to properties that have it defined,
@@ -31,95 +30,55 @@ NewChatCompletionsResponseWithDefaults instantiates a new ChatCompletionsRespons
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetNativeResponseId
+### GetId
 
-`func (o *ChatCompletionsResponse) GetNativeResponseId() string`
+`func (o *ChatCompletionsResponse) GetId() string`
 
-GetNativeResponseId returns the NativeResponseId field if non-nil, zero value otherwise.
+GetId returns the Id field if non-nil, zero value otherwise.
 
-### GetNativeResponseIdOk
+### GetIdOk
 
-`func (o *ChatCompletionsResponse) GetNativeResponseIdOk() (*string, bool)`
+`func (o *ChatCompletionsResponse) GetIdOk() (*string, bool)`
 
-GetNativeResponseIdOk returns a tuple with the NativeResponseId field if it's non-nil, zero value otherwise
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetNativeResponseId
+### SetId
 
-`func (o *ChatCompletionsResponse) SetNativeResponseId(v string)`
+`func (o *ChatCompletionsResponse) SetId(v string)`
 
-SetNativeResponseId sets NativeResponseId field to given value.
+SetId sets Id field to given value.
 
-### HasNativeResponseId
+### HasId
 
-`func (o *ChatCompletionsResponse) HasNativeResponseId() bool`
+`func (o *ChatCompletionsResponse) HasId() bool`
 
-HasNativeResponseId returns a boolean if a field has been set.
+HasId returns a boolean if a field has been set.
 
-### GetProvider
+### GetObject
 
-`func (o *ChatCompletionsResponse) GetProvider() string`
+`func (o *ChatCompletionsResponse) GetObject() string`
 
-GetProvider returns the Provider field if non-nil, zero value otherwise.
+GetObject returns the Object field if non-nil, zero value otherwise.
 
-### GetProviderOk
+### GetObjectOk
 
-`func (o *ChatCompletionsResponse) GetProviderOk() (*string, bool)`
+`func (o *ChatCompletionsResponse) GetObjectOk() (*string, bool)`
 
-GetProviderOk returns a tuple with the Provider field if it's non-nil, zero value otherwise
+GetObjectOk returns a tuple with the Object field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProvider
+### SetObject
 
-`func (o *ChatCompletionsResponse) SetProvider(v string)`
+`func (o *ChatCompletionsResponse) SetObject(v string)`
 
-SetProvider sets Provider field to given value.
+SetObject sets Object field to given value.
 
+### HasObject
 
-### GetMeta
+`func (o *ChatCompletionsResponse) HasObject() bool`
 
-`func (o *ChatCompletionsResponse) GetMeta() GatewayMetadata`
-
-GetMeta returns the Meta field if non-nil, zero value otherwise.
-
-### GetMetaOk
-
-`func (o *ChatCompletionsResponse) GetMetaOk() (*GatewayMetadata, bool)`
-
-GetMetaOk returns a tuple with the Meta field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMeta
-
-`func (o *ChatCompletionsResponse) SetMeta(v GatewayMetadata)`
-
-SetMeta sets Meta field to given value.
-
-
-### GetUsage
-
-`func (o *ChatCompletionsResponse) GetUsage() GatewayUsage`
-
-GetUsage returns the Usage field if non-nil, zero value otherwise.
-
-### GetUsageOk
-
-`func (o *ChatCompletionsResponse) GetUsageOk() (*GatewayUsage, bool)`
-
-GetUsageOk returns a tuple with the Usage field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUsage
-
-`func (o *ChatCompletionsResponse) SetUsage(v GatewayUsage)`
-
-SetUsage sets Usage field to given value.
-
-### HasUsage
-
-`func (o *ChatCompletionsResponse) HasUsage() bool`
-
-HasUsage returns a boolean if a field has been set.
+HasObject returns a boolean if a field has been set.
 
 ### GetCreated
 
@@ -140,6 +99,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *ChatCompletionsResponse) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### GetModel
 
@@ -160,26 +124,61 @@ and a boolean to check if the value has been set.
 
 SetModel sets Model field to given value.
 
+### HasModel
+
+`func (o *ChatCompletionsResponse) HasModel() bool`
+
+HasModel returns a boolean if a field has been set.
 
 ### GetChoices
 
-`func (o *ChatCompletionsResponse) GetChoices() []GatewayChatChoice`
+`func (o *ChatCompletionsResponse) GetChoices() []ChatChoice`
 
 GetChoices returns the Choices field if non-nil, zero value otherwise.
 
 ### GetChoicesOk
 
-`func (o *ChatCompletionsResponse) GetChoicesOk() (*[]GatewayChatChoice, bool)`
+`func (o *ChatCompletionsResponse) GetChoicesOk() (*[]ChatChoice, bool)`
 
 GetChoicesOk returns a tuple with the Choices field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChoices
 
-`func (o *ChatCompletionsResponse) SetChoices(v []GatewayChatChoice)`
+`func (o *ChatCompletionsResponse) SetChoices(v []ChatChoice)`
 
 SetChoices sets Choices field to given value.
 
+### HasChoices
+
+`func (o *ChatCompletionsResponse) HasChoices() bool`
+
+HasChoices returns a boolean if a field has been set.
+
+### GetUsage
+
+`func (o *ChatCompletionsResponse) GetUsage() Usage`
+
+GetUsage returns the Usage field if non-nil, zero value otherwise.
+
+### GetUsageOk
+
+`func (o *ChatCompletionsResponse) GetUsageOk() (*Usage, bool)`
+
+GetUsageOk returns a tuple with the Usage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUsage
+
+`func (o *ChatCompletionsResponse) SetUsage(v Usage)`
+
+SetUsage sets Usage field to given value.
+
+### HasUsage
+
+`func (o *ChatCompletionsResponse) HasUsage() bool`
+
+HasUsage returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -1,0 +1,28 @@
+---
+title: "Files"
+description: "Call /files with the C# SDK."
+---
+
+**Methods**: `client.FilesApi.FilesPost()` (upload), `client.ListFiles()`, `client.GetFile()`.
+
+### Example
+```csharp
+var client = new Client(apiKey);
+
+// Upload
+var uploaded = client.FilesApi.FilesPost(new FilesPostRequest(purpose: "batch", file: new FileParameter(new MemoryStream(Encoding.UTF8.GetBytes("{}")), "file.json"))).Result;
+
+// List
+var files = client.ListFiles();
+
+// Get
+var file = client.GetFile(uploaded.Id);
+```
+
+### Key parameters
+- `file` (required for upload): Stream or file.
+- `purpose` (required for upload): e.g., `batch`.
+
+### Returns
+`FileObject` (upload/get) or `FileListResponse` (list)
+

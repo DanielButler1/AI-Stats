@@ -5,17 +5,27 @@ description: "How to install and set up the AI Stats TypeScript SDK"
 
 ## Installation
 
-Install the SDK using npm or yarn:
+Install the SDK using your preferred package manager:
 
-```bash
-npm install @ai-stats/ts-sdk
-```
+<CodeGroup>
 
-or
+    ```bash title="npm"
+    npm install @ai-stats/sdk
+    ```
 
-```bash
-yarn add @ai-stats/ts-sdk
-```
+    ```bash title="pnpm"
+    pnpm add @ai-stats/sdk
+    ```
+
+    ```bash title="yarn"
+    yarn add @ai-stats/sdk
+    ```
+
+    ```bash title="bun"
+    bun add @ai-stats/sdk
+    ```
+
+    </CodeGroup>
 
 ## Requirements
 
@@ -39,7 +49,7 @@ export AI_STATS_API_KEY="your-api-key-here"
 ### Basic Usage
 
 ```typescript
-import { AIStats } from "@ai-stats/ts-sdk";
+import { AIStats } from "@ai-stats/sdk";
 
 // Initialize the client
 const client = new AIStats({

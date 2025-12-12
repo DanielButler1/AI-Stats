@@ -57,7 +57,7 @@ namespace AIStatsSdk.Model
         /// <param name="currency">currency</param>
         /// <param name="pricingLines">pricingLines</param>
         [JsonConstructor]
-        public GatewayGenerationRecord(string requestId, string teamId, string endpoint, bool success, Option<string?> appId = default, Option<string?> appTitle = default, Option<string?> referer = default, Option<string?> modelId = default, Option<string?> provider = default, Option<string?> nativeResponseId = default, Option<bool?> stream = default, Option<bool?> byok = default, Option<int?> statusCode = default, Option<string?> errorCode = default, Option<string?> errorMessage = default, Option<Object?> before = default, Option<Object?> execute = default, Option<decimal?> latencyMs = default, Option<decimal?> generationMs = default, Option<Object?> usage = default, Option<int?> costNanos = default, Option<string?> currency = default, Option<List<Object>?> pricingLines = default)
+        public GatewayGenerationRecord(string requestId, string teamId, string endpoint, bool success, Option<string?> appId = default, Option<string?> appTitle = default, Option<string?> referer = default, Option<string?> modelId = default, Option<string?> provider = default, Option<string?> nativeResponseId = default, Option<bool?> stream = default, Option<bool?> byok = default, Option<int?> statusCode = default, Option<string?> errorCode = default, Option<string?> errorMessage = default, Option<Dictionary<string, Object>?> before = default, Option<Dictionary<string, Object>?> execute = default, Option<decimal?> latencyMs = default, Option<decimal?> generationMs = default, Option<Dictionary<string, Object>?> usage = default, Option<int?> costNanos = default, Option<string?> currency = default, Option<List<Object>?> pricingLines = default)
         {
             RequestId = requestId;
             TeamId = teamId;
@@ -259,26 +259,26 @@ namespace AIStatsSdk.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<Object?> BeforeOption { get; private set; }
+        public Option<Dictionary<string, Object>?> BeforeOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Before
         /// </summary>
         [JsonPropertyName("before")]
-        public Object? Before { get { return this.BeforeOption; } set { this.BeforeOption = new(value); } }
+        public Dictionary<string, Object>? Before { get { return this.BeforeOption; } set { this.BeforeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Execute
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<Object?> ExecuteOption { get; private set; }
+        public Option<Dictionary<string, Object>?> ExecuteOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Execute
         /// </summary>
         [JsonPropertyName("execute")]
-        public Object? Execute { get { return this.ExecuteOption; } set { this.ExecuteOption = new(value); } }
+        public Dictionary<string, Object>? Execute { get { return this.ExecuteOption; } set { this.ExecuteOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of LatencyMs
@@ -311,13 +311,13 @@ namespace AIStatsSdk.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<Object?> UsageOption { get; private set; }
+        public Option<Dictionary<string, Object>?> UsageOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Usage
         /// </summary>
         [JsonPropertyName("usage")]
-        public Object? Usage { get { return this.UsageOption; } set { this.UsageOption = new(value); } }
+        public Dictionary<string, Object>? Usage { get { return this.UsageOption; } set { this.UsageOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CostNanos
@@ -448,11 +448,11 @@ namespace AIStatsSdk.Model
             Option<int?> statusCode = default;
             Option<string?> errorCode = default;
             Option<string?> errorMessage = default;
-            Option<Object?> before = default;
-            Option<Object?> execute = default;
+            Option<Dictionary<string, Object>?> before = default;
+            Option<Dictionary<string, Object>?> execute = default;
             Option<decimal?> latencyMs = default;
             Option<decimal?> generationMs = default;
-            Option<Object?> usage = default;
+            Option<Dictionary<string, Object>?> usage = default;
             Option<int?> costNanos = default;
             Option<string?> currency = default;
             Option<List<Object>?> pricingLines = default;
@@ -485,22 +485,22 @@ namespace AIStatsSdk.Model
                             success = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "app_id":
-                            appId = new Option<string?>(utf8JsonReader.GetString()!);
+                            appId = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "app_title":
-                            appTitle = new Option<string?>(utf8JsonReader.GetString()!);
+                            appTitle = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "referer":
-                            referer = new Option<string?>(utf8JsonReader.GetString()!);
+                            referer = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "model_id":
-                            modelId = new Option<string?>(utf8JsonReader.GetString()!);
+                            modelId = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "provider":
-                            provider = new Option<string?>(utf8JsonReader.GetString()!);
+                            provider = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "native_response_id":
-                            nativeResponseId = new Option<string?>(utf8JsonReader.GetString()!);
+                            nativeResponseId = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "stream":
                             stream = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -512,16 +512,16 @@ namespace AIStatsSdk.Model
                             statusCode = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "error_code":
-                            errorCode = new Option<string?>(utf8JsonReader.GetString()!);
+                            errorCode = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "error_message":
-                            errorMessage = new Option<string?>(utf8JsonReader.GetString()!);
+                            errorMessage = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "before":
-                            before = new Option<Object?>(JsonSerializer.Deserialize<Object>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            before = new Option<Dictionary<string, Object>?>(JsonSerializer.Deserialize<Dictionary<string, Object>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "execute":
-                            execute = new Option<Object?>(JsonSerializer.Deserialize<Object>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            execute = new Option<Dictionary<string, Object>?>(JsonSerializer.Deserialize<Dictionary<string, Object>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "latency_ms":
                             latencyMs = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
@@ -530,13 +530,13 @@ namespace AIStatsSdk.Model
                             generationMs = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "usage":
-                            usage = new Option<Object?>(JsonSerializer.Deserialize<Object>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            usage = new Option<Dictionary<string, Object>?>(JsonSerializer.Deserialize<Dictionary<string, Object>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "cost_nanos":
                             costNanos = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "currency":
-                            currency = new Option<string?>(utf8JsonReader.GetString()!);
+                            currency = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "pricing_lines":
                             pricingLines = new Option<List<Object>?>(JsonSerializer.Deserialize<List<Object>>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -571,38 +571,11 @@ namespace AIStatsSdk.Model
             if (success.IsSet && success.Value == null)
                 throw new ArgumentNullException(nameof(success), "Property is not nullable for class GatewayGenerationRecord.");
 
-            if (appId.IsSet && appId.Value == null)
-                throw new ArgumentNullException(nameof(appId), "Property is not nullable for class GatewayGenerationRecord.");
-
-            if (appTitle.IsSet && appTitle.Value == null)
-                throw new ArgumentNullException(nameof(appTitle), "Property is not nullable for class GatewayGenerationRecord.");
-
-            if (referer.IsSet && referer.Value == null)
-                throw new ArgumentNullException(nameof(referer), "Property is not nullable for class GatewayGenerationRecord.");
-
-            if (modelId.IsSet && modelId.Value == null)
-                throw new ArgumentNullException(nameof(modelId), "Property is not nullable for class GatewayGenerationRecord.");
-
-            if (provider.IsSet && provider.Value == null)
-                throw new ArgumentNullException(nameof(provider), "Property is not nullable for class GatewayGenerationRecord.");
-
-            if (nativeResponseId.IsSet && nativeResponseId.Value == null)
-                throw new ArgumentNullException(nameof(nativeResponseId), "Property is not nullable for class GatewayGenerationRecord.");
-
             if (stream.IsSet && stream.Value == null)
                 throw new ArgumentNullException(nameof(stream), "Property is not nullable for class GatewayGenerationRecord.");
 
             if (byok.IsSet && byok.Value == null)
                 throw new ArgumentNullException(nameof(byok), "Property is not nullable for class GatewayGenerationRecord.");
-
-            if (statusCode.IsSet && statusCode.Value == null)
-                throw new ArgumentNullException(nameof(statusCode), "Property is not nullable for class GatewayGenerationRecord.");
-
-            if (errorCode.IsSet && errorCode.Value == null)
-                throw new ArgumentNullException(nameof(errorCode), "Property is not nullable for class GatewayGenerationRecord.");
-
-            if (errorMessage.IsSet && errorMessage.Value == null)
-                throw new ArgumentNullException(nameof(errorMessage), "Property is not nullable for class GatewayGenerationRecord.");
 
             if (before.IsSet && before.Value == null)
                 throw new ArgumentNullException(nameof(before), "Property is not nullable for class GatewayGenerationRecord.");
@@ -610,20 +583,8 @@ namespace AIStatsSdk.Model
             if (execute.IsSet && execute.Value == null)
                 throw new ArgumentNullException(nameof(execute), "Property is not nullable for class GatewayGenerationRecord.");
 
-            if (latencyMs.IsSet && latencyMs.Value == null)
-                throw new ArgumentNullException(nameof(latencyMs), "Property is not nullable for class GatewayGenerationRecord.");
-
-            if (generationMs.IsSet && generationMs.Value == null)
-                throw new ArgumentNullException(nameof(generationMs), "Property is not nullable for class GatewayGenerationRecord.");
-
             if (usage.IsSet && usage.Value == null)
                 throw new ArgumentNullException(nameof(usage), "Property is not nullable for class GatewayGenerationRecord.");
-
-            if (costNanos.IsSet && costNanos.Value == null)
-                throw new ArgumentNullException(nameof(costNanos), "Property is not nullable for class GatewayGenerationRecord.");
-
-            if (currency.IsSet && currency.Value == null)
-                throw new ArgumentNullException(nameof(currency), "Property is not nullable for class GatewayGenerationRecord.");
 
             if (pricingLines.IsSet && pricingLines.Value == null)
                 throw new ArgumentNullException(nameof(pricingLines), "Property is not nullable for class GatewayGenerationRecord.");
@@ -664,30 +625,6 @@ namespace AIStatsSdk.Model
             if (gatewayGenerationRecord.Endpoint == null)
                 throw new ArgumentNullException(nameof(gatewayGenerationRecord.Endpoint), "Property is required for class GatewayGenerationRecord.");
 
-            if (gatewayGenerationRecord.AppIdOption.IsSet && gatewayGenerationRecord.AppId == null)
-                throw new ArgumentNullException(nameof(gatewayGenerationRecord.AppId), "Property is required for class GatewayGenerationRecord.");
-
-            if (gatewayGenerationRecord.AppTitleOption.IsSet && gatewayGenerationRecord.AppTitle == null)
-                throw new ArgumentNullException(nameof(gatewayGenerationRecord.AppTitle), "Property is required for class GatewayGenerationRecord.");
-
-            if (gatewayGenerationRecord.RefererOption.IsSet && gatewayGenerationRecord.Referer == null)
-                throw new ArgumentNullException(nameof(gatewayGenerationRecord.Referer), "Property is required for class GatewayGenerationRecord.");
-
-            if (gatewayGenerationRecord.ModelIdOption.IsSet && gatewayGenerationRecord.ModelId == null)
-                throw new ArgumentNullException(nameof(gatewayGenerationRecord.ModelId), "Property is required for class GatewayGenerationRecord.");
-
-            if (gatewayGenerationRecord.ProviderOption.IsSet && gatewayGenerationRecord.Provider == null)
-                throw new ArgumentNullException(nameof(gatewayGenerationRecord.Provider), "Property is required for class GatewayGenerationRecord.");
-
-            if (gatewayGenerationRecord.NativeResponseIdOption.IsSet && gatewayGenerationRecord.NativeResponseId == null)
-                throw new ArgumentNullException(nameof(gatewayGenerationRecord.NativeResponseId), "Property is required for class GatewayGenerationRecord.");
-
-            if (gatewayGenerationRecord.ErrorCodeOption.IsSet && gatewayGenerationRecord.ErrorCode == null)
-                throw new ArgumentNullException(nameof(gatewayGenerationRecord.ErrorCode), "Property is required for class GatewayGenerationRecord.");
-
-            if (gatewayGenerationRecord.ErrorMessageOption.IsSet && gatewayGenerationRecord.ErrorMessage == null)
-                throw new ArgumentNullException(nameof(gatewayGenerationRecord.ErrorMessage), "Property is required for class GatewayGenerationRecord.");
-
             if (gatewayGenerationRecord.BeforeOption.IsSet && gatewayGenerationRecord.Before == null)
                 throw new ArgumentNullException(nameof(gatewayGenerationRecord.Before), "Property is required for class GatewayGenerationRecord.");
 
@@ -696,9 +633,6 @@ namespace AIStatsSdk.Model
 
             if (gatewayGenerationRecord.UsageOption.IsSet && gatewayGenerationRecord.Usage == null)
                 throw new ArgumentNullException(nameof(gatewayGenerationRecord.Usage), "Property is required for class GatewayGenerationRecord.");
-
-            if (gatewayGenerationRecord.CurrencyOption.IsSet && gatewayGenerationRecord.Currency == null)
-                throw new ArgumentNullException(nameof(gatewayGenerationRecord.Currency), "Property is required for class GatewayGenerationRecord.");
 
             if (gatewayGenerationRecord.PricingLinesOption.IsSet && gatewayGenerationRecord.PricingLines == null)
                 throw new ArgumentNullException(nameof(gatewayGenerationRecord.PricingLines), "Property is required for class GatewayGenerationRecord.");
@@ -712,22 +646,40 @@ namespace AIStatsSdk.Model
             writer.WriteBoolean("success", gatewayGenerationRecord.Success);
 
             if (gatewayGenerationRecord.AppIdOption.IsSet)
-                writer.WriteString("app_id", gatewayGenerationRecord.AppId);
+                if (gatewayGenerationRecord.AppIdOption.Value != null)
+                    writer.WriteString("app_id", gatewayGenerationRecord.AppId);
+                else
+                    writer.WriteNull("app_id");
 
             if (gatewayGenerationRecord.AppTitleOption.IsSet)
-                writer.WriteString("app_title", gatewayGenerationRecord.AppTitle);
+                if (gatewayGenerationRecord.AppTitleOption.Value != null)
+                    writer.WriteString("app_title", gatewayGenerationRecord.AppTitle);
+                else
+                    writer.WriteNull("app_title");
 
             if (gatewayGenerationRecord.RefererOption.IsSet)
-                writer.WriteString("referer", gatewayGenerationRecord.Referer);
+                if (gatewayGenerationRecord.RefererOption.Value != null)
+                    writer.WriteString("referer", gatewayGenerationRecord.Referer);
+                else
+                    writer.WriteNull("referer");
 
             if (gatewayGenerationRecord.ModelIdOption.IsSet)
-                writer.WriteString("model_id", gatewayGenerationRecord.ModelId);
+                if (gatewayGenerationRecord.ModelIdOption.Value != null)
+                    writer.WriteString("model_id", gatewayGenerationRecord.ModelId);
+                else
+                    writer.WriteNull("model_id");
 
             if (gatewayGenerationRecord.ProviderOption.IsSet)
-                writer.WriteString("provider", gatewayGenerationRecord.Provider);
+                if (gatewayGenerationRecord.ProviderOption.Value != null)
+                    writer.WriteString("provider", gatewayGenerationRecord.Provider);
+                else
+                    writer.WriteNull("provider");
 
             if (gatewayGenerationRecord.NativeResponseIdOption.IsSet)
-                writer.WriteString("native_response_id", gatewayGenerationRecord.NativeResponseId);
+                if (gatewayGenerationRecord.NativeResponseIdOption.Value != null)
+                    writer.WriteString("native_response_id", gatewayGenerationRecord.NativeResponseId);
+                else
+                    writer.WriteNull("native_response_id");
 
             if (gatewayGenerationRecord.StreamOption.IsSet)
                 writer.WriteBoolean("stream", gatewayGenerationRecord.StreamOption.Value!.Value);
@@ -736,13 +688,22 @@ namespace AIStatsSdk.Model
                 writer.WriteBoolean("byok", gatewayGenerationRecord.ByokOption.Value!.Value);
 
             if (gatewayGenerationRecord.StatusCodeOption.IsSet)
-                writer.WriteNumber("status_code", gatewayGenerationRecord.StatusCodeOption.Value!.Value);
+                if (gatewayGenerationRecord.StatusCodeOption.Value != null)
+                    writer.WriteNumber("status_code", gatewayGenerationRecord.StatusCodeOption.Value!.Value);
+                else
+                    writer.WriteNull("status_code");
 
             if (gatewayGenerationRecord.ErrorCodeOption.IsSet)
-                writer.WriteString("error_code", gatewayGenerationRecord.ErrorCode);
+                if (gatewayGenerationRecord.ErrorCodeOption.Value != null)
+                    writer.WriteString("error_code", gatewayGenerationRecord.ErrorCode);
+                else
+                    writer.WriteNull("error_code");
 
             if (gatewayGenerationRecord.ErrorMessageOption.IsSet)
-                writer.WriteString("error_message", gatewayGenerationRecord.ErrorMessage);
+                if (gatewayGenerationRecord.ErrorMessageOption.Value != null)
+                    writer.WriteString("error_message", gatewayGenerationRecord.ErrorMessage);
+                else
+                    writer.WriteNull("error_message");
 
             if (gatewayGenerationRecord.BeforeOption.IsSet)
             {
@@ -755,10 +716,16 @@ namespace AIStatsSdk.Model
                 JsonSerializer.Serialize(writer, gatewayGenerationRecord.Execute, jsonSerializerOptions);
             }
             if (gatewayGenerationRecord.LatencyMsOption.IsSet)
-                writer.WriteNumber("latency_ms", gatewayGenerationRecord.LatencyMsOption.Value!.Value);
+                if (gatewayGenerationRecord.LatencyMsOption.Value != null)
+                    writer.WriteNumber("latency_ms", gatewayGenerationRecord.LatencyMsOption.Value!.Value);
+                else
+                    writer.WriteNull("latency_ms");
 
             if (gatewayGenerationRecord.GenerationMsOption.IsSet)
-                writer.WriteNumber("generation_ms", gatewayGenerationRecord.GenerationMsOption.Value!.Value);
+                if (gatewayGenerationRecord.GenerationMsOption.Value != null)
+                    writer.WriteNumber("generation_ms", gatewayGenerationRecord.GenerationMsOption.Value!.Value);
+                else
+                    writer.WriteNull("generation_ms");
 
             if (gatewayGenerationRecord.UsageOption.IsSet)
             {
@@ -766,10 +733,16 @@ namespace AIStatsSdk.Model
                 JsonSerializer.Serialize(writer, gatewayGenerationRecord.Usage, jsonSerializerOptions);
             }
             if (gatewayGenerationRecord.CostNanosOption.IsSet)
-                writer.WriteNumber("cost_nanos", gatewayGenerationRecord.CostNanosOption.Value!.Value);
+                if (gatewayGenerationRecord.CostNanosOption.Value != null)
+                    writer.WriteNumber("cost_nanos", gatewayGenerationRecord.CostNanosOption.Value!.Value);
+                else
+                    writer.WriteNull("cost_nanos");
 
             if (gatewayGenerationRecord.CurrencyOption.IsSet)
-                writer.WriteString("currency", gatewayGenerationRecord.Currency);
+                if (gatewayGenerationRecord.CurrencyOption.Value != null)
+                    writer.WriteString("currency", gatewayGenerationRecord.Currency);
+                else
+                    writer.WriteNull("currency");
 
             if (gatewayGenerationRecord.PricingLinesOption.IsSet)
             {

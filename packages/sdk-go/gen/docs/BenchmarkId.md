@@ -17,13 +17,19 @@
 
 * `AIME_2025` (value: `"aime-2025"`)
 
+* `AMC` (value: `"amc"`)
+
 * `ARC_AGI_1` (value: `"arc-agi-1"`)
 
 * `ARC_AGI_2` (value: `"arc-agi-2"`)
 
+* `ARENA_HARD` (value: `"arena-hard"`)
+
 * `AUTOLOGI` (value: `"autologi"`)
 
 * `BALROG_AI` (value: `"balrog-ai"`)
+
+* `BFCL_OVERALL_FC_V4` (value: `"bfcl-overall-fc-v4"`)
 
 * `BIGCODEBENCH` (value: `"bigcodebench"`)
 
@@ -103,11 +109,17 @@
 
 * `IF_EVAL` (value: `"if-eval"`)
 
+* `IMOANSWERBENCH` (value: `"imoanswerbench"`)
+
 * `IQ_BENCH` (value: `"iq-bench"`)
 
 * `LISANBENCH` (value: `"lisanbench"`)
 
 * `LIVEBENCH` (value: `"livebench"`)
+
+* `LIVECODEBENCH` (value: `"livecodebench"`)
+
+* `LIVECODEBENCH_CODING` (value: `"livecodebench-coding"`)
 
 * `LIVECODEBENCH_PRO` (value: `"livecodebench-pro"`)
 
@@ -118,6 +130,8 @@
 * `LMARENA_TEXT` (value: `"lmarena-text"`)
 
 * `LMARENA_WEBDEV` (value: `"lmarena-webdev"`)
+
+* `LONGCODEBENCH_1M` (value: `"longcodebench-1m"`)
 
 * `LONGFACT_CONCEPTS_HALLUCINATION_RATE` (value: `"longfact-concepts-hallucination-rate"`)
 
@@ -141,7 +155,11 @@
 
 * `MLE_BENCH` (value: `"mle-bench"`)
 
+* `MM_MT_BENCH` (value: `"mm-mt-bench"`)
+
 * `MMLU` (value: `"mmlu"`)
+
+* `MMLU_MULTILINGUAL` (value: `"mmlu-multilingual"`)
 
 * `MMLU_PRO` (value: `"mmlu-pro"`)
 
@@ -160,6 +178,8 @@
 * `MULTI_PL_E` (value: `"multiPL-E"`)
 
 * `NYT_CONNECTIONS` (value: `"nyt-connections"`)
+
+* `OCRBENCH_V2` (value: `"ocrbench-v2"`)
 
 * `OJBENCH` (value: `"ojbench"`)
 
@@ -180,6 +200,14 @@
 * `PHYBENCH` (value: `"phybench"`)
 
 * `POLYMATH_EN` (value: `"polymath-en"`)
+
+* `QVHIGHLIGHTS` (value: `"qvhighlights"`)
+
+* `REALKIE` (value: `"realkie"`)
+
+* `SCALE_MCP_ATLAS` (value: `"scale-mcp-atlas"`)
+
+* `SCREENSPOT` (value: `"screenspot"`)
 
 * `SCREENSPOT_PRO` (value: `"screenspot-pro"`)
 
@@ -240,6 +268,8 @@
 * `VIDEOMME` (value: `"videomme"`)
 
 * `WEIRDML` (value: `"weirdml"`)
+
+* `WILDBENCH` (value: `"wildbench"`)
 
 * `XLANG_AGENT` (value: `"xlang-agent"`)
 

@@ -21,7 +21,7 @@ var _ MappedNullable = &ModerationRequest{}
 // ModerationRequest struct for ModerationRequest
 type ModerationRequest struct {
 	Model string `json:"model"`
-	Input interface{} `json:"input"`
+	Input ModerationRequestInput `json:"input"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,7 +31,7 @@ type _ModerationRequest ModerationRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModerationRequest(model string, input interface{}) *ModerationRequest {
+func NewModerationRequest(model string, input ModerationRequestInput) *ModerationRequest {
 	this := ModerationRequest{}
 	this.Model = model
 	this.Input = input
@@ -71,10 +71,9 @@ func (o *ModerationRequest) SetModel(v string) {
 }
 
 // GetInput returns the Input field value
-// If the value is explicit nil, the zero value for interface{} will be returned
-func (o *ModerationRequest) GetInput() interface{} {
+func (o *ModerationRequest) GetInput() ModerationRequestInput {
 	if o == nil {
-		var ret interface{}
+		var ret ModerationRequestInput
 		return ret
 	}
 
@@ -83,16 +82,15 @@ func (o *ModerationRequest) GetInput() interface{} {
 
 // GetInputOk returns a tuple with the Input field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ModerationRequest) GetInputOk() (*interface{}, bool) {
-	if o == nil || IsNil(o.Input) {
+func (o *ModerationRequest) GetInputOk() (*ModerationRequestInput, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Input, true
 }
 
 // SetInput sets field value
-func (o *ModerationRequest) SetInput(v interface{}) {
+func (o *ModerationRequest) SetInput(v ModerationRequestInput) {
 	o.Input = v
 }
 
@@ -107,9 +105,7 @@ func (o ModerationRequest) MarshalJSON() ([]byte, error) {
 func (o ModerationRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["model"] = o.Model
-	if o.Input != nil {
-		toSerialize["input"] = o.Input
-	}
+	toSerialize["input"] = o.Input
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value

@@ -6,17 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
 **Text** | **string** |  | 
-**ImageUrl** | [**MessageContentImageUrlImageUrl**](MessageContentImageUrlImageUrl.md) |  | 
-**InputAudio** | [**MessageContentInputAudioInputAudio**](MessageContentInputAudioInputAudio.md) |  | 
+**ImageUrl** | [**ImageContentPartImageUrl**](ImageContentPartImageUrl.md) |  | 
+**InputAudio** | [**AudioContentPartInputAudio**](AudioContentPartInputAudio.md) |  | 
 **VideoUrl** | **string** |  | 
 **Id** | **string** |  | 
-**Function** | [**ToolCallFunction**](ToolCallFunction.md) |  | 
+**Function** | [**ToolCallContentPartFunction**](ToolCallContentPartFunction.md) |  | 
 
 ## Methods
 
 ### NewMessageContentPart
 
-`func NewMessageContentPart(type_ string, text string, imageUrl MessageContentImageUrlImageUrl, inputAudio MessageContentInputAudioInputAudio, videoUrl string, id string, function ToolCallFunction, ) *MessageContentPart`
+`func NewMessageContentPart(type_ string, text string, imageUrl ImageContentPartImageUrl, inputAudio AudioContentPartInputAudio, videoUrl string, id string, function ToolCallContentPartFunction, ) *MessageContentPart`
 
 NewMessageContentPart instantiates a new MessageContentPart object
 This constructor will assign default values to properties that have it defined,
@@ -73,40 +73,40 @@ SetText sets Text field to given value.
 
 ### GetImageUrl
 
-`func (o *MessageContentPart) GetImageUrl() MessageContentImageUrlImageUrl`
+`func (o *MessageContentPart) GetImageUrl() ImageContentPartImageUrl`
 
 GetImageUrl returns the ImageUrl field if non-nil, zero value otherwise.
 
 ### GetImageUrlOk
 
-`func (o *MessageContentPart) GetImageUrlOk() (*MessageContentImageUrlImageUrl, bool)`
+`func (o *MessageContentPart) GetImageUrlOk() (*ImageContentPartImageUrl, bool)`
 
 GetImageUrlOk returns a tuple with the ImageUrl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageUrl
 
-`func (o *MessageContentPart) SetImageUrl(v MessageContentImageUrlImageUrl)`
+`func (o *MessageContentPart) SetImageUrl(v ImageContentPartImageUrl)`
 
 SetImageUrl sets ImageUrl field to given value.
 
 
 ### GetInputAudio
 
-`func (o *MessageContentPart) GetInputAudio() MessageContentInputAudioInputAudio`
+`func (o *MessageContentPart) GetInputAudio() AudioContentPartInputAudio`
 
 GetInputAudio returns the InputAudio field if non-nil, zero value otherwise.
 
 ### GetInputAudioOk
 
-`func (o *MessageContentPart) GetInputAudioOk() (*MessageContentInputAudioInputAudio, bool)`
+`func (o *MessageContentPart) GetInputAudioOk() (*AudioContentPartInputAudio, bool)`
 
 GetInputAudioOk returns a tuple with the InputAudio field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInputAudio
 
-`func (o *MessageContentPart) SetInputAudio(v MessageContentInputAudioInputAudio)`
+`func (o *MessageContentPart) SetInputAudio(v AudioContentPartInputAudio)`
 
 SetInputAudio sets InputAudio field to given value.
 
@@ -153,20 +153,20 @@ SetId sets Id field to given value.
 
 ### GetFunction
 
-`func (o *MessageContentPart) GetFunction() ToolCallFunction`
+`func (o *MessageContentPart) GetFunction() ToolCallContentPartFunction`
 
 GetFunction returns the Function field if non-nil, zero value otherwise.
 
 ### GetFunctionOk
 
-`func (o *MessageContentPart) GetFunctionOk() (*ToolCallFunction, bool)`
+`func (o *MessageContentPart) GetFunctionOk() (*ToolCallContentPartFunction, bool)`
 
 GetFunctionOk returns a tuple with the Function field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFunction
 
-`func (o *MessageContentPart) SetFunction(v ToolCallFunction)`
+`func (o *MessageContentPart) SetFunction(v ToolCallContentPartFunction)`
 
 SetFunction sets Function field to given value.
 

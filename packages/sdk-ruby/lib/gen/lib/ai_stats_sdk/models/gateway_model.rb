@@ -24,13 +24,11 @@ module AIStatsSdk
     # Earliest known public release date.
     attr_accessor :release_date
 
-    # Earliest known public announcement date if different from release.
-    attr_accessor :announcement_date
-
     # Lifecycle status of the model (Rumoured, Announced, Available, Deprecated, Retired).
     attr_accessor :status
 
-    attr_accessor :organisation
+    # Organisation identifier responsible for the model.
+    attr_accessor :organisation_id
 
     # Enabled aliases that resolve to this model.
     attr_accessor :aliases
@@ -38,14 +36,14 @@ module AIStatsSdk
     # Gateway endpoints that currently route to this model.
     attr_accessor :endpoints
 
-    # Provider mappings that can serve this model.
-    attr_accessor :providers
-
     # Input content types supported by the model itself.
     attr_accessor :input_types
 
     # Output content types supported by the model itself.
     attr_accessor :output_types
+
+    # Providers that support this model with their parameters.
+    attr_accessor :providers
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -75,14 +73,13 @@ module AIStatsSdk
         :'model_id' => :'model_id',
         :'name' => :'name',
         :'release_date' => :'release_date',
-        :'announcement_date' => :'announcement_date',
         :'status' => :'status',
-        :'organisation' => :'organisation',
+        :'organisation_id' => :'organisation_id',
         :'aliases' => :'aliases',
         :'endpoints' => :'endpoints',
-        :'providers' => :'providers',
         :'input_types' => :'input_types',
-        :'output_types' => :'output_types'
+        :'output_types' => :'output_types',
+        :'providers' => :'providers'
       }
     end
 
@@ -102,14 +99,13 @@ module AIStatsSdk
         :'model_id' => :'String',
         :'name' => :'String',
         :'release_date' => :'Date',
-        :'announcement_date' => :'Date',
         :'status' => :'String',
-        :'organisation' => :'OrganisationId',
+        :'organisation_id' => :'String',
         :'aliases' => :'Array<String>',
         :'endpoints' => :'Array<String>',
-        :'providers' => :'Array<GatewayModelProvider>',
         :'input_types' => :'Array<String>',
-        :'output_types' => :'Array<String>'
+        :'output_types' => :'Array<String>',
+        :'providers' => :'Array<ProviderInfo>'
       }
     end
 
@@ -118,9 +114,8 @@ module AIStatsSdk
       Set.new([
         :'name',
         :'release_date',
-        :'announcement_date',
         :'status',
-        :'organisation',
+        :'organisation_id',
       ])
     end
 
@@ -158,22 +153,16 @@ module AIStatsSdk
         self.release_date = nil
       end
 
-      if attributes.key?(:'announcement_date')
-        self.announcement_date = attributes[:'announcement_date']
-      else
-        self.announcement_date = nil
-      end
-
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       else
         self.status = nil
       end
 
-      if attributes.key?(:'organisation')
-        self.organisation = attributes[:'organisation']
+      if attributes.key?(:'organisation_id')
+        self.organisation_id = attributes[:'organisation_id']
       else
-        self.organisation = nil
+        self.organisation_id = nil
       end
 
       if attributes.key?(:'aliases')
@@ -192,14 +181,6 @@ module AIStatsSdk
         self.endpoints = nil
       end
 
-      if attributes.key?(:'providers')
-        if (value = attributes[:'providers']).is_a?(Array)
-          self.providers = value
-        end
-      else
-        self.providers = nil
-      end
-
       if attributes.key?(:'input_types')
         if (value = attributes[:'input_types']).is_a?(Array)
           self.input_types = value
@@ -214,6 +195,14 @@ module AIStatsSdk
         end
       else
         self.output_types = nil
+      end
+
+      if attributes.key?(:'providers')
+        if (value = attributes[:'providers']).is_a?(Array)
+          self.providers = value
+        end
+      else
+        self.providers = nil
       end
     end
 
@@ -234,16 +223,16 @@ module AIStatsSdk
         invalid_properties.push('invalid value for "endpoints", endpoints cannot be nil.')
       end
 
-      if @providers.nil?
-        invalid_properties.push('invalid value for "providers", providers cannot be nil.')
-      end
-
       if @input_types.nil?
         invalid_properties.push('invalid value for "input_types", input_types cannot be nil.')
       end
 
       if @output_types.nil?
         invalid_properties.push('invalid value for "output_types", output_types cannot be nil.')
+      end
+
+      if @providers.nil?
+        invalid_properties.push('invalid value for "providers", providers cannot be nil.')
       end
 
       invalid_properties
@@ -256,9 +245,9 @@ module AIStatsSdk
       return false if @model_id.nil?
       return false if @aliases.nil?
       return false if @endpoints.nil?
-      return false if @providers.nil?
       return false if @input_types.nil?
       return false if @output_types.nil?
+      return false if @providers.nil?
       true
     end
 
@@ -283,16 +272,6 @@ module AIStatsSdk
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] providers Value to be assigned
-    def providers=(providers)
-      if providers.nil?
-        fail ArgumentError, 'providers cannot be nil'
-      end
-
-      @providers = providers
-    end
-
-    # Custom attribute writer method with validation
     # @param [Object] input_types Value to be assigned
     def input_types=(input_types)
       if input_types.nil?
@@ -312,6 +291,16 @@ module AIStatsSdk
       @output_types = output_types
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] providers Value to be assigned
+    def providers=(providers)
+      if providers.nil?
+        fail ArgumentError, 'providers cannot be nil'
+      end
+
+      @providers = providers
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -320,14 +309,13 @@ module AIStatsSdk
           model_id == o.model_id &&
           name == o.name &&
           release_date == o.release_date &&
-          announcement_date == o.announcement_date &&
           status == o.status &&
-          organisation == o.organisation &&
+          organisation_id == o.organisation_id &&
           aliases == o.aliases &&
           endpoints == o.endpoints &&
-          providers == o.providers &&
           input_types == o.input_types &&
-          output_types == o.output_types
+          output_types == o.output_types &&
+          providers == o.providers
     end
 
     # @see the `==` method
@@ -339,7 +327,7 @@ module AIStatsSdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [model_id, name, release_date, announcement_date, status, organisation, aliases, endpoints, providers, input_types, output_types].hash
+      [model_id, name, release_date, status, organisation_id, aliases, endpoints, input_types, output_types, providers].hash
     end
 
     # Builds the object from hash

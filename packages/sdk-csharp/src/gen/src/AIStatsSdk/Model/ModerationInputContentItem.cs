@@ -33,13 +33,34 @@ namespace AIStatsSdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModerationInputContentItem" /> class.
         /// </summary>
-        [JsonConstructor]
-        internal ModerationInputContentItem()
+        /// <param name="moderationInputTextItem"></param>
+        public ModerationInputContentItem(ModerationInputTextItem moderationInputTextItem)
         {
+            ModerationInputTextItem = moderationInputTextItem;
+            OnCreated();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ModerationInputContentItem" /> class.
+        /// </summary>
+        /// <param name="moderationInputImageUrlItem"></param>
+        public ModerationInputContentItem(ModerationInputImageUrlItem moderationInputImageUrlItem)
+        {
+            ModerationInputImageUrlItem = moderationInputImageUrlItem;
             OnCreated();
         }
 
         partial void OnCreated();
+
+        /// <summary>
+        /// Gets or Sets ModerationInputTextItem
+        /// </summary>
+        public ModerationInputTextItem? ModerationInputTextItem { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ModerationInputImageUrlItem
+        /// </summary>
+        public ModerationInputImageUrlItem? ModerationInputImageUrlItem { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,6 +107,28 @@ namespace AIStatsSdk.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
+            ModerationInputTextItem? moderationInputTextItem = default;
+            ModerationInputImageUrlItem? moderationInputImageUrlItem = default;
+
+            Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
+            while (utf8JsonReaderOneOf.Read())
+            {
+                if (startingTokenType == JsonTokenType.StartObject && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
+                    break;
+
+                if (startingTokenType == JsonTokenType.StartArray && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndArray && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
+                    break;
+
+                if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
+                {
+                    Utf8JsonReader utf8JsonReaderModerationInputTextItem = utf8JsonReader;
+                    ClientUtils.TryDeserialize<ModerationInputTextItem?>(ref utf8JsonReaderModerationInputTextItem, jsonSerializerOptions, out moderationInputTextItem);
+
+                    Utf8JsonReader utf8JsonReaderModerationInputImageUrlItem = utf8JsonReader;
+                    ClientUtils.TryDeserialize<ModerationInputImageUrlItem?>(ref utf8JsonReaderModerationInputImageUrlItem, jsonSerializerOptions, out moderationInputImageUrlItem);
+                }
+            }
+
             while (utf8JsonReader.Read())
             {
                 if (startingTokenType == JsonTokenType.StartObject && utf8JsonReader.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReader.CurrentDepth)
@@ -107,7 +150,13 @@ namespace AIStatsSdk.Model
                 }
             }
 
-            return new ModerationInputContentItem();
+            if (moderationInputTextItem != null)
+                return new ModerationInputContentItem(moderationInputTextItem);
+
+            if (moderationInputImageUrlItem != null)
+                return new ModerationInputContentItem(moderationInputImageUrlItem);
+
+            throw new JsonException();
         }
 
         /// <summary>

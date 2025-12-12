@@ -1,4 +1,5 @@
 # AIStatsSdk.Model.ModelId
+Model identifier.
 
 ## Properties
 

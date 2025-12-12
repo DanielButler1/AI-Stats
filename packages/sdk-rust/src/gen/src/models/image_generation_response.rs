@@ -20,7 +20,7 @@ pub struct ImageGenerationResponse {
     #[serde(rename = "meta")]
     pub meta: Box<models::GatewayMetadata>,
     #[serde(rename = "usage", skip_serializing_if = "Option::is_none")]
-    pub usage: Option<Box<models::GatewayUsage>>,
+    pub usage: Option<models::GatewayUsage>,
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "created")]

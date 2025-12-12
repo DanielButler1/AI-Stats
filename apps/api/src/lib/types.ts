@@ -1,12 +1,18 @@
 export type Endpoint =
     | "chat.completions"
+    | "responses"
     | "images.generations"
+    | "images.edits"
     | "audio.speech"
     | "audio.transcription"
+    | "audio.translations"
     | "moderations"
     | "video.generation"
     | "embeddings"
-    | "batch";
+    | "batch"
+    | "files.upload"
+    | "files.list"
+    | "files.retrieve";
 
 export type RequestMeta = {
     apiKeyId: string;             // Internal UUID for the gateway key
@@ -82,6 +88,8 @@ export type GatewayCompletionsResponse = {
     usage?: GatewayUsage;
 }
 
+export type GatewayResponsePayload = GatewayCompletionsResponse | Record<string, any>;
+
 export type GatewayCompletionsChoice = {
     index: number;
     message: {
@@ -106,10 +114,29 @@ export type GatewayCompletionsChoice = {
 }
 
 export type GatewayUsage = {
-    total_tokens: number;
+    // New, OpenAI-aligned meters
+    input_tokens?: number;
+    output_tokens?: number;
+    total_tokens?: number;
+    input_details?: {
+        cached_tokens?: number;
+        input_images?: number;
+        input_audio?: number;
+        input_videos?: number;
+    };
+    output_tokens_details?: {
+        reasoning_tokens?: number;
+        cached_tokens?: number;
+        output_images?: number;
+        output_audio?: number;
+        output_videos?: number;
+    };
 
-    input_text_tokens: number;
-    output_text_tokens: number;
+    // Legacy meters kept for pricing + internal analytics
+    total_tokens?: number;
+
+    input_text_tokens?: number;
+    output_text_tokens?: number;
 
     cached_read_text_tokens?: number;
     reasoning_tokens?: number;

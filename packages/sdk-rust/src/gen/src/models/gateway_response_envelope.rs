@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 /// GatewayResponseEnvelope : Common fields present on all successful gateway responses.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GatewayResponseEnvelope {
-    #[serde(rename = "nativeResponseId", skip_serializing_if = "Option::is_none")]
-    pub native_response_id: Option<String>,
+    #[serde(rename = "nativeResponseId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub native_response_id: Option<Option<String>>,
     #[serde(rename = "provider")]
     pub provider: String,
     #[serde(rename = "meta")]
     pub meta: Box<models::GatewayMetadata>,
     #[serde(rename = "usage", skip_serializing_if = "Option::is_none")]
-    pub usage: Option<Box<models::GatewayUsage>>,
+    pub usage: Option<models::GatewayUsage>,
 }
 
 impl GatewayResponseEnvelope {

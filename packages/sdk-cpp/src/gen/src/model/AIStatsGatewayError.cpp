@@ -195,7 +195,7 @@ bool AIStatsGatewayError::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("timing")));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<Object> refVal_setTiming;
+            std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> refVal_setTiming;
             ok &= ModelBase::fromJson(fieldValue, refVal_setTiming);
             setTiming(refVal_setTiming);
             
@@ -308,7 +308,7 @@ bool AIStatsGatewayError::fromMultiPart(std::shared_ptr<MultipartFormData> multi
     }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("timing"))))
     {
-        std::shared_ptr<Object> refVal_setTiming;
+        std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> refVal_setTiming;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("timing"))), refVal_setTiming );
         setTiming(refVal_setTiming);
     }
@@ -483,13 +483,13 @@ void AIStatsGatewayError::unsetMeta()
 {
     m_MetaIsSet = false;
 }
-std::shared_ptr<Object> AIStatsGatewayError::getTiming() const
+std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> AIStatsGatewayError::getTiming() const
 {
     return m_Timing;
 }
 
 
-void AIStatsGatewayError::setTiming(const std::shared_ptr<Object>& value)
+void AIStatsGatewayError::setTiming(const std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>>& value)
 {
     m_Timing = value;
     m_TimingIsSet = true;

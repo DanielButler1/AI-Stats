@@ -1,0 +1,41 @@
+---
+title: "Video generation"
+description: "Call /video/generation with the Go SDK."
+---
+
+**Method**: `client.Video.VideoGenerationPost()`.
+
+### Example
+```go
+import (
+    "context"
+    "fmt"
+    "log"
+
+    aistats "packages/sdk-go"
+    "packages/sdk-go/gen"
+)
+
+ctx := context.Background()
+client := aistats.New("your-api-key", "https://api.ai-stats.dev")
+
+req := gen.VideoGenerationRequest{
+    Model:  "openai/gpt-video-1",
+    Prompt: "A calm ocean at dusk",
+}
+
+video, _, err := client.Video.VideoGenerationPost(ctx).VideoGenerationRequest(req).Execute()
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Println("Generated video:", video.Video[0].Url)
+```
+
+### Key parameters
+- `model` (required): Video-capable model id.
+- `prompt` (required): Text description of the video.
+- Optional provider-specific controls (per API spec), e.g., duration, format, or aspect (when supported by the upstream).
+
+### Returns
+`VideoGenerationResponse`
+

@@ -81,6 +81,7 @@ module AIStatsSdk
     def self.openapi_nullable
       Set.new([
         :'finish_reason',
+        :'reasoning'
       ])
     end
 

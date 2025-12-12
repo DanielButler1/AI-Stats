@@ -1,0 +1,40 @@
+---
+title: "Chat completions"
+description: "Call /chat/completions with the Ruby SDK."
+---
+
+**Method**: `CompletionsApi#create_chat_completion`.
+
+### Example
+```ruby
+require 'ai_stats_sdk'
+
+config = AIStatsSdk::Configuration.default
+config.access_token = 'your_api_key'
+api_client = AIStatsSdk::ApiClient.new(config)
+completions_api = AIStatsSdk::CompletionsApi.new(api_client)
+
+request = AIStatsSdk::ChatCompletionsRequest.new(
+  model: 'openai/gpt-4o-mini',
+  messages: [
+    AIStatsSdk::ChatMessageUser.new(content: 'Write a limerick about lighthouses.', role: 'user')
+  ],
+  temperature: 0.5
+)
+
+response = completions_api.create_chat_completion(request)
+```
+
+### Key parameters
+- `model` (required): Target model id.
+- `messages` (required): Ordered messages with roles `user`/`system`/`assistant`/`tool`; content as strings.
+- Sampling: `temperature` (0–2), `top_p` (0–1), `top_k` (>=1), `seed` (int, optional).
+- Length/penalties: `max_output_tokens` (int), `presence_penalty` and `frequency_penalty` (-2 to 2), `stop` (string|string[]).
+- Tools: `tools` (definitions), `tool_choice` (auto/none/specific tool), `max_tool_calls` (int), `parallel_tool_calls` (bool).
+- Logprobs: `logprobs` (bool), `top_logprobs` (0–20).
+- Output: `response_format` (json/text), `metadata` (object passthrough), `stream` (bool), `service_tier`.
+- Gateway extras: `usage` (bool to request usage), `meta` (bool to include meta block).
+
+### Returns
+`ChatCompletionsResponse`
+

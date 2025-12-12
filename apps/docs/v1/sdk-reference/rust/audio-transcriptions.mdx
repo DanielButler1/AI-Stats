@@ -1,0 +1,35 @@
+---
+title: "Audio transcriptions"
+description: "Call /audio/transcriptions with the Rust SDK."
+---
+
+**Method**: `audio_api::audio_transcriptions_post()`.
+
+### Example
+```rust
+use ai_stats_sdk::apis::{configuration::Configuration, audio_api};
+use ai_stats_sdk::models::AudioTranscriptionRequest;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let mut config = Configuration::new();
+    config.bearer_access_token = Some("your-api-key".to_string());
+
+    let mut request = AudioTranscriptionRequest::new("openai/whisper-1".to_string());
+    request.audio_url = Some("https://example.com/audio.mp3".to_string());
+
+    let response = audio_api::audio_transcriptions_post(&config, request).await?;
+    println!("Transcription: {}", response.text.unwrap_or_default());
+    Ok(())
+}
+```
+
+### Key parameters
+- `model` (required): The model to use for transcription.
+- `audio_url` (optional): URL of the audio file to transcribe.
+- `audio_b64` (optional): Base64 encoded audio data.
+- `language` (optional): Language of the audio.
+
+### Returns
+`AudioTranscriptionResponse` containing the transcribed text and detected language.
+

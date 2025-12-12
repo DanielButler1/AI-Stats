@@ -1,0 +1,17 @@
+---
+title: "Health"
+description: "Call /healthz with the C# SDK."
+---
+
+**Method**: `client.GetHealth()`.
+
+### Example
+```csharp
+var client = new Client(apiKey);
+
+var health = client.GetHealth();
+```
+
+### Returns
+`HealthzGet200Response`
+

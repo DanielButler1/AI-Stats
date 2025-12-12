@@ -41,7 +41,7 @@ namespace AIStatsSdk.Model
         /// <param name="referer">referer</param>
         /// <param name="timing">Optional timing information captured during the request lifecycle.</param>
         [JsonConstructor]
-        public GatewayMetadata(string requestId, string provider, string endpoint, ModelId model, Option<string?> appTitle = default, Option<string?> referer = default, Option<Object?> timing = default)
+        public GatewayMetadata(string requestId, string provider, string endpoint, ModelId model, Option<string?> appTitle = default, Option<string?> referer = default, Option<Dictionary<string, Object>?> timing = default)
         {
             RequestId = requestId;
             Provider = provider;
@@ -110,14 +110,14 @@ namespace AIStatsSdk.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<Object?> TimingOption { get; private set; }
+        public Option<Dictionary<string, Object>?> TimingOption { get; private set; }
 
         /// <summary>
         /// Optional timing information captured during the request lifecycle.
         /// </summary>
         /// <value>Optional timing information captured during the request lifecycle.</value>
         [JsonPropertyName("timing")]
-        public Object? Timing { get { return this.TimingOption; } set { this.TimingOption = new(value); } }
+        public Dictionary<string, Object>? Timing { get { return this.TimingOption; } set { this.TimingOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -177,7 +177,7 @@ namespace AIStatsSdk.Model
             Option<ModelId?> model = default;
             Option<string?> appTitle = default;
             Option<string?> referer = default;
-            Option<Object?> timing = default;
+            Option<Dictionary<string, Object>?> timing = default;
 
             while (utf8JsonReader.Read())
             {
@@ -209,13 +209,13 @@ namespace AIStatsSdk.Model
                                 model = new Option<ModelId?>(ModelIdValueConverter.FromStringOrDefault(modelRawValue));
                             break;
                         case "appTitle":
-                            appTitle = new Option<string?>(utf8JsonReader.GetString()!);
+                            appTitle = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "referer":
-                            referer = new Option<string?>(utf8JsonReader.GetString()!);
+                            referer = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "timing":
-                            timing = new Option<Object?>(JsonSerializer.Deserialize<Object>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            timing = new Option<Dictionary<string, Object>?>(JsonSerializer.Deserialize<Dictionary<string, Object>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
@@ -246,12 +246,6 @@ namespace AIStatsSdk.Model
 
             if (model.IsSet && model.Value == null)
                 throw new ArgumentNullException(nameof(model), "Property is not nullable for class GatewayMetadata.");
-
-            if (appTitle.IsSet && appTitle.Value == null)
-                throw new ArgumentNullException(nameof(appTitle), "Property is not nullable for class GatewayMetadata.");
-
-            if (referer.IsSet && referer.Value == null)
-                throw new ArgumentNullException(nameof(referer), "Property is not nullable for class GatewayMetadata.");
 
             if (timing.IsSet && timing.Value == null)
                 throw new ArgumentNullException(nameof(timing), "Property is not nullable for class GatewayMetadata.");
@@ -292,12 +286,6 @@ namespace AIStatsSdk.Model
             if (gatewayMetadata.Endpoint == null)
                 throw new ArgumentNullException(nameof(gatewayMetadata.Endpoint), "Property is required for class GatewayMetadata.");
 
-            if (gatewayMetadata.AppTitleOption.IsSet && gatewayMetadata.AppTitle == null)
-                throw new ArgumentNullException(nameof(gatewayMetadata.AppTitle), "Property is required for class GatewayMetadata.");
-
-            if (gatewayMetadata.RefererOption.IsSet && gatewayMetadata.Referer == null)
-                throw new ArgumentNullException(nameof(gatewayMetadata.Referer), "Property is required for class GatewayMetadata.");
-
             if (gatewayMetadata.TimingOption.IsSet && gatewayMetadata.Timing == null)
                 throw new ArgumentNullException(nameof(gatewayMetadata.Timing), "Property is required for class GatewayMetadata.");
 
@@ -311,10 +299,16 @@ namespace AIStatsSdk.Model
             writer.WriteString("model", modelRawValue);
 
             if (gatewayMetadata.AppTitleOption.IsSet)
-                writer.WriteString("appTitle", gatewayMetadata.AppTitle);
+                if (gatewayMetadata.AppTitleOption.Value != null)
+                    writer.WriteString("appTitle", gatewayMetadata.AppTitle);
+                else
+                    writer.WriteNull("appTitle");
 
             if (gatewayMetadata.RefererOption.IsSet)
-                writer.WriteString("referer", gatewayMetadata.Referer);
+                if (gatewayMetadata.RefererOption.Value != null)
+                    writer.WriteString("referer", gatewayMetadata.Referer);
+                else
+                    writer.WriteNull("referer");
 
             if (gatewayMetadata.TimingOption.IsSet)
             {

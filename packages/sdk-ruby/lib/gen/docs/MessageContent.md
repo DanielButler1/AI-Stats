@@ -14,7 +14,7 @@ require 'ai_stats_sdk'
 AIStatsSdk::MessageContent.openapi_one_of
 # =>
 # [
-#   :'Array<Object>',
+#   :'Array<Hash<String, Object>>',
 #   :'String'
 # ]
 ```
@@ -29,7 +29,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'ai_stats_sdk'
 
 AIStatsSdk::MessageContent.build(data)
-# => #<Array<Object>:0x00007fdd4aab02a0>
+# => #<Array<Hash<String, Object>>:0x00007fdd4aab02a0>
 
 AIStatsSdk::MessageContent.build(data_that_doesnt_match)
 # => nil
@@ -43,7 +43,7 @@ AIStatsSdk::MessageContent.build(data_that_doesnt_match)
 
 #### Return type
 
-- `Array<Object>`
+- `Array<Hash<String, Object>>`
 - `String`
 - `nil` (if no type matches)
 

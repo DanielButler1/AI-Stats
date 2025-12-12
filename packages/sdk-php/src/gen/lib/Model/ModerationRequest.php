@@ -58,7 +58,7 @@ class ModerationRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'model' => 'string',
-        'input' => 'mixed'
+        'input' => '\AIStats\\Sdk\Model\ModerationRequestInput'
     ];
 
     /**
@@ -80,7 +80,7 @@ class ModerationRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'model' => false,
-        'input' => true
+        'input' => false
     ];
 
     /**
@@ -332,7 +332,7 @@ class ModerationRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets input
      *
-     * @return mixed
+     * @return \AIStats\\Sdk\Model\ModerationRequestInput
      */
     public function getInput()
     {
@@ -342,21 +342,14 @@ class ModerationRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets input
      *
-     * @param mixed $input input
+     * @param \AIStats\\Sdk\Model\ModerationRequestInput $input input
      *
      * @return self
      */
     public function setInput($input)
     {
         if (is_null($input)) {
-            array_push($this->openAPINullablesSetToNull, 'input');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('input', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable input cannot be null');
         }
         $this->container['input'] = $input;
 

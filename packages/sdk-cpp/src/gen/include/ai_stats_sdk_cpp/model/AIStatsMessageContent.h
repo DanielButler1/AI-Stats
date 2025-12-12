@@ -22,7 +22,8 @@
 
 #include "ai_stats_sdk_cpp/ModelBase.h"
 
-#include "ai_stats_sdk_cpp/Object.h"
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsAnyType.h"
+#include <map>
 
 namespace org {
 namespace openapitools {
@@ -72,7 +73,7 @@ public:
     /////////////////////////////////////////////
     /// AIStatsMessageContent members
 
-    using VariantType = std::variant<std::vector<std::shared_ptr<Object>>, utility::string_t>;
+    using VariantType = std::variant<std::vector<std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>>>, utility::string_t>;
 
     const VariantType& getVariant() const;
     void setVariant(VariantType value);
