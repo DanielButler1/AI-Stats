@@ -1,6 +1,6 @@
 import type { ProviderAdapter, ProviderExecuteArgs, AdapterResult } from "../types";
 import { getBindings } from "@/runtime/env";
-import { resolveProviderKey, type ResolvedKey } from "./keys";
+import { resolveProviderKey, type ResolvedKey } from "../keys";
 
 const BASE_URL = "https://api.openai.com";
 

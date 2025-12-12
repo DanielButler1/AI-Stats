@@ -52,7 +52,7 @@ function mapOpenAIToGatewayModerations(json: any, ctx: ModerationContext): any {
 export async function exec(args: ProviderExecuteArgs): Promise<AdapterResult> {
     const keyInfo = await resolveApiKey(args);
     const key = keyInfo.key;
-    const { adapterPayload } = buildAdapterPayload(ModerationsSchema, args.body, ["meta", "usage"]);
+    const { adapterPayload } = buildAdapterPayload(ModerationsSchema, args.body, ["meta"]);
     const modifiedBody: ModerationsRequest = {
         ...adapterPayload,
         model: args.providerModelSlug || args.model,

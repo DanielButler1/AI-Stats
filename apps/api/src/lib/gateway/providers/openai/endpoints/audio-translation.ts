@@ -19,7 +19,7 @@ function baseHeaders(key: string) {
 
 export async function exec(args: ProviderExecuteArgs): Promise<AdapterResult> {
     const keyInfo = await resolveApiKey(args);
-    const { adapterPayload } = buildAdapterPayload(AudioTranslationSchema, args.body, ["meta", "usage"]);
+    const adapterPayload = buildAdapterPayload(AudioTranslationSchema, args.body, []).adapterPayload as AudioTranslationRequest;
     const body: AudioTranslationRequest = {
         ...adapterPayload,
         model: args.providerModelSlug || adapterPayload.model,

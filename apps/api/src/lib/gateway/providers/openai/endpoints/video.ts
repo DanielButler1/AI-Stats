@@ -19,7 +19,7 @@ function baseHeaders(key: string) {
 
 export async function exec(args: ProviderExecuteArgs): Promise<AdapterResult> {
     const keyInfo = await resolveApiKey(args);
-    const { adapterPayload } = buildAdapterPayload(VideoGenerationSchema, args.body, ["meta", "usage"]);
+    const adapterPayload = buildAdapterPayload(VideoGenerationSchema, args.body, []).adapterPayload as VideoGenerationRequest;
     const body: VideoGenerationRequest = {
         ...adapterPayload,
         model: args.providerModelSlug || adapterPayload.model,

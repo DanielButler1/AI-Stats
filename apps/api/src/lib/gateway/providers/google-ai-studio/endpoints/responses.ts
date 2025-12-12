@@ -112,7 +112,7 @@ export async function exec(args: ProviderExecuteArgs): Promise<AdapterResult> {
     const { canonical, adapterPayload } = buildAdapterPayload(ResponsesSchema, args.body, ["usage", "meta"]);
     const body: ResponsesRequest = {
         ...adapterPayload,
-        model: args.providerModelSlug || adapterPayload.model,
+        model: args.providerModelSlug || (adapterPayload.model as string),
         stream: true,
     };
 

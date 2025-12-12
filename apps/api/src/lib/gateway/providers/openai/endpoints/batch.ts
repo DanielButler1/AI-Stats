@@ -23,7 +23,7 @@ function normalizeBatch(json: any) {
 
 export async function exec(args: ProviderExecuteArgs): Promise<AdapterResult> {
     const keyInfo = await resolveApiKey(args);
-    const { adapterPayload } = buildAdapterPayload(BatchSchema, args.body, ["meta", "usage"]);
+    const { adapterPayload } = buildAdapterPayload(BatchSchema, args.body, []);
     const body: BatchRequest = {
         ...adapterPayload,
     };
