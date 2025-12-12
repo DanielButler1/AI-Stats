@@ -159,7 +159,7 @@ bool AIStatsGatewayMetadata::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("timing")));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<Object> refVal_setTiming;
+            std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> refVal_setTiming;
             ok &= ModelBase::fromJson(fieldValue, refVal_setTiming);
             setTiming(refVal_setTiming);
             
@@ -252,7 +252,7 @@ bool AIStatsGatewayMetadata::fromMultiPart(std::shared_ptr<MultipartFormData> mu
     }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("timing"))))
     {
-        std::shared_ptr<Object> refVal_setTiming;
+        std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> refVal_setTiming;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("timing"))), refVal_setTiming );
         setTiming(refVal_setTiming);
     }
@@ -386,13 +386,13 @@ void AIStatsGatewayMetadata::unsetReferer()
 {
     m_RefererIsSet = false;
 }
-std::shared_ptr<Object> AIStatsGatewayMetadata::getTiming() const
+std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> AIStatsGatewayMetadata::getTiming() const
 {
     return m_Timing;
 }
 
 
-void AIStatsGatewayMetadata::setTiming(const std::shared_ptr<Object>& value)
+void AIStatsGatewayMetadata::setTiming(const std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>>& value)
 {
     m_Timing = value;
     m_TimingIsSet = true;

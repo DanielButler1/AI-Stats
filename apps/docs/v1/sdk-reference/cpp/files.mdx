@@ -1,0 +1,30 @@
+---
+title: "Files"
+description: "Call /files with the C++ SDK."
+---
+
+**Methods**: `AIStatsFilesApi::filesPost()`, `AIStatsFilesApi::filesGet()`, `AIStatsFilesApi::filesFileIdGet()`.
+
+### Example
+```cpp
+#include "ai_stats_sdk_cpp/ApiClient.h"
+#include "ai_stats_sdk_cpp/ApiConfiguration.h"
+#include "ai_stats_sdk_cpp/api/AIStatsFilesApi.h"
+
+// Setup config and apiClient as in usage.mdx
+AIStatsFilesApi filesApi(apiClient);
+
+// Upload - requires multipart setup, see API reference for details
+// auto uploaded = filesApi.filesPost(...).get();
+
+auto files = filesApi.filesGet().get();
+// auto file = filesApi.filesFileIdGet("file_id").get();
+```
+
+### Key parameters
+- `file` (required for upload): File data.
+- `purpose` (required for upload): e.g., `batch`.
+
+### Returns
+`AIStatsFileObject` (upload/get) or `AIStatsFileListResponse` (list)
+

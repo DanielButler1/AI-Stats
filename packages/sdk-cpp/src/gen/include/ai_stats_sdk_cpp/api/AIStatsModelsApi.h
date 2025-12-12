@@ -24,9 +24,9 @@
 
 #include "ai_stats_sdk_cpp/model/AIStatsAIStatsGatewayError.h"
 #include "ai_stats_sdk_cpp/model/AIStatsAIStatsModelListResponse.h"
-#include "ai_stats_sdk_cpp/model/AIStatsAIStats_models_get_include_endpoints_parameter.h"
+#include "ai_stats_sdk_cpp/model/AIStatsAIStats_models_get_endpoints_parameter.h"
+#include "ai_stats_sdk_cpp/model/AIStatsAIStats_models_get_input_types_parameter.h"
 #include "ai_stats_sdk_cpp/model/AIStatsAIStats_models_get_organisation_parameter.h"
-#include "ai_stats_sdk_cpp/model/AIStatsAIStats_models_get_provider_parameter.h"
 #include <boost/optional.hpp>
 
 namespace org {
@@ -50,31 +50,23 @@ public:
     /// List all gateway models
     /// </summary>
     /// <remarks>
-    /// Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date (falling back to announcement date) in descending order.
+    /// Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date in descending order.
     /// </remarks>
-    /// <param name="provider">Filter results to models served by one or more provider identifiers. (optional, default to nullptr)</param>
-    /// <param name="limit">Maximum number of models to return (default 50). (optional, default to 0)</param>
-    /// <param name="offset">Number of models to skip before starting the page. (optional, default to 0)</param>
+    /// <param name="endpoints">Only return models that support at least one of the specified gateway endpoints. (optional, default to nullptr)</param>
     /// <param name="organisation">Restrict results to models associated with one or more organisation identifiers. (optional, default to nullptr)</param>
-    /// <param name="includeEndpoints">Only return models that support at least one of the specified gateway endpoints. (optional, default to nullptr)</param>
-    /// <param name="excludeEndpoints">Exclude models that support any of the specified gateway endpoints. (optional, default to nullptr)</param>
     /// <param name="inputTypes">Only return models that advertise support for at least one of the requested input content types. (optional, default to nullptr)</param>
     /// <param name="outputTypes">Only return models that advertise support for at least one of the requested output content types. (optional, default to nullptr)</param>
-    /// <param name="includeRumoured">Whether to include models marked as rumoured in the response (default true). (optional, default to false)</param>
-    /// <param name="includeDeprecated">Whether to include models marked as deprecated in the response (default true). (optional, default to false)</param>
-    /// <param name="includeRetired">Whether to include models marked as retired in the response (default true). (optional, default to false)</param>
+    /// <param name="params">Only return models that support at least one of the specified parameters. (optional, default to nullptr)</param>
+    /// <param name="limit">Maximum number of models to return (default 50). (optional, default to 0)</param>
+    /// <param name="offset">Number of models to skip before starting the page. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<AIStatsModelListResponse>> modelsGet(
-        boost::optional<std::shared_ptr<AIStats_models_get_provider_parameter>> provider,
-        boost::optional<int32_t> limit,
-        boost::optional<int32_t> offset,
+        boost::optional<std::shared_ptr<AIStats_models_get_endpoints_parameter>> endpoints,
         boost::optional<std::shared_ptr<AIStats_models_get_organisation_parameter>> organisation,
-        boost::optional<std::shared_ptr<AIStats_models_get_include_endpoints_parameter>> includeEndpoints,
-        boost::optional<std::shared_ptr<AIStats_models_get_include_endpoints_parameter>> excludeEndpoints,
-        boost::optional<std::shared_ptr<AIStats_models_get_provider_parameter>> inputTypes,
-        boost::optional<std::shared_ptr<AIStats_models_get_provider_parameter>> outputTypes,
-        boost::optional<bool> includeRumoured,
-        boost::optional<bool> includeDeprecated,
-        boost::optional<bool> includeRetired
+        boost::optional<std::shared_ptr<AIStats_models_get_input_types_parameter>> inputTypes,
+        boost::optional<std::shared_ptr<AIStats_models_get_input_types_parameter>> outputTypes,
+        boost::optional<std::shared_ptr<AIStats_models_get_input_types_parameter>> params,
+        boost::optional<int32_t> limit,
+        boost::optional<int32_t> offset
     ) const;
 
 protected:

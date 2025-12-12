@@ -1,0 +1,43 @@
+---
+title: "Audio translations"
+description: "Call /audio/translations with the PHP SDK."
+---
+
+**Method**: AudioApi#audioTranslationsPost
+
+### Example
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use AIStats\Sdk\Api\AudioApi;
+use AIStats\Sdk\Configuration;
+use AIStats\Sdk\Model\AudioTranslationRequest;
+
+$apiKey = getenv('AI_STATS_API_KEY');
+$config = Configuration::getDefaultConfiguration()
+    ->setHost('https://api.ai-stats.phaseo.app/v1')
+    ->setApiKey('GatewayAuth', 'Bearer ' . $apiKey);
+
+$audioApi = new AudioApi(null, $config);
+
+$request = new AudioTranslationRequest([
+    'model' => 'openai/gpt-4o-translate',
+    'audio_url' => 'https://example.com/audio.mp3' // or 'audio_b64' for base64 data
+]);
+
+$response = $audioApi->audioTranslationsPost($request);
+echo $response->getText();
+```
+
+### Key parameters
+- `model` (required): Translation-capable model id.
+- `audio_url` or `audio_b64` (required): Audio data to translate.
+- `prompt`: Optional context to guide translation.
+- `temperature` (0–2): Sampling randomness.
+- `response_format`: `json`, `text`, `srt`, `verbose_json`, etc.
+
+### Returns
+AudioTranscriptionResponse
+

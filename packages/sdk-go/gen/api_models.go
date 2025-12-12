@@ -25,22 +25,42 @@ type ModelsAPIService service
 type ApiModelsGetRequest struct {
 	ctx context.Context
 	ApiService *ModelsAPIService
-	provider *ModelsGetProviderParameter
+	endpoints *ModelsGetEndpointsParameter
+	organisation *ModelsGetOrganisationParameter
+	inputTypes *ModelsGetInputTypesParameter
+	outputTypes *ModelsGetInputTypesParameter
+	params *ModelsGetInputTypesParameter
 	limit *int32
 	offset *int32
-	organisation *ModelsGetOrganisationParameter
-	includeEndpoints *ModelsGetIncludeEndpointsParameter
-	excludeEndpoints *ModelsGetIncludeEndpointsParameter
-	inputTypes *ModelsGetProviderParameter
-	outputTypes *ModelsGetProviderParameter
-	includeRumoured *bool
-	includeDeprecated *bool
-	includeRetired *bool
 }
 
-// Filter results to models served by one or more provider identifiers.
-func (r ApiModelsGetRequest) Provider(provider ModelsGetProviderParameter) ApiModelsGetRequest {
-	r.provider = &provider
+// Only return models that support at least one of the specified gateway endpoints.
+func (r ApiModelsGetRequest) Endpoints(endpoints ModelsGetEndpointsParameter) ApiModelsGetRequest {
+	r.endpoints = &endpoints
+	return r
+}
+
+// Restrict results to models associated with one or more organisation identifiers.
+func (r ApiModelsGetRequest) Organisation(organisation ModelsGetOrganisationParameter) ApiModelsGetRequest {
+	r.organisation = &organisation
+	return r
+}
+
+// Only return models that advertise support for at least one of the requested input content types.
+func (r ApiModelsGetRequest) InputTypes(inputTypes ModelsGetInputTypesParameter) ApiModelsGetRequest {
+	r.inputTypes = &inputTypes
+	return r
+}
+
+// Only return models that advertise support for at least one of the requested output content types.
+func (r ApiModelsGetRequest) OutputTypes(outputTypes ModelsGetInputTypesParameter) ApiModelsGetRequest {
+	r.outputTypes = &outputTypes
+	return r
+}
+
+// Only return models that support at least one of the specified parameters.
+func (r ApiModelsGetRequest) Params(params ModelsGetInputTypesParameter) ApiModelsGetRequest {
+	r.params = &params
 	return r
 }
 
@@ -56,54 +76,6 @@ func (r ApiModelsGetRequest) Offset(offset int32) ApiModelsGetRequest {
 	return r
 }
 
-// Restrict results to models associated with one or more organisation identifiers.
-func (r ApiModelsGetRequest) Organisation(organisation ModelsGetOrganisationParameter) ApiModelsGetRequest {
-	r.organisation = &organisation
-	return r
-}
-
-// Only return models that support at least one of the specified gateway endpoints.
-func (r ApiModelsGetRequest) IncludeEndpoints(includeEndpoints ModelsGetIncludeEndpointsParameter) ApiModelsGetRequest {
-	r.includeEndpoints = &includeEndpoints
-	return r
-}
-
-// Exclude models that support any of the specified gateway endpoints.
-func (r ApiModelsGetRequest) ExcludeEndpoints(excludeEndpoints ModelsGetIncludeEndpointsParameter) ApiModelsGetRequest {
-	r.excludeEndpoints = &excludeEndpoints
-	return r
-}
-
-// Only return models that advertise support for at least one of the requested input content types.
-func (r ApiModelsGetRequest) InputTypes(inputTypes ModelsGetProviderParameter) ApiModelsGetRequest {
-	r.inputTypes = &inputTypes
-	return r
-}
-
-// Only return models that advertise support for at least one of the requested output content types.
-func (r ApiModelsGetRequest) OutputTypes(outputTypes ModelsGetProviderParameter) ApiModelsGetRequest {
-	r.outputTypes = &outputTypes
-	return r
-}
-
-// Whether to include models marked as rumoured in the response (default true).
-func (r ApiModelsGetRequest) IncludeRumoured(includeRumoured bool) ApiModelsGetRequest {
-	r.includeRumoured = &includeRumoured
-	return r
-}
-
-// Whether to include models marked as deprecated in the response (default true).
-func (r ApiModelsGetRequest) IncludeDeprecated(includeDeprecated bool) ApiModelsGetRequest {
-	r.includeDeprecated = &includeDeprecated
-	return r
-}
-
-// Whether to include models marked as retired in the response (default true).
-func (r ApiModelsGetRequest) IncludeRetired(includeRetired bool) ApiModelsGetRequest {
-	r.includeRetired = &includeRetired
-	return r
-}
-
 func (r ApiModelsGetRequest) Execute() (*ModelListResponse, *http.Response, error) {
 	return r.ApiService.ModelsGetExecute(r)
 }
@@ -111,7 +83,7 @@ func (r ApiModelsGetRequest) Execute() (*ModelListResponse, *http.Response, erro
 /*
 ModelsGet List all gateway models
 
-Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date (falling back to announcement date) in descending order.
+Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date in descending order.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiModelsGetRequest
@@ -144,23 +116,11 @@ func (a *ModelsAPIService) ModelsGetExecute(r ApiModelsGetRequest) (*ModelListRe
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.provider != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "provider", r.provider, "form", "")
-	}
-	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
-	}
-	if r.offset != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
+	if r.endpoints != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "endpoints", r.endpoints, "form", "")
 	}
 	if r.organisation != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "organisation", r.organisation, "form", "")
-	}
-	if r.includeEndpoints != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_endpoints", r.includeEndpoints, "form", "")
-	}
-	if r.excludeEndpoints != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_endpoints", r.excludeEndpoints, "form", "")
 	}
 	if r.inputTypes != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "input_types", r.inputTypes, "form", "")
@@ -168,26 +128,14 @@ func (a *ModelsAPIService) ModelsGetExecute(r ApiModelsGetRequest) (*ModelListRe
 	if r.outputTypes != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "output_types", r.outputTypes, "form", "")
 	}
-	if r.includeRumoured != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_rumoured", r.includeRumoured, "form", "")
-	} else {
-        var defaultValue bool = true
-        parameterAddToHeaderOrQuery(localVarQueryParams, "include_rumoured", defaultValue, "form", "")
-        r.includeRumoured = &defaultValue
+	if r.params != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "params", r.params, "form", "")
 	}
-	if r.includeDeprecated != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_deprecated", r.includeDeprecated, "form", "")
-	} else {
-        var defaultValue bool = true
-        parameterAddToHeaderOrQuery(localVarQueryParams, "include_deprecated", defaultValue, "form", "")
-        r.includeDeprecated = &defaultValue
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
 	}
-	if r.includeRetired != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_retired", r.includeRetired, "form", "")
-	} else {
-        var defaultValue bool = true
-        parameterAddToHeaderOrQuery(localVarQueryParams, "include_retired", defaultValue, "form", "")
-        r.includeRetired = &defaultValue
+	if r.offset != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

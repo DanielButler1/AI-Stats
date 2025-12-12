@@ -24,13 +24,14 @@
 
 #include <cpprest/details/basic_types.h>
 #include "ai_stats_sdk_cpp/model/AIStatsAIStatsModerationInputImageUrlItem_image_url.h"
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsAnyType.h"
+#include <map>
 
 namespace org {
 namespace openapitools {
 namespace client {
 namespace model {
 
-class AIStatsModerationInputImageUrlItem_image_url;
 
 
 class  AIStatsModerationInputImageUrlItem

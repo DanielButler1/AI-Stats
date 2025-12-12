@@ -163,7 +163,7 @@ namespace AIStatsSdk.Model
                             meta = new Option<GatewayMetadata?>(JsonSerializer.Deserialize<GatewayMetadata>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "nativeResponseId":
-                            nativeResponseId = new Option<string?>(utf8JsonReader.GetString()!);
+                            nativeResponseId = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "usage":
                             usage = new Option<GatewayUsage?>(JsonSerializer.Deserialize<GatewayUsage>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -185,9 +185,6 @@ namespace AIStatsSdk.Model
 
             if (meta.IsSet && meta.Value == null)
                 throw new ArgumentNullException(nameof(meta), "Property is not nullable for class GatewayResponseEnvelope.");
-
-            if (nativeResponseId.IsSet && nativeResponseId.Value == null)
-                throw new ArgumentNullException(nameof(nativeResponseId), "Property is not nullable for class GatewayResponseEnvelope.");
 
             if (usage.IsSet && usage.Value == null)
                 throw new ArgumentNullException(nameof(usage), "Property is not nullable for class GatewayResponseEnvelope.");
@@ -225,9 +222,6 @@ namespace AIStatsSdk.Model
             if (gatewayResponseEnvelope.Meta == null)
                 throw new ArgumentNullException(nameof(gatewayResponseEnvelope.Meta), "Property is required for class GatewayResponseEnvelope.");
 
-            if (gatewayResponseEnvelope.NativeResponseIdOption.IsSet && gatewayResponseEnvelope.NativeResponseId == null)
-                throw new ArgumentNullException(nameof(gatewayResponseEnvelope.NativeResponseId), "Property is required for class GatewayResponseEnvelope.");
-
             if (gatewayResponseEnvelope.UsageOption.IsSet && gatewayResponseEnvelope.Usage == null)
                 throw new ArgumentNullException(nameof(gatewayResponseEnvelope.Usage), "Property is required for class GatewayResponseEnvelope.");
 
@@ -236,7 +230,10 @@ namespace AIStatsSdk.Model
             writer.WritePropertyName("meta");
             JsonSerializer.Serialize(writer, gatewayResponseEnvelope.Meta, jsonSerializerOptions);
             if (gatewayResponseEnvelope.NativeResponseIdOption.IsSet)
-                writer.WriteString("nativeResponseId", gatewayResponseEnvelope.NativeResponseId);
+                if (gatewayResponseEnvelope.NativeResponseIdOption.Value != null)
+                    writer.WriteString("nativeResponseId", gatewayResponseEnvelope.NativeResponseId);
+                else
+                    writer.WriteNull("nativeResponseId");
 
             if (gatewayResponseEnvelope.UsageOption.IsSet)
             {

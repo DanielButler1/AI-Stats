@@ -4,29 +4,55 @@ All URIs are relative to *https://api.ai-stats.phaseo.app/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**health_get**](AnalyticsApi.md#health_get) | **GET** /health | Inspect provider health
+[**analytics_post**](AnalyticsApi.md#analytics_post) | **POST** /analytics | Aggregated usage analytics (coming soon)
+[**healthz_get**](AnalyticsApi.md#healthz_get) | **GET** /healthz | Gateway health check
 
 
 
-## health_get
+## analytics_post
 
-> models::GatewayHealthResponse health_get(provider, model, endpoint)
-Inspect provider health
+> models::AnalyticsPost200Response analytics_post(analytics_post_request)
+Aggregated usage analytics (coming soon)
 
-Returns the most recent latency, success rate, and breaker status for each configured provider.
+Accepts an access token and will return aggregated analytics. A placeholder response is returned today while analytics is being built.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**provider** | Option<**String**> | Filter to a specific provider name. |  |
-**model** | Option<[**ModelId**](.md)> | Optional model id used to resolve candidate providers. |  |
-**endpoint** | Option<**String**> | Endpoint identifier paired with `model` when deriving providers. |  |
+**analytics_post_request** | [**AnalyticsPostRequest**](AnalyticsPostRequest.md) |  | [required] |
 
 ### Return type
 
-[**models::GatewayHealthResponse**](GatewayHealthResponse.md)
+[**models::AnalyticsPost200Response**](_analytics_post_200_response.md)
+
+### Authorization
+
+[GatewayAuth](../README.md#GatewayAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## healthz_get
+
+> models::HealthzGet200Response healthz_get()
+Gateway health check
+
+Returns a simple liveness signal for the gateway.
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**models::HealthzGet200Response**](_healthz_get_200_response.md)
 
 ### Authorization
 

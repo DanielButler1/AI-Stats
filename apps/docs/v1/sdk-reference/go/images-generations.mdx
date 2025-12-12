@@ -1,0 +1,48 @@
+---
+title: "Image generations"
+description: "Call /images/generations with the Go SDK."
+---
+
+**Method**: `client.Images.ImagesGenerationsPost()`.
+
+### Example
+```go
+import (
+    "context"
+    "fmt"
+    "log"
+
+    aistats "packages/sdk-go"
+    "packages/sdk-go/gen"
+)
+
+ctx := context.Background()
+client := aistats.New("your-api-key", "https://api.ai-stats.dev")
+
+req := gen.ImageGenerationRequest{
+    Model:  "openai/gpt-image-1",
+    Prompt: "A lighthouse at golden hour",
+    Size:   &"1024x1024",
+    N:      &[]int32{1}[0],
+}
+
+image, _, err := client.Images.ImagesGenerationsPost(ctx).ImageGenerationRequest(req).Execute()
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Println("Generated image:", image.Data[0].Url)
+```
+
+### Key parameters
+- `model` (required): Image-capable model id (e.g., `openai/gpt-image-1`).
+- `prompt` (required): Text prompt.
+- `n` (1–10): Number of images to generate.
+- `size`: e.g., `1024x1024`, `1024x1792`, `1792x1024`.
+- `quality`: `standard` or `hd` (model-dependent).
+- `style`: e.g., `vivid` or `natural` (model-dependent).
+- `response_format`: `url` or `b64_json`.
+- `user`: Optional end-user tag for safety/abuse tracking.
+
+### Returns
+`ImageGenerationResponse`
+

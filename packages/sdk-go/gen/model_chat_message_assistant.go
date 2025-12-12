@@ -12,7 +12,6 @@ package ai_stats_sdk
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -25,6 +24,7 @@ type ChatMessageAssistant struct {
 	Content *MessageContent `json:"content,omitempty"`
 	Name *string `json:"name,omitempty"`
 	ToolCalls []ToolCall `json:"tool_calls,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ChatMessageAssistant ChatMessageAssistant
@@ -187,6 +187,11 @@ func (o ChatMessageAssistant) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ToolCalls) {
 		toSerialize["tool_calls"] = o.ToolCalls
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -214,15 +219,23 @@ func (o *ChatMessageAssistant) UnmarshalJSON(data []byte) (err error) {
 
 	varChatMessageAssistant := _ChatMessageAssistant{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varChatMessageAssistant)
+	err = json.Unmarshal(data, &varChatMessageAssistant)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ChatMessageAssistant(varChatMessageAssistant)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "role")
+		delete(additionalProperties, "content")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "tool_calls")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

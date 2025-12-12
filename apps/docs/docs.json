@@ -12,7 +12,7 @@
 		"library": "lucide"
 	},
 	"api": {
-		"openapi": "openapi/v1/openapi.json",
+		"openapi": "openapi/v1/openapi.yaml",
 		"version": "0.1.0"
 	},
 	"navigation": {
@@ -77,8 +77,8 @@
 								]
 							},
 							{
-								"group": "Models",
-								"pages": ["v1/api-reference/endpoint/models"]
+								"group": "Responses",
+								"pages": ["v1/api-reference/endpoint/responses"]
 							},
 							{
 								"group": "Completions",
@@ -87,8 +87,55 @@
 								]
 							},
 							{
+								"group": "Images",
+								"pages": [
+									"v1/api-reference/endpoint/images-generations",
+									"v1/api-reference/endpoint/images-edits"
+								]
+							},
+							{
+								"group": "Audio",
+								"pages": [
+									"v1/api-reference/endpoint/audio-speech",
+									"v1/api-reference/endpoint/audio-transcriptions",
+									"v1/api-reference/endpoint/audio-translations"
+								]
+							},
+							{
+								"group": "Video",
+								"pages": [
+									"v1/api-reference/endpoint/video-generation"
+								]
+							},
+							{
+								"group": "Embeddings",
+								"pages": [
+									"v1/api-reference/endpoint/embeddings"
+								]
+							},
+							{
+								"group": "Moderations",
+								"pages": [
+									"v1/api-reference/endpoint/moderations"
+								]
+							},
+							{
+								"group": "Batches & Files",
+								"pages": [
+									"v1/api-reference/endpoint/batches",
+									"v1/api-reference/endpoint/files"
+								]
+							},
+							{
+								"group": "Models",
+								"pages": ["v1/api-reference/endpoint/models"]
+							},
+							{
 								"group": "Analytics",
-								"pages": ["v1/api-reference/endpoint/health"]
+								"pages": [
+									"v1/api-reference/endpoint/analytics",
+									"v1/api-reference/endpoint/health"
+								]
 							},
 							{
 								"group": "Credits",
@@ -116,18 +163,458 @@
 						"menu": [
 							{
 								"item": "TypeScript SDK",
-								"pages": [
-									"v1/sdk-reference/typescript/overview",
-									"v1/sdk-reference/typescript/installation",
-									"v1/sdk-reference/typescript/usage"
+								"groups": [
+									{
+										"group": "Introduction",
+										"pages": [
+											"v1/sdk-reference/typescript/overview",
+											"v1/sdk-reference/typescript/installation"
+										]
+									},
+									{
+										"group": "Text",
+										"pages": [
+											"v1/sdk-reference/typescript/responses",
+											"v1/sdk-reference/typescript/chat-completions"
+										]
+									},
+									{
+										"group": "Image",
+										"pages": [
+											"v1/sdk-reference/typescript/images-generations",
+											"v1/sdk-reference/typescript/images-edits"
+										]
+									},
+									{
+										"group": "Audio",
+										"pages": [
+											"v1/sdk-reference/typescript/audio-speech",
+											"v1/sdk-reference/typescript/audio-transcriptions",
+											"v1/sdk-reference/typescript/audio-translations"
+										]
+									},
+									{
+										"group": "Video",
+										"pages": [
+											"v1/sdk-reference/typescript/video-generation"
+										]
+									},
+									{
+										"group": "Specialised",
+										"pages": [
+											"v1/sdk-reference/typescript/embeddings",
+											"v1/sdk-reference/typescript/moderations",
+											"v1/sdk-reference/typescript/batches",
+											"v1/sdk-reference/typescript/files"
+										]
+									},
+									{
+										"group": "Admin",
+										"pages": [
+											"v1/sdk-reference/typescript/models",
+											"v1/sdk-reference/typescript/generation",
+											"v1/sdk-reference/typescript/health"
+										]
+									}
 								]
 							},
 							{
 								"item": "Python SDK",
-								"pages": [
-									"v1/sdk-reference/python/overview",
-									"v1/sdk-reference/python/installation",
-									"v1/sdk-reference/python/usage"
+								"groups": [
+									{
+										"group": "Introduction",
+										"pages": [
+											"v1/sdk-reference/python/overview",
+											"v1/sdk-reference/python/installation"
+										]
+									},
+									{
+										"group": "Text",
+										"pages": [
+											"v1/sdk-reference/python/responses",
+											"v1/sdk-reference/python/chat-completions"
+										]
+									},
+									{
+										"group": "Image",
+										"pages": [
+											"v1/sdk-reference/python/images-generations",
+											"v1/sdk-reference/python/images-edits"
+										]
+									},
+									{
+										"group": "Audio",
+										"pages": [
+											"v1/sdk-reference/python/audio-speech",
+											"v1/sdk-reference/python/audio-transcriptions",
+											"v1/sdk-reference/python/audio-translations"
+										]
+									},
+									{
+										"group": "Video",
+										"pages": [
+											"v1/sdk-reference/python/video-generation"
+										]
+									},
+									{
+										"group": "Specialised",
+										"pages": [
+											"v1/sdk-reference/python/embeddings",
+											"v1/sdk-reference/python/moderations",
+											"v1/sdk-reference/python/batches",
+											"v1/sdk-reference/python/files"
+										]
+									},
+									{
+										"group": "Admin",
+										"pages": [
+											"v1/sdk-reference/python/models",
+											"v1/sdk-reference/python/generation",
+											"v1/sdk-reference/python/health"
+										]
+									}
+								]
+							},
+							{
+								"item": "Go SDK",
+								"groups": [
+									{
+										"group": "Introduction",
+										"pages": [
+											"v1/sdk-reference/go/overview",
+											"v1/sdk-reference/go/installation"
+										]
+									},
+									{
+										"group": "Text",
+										"pages": [
+											"v1/sdk-reference/go/responses",
+											"v1/sdk-reference/go/chat-completions"
+										]
+									},
+									{
+										"group": "Image",
+										"pages": [
+											"v1/sdk-reference/go/images-generations",
+											"v1/sdk-reference/go/images-edits"
+										]
+									},
+									{
+										"group": "Audio",
+										"pages": [
+											"v1/sdk-reference/go/audio-speech",
+											"v1/sdk-reference/go/audio-transcriptions",
+											"v1/sdk-reference/go/audio-translations"
+										]
+									},
+									{
+										"group": "Video",
+										"pages": [
+											"v1/sdk-reference/go/video-generation"
+										]
+									},
+									{
+										"group": "Specialised",
+										"pages": [
+											"v1/sdk-reference/go/embeddings",
+											"v1/sdk-reference/go/moderations",
+											"v1/sdk-reference/go/batches",
+											"v1/sdk-reference/go/files"
+										]
+									},
+									{
+										"group": "Admin",
+										"pages": [
+											"v1/sdk-reference/go/models",
+											"v1/sdk-reference/go/generation",
+											"v1/sdk-reference/go/health"
+										]
+									}
+								]
+							},
+							{
+								"item": "C# SDK",
+								"groups": [
+									{
+										"group": "Introduction",
+										"pages": [
+											"v1/sdk-reference/csharp/overview",
+											"v1/sdk-reference/csharp/installation"
+										]
+									},
+									{
+										"group": "Text",
+										"pages": [
+											"v1/sdk-reference/csharp/responses",
+											"v1/sdk-reference/csharp/chat-completions"
+										]
+									},
+									{
+										"group": "Image",
+										"pages": [
+											"v1/sdk-reference/csharp/images-generations",
+											"v1/sdk-reference/csharp/images-edits"
+										]
+									},
+									{
+										"group": "Audio",
+										"pages": [
+											"v1/sdk-reference/csharp/audio-speech",
+											"v1/sdk-reference/csharp/audio-transcriptions",
+											"v1/sdk-reference/csharp/audio-translations"
+										]
+									},
+									{
+										"group": "Video",
+										"pages": [
+											"v1/sdk-reference/csharp/video-generation"
+										]
+									},
+									{
+										"group": "Specialised",
+										"pages": [
+											"v1/sdk-reference/csharp/embeddings",
+											"v1/sdk-reference/csharp/moderations",
+											"v1/sdk-reference/csharp/batches",
+											"v1/sdk-reference/csharp/files"
+										]
+									},
+									{
+										"group": "Admin",
+										"pages": [
+											"v1/sdk-reference/csharp/models",
+											"v1/sdk-reference/csharp/generation",
+											"v1/sdk-reference/csharp/health"
+										]
+									}
+								]
+							},
+							{
+								"item": "PHP SDK",
+								"groups": [
+									{
+										"group": "Introduction",
+										"pages": [
+											"v1/sdk-reference/php/overview",
+											"v1/sdk-reference/php/installation"
+										]
+									},
+									{
+										"group": "Text",
+										"pages": [
+											"v1/sdk-reference/php/responses",
+											"v1/sdk-reference/php/chat-completions"
+										]
+									},
+									{
+										"group": "Image",
+										"pages": [
+											"v1/sdk-reference/php/images-generations",
+											"v1/sdk-reference/php/images-edits"
+										]
+									},
+									{
+										"group": "Audio",
+										"pages": [
+											"v1/sdk-reference/php/audio-speech",
+											"v1/sdk-reference/php/audio-transcriptions",
+											"v1/sdk-reference/php/audio-translations"
+										]
+									},
+									{
+										"group": "Video",
+										"pages": [
+											"v1/sdk-reference/php/video-generation"
+										]
+									},
+									{
+										"group": "Specialised",
+										"pages": [
+											"v1/sdk-reference/php/embeddings",
+											"v1/sdk-reference/php/moderations",
+											"v1/sdk-reference/php/batches",
+											"v1/sdk-reference/php/files"
+										]
+									},
+									{
+										"group": "Admin",
+										"pages": [
+											"v1/sdk-reference/php/models",
+											"v1/sdk-reference/php/generation",
+											"v1/sdk-reference/php/health"
+										]
+									}
+								]
+							},
+							{
+								"item": "Ruby SDK",
+								"groups": [
+									{
+										"group": "Introduction",
+										"pages": [
+											"v1/sdk-reference/ruby/overview",
+											"v1/sdk-reference/ruby/installation"
+										]
+									},
+									{
+										"group": "Text",
+										"pages": [
+											"v1/sdk-reference/ruby/responses",
+											"v1/sdk-reference/ruby/chat-completions"
+										]
+									},
+									{
+										"group": "Image",
+										"pages": [
+											"v1/sdk-reference/ruby/images-generations",
+											"v1/sdk-reference/ruby/images-edits"
+										]
+									},
+									{
+										"group": "Audio",
+										"pages": [
+											"v1/sdk-reference/ruby/audio-speech",
+											"v1/sdk-reference/ruby/audio-transcriptions",
+											"v1/sdk-reference/ruby/audio-translations"
+										]
+									},
+									{
+										"group": "Video",
+										"pages": [
+											"v1/sdk-reference/ruby/video-generation"
+										]
+									},
+									{
+										"group": "Specialised",
+										"pages": [
+											"v1/sdk-reference/ruby/embeddings",
+											"v1/sdk-reference/ruby/moderations",
+											"v1/sdk-reference/ruby/batches",
+											"v1/sdk-reference/ruby/files"
+										]
+									},
+									{
+										"group": "Admin",
+										"pages": [
+											"v1/sdk-reference/ruby/models",
+											"v1/sdk-reference/ruby/generation",
+											"v1/sdk-reference/ruby/health"
+										]
+									}
+								]
+							},
+							{
+								"item": "Rust SDK",
+								"groups": [
+									{
+										"group": "Introduction",
+										"pages": [
+											"v1/sdk-reference/rust/overview",
+											"v1/sdk-reference/rust/installation"
+										]
+									},
+									{
+										"group": "Text",
+										"pages": [
+											"v1/sdk-reference/rust/responses",
+											"v1/sdk-reference/rust/chat-completions"
+										]
+									},
+									{
+										"group": "Image",
+										"pages": [
+											"v1/sdk-reference/rust/images-generations",
+											"v1/sdk-reference/rust/images-edits"
+										]
+									},
+									{
+										"group": "Audio",
+										"pages": [
+											"v1/sdk-reference/rust/audio-speech",
+											"v1/sdk-reference/rust/audio-transcriptions",
+											"v1/sdk-reference/rust/audio-translations"
+										]
+									},
+									{
+										"group": "Video",
+										"pages": [
+											"v1/sdk-reference/rust/video-generation"
+										]
+									},
+									{
+										"group": "Specialised",
+										"pages": [
+											"v1/sdk-reference/rust/embeddings",
+											"v1/sdk-reference/rust/moderations",
+											"v1/sdk-reference/rust/batches",
+											"v1/sdk-reference/rust/files"
+										]
+									},
+									{
+										"group": "Admin",
+										"pages": [
+											"v1/sdk-reference/rust/models",
+											"v1/sdk-reference/rust/generation",
+											"v1/sdk-reference/rust/health"
+										]
+									}
+								]
+							},
+							{
+								"item": "C++ SDK",
+								"groups": [
+									{
+										"group": "Introduction",
+										"pages": [
+											"v1/sdk-reference/cpp/overview",
+											"v1/sdk-reference/cpp/installation"
+										]
+									},
+									{
+										"group": "Text",
+										"pages": [
+											"v1/sdk-reference/cpp/responses",
+											"v1/sdk-reference/cpp/chat-completions"
+										]
+									},
+									{
+										"group": "Image",
+										"pages": [
+											"v1/sdk-reference/cpp/images-generations",
+											"v1/sdk-reference/cpp/images-edits"
+										]
+									},
+									{
+										"group": "Audio",
+										"pages": [
+											"v1/sdk-reference/cpp/audio-speech",
+											"v1/sdk-reference/cpp/audio-transcriptions",
+											"v1/sdk-reference/cpp/audio-translations"
+										]
+									},
+									{
+										"group": "Video",
+										"pages": [
+											"v1/sdk-reference/cpp/video-generation"
+										]
+									},
+									{
+										"group": "Specialised",
+										"pages": [
+											"v1/sdk-reference/cpp/embeddings",
+											"v1/sdk-reference/cpp/moderations",
+											"v1/sdk-reference/cpp/batches",
+											"v1/sdk-reference/cpp/files"
+										]
+									},
+									{
+										"group": "Admin",
+										"pages": [
+											"v1/sdk-reference/cpp/models",
+											"v1/sdk-reference/cpp/generation",
+											"v1/sdk-reference/cpp/health"
+										]
+									}
 								]
 							}
 						]

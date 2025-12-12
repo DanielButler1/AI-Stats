@@ -1,0 +1,57 @@
+---
+title: "Models"
+description: "Call /models with the Rust SDK."
+---
+
+**Method**: `client.get_models()`.
+
+### Example
+```rust
+use ai_stats_sdk::Client;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let client = Client::new("your-api-key", "https://api.ai-stats.phaseo.app/v1");
+
+    let models = client.get_models(None, None, None).await?;
+    println!("{:?}", models);
+    Ok(())
+}
+```
+
+### Key parameters
+- `provider` (optional): Filter by provider.
+- `limit` (optional): Maximum number of models to return.
+- `offset` (optional): Number of models to skip.
+
+### Returns
+`ModelListResponse` containing a list of available models.
+
+```json
+{
+  "ok": true,
+  "limit": 50,
+  "offset": 0,
+  "total": 123,
+  "models": [
+    {
+      "model_id": "openai/gpt-4o-mini",
+      "name": "GPT-4o Mini",
+      "release_date": "2024-07-18",
+      "status": "active",
+      "organisation_id": "openai",
+      "aliases": ["gpt-4o-mini"],
+      "endpoints": ["chat/completions", "responses"],
+      "input_types": ["text"],
+      "output_types": ["text"],
+      "providers": [
+        {
+          "api_provider_id": "openai",
+          "params": ["temperature", "max_tokens"]
+        }
+      ]
+    }
+  ]
+}
+```
+

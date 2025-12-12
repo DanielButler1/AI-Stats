@@ -12,7 +12,7 @@ import {
 	formatUsdValue,
 	isFlaggedDiff,
 } from "./pricing-simulator-formatting";
-import { formatUsdFromNanosExact } from "../../src/lib/main-endpoints/pricing/money";
+import { formatUsdFromNanosExact } from "../../src/lib/gateway/pricing/money";
 import { ANSI } from "./pricing-simulator-constants";
 
 const App: React.FC<{ options: CLIOptions }> = ({ options }) => {

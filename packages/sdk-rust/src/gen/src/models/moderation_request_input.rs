@@ -17,7 +17,7 @@ use serde::{Deserialize, Serialize};
 #[serde(untagged)]
 pub enum ModerationRequestInput {
     String(String),
-    ArrayVecserde_json::Value(Vec<serde_json::Value>),
+    ArrayVecmodels::ModerationInputContentItem(Vec<models::ModerationInputContentItem>),
 }
 
 impl Default for ModerationRequestInput {

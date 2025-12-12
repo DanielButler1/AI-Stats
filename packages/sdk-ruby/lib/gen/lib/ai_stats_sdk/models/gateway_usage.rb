@@ -61,6 +61,8 @@ module AIStatsSdk
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'reasoning_tokens',
+        :'cached_read_text_tokens'
       ])
     end
 
@@ -186,11 +188,7 @@ module AIStatsSdk
     # Custom attribute writer method with validation
     # @param [Object] reasoning_tokens Value to be assigned
     def reasoning_tokens=(reasoning_tokens)
-      if reasoning_tokens.nil?
-        fail ArgumentError, 'reasoning_tokens cannot be nil'
-      end
-
-      if reasoning_tokens < 0
+      if !reasoning_tokens.nil? && reasoning_tokens < 0
         fail ArgumentError, 'invalid value for "reasoning_tokens", must be greater than or equal to 0.'
       end
 
@@ -200,11 +198,7 @@ module AIStatsSdk
     # Custom attribute writer method with validation
     # @param [Object] cached_read_text_tokens Value to be assigned
     def cached_read_text_tokens=(cached_read_text_tokens)
-      if cached_read_text_tokens.nil?
-        fail ArgumentError, 'cached_read_text_tokens cannot be nil'
-      end
-
-      if cached_read_text_tokens < 0
+      if !cached_read_text_tokens.nil? && cached_read_text_tokens < 0
         fail ArgumentError, 'invalid value for "cached_read_text_tokens", must be greater than or equal to 0.'
       end
 

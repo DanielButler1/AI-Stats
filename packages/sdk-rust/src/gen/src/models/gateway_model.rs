@@ -22,45 +22,42 @@ pub struct GatewayModel {
     /// Earliest known public release date.
     #[serde(rename = "release_date", deserialize_with = "Option::deserialize")]
     pub release_date: Option<String>,
-    /// Earliest known public announcement date if different from release.
-    #[serde(rename = "announcement_date", deserialize_with = "Option::deserialize")]
-    pub announcement_date: Option<String>,
     /// Lifecycle status of the model (Rumoured, Announced, Available, Deprecated, Retired).
     #[serde(rename = "status", deserialize_with = "Option::deserialize")]
     pub status: Option<String>,
-    #[serde(rename = "organisation", deserialize_with = "Option::deserialize")]
-    pub organisation: Option<models::OrganisationId>,
+    /// Organisation identifier responsible for the model.
+    #[serde(rename = "organisation_id", deserialize_with = "Option::deserialize")]
+    pub organisation_id: Option<String>,
     /// Enabled aliases that resolve to this model.
     #[serde(rename = "aliases")]
     pub aliases: Vec<String>,
     /// Gateway endpoints that currently route to this model.
     #[serde(rename = "endpoints")]
     pub endpoints: Vec<Endpoints>,
-    /// Provider mappings that can serve this model.
-    #[serde(rename = "providers")]
-    pub providers: Vec<models::GatewayModelProvider>,
     /// Input content types supported by the model itself.
     #[serde(rename = "input_types")]
     pub input_types: Vec<String>,
     /// Output content types supported by the model itself.
     #[serde(rename = "output_types")]
     pub output_types: Vec<String>,
+    /// Providers that support this model with their parameters.
+    #[serde(rename = "providers")]
+    pub providers: Vec<models::ProviderInfo>,
 }
 
 impl GatewayModel {
-    pub fn new(model_id: String, name: Option<String>, release_date: Option<String>, announcement_date: Option<String>, status: Option<String>, organisation: Option<models::OrganisationId>, aliases: Vec<String>, endpoints: Vec<Endpoints>, providers: Vec<models::GatewayModelProvider>, input_types: Vec<String>, output_types: Vec<String>) -> GatewayModel {
+    pub fn new(model_id: String, name: Option<String>, release_date: Option<String>, status: Option<String>, organisation_id: Option<String>, aliases: Vec<String>, endpoints: Vec<Endpoints>, input_types: Vec<String>, output_types: Vec<String>, providers: Vec<models::ProviderInfo>) -> GatewayModel {
         GatewayModel {
             model_id,
             name,
             release_date,
-            announcement_date,
             status,
-            organisation,
+            organisation_id,
             aliases,
             endpoints,
-            providers,
             input_types,
             output_types,
+            providers,
         }
     }
 }

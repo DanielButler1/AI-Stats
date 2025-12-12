@@ -1,0 +1,27 @@
+---
+title: "Moderations"
+description: "Call /moderations with the C# SDK."
+---
+
+**Method**: `client.ModerationsApi.ModerationsPostAsync()`
+
+### Example
+```csharp
+var client = new Client(apiKey);
+
+var request = new ModerationRequest(
+    model: "openai/omni-moderation-latest",
+    input: new ModerationRequestInput("Text to classify")
+);
+
+var response = client.ModerationsApi.ModerationsPostAsync(request).Result;
+```
+
+### Key parameters
+- `model` (required): Moderation model id (e.g., `openai/omni-moderation-latest`).
+- `input` (required): String or array of content items (text or image_url).
+- Optional: `categories`/`severity` filters (when supported), `user` tag.
+
+### Returns
+`ModerationResponse`
+

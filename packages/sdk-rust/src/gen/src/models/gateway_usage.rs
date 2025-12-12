@@ -20,10 +20,10 @@ pub struct GatewayUsage {
     pub input_text_tokens: Option<i32>,
     #[serde(rename = "output_text_tokens", skip_serializing_if = "Option::is_none")]
     pub output_text_tokens: Option<i32>,
-    #[serde(rename = "reasoning_tokens", skip_serializing_if = "Option::is_none")]
-    pub reasoning_tokens: Option<i32>,
-    #[serde(rename = "cached_read_text_tokens", skip_serializing_if = "Option::is_none")]
-    pub cached_read_text_tokens: Option<i32>,
+    #[serde(rename = "reasoning_tokens", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub reasoning_tokens: Option<Option<i32>>,
+    #[serde(rename = "cached_read_text_tokens", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub cached_read_text_tokens: Option<Option<i32>>,
 }
 
 impl GatewayUsage {

@@ -13,7 +13,7 @@ All URIs are relative to *https://api.ai-stats.phaseo.app/v1*
 
 List all gateway models
 
-Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date (falling back to announcement date) in descending order.
+Returns a paginated catalogue of models with provider mappings, aliases, and endpoint support. Results are sorted by release date in descending order.
 
 ### Examples
 
@@ -28,17 +28,13 @@ end
 
 api_instance = AIStatsSdk::ModelsApi.new
 opts = {
-  provider: nil, # ModelsGetProviderParameter | Filter results to models served by one or more provider identifiers.
-  limit: 56, # Integer | Maximum number of models to return (default 50).
-  offset: 56, # Integer | Number of models to skip before starting the page.
+  endpoints: nil, # ModelsGetEndpointsParameter | Only return models that support at least one of the specified gateway endpoints.
   organisation: nil, # ModelsGetOrganisationParameter | Restrict results to models associated with one or more organisation identifiers.
-  include_endpoints: nil, # ModelsGetIncludeEndpointsParameter | Only return models that support at least one of the specified gateway endpoints.
-  exclude_endpoints: nil, # ModelsGetIncludeEndpointsParameter | Exclude models that support any of the specified gateway endpoints.
-  input_types: nil, # ModelsGetProviderParameter | Only return models that advertise support for at least one of the requested input content types.
-  output_types: nil, # ModelsGetProviderParameter | Only return models that advertise support for at least one of the requested output content types.
-  include_rumoured: true, # Boolean | Whether to include models marked as rumoured in the response (default true).
-  include_deprecated: true, # Boolean | Whether to include models marked as deprecated in the response (default true).
-  include_retired: true # Boolean | Whether to include models marked as retired in the response (default true).
+  input_types: nil, # ModelsGetInputTypesParameter | Only return models that advertise support for at least one of the requested input content types.
+  output_types: nil, # ModelsGetInputTypesParameter | Only return models that advertise support for at least one of the requested output content types.
+  params: nil, # ModelsGetInputTypesParameter | Only return models that support at least one of the specified parameters.
+  limit: 56, # Integer | Maximum number of models to return (default 50).
+  offset: 56 # Integer | Number of models to skip before starting the page.
 }
 
 begin
@@ -72,17 +68,13 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **provider** | [**ModelsGetProviderParameter**](.md) | Filter results to models served by one or more provider identifiers. | [optional] |
+| **endpoints** | [**ModelsGetEndpointsParameter**](.md) | Only return models that support at least one of the specified gateway endpoints. | [optional] |
+| **organisation** | [**ModelsGetOrganisationParameter**](.md) | Restrict results to models associated with one or more organisation identifiers. | [optional] |
+| **input_types** | [**ModelsGetInputTypesParameter**](.md) | Only return models that advertise support for at least one of the requested input content types. | [optional] |
+| **output_types** | [**ModelsGetInputTypesParameter**](.md) | Only return models that advertise support for at least one of the requested output content types. | [optional] |
+| **params** | [**ModelsGetInputTypesParameter**](.md) | Only return models that support at least one of the specified parameters. | [optional] |
 | **limit** | **Integer** | Maximum number of models to return (default 50). | [optional] |
 | **offset** | **Integer** | Number of models to skip before starting the page. | [optional] |
-| **organisation** | [**ModelsGetOrganisationParameter**](.md) | Restrict results to models associated with one or more organisation identifiers. | [optional] |
-| **include_endpoints** | [**ModelsGetIncludeEndpointsParameter**](.md) | Only return models that support at least one of the specified gateway endpoints. | [optional] |
-| **exclude_endpoints** | [**ModelsGetIncludeEndpointsParameter**](.md) | Exclude models that support any of the specified gateway endpoints. | [optional] |
-| **input_types** | [**ModelsGetProviderParameter**](.md) | Only return models that advertise support for at least one of the requested input content types. | [optional] |
-| **output_types** | [**ModelsGetProviderParameter**](.md) | Only return models that advertise support for at least one of the requested output content types. | [optional] |
-| **include_rumoured** | **Boolean** | Whether to include models marked as rumoured in the response (default true). | [optional][default to true] |
-| **include_deprecated** | **Boolean** | Whether to include models marked as deprecated in the response (default true). | [optional][default to true] |
-| **include_retired** | **Boolean** | Whether to include models marked as retired in the response (default true). | [optional][default to true] |
 
 ### Return type
 

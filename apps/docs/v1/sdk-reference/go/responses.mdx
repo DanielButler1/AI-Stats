@@ -1,0 +1,63 @@
+---
+title: "Responses"
+description: "Call the Responses API with the Go SDK."
+---
+
+**Method**: `client.GenerateResponse()` (stream with `client.StreamResponse()`).
+
+### Example
+```go
+import (
+    "context"
+    "fmt"
+    "log"
+
+    aistats "packages/sdk-go"
+    "packages/sdk-go/gen"
+)
+
+ctx := context.Background()
+client := aistats.New("your-api-key", "https://api.ai-stats.dev")
+
+req := gen.ResponsesRequest{
+    Model: "openai/gpt-4.1",
+    Input: []map[string]interface{}{
+        {
+            "role": "user",
+            "content": []map[string]interface{}{
+                {"type": "output_text", "text": "Summarise this text"},
+            },
+        },
+    },
+    Temperature: &[]float32{0.7}[0],
+    Stream:      &[]bool{false}[0],
+}
+
+resp, _, err := client.GenerateResponse(ctx, req)
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Println("Response:", resp.Output[0].Content[0].Text)
+```
+
+### Streaming
+```go
+// Note: Streaming is not yet implemented in the Go facade.
+// Use the raw API service for streaming.
+```
+
+### Key parameters
+- `model` (required): Target model id.
+- `input` (required): Ordered array of input items (messages, tool calls, etc.).
+- `temperature` (0–2): Higher = more random.
+- `top_p` (0–1) / `top_k` (>=1): Nucleus / k-best sampling controls.
+- `max_output_tokens` (int): Hard cap on tokens generated per response; `max_output_tokens_per_message` to cap each message item.
+- Tools: `tools` (definitions), `tool_choice` (auto/none/specific), `max_tool_calls` (int), `parallel_tool_calls` (bool).
+- Logprobs: `logprobs` (bool), `top_logprobs` (0–20) to return per-token logprobs.
+- Output: `response_format` (json/text), `service_tier`, `store` (bool), `stream` (bool).
+- Metadata: `metadata` (object) for passthrough, `reasoning` (object) for effort hints.
+- Gateway extras: `usage` (bool to request usage), `meta` (bool to include meta block).
+
+### Returns
+`ResponsesResponse` (normal JSON) or newline-delimited SSE frames when `stream: true`.
+

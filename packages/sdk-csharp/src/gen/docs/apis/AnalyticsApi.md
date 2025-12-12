@@ -4,28 +4,61 @@ All URIs are relative to *https://api.ai-stats.phaseo.app/v1*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**HealthGet**](AnalyticsApi.md#healthget) | **GET** /health | Inspect provider health |
+| [**AnalyticsPost**](AnalyticsApi.md#analyticspost) | **POST** /analytics | Aggregated usage analytics (coming soon) |
+| [**HealthzGet**](AnalyticsApi.md#healthzget) | **GET** /healthz | Gateway health check |
 
-<a id="healthget"></a>
-# **HealthGet**
-> GatewayHealthResponse HealthGet (string provider = null, ModelId model = null, string endpoint = null)
+<a id="analyticspost"></a>
+# **AnalyticsPost**
+> AnalyticsPost200Response AnalyticsPost (AnalyticsPostRequest analyticsPostRequest)
 
-Inspect provider health
+Aggregated usage analytics (coming soon)
 
-Returns the most recent latency, success rate, and breaker status for each configured provider.
+Accepts an access token and will return aggregated analytics. A placeholder response is returned today while analytics is being built.
 
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **provider** | **string** | Filter to a specific provider name. | [optional]  |
-| **model** | **ModelId** | Optional model id used to resolve candidate providers. | [optional]  |
-| **endpoint** | **string** | Endpoint identifier paired with &#x60;model&#x60; when deriving providers. | [optional]  |
+| **analyticsPostRequest** | [**AnalyticsPostRequest**](AnalyticsPostRequest.md) |  |  |
 
 ### Return type
 
-[**GatewayHealthResponse**](GatewayHealthResponse.md)
+[**AnalyticsPost200Response**](AnalyticsPost200Response.md)
+
+### Authorization
+
+[GatewayAuth](../README.md#GatewayAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Placeholder analytics response (coming soon). |  -  |
+| **400** | Gateway error response |  -  |
+| **500** | Gateway error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="healthzget"></a>
+# **HealthzGet**
+> HealthzGet200Response HealthzGet ()
+
+Gateway health check
+
+Returns a simple liveness signal for the gateway.
+
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**HealthzGet200Response**](HealthzGet200Response.md)
 
 ### Authorization
 
@@ -40,8 +73,7 @@ Returns the most recent latency, success rate, and breaker status for each confi
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Provider health snapshot. |  -  |
-| **404** | Gateway error response |  -  |
+| **200** | Gateway is healthy. |  -  |
 | **500** | Gateway error response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

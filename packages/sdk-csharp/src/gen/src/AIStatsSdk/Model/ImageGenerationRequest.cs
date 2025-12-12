@@ -88,6 +88,12 @@ namespace AIStatsSdk.Model
         public int? N { get { return this.NOption; } set { this.NOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -99,6 +105,7 @@ namespace AIStatsSdk.Model
             sb.Append("  Prompt: ").Append(Prompt).Append("\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  N: ").Append(N).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

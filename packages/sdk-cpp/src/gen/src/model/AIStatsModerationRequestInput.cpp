@@ -59,8 +59,8 @@ void AIStatsModerationRequestInput::toMultipart(std::shared_ptr<MultipartFormDat
     }, m_variantValue);
 }
 
-template bool AIStatsModerationRequestInput::fromJson<std::vector&lt;std::shared_ptr&lt;AIStatsAnyType&gt;&gt;>(const web::json::value& json);
-template bool AIStatsModerationRequestInput::fromMultiPart<std::vector&lt;std::shared_ptr&lt;AIStatsAnyType&gt;&gt;>(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix);
+template bool AIStatsModerationRequestInput::fromJson<std::vector&lt;std::shared_ptr&lt;AIStatsModerationInputContentItem&gt;&gt;>(const web::json::value& json);
+template bool AIStatsModerationRequestInput::fromMultiPart<std::vector&lt;std::shared_ptr&lt;AIStatsModerationInputContentItem&gt;&gt;>(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix);
 template bool AIStatsModerationRequestInput::fromJson<utility::string_t>(const web::json::value& json);
 template bool AIStatsModerationRequestInput::fromMultiPart<utility::string_t>(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix);
 

@@ -72,11 +72,11 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
         'success' => 'bool',
         'error_code' => 'string',
         'error_message' => 'string',
-        'before' => 'object',
-        'execute' => 'object',
+        'before' => 'array<string,mixed>',
+        'execute' => 'array<string,mixed>',
         'latency_ms' => 'float',
         'generation_ms' => 'float',
-        'usage' => 'object',
+        'usage' => 'array<string,mixed>',
         'cost_nanos' => 'int',
         'currency' => 'string',
         'pricing_lines' => 'object[]'
@@ -123,26 +123,26 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     protected static array $openAPINullables = [
         'request_id' => false,
         'team_id' => false,
-        'app_id' => false,
-        'app_title' => false,
-        'referer' => false,
+        'app_id' => true,
+        'app_title' => true,
+        'referer' => true,
         'endpoint' => false,
-        'model_id' => false,
-        'provider' => false,
-        'native_response_id' => false,
+        'model_id' => true,
+        'provider' => true,
+        'native_response_id' => true,
         'stream' => false,
         'byok' => false,
-        'status_code' => false,
+        'status_code' => true,
         'success' => false,
-        'error_code' => false,
-        'error_message' => false,
+        'error_code' => true,
+        'error_message' => true,
         'before' => false,
         'execute' => false,
-        'latency_ms' => false,
-        'generation_ms' => false,
+        'latency_ms' => true,
+        'generation_ms' => true,
         'usage' => false,
-        'cost_nanos' => false,
-        'currency' => false,
+        'cost_nanos' => true,
+        'currency' => true,
         'pricing_lines' => false
     ];
 
@@ -529,7 +529,14 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     public function setAppId($app_id)
     {
         if (is_null($app_id)) {
-            throw new \InvalidArgumentException('non-nullable app_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'app_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('app_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['app_id'] = $app_id;
 
@@ -556,7 +563,14 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     public function setAppTitle($app_title)
     {
         if (is_null($app_title)) {
-            throw new \InvalidArgumentException('non-nullable app_title cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'app_title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('app_title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['app_title'] = $app_title;
 
@@ -583,7 +597,14 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     public function setReferer($referer)
     {
         if (is_null($referer)) {
-            throw new \InvalidArgumentException('non-nullable referer cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'referer');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('referer', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['referer'] = $referer;
 
@@ -637,7 +658,14 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     public function setModelId($model_id)
     {
         if (is_null($model_id)) {
-            throw new \InvalidArgumentException('non-nullable model_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'model_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('model_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['model_id'] = $model_id;
 
@@ -664,7 +692,14 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     public function setProvider($provider)
     {
         if (is_null($provider)) {
-            throw new \InvalidArgumentException('non-nullable provider cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'provider');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('provider', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['provider'] = $provider;
 
@@ -691,7 +726,14 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     public function setNativeResponseId($native_response_id)
     {
         if (is_null($native_response_id)) {
-            throw new \InvalidArgumentException('non-nullable native_response_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'native_response_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('native_response_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['native_response_id'] = $native_response_id;
 
@@ -772,7 +814,14 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     public function setStatusCode($status_code)
     {
         if (is_null($status_code)) {
-            throw new \InvalidArgumentException('non-nullable status_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['status_code'] = $status_code;
 
@@ -826,7 +875,14 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     public function setErrorCode($error_code)
     {
         if (is_null($error_code)) {
-            throw new \InvalidArgumentException('non-nullable error_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'error_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('error_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['error_code'] = $error_code;
 
@@ -853,7 +909,14 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     public function setErrorMessage($error_message)
     {
         if (is_null($error_message)) {
-            throw new \InvalidArgumentException('non-nullable error_message cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'error_message');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('error_message', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['error_message'] = $error_message;
 
@@ -863,7 +926,7 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets before
      *
-     * @return object|null
+     * @return array<string,mixed>|null
      */
     public function getBefore()
     {
@@ -873,7 +936,7 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets before
      *
-     * @param object|null $before before
+     * @param array<string,mixed>|null $before before
      *
      * @return self
      */
@@ -890,7 +953,7 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets execute
      *
-     * @return object|null
+     * @return array<string,mixed>|null
      */
     public function getExecute()
     {
@@ -900,7 +963,7 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets execute
      *
-     * @param object|null $execute execute
+     * @param array<string,mixed>|null $execute execute
      *
      * @return self
      */
@@ -934,7 +997,14 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     public function setLatencyMs($latency_ms)
     {
         if (is_null($latency_ms)) {
-            throw new \InvalidArgumentException('non-nullable latency_ms cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'latency_ms');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('latency_ms', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['latency_ms'] = $latency_ms;
 
@@ -961,7 +1031,14 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     public function setGenerationMs($generation_ms)
     {
         if (is_null($generation_ms)) {
-            throw new \InvalidArgumentException('non-nullable generation_ms cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'generation_ms');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('generation_ms', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['generation_ms'] = $generation_ms;
 
@@ -971,7 +1048,7 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets usage
      *
-     * @return object|null
+     * @return array<string,mixed>|null
      */
     public function getUsage()
     {
@@ -981,7 +1058,7 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets usage
      *
-     * @param object|null $usage usage
+     * @param array<string,mixed>|null $usage usage
      *
      * @return self
      */
@@ -1015,7 +1092,14 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     public function setCostNanos($cost_nanos)
     {
         if (is_null($cost_nanos)) {
-            throw new \InvalidArgumentException('non-nullable cost_nanos cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'cost_nanos');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('cost_nanos', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['cost_nanos'] = $cost_nanos;
 
@@ -1042,7 +1126,14 @@ class GatewayGenerationRecord implements ModelInterface, ArrayAccess, \JsonSeria
     public function setCurrency($currency)
     {
         if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'currency');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('currency', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['currency'] = $currency;
 

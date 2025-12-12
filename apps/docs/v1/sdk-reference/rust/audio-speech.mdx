@@ -1,0 +1,38 @@
+---
+title: "Audio speech"
+description: "Call /audio/speech with the Rust SDK."
+---
+
+**Method**: `audio_api::audio_speech_post()`.
+
+### Example
+```rust
+use ai_stats_sdk::apis::{configuration::Configuration, audio_api};
+use ai_stats_sdk::models::AudioSpeechRequest;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let mut config = Configuration::new();
+    config.bearer_access_token = Some("your-api-key".to_string());
+
+    let request = AudioSpeechRequest::new(
+        "openai/tts-1".to_string(),
+        "Hello, world!".to_string()
+    );
+
+    let response = audio_api::audio_speech_post(&config, request).await?;
+    let bytes = response.bytes().await?;
+    // Save bytes to file or process audio
+    Ok(())
+}
+```
+
+### Key parameters
+- `model` (required): The model to use for speech generation.
+- `input` (required): The text to generate audio for.
+- `voice` (optional): The voice to use for speech.
+- `format` (optional): The format of the audio (mp3, wav, ogg, aac).
+
+### Returns
+`reqwest::Response` containing the audio data.
+

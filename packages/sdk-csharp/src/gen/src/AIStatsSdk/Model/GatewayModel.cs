@@ -36,28 +36,26 @@ namespace AIStatsSdk.Model
         /// <param name="modelId">Canonical model identifier.</param>
         /// <param name="aliases">Enabled aliases that resolve to this model.</param>
         /// <param name="endpoints">Gateway endpoints that currently route to this model.</param>
-        /// <param name="providers">Provider mappings that can serve this model.</param>
         /// <param name="inputTypes">Input content types supported by the model itself.</param>
         /// <param name="outputTypes">Output content types supported by the model itself.</param>
+        /// <param name="providers">Providers that support this model with their parameters.</param>
         /// <param name="name">Human readable model name.</param>
         /// <param name="releaseDate">Earliest known public release date.</param>
-        /// <param name="announcementDate">Earliest known public announcement date if different from release.</param>
         /// <param name="status">Lifecycle status of the model (Rumoured, Announced, Available, Deprecated, Retired).</param>
-        /// <param name="organisation">organisation</param>
+        /// <param name="organisationId">Organisation identifier responsible for the model.</param>
         [JsonConstructor]
-        public GatewayModel(string modelId, List<string> aliases, List<GatewayModel.EndpointsEnum> endpoints, List<GatewayModelProvider> providers, List<string> inputTypes, List<string> outputTypes, string? name = default, DateOnly? releaseDate = default, DateOnly? announcementDate = default, string? status = default, OrganisationId? organisation = default)
+        public GatewayModel(string modelId, List<string> aliases, List<GatewayModel.EndpointsEnum> endpoints, List<string> inputTypes, List<string> outputTypes, List<ProviderInfo> providers, string? name = default, DateOnly? releaseDate = default, string? status = default, string? organisationId = default)
         {
             ModelId = modelId;
             Aliases = aliases;
             Endpoints = endpoints;
-            Providers = providers;
             InputTypes = inputTypes;
             OutputTypes = outputTypes;
+            Providers = providers;
             Name = name;
             ReleaseDate = releaseDate;
-            AnnouncementDate = announcementDate;
             Status = status;
-            Organisation = organisation;
+            OrganisationId = organisationId;
             OnCreated();
         }
 
@@ -214,12 +212,6 @@ namespace AIStatsSdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Organisation
-        /// </summary>
-        [JsonPropertyName("organisation")]
-        public OrganisationId? Organisation { get; set; }
-
-        /// <summary>
         /// Canonical model identifier.
         /// </summary>
         /// <value>Canonical model identifier.</value>
@@ -241,13 +233,6 @@ namespace AIStatsSdk.Model
         public List<GatewayModel.EndpointsEnum> Endpoints { get; set; }
 
         /// <summary>
-        /// Provider mappings that can serve this model.
-        /// </summary>
-        /// <value>Provider mappings that can serve this model.</value>
-        [JsonPropertyName("providers")]
-        public List<GatewayModelProvider> Providers { get; set; }
-
-        /// <summary>
         /// Input content types supported by the model itself.
         /// </summary>
         /// <value>Input content types supported by the model itself.</value>
@@ -260,6 +245,13 @@ namespace AIStatsSdk.Model
         /// <value>Output content types supported by the model itself.</value>
         [JsonPropertyName("output_types")]
         public List<string> OutputTypes { get; set; }
+
+        /// <summary>
+        /// Providers that support this model with their parameters.
+        /// </summary>
+        /// <value>Providers that support this model with their parameters.</value>
+        [JsonPropertyName("providers")]
+        public List<ProviderInfo> Providers { get; set; }
 
         /// <summary>
         /// Human readable model name.
@@ -276,18 +268,24 @@ namespace AIStatsSdk.Model
         public DateOnly? ReleaseDate { get; set; }
 
         /// <summary>
-        /// Earliest known public announcement date if different from release.
-        /// </summary>
-        /// <value>Earliest known public announcement date if different from release.</value>
-        [JsonPropertyName("announcement_date")]
-        public DateOnly? AnnouncementDate { get; set; }
-
-        /// <summary>
         /// Lifecycle status of the model (Rumoured, Announced, Available, Deprecated, Retired).
         /// </summary>
         /// <value>Lifecycle status of the model (Rumoured, Announced, Available, Deprecated, Retired).</value>
         [JsonPropertyName("status")]
         public string? Status { get; set; }
+
+        /// <summary>
+        /// Organisation identifier responsible for the model.
+        /// </summary>
+        /// <value>Organisation identifier responsible for the model.</value>
+        [JsonPropertyName("organisation_id")]
+        public string? OrganisationId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -300,14 +298,14 @@ namespace AIStatsSdk.Model
             sb.Append("  ModelId: ").Append(ModelId).Append("\n");
             sb.Append("  Aliases: ").Append(Aliases).Append("\n");
             sb.Append("  Endpoints: ").Append(Endpoints).Append("\n");
-            sb.Append("  Providers: ").Append(Providers).Append("\n");
             sb.Append("  InputTypes: ").Append(InputTypes).Append("\n");
             sb.Append("  OutputTypes: ").Append(OutputTypes).Append("\n");
+            sb.Append("  Providers: ").Append(Providers).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ReleaseDate: ").Append(ReleaseDate).Append("\n");
-            sb.Append("  AnnouncementDate: ").Append(AnnouncementDate).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Organisation: ").Append(Organisation).Append("\n");
+            sb.Append("  OrganisationId: ").Append(OrganisationId).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -334,11 +332,6 @@ namespace AIStatsSdk.Model
         public static string ReleaseDateFormat { get; set; } = "yyyy'-'MM'-'dd";
 
         /// <summary>
-        /// The format to use to serialize AnnouncementDate
-        /// </summary>
-        public static string AnnouncementDateFormat { get; set; } = "yyyy'-'MM'-'dd";
-
-        /// <summary>
         /// Deserializes json to <see cref="GatewayModel" />
         /// </summary>
         /// <param name="utf8JsonReader"></param>
@@ -358,14 +351,13 @@ namespace AIStatsSdk.Model
             Option<string?> modelId = default;
             Option<List<string>?> aliases = default;
             Option<List<GatewayModel.EndpointsEnum>?> endpoints = default;
-            Option<List<GatewayModelProvider>?> providers = default;
             Option<List<string>?> inputTypes = default;
             Option<List<string>?> outputTypes = default;
+            Option<List<ProviderInfo>?> providers = default;
             Option<string?> name = default;
             Option<DateOnly?> releaseDate = default;
-            Option<DateOnly?> announcementDate = default;
             Option<string?> status = default;
-            Option<OrganisationId?> organisation = default;
+            Option<string?> organisationId = default;
 
             while (utf8JsonReader.Read())
             {
@@ -391,14 +383,14 @@ namespace AIStatsSdk.Model
                         case "endpoints":
                             endpoints = new Option<List<GatewayModel.EndpointsEnum>?>(JsonSerializer.Deserialize<List<GatewayModel.EndpointsEnum>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
-                        case "providers":
-                            providers = new Option<List<GatewayModelProvider>?>(JsonSerializer.Deserialize<List<GatewayModelProvider>>(ref utf8JsonReader, jsonSerializerOptions)!);
-                            break;
                         case "input_types":
                             inputTypes = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "output_types":
                             outputTypes = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "providers":
+                            providers = new Option<List<ProviderInfo>?>(JsonSerializer.Deserialize<List<ProviderInfo>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "name":
                             name = new Option<string?>(utf8JsonReader.GetString());
@@ -406,16 +398,11 @@ namespace AIStatsSdk.Model
                         case "release_date":
                             releaseDate = new Option<DateOnly?>(JsonSerializer.Deserialize<DateOnly?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
-                        case "announcement_date":
-                            announcementDate = new Option<DateOnly?>(JsonSerializer.Deserialize<DateOnly?>(ref utf8JsonReader, jsonSerializerOptions));
-                            break;
                         case "status":
                             status = new Option<string?>(utf8JsonReader.GetString());
                             break;
-                        case "organisation":
-                            string? organisationRawValue = utf8JsonReader.GetString();
-                            if (organisationRawValue != null)
-                                organisation = new Option<OrganisationId?>(OrganisationIdValueConverter.FromStringOrDefault(organisationRawValue));
+                        case "organisation_id":
+                            organisationId = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         default:
                             break;
@@ -432,14 +419,14 @@ namespace AIStatsSdk.Model
             if (!endpoints.IsSet)
                 throw new ArgumentException("Property is required for class GatewayModel.", nameof(endpoints));
 
-            if (!providers.IsSet)
-                throw new ArgumentException("Property is required for class GatewayModel.", nameof(providers));
-
             if (!inputTypes.IsSet)
                 throw new ArgumentException("Property is required for class GatewayModel.", nameof(inputTypes));
 
             if (!outputTypes.IsSet)
                 throw new ArgumentException("Property is required for class GatewayModel.", nameof(outputTypes));
+
+            if (!providers.IsSet)
+                throw new ArgumentException("Property is required for class GatewayModel.", nameof(providers));
 
             if (!name.IsSet)
                 throw new ArgumentException("Property is required for class GatewayModel.", nameof(name));
@@ -447,14 +434,11 @@ namespace AIStatsSdk.Model
             if (!releaseDate.IsSet)
                 throw new ArgumentException("Property is required for class GatewayModel.", nameof(releaseDate));
 
-            if (!announcementDate.IsSet)
-                throw new ArgumentException("Property is required for class GatewayModel.", nameof(announcementDate));
-
             if (!status.IsSet)
                 throw new ArgumentException("Property is required for class GatewayModel.", nameof(status));
 
-            if (!organisation.IsSet)
-                throw new ArgumentException("Property is required for class GatewayModel.", nameof(organisation));
+            if (!organisationId.IsSet)
+                throw new ArgumentException("Property is required for class GatewayModel.", nameof(organisationId));
 
             if (modelId.IsSet && modelId.Value == null)
                 throw new ArgumentNullException(nameof(modelId), "Property is not nullable for class GatewayModel.");
@@ -465,16 +449,16 @@ namespace AIStatsSdk.Model
             if (endpoints.IsSet && endpoints.Value == null)
                 throw new ArgumentNullException(nameof(endpoints), "Property is not nullable for class GatewayModel.");
 
-            if (providers.IsSet && providers.Value == null)
-                throw new ArgumentNullException(nameof(providers), "Property is not nullable for class GatewayModel.");
-
             if (inputTypes.IsSet && inputTypes.Value == null)
                 throw new ArgumentNullException(nameof(inputTypes), "Property is not nullable for class GatewayModel.");
 
             if (outputTypes.IsSet && outputTypes.Value == null)
                 throw new ArgumentNullException(nameof(outputTypes), "Property is not nullable for class GatewayModel.");
 
-            return new GatewayModel(modelId.Value!, aliases.Value!, endpoints.Value!, providers.Value!, inputTypes.Value!, outputTypes.Value!, name.Value!, releaseDate.Value!, announcementDate.Value!, status.Value!, organisation.Value!);
+            if (providers.IsSet && providers.Value == null)
+                throw new ArgumentNullException(nameof(providers), "Property is not nullable for class GatewayModel.");
+
+            return new GatewayModel(modelId.Value!, aliases.Value!, endpoints.Value!, inputTypes.Value!, outputTypes.Value!, providers.Value!, name.Value!, releaseDate.Value!, status.Value!, organisationId.Value!);
         }
 
         /// <summary>
@@ -510,14 +494,14 @@ namespace AIStatsSdk.Model
             if (gatewayModel.Endpoints == null)
                 throw new ArgumentNullException(nameof(gatewayModel.Endpoints), "Property is required for class GatewayModel.");
 
-            if (gatewayModel.Providers == null)
-                throw new ArgumentNullException(nameof(gatewayModel.Providers), "Property is required for class GatewayModel.");
-
             if (gatewayModel.InputTypes == null)
                 throw new ArgumentNullException(nameof(gatewayModel.InputTypes), "Property is required for class GatewayModel.");
 
             if (gatewayModel.OutputTypes == null)
                 throw new ArgumentNullException(nameof(gatewayModel.OutputTypes), "Property is required for class GatewayModel.");
+
+            if (gatewayModel.Providers == null)
+                throw new ArgumentNullException(nameof(gatewayModel.Providers), "Property is required for class GatewayModel.");
 
             writer.WriteString("model_id", gatewayModel.ModelId);
 
@@ -525,12 +509,12 @@ namespace AIStatsSdk.Model
             JsonSerializer.Serialize(writer, gatewayModel.Aliases, jsonSerializerOptions);
             writer.WritePropertyName("endpoints");
             JsonSerializer.Serialize(writer, gatewayModel.Endpoints, jsonSerializerOptions);
-            writer.WritePropertyName("providers");
-            JsonSerializer.Serialize(writer, gatewayModel.Providers, jsonSerializerOptions);
             writer.WritePropertyName("input_types");
             JsonSerializer.Serialize(writer, gatewayModel.InputTypes, jsonSerializerOptions);
             writer.WritePropertyName("output_types");
             JsonSerializer.Serialize(writer, gatewayModel.OutputTypes, jsonSerializerOptions);
+            writer.WritePropertyName("providers");
+            JsonSerializer.Serialize(writer, gatewayModel.Providers, jsonSerializerOptions);
             if (gatewayModel.Name != null)
                 writer.WriteString("name", gatewayModel.Name);
             else
@@ -541,26 +525,15 @@ namespace AIStatsSdk.Model
             else
                 writer.WriteNull("release_date");
 
-            if (gatewayModel.AnnouncementDate != null)
-                writer.WriteString("announcement_date", gatewayModel.AnnouncementDate.Value.ToString(AnnouncementDateFormat));
-            else
-                writer.WriteNull("announcement_date");
-
             if (gatewayModel.Status != null)
                 writer.WriteString("status", gatewayModel.Status);
             else
                 writer.WriteNull("status");
 
-            if (gatewayModel.Organisation == null)
-                writer.WriteNull("organisation");
+            if (gatewayModel.OrganisationId != null)
+                writer.WriteString("organisation_id", gatewayModel.OrganisationId);
             else
-            {
-                var organisationRawValue = OrganisationIdValueConverter.ToJsonValue(gatewayModel.Organisation.Value);
-                if (organisationRawValue != null)
-                    writer.WriteString("organisation", organisationRawValue);
-                else
-                    writer.WriteNull("organisation");
-            }
+                writer.WriteNull("organisation_id");
         }
     }
 }

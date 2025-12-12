@@ -1,0 +1,40 @@
+---
+title: "Files"
+description: "Call /files with the Rust SDK."
+---
+
+**Method**: `files_api::files_post()`, `files_api::files_get()`, `files_api::files_file_id_get()`.
+
+### Example
+```rust
+use ai_stats_sdk::apis::{configuration::Configuration, files_api};
+use std::path::PathBuf;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let mut config = Configuration::new();
+    config.bearer_access_token = Some("your-api-key".to_string());
+
+    // Upload a file
+    let file_path = PathBuf::from("path/to/your/file.jsonl");
+    let uploaded_file = files_api::files_post(&config, Some("batch"), Some(file_path)).await?;
+    println!("Uploaded file ID: {}", uploaded_file.id.unwrap_or_default());
+
+    // List files
+    let files = files_api::files_get(&config).await?;
+    println!("Files: {:?}", files);
+
+    // Get a specific file
+    let file = files_api::files_file_id_get(&config, "file-id").await?;
+    println!("File: {:?}", file);
+    Ok(())
+}
+```
+
+### Key parameters
+- `purpose` (optional): Purpose of the file (e.g., "batch").
+- `file` (optional): Path to the file to upload.
+
+### Returns
+`FileObject` for upload, `FileListResponse` for list, `FileObject` for get.
+

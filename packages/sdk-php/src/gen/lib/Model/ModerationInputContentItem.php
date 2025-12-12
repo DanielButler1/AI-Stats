@@ -58,7 +58,9 @@ class ModerationInputContentItem implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'type' => 'string',
+        'text' => 'string',
+        'image_url' => '\AIStats\\Sdk\Model\ModerationInputImageUrlItemImageUrl'
     ];
 
     /**
@@ -69,7 +71,9 @@ class ModerationInputContentItem implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'type' => null,
+        'text' => null,
+        'image_url' => null
     ];
 
     /**
@@ -78,7 +82,9 @@ class ModerationInputContentItem implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'type' => false,
+        'text' => false,
+        'image_url' => false
     ];
 
     /**
@@ -167,7 +173,9 @@ class ModerationInputContentItem implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'type' => 'type',
+        'text' => 'text',
+        'image_url' => 'image_url'
     ];
 
     /**
@@ -176,7 +184,9 @@ class ModerationInputContentItem implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        
+        'type' => 'setType',
+        'text' => 'setText',
+        'image_url' => 'setImageUrl'
     ];
 
     /**
@@ -185,7 +195,9 @@ class ModerationInputContentItem implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        
+        'type' => 'getType',
+        'text' => 'getText',
+        'image_url' => 'getImageUrl'
     ];
 
     /**
@@ -229,6 +241,21 @@ class ModerationInputContentItem implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
+    public const TYPE_TEXT = 'text';
+    public const TYPE_IMAGE_URL = 'image_url';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_TEXT,
+            self::TYPE_IMAGE_URL,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -245,6 +272,9 @@ class ModerationInputContentItem implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('text', $data ?? [], null);
+        $this->setIfExists('image_url', $data ?? [], null);
     }
 
     /**
@@ -274,6 +304,24 @@ class ModerationInputContentItem implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['text'] === null) {
+            $invalidProperties[] = "'text' can't be null";
+        }
+        if ($this->container['image_url'] === null) {
+            $invalidProperties[] = "'image_url' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -288,6 +336,97 @@ class ModerationInputContentItem implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string $text text
+     *
+     * @return self
+     */
+    public function setText($text)
+    {
+        if (is_null($text)) {
+            throw new \InvalidArgumentException('non-nullable text cannot be null');
+        }
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_url
+     *
+     * @return \AIStats\\Sdk\Model\ModerationInputImageUrlItemImageUrl
+     */
+    public function getImageUrl()
+    {
+        return $this->container['image_url'];
+    }
+
+    /**
+     * Sets image_url
+     *
+     * @param \AIStats\\Sdk\Model\ModerationInputImageUrlItemImageUrl $image_url image_url
+     *
+     * @return self
+     */
+    public function setImageUrl($image_url)
+    {
+        if (is_null($image_url)) {
+            throw new \InvalidArgumentException('non-nullable image_url cannot be null');
+        }
+        $this->container['image_url'] = $image_url;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

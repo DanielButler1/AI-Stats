@@ -4,13 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**native_response_id** | Option<**String**> |  | [optional]
-**provider** | **String** |  | 
-**meta** | [**models::GatewayMetadata**](GatewayMetadata.md) |  | 
-**usage** | Option<[**models::GatewayUsage**](GatewayUsage.md)> |  | [optional]
-**created** | **i32** | Unix timestamp in seconds. | 
-**model** | **String** |  | 
-**choices** | [**Vec<models::GatewayChatChoice>**](GatewayChatChoice.md) |  | 
+**id** | Option<**String**> |  | [optional]
+**object** | Option<**String**> |  | [optional]
+**created** | Option<**i32**> |  | [optional]
+**model** | Option<**String**> |  | [optional]
+**choices** | Option<[**Vec<models::ChatChoice>**](ChatChoice.md)> |  | [optional]
+**usage** | Option<[**models::Usage**](Usage.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -29,7 +29,6 @@ namespace openapitools {
 namespace client {
 namespace model {
 
-class AIStatsGatewayModel;
 
 
 class  AIStatsModelListResponse

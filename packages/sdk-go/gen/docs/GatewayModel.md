@@ -7,20 +7,19 @@ Name | Type | Description | Notes
 **ModelId** | **string** | Canonical model identifier. | 
 **Name** | **NullableString** | Human readable model name. | 
 **ReleaseDate** | **NullableString** | Earliest known public release date. | 
-**AnnouncementDate** | **NullableString** | Earliest known public announcement date if different from release. | 
 **Status** | **NullableString** | Lifecycle status of the model (Rumoured, Announced, Available, Deprecated, Retired). | 
-**Organisation** | [**NullableOrganisationId**](OrganisationId.md) |  | 
+**OrganisationId** | **NullableString** | Organisation identifier responsible for the model. | 
 **Aliases** | **[]string** | Enabled aliases that resolve to this model. | 
 **Endpoints** | **[]string** | Gateway endpoints that currently route to this model. | 
-**Providers** | [**[]GatewayModelProvider**](GatewayModelProvider.md) | Provider mappings that can serve this model. | 
 **InputTypes** | **[]string** | Input content types supported by the model itself. | 
 **OutputTypes** | **[]string** | Output content types supported by the model itself. | 
+**Providers** | [**[]ProviderInfo**](ProviderInfo.md) | Providers that support this model with their parameters. | 
 
 ## Methods
 
 ### NewGatewayModel
 
-`func NewGatewayModel(modelId string, name NullableString, releaseDate NullableString, announcementDate NullableString, status NullableString, organisation NullableOrganisationId, aliases []string, endpoints []string, providers []GatewayModelProvider, inputTypes []string, outputTypes []string, ) *GatewayModel`
+`func NewGatewayModel(modelId string, name NullableString, releaseDate NullableString, status NullableString, organisationId NullableString, aliases []string, endpoints []string, inputTypes []string, outputTypes []string, providers []ProviderInfo, ) *GatewayModel`
 
 NewGatewayModel instantiates a new GatewayModel object
 This constructor will assign default values to properties that have it defined,
@@ -115,36 +114,6 @@ SetReleaseDate sets ReleaseDate field to given value.
 `func (o *GatewayModel) UnsetReleaseDate()`
 
 UnsetReleaseDate ensures that no value is present for ReleaseDate, not even an explicit nil
-### GetAnnouncementDate
-
-`func (o *GatewayModel) GetAnnouncementDate() string`
-
-GetAnnouncementDate returns the AnnouncementDate field if non-nil, zero value otherwise.
-
-### GetAnnouncementDateOk
-
-`func (o *GatewayModel) GetAnnouncementDateOk() (*string, bool)`
-
-GetAnnouncementDateOk returns a tuple with the AnnouncementDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAnnouncementDate
-
-`func (o *GatewayModel) SetAnnouncementDate(v string)`
-
-SetAnnouncementDate sets AnnouncementDate field to given value.
-
-
-### SetAnnouncementDateNil
-
-`func (o *GatewayModel) SetAnnouncementDateNil(b bool)`
-
- SetAnnouncementDateNil sets the value for AnnouncementDate to be an explicit nil
-
-### UnsetAnnouncementDate
-`func (o *GatewayModel) UnsetAnnouncementDate()`
-
-UnsetAnnouncementDate ensures that no value is present for AnnouncementDate, not even an explicit nil
 ### GetStatus
 
 `func (o *GatewayModel) GetStatus() string`
@@ -175,36 +144,36 @@ SetStatus sets Status field to given value.
 `func (o *GatewayModel) UnsetStatus()`
 
 UnsetStatus ensures that no value is present for Status, not even an explicit nil
-### GetOrganisation
+### GetOrganisationId
 
-`func (o *GatewayModel) GetOrganisation() OrganisationId`
+`func (o *GatewayModel) GetOrganisationId() string`
 
-GetOrganisation returns the Organisation field if non-nil, zero value otherwise.
+GetOrganisationId returns the OrganisationId field if non-nil, zero value otherwise.
 
-### GetOrganisationOk
+### GetOrganisationIdOk
 
-`func (o *GatewayModel) GetOrganisationOk() (*OrganisationId, bool)`
+`func (o *GatewayModel) GetOrganisationIdOk() (*string, bool)`
 
-GetOrganisationOk returns a tuple with the Organisation field if it's non-nil, zero value otherwise
+GetOrganisationIdOk returns a tuple with the OrganisationId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrganisation
+### SetOrganisationId
 
-`func (o *GatewayModel) SetOrganisation(v OrganisationId)`
+`func (o *GatewayModel) SetOrganisationId(v string)`
 
-SetOrganisation sets Organisation field to given value.
+SetOrganisationId sets OrganisationId field to given value.
 
 
-### SetOrganisationNil
+### SetOrganisationIdNil
 
-`func (o *GatewayModel) SetOrganisationNil(b bool)`
+`func (o *GatewayModel) SetOrganisationIdNil(b bool)`
 
- SetOrganisationNil sets the value for Organisation to be an explicit nil
+ SetOrganisationIdNil sets the value for OrganisationId to be an explicit nil
 
-### UnsetOrganisation
-`func (o *GatewayModel) UnsetOrganisation()`
+### UnsetOrganisationId
+`func (o *GatewayModel) UnsetOrganisationId()`
 
-UnsetOrganisation ensures that no value is present for Organisation, not even an explicit nil
+UnsetOrganisationId ensures that no value is present for OrganisationId, not even an explicit nil
 ### GetAliases
 
 `func (o *GatewayModel) GetAliases() []string`
@@ -245,26 +214,6 @@ and a boolean to check if the value has been set.
 SetEndpoints sets Endpoints field to given value.
 
 
-### GetProviders
-
-`func (o *GatewayModel) GetProviders() []GatewayModelProvider`
-
-GetProviders returns the Providers field if non-nil, zero value otherwise.
-
-### GetProvidersOk
-
-`func (o *GatewayModel) GetProvidersOk() (*[]GatewayModelProvider, bool)`
-
-GetProvidersOk returns a tuple with the Providers field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProviders
-
-`func (o *GatewayModel) SetProviders(v []GatewayModelProvider)`
-
-SetProviders sets Providers field to given value.
-
-
 ### GetInputTypes
 
 `func (o *GatewayModel) GetInputTypes() []string`
@@ -303,6 +252,26 @@ and a boolean to check if the value has been set.
 `func (o *GatewayModel) SetOutputTypes(v []string)`
 
 SetOutputTypes sets OutputTypes field to given value.
+
+
+### GetProviders
+
+`func (o *GatewayModel) GetProviders() []ProviderInfo`
+
+GetProviders returns the Providers field if non-nil, zero value otherwise.
+
+### GetProvidersOk
+
+`func (o *GatewayModel) GetProvidersOk() (*[]ProviderInfo, bool)`
+
+GetProvidersOk returns a tuple with the Providers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProviders
+
+`func (o *GatewayModel) SetProviders(v []ProviderInfo)`
+
+SetProviders sets Providers field to given value.
 
 
 

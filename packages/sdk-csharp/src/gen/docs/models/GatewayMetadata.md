@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Model** | **ModelId** |  | 
 **AppTitle** | **string** |  | [optional] 
 **Referer** | **string** |  | [optional] 
-**Timing** | **Object** | Optional timing information captured during the request lifecycle. | [optional] 
+**Timing** | **Dictionary&lt;string, Object&gt;** | Optional timing information captured during the request lifecycle. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

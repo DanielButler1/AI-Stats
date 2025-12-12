@@ -1,0 +1,34 @@
+---
+title: "Audio translations"
+description: "Call /audio/translations with the C++ SDK."
+---
+
+**Method**: `AIStatsAudioApi::audioTranslationsPost()`.
+
+### Example
+```cpp
+#include "ai_stats_sdk_cpp/ApiClient.h"
+#include "ai_stats_sdk_cpp/ApiConfiguration.h"
+#include "ai_stats_sdk_cpp/api/AIStatsAudioApi.h"
+#include "ai_stats_sdk_cpp/model/AIStatsAudioTranslationRequest.h"
+
+// Setup config and apiClient as in usage.mdx
+AIStatsAudioApi audioApi(apiClient);
+
+auto request = std::make_shared<AIStatsAudioTranslationRequest>();
+request->setModel("openai/gpt-4o-transcribe");
+request->setFile("data:audio/mp3;base64,...");
+
+auto response = audioApi.audioTranslationsPost(request).get();
+```
+
+### Key parameters
+- `model` (required): Translation-capable model id.
+- `file` (required): Audio data (URL, base64, or binary).
+- `prompt`: Optional context to improve accuracy.
+- `temperature` (0–2): Sampling randomness.
+- `response_format`: `json`, `text`, `srt`, `verbose_json`, etc.
+
+### Returns
+`AIStatsAudioTranscriptionResponse`
+

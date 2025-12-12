@@ -1,0 +1,53 @@
+---
+title: "Models"
+description: "List models with the C++ SDK."
+---
+
+**Method**: `AIStatsModelsApi::modelsGet()`.
+
+### Example
+```cpp
+#include "ai_stats_sdk_cpp/ApiClient.h"
+#include "ai_stats_sdk_cpp/ApiConfiguration.h"
+#include "ai_stats_sdk_cpp/api/AIStatsModelsApi.h"
+
+// Setup config and apiClient as in usage.mdx
+AIStatsModelsApi modelsApi(apiClient);
+
+auto models = modelsApi.modelsGet().get();
+```
+
+### Parameters
+- Optional filters: `provider`, `organisation`, `endpoints[]`, `limit`, `offset`.
+
+### Returns
+`AIStatsModelListResponse`
+
+```json
+{
+  "ok": true,
+  "limit": 50,
+  "offset": 0,
+  "total": 123,
+  "models": [
+    {
+      "model_id": "openai/gpt-4o-mini",
+      "name": "GPT-4o Mini",
+      "release_date": "2024-07-18",
+      "status": "active",
+      "organisation_id": "openai",
+      "aliases": ["gpt-4o-mini"],
+      "endpoints": ["chat/completions", "responses"],
+      "input_types": ["text"],
+      "output_types": ["text"],
+      "providers": [
+        {
+          "api_provider_id": "openai",
+          "params": ["temperature", "max_tokens"]
+        }
+      ]
+    }
+  ]
+}
+```
+

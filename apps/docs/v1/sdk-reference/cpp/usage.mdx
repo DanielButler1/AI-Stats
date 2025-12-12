@@ -1,0 +1,37 @@
+---
+title: "C++ SDK Usage"
+description: "Examples for using the generated C++ SDK."
+---
+
+```cpp
+#include "gen/api/CompletionsApi.h"
+#include "gen/api/ResponsesApi.h"
+#include "gen/api/ApiClient.h"
+
+auto config = std::make_shared<ApiConfiguration>();
+config->setBaseUrl("https://api.ai-stats.phaseo.app/v1");
+config->setApiKey("Authorization", "Bearer " + std::string(std::getenv("AI_STATS_API_KEY")));
+auto client = std::make_shared<ApiClient>(config);
+CompletionsApi chat(client);
+ResponsesApi responses(client);
+```
+
+### Chat completions
+
+```cpp
+ChatCompletionsRequest req;
+req.setModel("openai/gpt-4o-mini");
+req.setMessages({ChatMessage().setRole("user").setContent("Hello")});
+auto result = chat.createChatCompletion(req).get();
+```
+
+### Responses
+
+```cpp
+ResponsesRequest r;
+r.setModel("openai/gpt-4.1");
+r.setInput({utility::conversions::to_string_t(R"([{"role":"user","content":[{"type":"output_text","text":"Hi"}]}])")});
+auto out = responses.createResponse(r).get();
+```
+
+Instantiate other generated APIs (`ImagesApi`, `AudioApi`, `VideoApi`, `BatchApi`, `FilesApi`, `ModerationsApi`, `AnalyticsApi`, `ModelsApi`) with the same `ApiClient` to reach the remaining endpoints.

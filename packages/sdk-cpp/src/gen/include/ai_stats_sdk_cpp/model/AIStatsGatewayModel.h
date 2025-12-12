@@ -22,17 +22,17 @@
 
 #include "ai_stats_sdk_cpp/ModelBase.h"
 
-#include "ai_stats_sdk_cpp/model/AIStatsAIStatsOrganisationId.h"
 #include <cpprest/details/basic_types.h>
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsProviderInfo.h"
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsAnyType.h"
+#include <map>
 #include <vector>
-#include "ai_stats_sdk_cpp/model/AIStatsAIStatsGatewayModelProvider.h"
 
 namespace org {
 namespace openapitools {
 namespace client {
 namespace model {
 
-class AIStatsGatewayModelProvider;
 
 
 class  AIStatsGatewayModel
@@ -102,14 +102,6 @@ public:
     void setReleaseDate(const utility::datetime& value);
 
     /// <summary>
-    /// Earliest known public announcement date if different from release.
-    /// </summary>
-    utility::datetime getAnnouncementDate() const;
-    bool announcementDateIsSet() const;
-    void unsetAnnouncement_date();
-    void setAnnouncementDate(const utility::datetime& value);
-
-    /// <summary>
     /// Lifecycle status of the model (Rumoured, Announced, Available, Deprecated, Retired).
     /// </summary>
     utility::string_t getStatus() const;
@@ -117,10 +109,13 @@ public:
     void unsetStatus();
     void setStatus(const utility::string_t& value);
 
-    std::shared_ptr<AIStatsOrganisationId> getOrganisation() const;
-    bool organisationIsSet() const;
-    void unsetOrganisation();
-    void setOrganisation(const std::shared_ptr<AIStatsOrganisationId>& value);
+    /// <summary>
+    /// Organisation identifier responsible for the model.
+    /// </summary>
+    utility::string_t getOrganisationId() const;
+    bool organisationIdIsSet() const;
+    void unsetOrganisation_id();
+    void setOrganisationId(const utility::string_t& value);
 
     /// <summary>
     /// Enabled aliases that resolve to this model.
@@ -139,14 +134,6 @@ public:
     void setEndpoints(const std::vector<EndpointsEnum> value);
 
     /// <summary>
-    /// Provider mappings that can serve this model.
-    /// </summary>
-    std::vector<std::shared_ptr<AIStatsGatewayModelProvider>> getProviders() const;
-    bool providersIsSet() const;
-    void unsetProviders();
-    void setProviders(const std::vector<std::shared_ptr<AIStatsGatewayModelProvider>>& value);
-
-    /// <summary>
     /// Input content types supported by the model itself.
     /// </summary>
     std::vector<utility::string_t> getInputTypes() const;
@@ -162,6 +149,14 @@ public:
     void unsetOutput_types();
     void setOutputTypes(const std::vector<utility::string_t>& value);
 
+    /// <summary>
+    /// Providers that support this model with their parameters.
+    /// </summary>
+    std::vector<std::shared_ptr<AIStatsProviderInfo>> getProviders() const;
+    bool providersIsSet() const;
+    void unsetProviders();
+    void setProviders(const std::vector<std::shared_ptr<AIStatsProviderInfo>>& value);
+
 
 protected:
     utility::string_t m_Model_id;
@@ -173,14 +168,11 @@ protected:
     utility::datetime m_Release_date;
     bool m_Release_dateIsSet;
 
-    utility::datetime m_Announcement_date;
-    bool m_Announcement_dateIsSet;
-
     utility::string_t m_Status;
     bool m_StatusIsSet;
 
-    std::shared_ptr<AIStatsOrganisationId> m_Organisation;
-    bool m_OrganisationIsSet;
+    utility::string_t m_Organisation_id;
+    bool m_Organisation_idIsSet;
 
     std::vector<utility::string_t> m_Aliases;
     bool m_AliasesIsSet;
@@ -188,14 +180,14 @@ protected:
     std::vector<EndpointsEnum> m_Endpoints;
     bool m_EndpointsIsSet;
 
-    std::vector<std::shared_ptr<AIStatsGatewayModelProvider>> m_Providers;
-    bool m_ProvidersIsSet;
-
     std::vector<utility::string_t> m_Input_types;
     bool m_Input_typesIsSet;
 
     std::vector<utility::string_t> m_Output_types;
     bool m_Output_typesIsSet;
+
+    std::vector<std::shared_ptr<AIStatsProviderInfo>> m_Providers;
+    bool m_ProvidersIsSet;
 
 };
 

@@ -4,10 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **native_response_id** | **String** |  | [optional] |
-| **provider** | **String** |  |  |
-| **meta** | [**GatewayMetadata**](GatewayMetadata.md) |  |  |
-| **usage** | [**GatewayUsage**](GatewayUsage.md) |  | [optional] |
+| **id** | **String** |  | [optional] |
+| **model** | **String** |  | [optional] |
+| **status** | **String** |  | [optional] |
+| **created** | **Integer** |  | [optional] |
+| **object** | **String** |  | [optional] |
+| **output** | [**Array&lt;VideoGenerationResponseOutputInner&gt;**](VideoGenerationResponseOutputInner.md) |  | [optional] |
 
 ## Example
 
@@ -15,10 +17,12 @@
 require 'ai_stats_sdk'
 
 instance = AIStatsSdk::VideoGenerationResponse.new(
-  native_response_id: null,
-  provider: null,
-  meta: null,
-  usage: null
+  id: null,
+  model: null,
+  status: null,
+  created: null,
+  object: null,
+  output: null
 )
 ```
 

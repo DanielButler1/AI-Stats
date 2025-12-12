@@ -4,17 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Index** | **int32** |  | 
-**Flagged** | **bool** |  | 
-**Categories** | **map[string]bool** |  | 
-**Scores** | **map[string]float32** |  | 
-**AppliedInputTypes** | Pointer to **map[string][]string** |  | [optional] 
+**Flagged** | Pointer to **bool** |  | [optional] 
+**Categories** | Pointer to [**ModerationCategories**](ModerationCategories.md) |  | [optional] 
+**CategoryScores** | Pointer to [**ModerationCategoryScores**](ModerationCategoryScores.md) |  | [optional] 
 
 ## Methods
 
 ### NewModerationResult
 
-`func NewModerationResult(index int32, flagged bool, categories map[string]bool, scores map[string]float32, ) *ModerationResult`
+`func NewModerationResult() *ModerationResult`
 
 NewModerationResult instantiates a new ModerationResult object
 This constructor will assign default values to properties that have it defined,
@@ -28,26 +26,6 @@ will change when the set of required properties is changed
 NewModerationResultWithDefaults instantiates a new ModerationResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetIndex
-
-`func (o *ModerationResult) GetIndex() int32`
-
-GetIndex returns the Index field if non-nil, zero value otherwise.
-
-### GetIndexOk
-
-`func (o *ModerationResult) GetIndexOk() (*int32, bool)`
-
-GetIndexOk returns a tuple with the Index field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIndex
-
-`func (o *ModerationResult) SetIndex(v int32)`
-
-SetIndex sets Index field to given value.
-
 
 ### GetFlagged
 
@@ -68,71 +46,61 @@ and a boolean to check if the value has been set.
 
 SetFlagged sets Flagged field to given value.
 
+### HasFlagged
+
+`func (o *ModerationResult) HasFlagged() bool`
+
+HasFlagged returns a boolean if a field has been set.
 
 ### GetCategories
 
-`func (o *ModerationResult) GetCategories() map[string]bool`
+`func (o *ModerationResult) GetCategories() ModerationCategories`
 
 GetCategories returns the Categories field if non-nil, zero value otherwise.
 
 ### GetCategoriesOk
 
-`func (o *ModerationResult) GetCategoriesOk() (*map[string]bool, bool)`
+`func (o *ModerationResult) GetCategoriesOk() (*ModerationCategories, bool)`
 
 GetCategoriesOk returns a tuple with the Categories field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCategories
 
-`func (o *ModerationResult) SetCategories(v map[string]bool)`
+`func (o *ModerationResult) SetCategories(v ModerationCategories)`
 
 SetCategories sets Categories field to given value.
 
+### HasCategories
 
-### GetScores
+`func (o *ModerationResult) HasCategories() bool`
 
-`func (o *ModerationResult) GetScores() map[string]float32`
+HasCategories returns a boolean if a field has been set.
 
-GetScores returns the Scores field if non-nil, zero value otherwise.
+### GetCategoryScores
 
-### GetScoresOk
+`func (o *ModerationResult) GetCategoryScores() ModerationCategoryScores`
 
-`func (o *ModerationResult) GetScoresOk() (*map[string]float32, bool)`
+GetCategoryScores returns the CategoryScores field if non-nil, zero value otherwise.
 
-GetScoresOk returns a tuple with the Scores field if it's non-nil, zero value otherwise
+### GetCategoryScoresOk
+
+`func (o *ModerationResult) GetCategoryScoresOk() (*ModerationCategoryScores, bool)`
+
+GetCategoryScoresOk returns a tuple with the CategoryScores field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetScores
+### SetCategoryScores
 
-`func (o *ModerationResult) SetScores(v map[string]float32)`
+`func (o *ModerationResult) SetCategoryScores(v ModerationCategoryScores)`
 
-SetScores sets Scores field to given value.
+SetCategoryScores sets CategoryScores field to given value.
 
+### HasCategoryScores
 
-### GetAppliedInputTypes
+`func (o *ModerationResult) HasCategoryScores() bool`
 
-`func (o *ModerationResult) GetAppliedInputTypes() map[string][]string`
-
-GetAppliedInputTypes returns the AppliedInputTypes field if non-nil, zero value otherwise.
-
-### GetAppliedInputTypesOk
-
-`func (o *ModerationResult) GetAppliedInputTypesOk() (*map[string][]string, bool)`
-
-GetAppliedInputTypesOk returns a tuple with the AppliedInputTypes field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAppliedInputTypes
-
-`func (o *ModerationResult) SetAppliedInputTypes(v map[string][]string)`
-
-SetAppliedInputTypes sets AppliedInputTypes field to given value.
-
-### HasAppliedInputTypes
-
-`func (o *ModerationResult) HasAppliedInputTypes() bool`
-
-HasAppliedInputTypes returns a boolean if a field has been set.
+HasCategoryScores returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -23,6 +23,8 @@
 
 #include "ai_stats_sdk_cpp/Object.h"
 #include <cpprest/details/basic_types.h>
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsAnyType.h"
+#include <map>
 #include <vector>
 
 namespace org {
@@ -130,15 +132,15 @@ public:
     void unsetError_message();
     void setErrorMessage(const utility::string_t& value);
 
-    std::shared_ptr<Object> getBefore() const;
+    std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> getBefore() const;
     bool beforeIsSet() const;
     void unsetBefore();
-    void setBefore(const std::shared_ptr<Object>& value);
+    void setBefore(const std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>>& value);
 
-    std::shared_ptr<Object> getExecute() const;
+    std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> getExecute() const;
     bool executeIsSet() const;
     void unsetExecute();
-    void setExecute(const std::shared_ptr<Object>& value);
+    void setExecute(const std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>>& value);
 
     double getLatencyMs() const;
     bool latencyMsIsSet() const;
@@ -150,10 +152,10 @@ public:
     void unsetGeneration_ms();
     void setGenerationMs(double value);
 
-    std::shared_ptr<Object> getUsage() const;
+    std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> getUsage() const;
     bool usageIsSet() const;
     void unsetUsage();
-    void setUsage(const std::shared_ptr<Object>& value);
+    void setUsage(const std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>>& value);
 
     int32_t getCostNanos() const;
     bool costNanosIsSet() const;
@@ -217,10 +219,10 @@ protected:
     utility::string_t m_Error_message;
     bool m_Error_messageIsSet;
 
-    std::shared_ptr<Object> m_Before;
+    std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> m_Before;
     bool m_BeforeIsSet;
 
-    std::shared_ptr<Object> m_Execute;
+    std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> m_Execute;
     bool m_ExecuteIsSet;
 
     double m_Latency_ms;
@@ -229,7 +231,7 @@ protected:
     double m_Generation_ms;
     bool m_Generation_msIsSet;
 
-    std::shared_ptr<Object> m_Usage;
+    std::map<utility::string_t, std::shared_ptr<AIStatsAnyType>> m_Usage;
     bool m_UsageIsSet;
 
     int32_t m_Cost_nanos;

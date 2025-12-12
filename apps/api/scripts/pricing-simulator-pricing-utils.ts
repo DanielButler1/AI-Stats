@@ -1,7 +1,7 @@
 import type { RuleSummary, EstimationResult, EstimationLine, Condition } from "./pricing-simulator-types";
-import type { PriceCard } from "../src/lib/main-endpoints/pricing/types";
-import { parseUsdToNanos, formatUsdFromNanosExact } from "../src/lib/main-endpoints/pricing/money";
-import { matchesConditions } from "../src/lib/main-endpoints/pricing/conditions";
+import type { PriceCard } from "../src/lib/gateway/pricing/types";
+import { parseUsdToNanos, formatUsdFromNanosExact } from "../src/lib/gateway/pricing/money";
+import { matchesConditions } from "../src/lib/gateway/pricing/conditions";
 import type { RandomSource } from "./pricing-simulator-random";
 import type { CLIOptions } from "./pricing-simulator-types";
 

@@ -204,7 +204,7 @@ export default function ErrorRequestDialog({
 		<Dialog open={open} onOpenChange={onOpenChange}>
 			<DialogContent className="sm:max-w-[900px] overflow-hidden p-0">
 				{/* Header similar to success dialog */}
-				<div className="relative bg-slate-100 text-slate-900">
+				<div >
 					<div className="px-5 py-4 sm:px-6 sm:py-5">
 						<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 							<div>

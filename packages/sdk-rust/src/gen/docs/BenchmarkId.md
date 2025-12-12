@@ -11,10 +11,13 @@
 | AiderPolyglot | aider-polyglot |
 | Aime2024 | aime-2024 |
 | Aime2025 | aime-2025 |
+| Amc | amc |
 | ArcAgi1 | arc-agi-1 |
 | ArcAgi2 | arc-agi-2 |
+| ArenaHard | arena-hard |
 | Autologi | autologi |
 | BalrogAi | balrog-ai |
+| BfclOverallFcV4 | bfcl-overall-fc-v4 |
 | Bigcodebench | bigcodebench |
 | Browsecomp | browsecomp |
 | BrowsecompLongContext128k | browsecomp-long-context-128k |
@@ -54,14 +57,18 @@
 | HumanitysLastExam | humanitys-last-exam |
 | IfBench | if-bench |
 | IfEval | if-eval |
+| Imoanswerbench | imoanswerbench |
 | IqBench | iq-bench |
 | Lisanbench | lisanbench |
 | Livebench | livebench |
+| Livecodebench | livecodebench |
+| LivecodebenchCoding | livecodebench-coding |
 | LivecodebenchPro | livecodebench-pro |
 | LivecodebenchV5 | livecodebench-v5 |
 | LivecodebenchV6 | livecodebench-v6 |
 | LmarenaText | lmarena-text |
 | LmarenaWebdev | lmarena-webdev |
+| Longcodebench1m | longcodebench-1m |
 | LongfactConceptsHallucinationRate | longfact-concepts-hallucination-rate |
 | LongfactObjectsHallucinationRate | longfact-objects-hallucination-rate |
 | Math | math |
@@ -73,7 +80,9 @@
 | Metr | metr |
 | MisguidedAttention | misguided-attention |
 | MleBench | mle-bench |
+| MmMtBench | mm-mt-bench |
 | Mmlu | mmlu |
+| MmluMultilingual | mmlu-multilingual |
 | MmluPro | mmlu-pro |
 | MmluRedux | mmlu-redux |
 | MmluRedux20 | mmlu-redux-2.0 |
@@ -83,6 +92,7 @@
 | MultiChallenge | multi-challenge |
 | MultiPlE | multiPL-E |
 | NytConnections | nyt-connections |
+| OcrbenchV2 | ocrbench-v2 |
 | Ojbench | ojbench |
 | Omnidocbench15 | omnidocbench-1.5 |
 | OpenaiMrcr2Needle128k | openai-mrcr-2-needle-128k |
@@ -93,6 +103,10 @@
 | Paperbench | paperbench |
 | Phybench | phybench |
 | PolymathEn | polymath-en |
+| Qvhighlights | qvhighlights |
+| Realkie | realkie |
+| ScaleMcpAtlas | scale-mcp-atlas |
+| Screenspot | screenspot |
 | ScreenspotPro | screenspot-pro |
 | SealMultichallenege | seal-multichallenege |
 | Simplebench | simplebench |
@@ -123,6 +137,7 @@
 | VideoMmmu | video-mmmu |
 | Videomme | videomme |
 | Weirdml | weirdml |
+| Wildbench | wildbench |
 | XlangAgent | xlang-agent |
 | Zebralogic | zebralogic |
 

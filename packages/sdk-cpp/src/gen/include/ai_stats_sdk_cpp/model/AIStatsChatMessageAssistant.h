@@ -24,6 +24,8 @@
 
 #include "ai_stats_sdk_cpp/model/AIStatsAIStatsToolCall.h"
 #include <cpprest/details/basic_types.h>
+#include "ai_stats_sdk_cpp/model/AIStatsAIStatsAnyType.h"
+#include <map>
 #include <vector>
 #include "ai_stats_sdk_cpp/model/AIStatsAIStatsMessageContent.h"
 

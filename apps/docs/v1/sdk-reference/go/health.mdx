@@ -1,0 +1,30 @@
+---
+title: "Health"
+description: "Call /healthz with the Go SDK."
+---
+
+**Method**: `client.Analytics.HealthzGet()`.
+
+### Example
+```go
+import (
+    "context"
+    "fmt"
+    "log"
+
+    aistats "packages/sdk-go"
+)
+
+ctx := context.Background()
+client := aistats.New("your-api-key", "https://api.ai-stats.dev")
+
+health, _, err := client.Analytics.HealthzGet(ctx).Execute()
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Println("Health status:", health.Status)
+```
+
+### Returns
+`HealthzGet200Response`
+

@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Provider** | **string** |  | 
 **Endpoint** | **string** |  | 
 **Model** | [**ModelId**](ModelId.md) |  | 
-**AppTitle** | Pointer to **string** |  | [optional] 
-**Referer** | Pointer to **string** |  | [optional] 
+**AppTitle** | Pointer to **NullableString** |  | [optional] 
+**Referer** | Pointer to **NullableString** |  | [optional] 
 **Timing** | Pointer to **map[string]interface{}** | Optional timing information captured during the request lifecycle. | [optional] 
 
 ## Methods
@@ -136,6 +136,16 @@ SetAppTitle sets AppTitle field to given value.
 
 HasAppTitle returns a boolean if a field has been set.
 
+### SetAppTitleNil
+
+`func (o *GatewayMetadata) SetAppTitleNil(b bool)`
+
+ SetAppTitleNil sets the value for AppTitle to be an explicit nil
+
+### UnsetAppTitle
+`func (o *GatewayMetadata) UnsetAppTitle()`
+
+UnsetAppTitle ensures that no value is present for AppTitle, not even an explicit nil
 ### GetReferer
 
 `func (o *GatewayMetadata) GetReferer() string`
@@ -161,6 +171,16 @@ SetReferer sets Referer field to given value.
 
 HasReferer returns a boolean if a field has been set.
 
+### SetRefererNil
+
+`func (o *GatewayMetadata) SetRefererNil(b bool)`
+
+ SetRefererNil sets the value for Referer to be an explicit nil
+
+### UnsetReferer
+`func (o *GatewayMetadata) UnsetReferer()`
+
+UnsetReferer ensures that no value is present for Referer, not even an explicit nil
 ### GetTiming
 
 `func (o *GatewayMetadata) GetTiming() map[string]interface{}`

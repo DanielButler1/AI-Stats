@@ -14,7 +14,7 @@ require 'ai_stats_sdk'
 AIStatsSdk::ModerationRequestInput.openapi_one_of
 # =>
 # [
-#   :'Array<Object>',
+#   :'Array<ModerationInputContentItem>',
 #   :'String'
 # ]
 ```
@@ -29,7 +29,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'ai_stats_sdk'
 
 AIStatsSdk::ModerationRequestInput.build(data)
-# => #<Array<Object>:0x00007fdd4aab02a0>
+# => #<Array<ModerationInputContentItem>:0x00007fdd4aab02a0>
 
 AIStatsSdk::ModerationRequestInput.build(data_that_doesnt_match)
 # => nil
@@ -43,7 +43,7 @@ AIStatsSdk::ModerationRequestInput.build(data_that_doesnt_match)
 
 #### Return type
 
-- `Array<Object>`
+- `Array<ModerationInputContentItem>`
 - `String`
 - `nil` (if no type matches)
 

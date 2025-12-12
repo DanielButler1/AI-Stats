@@ -1,0 +1,20 @@
+---
+title: "Files"
+description: "Call /files with the Python SDK."
+---
+
+**Methods**: `client.upload_file()`, `client.list_files()`, `client.get_file()`.
+
+### Example
+```python
+uploaded = client.upload_file(purpose="batch", file=open("batchinput.jsonl", "rb"))
+files = client.list_files()
+file = client.get_file(uploaded.id)
+```
+
+### Key parameters
+- `file` (required for upload): Blob/File/base64/string.
+- `purpose` (required for upload): e.g., `batch`.
+
+### Returns
+`FileObject` or `FileListResponse`

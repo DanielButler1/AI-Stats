@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **team_id** | **string** |  | [optional]
 **model** | **string** |  | [optional]
 **meta** | [**\AIStats\\Sdk\Model\GatewayErrorMeta**](GatewayErrorMeta.md) |  | [optional]
-**timing** | **object** |  | [optional]
+**timing** | **array<string,mixed>** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -58,6 +58,12 @@ namespace AIStatsSdk.Model
         public string Content { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -67,6 +73,7 @@ namespace AIStatsSdk.Model
             sb.Append("class GatewayChatChoiceMessage {\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

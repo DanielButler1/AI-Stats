@@ -1,0 +1,43 @@
+---
+title: "Audio translations"
+description: "Call /audio/translations with the Go SDK."
+---
+
+**Method**: `client.Audio.AudioTranslationsPost()`.
+
+### Example
+```go
+import (
+    "context"
+    "fmt"
+    "log"
+
+    aistats "packages/sdk-go"
+    "packages/sdk-go/gen"
+)
+
+ctx := context.Background()
+client := aistats.New("your-api-key", "https://api.ai-stats.dev")
+
+req := gen.AudioTranslationRequest{
+    Model: "openai/gpt-4o-translate",
+    AudioB64: &"data:audio/mp3;base64,...",
+}
+
+resp, _, err := client.Audio.AudioTranslationsPost(ctx).AudioTranslationRequest(req).Execute()
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Println(resp.Text)
+```
+
+### Key parameters
+- `model` (required): Translation-capable model id.
+- `audio_url` or `audio_b64` (required): Audio data to translate.
+- `language`: Language of the input audio.
+- `prompt`: Optional context to guide translation.
+- `temperature` (0–2): Sampling randomness.
+
+### Returns
+`AudioTranscriptionResponse`
+

@@ -36,7 +36,7 @@ namespace AIStatsSdk.Model
         /// <param name="model">model</param>
         /// <param name="input">input</param>
         [JsonConstructor]
-        public ModerationRequest(string model, Object? input = default)
+        public ModerationRequest(string model, ModerationRequestInput input)
         {
             Model = model;
             Input = input;
@@ -55,7 +55,7 @@ namespace AIStatsSdk.Model
         /// Gets or Sets Input
         /// </summary>
         [JsonPropertyName("input")]
-        public Object? Input { get; set; }
+        public ModerationRequestInput Input { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -112,7 +112,7 @@ namespace AIStatsSdk.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<string?> model = default;
-            Option<Object?> input = default;
+            Option<ModerationRequestInput?> input = default;
 
             while (utf8JsonReader.Read())
             {
@@ -133,7 +133,7 @@ namespace AIStatsSdk.Model
                             model = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "input":
-                            input = new Option<Object?>(JsonSerializer.Deserialize<Object>(ref utf8JsonReader, jsonSerializerOptions));
+                            input = new Option<ModerationRequestInput?>(JsonSerializer.Deserialize<ModerationRequestInput>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
@@ -149,6 +149,9 @@ namespace AIStatsSdk.Model
 
             if (model.IsSet && model.Value == null)
                 throw new ArgumentNullException(nameof(model), "Property is not nullable for class ModerationRequest.");
+
+            if (input.IsSet && input.Value == null)
+                throw new ArgumentNullException(nameof(input), "Property is not nullable for class ModerationRequest.");
 
             return new ModerationRequest(model.Value!, input.Value!);
         }
@@ -180,15 +183,13 @@ namespace AIStatsSdk.Model
             if (moderationRequest.Model == null)
                 throw new ArgumentNullException(nameof(moderationRequest.Model), "Property is required for class ModerationRequest.");
 
+            if (moderationRequest.Input == null)
+                throw new ArgumentNullException(nameof(moderationRequest.Input), "Property is required for class ModerationRequest.");
+
             writer.WriteString("model", moderationRequest.Model);
 
-            if (moderationRequest.Input != null)
-            {
-                writer.WritePropertyName("input");
-                JsonSerializer.Serialize(writer, moderationRequest.Input, jsonSerializerOptions);
-            }
-            else
-                writer.WriteNull("input");
+            writer.WritePropertyName("input");
+            JsonSerializer.Serialize(writer, moderationRequest.Input, jsonSerializerOptions);
         }
     }
 }

@@ -147,6 +147,12 @@ namespace AIStatsSdk.Model
         public List<ToolCall>? ToolCalls { get { return this.ToolCallsOption; } set { this.ToolCallsOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -158,6 +164,7 @@ namespace AIStatsSdk.Model
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ToolCalls: ").Append(ToolCalls).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

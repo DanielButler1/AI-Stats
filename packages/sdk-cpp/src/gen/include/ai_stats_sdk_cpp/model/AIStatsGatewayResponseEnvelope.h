@@ -31,7 +31,6 @@ namespace client {
 namespace model {
 
 class AIStatsGatewayMetadata;
-class AIStatsGatewayUsage;
 
 
 /// <summary>

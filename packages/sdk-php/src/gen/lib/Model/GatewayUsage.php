@@ -89,8 +89,8 @@ class GatewayUsage implements ModelInterface, ArrayAccess, \JsonSerializable
         'total_tokens' => false,
         'input_text_tokens' => false,
         'output_text_tokens' => false,
-        'reasoning_tokens' => false,
-        'cached_read_text_tokens' => false
+        'reasoning_tokens' => true,
+        'cached_read_text_tokens' => true
     ];
 
     /**
@@ -454,10 +454,17 @@ class GatewayUsage implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setReasoningTokens($reasoning_tokens)
     {
         if (is_null($reasoning_tokens)) {
-            throw new \InvalidArgumentException('non-nullable reasoning_tokens cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reasoning_tokens');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reasoning_tokens', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if (($reasoning_tokens < 0)) {
+        if (!is_null($reasoning_tokens) && ($reasoning_tokens < 0)) {
             throw new \InvalidArgumentException('invalid value for $reasoning_tokens when calling GatewayUsage., must be bigger than or equal to 0.');
         }
 
@@ -486,10 +493,17 @@ class GatewayUsage implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCachedReadTextTokens($cached_read_text_tokens)
     {
         if (is_null($cached_read_text_tokens)) {
-            throw new \InvalidArgumentException('non-nullable cached_read_text_tokens cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'cached_read_text_tokens');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('cached_read_text_tokens', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if (($cached_read_text_tokens < 0)) {
+        if (!is_null($cached_read_text_tokens) && ($cached_read_text_tokens < 0)) {
             throw new \InvalidArgumentException('invalid value for $cached_read_text_tokens when calling GatewayUsage., must be bigger than or equal to 0.');
         }
 

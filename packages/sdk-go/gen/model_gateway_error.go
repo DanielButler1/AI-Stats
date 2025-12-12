@@ -22,11 +22,11 @@ var _ MappedNullable = &GatewayError{}
 type GatewayError struct {
 	Ok *bool `json:"ok,omitempty"`
 	Error string `json:"error"`
-	Reason *string `json:"reason,omitempty"`
-	Message *string `json:"message,omitempty"`
-	RequestId *string `json:"request_id,omitempty"`
-	TeamId *string `json:"team_id,omitempty"`
-	Model *string `json:"model,omitempty"`
+	Reason NullableString `json:"reason,omitempty"`
+	Message NullableString `json:"message,omitempty"`
+	RequestId NullableString `json:"request_id,omitempty"`
+	TeamId NullableString `json:"team_id,omitempty"`
+	Model NullableString `json:"model,omitempty"`
 	Meta *GatewayErrorMeta `json:"meta,omitempty"`
 	Timing map[string]interface{} `json:"timing,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -108,164 +108,214 @@ func (o *GatewayError) SetError(v string) {
 	o.Error = v
 }
 
-// GetReason returns the Reason field value if set, zero value otherwise.
+// GetReason returns the Reason field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayError) GetReason() string {
-	if o == nil || IsNil(o.Reason) {
+	if o == nil || IsNil(o.Reason.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Reason
+	return *o.Reason.Get()
 }
 
 // GetReasonOk returns a tuple with the Reason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayError) GetReasonOk() (*string, bool) {
-	if o == nil || IsNil(o.Reason) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Reason, true
+	return o.Reason.Get(), o.Reason.IsSet()
 }
 
 // HasReason returns a boolean if a field has been set.
 func (o *GatewayError) HasReason() bool {
-	if o != nil && !IsNil(o.Reason) {
+	if o != nil && o.Reason.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetReason gets a reference to the given string and assigns it to the Reason field.
+// SetReason gets a reference to the given NullableString and assigns it to the Reason field.
 func (o *GatewayError) SetReason(v string) {
-	o.Reason = &v
+	o.Reason.Set(&v)
+}
+// SetReasonNil sets the value for Reason to be an explicit nil
+func (o *GatewayError) SetReasonNil() {
+	o.Reason.Set(nil)
 }
 
-// GetMessage returns the Message field value if set, zero value otherwise.
+// UnsetReason ensures that no value is present for Reason, not even an explicit nil
+func (o *GatewayError) UnsetReason() {
+	o.Reason.Unset()
+}
+
+// GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayError) GetMessage() string {
-	if o == nil || IsNil(o.Message) {
+	if o == nil || IsNil(o.Message.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Message
+	return *o.Message.Get()
 }
 
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayError) GetMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.Message) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Message, true
+	return o.Message.Get(), o.Message.IsSet()
 }
 
 // HasMessage returns a boolean if a field has been set.
 func (o *GatewayError) HasMessage() bool {
-	if o != nil && !IsNil(o.Message) {
+	if o != nil && o.Message.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMessage gets a reference to the given string and assigns it to the Message field.
+// SetMessage gets a reference to the given NullableString and assigns it to the Message field.
 func (o *GatewayError) SetMessage(v string) {
-	o.Message = &v
+	o.Message.Set(&v)
+}
+// SetMessageNil sets the value for Message to be an explicit nil
+func (o *GatewayError) SetMessageNil() {
+	o.Message.Set(nil)
 }
 
-// GetRequestId returns the RequestId field value if set, zero value otherwise.
+// UnsetMessage ensures that no value is present for Message, not even an explicit nil
+func (o *GatewayError) UnsetMessage() {
+	o.Message.Unset()
+}
+
+// GetRequestId returns the RequestId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayError) GetRequestId() string {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil || IsNil(o.RequestId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.RequestId
+	return *o.RequestId.Get()
 }
 
 // GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayError) GetRequestIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RequestId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RequestId, true
+	return o.RequestId.Get(), o.RequestId.IsSet()
 }
 
 // HasRequestId returns a boolean if a field has been set.
 func (o *GatewayError) HasRequestId() bool {
-	if o != nil && !IsNil(o.RequestId) {
+	if o != nil && o.RequestId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
+// SetRequestId gets a reference to the given NullableString and assigns it to the RequestId field.
 func (o *GatewayError) SetRequestId(v string) {
-	o.RequestId = &v
+	o.RequestId.Set(&v)
+}
+// SetRequestIdNil sets the value for RequestId to be an explicit nil
+func (o *GatewayError) SetRequestIdNil() {
+	o.RequestId.Set(nil)
 }
 
-// GetTeamId returns the TeamId field value if set, zero value otherwise.
+// UnsetRequestId ensures that no value is present for RequestId, not even an explicit nil
+func (o *GatewayError) UnsetRequestId() {
+	o.RequestId.Unset()
+}
+
+// GetTeamId returns the TeamId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayError) GetTeamId() string {
-	if o == nil || IsNil(o.TeamId) {
+	if o == nil || IsNil(o.TeamId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TeamId
+	return *o.TeamId.Get()
 }
 
 // GetTeamIdOk returns a tuple with the TeamId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayError) GetTeamIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TeamId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TeamId, true
+	return o.TeamId.Get(), o.TeamId.IsSet()
 }
 
 // HasTeamId returns a boolean if a field has been set.
 func (o *GatewayError) HasTeamId() bool {
-	if o != nil && !IsNil(o.TeamId) {
+	if o != nil && o.TeamId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTeamId gets a reference to the given string and assigns it to the TeamId field.
+// SetTeamId gets a reference to the given NullableString and assigns it to the TeamId field.
 func (o *GatewayError) SetTeamId(v string) {
-	o.TeamId = &v
+	o.TeamId.Set(&v)
+}
+// SetTeamIdNil sets the value for TeamId to be an explicit nil
+func (o *GatewayError) SetTeamIdNil() {
+	o.TeamId.Set(nil)
 }
 
-// GetModel returns the Model field value if set, zero value otherwise.
+// UnsetTeamId ensures that no value is present for TeamId, not even an explicit nil
+func (o *GatewayError) UnsetTeamId() {
+	o.TeamId.Unset()
+}
+
+// GetModel returns the Model field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayError) GetModel() string {
-	if o == nil || IsNil(o.Model) {
+	if o == nil || IsNil(o.Model.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Model
+	return *o.Model.Get()
 }
 
 // GetModelOk returns a tuple with the Model field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayError) GetModelOk() (*string, bool) {
-	if o == nil || IsNil(o.Model) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Model, true
+	return o.Model.Get(), o.Model.IsSet()
 }
 
 // HasModel returns a boolean if a field has been set.
 func (o *GatewayError) HasModel() bool {
-	if o != nil && !IsNil(o.Model) {
+	if o != nil && o.Model.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetModel gets a reference to the given string and assigns it to the Model field.
+// SetModel gets a reference to the given NullableString and assigns it to the Model field.
 func (o *GatewayError) SetModel(v string) {
-	o.Model = &v
+	o.Model.Set(&v)
+}
+// SetModelNil sets the value for Model to be an explicit nil
+func (o *GatewayError) SetModelNil() {
+	o.Model.Set(nil)
+}
+
+// UnsetModel ensures that no value is present for Model, not even an explicit nil
+func (o *GatewayError) UnsetModel() {
+	o.Model.Unset()
 }
 
 // GetMeta returns the Meta field value if set, zero value otherwise.
@@ -346,20 +396,20 @@ func (o GatewayError) ToMap() (map[string]interface{}, error) {
 		toSerialize["ok"] = o.Ok
 	}
 	toSerialize["error"] = o.Error
-	if !IsNil(o.Reason) {
-		toSerialize["reason"] = o.Reason
+	if o.Reason.IsSet() {
+		toSerialize["reason"] = o.Reason.Get()
 	}
-	if !IsNil(o.Message) {
-		toSerialize["message"] = o.Message
+	if o.Message.IsSet() {
+		toSerialize["message"] = o.Message.Get()
 	}
-	if !IsNil(o.RequestId) {
-		toSerialize["request_id"] = o.RequestId
+	if o.RequestId.IsSet() {
+		toSerialize["request_id"] = o.RequestId.Get()
 	}
-	if !IsNil(o.TeamId) {
-		toSerialize["team_id"] = o.TeamId
+	if o.TeamId.IsSet() {
+		toSerialize["team_id"] = o.TeamId.Get()
 	}
-	if !IsNil(o.Model) {
-		toSerialize["model"] = o.Model
+	if o.Model.IsSet() {
+		toSerialize["model"] = o.Model.Get()
 	}
 	if !IsNil(o.Meta) {
 		toSerialize["meta"] = o.Meta

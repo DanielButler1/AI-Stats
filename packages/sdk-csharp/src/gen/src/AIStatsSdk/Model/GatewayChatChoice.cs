@@ -311,9 +311,6 @@ namespace AIStatsSdk.Model
             if (message.IsSet && message.Value == null)
                 throw new ArgumentNullException(nameof(message), "Property is not nullable for class GatewayChatChoice.");
 
-            if (reasoning.IsSet && reasoning.Value == null)
-                throw new ArgumentNullException(nameof(reasoning), "Property is not nullable for class GatewayChatChoice.");
-
             return new GatewayChatChoice(index.Value!.Value!, message.Value!, finishReason.Value!, reasoning);
         }
 
@@ -355,7 +352,10 @@ namespace AIStatsSdk.Model
                 writer.WriteNull("finish_reason");
 
             if (gatewayChatChoice.ReasoningOption.IsSet)
-                writer.WriteBoolean("reasoning", gatewayChatChoice.ReasoningOption.Value!.Value);
+                if (gatewayChatChoice.ReasoningOption.Value != null)
+                    writer.WriteBoolean("reasoning", gatewayChatChoice.ReasoningOption.Value!.Value);
+                else
+                    writer.WriteNull("reasoning");
         }
     }
 }

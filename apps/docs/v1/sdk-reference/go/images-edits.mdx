@@ -1,0 +1,47 @@
+---
+title: "Image edits"
+description: "Call /images/edits with the Go SDK."
+---
+
+**Method**: `client.Images.ImagesEditsPost()`.
+
+### Example
+```go
+import (
+    "context"
+    "fmt"
+    "log"
+
+    aistats "packages/sdk-go"
+    "packages/sdk-go/gen"
+)
+
+ctx := context.Background()
+client := aistats.New("your-api-key", "https://api.ai-stats.dev")
+
+req := gen.ImagesEditRequest{
+    Model:  "openai/gpt-image-1",
+    Prompt: "Make it sunset",
+    Image:  "data:image/png;base64,...",
+    Mask:   &"data:image/png;base64,...",
+}
+
+edited, _, err := client.Images.ImagesEditsPost(ctx).ImagesEditRequest(req).Execute()
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Println("Edited image:", edited.Data[0].Url)
+```
+
+### Key parameters
+- `model` (required): Image-edit capable model id.
+- `image` (required): Base64 data URL or URL to source image.
+- `prompt`: Optional new instruction for the edit.
+- `mask`: Optional mask (transparent regions edited).
+- `n` (1–10): Number of edited variants.
+- `size`: e.g., `1024x1024`, `1024x1792`, `1792x1024`.
+- `user`: Optional end-user tag.
+
+### Returns
+`ImageGenerationResponse`
+

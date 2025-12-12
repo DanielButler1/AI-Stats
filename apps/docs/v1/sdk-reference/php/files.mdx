@@ -1,0 +1,40 @@
+---
+title: "Files"
+description: "Call /files with the PHP SDK."
+---
+
+**Methods**: FilesApi#filesPost, FilesApi#filesGet, FilesApi#filesFileIdGet
+
+### Example
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use AIStats\Sdk\Api\FilesApi;
+use AIStats\Sdk\Configuration;
+
+$apiKey = getenv('AI_STATS_API_KEY');
+$config = Configuration::getDefaultConfiguration()
+    ->setHost('https://api.ai-stats.phaseo.app/v1')
+    ->setApiKey('GatewayAuth', 'Bearer ' . $apiKey);
+
+$filesApi = new FilesApi(null, $config);
+
+// Upload a file
+$uploaded = $filesApi->filesPost('batch', new \SplFileObject('/path/to/file.json'));
+
+// List files
+$files = $filesApi->filesGet();
+
+// Get a specific file
+$file = $filesApi->filesFileIdGet($uploaded->getId());
+```
+
+### Key parameters
+- `purpose` (required for upload): e.g., `batch`.
+- `file` (required for upload): File object.
+
+### Returns
+FileObject (upload/get) or FileListResponse (list)
+

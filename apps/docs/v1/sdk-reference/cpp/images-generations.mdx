@@ -1,0 +1,35 @@
+---
+title: "Image generations"
+description: "Call /images/generations with the C++ SDK."
+---
+
+**Method**: `AIStatsImagesApi::imagesGenerationsPost()`.
+
+### Example
+```cpp
+#include "ai_stats_sdk_cpp/ApiClient.h"
+#include "ai_stats_sdk_cpp/ApiConfiguration.h"
+#include "ai_stats_sdk_cpp/api/AIStatsImagesApi.h"
+#include "ai_stats_sdk_cpp/model/AIStatsImageGenerationRequest.h"
+
+// Setup config and apiClient as in usage.mdx
+AIStatsImagesApi imagesApi(apiClient);
+
+auto request = std::make_shared<AIStatsImageGenerationRequest>();
+request->setModel("openai/gpt-image-1");
+request->setPrompt("A lighthouse at golden hour");
+request->setSize("1024x1024");
+request->setN(1);
+
+auto response = imagesApi.imagesGenerationsPost(request).get();
+```
+
+### Key parameters
+- `model` (required): Image-capable model id (e.g., `openai/gpt-image-1`).
+- `prompt` (required): Text prompt.
+- `n` (1–10): Number of images to generate.
+- `size`: e.g., `1024x1024`, `1024x1792`, `1792x1024`.
+
+### Returns
+`AIStatsImageGenerationResponse`
+

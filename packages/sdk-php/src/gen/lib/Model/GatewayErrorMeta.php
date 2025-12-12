@@ -79,8 +79,8 @@ class GatewayErrorMeta implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'app_title' => false,
-        'referer' => false
+        'app_title' => true,
+        'referer' => true
     ];
 
     /**
@@ -316,7 +316,14 @@ class GatewayErrorMeta implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAppTitle($app_title)
     {
         if (is_null($app_title)) {
-            throw new \InvalidArgumentException('non-nullable app_title cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'app_title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('app_title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['app_title'] = $app_title;
 
@@ -343,7 +350,14 @@ class GatewayErrorMeta implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setReferer($referer)
     {
         if (is_null($referer)) {
-            throw new \InvalidArgumentException('non-nullable referer cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'referer');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('referer', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['referer'] = $referer;
 

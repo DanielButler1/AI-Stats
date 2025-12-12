@@ -60,14 +60,13 @@ class GatewayModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'model_id' => 'string',
         'name' => 'string',
         'release_date' => '\DateTime',
-        'announcement_date' => '\DateTime',
         'status' => 'string',
-        'organisation' => '\AIStats\\Sdk\Model\OrganisationId',
+        'organisation_id' => 'string',
         'aliases' => 'string[]',
         'endpoints' => 'string[]',
-        'providers' => '\AIStats\\Sdk\Model\GatewayModelProvider[]',
         'input_types' => 'string[]',
-        'output_types' => 'string[]'
+        'output_types' => 'string[]',
+        'providers' => '\AIStats\\Sdk\Model\ProviderInfo[]'
     ];
 
     /**
@@ -81,14 +80,13 @@ class GatewayModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'model_id' => null,
         'name' => null,
         'release_date' => 'date',
-        'announcement_date' => 'date',
         'status' => null,
-        'organisation' => null,
+        'organisation_id' => null,
         'aliases' => null,
         'endpoints' => null,
-        'providers' => null,
         'input_types' => null,
-        'output_types' => null
+        'output_types' => null,
+        'providers' => null
     ];
 
     /**
@@ -100,14 +98,13 @@ class GatewayModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'model_id' => false,
         'name' => true,
         'release_date' => true,
-        'announcement_date' => true,
         'status' => true,
-        'organisation' => true,
+        'organisation_id' => true,
         'aliases' => false,
         'endpoints' => false,
-        'providers' => false,
         'input_types' => false,
-        'output_types' => false
+        'output_types' => false,
+        'providers' => false
     ];
 
     /**
@@ -199,14 +196,13 @@ class GatewayModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'model_id' => 'model_id',
         'name' => 'name',
         'release_date' => 'release_date',
-        'announcement_date' => 'announcement_date',
         'status' => 'status',
-        'organisation' => 'organisation',
+        'organisation_id' => 'organisation_id',
         'aliases' => 'aliases',
         'endpoints' => 'endpoints',
-        'providers' => 'providers',
         'input_types' => 'input_types',
-        'output_types' => 'output_types'
+        'output_types' => 'output_types',
+        'providers' => 'providers'
     ];
 
     /**
@@ -218,14 +214,13 @@ class GatewayModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'model_id' => 'setModelId',
         'name' => 'setName',
         'release_date' => 'setReleaseDate',
-        'announcement_date' => 'setAnnouncementDate',
         'status' => 'setStatus',
-        'organisation' => 'setOrganisation',
+        'organisation_id' => 'setOrganisationId',
         'aliases' => 'setAliases',
         'endpoints' => 'setEndpoints',
-        'providers' => 'setProviders',
         'input_types' => 'setInputTypes',
-        'output_types' => 'setOutputTypes'
+        'output_types' => 'setOutputTypes',
+        'providers' => 'setProviders'
     ];
 
     /**
@@ -237,14 +232,13 @@ class GatewayModel implements ModelInterface, ArrayAccess, \JsonSerializable
         'model_id' => 'getModelId',
         'name' => 'getName',
         'release_date' => 'getReleaseDate',
-        'announcement_date' => 'getAnnouncementDate',
         'status' => 'getStatus',
-        'organisation' => 'getOrganisation',
+        'organisation_id' => 'getOrganisationId',
         'aliases' => 'getAliases',
         'endpoints' => 'getEndpoints',
-        'providers' => 'getProviders',
         'input_types' => 'getInputTypes',
-        'output_types' => 'getOutputTypes'
+        'output_types' => 'getOutputTypes',
+        'providers' => 'getProviders'
     ];
 
     /**
@@ -334,14 +328,13 @@ class GatewayModel implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('model_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('release_date', $data ?? [], null);
-        $this->setIfExists('announcement_date', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('organisation', $data ?? [], null);
+        $this->setIfExists('organisation_id', $data ?? [], null);
         $this->setIfExists('aliases', $data ?? [], null);
         $this->setIfExists('endpoints', $data ?? [], null);
-        $this->setIfExists('providers', $data ?? [], null);
         $this->setIfExists('input_types', $data ?? [], null);
         $this->setIfExists('output_types', $data ?? [], null);
+        $this->setIfExists('providers', $data ?? [], null);
     }
 
     /**
@@ -380,14 +373,11 @@ class GatewayModel implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['release_date'] === null) {
             $invalidProperties[] = "'release_date' can't be null";
         }
-        if ($this->container['announcement_date'] === null) {
-            $invalidProperties[] = "'announcement_date' can't be null";
-        }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
-        if ($this->container['organisation'] === null) {
-            $invalidProperties[] = "'organisation' can't be null";
+        if ($this->container['organisation_id'] === null) {
+            $invalidProperties[] = "'organisation_id' can't be null";
         }
         if ($this->container['aliases'] === null) {
             $invalidProperties[] = "'aliases' can't be null";
@@ -395,14 +385,14 @@ class GatewayModel implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['endpoints'] === null) {
             $invalidProperties[] = "'endpoints' can't be null";
         }
-        if ($this->container['providers'] === null) {
-            $invalidProperties[] = "'providers' can't be null";
-        }
         if ($this->container['input_types'] === null) {
             $invalidProperties[] = "'input_types' can't be null";
         }
         if ($this->container['output_types'] === null) {
             $invalidProperties[] = "'output_types' can't be null";
+        }
+        if ($this->container['providers'] === null) {
+            $invalidProperties[] = "'providers' can't be null";
         }
         return $invalidProperties;
     }
@@ -515,40 +505,6 @@ class GatewayModel implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets announcement_date
-     *
-     * @return \DateTime
-     */
-    public function getAnnouncementDate()
-    {
-        return $this->container['announcement_date'];
-    }
-
-    /**
-     * Sets announcement_date
-     *
-     * @param \DateTime $announcement_date Earliest known public announcement date if different from release.
-     *
-     * @return self
-     */
-    public function setAnnouncementDate($announcement_date)
-    {
-        if (is_null($announcement_date)) {
-            array_push($this->openAPINullablesSetToNull, 'announcement_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('announcement_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['announcement_date'] = $announcement_date;
-
-        return $this;
-    }
-
-    /**
      * Gets status
      *
      * @return string
@@ -583,35 +539,35 @@ class GatewayModel implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets organisation
+     * Gets organisation_id
      *
-     * @return \AIStats\\Sdk\Model\OrganisationId
+     * @return string
      */
-    public function getOrganisation()
+    public function getOrganisationId()
     {
-        return $this->container['organisation'];
+        return $this->container['organisation_id'];
     }
 
     /**
-     * Sets organisation
+     * Sets organisation_id
      *
-     * @param \AIStats\\Sdk\Model\OrganisationId $organisation organisation
+     * @param string $organisation_id Organisation identifier responsible for the model.
      *
      * @return self
      */
-    public function setOrganisation($organisation)
+    public function setOrganisationId($organisation_id)
     {
-        if (is_null($organisation)) {
-            array_push($this->openAPINullablesSetToNull, 'organisation');
+        if (is_null($organisation_id)) {
+            array_push($this->openAPINullablesSetToNull, 'organisation_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('organisation', $nullablesSetToNull);
+            $index = array_search('organisation_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['organisation'] = $organisation;
+        $this->container['organisation_id'] = $organisation_id;
 
         return $this;
     }
@@ -680,33 +636,6 @@ class GatewayModel implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets providers
-     *
-     * @return \AIStats\\Sdk\Model\GatewayModelProvider[]
-     */
-    public function getProviders()
-    {
-        return $this->container['providers'];
-    }
-
-    /**
-     * Sets providers
-     *
-     * @param \AIStats\\Sdk\Model\GatewayModelProvider[] $providers Provider mappings that can serve this model.
-     *
-     * @return self
-     */
-    public function setProviders($providers)
-    {
-        if (is_null($providers)) {
-            throw new \InvalidArgumentException('non-nullable providers cannot be null');
-        }
-        $this->container['providers'] = $providers;
-
-        return $this;
-    }
-
-    /**
      * Gets input_types
      *
      * @return string[]
@@ -756,6 +685,33 @@ class GatewayModel implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable output_types cannot be null');
         }
         $this->container['output_types'] = $output_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets providers
+     *
+     * @return \AIStats\\Sdk\Model\ProviderInfo[]
+     */
+    public function getProviders()
+    {
+        return $this->container['providers'];
+    }
+
+    /**
+     * Sets providers
+     *
+     * @param \AIStats\\Sdk\Model\ProviderInfo[] $providers Providers that support this model with their parameters.
+     *
+     * @return self
+     */
+    public function setProviders($providers)
+    {
+        if (is_null($providers)) {
+            throw new \InvalidArgumentException('non-nullable providers cannot be null');
+        }
+        $this->container['providers'] = $providers;
 
         return $this;
     }

@@ -1,0 +1,36 @@
+---
+title: "Audio transcriptions"
+description: "Call /audio/transcriptions with the Ruby SDK."
+---
+
+**Method**: `AudioApi#audio_transcriptions_post`.
+
+### Example
+```ruby
+require 'ai_stats_sdk'
+
+config = AIStatsSdk::Configuration.default
+config.access_token = 'your_api_key'
+api_client = AIStatsSdk::ApiClient.new(config)
+audio_api = AIStatsSdk::AudioApi.new(api_client)
+
+request = AIStatsSdk::AudioTranscriptionRequest.new(
+  model: 'openai/gpt-4o-transcribe',
+  audio_b64: 'base64_audio_data',
+  language: 'en'
+)
+
+transcript = audio_api.audio_transcriptions_post(request)
+```
+
+### Key parameters
+- `model` (required): Transcription-capable model id.
+- `audio_url` or `audio_b64` (required): Audio data (URL or base64).
+- `language`: Hint language code (e.g., `en`).
+- `prompt`: Optional context to improve accuracy.
+- `temperature` (0–2): Sampling randomness.
+- `response_format`: `json`, `text`, `srt`, `verbose_json`, etc.
+
+### Returns
+`AudioTranscriptionResponse`
+

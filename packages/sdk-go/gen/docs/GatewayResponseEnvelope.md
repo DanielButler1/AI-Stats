@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NativeResponseId** | Pointer to **string** |  | [optional] 
+**NativeResponseId** | Pointer to **NullableString** |  | [optional] 
 **Provider** | **string** |  | 
 **Meta** | [**GatewayMetadata**](GatewayMetadata.md) |  | 
 **Usage** | Pointer to [**GatewayUsage**](GatewayUsage.md) |  | [optional] 
@@ -53,6 +53,16 @@ SetNativeResponseId sets NativeResponseId field to given value.
 
 HasNativeResponseId returns a boolean if a field has been set.
 
+### SetNativeResponseIdNil
+
+`func (o *GatewayResponseEnvelope) SetNativeResponseIdNil(b bool)`
+
+ SetNativeResponseIdNil sets the value for NativeResponseId to be an explicit nil
+
+### UnsetNativeResponseId
+`func (o *GatewayResponseEnvelope) UnsetNativeResponseId()`
+
+UnsetNativeResponseId ensures that no value is present for NativeResponseId, not even an explicit nil
 ### GetProvider
 
 `func (o *GatewayResponseEnvelope) GetProvider() string`

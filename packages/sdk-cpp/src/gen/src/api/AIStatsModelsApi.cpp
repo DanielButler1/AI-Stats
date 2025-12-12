@@ -35,7 +35,7 @@ AIStatsModelsApi::~AIStatsModelsApi()
 {
 }
 
-pplx::task<std::shared_ptr<AIStatsModelListResponse>> AIStatsModelsApi::modelsGet(boost::optional<std::shared_ptr<AIStats_models_get_provider_parameter>> provider, boost::optional<int32_t> limit, boost::optional<int32_t> offset, boost::optional<std::shared_ptr<AIStats_models_get_organisation_parameter>> organisation, boost::optional<std::shared_ptr<AIStats_models_get_include_endpoints_parameter>> includeEndpoints, boost::optional<std::shared_ptr<AIStats_models_get_include_endpoints_parameter>> excludeEndpoints, boost::optional<std::shared_ptr<AIStats_models_get_provider_parameter>> inputTypes, boost::optional<std::shared_ptr<AIStats_models_get_provider_parameter>> outputTypes, boost::optional<bool> includeRumoured, boost::optional<bool> includeDeprecated, boost::optional<bool> includeRetired) const
+pplx::task<std::shared_ptr<AIStatsModelListResponse>> AIStatsModelsApi::modelsGet(boost::optional<std::shared_ptr<AIStats_models_get_endpoints_parameter>> endpoints, boost::optional<std::shared_ptr<AIStats_models_get_organisation_parameter>> organisation, boost::optional<std::shared_ptr<AIStats_models_get_input_types_parameter>> inputTypes, boost::optional<std::shared_ptr<AIStats_models_get_input_types_parameter>> outputTypes, boost::optional<std::shared_ptr<AIStats_models_get_input_types_parameter>> params, boost::optional<int32_t> limit, boost::optional<int32_t> offset) const
 {
 
 
@@ -76,29 +76,13 @@ pplx::task<std::shared_ptr<AIStatsModelListResponse>> AIStatsModelsApi::modelsGe
 
     std::unordered_set<utility::string_t> localVarConsumeHttpContentTypes;
 
-    if (provider && *provider != nullptr)
+    if (endpoints && *endpoints != nullptr)
     {
-        localVarQueryParams[utility::conversions::to_string_t("provider")] = ApiClient::parameterToString(*provider);
-    }
-    if (limit)
-    {
-        localVarQueryParams[utility::conversions::to_string_t("limit")] = ApiClient::parameterToString(*limit);
-    }
-    if (offset)
-    {
-        localVarQueryParams[utility::conversions::to_string_t("offset")] = ApiClient::parameterToString(*offset);
+        localVarQueryParams[utility::conversions::to_string_t("endpoints")] = ApiClient::parameterToString(*endpoints);
     }
     if (organisation && *organisation != nullptr)
     {
         localVarQueryParams[utility::conversions::to_string_t("organisation")] = ApiClient::parameterToString(*organisation);
-    }
-    if (includeEndpoints && *includeEndpoints != nullptr)
-    {
-        localVarQueryParams[utility::conversions::to_string_t("include_endpoints")] = ApiClient::parameterToString(*includeEndpoints);
-    }
-    if (excludeEndpoints && *excludeEndpoints != nullptr)
-    {
-        localVarQueryParams[utility::conversions::to_string_t("exclude_endpoints")] = ApiClient::parameterToString(*excludeEndpoints);
     }
     if (inputTypes && *inputTypes != nullptr)
     {
@@ -108,17 +92,17 @@ pplx::task<std::shared_ptr<AIStatsModelListResponse>> AIStatsModelsApi::modelsGe
     {
         localVarQueryParams[utility::conversions::to_string_t("output_types")] = ApiClient::parameterToString(*outputTypes);
     }
-    if (includeRumoured)
+    if (params && *params != nullptr)
     {
-        localVarQueryParams[utility::conversions::to_string_t("include_rumoured")] = ApiClient::parameterToString(*includeRumoured);
+        localVarQueryParams[utility::conversions::to_string_t("params")] = ApiClient::parameterToString(*params);
     }
-    if (includeDeprecated)
+    if (limit)
     {
-        localVarQueryParams[utility::conversions::to_string_t("include_deprecated")] = ApiClient::parameterToString(*includeDeprecated);
+        localVarQueryParams[utility::conversions::to_string_t("limit")] = ApiClient::parameterToString(*limit);
     }
-    if (includeRetired)
+    if (offset)
     {
-        localVarQueryParams[utility::conversions::to_string_t("include_retired")] = ApiClient::parameterToString(*includeRetired);
+        localVarQueryParams[utility::conversions::to_string_t("offset")] = ApiClient::parameterToString(*offset);
     }
 
     std::shared_ptr<IHttpBody> localVarHttpBody;

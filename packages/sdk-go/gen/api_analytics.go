@@ -22,81 +22,182 @@ import (
 // AnalyticsAPIService AnalyticsAPI service
 type AnalyticsAPIService service
 
-type ApiHealthGetRequest struct {
+type ApiAnalyticsPostRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	provider *string
-	model *ModelId
-	endpoint *string
+	analyticsPostRequest *AnalyticsPostRequest
 }
 
-// Filter to a specific provider name.
-func (r ApiHealthGetRequest) Provider(provider string) ApiHealthGetRequest {
-	r.provider = &provider
+func (r ApiAnalyticsPostRequest) AnalyticsPostRequest(analyticsPostRequest AnalyticsPostRequest) ApiAnalyticsPostRequest {
+	r.analyticsPostRequest = &analyticsPostRequest
 	return r
 }
 
-// Optional model id used to resolve candidate providers.
-func (r ApiHealthGetRequest) Model(model ModelId) ApiHealthGetRequest {
-	r.model = &model
-	return r
-}
-
-// Endpoint identifier paired with &#x60;model&#x60; when deriving providers.
-func (r ApiHealthGetRequest) Endpoint(endpoint string) ApiHealthGetRequest {
-	r.endpoint = &endpoint
-	return r
-}
-
-func (r ApiHealthGetRequest) Execute() (*GatewayHealthResponse, *http.Response, error) {
-	return r.ApiService.HealthGetExecute(r)
+func (r ApiAnalyticsPostRequest) Execute() (*AnalyticsPost200Response, *http.Response, error) {
+	return r.ApiService.AnalyticsPostExecute(r)
 }
 
 /*
-HealthGet Inspect provider health
+AnalyticsPost Aggregated usage analytics (coming soon)
 
-Returns the most recent latency, success rate, and breaker status for each configured provider.
+Accepts an access token and will return aggregated analytics. A placeholder response is returned today while analytics is being built.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiHealthGetRequest
+ @return ApiAnalyticsPostRequest
 */
-func (a *AnalyticsAPIService) HealthGet(ctx context.Context) ApiHealthGetRequest {
-	return ApiHealthGetRequest{
+func (a *AnalyticsAPIService) AnalyticsPost(ctx context.Context) ApiAnalyticsPostRequest {
+	return ApiAnalyticsPostRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GatewayHealthResponse
-func (a *AnalyticsAPIService) HealthGetExecute(r ApiHealthGetRequest) (*GatewayHealthResponse, *http.Response, error) {
+//  @return AnalyticsPost200Response
+func (a *AnalyticsAPIService) AnalyticsPostExecute(r ApiAnalyticsPostRequest) (*AnalyticsPost200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GatewayHealthResponse
+		localVarReturnValue  *AnalyticsPost200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.HealthGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.AnalyticsPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/health"
+	localVarPath := localBasePath + "/analytics"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.analyticsPostRequest == nil {
+		return localVarReturnValue, nil, reportError("analyticsPostRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.analyticsPostRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v GatewayError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v GatewayError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiHealthzGetRequest struct {
+	ctx context.Context
+	ApiService *AnalyticsAPIService
+}
+
+func (r ApiHealthzGetRequest) Execute() (*HealthzGet200Response, *http.Response, error) {
+	return r.ApiService.HealthzGetExecute(r)
+}
+
+/*
+HealthzGet Gateway health check
+
+Returns a simple liveness signal for the gateway.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiHealthzGetRequest
+*/
+func (a *AnalyticsAPIService) HealthzGet(ctx context.Context) ApiHealthzGetRequest {
+	return ApiHealthzGetRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return HealthzGet200Response
+func (a *AnalyticsAPIService) HealthzGetExecute(r ApiHealthzGetRequest) (*HealthzGet200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *HealthzGet200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.HealthzGet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/healthz"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.provider != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "provider", r.provider, "form", "")
-	}
-	if r.model != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "model", r.model, "form", "")
-	}
-	if r.endpoint != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "endpoint", r.endpoint, "form", "")
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -135,17 +236,6 @@ func (a *AnalyticsAPIService) HealthGetExecute(r ApiHealthGetRequest) (*GatewayH
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v GatewayError
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GatewayError

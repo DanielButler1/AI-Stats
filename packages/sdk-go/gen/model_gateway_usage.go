@@ -22,9 +22,12 @@ type GatewayUsage struct {
 	TotalTokens *int32 `json:"total_tokens,omitempty"`
 	InputTextTokens *int32 `json:"input_text_tokens,omitempty"`
 	OutputTextTokens *int32 `json:"output_text_tokens,omitempty"`
-	ReasoningTokens *int32 `json:"reasoning_tokens,omitempty"`
-	CachedReadTextTokens *int32 `json:"cached_read_text_tokens,omitempty"`
+	ReasoningTokens NullableInt32 `json:"reasoning_tokens,omitempty"`
+	CachedReadTextTokens NullableInt32 `json:"cached_read_text_tokens,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _GatewayUsage GatewayUsage
 
 // NewGatewayUsage instantiates a new GatewayUsage object
 // This constructor will assign default values to properties that have it defined,
@@ -139,68 +142,88 @@ func (o *GatewayUsage) SetOutputTextTokens(v int32) {
 	o.OutputTextTokens = &v
 }
 
-// GetReasoningTokens returns the ReasoningTokens field value if set, zero value otherwise.
+// GetReasoningTokens returns the ReasoningTokens field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayUsage) GetReasoningTokens() int32 {
-	if o == nil || IsNil(o.ReasoningTokens) {
+	if o == nil || IsNil(o.ReasoningTokens.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.ReasoningTokens
+	return *o.ReasoningTokens.Get()
 }
 
 // GetReasoningTokensOk returns a tuple with the ReasoningTokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayUsage) GetReasoningTokensOk() (*int32, bool) {
-	if o == nil || IsNil(o.ReasoningTokens) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ReasoningTokens, true
+	return o.ReasoningTokens.Get(), o.ReasoningTokens.IsSet()
 }
 
 // HasReasoningTokens returns a boolean if a field has been set.
 func (o *GatewayUsage) HasReasoningTokens() bool {
-	if o != nil && !IsNil(o.ReasoningTokens) {
+	if o != nil && o.ReasoningTokens.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetReasoningTokens gets a reference to the given int32 and assigns it to the ReasoningTokens field.
+// SetReasoningTokens gets a reference to the given NullableInt32 and assigns it to the ReasoningTokens field.
 func (o *GatewayUsage) SetReasoningTokens(v int32) {
-	o.ReasoningTokens = &v
+	o.ReasoningTokens.Set(&v)
+}
+// SetReasoningTokensNil sets the value for ReasoningTokens to be an explicit nil
+func (o *GatewayUsage) SetReasoningTokensNil() {
+	o.ReasoningTokens.Set(nil)
 }
 
-// GetCachedReadTextTokens returns the CachedReadTextTokens field value if set, zero value otherwise.
+// UnsetReasoningTokens ensures that no value is present for ReasoningTokens, not even an explicit nil
+func (o *GatewayUsage) UnsetReasoningTokens() {
+	o.ReasoningTokens.Unset()
+}
+
+// GetCachedReadTextTokens returns the CachedReadTextTokens field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GatewayUsage) GetCachedReadTextTokens() int32 {
-	if o == nil || IsNil(o.CachedReadTextTokens) {
+	if o == nil || IsNil(o.CachedReadTextTokens.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.CachedReadTextTokens
+	return *o.CachedReadTextTokens.Get()
 }
 
 // GetCachedReadTextTokensOk returns a tuple with the CachedReadTextTokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GatewayUsage) GetCachedReadTextTokensOk() (*int32, bool) {
-	if o == nil || IsNil(o.CachedReadTextTokens) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CachedReadTextTokens, true
+	return o.CachedReadTextTokens.Get(), o.CachedReadTextTokens.IsSet()
 }
 
 // HasCachedReadTextTokens returns a boolean if a field has been set.
 func (o *GatewayUsage) HasCachedReadTextTokens() bool {
-	if o != nil && !IsNil(o.CachedReadTextTokens) {
+	if o != nil && o.CachedReadTextTokens.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCachedReadTextTokens gets a reference to the given int32 and assigns it to the CachedReadTextTokens field.
+// SetCachedReadTextTokens gets a reference to the given NullableInt32 and assigns it to the CachedReadTextTokens field.
 func (o *GatewayUsage) SetCachedReadTextTokens(v int32) {
-	o.CachedReadTextTokens = &v
+	o.CachedReadTextTokens.Set(&v)
+}
+// SetCachedReadTextTokensNil sets the value for CachedReadTextTokens to be an explicit nil
+func (o *GatewayUsage) SetCachedReadTextTokensNil() {
+	o.CachedReadTextTokens.Set(nil)
+}
+
+// UnsetCachedReadTextTokens ensures that no value is present for CachedReadTextTokens, not even an explicit nil
+func (o *GatewayUsage) UnsetCachedReadTextTokens() {
+	o.CachedReadTextTokens.Unset()
 }
 
 func (o GatewayUsage) MarshalJSON() ([]byte, error) {
@@ -222,13 +245,43 @@ func (o GatewayUsage) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OutputTextTokens) {
 		toSerialize["output_text_tokens"] = o.OutputTextTokens
 	}
-	if !IsNil(o.ReasoningTokens) {
-		toSerialize["reasoning_tokens"] = o.ReasoningTokens
+	if o.ReasoningTokens.IsSet() {
+		toSerialize["reasoning_tokens"] = o.ReasoningTokens.Get()
 	}
-	if !IsNil(o.CachedReadTextTokens) {
-		toSerialize["cached_read_text_tokens"] = o.CachedReadTextTokens
+	if o.CachedReadTextTokens.IsSet() {
+		toSerialize["cached_read_text_tokens"] = o.CachedReadTextTokens.Get()
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *GatewayUsage) UnmarshalJSON(data []byte) (err error) {
+	varGatewayUsage := _GatewayUsage{}
+
+	err = json.Unmarshal(data, &varGatewayUsage)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GatewayUsage(varGatewayUsage)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "total_tokens")
+		delete(additionalProperties, "input_text_tokens")
+		delete(additionalProperties, "output_text_tokens")
+		delete(additionalProperties, "reasoning_tokens")
+		delete(additionalProperties, "cached_read_text_tokens")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableGatewayUsage struct {

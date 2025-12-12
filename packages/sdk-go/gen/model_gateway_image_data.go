@@ -12,7 +12,6 @@ package ai_stats_sdk
 
 import (
 	"encoding/json"
-	"bytes"
 	"fmt"
 )
 
@@ -22,6 +21,7 @@ var _ MappedNullable = &GatewayImageData{}
 // GatewayImageData struct for GatewayImageData
 type GatewayImageData struct {
 	Url string `json:"url"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _GatewayImageData GatewayImageData
@@ -79,6 +79,11 @@ func (o GatewayImageData) MarshalJSON() ([]byte, error) {
 func (o GatewayImageData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["url"] = o.Url
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -106,15 +111,20 @@ func (o *GatewayImageData) UnmarshalJSON(data []byte) (err error) {
 
 	varGatewayImageData := _GatewayImageData{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGatewayImageData)
+	err = json.Unmarshal(data, &varGatewayImageData)
 
 	if err != nil {
 		return err
 	}
 
 	*o = GatewayImageData(varGatewayImageData)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "url")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

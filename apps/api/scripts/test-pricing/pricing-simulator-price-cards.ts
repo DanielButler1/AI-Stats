@@ -1,5 +1,5 @@
 import { getSupabaseAdmin } from "../../src/runtime/env";
-import type { PriceCard, PriceRule } from "../../src/lib/main-endpoints/pricing/types";
+import type { PriceCard, PriceRule } from "../../src/lib/gateway/pricing/types";
 import type { Combo } from "./pricing-simulator-types";
 
 type RawPricingRow = {

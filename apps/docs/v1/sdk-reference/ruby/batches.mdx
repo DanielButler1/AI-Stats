@@ -1,0 +1,35 @@
+---
+title: "Batches"
+description: "Call /batches with the Ruby SDK."
+---
+
+**Methods**: `BetaApi#batches_post`, `BetaApi#batches_batch_id_get`.
+
+### Example
+```ruby
+require 'ai_stats_sdk'
+
+config = AIStatsSdk::Configuration.default
+config.access_token = 'your_api_key'
+api_client = AIStatsSdk::ApiClient.new(config)
+beta_api = AIStatsSdk::BetaApi.new(api_client)
+
+request = AIStatsSdk::BatchRequest.new(
+  endpoint: 'responses',
+  input_file_id: 'file_123',
+  completion_window: '24h'
+)
+
+batch = beta_api.batches_post(request)
+status = beta_api.batches_batch_id_get(batch.id)
+```
+
+### Key parameters
+- `endpoint` (required): Target endpoint for batch items (e.g., `responses`).
+- `input_file_id` (required): File id uploaded via `/files`.
+- `completion_window`: e.g., `24h`.
+- `metadata`: Optional object stored with the batch.
+
+### Returns
+`BatchResponse`
+
