@@ -1,5 +1,11 @@
 # @ai-stats/rust-sdk
 
+## 0.1.0
+
+### Minor Changes
+
+- [#8](https://github.com/DanielButler1/AI-Stats/pull/8) [`144dad5`](https://github.com/DanielButler1/AI-Stats/commit/144dad5cbf8f56b0e1d987b0eafb9d0be5a98d5e) Thanks [@DanielButler1](https://github.com/DanielButler1)! - Regenerated the SDKs from the latest OpenAPI spec to reflect the updated Gateway API contract. This may include typing and surface-area changes where the API schema changed.
+
 ## 0.0.1
 
 ### Patch Changes
