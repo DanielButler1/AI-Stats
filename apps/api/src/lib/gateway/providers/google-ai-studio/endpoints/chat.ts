@@ -524,6 +524,7 @@ function unifyGoogleStreamToSnapshot(
     let lastFinish: FinishReason = "stop";
     let aggPrompt = 0, aggTotal = 0, aggThoughts = 0;
     const tStart = performance.now();
+    let usage: GatewayUsage | undefined;
 
     type Seg = { type: "assistant" | "reasoning"; text: string };
     const segs: Seg[] = [];
@@ -613,10 +614,10 @@ function unifyGoogleStreamToSnapshot(
         }
 
         const completion = Math.max(0, (aggTotal || 0) - (aggPrompt || 0)); // base completion excluding thoughts
-        if (!usage && (aggPrompt || aggTotal)) {
-            usage = { input_text_tokens: aggPrompt, output_text_tokens: completion, total_tokens: aggTotal };
-            if (typeof aggThoughts === "number" && aggThoughts > 0) usage.reasoning_tokens = aggThoughts;
-        }
+        usage = (aggPrompt || aggTotal)
+            ? { input_text_tokens: aggPrompt, output_text_tokens: completion, total_tokens: aggTotal }
+            : undefined;
+        if (usage && typeof aggThoughts === "number" && aggThoughts > 0) usage.reasoning_tokens = aggThoughts;
 
         const reasoningJoined = segs.filter(s => s.type === "reasoning").map(s => s.text).join("");
         const assistantJoined = segs.filter(s => s.type === "assistant").map(s => s.text).join("");

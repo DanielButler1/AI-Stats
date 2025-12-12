@@ -80,6 +80,7 @@ export type GatewayCompletionsRequest = {
 };
 
 export type GatewayCompletionsResponse = {
+    id?: string; // Gateway request ID
     nativeResponseId?: string; // e.g. OpenAI's "id" from their response
     created: number;
     model: string;
@@ -133,7 +134,6 @@ export type GatewayUsage = {
     };
 
     // Legacy meters kept for pricing + internal analytics
-    total_tokens?: number;
 
     input_text_tokens?: number;
     output_text_tokens?: number;
