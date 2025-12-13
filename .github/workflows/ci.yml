@@ -456,6 +456,13 @@ jobs:
               with:
                   fetch-depth: 0
 
+            - name: Create GitHub App token (AI Stats Bot)
+              id: app-token
+              uses: actions/create-github-app-token@v2
+              with:
+                  app-id: ${{ secrets.AI_STATS_APP_ID }}
+                  private-key: ${{ secrets.AI_STATS_APP_PRIVATE_KEY }}
+
             - name: Setup pnpm
               uses: pnpm/action-setup@v4
               with:
@@ -483,8 +490,9 @@ jobs:
                   version: pnpm changeset:version
                   publish: pnpm changeset:publish
                   createGithubReleases: false
+                  commitMode: github-api
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
             - name: Set up Python (for PyPI publish)
               if: github.ref == 'refs/heads/main'
@@ -510,6 +518,6 @@ jobs:
             - name: Create GitHub releases from changelogs
               if: steps.changesets.outputs.published == 'true'
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
               run: |
                   pnpm release-from-changelogs
