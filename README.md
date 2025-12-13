@@ -60,7 +60,7 @@ This is only a quick overview - see the docs for full details.
 
 ```bash
 # Clone the repo
-git clone https://github.com/DanielButler1/AI-Stats.git
+git clone https://github.com/AI-Stats/AI-Stats.git
 cd AI-Stats
 
 # Install dependencies

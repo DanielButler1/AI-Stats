@@ -28,8 +28,8 @@ dependencies = [
 [project.urls]
 Homepage = "https://ai-stats.phaseo.app"
 Documentation = "https://docs.ai-stats.phaseo.app"
-Repository = "https://github.com/DanielButler1/AI-Stats"
-Issues = "https://github.com/DanielButler1/AI-Stats/issues"
+Repository = "https://github.com/AI-Stats/AI-Stats"
+Issues = "https://github.com/AI-Stats/AI-Stats/issues"
 
 [tool.hatch.build.targets.sdist]
 include = [

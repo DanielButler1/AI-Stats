@@ -24,13 +24,10 @@ export default function ModelAPIProviders({ model }: ModelAPIProvidersProps) {
 				</p>
 				<div className="mt-3">
 					<a
-						href={withUTM(
-							"https://github.com/DanielButler1/AI-Stats",
-							{
-								campaign: "model-pricing-empty-state",
-								content: "model-api-providers",
-							}
-						)}
+						href={withUTM("https://github.com/AI-Stats/AI-Stats", {
+							campaign: "model-pricing-empty-state",
+							content: "model-api-providers",
+						})}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="inline-flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"

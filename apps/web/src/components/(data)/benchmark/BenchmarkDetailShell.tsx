@@ -28,7 +28,7 @@ export default async function BenchmarkDetailShell({
 						<div className="mt-3">
 							<a
 								href={withUTM(
-									"https://github.com/DanielButler1/AI-Stats",
+									"https://github.com/AI-Stats/AI-Stats",
 									{
 										campaign: "benchmark-empty-state",
 										content: "benchmark-detail-shell",

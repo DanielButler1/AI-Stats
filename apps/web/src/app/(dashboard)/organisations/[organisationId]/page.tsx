@@ -101,7 +101,7 @@ export default async function Page({
 						<div className="mt-3">
 							<a
 								href={withUTM(
-									"https://github.com/DanielButler1/AI-Stats/issues/new",
+									"https://github.com/AI-Stats/AI-Stats/issues/new",
 									{
 										campaign: "organisation-suggestion",
 										content:

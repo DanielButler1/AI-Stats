@@ -287,7 +287,7 @@ export default async function Page({
 										add it to the family tree.
 									</p>
 									<a
-										href="https://github.com/DanielButler1/AI-Stats/discussions/new"
+										href="https://github.com/AI-Stats/AI-Stats/discussions/new"
 										target="_blank"
 										rel="noreferrer"
 										className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"

@@ -1,65 +1,61 @@
 name: Nightly Model Status Refresh
 
 on:
-  schedule:
-    - cron: "0 1 * * *"
-  workflow_dispatch:
+    schedule:
+        - cron: "0 1 * * *"
+    workflow_dispatch:
 
 env:
-  NODE_VERSION: 22
+    NODE_VERSION: 22
 
 permissions:
-  contents: write
-  pull-requests: write
+    contents: write
+    pull-requests: write
 
 jobs:
-  update-statuses:
-    name: Update model statuses
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    update-statuses:
+        name: Update model statuses
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          package_json_file: package.json
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  package_json_file: package.json
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.NODE_VERSION }}
+                  cache: pnpm
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
 
-      - name: Refresh model statuses
-        run: pnpm data:update-statuses
+            - name: Refresh model statuses
+              run: pnpm data:update-statuses
 
-      - name: Validate data
-        run: pnpm validate:data
+            - name: Validate data
+              run: pnpm validate:data
 
-      - name: Create pull request
-        id: cpr
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore: refresh model statuses"
-          title: "chore: refresh model statuses"
-          body: |
-            Automated nightly run to align model.status with announced/release/deprecation/retirement dates.
-            - Triggered by: ${{ github.workflow }} (run ${{ github.run_id }})
-          branch: chore/auto-model-statuses
-          branch-suffix: timestamp
-          delete-branch: true
-          skip-if-no-changes: true
+            - name: Create pull request
+              id: cpr
+              uses: peter-evans/create-pull-request@v6
+              with:
+                  token: ${{ secrets.AI_STATS_BOT_PAT }}
+                  commit-message: "chore: refresh model statuses"
+                  title: "chore: refresh model statuses"
+                  body: |
+                      Automated nightly run to align model.status with announced/release/deprecation/retirement dates.
+                      - Triggered by: ${{ github.workflow }} (run ${{ github.run_id }})
+                  branch: chore/auto-model-statuses
+                  delete-branch: true
 
-      - name: Enable auto-merge
-        if: steps.cpr.outputs.pull-request-number
-        uses: peter-evans/enable-pull-request-automerge@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-          merge-method: squash
+            - name: Enable auto-merge (gh)
+              if: steps.cpr.outputs.pull-request-number != ''
+              run: gh pr merge --squash --auto "${{ steps.cpr.outputs.pull-request-number }}"
+              env:
+                  GH_TOKEN: ${{ secrets.AI_STATS_BOT_PAT }}

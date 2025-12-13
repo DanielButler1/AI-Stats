@@ -27,7 +27,7 @@ There are many ways to help — big or small:
 -   Improve the frontend or data visualisations on the website.
 -   Write tests or performance improvements.
 
-> 💡 Start with “good first issue” tags in [Issues](https://github.com/DanielButler1/AI-Stats/issues).
+> 💡 Start with “good first issue” tags in [Issues](https://github.com/AI-Stats/AI-Stats/issues).
 
 ---
 
@@ -49,7 +49,7 @@ There are many ways to help — big or small:
 
 ### 💬 4. Community & Ideas
 
--   Share feature suggestions or feedback in [Discussions](https://github.com/DanielButler1/AI-Stats/discussions).
+-   Share feature suggestions or feedback in [Discussions](https://github.com/AI-Stats/AI-Stats/discussions).
 -   Help onboard new contributors.
 -   Spread awareness about the mission of AI openness.
 
@@ -77,7 +77,7 @@ To work on the project locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/DanielButler1/AI-Stats.git
+git clone https://github.com/AI-Stats/AI-Stats.git
 cd AI-Stats
 
 # Install dependencies
@@ -112,9 +112,9 @@ We prefer small, focused PRs over giant ones ― they’re easier to review and 
 
 The monorepo now uses [changesets](https://github.com/changesets/changesets) to track releases for the SDK packages, the gateway API, and the web UI. To publish a release:
 
-- Run `pnpm changeset` and select the workspaces you want to release (for example `@ai-stats/ts-sdk`, `@ai-stats/gateway-api`, `@ai-stats/web`, or `@ai-stats/py-sdk`). The Python workspace exists solely for tooling and stays private.
-  - Run `pnpm changeset:version` to bump every affected `package.json`, emit changelog entries, and automatically sync `pyproject.toml`. The Mintlify docs site uses its own version selector, so `apps/docs/docs.json` (and its `api.version` entry) are maintained separately.
-- Use `pnpm sdk-py:sync-version` whenever you need to resync `pyproject.toml` (for example if you roll back a change or edit the file manually) before publishing to PyPI.
+-   Run `pnpm changeset` and select the workspaces you want to release (for example `@ai-stats/ts-sdk`, `@ai-stats/gateway-api`, `@ai-stats/web`, or `@ai-stats/py-sdk`). The Python workspace exists solely for tooling and stays private.
+    -   Run `pnpm changeset:version` to bump every affected `package.json`, emit changelog entries, and automatically sync `pyproject.toml`. The Mintlify docs site uses its own version selector, so `apps/docs/docs.json` (and its `api.version` entry) are maintained separately.
+-   Use `pnpm sdk-py:sync-version` whenever you need to resync `pyproject.toml` (for example if you roll back a change or edit the file manually) before publishing to PyPI.
 
 ## dY'� Code of Conduct
 

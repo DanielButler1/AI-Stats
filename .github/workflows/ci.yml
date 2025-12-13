@@ -39,6 +39,7 @@ jobs:
     check-paths:
         name: Check for data changes
         runs-on: ubuntu-latest
+        if: github.event_name == 'push'
         outputs:
             data-changed: ${{ steps.filter.outputs.data }}
         steps:
@@ -54,6 +55,7 @@ jobs:
         name: OpenAPI lint
         runs-on: ubuntu-latest
         needs: data
+        if: github.event_name == 'push' || !startsWith(github.head_ref, 'chore/auto-model-statuses')
         steps:
             - uses: actions/checkout@v4
 
@@ -78,6 +80,7 @@ jobs:
         name: Apps ${{ matrix.app }}
         runs-on: ubuntu-latest
         needs: openapi-lint
+        if: github.event_name == 'push' || !startsWith(github.head_ref, 'chore/auto-model-statuses')
         strategy:
             matrix:
                 app: [api, docs, web]
@@ -154,6 +157,7 @@ jobs:
         name: Generate SDKs
         runs-on: ubuntu-latest
         needs: openapi-lint
+        if: github.event_name == 'push' || !startsWith(github.head_ref, 'chore/auto-model-statuses')
         strategy:
             fail-fast: false
             matrix:
@@ -284,6 +288,7 @@ jobs:
         name: Build & test SDK packages
         runs-on: ubuntu-latest
         needs: sdk-gen
+        if: github.event_name == 'push' || !startsWith(github.head_ref, 'chore/auto-model-statuses')
         steps:
             - uses: actions/checkout@v4
 
@@ -319,7 +324,7 @@ jobs:
         name: Deploy Web (Preview)
         runs-on: ubuntu-latest
         needs: apps
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && !startsWith(github.head_ref, 'chore/auto-model-statuses')
         permissions:
             contents: read
             deployments: write

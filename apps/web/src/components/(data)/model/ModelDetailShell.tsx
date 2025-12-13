@@ -36,7 +36,7 @@ export default async function ModelDetailShell({
 						<div className="mt-3">
 							<a
 								href={withUTM(
-									"https://github.com/DanielButler1/AI-Stats",
+									"https://github.com/AI-Stats/AI-Stats",
 									{
 										campaign: "model-empty-state",
 										content: "model-detail-shell",
@@ -92,7 +92,10 @@ export default async function ModelDetailShell({
 									{header.name}
 								</h1>
 								<Suspense fallback={null}>
-									<ModelEditButton modelId={modelId} tab={tab} />
+									<ModelEditButton
+										modelId={modelId}
+										tab={tab}
+									/>
 								</Suspense>
 							</div>
 							<Link

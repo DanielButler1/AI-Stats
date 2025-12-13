@@ -12,7 +12,7 @@ client automatically.
 <Card
 	title="AI Stats Gateway OpenAPI"
 	icon="list-bullet"
-	href="https://github.com/DanielButler1/AI-Stats/blob/main/apps/docs/openapi/v1/openapi.yaml"
+	href="https://github.com/AI-Stats/AI-Stats/blob/main/apps/docs/openapi/v1/openapi.yaml"
 >
 	View the specification file
 </Card>
@@ -36,12 +36,12 @@ If authentication fails you will receive a **401** error response.
 
 The table below outlines the main endpoints available in the AI Stats Gateway right now:
 
-| Endpoint                    | Description                                                                                    |
-| --------------------------- | ---------------------------------------------------------------------------------------------- |
+| Endpoint                 | Description                                                                                    |
+| ------------------------ | ---------------------------------------------------------------------------------------------- |
 | `POST /chat/completions` | Route chat completions to the healthiest configured provider, with optional streaming via SSE. |
 | `POST /moderation`       | Score text input against provider moderation policies.                                         |
 | `POST /embeddings`       | Generate embeddings for text input.                                                            |
-| `GET /generation`   | Retrieve the stored audit record for a previous request.                                       |
+| `GET /generation`        | Retrieve the stored audit record for a previous request.                                       |
 | `GET /health`            | Inspect provider health, routing scores, and breaker status.                                   |
 | `GET /models`            | List available models across all providers along with their capabilities.                      |
 

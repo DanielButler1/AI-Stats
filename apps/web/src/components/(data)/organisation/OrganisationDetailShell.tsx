@@ -36,7 +36,7 @@ export default async function OrganisationDetailShell({
 						<div className="mt-3">
 							<a
 								href={withUTM(
-									"https://github.com/DanielButler1/AI-Stats",
+									"https://github.com/AI-Stats/AI-Stats",
 									{
 										campaign: "organisation-empty-state",
 										content: "organisation-detail-shell",

@@ -6,7 +6,7 @@ additionalProperties:
     packageVersion: 0.1.0
     packageDoc: false
     hideGenerationTimestamp: true
-    packageUrl: https://github.com/DanielButler1/AI-Stats
+    packageUrl: https://github.com/AI-Stats/AI-Stats
 globalProperty:
     apis: true
     models: true
