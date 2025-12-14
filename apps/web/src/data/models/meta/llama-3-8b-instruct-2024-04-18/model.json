@@ -2,7 +2,7 @@
   "model_id": "meta/llama-3-8b-instruct-2024-04-18",
   "organisation_id": "meta",
   "name": "Llama 3 8B Instruct",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2024-04-18T00:00:00",

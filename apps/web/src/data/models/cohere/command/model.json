@@ -2,7 +2,7 @@
   "model_id": "cohere/command",
   "organisation_id": "cohere",
   "name": "Command",
-  "status": "Available",
+  "status": "Deprecated",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,
