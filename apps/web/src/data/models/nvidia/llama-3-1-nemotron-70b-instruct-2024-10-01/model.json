@@ -2,7 +2,7 @@
   "model_id": "nvidia/llama-3-1-nemotron-70b-instruct-2024-10-01",
   "organisation_id": "nvidia",
   "name": "Llama 3.1 Nemotron 70B Instruct",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2024-10-01T00:00:00",

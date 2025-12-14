@@ -2,7 +2,7 @@
   "model_id": "cohere/command-r+-2024-04-04",
   "organisation_id": "cohere",
   "name": "Command R+",
-  "status": "Available",
+  "status": "Deprecated",
   "previous_model_id": null,
   "announced_date": "2024-04-04T00:00:00",
   "release_date": "2024-04-04T00:00:00",

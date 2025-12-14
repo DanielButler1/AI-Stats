@@ -2,7 +2,7 @@
   "model_id": "nvidia/llama-3-3-nemotron-super-49b-v1-2025-03-18",
   "organisation_id": "nvidia",
   "name": "Llama 3.3 Nemotron Super 49B v1",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2025-03-18T00:00:00",

@@ -2,7 +2,7 @@
   "model_id": "mistral/mistral-small-2024-09-17",
   "organisation_id": "mistral",
   "name": "Mistral Small",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2024-09-17T00:00:00",

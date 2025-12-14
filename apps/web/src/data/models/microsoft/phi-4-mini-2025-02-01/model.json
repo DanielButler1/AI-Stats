@@ -2,7 +2,7 @@
   "model_id": "microsoft/phi-4-mini-2025-02-01",
   "organisation_id": "microsoft",
   "name": "Phi 4 Mini",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2025-02-01T00:00:00",

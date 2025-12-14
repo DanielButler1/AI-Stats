@@ -2,7 +2,7 @@
   "model_id": "ibm/granite-3-3-2b-instruct-2025-04-16",
   "organisation_id": "ibm",
   "name": "Granite 3.3 2B Instruct",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2025-04-16T00:00:00",

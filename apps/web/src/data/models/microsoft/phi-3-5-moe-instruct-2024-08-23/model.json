@@ -2,7 +2,7 @@
   "model_id": "microsoft/phi-3-5-moe-instruct-2024-08-23",
   "organisation_id": "microsoft",
   "name": "Phi 3.5 MoE instruct",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2024-08-23T00:00:00",

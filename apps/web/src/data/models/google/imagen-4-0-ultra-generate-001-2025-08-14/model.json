@@ -2,7 +2,7 @@
   "model_id": "google/imagen-4-0-ultra-generate-001-2025-08-14",
   "organisation_id": "google",
   "name": "Imagen 4.0 Ultra Generate 001",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2025-08-14T00:00:00",
