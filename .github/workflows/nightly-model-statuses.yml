@@ -76,8 +76,14 @@ jobs:
                   author: ${{ steps.bot.outputs.committer }}
                   signoff: true
 
-            - name: Enable auto-merge (squash)
+            - name: Wait for required checks
               if: steps.cpr.outputs.pull-request-number != ''
               env:
                   GH_TOKEN: ${{ steps.app-token.outputs.token }}
-              run: gh pr merge --squash --auto "${{ steps.cpr.outputs.pull-request-number }}"
+              run: gh pr checks "${{ steps.cpr.outputs.pull-request-number }}" --required --watch
+
+            - name: Merge PR (squash)
+              if: steps.cpr.outputs.pull-request-number != ''
+              env:
+                  GH_TOKEN: ${{ steps.app-token.outputs.token }}
+              run: gh pr merge "${{ steps.cpr.outputs.pull-request-number }}" --squash --delete-branch
