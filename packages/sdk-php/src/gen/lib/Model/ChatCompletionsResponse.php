@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ChatCompletionsResponse Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,8 +61,8 @@ class ChatCompletionsResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'object' => 'string',
         'created' => 'int',
         'model' => 'string',
-        'choices' => '\AIStats\\Sdk\Model\ChatChoice[]',
-        'usage' => '\AIStats\\Sdk\Model\Usage'
+        'choices' => '\AIStats\Sdk\Model\ChatChoice[]',
+        'usage' => '\AIStats\Sdk\Model\Usage'
     ];
 
     /**
@@ -435,7 +435,7 @@ class ChatCompletionsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets choices
      *
-     * @return \AIStats\\Sdk\Model\ChatChoice[]|null
+     * @return \AIStats\Sdk\Model\ChatChoice[]|null
      */
     public function getChoices()
     {
@@ -445,7 +445,7 @@ class ChatCompletionsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets choices
      *
-     * @param \AIStats\\Sdk\Model\ChatChoice[]|null $choices choices
+     * @param \AIStats\Sdk\Model\ChatChoice[]|null $choices choices
      *
      * @return self
      */
@@ -462,7 +462,7 @@ class ChatCompletionsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets usage
      *
-     * @return \AIStats\\Sdk\Model\Usage|null
+     * @return \AIStats\Sdk\Model\Usage|null
      */
     public function getUsage()
     {
@@ -472,7 +472,7 @@ class ChatCompletionsResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets usage
      *
-     * @param \AIStats\\Sdk\Model\Usage|null $usage usage
+     * @param \AIStats\Sdk\Model\Usage|null $usage usage
      *
      * @return self
      */

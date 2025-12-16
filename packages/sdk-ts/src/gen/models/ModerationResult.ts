@@ -70,7 +70,7 @@ export function ModerationResultFromJSONTyped(json: any, ignoreDiscriminator: bo
         return json;
     }
     return {
-        
+
         'flagged': json['flagged'] == null ? undefined : json['flagged'],
         'categories': json['categories'] == null ? undefined : ModerationCategoriesFromJSON(json['categories']),
         'category_scores': json['category_scores'] == null ? undefined : ModerationCategoryScoresFromJSON(json['category_scores']),
@@ -87,7 +87,7 @@ export function ModerationResultToJSONTyped(value?: ModerationResult | null, ign
     }
 
     return {
-        
+
         'flagged': value['flagged'],
         'categories': ModerationCategoriesToJSON(value['categories']),
         'category_scores': ModerationCategoryScoresToJSON(value['category_scores']),

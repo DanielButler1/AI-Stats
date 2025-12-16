@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * AudioContentPart Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class AudioContentPart implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'input_audio' => '\AIStats\\Sdk\Model\AudioContentPartInputAudio'
+        'input_audio' => '\AIStats\Sdk\Model\AudioContentPartInputAudio'
     ];
 
     /**
@@ -364,7 +364,7 @@ class AudioContentPart implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets input_audio
      *
-     * @return \AIStats\\Sdk\Model\AudioContentPartInputAudio
+     * @return \AIStats\Sdk\Model\AudioContentPartInputAudio
      */
     public function getInputAudio()
     {
@@ -374,7 +374,7 @@ class AudioContentPart implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets input_audio
      *
-     * @param \AIStats\\Sdk\Model\AudioContentPartInputAudio $input_audio input_audio
+     * @param \AIStats\Sdk\Model\AudioContentPartInputAudio $input_audio input_audio
      *
      * @return self
      */

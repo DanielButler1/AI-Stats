@@ -13,7 +13,7 @@ import { UserIdentityBridge } from "./UserIdentityBridge";
 
 function AnalyticsConsentGate({ children }: { children: ReactNode }) {
 	const { has } = useConsentManager();
-	const analyticsAllowed = useMemo(() => has("measurement"), [has]);
+	const analyticsAllowed = has("measurement");
 
 	return (
 		<>

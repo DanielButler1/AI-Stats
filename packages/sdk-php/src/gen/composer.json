@@ -30,9 +30,9 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": { "AIStats\\\\Sdk\\" : "lib/" }
+        "psr-4": { "AIStats\\Sdk\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "AIStats\\\\Sdk\\Test\\" : "test/" }
+        "psr-4": { "AIStats\\Sdk\\Test\\" : "test/" }
     }
 }

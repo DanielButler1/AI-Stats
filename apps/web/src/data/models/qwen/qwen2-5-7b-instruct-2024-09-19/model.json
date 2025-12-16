@@ -2,7 +2,7 @@
   "model_id": "qwen/qwen2-5-7b-instruct-2024-09-19",
   "organisation_id": "qwen",
   "name": "Qwen2.5 7B Instruct",
-  "status": "Available",
+  "status": null,
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2024-09-19T00:00:00",

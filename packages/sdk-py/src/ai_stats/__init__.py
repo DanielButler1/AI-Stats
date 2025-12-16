@@ -4,15 +4,7 @@ from typing import Any, Dict, Iterator, Optional, Union
 from typing_extensions import NotRequired, TypedDict
 
 from ai_stats_generated import ApiClient, Configuration
-from ai_stats_generated.api.completions_api import CompletionsApi
-from ai_stats_generated.api.images_api import ImagesApi
-from ai_stats_generated.api.moderations_api import ModerationsApi
-from ai_stats_generated.api.video_api import VideoApi
-from ai_stats_generated.api.analytics_api import AnalyticsApi
-from ai_stats_generated.api.audio_api import AudioApi
-from ai_stats_generated.api.responses_api import ResponsesApi
-from ai_stats_generated.api.batch_api import BatchApi
-from ai_stats_generated.api.files_api import FilesApi
+from ai_stats_generated.api.default_api import DefaultApi
 from ai_stats_generated.models.model_list_response import ModelListResponse
 from ai_stats_generated.models.healthz_get200_response import HealthzGet200Response
 from ai_stats_generated.models.chat_completions_request import ChatCompletionsRequest
@@ -86,103 +78,116 @@ class AIStats:
             configuration.timeout = timeout
 
         self._client = ApiClient(configuration=configuration)
-        self._chat_api = CompletionsApi(api_client=self._client)
-        self._images_api = ImagesApi(api_client=self._client)
-        self._moderations_api = ModerationsApi(api_client=self._client)
-        self._video_api = VideoApi(api_client=self._client)
-        self._analytics_api = AnalyticsApi(api_client=self._client)
-        self._audio_api = AudioApi(api_client=self._client)
-        self._responses_api = ResponsesApi(api_client=self._client)
-        self._batch_api = BatchApi(api_client=self._client)
-        self._files_api = FilesApi(api_client=self._client)
+        self._api = DefaultApi(api_client=self._client)
 
     def generate_text(self, request: ChatCompletionsRequest | ChatCompletionsParams) -> ChatCompletionsResponse:
         payload = request if isinstance(request, ChatCompletionsRequest) else ChatCompletionsRequest.model_validate({**request, "stream": False})
-        return self._chat_api.create_chat_completion(chat_completions_request=payload)
+        resp = httpx.post(
+            f"{self._base_url}/chat/completions",
+            headers={**self._headers, "Content-Type": "application/json"},
+            json=payload.model_dump(by_alias=True),
+            timeout=self._client.configuration.timeout or None,
+        )
+        resp.raise_for_status()
+        try:
+            json_body = resp.json()
+        except Exception:
+            json_body = {}
+        return ChatCompletionsResponse.model_validate(json_body or {})
 
     def stream_text(self, request: ChatCompletionsRequest | ChatCompletionsParams) -> Iterator[str]:
         payload = request if isinstance(request, ChatCompletionsRequest) else ChatCompletionsRequest.model_validate({**request, "stream": True})
         client_timeout = self._client.configuration.timeout or None
-        with httpx.stream(
-            "POST",
-            f"{self._base_url}/chat/completions",
-            headers={**self._headers, "Content-Type": "application/json"},
-            json=payload.model_dump(by_alias=True),
-            timeout=client_timeout,
-        ) as resp:
-            resp.raise_for_status()
-            for line in resp.iter_lines():
-                if not line:
-                    continue
-                yield line.decode("utf-8") if isinstance(line, (bytes, bytearray)) else str(line)
+        try:
+            with httpx.stream(
+                "POST",
+                f"{self._base_url}/chat/completions",
+                headers={**self._headers, "Content-Type": "application/json"},
+                json=payload.model_dump(by_alias=True),
+                timeout=client_timeout,
+            ) as resp:
+                resp.raise_for_status()
+                for line in resp.iter_lines():
+                    if not line:
+                        continue
+                    yield line.decode("utf-8") if isinstance(line, (bytes, bytearray)) else str(line)
+        except Exception:
+            raise
 
     def generate_image(self, request: ImageGenerationRequest) -> ImageGenerationResponse:
-        return self._images_api.images_generations_post(image_generation_request=request)
+        return self._api.create_image(request)
 
-    def generate_image_edit(self, request: ImageGenerationRequest) -> ImageGenerationResponse:
-        return self._images_api.images_edits_post(images_edit_request=request)  # type: ignore[arg-type]
+    def generate_image_edit(self, request: dict[str, Any]) -> ImageGenerationResponse:
+        return self._api.create_image_edit(**request)
 
     def generate_moderation(self, request: ModerationRequest) -> ModerationResponse:
-        return self._moderations_api.moderations_post(request)
+        return self._api.create_moderation(request)
 
     def generate_video(self, request: VideoGenerationRequest) -> VideoGenerationResponse:
-        return self._video_api.video_generation_post(video_generation_request=request)
+        return self._api.create_video(request)
 
     def generate_embedding(self, body: dict[str, Any]) -> Any:
-        client_timeout = self._client.configuration.timeout or None
-        resp = httpx.post(
-            f"{self._base_url}/embeddings",
-            headers={**self._headers, "Content-Type": "application/json"},
-            json=body,
-            timeout=client_timeout,
-        )
-        resp.raise_for_status()
-        return resp.json()
+        return self._api.create_embedding(body)
 
     def generate_transcription(self, body: dict[str, Any]) -> Any:
         payload = AudioTranscriptionRequest.model_validate(body)
-        return self._audio_api.audio_transcriptions_post(audio_transcription_request=payload)
+        return self._api.create_transcription(**payload.model_dump(exclude_none=True))
 
     def generate_speech(self, body: dict[str, Any]) -> Any:
         payload = AudioSpeechRequest.model_validate(body)
-        return self._audio_api.audio_speech_post(audio_speech_request=payload)
+        return self._api.create_speech(payload)
 
     def generate_translation(self, body: dict[str, Any]) -> AudioTranscriptionResponse:
         payload = AudioTranslationRequest.model_validate(body)
-        return self._audio_api.audio_translations_post(audio_translation_request=payload)
+        return self._api.create_translation(**payload.model_dump(exclude_none=True))
 
     def generate_response(self, request: ResponsesRequest) -> ResponsesResponse:
         payload = request if isinstance(request, ResponsesRequest) else ResponsesRequest.model_validate(request)
-        return self._responses_api.create_response(responses_request=payload)
-
-    def stream_response(self, request: ResponsesRequest) -> Iterator[str]:
-        payload = request if isinstance(request, ResponsesRequest) else ResponsesRequest.model_validate({**request, "stream": True})
         client_timeout = self._client.configuration.timeout or None
-        with httpx.stream(
-            "POST",
+        resp = httpx.post(
             f"{self._base_url}/responses",
             headers={**self._headers, "Content-Type": "application/json"},
             json=payload.model_dump(by_alias=True),
             timeout=client_timeout,
-        ) as resp:
-            resp.raise_for_status()
-            for line in resp.iter_lines():
-                if not line:
-                    continue
-                yield line.decode("utf-8") if isinstance(line, (bytes, bytearray)) else str(line)
+        )
+        resp.raise_for_status()
+        try:
+            json_body = resp.json()
+        except Exception:
+            json_body = {}
+        return ResponsesResponse.model_validate(json_body or {})
+
+    def stream_response(self, request: ResponsesRequest) -> Iterator[str]:
+        payload = request if isinstance(request, ResponsesRequest) else ResponsesRequest.model_validate({**request, "stream": True})
+        client_timeout = self._client.configuration.timeout or None
+        try:
+            with httpx.stream(
+                "POST",
+                f"{self._base_url}/responses",
+                headers={**self._headers, "Content-Type": "application/json"},
+                json=payload.model_dump(by_alias=True),
+                timeout=client_timeout,
+            ) as resp:
+                resp.raise_for_status()
+                for line in resp.iter_lines():
+                    if not line:
+                        continue
+                    yield line.decode("utf-8") if isinstance(line, (bytes, bytearray)) else str(line)
+        except Exception:
+            raise
 
     def create_batch(self, request: BatchRequest | dict[str, Any]) -> BatchResponse:
         payload = request if isinstance(request, BatchRequest) else BatchRequest.model_validate(request)
-        return self._batch_api.batches_post(batch_request=payload)
+        return self._api.create_batch(payload)
 
     def get_batch(self, batch_id: str) -> BatchResponse:
-        return self._batch_api.batches_batch_id_get(batch_id=batch_id)
+        return self._api.retrieve_batch(batch_id)
 
     def list_files(self) -> FileListResponse:
-        return self._files_api.files_get()
+        return self._api.list_files()
 
     def get_file(self, file_id: str) -> FileObject:
-        return self._files_api.files_file_id_get(file_id=file_id)
+        return self._api.retrieve_file(file_id)
 
     def upload_file(self, *, purpose: Optional[str] = None, file: Any = None) -> FileObject:
         if file is None:
@@ -202,17 +207,10 @@ class AIStats:
 
     def get_models(self, params: dict[str, Any] | None = None) -> ModelListResponse:
         params = params or {}
-        resp = httpx.get(
-            f"{self._base_url}/models",
-            headers=self._headers,
-            params=params,
-            timeout=self._client.configuration.timeout or None,
-        )
-        resp.raise_for_status()
-        return ModelListResponse.model_validate(resp.json())
+        return self._api.list_models(**params)
 
     def get_health(self) -> HealthzGet200Response:
-        return self._analytics_api.healthz_get()
+        return self._api.healthz()
 
     def get_generation(self, generation_id: str) -> Any:
         resp = httpx.get(

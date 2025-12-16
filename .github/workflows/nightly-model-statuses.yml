@@ -80,7 +80,19 @@ jobs:
               if: steps.cpr.outputs.pull-request-number != ''
               env:
                   GH_TOKEN: ${{ steps.app-token.outputs.token }}
-              run: gh pr checks "${{ steps.cpr.outputs.pull-request-number }}" --required --watch
+              run: |
+                  pr="${{ steps.cpr.outputs.pull-request-number }}"
+
+                  # Wait until GitHub starts reporting required checks for this PR
+                  for i in {1..30}; do
+                    if gh pr checks "$pr" --required >/dev/null 2>&1; then
+                      break
+                    fi
+                    echo "Required checks not visible yet, retrying ($i/30)..."
+                    sleep 10
+                  done
+
+                  gh pr checks "$pr" --required --watch
 
             - name: Merge PR (squash)
               if: steps.cpr.outputs.pull-request-number != ''

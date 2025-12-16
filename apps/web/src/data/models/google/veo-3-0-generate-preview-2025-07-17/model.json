@@ -2,7 +2,7 @@
   "model_id": "google/veo-3-0-generate-preview-2025-07-17",
   "organisation_id": "google",
   "name": "Veo 3.0 Generate Preview",
-  "status": "Deprecated",
+  "status": null,
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2025-07-17T00:00:00",

@@ -41,13 +41,13 @@ import {
     ChatCompletionsRequestToolsInnerToJSON,
     ChatCompletionsRequestToolsInnerToJSONTyped,
 } from './ChatCompletionsRequestToolsInner';
-import type { ChatCompletionsRequestReasoning } from './ChatCompletionsRequestReasoning';
+import type { ReasoningConfig } from './ReasoningConfig';
 import {
-    ChatCompletionsRequestReasoningFromJSON,
-    ChatCompletionsRequestReasoningFromJSONTyped,
-    ChatCompletionsRequestReasoningToJSON,
-    ChatCompletionsRequestReasoningToJSONTyped,
-} from './ChatCompletionsRequestReasoning';
+    ReasoningConfigFromJSON,
+    ReasoningConfigFromJSONTyped,
+    ReasoningConfigToJSON,
+    ReasoningConfigToJSONTyped,
+} from './ReasoningConfig';
 
 /**
  * 
@@ -75,10 +75,10 @@ export interface ChatCompletionsRequest {
     messages: Array<ChatMessage>;
     /**
      * 
-     * @type {ChatCompletionsRequestReasoning}
+     * @type {ReasoningConfig}
      * @memberof ChatCompletionsRequest
      */
-    reasoning?: ChatCompletionsRequestReasoning;
+    reasoning?: ReasoningConfig;
     /**
      * 
      * @type {number}
@@ -230,11 +230,11 @@ export function ChatCompletionsRequestFromJSONTyped(json: any, ignoreDiscriminat
         return json;
     }
     return {
-        
+
         'model': json['model'],
         'system': json['system'] == null ? undefined : json['system'],
         'messages': ((json['messages'] as Array<any>).map(ChatMessageFromJSON)),
-        'reasoning': json['reasoning'] == null ? undefined : ChatCompletionsRequestReasoningFromJSON(json['reasoning']),
+        'reasoning': json['reasoning'] == null ? undefined : ReasoningConfigFromJSON(json['reasoning']),
         'frequency_penalty': json['frequency_penalty'] == null ? undefined : json['frequency_penalty'],
         'logit_bias': json['logit_bias'] == null ? undefined : json['logit_bias'],
         'max_output_tokens': json['max_output_tokens'] == null ? undefined : json['max_output_tokens'],
@@ -268,11 +268,11 @@ export function ChatCompletionsRequestToJSONTyped(value?: ChatCompletionsRequest
     }
 
     return {
-        
+
         'model': value['model'],
         'system': value['system'],
         'messages': ((value['messages'] as Array<any>).map(ChatMessageToJSON)),
-        'reasoning': ChatCompletionsRequestReasoningToJSON(value['reasoning']),
+        'reasoning': ReasoningConfigToJSON(value['reasoning']),
         'frequency_penalty': value['frequency_penalty'],
         'logit_bias': value['logit_bias'],
         'max_output_tokens': value['max_output_tokens'],

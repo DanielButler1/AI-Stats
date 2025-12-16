@@ -48,7 +48,7 @@ export enum OrganisationId {
 }
 
 
-export function instanceOfOrganisationId(value: any): boolean {
+export function instanceOfOrganisationId(value: any): value is OrganisationId {
     for (const key in OrganisationId) {
         if (Object.prototype.hasOwnProperty.call(OrganisationId, key)) {
             if (OrganisationId[key as keyof typeof OrganisationId] === value) {
@@ -74,4 +74,3 @@ export function OrganisationIdToJSON(value?: OrganisationId | null): any {
 export function OrganisationIdToJSONTyped(value: any, ignoreDiscriminator: boolean): OrganisationId {
     return value as OrganisationId;
 }
-

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * BatchResponse Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -75,7 +75,7 @@ class BatchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'expired_at' => 'int',
         'cancelling_at' => 'int',
         'cancelled_at' => 'int',
-        'request_counts' => '\AIStats\\Sdk\Model\BatchRequestCounts',
+        'request_counts' => '\AIStats\Sdk\Model\BatchRequestCounts',
         'metadata' => 'object'
     ];
 
@@ -911,7 +911,7 @@ class BatchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets request_counts
      *
-     * @return \AIStats\\Sdk\Model\BatchRequestCounts|null
+     * @return \AIStats\Sdk\Model\BatchRequestCounts|null
      */
     public function getRequestCounts()
     {
@@ -921,7 +921,7 @@ class BatchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets request_counts
      *
-     * @param \AIStats\\Sdk\Model\BatchRequestCounts|null $request_counts request_counts
+     * @param \AIStats\Sdk\Model\BatchRequestCounts|null $request_counts request_counts
      *
      * @return self
      */

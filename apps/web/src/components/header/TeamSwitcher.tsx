@@ -11,7 +11,7 @@ import {
 	Key as KeyIcon,
 	BarChart2,
 	Check,
-	Pencil,
+	Settings,
 	LifeBuoy,
 	Users,
 } from "lucide-react";
@@ -119,11 +119,11 @@ export default function TeamSwitcher({
 							onSelect={(e) => {
 								e.preventDefault();
 								setOpen(false);
-								router.push("/editor");
+								router.push("/internal");
 							}}
 						>
-							<Pencil className="h-4 w-4" />
-							<span className="mr-2">Editor</span>
+							<Settings className="h-4 w-4" />
+							<span className="mr-2">Internal</span>
 						</DropdownMenuItem>
 						<hr className="my-1 border-zinc-200/70 dark:border-zinc-800" />
 					</>

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ListModels200Response Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,7 +61,7 @@ class ListModels200Response implements ModelInterface, ArrayAccess, \JsonSeriali
         'limit' => 'int',
         'offset' => 'int',
         'total' => 'int',
-        'models' => '\AIStats\\Sdk\Model\Model[]'
+        'models' => '\AIStats\Sdk\Model\Model[]'
     ];
 
     /**
@@ -428,7 +428,7 @@ class ListModels200Response implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets models
      *
-     * @return \AIStats\\Sdk\Model\Model[]|null
+     * @return \AIStats\Sdk\Model\Model[]|null
      */
     public function getModels()
     {
@@ -438,7 +438,7 @@ class ListModels200Response implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets models
      *
-     * @param \AIStats\\Sdk\Model\Model[]|null $models models
+     * @param \AIStats\Sdk\Model\Model[]|null $models models
      *
      * @return self
      */

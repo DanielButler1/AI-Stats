@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ListFilesResponse Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class ListFilesResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'object' => 'string',
-        'data' => '\AIStats\\Sdk\Model\FileResponse[]'
+        'data' => '\AIStats\Sdk\Model\FileResponse[]'
     ];
 
     /**
@@ -326,7 +326,7 @@ class ListFilesResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets data
      *
-     * @return \AIStats\\Sdk\Model\FileResponse[]|null
+     * @return \AIStats\Sdk\Model\FileResponse[]|null
      */
     public function getData()
     {
@@ -336,7 +336,7 @@ class ListFilesResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets data
      *
-     * @param \AIStats\\Sdk\Model\FileResponse[]|null $data data
+     * @param \AIStats\Sdk\Model\FileResponse[]|null $data data
      *
      * @return self
      */

@@ -49,16 +49,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$batch_request = new \AIStats\\Sdk\Model\BatchRequest(); // \AIStats\\Sdk\Model\BatchRequest
+$batch_request = new \AIStats\Sdk\Model\BatchRequest(); // \AIStats\Sdk\Model\BatchRequest
 
 try {
     $result = $apiInstance->createBatch($batch_request);
@@ -109,7 +109,6 @@ Class | Method | HTTP request | Description
 - [BenchmarkId](docs/Model/BenchmarkId.md)
 - [ChatChoice](docs/Model/ChatChoice.md)
 - [ChatCompletionsRequest](docs/Model/ChatCompletionsRequest.md)
-- [ChatCompletionsRequestReasoning](docs/Model/ChatCompletionsRequestReasoning.md)
 - [ChatCompletionsRequestResponseFormat](docs/Model/ChatCompletionsRequestResponseFormat.md)
 - [ChatCompletionsRequestResponseFormatOneOf](docs/Model/ChatCompletionsRequestResponseFormatOneOf.md)
 - [ChatCompletionsRequestToolChoice](docs/Model/ChatCompletionsRequestToolChoice.md)

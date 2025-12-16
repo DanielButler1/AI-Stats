@@ -1,7 +1,7 @@
 {
 	"name": "@ai-stats/sdk",
 	"description": "AI Stats Gateway SDK for TypeScript/JavaScript",
-	"version": "0.2.0",
+	"version": "0.2.1-alpha.0",
 	"type": "module",
 	"private": false,
 	"license": "MIT",
@@ -25,14 +25,15 @@
 		"clean": "rimraf dist src/gen",
 		"gen": "pnpm -w openapi:gen:ts",
 		"build": "tsc -p tsconfig.build.json",
-		"test": "echo \"No automated tests defined yet.\"",
-		"pack:dry": "npm pack --dry-run",
-		"test:smoke": "tsx ./scripts/smoke.ts"
+		"test": "echo \"No tests configured\"",
+		"pack:dry": "npm pack --dry-run"
 	},
 	"devDependencies": {
-		"typescript": "^5.6.3",
+		"@types/node": "^25.0.2",
+		"rimraf": "^6.0.0",
+		"ts-node": "^10.9.2",
 		"tsx": "^4.7.0",
-		"rimraf": "^6.0.0"
+		"typescript": "^5.6.3"
 	},
 	"repository": {
 		"type": "git",

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ModerationsRequest Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class ModerationsRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'model' => 'string',
         'meta' => 'bool',
-        'input' => '\AIStats\\Sdk\Model\ModerationsRequestInput'
+        'input' => '\AIStats\Sdk\Model\ModerationsRequestInput'
     ];
 
     /**
@@ -366,7 +366,7 @@ class ModerationsRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets input
      *
-     * @return \AIStats\\Sdk\Model\ModerationsRequestInput
+     * @return \AIStats\Sdk\Model\ModerationsRequestInput
      */
     public function getInput()
     {
@@ -376,7 +376,7 @@ class ModerationsRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets input
      *
-     * @param \AIStats\\Sdk\Model\ModerationsRequestInput $input input
+     * @param \AIStats\Sdk\Model\ModerationsRequestInput $input input
      *
      * @return self
      */

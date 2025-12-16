@@ -1,4 +1,4 @@
-# AIStats\\Sdk\DefaultApi
+# AIStats\Sdk\DefaultApi
 
 
 
@@ -31,7 +31,7 @@ All URIs are relative to https://api.ai-stats.phaseo.app/v1, except if the opera
 ## `createBatch()`
 
 ```php
-createBatch($batch_request): \AIStats\\Sdk\Model\BatchResponse
+createBatch($batch_request): \AIStats\Sdk\Model\BatchResponse
 ```
 
 Create batch
@@ -46,16 +46,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$batch_request = new \AIStats\\Sdk\Model\BatchRequest(); // \AIStats\\Sdk\Model\BatchRequest
+$batch_request = new \AIStats\Sdk\Model\BatchRequest(); // \AIStats\Sdk\Model\BatchRequest
 
 try {
     $result = $apiInstance->createBatch($batch_request);
@@ -69,11 +69,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **batch_request** | [**\AIStats\\Sdk\Model\BatchRequest**](../Model/BatchRequest.md)|  | |
+| **batch_request** | [**\AIStats\Sdk\Model\BatchRequest**](../Model/BatchRequest.md)|  | |
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\BatchResponse**](../Model/BatchResponse.md)
+[**\AIStats\Sdk\Model\BatchResponse**](../Model/BatchResponse.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ try {
 ## `createChatCompletion()`
 
 ```php
-createChatCompletion($chat_completions_request): \AIStats\\Sdk\Model\ChatCompletionsResponse
+createChatCompletion($chat_completions_request): \AIStats\Sdk\Model\ChatCompletionsResponse
 ```
 
 Create chat completion
@@ -106,16 +106,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$chat_completions_request = new \AIStats\\Sdk\Model\ChatCompletionsRequest(); // \AIStats\\Sdk\Model\ChatCompletionsRequest
+$chat_completions_request = new \AIStats\Sdk\Model\ChatCompletionsRequest(); // \AIStats\Sdk\Model\ChatCompletionsRequest
 
 try {
     $result = $apiInstance->createChatCompletion($chat_completions_request);
@@ -129,11 +129,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **chat_completions_request** | [**\AIStats\\Sdk\Model\ChatCompletionsRequest**](../Model/ChatCompletionsRequest.md)|  | |
+| **chat_completions_request** | [**\AIStats\Sdk\Model\ChatCompletionsRequest**](../Model/ChatCompletionsRequest.md)|  | |
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\ChatCompletionsResponse**](../Model/ChatCompletionsResponse.md)
+[**\AIStats\Sdk\Model\ChatCompletionsResponse**](../Model/ChatCompletionsResponse.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ try {
 ## `createEmbedding()`
 
 ```php
-createEmbedding($embeddings_request): \AIStats\\Sdk\Model\EmbeddingsResponse
+createEmbedding($embeddings_request): \AIStats\Sdk\Model\EmbeddingsResponse
 ```
 
 Create embeddings
@@ -166,16 +166,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$embeddings_request = new \AIStats\\Sdk\Model\EmbeddingsRequest(); // \AIStats\\Sdk\Model\EmbeddingsRequest
+$embeddings_request = new \AIStats\Sdk\Model\EmbeddingsRequest(); // \AIStats\Sdk\Model\EmbeddingsRequest
 
 try {
     $result = $apiInstance->createEmbedding($embeddings_request);
@@ -189,11 +189,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **embeddings_request** | [**\AIStats\\Sdk\Model\EmbeddingsRequest**](../Model/EmbeddingsRequest.md)|  | |
+| **embeddings_request** | [**\AIStats\Sdk\Model\EmbeddingsRequest**](../Model/EmbeddingsRequest.md)|  | |
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\EmbeddingsResponse**](../Model/EmbeddingsResponse.md)
+[**\AIStats\Sdk\Model\EmbeddingsResponse**](../Model/EmbeddingsResponse.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ try {
 ## `createImage()`
 
 ```php
-createImage($images_generation_request): \AIStats\\Sdk\Model\ImagesGenerationResponse
+createImage($images_generation_request): \AIStats\Sdk\Model\ImagesGenerationResponse
 ```
 
 Create image
@@ -226,16 +226,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$images_generation_request = new \AIStats\\Sdk\Model\ImagesGenerationRequest(); // \AIStats\\Sdk\Model\ImagesGenerationRequest
+$images_generation_request = new \AIStats\Sdk\Model\ImagesGenerationRequest(); // \AIStats\Sdk\Model\ImagesGenerationRequest
 
 try {
     $result = $apiInstance->createImage($images_generation_request);
@@ -249,11 +249,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **images_generation_request** | [**\AIStats\\Sdk\Model\ImagesGenerationRequest**](../Model/ImagesGenerationRequest.md)|  | |
+| **images_generation_request** | [**\AIStats\Sdk\Model\ImagesGenerationRequest**](../Model/ImagesGenerationRequest.md)|  | |
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\ImagesGenerationResponse**](../Model/ImagesGenerationResponse.md)
+[**\AIStats\Sdk\Model\ImagesGenerationResponse**](../Model/ImagesGenerationResponse.md)
 
 ### Authorization
 
@@ -271,7 +271,7 @@ try {
 ## `createImageEdit()`
 
 ```php
-createImageEdit($model, $image, $prompt, $mask, $size, $n, $user, $meta, $usage): \AIStats\\Sdk\Model\ImagesEditResponse
+createImageEdit($model, $image, $prompt, $mask, $size, $n, $user, $meta, $usage): \AIStats\Sdk\Model\ImagesEditResponse
 ```
 
 Create image edit
@@ -286,10 +286,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -329,7 +329,7 @@ try {
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\ImagesEditResponse**](../Model/ImagesEditResponse.md)
+[**\AIStats\Sdk\Model\ImagesEditResponse**](../Model/ImagesEditResponse.md)
 
 ### Authorization
 
@@ -347,7 +347,7 @@ try {
 ## `createModeration()`
 
 ```php
-createModeration($moderations_request): \AIStats\\Sdk\Model\ModerationsResponse
+createModeration($moderations_request): \AIStats\Sdk\Model\ModerationsResponse
 ```
 
 Create moderation
@@ -362,16 +362,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$moderations_request = new \AIStats\\Sdk\Model\ModerationsRequest(); // \AIStats\\Sdk\Model\ModerationsRequest
+$moderations_request = new \AIStats\Sdk\Model\ModerationsRequest(); // \AIStats\Sdk\Model\ModerationsRequest
 
 try {
     $result = $apiInstance->createModeration($moderations_request);
@@ -385,11 +385,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **moderations_request** | [**\AIStats\\Sdk\Model\ModerationsRequest**](../Model/ModerationsRequest.md)|  | |
+| **moderations_request** | [**\AIStats\Sdk\Model\ModerationsRequest**](../Model/ModerationsRequest.md)|  | |
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\ModerationsResponse**](../Model/ModerationsResponse.md)
+[**\AIStats\Sdk\Model\ModerationsResponse**](../Model/ModerationsResponse.md)
 
 ### Authorization
 
@@ -407,7 +407,7 @@ try {
 ## `createResponse()`
 
 ```php
-createResponse($responses_request): \AIStats\\Sdk\Model\ResponsesResponse
+createResponse($responses_request): \AIStats\Sdk\Model\ResponsesResponse
 ```
 
 Create response
@@ -422,16 +422,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$responses_request = new \AIStats\\Sdk\Model\ResponsesRequest(); // \AIStats\\Sdk\Model\ResponsesRequest
+$responses_request = new \AIStats\Sdk\Model\ResponsesRequest(); // \AIStats\Sdk\Model\ResponsesRequest
 
 try {
     $result = $apiInstance->createResponse($responses_request);
@@ -445,11 +445,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **responses_request** | [**\AIStats\\Sdk\Model\ResponsesRequest**](../Model/ResponsesRequest.md)|  | |
+| **responses_request** | [**\AIStats\Sdk\Model\ResponsesRequest**](../Model/ResponsesRequest.md)|  | |
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\ResponsesResponse**](../Model/ResponsesResponse.md)
+[**\AIStats\Sdk\Model\ResponsesResponse**](../Model/ResponsesResponse.md)
 
 ### Authorization
 
@@ -482,16 +482,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$audio_speech_request = new \AIStats\\Sdk\Model\AudioSpeechRequest(); // \AIStats\\Sdk\Model\AudioSpeechRequest
+$audio_speech_request = new \AIStats\Sdk\Model\AudioSpeechRequest(); // \AIStats\Sdk\Model\AudioSpeechRequest
 
 try {
     $result = $apiInstance->createSpeech($audio_speech_request);
@@ -505,7 +505,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **audio_speech_request** | [**\AIStats\\Sdk\Model\AudioSpeechRequest**](../Model/AudioSpeechRequest.md)|  | |
+| **audio_speech_request** | [**\AIStats\Sdk\Model\AudioSpeechRequest**](../Model/AudioSpeechRequest.md)|  | |
 
 ### Return type
 
@@ -527,7 +527,7 @@ try {
 ## `createTranscription()`
 
 ```php
-createTranscription($model, $audio_url, $audio_b64, $language): \AIStats\\Sdk\Model\AudioTranscriptionResponse
+createTranscription($model, $audio_url, $audio_b64, $language): \AIStats\Sdk\Model\AudioTranscriptionResponse
 ```
 
 Create transcription
@@ -542,10 +542,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -575,7 +575,7 @@ try {
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\AudioTranscriptionResponse**](../Model/AudioTranscriptionResponse.md)
+[**\AIStats\Sdk\Model\AudioTranscriptionResponse**](../Model/AudioTranscriptionResponse.md)
 
 ### Authorization
 
@@ -593,7 +593,7 @@ try {
 ## `createTranslation()`
 
 ```php
-createTranslation($model, $audio_url, $audio_b64, $language, $prompt, $temperature): \AIStats\\Sdk\Model\AudioTranslationResponse
+createTranslation($model, $audio_url, $audio_b64, $language, $prompt, $temperature): \AIStats\Sdk\Model\AudioTranslationResponse
 ```
 
 Create translation
@@ -608,10 +608,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -645,7 +645,7 @@ try {
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\AudioTranslationResponse**](../Model/AudioTranslationResponse.md)
+[**\AIStats\Sdk\Model\AudioTranslationResponse**](../Model/AudioTranslationResponse.md)
 
 ### Authorization
 
@@ -663,7 +663,7 @@ try {
 ## `createVideo()`
 
 ```php
-createVideo($video_generation_request): \AIStats\\Sdk\Model\VideoGenerationResponse
+createVideo($video_generation_request): \AIStats\Sdk\Model\VideoGenerationResponse
 ```
 
 Create video
@@ -678,16 +678,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$video_generation_request = new \AIStats\\Sdk\Model\VideoGenerationRequest(); // \AIStats\\Sdk\Model\VideoGenerationRequest
+$video_generation_request = new \AIStats\Sdk\Model\VideoGenerationRequest(); // \AIStats\Sdk\Model\VideoGenerationRequest
 
 try {
     $result = $apiInstance->createVideo($video_generation_request);
@@ -701,11 +701,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **video_generation_request** | [**\AIStats\\Sdk\Model\VideoGenerationRequest**](../Model/VideoGenerationRequest.md)|  | |
+| **video_generation_request** | [**\AIStats\Sdk\Model\VideoGenerationRequest**](../Model/VideoGenerationRequest.md)|  | |
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\VideoGenerationResponse**](../Model/VideoGenerationResponse.md)
+[**\AIStats\Sdk\Model\VideoGenerationResponse**](../Model/VideoGenerationResponse.md)
 
 ### Authorization
 
@@ -723,7 +723,7 @@ try {
 ## `getAnalytics()`
 
 ```php
-getAnalytics($get_analytics_request): \AIStats\\Sdk\Model\GetAnalytics200Response
+getAnalytics($get_analytics_request): \AIStats\Sdk\Model\GetAnalytics200Response
 ```
 
 Get analytics
@@ -738,16 +738,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$get_analytics_request = new \AIStats\\Sdk\Model\GetAnalyticsRequest(); // \AIStats\\Sdk\Model\GetAnalyticsRequest
+$get_analytics_request = new \AIStats\Sdk\Model\GetAnalyticsRequest(); // \AIStats\Sdk\Model\GetAnalyticsRequest
 
 try {
     $result = $apiInstance->getAnalytics($get_analytics_request);
@@ -761,11 +761,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **get_analytics_request** | [**\AIStats\\Sdk\Model\GetAnalyticsRequest**](../Model/GetAnalyticsRequest.md)|  | |
+| **get_analytics_request** | [**\AIStats\Sdk\Model\GetAnalyticsRequest**](../Model/GetAnalyticsRequest.md)|  | |
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\GetAnalytics200Response**](../Model/GetAnalytics200Response.md)
+[**\AIStats\Sdk\Model\GetAnalytics200Response**](../Model/GetAnalytics200Response.md)
 
 ### Authorization
 
@@ -783,7 +783,7 @@ try {
 ## `getGeneration()`
 
 ```php
-getGeneration($id): \AIStats\\Sdk\Model\GenerationResponse
+getGeneration($id): \AIStats\Sdk\Model\GenerationResponse
 ```
 
 Get generation
@@ -798,10 +798,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -825,7 +825,7 @@ try {
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\GenerationResponse**](../Model/GenerationResponse.md)
+[**\AIStats\Sdk\Model\GenerationResponse**](../Model/GenerationResponse.md)
 
 ### Authorization
 
@@ -843,7 +843,7 @@ try {
 ## `healthz()`
 
 ```php
-healthz(): \AIStats\\Sdk\Model\Healthz200Response
+healthz(): \AIStats\Sdk\Model\Healthz200Response
 ```
 
 Health check
@@ -858,10 +858,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -882,7 +882,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\Healthz200Response**](../Model/Healthz200Response.md)
+[**\AIStats\Sdk\Model\Healthz200Response**](../Model/Healthz200Response.md)
 
 ### Authorization
 
@@ -900,7 +900,7 @@ This endpoint does not need any parameter.
 ## `listFiles()`
 
 ```php
-listFiles(): \AIStats\\Sdk\Model\ListFilesResponse
+listFiles(): \AIStats\Sdk\Model\ListFilesResponse
 ```
 
 List files
@@ -915,10 +915,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -939,7 +939,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\ListFilesResponse**](../Model/ListFilesResponse.md)
+[**\AIStats\Sdk\Model\ListFilesResponse**](../Model/ListFilesResponse.md)
 
 ### Authorization
 
@@ -957,7 +957,7 @@ This endpoint does not need any parameter.
 ## `listModels()`
 
 ```php
-listModels($endpoints, $organisation, $input_types, $output_types, $params, $limit, $offset): \AIStats\\Sdk\Model\ListModels200Response
+listModels($endpoints, $organisation, $input_types, $output_types, $params, $limit, $offset): \AIStats\Sdk\Model\ListModels200Response
 ```
 
 List models
@@ -972,17 +972,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $endpoints = array('endpoints_example'); // string[] | Filter by endpoints
-$organisation = new \AIStats\\Sdk\Model\\AIStats\\Sdk\Model\ListModelsOrganisationParameter(); // \AIStats\\Sdk\Model\ListModelsOrganisationParameter | Filter by organisation
+$organisation = new \AIStats\Sdk\Model\\AIStats\Sdk\Model\ListModelsOrganisationParameter(); // \AIStats\Sdk\Model\ListModelsOrganisationParameter | Filter by organisation
 $input_types = array('input_types_example'); // string[] | Filter by input types
 $output_types = array('output_types_example'); // string[] | Filter by output types
 $params = array('params_example'); // string[] | Filter by params
@@ -1002,7 +1002,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **endpoints** | [**string[]**](../Model/string.md)| Filter by endpoints | [optional] |
-| **organisation** | [**\AIStats\\Sdk\Model\ListModelsOrganisationParameter**](../Model/.md)| Filter by organisation | [optional] |
+| **organisation** | [**\AIStats\Sdk\Model\ListModelsOrganisationParameter**](../Model/.md)| Filter by organisation | [optional] |
 | **input_types** | [**string[]**](../Model/string.md)| Filter by input types | [optional] |
 | **output_types** | [**string[]**](../Model/string.md)| Filter by output types | [optional] |
 | **params** | [**string[]**](../Model/string.md)| Filter by params | [optional] |
@@ -1011,7 +1011,7 @@ try {
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\ListModels200Response**](../Model/ListModels200Response.md)
+[**\AIStats\Sdk\Model\ListModels200Response**](../Model/ListModels200Response.md)
 
 ### Authorization
 
@@ -1029,7 +1029,7 @@ try {
 ## `retrieveBatch()`
 
 ```php
-retrieveBatch($batch_id): \AIStats\\Sdk\Model\BatchResponse
+retrieveBatch($batch_id): \AIStats\Sdk\Model\BatchResponse
 ```
 
 Retrieve batch
@@ -1044,10 +1044,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1071,7 +1071,7 @@ try {
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\BatchResponse**](../Model/BatchResponse.md)
+[**\AIStats\Sdk\Model\BatchResponse**](../Model/BatchResponse.md)
 
 ### Authorization
 
@@ -1089,7 +1089,7 @@ try {
 ## `retrieveFile()`
 
 ```php
-retrieveFile($file_id): \AIStats\\Sdk\Model\FileResponse
+retrieveFile($file_id): \AIStats\Sdk\Model\FileResponse
 ```
 
 Retrieve file
@@ -1104,10 +1104,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1131,7 +1131,7 @@ try {
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\FileResponse**](../Model/FileResponse.md)
+[**\AIStats\Sdk\Model\FileResponse**](../Model/FileResponse.md)
 
 ### Authorization
 
@@ -1149,7 +1149,7 @@ try {
 ## `root()`
 
 ```php
-root(): \AIStats\\Sdk\Model\Root200Response
+root(): \AIStats\Sdk\Model\Root200Response
 ```
 
 Root endpoint
@@ -1164,10 +1164,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1188,7 +1188,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\Root200Response**](../Model/Root200Response.md)
+[**\AIStats\Sdk\Model\Root200Response**](../Model/Root200Response.md)
 
 ### Authorization
 
@@ -1206,7 +1206,7 @@ This endpoint does not need any parameter.
 ## `uploadFile()`
 
 ```php
-uploadFile($file, $purpose): \AIStats\\Sdk\Model\FileResponse
+uploadFile($file, $purpose): \AIStats\Sdk\Model\FileResponse
 ```
 
 Upload file
@@ -1221,10 +1221,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: BearerAuth
-$config = AIStats\\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = AIStats\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new AIStats\\Sdk\Api\DefaultApi(
+$apiInstance = new AIStats\Sdk\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1250,7 +1250,7 @@ try {
 
 ### Return type
 
-[**\AIStats\\Sdk\Model\FileResponse**](../Model/FileResponse.md)
+[**\AIStats\Sdk\Model\FileResponse**](../Model/FileResponse.md)
 
 ### Authorization
 

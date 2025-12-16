@@ -163,27 +163,10 @@ export const ChatCompletionsSchema = z.object({
             }),
         ])
     ).min(1),
-    reasoning: z
-        .union([
-            z.object({
-                effort: z.enum(["none", "minimal", "low", "medium", "high", "xhigh"]).optional().default("medium"),
-                summary: z.enum(["auto", "concise", "detailed"]).optional().default("auto"),
-            }),
-            z.array(
-                z.object({
-                    effort: z.enum(["none", "minimal", "low", "medium", "high", "xhigh"]).optional().default("medium"),
-                    summary: z.enum(["auto", "concise", "detailed"]).optional().default("auto"),
-                })
-            ),
-        ])
-        .optional()
-        .transform((value) => {
-            if (!value) return undefined;
-            if (Array.isArray(value)) {
-                return value[0] ?? undefined;
-            }
-            return value;
-        }),
+    reasoning: z.object({
+        effort: z.enum(["none", "minimal", "low", "medium", "high", "xhigh"]).optional().default("medium"),
+        summary: z.enum(["auto", "concise", "detailed"]).optional().default("auto"),
+    }).optional(),
     frequency_penalty: z.number().min(-2).max(2).optional(),
     logit_bias: z.record(z.number()).optional(),
     max_output_tokens: z.number().int().positive().optional(),

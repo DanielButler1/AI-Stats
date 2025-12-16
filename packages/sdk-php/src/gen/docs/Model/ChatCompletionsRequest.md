@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **model** | **string** |  |
 **system** | **string** |  | [optional]
-**messages** | [**\AIStats\\Sdk\Model\ChatMessage[]**](ChatMessage.md) |  |
-**reasoning** | [**\AIStats\\Sdk\Model\ChatCompletionsRequestReasoning**](ChatCompletionsRequestReasoning.md) |  | [optional]
+**messages** | [**\AIStats\Sdk\Model\ChatMessage[]**](ChatMessage.md) |  |
+**reasoning** | [**\AIStats\Sdk\Model\ReasoningConfig**](ReasoningConfig.md) |  | [optional]
 **frequency_penalty** | **float** |  | [optional]
 **logit_bias** | **array<string,float>** |  | [optional]
 **max_output_tokens** | **int** |  | [optional]
@@ -16,15 +16,15 @@ Name | Type | Description | Notes
 **seed** | **int** |  | [optional]
 **stream** | **bool** |  | [optional] [default to false]
 **temperature** | **float** |  | [optional] [default to 1]
-**tools** | [**\AIStats\\Sdk\Model\ChatCompletionsRequestToolsInner[]**](ChatCompletionsRequestToolsInner.md) |  | [optional]
+**tools** | [**\AIStats\Sdk\Model\ChatCompletionsRequestToolsInner[]**](ChatCompletionsRequestToolsInner.md) |  | [optional]
 **max_tool_calls** | **int** |  | [optional]
 **parallel_tool_calls** | **bool** |  | [optional] [default to true]
-**tool_choice** | [**\AIStats\\Sdk\Model\ChatCompletionsRequestToolChoice**](ChatCompletionsRequestToolChoice.md) |  | [optional]
+**tool_choice** | [**\AIStats\Sdk\Model\ChatCompletionsRequestToolChoice**](ChatCompletionsRequestToolChoice.md) |  | [optional]
 **top_k** | **int** |  | [optional]
 **logprobs** | **bool** |  | [optional] [default to false]
 **top_logprobs** | **int** |  | [optional]
 **top_p** | **float** |  | [optional]
-**response_format** | [**\AIStats\\Sdk\Model\ChatCompletionsRequestResponseFormat**](ChatCompletionsRequestResponseFormat.md) |  | [optional]
+**response_format** | [**\AIStats\Sdk\Model\ChatCompletionsRequestResponseFormat**](ChatCompletionsRequestResponseFormat.md) |  | [optional]
 **usage** | **bool** |  | [optional]
 **user_id** | **string** |  | [optional]
 **service_tier** | **string** |  | [optional] [default to 'standard']

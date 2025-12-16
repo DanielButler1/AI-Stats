@@ -24,7 +24,7 @@ type ChatCompletionsRequest struct {
 	Model string `json:"model"`
 	System *string `json:"system,omitempty"`
 	Messages []ChatMessage `json:"messages"`
-	Reasoning *ChatCompletionsRequestReasoning `json:"reasoning,omitempty"`
+	Reasoning *ReasoningConfig `json:"reasoning,omitempty"`
 	FrequencyPenalty *float32 `json:"frequency_penalty,omitempty"`
 	LogitBias *map[string]float32 `json:"logit_bias,omitempty"`
 	MaxOutputTokens *int32 `json:"max_output_tokens,omitempty"`
@@ -173,9 +173,9 @@ func (o *ChatCompletionsRequest) SetMessages(v []ChatMessage) {
 }
 
 // GetReasoning returns the Reasoning field value if set, zero value otherwise.
-func (o *ChatCompletionsRequest) GetReasoning() ChatCompletionsRequestReasoning {
+func (o *ChatCompletionsRequest) GetReasoning() ReasoningConfig {
 	if o == nil || IsNil(o.Reasoning) {
-		var ret ChatCompletionsRequestReasoning
+		var ret ReasoningConfig
 		return ret
 	}
 	return *o.Reasoning
@@ -183,7 +183,7 @@ func (o *ChatCompletionsRequest) GetReasoning() ChatCompletionsRequestReasoning 
 
 // GetReasoningOk returns a tuple with the Reasoning field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ChatCompletionsRequest) GetReasoningOk() (*ChatCompletionsRequestReasoning, bool) {
+func (o *ChatCompletionsRequest) GetReasoningOk() (*ReasoningConfig, bool) {
 	if o == nil || IsNil(o.Reasoning) {
 		return nil, false
 	}
@@ -199,8 +199,8 @@ func (o *ChatCompletionsRequest) HasReasoning() bool {
 	return false
 }
 
-// SetReasoning gets a reference to the given ChatCompletionsRequestReasoning and assigns it to the Reasoning field.
-func (o *ChatCompletionsRequest) SetReasoning(v ChatCompletionsRequestReasoning) {
+// SetReasoning gets a reference to the given ReasoningConfig and assigns it to the Reasoning field.
+func (o *ChatCompletionsRequest) SetReasoning(v ReasoningConfig) {
 	o.Reasoning = &v
 }
 

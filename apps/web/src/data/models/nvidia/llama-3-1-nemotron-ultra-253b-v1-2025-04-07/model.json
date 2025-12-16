@@ -2,7 +2,7 @@
   "model_id": "nvidia/llama-3-1-nemotron-ultra-253b-v1-2025-04-07",
   "organisation_id": "nvidia",
   "name": "Llama 3.1 Nemotron Ultra 253B v1",
-  "status": "Available",
+  "status": null,
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2025-04-07T00:00:00",

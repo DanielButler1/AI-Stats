@@ -55,7 +55,6 @@ namespace AIStatsSdk.Client
             _jsonOptions.Converters.Add(new BenchmarkIdNullableJsonConverter());
             _jsonOptions.Converters.Add(new ChatChoiceJsonConverter());
             _jsonOptions.Converters.Add(new ChatCompletionsRequestJsonConverter());
-            _jsonOptions.Converters.Add(new ChatCompletionsRequestReasoningJsonConverter());
             _jsonOptions.Converters.Add(new ChatCompletionsRequestResponseFormatJsonConverter());
             _jsonOptions.Converters.Add(new ChatCompletionsRequestResponseFormatOneOfJsonConverter());
             _jsonOptions.Converters.Add(new ChatCompletionsRequestToolChoiceJsonConverter());

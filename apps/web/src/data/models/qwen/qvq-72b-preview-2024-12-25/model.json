@@ -2,7 +2,7 @@
   "model_id": "qwen/qvq-72b-preview-2024-12-25",
   "organisation_id": "qwen",
   "name": "QvQ 72B Preview",
-  "status": "Available",
+  "status": null,
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2024-12-25T00:00:00",

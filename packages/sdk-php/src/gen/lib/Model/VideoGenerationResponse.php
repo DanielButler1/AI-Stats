@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * VideoGenerationResponse Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -62,7 +62,7 @@ class VideoGenerationResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'status' => 'string',
         'created' => 'int',
         'object' => 'string',
-        'output' => '\AIStats\\Sdk\Model\VideoGenerationResponseOutputInner[]'
+        'output' => '\AIStats\Sdk\Model\VideoGenerationResponseOutputInner[]'
     ];
 
     /**
@@ -462,7 +462,7 @@ class VideoGenerationResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets output
      *
-     * @return \AIStats\\Sdk\Model\VideoGenerationResponseOutputInner[]|null
+     * @return \AIStats\Sdk\Model\VideoGenerationResponseOutputInner[]|null
      */
     public function getOutput()
     {
@@ -472,7 +472,7 @@ class VideoGenerationResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets output
      *
-     * @param \AIStats\\Sdk\Model\VideoGenerationResponseOutputInner[]|null $output output
+     * @param \AIStats\Sdk\Model\VideoGenerationResponseOutputInner[]|null $output output
      *
      * @return self
      */

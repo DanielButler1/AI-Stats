@@ -1,8 +1,64 @@
-﻿---
+---
 title: "Changelog"
 description: "Product updates, releases, and fixes across AI Stats."
 rss: true
 ---
+
+<Update label="15th December 2025">
+# SDKs Alpha Release
+
+Our SDKs are now available in a very early alpha stage in V0.2.0. We are working on getting them working with OpenAPI Generator - if anyone can help with building these or testing these, we would be very grateful. We want to build a world-class Developer Experience, where AI becomes something so trivial to use, it can easily be added, experimented, used for research, all through our single platform.
+
+We have decided for now to remove the C++ and Rust SDKs from our plans. We might add them back in the future should there be demand, but we are focusing on a smaller set of languages whilst we find the best API generators that we can use and make sure the most used languages are supported. We hope to have all SDKs moved to a V1 ASAP - targeting no later than mid-January 2026.
+
+We also plan to unify all SDK versions alongside the API and Website + Docs at some point in the future for better consistency.
+
+#### Python SDK Alpha
+
+```bash
+pip install --upgrade ai-stats-py-sdk==0.2.0a1
+```
+
+#### TypeScript / JavaScript SDK Alpha
+
+<CodeGroup>
+
+    ```bash title="npm"
+    npm install @ai-stats/sdk@0.2.0-alpha.1
+    ```
+
+    ```bash title="pnpm"
+    pnpm install @ai-stats/sdk@0.2.0-alpha.1
+    ```
+
+    ```bash title="yarn"
+    yarn add @ai-stats/sdk@0.2.0-alpha.1
+    ```
+
+    ```bash title="bun"
+    bun add @ai-stats/sdk@0.2.0-alpha.1
+    ```
+
+    </CodeGroup>
+
+# New Monitor Page
+
+We have added a new Monitor page, consisting of two main sections: the [main monitor page](https://ai-stats.phaseo.app/monitor), which provides a more tabular, easily filterable version of the database, all compacted into a single table for quick overview and analysis; and the [history page](https://ai-stats.phaseo.app/monitor/history), which shows all the changes recorded to the database, allowing for full transparency over everything that has changed.
+
+This is still in active development and we will take any suggestions for improvements, or changes either of the pages.
+
+# Model Additions
+
+We added the following rumored models:
+
+-   [GPT 5.2 Mini](https://ai-stats.phaseo.app/models/openai/gpt-5-2-mini-2025-12-15)
+-   [GPT 4o Mini TTS](https://ai-stats.phaseo.app/models/openai/gpt-4o-mini-tts-2025-12-15)
+-   [GPT 4o Mini Transcribe](https://ai-stats.phaseo.app/models/openai/gpt-4o-mini-transcribe-2025-12-15)
+-   [GPT Realtime Mini](https://ai-stats.phaseo.app/models/openai/gpt-realtime-mini-2025-12-15)
+-   [GPT Audio Mini](https://ai-stats.phaseo.app/models/openai/gpt-audio-mini-2025-12-15)
+-   [Claude 4.7 Sonnet](https://ai-stats.phaseo.app/models/anthropic/claude-4-7-sonnet-2025-12-15)
+
+</Update>
 
 <Update label="12th December 2025">
 # Improving Our API

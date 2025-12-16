@@ -585,7 +585,7 @@ components:
           minItems: 1
           type: array
         reasoning:
-          $ref: "#/components/schemas/ChatCompletionsRequest_reasoning"
+          $ref: "#/components/schemas/ReasoningConfig"
         frequency_penalty:
           maximum: 2
           minimum: -2
@@ -2415,6 +2415,10 @@ components:
       - x-ai
       - z-ai
       type: string
+    OrganisationIdList:
+      items:
+        $ref: "#/components/schemas/OrganisationId"
+      type: array
     GenerationResponse:
       example:
         error_message: error_message
@@ -2656,9 +2660,7 @@ components:
     listModels_organisation_parameter:
       oneOf:
       - $ref: "#/components/schemas/OrganisationId"
-      - items:
-          $ref: "#/components/schemas/OrganisationId"
-        type: array
+      - $ref: "#/components/schemas/OrganisationIdList"
     listModels_200_response:
       example:
         models:
@@ -2800,12 +2802,6 @@ components:
             type: string
           type: array
       type: object
-    ChatCompletionsRequest_reasoning:
-      oneOf:
-      - $ref: "#/components/schemas/ReasoningConfig"
-      - items:
-          $ref: "#/components/schemas/ReasoningConfig"
-        type: array
     ChatCompletionsRequest_tools_inner:
       example:
         type: function

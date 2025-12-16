@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ResponsesRequest Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class ResponsesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => 'string',
         'input' => 'object',
         'input_items' => 'object[]',
-        'conversation' => '\AIStats\\Sdk\Model\ChatCompletionsRequestToolChoice',
+        'conversation' => '\AIStats\Sdk\Model\ChatCompletionsRequestToolChoice',
         'include' => 'string[]',
         'instructions' => 'string',
         'max_output_tokens' => 'int',
@@ -68,10 +68,10 @@ class ResponsesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'metadata' => 'array<string,string>',
         'parallel_tool_calls' => 'bool',
         'previous_response_id' => 'string',
-        'prompt' => '\AIStats\\Sdk\Model\ResponsesRequestPrompt',
+        'prompt' => '\AIStats\Sdk\Model\ResponsesRequestPrompt',
         'prompt_cache_key' => 'string',
         'prompt_cache_retention' => 'string',
-        'reasoning' => '\AIStats\\Sdk\Model\ResponsesRequestReasoning',
+        'reasoning' => '\AIStats\Sdk\Model\ResponsesRequestReasoning',
         'safety_identifier' => 'string',
         'service_tier' => 'string',
         'store' => 'bool',
@@ -79,7 +79,7 @@ class ResponsesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'stream_options' => 'object',
         'temperature' => 'float',
         'text' => 'object',
-        'tool_choice' => '\AIStats\\Sdk\Model\ChatCompletionsRequestToolChoice',
+        'tool_choice' => '\AIStats\Sdk\Model\ChatCompletionsRequestToolChoice',
         'tools' => 'object[]',
         'top_logprobs' => 'int',
         'top_p' => 'float',
@@ -618,7 +618,7 @@ class ResponsesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets conversation
      *
-     * @return \AIStats\\Sdk\Model\ChatCompletionsRequestToolChoice|null
+     * @return \AIStats\Sdk\Model\ChatCompletionsRequestToolChoice|null
      */
     public function getConversation()
     {
@@ -628,7 +628,7 @@ class ResponsesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets conversation
      *
-     * @param \AIStats\\Sdk\Model\ChatCompletionsRequestToolChoice|null $conversation conversation
+     * @param \AIStats\Sdk\Model\ChatCompletionsRequestToolChoice|null $conversation conversation
      *
      * @return self
      */
@@ -844,7 +844,7 @@ class ResponsesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets prompt
      *
-     * @return \AIStats\\Sdk\Model\ResponsesRequestPrompt|null
+     * @return \AIStats\Sdk\Model\ResponsesRequestPrompt|null
      */
     public function getPrompt()
     {
@@ -854,7 +854,7 @@ class ResponsesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets prompt
      *
-     * @param \AIStats\\Sdk\Model\ResponsesRequestPrompt|null $prompt prompt
+     * @param \AIStats\Sdk\Model\ResponsesRequestPrompt|null $prompt prompt
      *
      * @return self
      */
@@ -925,7 +925,7 @@ class ResponsesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets reasoning
      *
-     * @return \AIStats\\Sdk\Model\ResponsesRequestReasoning|null
+     * @return \AIStats\Sdk\Model\ResponsesRequestReasoning|null
      */
     public function getReasoning()
     {
@@ -935,7 +935,7 @@ class ResponsesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets reasoning
      *
-     * @param \AIStats\\Sdk\Model\ResponsesRequestReasoning|null $reasoning reasoning
+     * @param \AIStats\Sdk\Model\ResponsesRequestReasoning|null $reasoning reasoning
      *
      * @return self
      */
@@ -1149,7 +1149,7 @@ class ResponsesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tool_choice
      *
-     * @return \AIStats\\Sdk\Model\ChatCompletionsRequestToolChoice|null
+     * @return \AIStats\Sdk\Model\ChatCompletionsRequestToolChoice|null
      */
     public function getToolChoice()
     {
@@ -1159,7 +1159,7 @@ class ResponsesRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tool_choice
      *
-     * @param \AIStats\\Sdk\Model\ChatCompletionsRequestToolChoice|null $tool_choice tool_choice
+     * @param \AIStats\Sdk\Model\ChatCompletionsRequestToolChoice|null $tool_choice tool_choice
      *
      * @return self
      */

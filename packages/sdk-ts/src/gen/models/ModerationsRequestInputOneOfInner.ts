@@ -34,6 +34,10 @@ import {
  */
 export type ModerationsRequestInputOneOfInner = ImageModerationInput | TextModerationInput;
 
+export function instanceOfModerationsRequestInputOneOfInner(value: any): value is ModerationsRequestInputOneOfInner {
+    return instanceOfImageModerationInput(value) || instanceOfTextModerationInput(value);
+}
+
 export function ModerationsRequestInputOneOfInnerFromJSON(json: any): ModerationsRequestInputOneOfInner {
     return ModerationsRequestInputOneOfInnerFromJSONTyped(json, false);
 }
@@ -73,4 +77,3 @@ export function ModerationsRequestInputOneOfInnerToJSONTyped(value?: Moderations
     }
     return {};
 }
-

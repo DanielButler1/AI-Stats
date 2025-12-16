@@ -117,8 +117,6 @@ const LANGUAGE_OPTIONS = [
 	{ value: "csharp-sdk", label: "C# SDK (Coming Soon)", disabled: true },
 	{ value: "php-sdk", label: "PHP SDK (Coming Soon)", disabled: true },
 	{ value: "ruby-sdk", label: "Ruby SDK (Coming Soon)", disabled: true },
-	{ value: "rust-sdk", label: "Rust SDK (Coming Soon)", disabled: true },
-	{ value: "cpp-sdk", label: "C++ SDK (Coming Soon)", disabled: true },
 	{ value: "openai-python", label: "OpenAI Python Client", disabled: false },
 	{ value: "openai-node", label: "OpenAI Node.js Client", disabled: false },
 ];
@@ -179,10 +177,6 @@ export default function Quickstart({
 				return "composer require ai-stats/sdk";
 			case "ruby-sdk":
 				return "gem install ai_stats";
-			case "rust-sdk":
-				return '# Add to Cargo.toml\n# ai-stats = "0.1"';
-			case "cpp-sdk":
-				return "# Add to CMakeLists.txt\n# find_package(ai-stats REQUIRED)";
 			case "openai-python":
 				return "pip install openai";
 			case "openai-node":
@@ -341,42 +335,6 @@ response = client.chat.completions.create(
 )
 
 puts response.choices[0].message.content`;
-
-	const rustSdkUsage = `use ai_stats::Client;
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let client = Client::new(std::env::var("AI_STATS_API_KEY")?);
-    
-    let response = client.chat().completions().create(ChatCompletionRequest {
-        model: "${model}".to_string(),
-        messages: vec![
-            ChatMessage {
-                role: "user".to_string(),
-                content: "Hello, world!".to_string(),
-            }
-        ],
-    }).await?;
-    
-    println!("{}", response.choices[0].message.content);
-    Ok(())
-}`;
-
-	const cppSdkUsage = `#include <ai_stats/client.hpp>
-
-int main() {
-    auto client = ai_stats::Client(std::getenv("AI_STATS_API_KEY"));
-    
-    auto response = client.chat().completions().create({
-        {"model", "${model}"},
-        {"messages", {
-            {{"role", "user"}, {"content", "Hello, world!"}}
-        }}
-    });
-    
-    std::cout << response["choices"][0]["message"]["content"] << std::endl;
-    return 0;
-}`;
 
 	const nodeFetchQuickstart = `// 1) Set your key
 const apiKey = process.env.AI_STATS_API_KEY;
@@ -643,20 +601,6 @@ console.log(response.choices[0].message.content);`;
 								code={rubySdkUsage}
 								lang="ruby"
 								label="ruby"
-							/>
-						)}
-						{selectedLanguage === "rust-sdk" && (
-							<CodeBlock
-								code={rustSdkUsage}
-								lang="rust"
-								label="rust"
-							/>
-						)}
-						{selectedLanguage === "cpp-sdk" && (
-							<CodeBlock
-								code={cppSdkUsage}
-								lang="cpp"
-								label="cpp"
 							/>
 						)}
 						{selectedLanguage === "node-fetch" && (

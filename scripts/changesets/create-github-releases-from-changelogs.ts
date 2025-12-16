@@ -33,12 +33,6 @@ const PACKAGES: PackageConfig[] = [
         changelogPath: "packages/sdk-go/CHANGELOG.md",
     },
     {
-        name: "@ai-stats/rust-sdk",
-        manifestPath: "packages/sdk-rust/package.json",
-        manifestType: "npm",
-        changelogPath: "packages/sdk-rust/CHANGELOG.md",
-    },
-    {
         name: "@ai-stats/csharp-sdk",
         manifestPath: "packages/sdk-csharp/package.json",
         manifestType: "npm",

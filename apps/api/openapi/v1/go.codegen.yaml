@@ -3,6 +3,9 @@ outputDir: ../../../../packages/sdk-go/gen
 inputSpec: apps/docs/openapi/v1/openapi.yaml
 additionalProperties:
     packageName: ai_stats_sdk
+    gitHost: github.com
+    gitUserId: AI-Stats
+    gitRepoId: ai-stats-go-sdk
     enumClassPrefix: true
 globalProperty:
     apis: true

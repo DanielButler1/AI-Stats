@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * EmbeddingsRequest Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class EmbeddingsRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'model' => 'string',
-        'input' => '\AIStats\\Sdk\Model\EmbeddingsRequestInput',
+        'input' => '\AIStats\Sdk\Model\EmbeddingsRequestInput',
         'encoding_format' => 'string',
         'dimensions' => 'int',
         'user' => 'string'
@@ -357,7 +357,7 @@ class EmbeddingsRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets input
      *
-     * @return \AIStats\\Sdk\Model\EmbeddingsRequestInput
+     * @return \AIStats\Sdk\Model\EmbeddingsRequestInput
      */
     public function getInput()
     {
@@ -367,7 +367,7 @@ class EmbeddingsRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets input
      *
-     * @param \AIStats\\Sdk\Model\EmbeddingsRequestInput $input input
+     * @param \AIStats\Sdk\Model\EmbeddingsRequestInput $input input
      *
      * @return self
      */

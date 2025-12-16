@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,18 +25,18 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace AIStats\\Sdk\Test\Api;
+namespace AIStats\Sdk\Test\Api;
 
-use \AIStats\\Sdk\Configuration;
-use \AIStats\\Sdk\ApiException;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\Configuration;
+use \AIStats\Sdk\ApiException;
+use \AIStats\Sdk\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * DefaultApiTest Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
