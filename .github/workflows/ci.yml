@@ -168,12 +168,8 @@ jobs:
                       name: Generate PY SDK
                     - sdk: go
                       name: Generate GO SDK
-                    - sdk: cpp
-                      name: Generate CPP SDK
                     - sdk: csharp
                       name: Generate C# SDK
-                    - sdk: rust
-                      name: Generate Rust SDK
                     - sdk: php
                       name: Generate PHP SDK
                     - sdk: ruby
@@ -238,9 +234,7 @@ jobs:
                     ts) pnpm openapi:gen:ts ;;
                     py) pnpm openapi:gen:py ;;
                     go) pnpm openapi:gen:go ;;
-                    cpp) pnpm openapi:gen:cpp ;;
                     csharp) pnpm openapi:gen:csharp ;;
-                    rust) pnpm openapi:gen:rust ;;
                     php) pnpm openapi:gen:php ;;
                     ruby) pnpm openapi:gen:ruby ;;
                   esac
@@ -267,9 +261,7 @@ jobs:
                     ts) gen_path="packages/sdk-ts/src/gen" ; gen_script="openapi:gen:ts" ;;
                     py) gen_path="packages/sdk-py/src/gen" ; gen_script="openapi:gen:py" ;;
                     go) gen_path="packages/sdk-go/gen" ; gen_script="openapi:gen:go" ;;
-                    cpp) gen_path="packages/sdk-cpp/src/gen" ; gen_script="openapi:gen:cpp" ;;
                     csharp) gen_path="packages/sdk-csharp/src/gen" ; gen_script="openapi:gen:csharp" ;;
-                    rust) gen_path="packages/sdk-rust/src/gen" ; gen_script="openapi:gen:rust" ;;
                     php) gen_path="packages/sdk-php/src/gen" ; gen_script="openapi:gen:php" ;;
                     ruby) gen_path="packages/sdk-ruby/lib/gen" ; gen_script="openapi:gen:ruby" ;;
                   esac

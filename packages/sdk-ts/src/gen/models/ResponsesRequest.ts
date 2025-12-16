@@ -21,14 +21,12 @@ import {
     ChatCompletionsRequestToolChoiceToJSONTyped,
 } from './ChatCompletionsRequestToolChoice';
 import type { ResponsesRequestReasoning } from './ResponsesRequestReasoning';
-import {
     ResponsesRequestReasoningFromJSON,
     ResponsesRequestReasoningFromJSONTyped,
     ResponsesRequestReasoningToJSON,
     ResponsesRequestReasoningToJSONTyped,
 } from './ResponsesRequestReasoning';
 import type { ResponsesRequestPrompt } from './ResponsesRequestPrompt';
-import {
     ResponsesRequestPromptFromJSON,
     ResponsesRequestPromptFromJSONTyped,
     ResponsesRequestPromptToJSON,
@@ -246,7 +244,7 @@ export function ResponsesRequestFromJSONTyped(json: any, ignoreDiscriminator: bo
         return json;
     }
     return {
-
+        
         'model': json['model'],
         'input': json['input'] == null ? undefined : json['input'],
         'input_items': json['input_items'] == null ? undefined : json['input_items'],
@@ -291,7 +289,7 @@ export function ResponsesRequestToJSONTyped(value?: ResponsesRequest | null, ign
     }
 
     return {
-
+        
         'model': value['model'],
         'input': value['input'],
         'input_items': value['input_items'],

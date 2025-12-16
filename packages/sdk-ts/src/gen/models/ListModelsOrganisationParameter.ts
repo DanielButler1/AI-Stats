@@ -19,6 +19,11 @@ import {
     OrganisationIdFromJSONTyped,
     OrganisationIdToJSON,
 } from './OrganisationId';
+    instanceOfOrganisationId,
+    OrganisationIdFromJSON,
+    OrganisationIdFromJSONTyped,
+    OrganisationIdToJSON,
+} from './OrganisationId';
 
 /**
  * @type ListModelsOrganisationParameter

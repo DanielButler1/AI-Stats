@@ -20,28 +20,24 @@ import {
     AudioContentPartToJSON,
 } from './AudioContentPart';
 import type { ImageContentPart } from './ImageContentPart';
-import {
     instanceOfImageContentPart,
     ImageContentPartFromJSON,
     ImageContentPartFromJSONTyped,
     ImageContentPartToJSON,
 } from './ImageContentPart';
 import type { TextContentPart } from './TextContentPart';
-import {
     instanceOfTextContentPart,
     TextContentPartFromJSON,
     TextContentPartFromJSONTyped,
     TextContentPartToJSON,
 } from './TextContentPart';
 import type { ToolCallContentPart } from './ToolCallContentPart';
-import {
     instanceOfToolCallContentPart,
     ToolCallContentPartFromJSON,
     ToolCallContentPartFromJSONTyped,
     ToolCallContentPartToJSON,
 } from './ToolCallContentPart';
 import type { VideoContentPart } from './VideoContentPart';
-import {
     instanceOfVideoContentPart,
     VideoContentPartFromJSON,
     VideoContentPartFromJSONTyped,
@@ -54,14 +50,6 @@ import {
  * @export
  */
 export type MessageContentPart = AudioContentPart | ImageContentPart | TextContentPart | ToolCallContentPart | VideoContentPart;
-
-export function instanceOfMessageContentPart(value: any): value is MessageContentPart {
-    return instanceOfAudioContentPart(value)
-        || instanceOfImageContentPart(value)
-        || instanceOfTextContentPart(value)
-        || instanceOfToolCallContentPart(value)
-        || instanceOfVideoContentPart(value);
-}
 
 export function MessageContentPartFromJSON(json: any): MessageContentPart {
     return MessageContentPartFromJSONTyped(json, false);
@@ -120,3 +108,4 @@ export function MessageContentPartToJSONTyped(value?: MessageContentPart | null,
     }
     return {};
 }
+

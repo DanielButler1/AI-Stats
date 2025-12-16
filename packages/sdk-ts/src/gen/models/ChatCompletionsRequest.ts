@@ -21,28 +21,24 @@ import {
     ChatCompletionsRequestToolChoiceToJSONTyped,
 } from './ChatCompletionsRequestToolChoice';
 import type { ChatCompletionsRequestResponseFormat } from './ChatCompletionsRequestResponseFormat';
-import {
     ChatCompletionsRequestResponseFormatFromJSON,
     ChatCompletionsRequestResponseFormatFromJSONTyped,
     ChatCompletionsRequestResponseFormatToJSON,
     ChatCompletionsRequestResponseFormatToJSONTyped,
 } from './ChatCompletionsRequestResponseFormat';
 import type { ChatMessage } from './ChatMessage';
-import {
     ChatMessageFromJSON,
     ChatMessageFromJSONTyped,
     ChatMessageToJSON,
     ChatMessageToJSONTyped,
 } from './ChatMessage';
 import type { ChatCompletionsRequestToolsInner } from './ChatCompletionsRequestToolsInner';
-import {
     ChatCompletionsRequestToolsInnerFromJSON,
     ChatCompletionsRequestToolsInnerFromJSONTyped,
     ChatCompletionsRequestToolsInnerToJSON,
     ChatCompletionsRequestToolsInnerToJSONTyped,
 } from './ChatCompletionsRequestToolsInner';
 import type { ReasoningConfig } from './ReasoningConfig';
-import {
     ReasoningConfigFromJSON,
     ReasoningConfigFromJSONTyped,
     ReasoningConfigToJSON,
@@ -230,7 +226,7 @@ export function ChatCompletionsRequestFromJSONTyped(json: any, ignoreDiscriminat
         return json;
     }
     return {
-
+        
         'model': json['model'],
         'system': json['system'] == null ? undefined : json['system'],
         'messages': ((json['messages'] as Array<any>).map(ChatMessageFromJSON)),
@@ -268,7 +264,7 @@ export function ChatCompletionsRequestToJSONTyped(value?: ChatCompletionsRequest
     }
 
     return {
-
+        
         'model': value['model'],
         'system': value['system'],
         'messages': ((value['messages'] as Array<any>).map(ChatMessageToJSON)),

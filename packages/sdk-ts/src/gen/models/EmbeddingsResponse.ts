@@ -21,7 +21,6 @@ import {
     UsageToJSONTyped,
 } from './Usage';
 import type { Embedding } from './Embedding';
-import {
     EmbeddingFromJSON,
     EmbeddingFromJSONTyped,
     EmbeddingToJSON,
@@ -76,7 +75,7 @@ export function EmbeddingsResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         return json;
     }
     return {
-
+        
         'object': json['object'] == null ? undefined : json['object'],
         'data': json['data'] == null ? undefined : ((json['data'] as Array<any>).map(EmbeddingFromJSON)),
         'model': json['model'] == null ? undefined : json['model'],
@@ -94,7 +93,7 @@ export function EmbeddingsResponseToJSONTyped(value?: EmbeddingsResponse | null,
     }
 
     return {
-
+        
         'object': value['object'],
         'data': value['data'] == null ? undefined : ((value['data'] as Array<any>).map(EmbeddingToJSON)),
         'model': value['model'],
