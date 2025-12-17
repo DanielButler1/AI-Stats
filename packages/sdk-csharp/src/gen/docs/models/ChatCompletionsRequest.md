@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Model** | **string** |  | 
 **Messages** | [**List&lt;ChatMessage&gt;**](ChatMessage.md) |  | 
 **System** | **string** |  | [optional] 
-**Reasoning** | [**ChatCompletionsRequestReasoning**](ChatCompletionsRequestReasoning.md) |  | [optional] 
+**Reasoning** | [**ReasoningConfig**](ReasoningConfig.md) |  | [optional] 
 **FrequencyPenalty** | **decimal** |  | [optional] 
 **LogitBias** | **Dictionary&lt;string, decimal&gt;** |  | [optional] 
 **MaxOutputTokens** | **int** |  | [optional] 

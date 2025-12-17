@@ -4,7 +4,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Api;
+namespace AIStats\Sdk\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -36,17 +36,17 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use AIStats\\Sdk\ApiException;
-use AIStats\\Sdk\Configuration;
-use AIStats\\Sdk\FormDataProcessor;
-use AIStats\\Sdk\HeaderSelector;
-use AIStats\\Sdk\ObjectSerializer;
+use AIStats\Sdk\ApiException;
+use AIStats\Sdk\Configuration;
+use AIStats\Sdk\FormDataProcessor;
+use AIStats\Sdk\HeaderSelector;
+use AIStats\Sdk\ObjectSerializer;
 
 /**
  * DefaultApi Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -187,12 +187,12 @@ class DefaultApi
      *
      * Create batch
      *
-     * @param  \AIStats\\Sdk\Model\BatchRequest $batch_request batch_request (required)
+     * @param  \AIStats\Sdk\Model\BatchRequest $batch_request batch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatch'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\BatchResponse
+     * @return \AIStats\Sdk\Model\BatchResponse
      */
     public function createBatch($batch_request, string $contentType = self::contentTypes['createBatch'][0])
     {
@@ -205,12 +205,12 @@ class DefaultApi
      *
      * Create batch
      *
-     * @param  \AIStats\\Sdk\Model\BatchRequest $batch_request (required)
+     * @param  \AIStats\Sdk\Model\BatchRequest $batch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatch'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\BatchResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\BatchResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBatchWithHttpInfo($batch_request, string $contentType = self::contentTypes['createBatch'][0])
     {
@@ -242,7 +242,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\BatchResponse',
+                        '\AIStats\Sdk\Model\BatchResponse',
                         $request,
                         $response,
                     );
@@ -264,7 +264,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\BatchResponse',
+                '\AIStats\Sdk\Model\BatchResponse',
                 $request,
                 $response,
             );
@@ -273,7 +273,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\BatchResponse',
+                        '\AIStats\Sdk\Model\BatchResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -290,7 +290,7 @@ class DefaultApi
      *
      * Create batch
      *
-     * @param  \AIStats\\Sdk\Model\BatchRequest $batch_request (required)
+     * @param  \AIStats\Sdk\Model\BatchRequest $batch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -311,7 +311,7 @@ class DefaultApi
      *
      * Create batch
      *
-     * @param  \AIStats\\Sdk\Model\BatchRequest $batch_request (required)
+     * @param  \AIStats\Sdk\Model\BatchRequest $batch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -319,7 +319,7 @@ class DefaultApi
      */
     public function createBatchAsyncWithHttpInfo($batch_request, string $contentType = self::contentTypes['createBatch'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\BatchResponse';
+        $returnType = '\AIStats\Sdk\Model\BatchResponse';
         $request = $this->createBatchRequest($batch_request, $contentType);
 
         return $this->client
@@ -361,7 +361,7 @@ class DefaultApi
     /**
      * Create request for operation 'createBatch'
      *
-     * @param  \AIStats\\Sdk\Model\BatchRequest $batch_request (required)
+     * @param  \AIStats\Sdk\Model\BatchRequest $batch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -458,12 +458,12 @@ class DefaultApi
      *
      * Create chat completion
      *
-     * @param  \AIStats\\Sdk\Model\ChatCompletionsRequest $chat_completions_request chat_completions_request (required)
+     * @param  \AIStats\Sdk\Model\ChatCompletionsRequest $chat_completions_request chat_completions_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createChatCompletion'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\ChatCompletionsResponse
+     * @return \AIStats\Sdk\Model\ChatCompletionsResponse
      */
     public function createChatCompletion($chat_completions_request, string $contentType = self::contentTypes['createChatCompletion'][0])
     {
@@ -476,12 +476,12 @@ class DefaultApi
      *
      * Create chat completion
      *
-     * @param  \AIStats\\Sdk\Model\ChatCompletionsRequest $chat_completions_request (required)
+     * @param  \AIStats\Sdk\Model\ChatCompletionsRequest $chat_completions_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createChatCompletion'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\ChatCompletionsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\ChatCompletionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createChatCompletionWithHttpInfo($chat_completions_request, string $contentType = self::contentTypes['createChatCompletion'][0])
     {
@@ -513,7 +513,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\ChatCompletionsResponse',
+                        '\AIStats\Sdk\Model\ChatCompletionsResponse',
                         $request,
                         $response,
                     );
@@ -535,7 +535,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\ChatCompletionsResponse',
+                '\AIStats\Sdk\Model\ChatCompletionsResponse',
                 $request,
                 $response,
             );
@@ -544,7 +544,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\ChatCompletionsResponse',
+                        '\AIStats\Sdk\Model\ChatCompletionsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -561,7 +561,7 @@ class DefaultApi
      *
      * Create chat completion
      *
-     * @param  \AIStats\\Sdk\Model\ChatCompletionsRequest $chat_completions_request (required)
+     * @param  \AIStats\Sdk\Model\ChatCompletionsRequest $chat_completions_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createChatCompletion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -582,7 +582,7 @@ class DefaultApi
      *
      * Create chat completion
      *
-     * @param  \AIStats\\Sdk\Model\ChatCompletionsRequest $chat_completions_request (required)
+     * @param  \AIStats\Sdk\Model\ChatCompletionsRequest $chat_completions_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createChatCompletion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -590,7 +590,7 @@ class DefaultApi
      */
     public function createChatCompletionAsyncWithHttpInfo($chat_completions_request, string $contentType = self::contentTypes['createChatCompletion'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\ChatCompletionsResponse';
+        $returnType = '\AIStats\Sdk\Model\ChatCompletionsResponse';
         $request = $this->createChatCompletionRequest($chat_completions_request, $contentType);
 
         return $this->client
@@ -632,7 +632,7 @@ class DefaultApi
     /**
      * Create request for operation 'createChatCompletion'
      *
-     * @param  \AIStats\\Sdk\Model\ChatCompletionsRequest $chat_completions_request (required)
+     * @param  \AIStats\Sdk\Model\ChatCompletionsRequest $chat_completions_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createChatCompletion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -729,12 +729,12 @@ class DefaultApi
      *
      * Create embeddings
      *
-     * @param  \AIStats\\Sdk\Model\EmbeddingsRequest $embeddings_request embeddings_request (required)
+     * @param  \AIStats\Sdk\Model\EmbeddingsRequest $embeddings_request embeddings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createEmbedding'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\EmbeddingsResponse
+     * @return \AIStats\Sdk\Model\EmbeddingsResponse
      */
     public function createEmbedding($embeddings_request, string $contentType = self::contentTypes['createEmbedding'][0])
     {
@@ -747,12 +747,12 @@ class DefaultApi
      *
      * Create embeddings
      *
-     * @param  \AIStats\\Sdk\Model\EmbeddingsRequest $embeddings_request (required)
+     * @param  \AIStats\Sdk\Model\EmbeddingsRequest $embeddings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createEmbedding'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\EmbeddingsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\EmbeddingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createEmbeddingWithHttpInfo($embeddings_request, string $contentType = self::contentTypes['createEmbedding'][0])
     {
@@ -784,7 +784,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\EmbeddingsResponse',
+                        '\AIStats\Sdk\Model\EmbeddingsResponse',
                         $request,
                         $response,
                     );
@@ -806,7 +806,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\EmbeddingsResponse',
+                '\AIStats\Sdk\Model\EmbeddingsResponse',
                 $request,
                 $response,
             );
@@ -815,7 +815,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\EmbeddingsResponse',
+                        '\AIStats\Sdk\Model\EmbeddingsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -832,7 +832,7 @@ class DefaultApi
      *
      * Create embeddings
      *
-     * @param  \AIStats\\Sdk\Model\EmbeddingsRequest $embeddings_request (required)
+     * @param  \AIStats\Sdk\Model\EmbeddingsRequest $embeddings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createEmbedding'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -853,7 +853,7 @@ class DefaultApi
      *
      * Create embeddings
      *
-     * @param  \AIStats\\Sdk\Model\EmbeddingsRequest $embeddings_request (required)
+     * @param  \AIStats\Sdk\Model\EmbeddingsRequest $embeddings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createEmbedding'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -861,7 +861,7 @@ class DefaultApi
      */
     public function createEmbeddingAsyncWithHttpInfo($embeddings_request, string $contentType = self::contentTypes['createEmbedding'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\EmbeddingsResponse';
+        $returnType = '\AIStats\Sdk\Model\EmbeddingsResponse';
         $request = $this->createEmbeddingRequest($embeddings_request, $contentType);
 
         return $this->client
@@ -903,7 +903,7 @@ class DefaultApi
     /**
      * Create request for operation 'createEmbedding'
      *
-     * @param  \AIStats\\Sdk\Model\EmbeddingsRequest $embeddings_request (required)
+     * @param  \AIStats\Sdk\Model\EmbeddingsRequest $embeddings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createEmbedding'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1000,12 +1000,12 @@ class DefaultApi
      *
      * Create image
      *
-     * @param  \AIStats\\Sdk\Model\ImagesGenerationRequest $images_generation_request images_generation_request (required)
+     * @param  \AIStats\Sdk\Model\ImagesGenerationRequest $images_generation_request images_generation_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImage'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\ImagesGenerationResponse
+     * @return \AIStats\Sdk\Model\ImagesGenerationResponse
      */
     public function createImage($images_generation_request, string $contentType = self::contentTypes['createImage'][0])
     {
@@ -1018,12 +1018,12 @@ class DefaultApi
      *
      * Create image
      *
-     * @param  \AIStats\\Sdk\Model\ImagesGenerationRequest $images_generation_request (required)
+     * @param  \AIStats\Sdk\Model\ImagesGenerationRequest $images_generation_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImage'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\ImagesGenerationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\ImagesGenerationResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createImageWithHttpInfo($images_generation_request, string $contentType = self::contentTypes['createImage'][0])
     {
@@ -1055,7 +1055,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\ImagesGenerationResponse',
+                        '\AIStats\Sdk\Model\ImagesGenerationResponse',
                         $request,
                         $response,
                     );
@@ -1077,7 +1077,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\ImagesGenerationResponse',
+                '\AIStats\Sdk\Model\ImagesGenerationResponse',
                 $request,
                 $response,
             );
@@ -1086,7 +1086,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\ImagesGenerationResponse',
+                        '\AIStats\Sdk\Model\ImagesGenerationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1103,7 +1103,7 @@ class DefaultApi
      *
      * Create image
      *
-     * @param  \AIStats\\Sdk\Model\ImagesGenerationRequest $images_generation_request (required)
+     * @param  \AIStats\Sdk\Model\ImagesGenerationRequest $images_generation_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1124,7 +1124,7 @@ class DefaultApi
      *
      * Create image
      *
-     * @param  \AIStats\\Sdk\Model\ImagesGenerationRequest $images_generation_request (required)
+     * @param  \AIStats\Sdk\Model\ImagesGenerationRequest $images_generation_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1132,7 +1132,7 @@ class DefaultApi
      */
     public function createImageAsyncWithHttpInfo($images_generation_request, string $contentType = self::contentTypes['createImage'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\ImagesGenerationResponse';
+        $returnType = '\AIStats\Sdk\Model\ImagesGenerationResponse';
         $request = $this->createImageRequest($images_generation_request, $contentType);
 
         return $this->client
@@ -1174,7 +1174,7 @@ class DefaultApi
     /**
      * Create request for operation 'createImage'
      *
-     * @param  \AIStats\\Sdk\Model\ImagesGenerationRequest $images_generation_request (required)
+     * @param  \AIStats\Sdk\Model\ImagesGenerationRequest $images_generation_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1282,9 +1282,9 @@ class DefaultApi
      * @param  bool|null $usage usage (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImageEdit'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\ImagesEditResponse
+     * @return \AIStats\Sdk\Model\ImagesEditResponse
      */
     public function createImageEdit($model, $image, $prompt, $mask = null, $size = null, $n = null, $user = null, $meta = null, $usage = null, string $contentType = self::contentTypes['createImageEdit'][0])
     {
@@ -1308,9 +1308,9 @@ class DefaultApi
      * @param  bool|null $usage (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImageEdit'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\ImagesEditResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\ImagesEditResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createImageEditWithHttpInfo($model, $image, $prompt, $mask = null, $size = null, $n = null, $user = null, $meta = null, $usage = null, string $contentType = self::contentTypes['createImageEdit'][0])
     {
@@ -1342,7 +1342,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\ImagesEditResponse',
+                        '\AIStats\Sdk\Model\ImagesEditResponse',
                         $request,
                         $response,
                     );
@@ -1364,7 +1364,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\ImagesEditResponse',
+                '\AIStats\Sdk\Model\ImagesEditResponse',
                 $request,
                 $response,
             );
@@ -1373,7 +1373,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\ImagesEditResponse',
+                        '\AIStats\Sdk\Model\ImagesEditResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1435,7 +1435,7 @@ class DefaultApi
      */
     public function createImageEditAsyncWithHttpInfo($model, $image, $prompt, $mask = null, $size = null, $n = null, $user = null, $meta = null, $usage = null, string $contentType = self::contentTypes['createImageEdit'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\ImagesEditResponse';
+        $returnType = '\AIStats\Sdk\Model\ImagesEditResponse';
         $request = $this->createImageEditRequest($model, $image, $prompt, $mask, $size, $n, $user, $meta, $usage, $contentType);
 
         return $this->client
@@ -1619,12 +1619,12 @@ class DefaultApi
      *
      * Create moderation
      *
-     * @param  \AIStats\\Sdk\Model\ModerationsRequest $moderations_request moderations_request (required)
+     * @param  \AIStats\Sdk\Model\ModerationsRequest $moderations_request moderations_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createModeration'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\ModerationsResponse
+     * @return \AIStats\Sdk\Model\ModerationsResponse
      */
     public function createModeration($moderations_request, string $contentType = self::contentTypes['createModeration'][0])
     {
@@ -1637,12 +1637,12 @@ class DefaultApi
      *
      * Create moderation
      *
-     * @param  \AIStats\\Sdk\Model\ModerationsRequest $moderations_request (required)
+     * @param  \AIStats\Sdk\Model\ModerationsRequest $moderations_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createModeration'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\ModerationsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\ModerationsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createModerationWithHttpInfo($moderations_request, string $contentType = self::contentTypes['createModeration'][0])
     {
@@ -1674,7 +1674,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\ModerationsResponse',
+                        '\AIStats\Sdk\Model\ModerationsResponse',
                         $request,
                         $response,
                     );
@@ -1696,7 +1696,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\ModerationsResponse',
+                '\AIStats\Sdk\Model\ModerationsResponse',
                 $request,
                 $response,
             );
@@ -1705,7 +1705,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\ModerationsResponse',
+                        '\AIStats\Sdk\Model\ModerationsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1722,7 +1722,7 @@ class DefaultApi
      *
      * Create moderation
      *
-     * @param  \AIStats\\Sdk\Model\ModerationsRequest $moderations_request (required)
+     * @param  \AIStats\Sdk\Model\ModerationsRequest $moderations_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createModeration'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1743,7 +1743,7 @@ class DefaultApi
      *
      * Create moderation
      *
-     * @param  \AIStats\\Sdk\Model\ModerationsRequest $moderations_request (required)
+     * @param  \AIStats\Sdk\Model\ModerationsRequest $moderations_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createModeration'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1751,7 +1751,7 @@ class DefaultApi
      */
     public function createModerationAsyncWithHttpInfo($moderations_request, string $contentType = self::contentTypes['createModeration'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\ModerationsResponse';
+        $returnType = '\AIStats\Sdk\Model\ModerationsResponse';
         $request = $this->createModerationRequest($moderations_request, $contentType);
 
         return $this->client
@@ -1793,7 +1793,7 @@ class DefaultApi
     /**
      * Create request for operation 'createModeration'
      *
-     * @param  \AIStats\\Sdk\Model\ModerationsRequest $moderations_request (required)
+     * @param  \AIStats\Sdk\Model\ModerationsRequest $moderations_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createModeration'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1890,12 +1890,12 @@ class DefaultApi
      *
      * Create response
      *
-     * @param  \AIStats\\Sdk\Model\ResponsesRequest $responses_request responses_request (required)
+     * @param  \AIStats\Sdk\Model\ResponsesRequest $responses_request responses_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createResponse'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\ResponsesResponse
+     * @return \AIStats\Sdk\Model\ResponsesResponse
      */
     public function createResponse($responses_request, string $contentType = self::contentTypes['createResponse'][0])
     {
@@ -1908,12 +1908,12 @@ class DefaultApi
      *
      * Create response
      *
-     * @param  \AIStats\\Sdk\Model\ResponsesRequest $responses_request (required)
+     * @param  \AIStats\Sdk\Model\ResponsesRequest $responses_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createResponse'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\ResponsesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\ResponsesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createResponseWithHttpInfo($responses_request, string $contentType = self::contentTypes['createResponse'][0])
     {
@@ -1945,7 +1945,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\ResponsesResponse',
+                        '\AIStats\Sdk\Model\ResponsesResponse',
                         $request,
                         $response,
                     );
@@ -1967,7 +1967,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\ResponsesResponse',
+                '\AIStats\Sdk\Model\ResponsesResponse',
                 $request,
                 $response,
             );
@@ -1976,7 +1976,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\ResponsesResponse',
+                        '\AIStats\Sdk\Model\ResponsesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1993,7 +1993,7 @@ class DefaultApi
      *
      * Create response
      *
-     * @param  \AIStats\\Sdk\Model\ResponsesRequest $responses_request (required)
+     * @param  \AIStats\Sdk\Model\ResponsesRequest $responses_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createResponse'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2014,7 +2014,7 @@ class DefaultApi
      *
      * Create response
      *
-     * @param  \AIStats\\Sdk\Model\ResponsesRequest $responses_request (required)
+     * @param  \AIStats\Sdk\Model\ResponsesRequest $responses_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createResponse'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2022,7 +2022,7 @@ class DefaultApi
      */
     public function createResponseAsyncWithHttpInfo($responses_request, string $contentType = self::contentTypes['createResponse'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\ResponsesResponse';
+        $returnType = '\AIStats\Sdk\Model\ResponsesResponse';
         $request = $this->createResponseRequest($responses_request, $contentType);
 
         return $this->client
@@ -2064,7 +2064,7 @@ class DefaultApi
     /**
      * Create request for operation 'createResponse'
      *
-     * @param  \AIStats\\Sdk\Model\ResponsesRequest $responses_request (required)
+     * @param  \AIStats\Sdk\Model\ResponsesRequest $responses_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createResponse'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2161,10 +2161,10 @@ class DefaultApi
      *
      * Generate speech
      *
-     * @param  \AIStats\\Sdk\Model\AudioSpeechRequest $audio_speech_request audio_speech_request (required)
+     * @param  \AIStats\Sdk\Model\AudioSpeechRequest $audio_speech_request audio_speech_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSpeech'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -2179,10 +2179,10 @@ class DefaultApi
      *
      * Generate speech
      *
-     * @param  \AIStats\\Sdk\Model\AudioSpeechRequest $audio_speech_request (required)
+     * @param  \AIStats\Sdk\Model\AudioSpeechRequest $audio_speech_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSpeech'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2264,7 +2264,7 @@ class DefaultApi
      *
      * Generate speech
      *
-     * @param  \AIStats\\Sdk\Model\AudioSpeechRequest $audio_speech_request (required)
+     * @param  \AIStats\Sdk\Model\AudioSpeechRequest $audio_speech_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSpeech'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2285,7 +2285,7 @@ class DefaultApi
      *
      * Generate speech
      *
-     * @param  \AIStats\\Sdk\Model\AudioSpeechRequest $audio_speech_request (required)
+     * @param  \AIStats\Sdk\Model\AudioSpeechRequest $audio_speech_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSpeech'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2335,7 +2335,7 @@ class DefaultApi
     /**
      * Create request for operation 'createSpeech'
      *
-     * @param  \AIStats\\Sdk\Model\AudioSpeechRequest $audio_speech_request (required)
+     * @param  \AIStats\Sdk\Model\AudioSpeechRequest $audio_speech_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSpeech'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2438,9 +2438,9 @@ class DefaultApi
      * @param  string|null $language language (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTranscription'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\AudioTranscriptionResponse
+     * @return \AIStats\Sdk\Model\AudioTranscriptionResponse
      */
     public function createTranscription($model, $audio_url = null, $audio_b64 = null, $language = null, string $contentType = self::contentTypes['createTranscription'][0])
     {
@@ -2459,9 +2459,9 @@ class DefaultApi
      * @param  string|null $language (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTranscription'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\AudioTranscriptionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\AudioTranscriptionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTranscriptionWithHttpInfo($model, $audio_url = null, $audio_b64 = null, $language = null, string $contentType = self::contentTypes['createTranscription'][0])
     {
@@ -2493,7 +2493,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\AudioTranscriptionResponse',
+                        '\AIStats\Sdk\Model\AudioTranscriptionResponse',
                         $request,
                         $response,
                     );
@@ -2515,7 +2515,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\AudioTranscriptionResponse',
+                '\AIStats\Sdk\Model\AudioTranscriptionResponse',
                 $request,
                 $response,
             );
@@ -2524,7 +2524,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\AudioTranscriptionResponse',
+                        '\AIStats\Sdk\Model\AudioTranscriptionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2576,7 +2576,7 @@ class DefaultApi
      */
     public function createTranscriptionAsyncWithHttpInfo($model, $audio_url = null, $audio_b64 = null, $language = null, string $contentType = self::contentTypes['createTranscription'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\AudioTranscriptionResponse';
+        $returnType = '\AIStats\Sdk\Model\AudioTranscriptionResponse';
         $request = $this->createTranscriptionRequest($model, $audio_url, $audio_b64, $language, $contentType);
 
         return $this->client
@@ -2735,9 +2735,9 @@ class DefaultApi
      * @param  float|null $temperature temperature (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTranslation'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\AudioTranslationResponse
+     * @return \AIStats\Sdk\Model\AudioTranslationResponse
      */
     public function createTranslation($model, $audio_url = null, $audio_b64 = null, $language = null, $prompt = null, $temperature = null, string $contentType = self::contentTypes['createTranslation'][0])
     {
@@ -2758,9 +2758,9 @@ class DefaultApi
      * @param  float|null $temperature (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTranslation'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\AudioTranslationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\AudioTranslationResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTranslationWithHttpInfo($model, $audio_url = null, $audio_b64 = null, $language = null, $prompt = null, $temperature = null, string $contentType = self::contentTypes['createTranslation'][0])
     {
@@ -2792,7 +2792,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\AudioTranslationResponse',
+                        '\AIStats\Sdk\Model\AudioTranslationResponse',
                         $request,
                         $response,
                     );
@@ -2814,7 +2814,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\AudioTranslationResponse',
+                '\AIStats\Sdk\Model\AudioTranslationResponse',
                 $request,
                 $response,
             );
@@ -2823,7 +2823,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\AudioTranslationResponse',
+                        '\AIStats\Sdk\Model\AudioTranslationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2879,7 +2879,7 @@ class DefaultApi
      */
     public function createTranslationAsyncWithHttpInfo($model, $audio_url = null, $audio_b64 = null, $language = null, $prompt = null, $temperature = null, string $contentType = self::contentTypes['createTranslation'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\AudioTranslationResponse';
+        $returnType = '\AIStats\Sdk\Model\AudioTranslationResponse';
         $request = $this->createTranslationRequest($model, $audio_url, $audio_b64, $language, $prompt, $temperature, $contentType);
 
         return $this->client
@@ -3042,12 +3042,12 @@ class DefaultApi
      *
      * Create video
      *
-     * @param  \AIStats\\Sdk\Model\VideoGenerationRequest $video_generation_request video_generation_request (required)
+     * @param  \AIStats\Sdk\Model\VideoGenerationRequest $video_generation_request video_generation_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVideo'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\VideoGenerationResponse
+     * @return \AIStats\Sdk\Model\VideoGenerationResponse
      */
     public function createVideo($video_generation_request, string $contentType = self::contentTypes['createVideo'][0])
     {
@@ -3060,12 +3060,12 @@ class DefaultApi
      *
      * Create video
      *
-     * @param  \AIStats\\Sdk\Model\VideoGenerationRequest $video_generation_request (required)
+     * @param  \AIStats\Sdk\Model\VideoGenerationRequest $video_generation_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVideo'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\VideoGenerationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\VideoGenerationResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createVideoWithHttpInfo($video_generation_request, string $contentType = self::contentTypes['createVideo'][0])
     {
@@ -3097,7 +3097,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\VideoGenerationResponse',
+                        '\AIStats\Sdk\Model\VideoGenerationResponse',
                         $request,
                         $response,
                     );
@@ -3119,7 +3119,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\VideoGenerationResponse',
+                '\AIStats\Sdk\Model\VideoGenerationResponse',
                 $request,
                 $response,
             );
@@ -3128,7 +3128,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\VideoGenerationResponse',
+                        '\AIStats\Sdk\Model\VideoGenerationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3145,7 +3145,7 @@ class DefaultApi
      *
      * Create video
      *
-     * @param  \AIStats\\Sdk\Model\VideoGenerationRequest $video_generation_request (required)
+     * @param  \AIStats\Sdk\Model\VideoGenerationRequest $video_generation_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVideo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3166,7 +3166,7 @@ class DefaultApi
      *
      * Create video
      *
-     * @param  \AIStats\\Sdk\Model\VideoGenerationRequest $video_generation_request (required)
+     * @param  \AIStats\Sdk\Model\VideoGenerationRequest $video_generation_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVideo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3174,7 +3174,7 @@ class DefaultApi
      */
     public function createVideoAsyncWithHttpInfo($video_generation_request, string $contentType = self::contentTypes['createVideo'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\VideoGenerationResponse';
+        $returnType = '\AIStats\Sdk\Model\VideoGenerationResponse';
         $request = $this->createVideoRequest($video_generation_request, $contentType);
 
         return $this->client
@@ -3216,7 +3216,7 @@ class DefaultApi
     /**
      * Create request for operation 'createVideo'
      *
-     * @param  \AIStats\\Sdk\Model\VideoGenerationRequest $video_generation_request (required)
+     * @param  \AIStats\Sdk\Model\VideoGenerationRequest $video_generation_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createVideo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3313,12 +3313,12 @@ class DefaultApi
      *
      * Get analytics
      *
-     * @param  \AIStats\\Sdk\Model\GetAnalyticsRequest $get_analytics_request get_analytics_request (required)
+     * @param  \AIStats\Sdk\Model\GetAnalyticsRequest $get_analytics_request get_analytics_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalytics'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\GetAnalytics200Response
+     * @return \AIStats\Sdk\Model\GetAnalytics200Response
      */
     public function getAnalytics($get_analytics_request, string $contentType = self::contentTypes['getAnalytics'][0])
     {
@@ -3331,12 +3331,12 @@ class DefaultApi
      *
      * Get analytics
      *
-     * @param  \AIStats\\Sdk\Model\GetAnalyticsRequest $get_analytics_request (required)
+     * @param  \AIStats\Sdk\Model\GetAnalyticsRequest $get_analytics_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalytics'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\GetAnalytics200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\GetAnalytics200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAnalyticsWithHttpInfo($get_analytics_request, string $contentType = self::contentTypes['getAnalytics'][0])
     {
@@ -3368,7 +3368,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\GetAnalytics200Response',
+                        '\AIStats\Sdk\Model\GetAnalytics200Response',
                         $request,
                         $response,
                     );
@@ -3390,7 +3390,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\GetAnalytics200Response',
+                '\AIStats\Sdk\Model\GetAnalytics200Response',
                 $request,
                 $response,
             );
@@ -3399,7 +3399,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\GetAnalytics200Response',
+                        '\AIStats\Sdk\Model\GetAnalytics200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3416,7 +3416,7 @@ class DefaultApi
      *
      * Get analytics
      *
-     * @param  \AIStats\\Sdk\Model\GetAnalyticsRequest $get_analytics_request (required)
+     * @param  \AIStats\Sdk\Model\GetAnalyticsRequest $get_analytics_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalytics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3437,7 +3437,7 @@ class DefaultApi
      *
      * Get analytics
      *
-     * @param  \AIStats\\Sdk\Model\GetAnalyticsRequest $get_analytics_request (required)
+     * @param  \AIStats\Sdk\Model\GetAnalyticsRequest $get_analytics_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalytics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3445,7 +3445,7 @@ class DefaultApi
      */
     public function getAnalyticsAsyncWithHttpInfo($get_analytics_request, string $contentType = self::contentTypes['getAnalytics'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\GetAnalytics200Response';
+        $returnType = '\AIStats\Sdk\Model\GetAnalytics200Response';
         $request = $this->getAnalyticsRequest($get_analytics_request, $contentType);
 
         return $this->client
@@ -3487,7 +3487,7 @@ class DefaultApi
     /**
      * Create request for operation 'getAnalytics'
      *
-     * @param  \AIStats\\Sdk\Model\GetAnalyticsRequest $get_analytics_request (required)
+     * @param  \AIStats\Sdk\Model\GetAnalyticsRequest $get_analytics_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalytics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3587,9 +3587,9 @@ class DefaultApi
      * @param  string $id The ID of the generation (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGeneration'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\GenerationResponse|\AIStats\\Sdk\Model\GetGeneration401Response|\AIStats\\Sdk\Model\GetGeneration404Response
+     * @return \AIStats\Sdk\Model\GenerationResponse|\AIStats\Sdk\Model\GetGeneration401Response|\AIStats\Sdk\Model\GetGeneration404Response
      */
     public function getGeneration($id, string $contentType = self::contentTypes['getGeneration'][0])
     {
@@ -3605,9 +3605,9 @@ class DefaultApi
      * @param  string $id The ID of the generation (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGeneration'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\GenerationResponse|\AIStats\\Sdk\Model\GetGeneration401Response|\AIStats\\Sdk\Model\GetGeneration404Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\GenerationResponse|\AIStats\Sdk\Model\GetGeneration401Response|\AIStats\Sdk\Model\GetGeneration404Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getGenerationWithHttpInfo($id, string $contentType = self::contentTypes['getGeneration'][0])
     {
@@ -3639,19 +3639,19 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\GenerationResponse',
+                        '\AIStats\Sdk\Model\GenerationResponse',
                         $request,
                         $response,
                     );
                 case 401:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\GetGeneration401Response',
+                        '\AIStats\Sdk\Model\GetGeneration401Response',
                         $request,
                         $response,
                     );
                 case 404:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\GetGeneration404Response',
+                        '\AIStats\Sdk\Model\GetGeneration404Response',
                         $request,
                         $response,
                     );
@@ -3673,7 +3673,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\GenerationResponse',
+                '\AIStats\Sdk\Model\GenerationResponse',
                 $request,
                 $response,
             );
@@ -3682,7 +3682,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\GenerationResponse',
+                        '\AIStats\Sdk\Model\GenerationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3690,7 +3690,7 @@ class DefaultApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\GetGeneration401Response',
+                        '\AIStats\Sdk\Model\GetGeneration401Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3698,7 +3698,7 @@ class DefaultApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\GetGeneration404Response',
+                        '\AIStats\Sdk\Model\GetGeneration404Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3744,7 +3744,7 @@ class DefaultApi
      */
     public function getGenerationAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getGeneration'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\GenerationResponse';
+        $returnType = '\AIStats\Sdk\Model\GenerationResponse';
         $request = $this->getGenerationRequest($id, $contentType);
 
         return $this->client
@@ -3887,9 +3887,9 @@ class DefaultApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthz'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\Healthz200Response
+     * @return \AIStats\Sdk\Model\Healthz200Response
      */
     public function healthz(string $contentType = self::contentTypes['healthz'][0])
     {
@@ -3904,9 +3904,9 @@ class DefaultApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthz'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\Healthz200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\Healthz200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function healthzWithHttpInfo(string $contentType = self::contentTypes['healthz'][0])
     {
@@ -3938,7 +3938,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\Healthz200Response',
+                        '\AIStats\Sdk\Model\Healthz200Response',
                         $request,
                         $response,
                     );
@@ -3960,7 +3960,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\Healthz200Response',
+                '\AIStats\Sdk\Model\Healthz200Response',
                 $request,
                 $response,
             );
@@ -3969,7 +3969,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\Healthz200Response',
+                        '\AIStats\Sdk\Model\Healthz200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4013,7 +4013,7 @@ class DefaultApi
      */
     public function healthzAsyncWithHttpInfo(string $contentType = self::contentTypes['healthz'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\Healthz200Response';
+        $returnType = '\AIStats\Sdk\Model\Healthz200Response';
         $request = $this->healthzRequest($contentType);
 
         return $this->client
@@ -4139,9 +4139,9 @@ class DefaultApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listFiles'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\ListFilesResponse
+     * @return \AIStats\Sdk\Model\ListFilesResponse
      */
     public function listFiles(string $contentType = self::contentTypes['listFiles'][0])
     {
@@ -4156,9 +4156,9 @@ class DefaultApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listFiles'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\ListFilesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\ListFilesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listFilesWithHttpInfo(string $contentType = self::contentTypes['listFiles'][0])
     {
@@ -4190,7 +4190,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\ListFilesResponse',
+                        '\AIStats\Sdk\Model\ListFilesResponse',
                         $request,
                         $response,
                     );
@@ -4212,7 +4212,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\ListFilesResponse',
+                '\AIStats\Sdk\Model\ListFilesResponse',
                 $request,
                 $response,
             );
@@ -4221,7 +4221,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\ListFilesResponse',
+                        '\AIStats\Sdk\Model\ListFilesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4265,7 +4265,7 @@ class DefaultApi
      */
     public function listFilesAsyncWithHttpInfo(string $contentType = self::contentTypes['listFiles'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\ListFilesResponse';
+        $returnType = '\AIStats\Sdk\Model\ListFilesResponse';
         $request = $this->listFilesRequest($contentType);
 
         return $this->client
@@ -4390,7 +4390,7 @@ class DefaultApi
      * List models
      *
      * @param  string[]|null $endpoints Filter by endpoints (optional)
-     * @param  \AIStats\\Sdk\Model\ListModelsOrganisationParameter|null $organisation Filter by organisation (optional)
+     * @param  \AIStats\Sdk\Model\ListModelsOrganisationParameter|null $organisation Filter by organisation (optional)
      * @param  string[]|null $input_types Filter by input types (optional)
      * @param  string[]|null $output_types Filter by output types (optional)
      * @param  string[]|null $params Filter by params (optional)
@@ -4398,9 +4398,9 @@ class DefaultApi
      * @param  int|null $offset Offset for pagination (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listModels'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\ListModels200Response|\AIStats\\Sdk\Model\ListModels500Response
+     * @return \AIStats\Sdk\Model\ListModels200Response|\AIStats\Sdk\Model\ListModels500Response
      */
     public function listModels($endpoints = null, $organisation = null, $input_types = null, $output_types = null, $params = null, $limit = 50, $offset = 0, string $contentType = self::contentTypes['listModels'][0])
     {
@@ -4414,7 +4414,7 @@ class DefaultApi
      * List models
      *
      * @param  string[]|null $endpoints Filter by endpoints (optional)
-     * @param  \AIStats\\Sdk\Model\ListModelsOrganisationParameter|null $organisation Filter by organisation (optional)
+     * @param  \AIStats\Sdk\Model\ListModelsOrganisationParameter|null $organisation Filter by organisation (optional)
      * @param  string[]|null $input_types Filter by input types (optional)
      * @param  string[]|null $output_types Filter by output types (optional)
      * @param  string[]|null $params Filter by params (optional)
@@ -4422,9 +4422,9 @@ class DefaultApi
      * @param  int|null $offset Offset for pagination (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listModels'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\ListModels200Response|\AIStats\\Sdk\Model\ListModels500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\ListModels200Response|\AIStats\Sdk\Model\ListModels500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function listModelsWithHttpInfo($endpoints = null, $organisation = null, $input_types = null, $output_types = null, $params = null, $limit = 50, $offset = 0, string $contentType = self::contentTypes['listModels'][0])
     {
@@ -4456,13 +4456,13 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\ListModels200Response',
+                        '\AIStats\Sdk\Model\ListModels200Response',
                         $request,
                         $response,
                     );
                 case 500:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\ListModels500Response',
+                        '\AIStats\Sdk\Model\ListModels500Response',
                         $request,
                         $response,
                     );
@@ -4484,7 +4484,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\ListModels200Response',
+                '\AIStats\Sdk\Model\ListModels200Response',
                 $request,
                 $response,
             );
@@ -4493,7 +4493,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\ListModels200Response',
+                        '\AIStats\Sdk\Model\ListModels200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4501,7 +4501,7 @@ class DefaultApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\ListModels500Response',
+                        '\AIStats\Sdk\Model\ListModels500Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4519,7 +4519,7 @@ class DefaultApi
      * List models
      *
      * @param  string[]|null $endpoints Filter by endpoints (optional)
-     * @param  \AIStats\\Sdk\Model\ListModelsOrganisationParameter|null $organisation Filter by organisation (optional)
+     * @param  \AIStats\Sdk\Model\ListModelsOrganisationParameter|null $organisation Filter by organisation (optional)
      * @param  string[]|null $input_types Filter by input types (optional)
      * @param  string[]|null $output_types Filter by output types (optional)
      * @param  string[]|null $params Filter by params (optional)
@@ -4546,7 +4546,7 @@ class DefaultApi
      * List models
      *
      * @param  string[]|null $endpoints Filter by endpoints (optional)
-     * @param  \AIStats\\Sdk\Model\ListModelsOrganisationParameter|null $organisation Filter by organisation (optional)
+     * @param  \AIStats\Sdk\Model\ListModelsOrganisationParameter|null $organisation Filter by organisation (optional)
      * @param  string[]|null $input_types Filter by input types (optional)
      * @param  string[]|null $output_types Filter by output types (optional)
      * @param  string[]|null $params Filter by params (optional)
@@ -4559,7 +4559,7 @@ class DefaultApi
      */
     public function listModelsAsyncWithHttpInfo($endpoints = null, $organisation = null, $input_types = null, $output_types = null, $params = null, $limit = 50, $offset = 0, string $contentType = self::contentTypes['listModels'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\ListModels200Response';
+        $returnType = '\AIStats\Sdk\Model\ListModels200Response';
         $request = $this->listModelsRequest($endpoints, $organisation, $input_types, $output_types, $params, $limit, $offset, $contentType);
 
         return $this->client
@@ -4602,7 +4602,7 @@ class DefaultApi
      * Create request for operation 'listModels'
      *
      * @param  string[]|null $endpoints Filter by endpoints (optional)
-     * @param  \AIStats\\Sdk\Model\ListModelsOrganisationParameter|null $organisation Filter by organisation (optional)
+     * @param  \AIStats\Sdk\Model\ListModelsOrganisationParameter|null $organisation Filter by organisation (optional)
      * @param  string[]|null $input_types Filter by input types (optional)
      * @param  string[]|null $output_types Filter by output types (optional)
      * @param  string[]|null $params Filter by params (optional)
@@ -4653,7 +4653,7 @@ class DefaultApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $organisation,
             'organisation', // param base name
-            '\AIStats\\Sdk\Model\OrganisationId|\AIStats\\Sdk\Model\OrganisationId[]', // openApiType
+            '\AIStats\Sdk\Model\OrganisationId|array', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -4772,9 +4772,9 @@ class DefaultApi
      * @param  string $batch_id The ID of the batch to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retrieveBatch'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\BatchResponse
+     * @return \AIStats\Sdk\Model\BatchResponse
      */
     public function retrieveBatch($batch_id, string $contentType = self::contentTypes['retrieveBatch'][0])
     {
@@ -4790,9 +4790,9 @@ class DefaultApi
      * @param  string $batch_id The ID of the batch to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retrieveBatch'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\BatchResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\BatchResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function retrieveBatchWithHttpInfo($batch_id, string $contentType = self::contentTypes['retrieveBatch'][0])
     {
@@ -4824,7 +4824,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\BatchResponse',
+                        '\AIStats\Sdk\Model\BatchResponse',
                         $request,
                         $response,
                     );
@@ -4846,7 +4846,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\BatchResponse',
+                '\AIStats\Sdk\Model\BatchResponse',
                 $request,
                 $response,
             );
@@ -4855,7 +4855,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\BatchResponse',
+                        '\AIStats\Sdk\Model\BatchResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4901,7 +4901,7 @@ class DefaultApi
      */
     public function retrieveBatchAsyncWithHttpInfo($batch_id, string $contentType = self::contentTypes['retrieveBatch'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\BatchResponse';
+        $returnType = '\AIStats\Sdk\Model\BatchResponse';
         $request = $this->retrieveBatchRequest($batch_id, $contentType);
 
         return $this->client
@@ -5044,9 +5044,9 @@ class DefaultApi
      * @param  string $file_id The ID of the file to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retrieveFile'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\FileResponse
+     * @return \AIStats\Sdk\Model\FileResponse
      */
     public function retrieveFile($file_id, string $contentType = self::contentTypes['retrieveFile'][0])
     {
@@ -5062,9 +5062,9 @@ class DefaultApi
      * @param  string $file_id The ID of the file to retrieve. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retrieveFile'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\FileResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\FileResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function retrieveFileWithHttpInfo($file_id, string $contentType = self::contentTypes['retrieveFile'][0])
     {
@@ -5096,7 +5096,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\FileResponse',
+                        '\AIStats\Sdk\Model\FileResponse',
                         $request,
                         $response,
                     );
@@ -5118,7 +5118,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\FileResponse',
+                '\AIStats\Sdk\Model\FileResponse',
                 $request,
                 $response,
             );
@@ -5127,7 +5127,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\FileResponse',
+                        '\AIStats\Sdk\Model\FileResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5173,7 +5173,7 @@ class DefaultApi
      */
     public function retrieveFileAsyncWithHttpInfo($file_id, string $contentType = self::contentTypes['retrieveFile'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\FileResponse';
+        $returnType = '\AIStats\Sdk\Model\FileResponse';
         $request = $this->retrieveFileRequest($file_id, $contentType);
 
         return $this->client
@@ -5315,9 +5315,9 @@ class DefaultApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['root'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\Root200Response
+     * @return \AIStats\Sdk\Model\Root200Response
      */
     public function root(string $contentType = self::contentTypes['root'][0])
     {
@@ -5332,9 +5332,9 @@ class DefaultApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['root'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\Root200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\Root200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function rootWithHttpInfo(string $contentType = self::contentTypes['root'][0])
     {
@@ -5366,7 +5366,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\Root200Response',
+                        '\AIStats\Sdk\Model\Root200Response',
                         $request,
                         $response,
                     );
@@ -5388,7 +5388,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\Root200Response',
+                '\AIStats\Sdk\Model\Root200Response',
                 $request,
                 $response,
             );
@@ -5397,7 +5397,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\Root200Response',
+                        '\AIStats\Sdk\Model\Root200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5441,7 +5441,7 @@ class DefaultApi
      */
     public function rootAsyncWithHttpInfo(string $contentType = self::contentTypes['root'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\Root200Response';
+        $returnType = '\AIStats\Sdk\Model\Root200Response';
         $request = $this->rootRequest($contentType);
 
         return $this->client
@@ -5569,9 +5569,9 @@ class DefaultApi
      * @param  string $purpose purpose (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFile'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \AIStats\\Sdk\Model\FileResponse
+     * @return \AIStats\Sdk\Model\FileResponse
      */
     public function uploadFile($file, $purpose, string $contentType = self::contentTypes['uploadFile'][0])
     {
@@ -5588,9 +5588,9 @@ class DefaultApi
      * @param  string $purpose (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFile'] to see the possible values for this operation
      *
-     * @throws \AIStats\\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \AIStats\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \AIStats\\Sdk\Model\FileResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \AIStats\Sdk\Model\FileResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function uploadFileWithHttpInfo($file, $purpose, string $contentType = self::contentTypes['uploadFile'][0])
     {
@@ -5622,7 +5622,7 @@ class DefaultApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\AIStats\\Sdk\Model\FileResponse',
+                        '\AIStats\Sdk\Model\FileResponse',
                         $request,
                         $response,
                     );
@@ -5644,7 +5644,7 @@ class DefaultApi
             }
 
             return $this->handleResponseWithDataType(
-                '\AIStats\\Sdk\Model\FileResponse',
+                '\AIStats\Sdk\Model\FileResponse',
                 $request,
                 $response,
             );
@@ -5653,7 +5653,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\AIStats\\Sdk\Model\FileResponse',
+                        '\AIStats\Sdk\Model\FileResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5701,7 +5701,7 @@ class DefaultApi
      */
     public function uploadFileAsyncWithHttpInfo($file, $purpose, string $contentType = self::contentTypes['uploadFile'][0])
     {
-        $returnType = '\AIStats\\Sdk\Model\FileResponse';
+        $returnType = '\AIStats\Sdk\Model\FileResponse';
         $request = $this->uploadFileRequest($file, $purpose, $contentType);
 
         return $this->client

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ChatMessage Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class ChatMessage implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'role' => 'string',
-        'content' => '\AIStats\\Sdk\Model\ChatMessageContent',
+        'content' => '\AIStats\Sdk\Model\ChatMessageContent',
         'name' => 'string',
-        'tool_calls' => '\AIStats\\Sdk\Model\ToolCall[]',
+        'tool_calls' => '\AIStats\Sdk\Model\ToolCall[]',
         'tool_call_id' => 'string'
     ];
 
@@ -391,7 +391,7 @@ class ChatMessage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets content
      *
-     * @return \AIStats\\Sdk\Model\ChatMessageContent|null
+     * @return \AIStats\Sdk\Model\ChatMessageContent|null
      */
     public function getContent()
     {
@@ -401,7 +401,7 @@ class ChatMessage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets content
      *
-     * @param \AIStats\\Sdk\Model\ChatMessageContent|null $content content
+     * @param \AIStats\Sdk\Model\ChatMessageContent|null $content content
      *
      * @return self
      */
@@ -445,7 +445,7 @@ class ChatMessage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tool_calls
      *
-     * @return \AIStats\\Sdk\Model\ToolCall[]|null
+     * @return \AIStats\Sdk\Model\ToolCall[]|null
      */
     public function getToolCalls()
     {
@@ -455,7 +455,7 @@ class ChatMessage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tool_calls
      *
-     * @param \AIStats\\Sdk\Model\ToolCall[]|null $tool_calls tool_calls
+     * @param \AIStats\Sdk\Model\ToolCall[]|null $tool_calls tool_calls
      *
      * @return self
      */

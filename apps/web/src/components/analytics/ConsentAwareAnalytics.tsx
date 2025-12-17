@@ -59,13 +59,15 @@ function ensurePosthogInitialised() {
 		api_host: POSTHOG_API_HOST,
 		ui_host: POSTHOG_UI_HOST,
 		cookieless_mode: "on_reject",
-		autocapture: false,
-		capture_pageview: false,
+		autocapture: true,
+		capture_pageview: true,
 		persistence: "localStorage",
 		// Keep default opt-out until we explicitly opt-in via consent.
 		opt_out_capturing_by_default: true,
 		debug: process.env.NODE_ENV === "development",
 	});
+
+	console.log("Posthog initialized successfully");
 
 	return true;
 }

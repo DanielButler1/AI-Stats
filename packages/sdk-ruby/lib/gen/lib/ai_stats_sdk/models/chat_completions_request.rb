@@ -131,7 +131,7 @@ module AIStatsSdk
         :'model' => :'String',
         :'system' => :'String',
         :'messages' => :'Array<ChatMessage>',
-        :'reasoning' => :'ChatCompletionsRequestReasoning',
+        :'reasoning' => :'ReasoningConfig',
         :'frequency_penalty' => :'Float',
         :'logit_bias' => :'Hash<String, Float>',
         :'max_output_tokens' => :'Integer',

@@ -30,13 +30,6 @@ var res = client.GetModels(limit: 5);
 Console.WriteLine(res.Models.Count);
 ```
 
-```cpp C++ (preview)
-ai_stats_sdk_cpp::Client client("YOUR_KEY");
-auto task = client.getModels();
-auto resp = task.get();
-std::cout << "models fetched" << std::endl;
-```
-
 ```go Go (preview)
 client := aistats.New("YOUR_KEY", "https://api.ai-stats.phaseo.app/v1")
 resp, _, _ := client.GetModels(context.Background(), nil)
@@ -53,12 +46,6 @@ echo count($resp->getModels());
 client = AIStatsSdk::Client.new(api_key: "YOUR_KEY")
 resp = client.get_models(limit: 5)
 puts resp.models.length
-```
-
-```rust Rust (preview)
-let client = ai_stats_sdk_example::Client::new("YOUR_KEY", "https://api.ai-stats.phaseo.app/v1");
-let resp = client.get_models(None, Some(5), None).await?;
-println!("{:?}", resp.models);
 ```
 
 </CodeGroup>

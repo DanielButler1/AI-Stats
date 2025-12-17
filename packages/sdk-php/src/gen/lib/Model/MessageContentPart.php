@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * MessageContentPart Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,11 +59,11 @@ class MessageContentPart implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'type' => 'string',
         'text' => 'string',
-        'image_url' => '\AIStats\\Sdk\Model\ImageContentPartImageUrl',
-        'input_audio' => '\AIStats\\Sdk\Model\AudioContentPartInputAudio',
+        'image_url' => '\AIStats\Sdk\Model\ImageContentPartImageUrl',
+        'input_audio' => '\AIStats\Sdk\Model\AudioContentPartInputAudio',
         'video_url' => 'string',
         'id' => 'string',
-        'function' => '\AIStats\\Sdk\Model\ToolCallContentPartFunction'
+        'function' => '\AIStats\Sdk\Model\ToolCallContentPartFunction'
     ];
 
     /**
@@ -449,7 +449,7 @@ class MessageContentPart implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets image_url
      *
-     * @return \AIStats\\Sdk\Model\ImageContentPartImageUrl
+     * @return \AIStats\Sdk\Model\ImageContentPartImageUrl
      */
     public function getImageUrl()
     {
@@ -459,7 +459,7 @@ class MessageContentPart implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets image_url
      *
-     * @param \AIStats\\Sdk\Model\ImageContentPartImageUrl $image_url image_url
+     * @param \AIStats\Sdk\Model\ImageContentPartImageUrl $image_url image_url
      *
      * @return self
      */
@@ -476,7 +476,7 @@ class MessageContentPart implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets input_audio
      *
-     * @return \AIStats\\Sdk\Model\AudioContentPartInputAudio
+     * @return \AIStats\Sdk\Model\AudioContentPartInputAudio
      */
     public function getInputAudio()
     {
@@ -486,7 +486,7 @@ class MessageContentPart implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets input_audio
      *
-     * @param \AIStats\\Sdk\Model\AudioContentPartInputAudio $input_audio input_audio
+     * @param \AIStats\Sdk\Model\AudioContentPartInputAudio $input_audio input_audio
      *
      * @return self
      */
@@ -557,7 +557,7 @@ class MessageContentPart implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets function
      *
-     * @return \AIStats\\Sdk\Model\ToolCallContentPartFunction
+     * @return \AIStats\Sdk\Model\ToolCallContentPartFunction
      */
     public function getFunction()
     {
@@ -567,7 +567,7 @@ class MessageContentPart implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets function
      *
-     * @param \AIStats\\Sdk\Model\ToolCallContentPartFunction $function function
+     * @param \AIStats\Sdk\Model\ToolCallContentPartFunction $function function
      *
      * @return self
      */

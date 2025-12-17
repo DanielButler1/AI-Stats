@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **model** | **string** |  |
-**input** | [**\AIStats\\Sdk\Model\EmbeddingsRequestInput**](EmbeddingsRequestInput.md) |  |
+**input** | [**\AIStats\Sdk\Model\EmbeddingsRequestInput**](EmbeddingsRequestInput.md) |  |
 **encoding_format** | **string** |  | [optional]
 **dimensions** | **int** |  | [optional]
 **user** | **string** |  | [optional]

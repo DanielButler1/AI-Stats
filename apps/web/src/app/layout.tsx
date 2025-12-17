@@ -11,8 +11,6 @@ import { Metadata } from "next";
 import { METADATA_BASE } from "@/lib/seo";
 import { ChatWidget } from "@/components/chat-widget";
 import { ConsentProvider } from "@/components/analytics/ConsentProvider";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -67,9 +65,6 @@ export default function RootLayout({
 				)}
 			>
 				<ConsentProvider>
-					{GA_MEASUREMENT_ID ? (
-						<GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
-					) : null}
 					<ThemeProvider
 						attribute="class"
 						defaultTheme="light"

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * GenerationResponse Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -72,7 +72,7 @@ class GenerationResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         'error_message' => 'string',
         'latency_ms' => 'float',
         'generation_ms' => 'float',
-        'usage' => '\AIStats\\Sdk\Model\GenerationResponseUsage',
+        'usage' => '\AIStats\Sdk\Model\GenerationResponseUsage',
         'cost_nanos' => 'float',
         'currency' => 'string',
         'pricing_lines' => 'object[]',
@@ -865,7 +865,7 @@ class GenerationResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets usage
      *
-     * @return \AIStats\\Sdk\Model\GenerationResponseUsage|null
+     * @return \AIStats\Sdk\Model\GenerationResponseUsage|null
      */
     public function getUsage()
     {
@@ -875,7 +875,7 @@ class GenerationResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets usage
      *
-     * @param \AIStats\\Sdk\Model\GenerationResponseUsage|null $usage usage
+     * @param \AIStats\Sdk\Model\GenerationResponseUsage|null $usage usage
      *
      * @return self
      */

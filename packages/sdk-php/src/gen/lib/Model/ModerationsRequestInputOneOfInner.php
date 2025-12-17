@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ModerationsRequestInputOneOfInner Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class ModerationsRequestInputOneOfInner implements ModelInterface, ArrayAccess, 
     protected static $openAPITypes = [
         'type' => 'string',
         'text' => 'string',
-        'image_url' => '\AIStats\\Sdk\Model\ImageContentPartImageUrl'
+        'image_url' => '\AIStats\Sdk\Model\ImageContentPartImageUrl'
     ];
 
     /**
@@ -403,7 +403,7 @@ class ModerationsRequestInputOneOfInner implements ModelInterface, ArrayAccess, 
     /**
      * Gets image_url
      *
-     * @return \AIStats\\Sdk\Model\ImageContentPartImageUrl
+     * @return \AIStats\Sdk\Model\ImageContentPartImageUrl
      */
     public function getImageUrl()
     {
@@ -413,7 +413,7 @@ class ModerationsRequestInputOneOfInner implements ModelInterface, ArrayAccess, 
     /**
      * Sets image_url
      *
-     * @param \AIStats\\Sdk\Model\ImageContentPartImageUrl $image_url image_url
+     * @param \AIStats\Sdk\Model\ImageContentPartImageUrl $image_url image_url
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk\Model
+ * @package  AIStats\Sdk\Model
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,12 +26,12 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 /**
  * Interface abstracting model access.
  *
- * @package AIStats\\Sdk\Model
+ * @package AIStats\Sdk\Model
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

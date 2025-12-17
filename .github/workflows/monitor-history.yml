@@ -1,0 +1,53 @@
+name: Update Monitor History
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/web/src/data/**'
+
+jobs:
+  update-history:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need previous commit for diff
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check for data changes
+        id: check-changes
+        run: |
+          if git diff --name-only HEAD~1 HEAD | grep -q "^apps/web/src/data/"; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update monitor history
+        if: steps.check-changes.outputs.changes == 'true'
+        run: node scripts/update-monitor-history.js
+
+      - name: Commit changes
+        if: steps.check-changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add apps/web/public/data/monitor-history.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update monitor history"
+            git push
+          fi

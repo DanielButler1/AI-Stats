@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ImagesEditResponse Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class ImagesEditResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'created' => 'int',
-        'data' => '\AIStats\\Sdk\Model\Image[]'
+        'data' => '\AIStats\Sdk\Model\Image[]'
     ];
 
     /**
@@ -326,7 +326,7 @@ class ImagesEditResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets data
      *
-     * @return \AIStats\\Sdk\Model\Image[]|null
+     * @return \AIStats\Sdk\Model\Image[]|null
      */
     public function getData()
     {
@@ -336,7 +336,7 @@ class ImagesEditResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets data
      *
-     * @param \AIStats\\Sdk\Model\Image[]|null $data data
+     * @param \AIStats\Sdk\Model\Image[]|null $data data
      *
      * @return self
      */

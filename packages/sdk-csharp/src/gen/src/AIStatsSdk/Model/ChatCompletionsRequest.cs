@@ -58,7 +58,7 @@ namespace AIStatsSdk.Model
         /// <param name="userId">userId</param>
         /// <param name="serviceTier">serviceTier (default to ServiceTierEnum.Standard)</param>
         [JsonConstructor]
-        public ChatCompletionsRequest(string model, List<ChatMessage> messages, Option<string?> @system = default, Option<ChatCompletionsRequestReasoning?> reasoning = default, Option<decimal?> frequencyPenalty = default, Option<Dictionary<string, decimal>?> logitBias = default, Option<int?> maxOutputTokens = default, Option<bool?> meta = default, Option<decimal?> presencePenalty = default, Option<long?> seed = default, Option<bool?> stream = default, Option<decimal?> temperature = default, Option<List<ChatCompletionsRequestToolsInner>?> tools = default, Option<int?> maxToolCalls = default, Option<bool?> parallelToolCalls = default, Option<ChatCompletionsRequestToolChoice?> toolChoice = default, Option<int?> topK = default, Option<bool?> logprobs = default, Option<int?> topLogprobs = default, Option<decimal?> topP = default, Option<ChatCompletionsRequestResponseFormat?> responseFormat = default, Option<bool?> usage = default, Option<string?> userId = default, Option<ServiceTierEnum?> serviceTier = default)
+        public ChatCompletionsRequest(string model, List<ChatMessage> messages, Option<string?> @system = default, Option<ReasoningConfig?> reasoning = default, Option<decimal?> frequencyPenalty = default, Option<Dictionary<string, decimal>?> logitBias = default, Option<int?> maxOutputTokens = default, Option<bool?> meta = default, Option<decimal?> presencePenalty = default, Option<long?> seed = default, Option<bool?> stream = default, Option<decimal?> temperature = default, Option<List<ChatCompletionsRequestToolsInner>?> tools = default, Option<int?> maxToolCalls = default, Option<bool?> parallelToolCalls = default, Option<ChatCompletionsRequestToolChoice?> toolChoice = default, Option<int?> topK = default, Option<bool?> logprobs = default, Option<int?> topLogprobs = default, Option<decimal?> topP = default, Option<ChatCompletionsRequestResponseFormat?> responseFormat = default, Option<bool?> usage = default, Option<string?> userId = default, Option<ServiceTierEnum?> serviceTier = default)
         {
             Model = model;
             Messages = messages;
@@ -212,13 +212,13 @@ namespace AIStatsSdk.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<ChatCompletionsRequestReasoning?> ReasoningOption { get; private set; }
+        public Option<ReasoningConfig?> ReasoningOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Reasoning
         /// </summary>
         [JsonPropertyName("reasoning")]
-        public ChatCompletionsRequestReasoning? Reasoning { get { return this.ReasoningOption; } set { this.ReasoningOption = new(value); } }
+        public ReasoningConfig? Reasoning { get { return this.ReasoningOption; } set { this.ReasoningOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of FrequencyPenalty
@@ -629,7 +629,7 @@ namespace AIStatsSdk.Model
             Option<string?> model = default;
             Option<List<ChatMessage>?> messages = default;
             Option<string?> varSystem = default;
-            Option<ChatCompletionsRequestReasoning?> reasoning = default;
+            Option<ReasoningConfig?> reasoning = default;
             Option<decimal?> frequencyPenalty = default;
             Option<Dictionary<string, decimal>?> logitBias = default;
             Option<int?> maxOutputTokens = default;
@@ -676,7 +676,7 @@ namespace AIStatsSdk.Model
                             varSystem = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "reasoning":
-                            reasoning = new Option<ChatCompletionsRequestReasoning?>(JsonSerializer.Deserialize<ChatCompletionsRequestReasoning>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            reasoning = new Option<ReasoningConfig?>(JsonSerializer.Deserialize<ReasoningConfig>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "frequency_penalty":
                             frequencyPenalty = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());

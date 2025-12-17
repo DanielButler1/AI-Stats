@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ModerationsResponse Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class ModerationsResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'id' => 'string',
         'model' => 'string',
-        'results' => '\AIStats\\Sdk\Model\ModerationResult[]'
+        'results' => '\AIStats\Sdk\Model\ModerationResult[]'
     ];
 
     /**
@@ -360,7 +360,7 @@ class ModerationsResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets results
      *
-     * @return \AIStats\\Sdk\Model\ModerationResult[]|null
+     * @return \AIStats\Sdk\Model\ModerationResult[]|null
      */
     public function getResults()
     {
@@ -370,7 +370,7 @@ class ModerationsResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets results
      *
-     * @param \AIStats\\Sdk\Model\ModerationResult[]|null $results results
+     * @param \AIStats\Sdk\Model\ModerationResult[]|null $results results
      *
      * @return self
      */

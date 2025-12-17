@@ -2,7 +2,7 @@
   "model_id": "qwen/qwq-32b-2025-03-05",
   "organisation_id": "qwen",
   "name": "QwQ 32B",
-  "status": "Available",
+  "status": null,
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2025-03-05T00:00:00",

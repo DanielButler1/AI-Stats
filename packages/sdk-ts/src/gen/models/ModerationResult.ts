@@ -21,7 +21,6 @@ import {
     ModerationCategoryScoresToJSONTyped,
 } from './ModerationCategoryScores';
 import type { ModerationCategories } from './ModerationCategories';
-import {
     ModerationCategoriesFromJSON,
     ModerationCategoriesFromJSONTyped,
     ModerationCategoriesToJSON,

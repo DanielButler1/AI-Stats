@@ -219,7 +219,7 @@ namespace AIStatsSdk.Test.Api
             string id = default!;
             var response = await _instance.GetGenerationAsync(id);
             var model = response.Ok();
-            Assert.IsType<Object>(model);
+            Assert.IsType<GenerationResponse>(model);
         }
 
         /// <summary>
@@ -251,7 +251,7 @@ namespace AIStatsSdk.Test.Api
         public async Task ListModelsAsyncTest()
         {
             Client.Option<List<string>> endpoints = default!;
-            Client.Option<List<string>> organisation = default!;
+            Client.Option<ListModelsOrganisationParameter> organisation = default!;
             Client.Option<List<string>> inputTypes = default!;
             Client.Option<List<string>> outputTypes = default!;
             Client.Option<List<string>> varParams = default!;

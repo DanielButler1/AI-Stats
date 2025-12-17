@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **endpoints** | **string[]** |  | [optional]
 **input_types** | **string[]** |  | [optional]
 **output_types** | **string[]** |  | [optional]
-**providers** | [**\AIStats\\Sdk\Model\ModelProvidersInner[]**](ModelProvidersInner.md) |  | [optional]
+**providers** | [**\AIStats\Sdk\Model\ModelProvidersInner[]**](ModelProvidersInner.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

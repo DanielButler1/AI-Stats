@@ -7,7 +7,7 @@
 | **model** | **String** |  |  |
 | **system** | **String** |  | [optional] |
 | **messages** | [**Array&lt;ChatMessage&gt;**](ChatMessage.md) |  |  |
-| **reasoning** | [**ChatCompletionsRequestReasoning**](ChatCompletionsRequestReasoning.md) |  | [optional] |
+| **reasoning** | [**ReasoningConfig**](ReasoningConfig.md) |  | [optional] |
 | **frequency_penalty** | **Float** |  | [optional] |
 | **logit_bias** | **Hash&lt;String, Float&gt;** |  | [optional] |
 | **max_output_tokens** | **Integer** |  | [optional] |

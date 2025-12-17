@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ChatCompletionsRequest Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,8 +59,8 @@ class ChatCompletionsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'model' => 'string',
         'system' => 'string',
-        'messages' => '\AIStats\\Sdk\Model\ChatMessage[]',
-        'reasoning' => '\AIStats\\Sdk\Model\ChatCompletionsRequestReasoning',
+        'messages' => '\AIStats\Sdk\Model\ChatMessage[]',
+        'reasoning' => '\AIStats\Sdk\Model\ReasoningConfig',
         'frequency_penalty' => 'float',
         'logit_bias' => 'array<string,float>',
         'max_output_tokens' => 'int',
@@ -69,15 +69,15 @@ class ChatCompletionsRequest implements ModelInterface, ArrayAccess, \JsonSerial
         'seed' => 'int',
         'stream' => 'bool',
         'temperature' => 'float',
-        'tools' => '\AIStats\\Sdk\Model\ChatCompletionsRequestToolsInner[]',
+        'tools' => '\AIStats\Sdk\Model\ChatCompletionsRequestToolsInner[]',
         'max_tool_calls' => 'int',
         'parallel_tool_calls' => 'bool',
-        'tool_choice' => '\AIStats\\Sdk\Model\ChatCompletionsRequestToolChoice',
+        'tool_choice' => '\AIStats\Sdk\Model\ChatCompletionsRequestToolChoice',
         'top_k' => 'int',
         'logprobs' => 'bool',
         'top_logprobs' => 'int',
         'top_p' => 'float',
-        'response_format' => '\AIStats\\Sdk\Model\ChatCompletionsRequestResponseFormat',
+        'response_format' => '\AIStats\Sdk\Model\ChatCompletionsRequestResponseFormat',
         'usage' => 'bool',
         'user_id' => 'string',
         'service_tier' => 'string'
@@ -603,7 +603,7 @@ class ChatCompletionsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets messages
      *
-     * @return \AIStats\\Sdk\Model\ChatMessage[]
+     * @return \AIStats\Sdk\Model\ChatMessage[]
      */
     public function getMessages()
     {
@@ -613,7 +613,7 @@ class ChatCompletionsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets messages
      *
-     * @param \AIStats\\Sdk\Model\ChatMessage[] $messages messages
+     * @param \AIStats\Sdk\Model\ChatMessage[] $messages messages
      *
      * @return self
      */
@@ -635,7 +635,7 @@ class ChatCompletionsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets reasoning
      *
-     * @return \AIStats\\Sdk\Model\ChatCompletionsRequestReasoning|null
+     * @return \AIStats\Sdk\Model\ReasoningConfig|null
      */
     public function getReasoning()
     {
@@ -645,7 +645,7 @@ class ChatCompletionsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets reasoning
      *
-     * @param \AIStats\\Sdk\Model\ChatCompletionsRequestReasoning|null $reasoning reasoning
+     * @param \AIStats\Sdk\Model\ReasoningConfig|null $reasoning reasoning
      *
      * @return self
      */
@@ -915,7 +915,7 @@ class ChatCompletionsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets tools
      *
-     * @return \AIStats\\Sdk\Model\ChatCompletionsRequestToolsInner[]|null
+     * @return \AIStats\Sdk\Model\ChatCompletionsRequestToolsInner[]|null
      */
     public function getTools()
     {
@@ -925,7 +925,7 @@ class ChatCompletionsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tools
      *
-     * @param \AIStats\\Sdk\Model\ChatCompletionsRequestToolsInner[]|null $tools tools
+     * @param \AIStats\Sdk\Model\ChatCompletionsRequestToolsInner[]|null $tools tools
      *
      * @return self
      */
@@ -1001,7 +1001,7 @@ class ChatCompletionsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets tool_choice
      *
-     * @return \AIStats\\Sdk\Model\ChatCompletionsRequestToolChoice|null
+     * @return \AIStats\Sdk\Model\ChatCompletionsRequestToolChoice|null
      */
     public function getToolChoice()
     {
@@ -1011,7 +1011,7 @@ class ChatCompletionsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tool_choice
      *
-     * @param \AIStats\\Sdk\Model\ChatCompletionsRequestToolChoice|null $tool_choice tool_choice
+     * @param \AIStats\Sdk\Model\ChatCompletionsRequestToolChoice|null $tool_choice tool_choice
      *
      * @return self
      */
@@ -1157,7 +1157,7 @@ class ChatCompletionsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets response_format
      *
-     * @return \AIStats\\Sdk\Model\ChatCompletionsRequestResponseFormat|null
+     * @return \AIStats\Sdk\Model\ChatCompletionsRequestResponseFormat|null
      */
     public function getResponseFormat()
     {
@@ -1167,7 +1167,7 @@ class ChatCompletionsRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets response_format
      *
-     * @param \AIStats\\Sdk\Model\ChatCompletionsRequestResponseFormat|null $response_format response_format
+     * @param \AIStats\Sdk\Model\ChatCompletionsRequestResponseFormat|null $response_format response_format
      *
      * @return self
      */

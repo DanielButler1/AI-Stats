@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ImageContentPart Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class ImageContentPart implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'image_url' => '\AIStats\\Sdk\Model\ImageContentPartImageUrl'
+        'image_url' => '\AIStats\Sdk\Model\ImageContentPartImageUrl'
     ];
 
     /**
@@ -364,7 +364,7 @@ class ImageContentPart implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets image_url
      *
-     * @return \AIStats\\Sdk\Model\ImageContentPartImageUrl
+     * @return \AIStats\Sdk\Model\ImageContentPartImageUrl
      */
     public function getImageUrl()
     {
@@ -374,7 +374,7 @@ class ImageContentPart implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets image_url
      *
-     * @param \AIStats\\Sdk\Model\ImageContentPartImageUrl $image_url image_url
+     * @param \AIStats\Sdk\Model\ImageContentPartImageUrl $image_url image_url
      *
      * @return self
      */

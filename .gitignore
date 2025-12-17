@@ -12,3 +12,4 @@ node_modules/.cache/turbo/
 turbo-*.log
 .openapi-generator
 .venv
+.ai-stats-devtools/

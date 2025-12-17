@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * Model Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -66,7 +66,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
         'endpoints' => 'string[]',
         'input_types' => 'string[]',
         'output_types' => 'string[]',
-        'providers' => '\AIStats\\Sdk\Model\ModelProvidersInner[]'
+        'providers' => '\AIStats\Sdk\Model\ModelProvidersInner[]'
     ];
 
     /**
@@ -598,7 +598,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets providers
      *
-     * @return \AIStats\\Sdk\Model\ModelProvidersInner[]|null
+     * @return \AIStats\Sdk\Model\ModelProvidersInner[]|null
      */
     public function getProviders()
     {
@@ -608,7 +608,7 @@ class Model implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets providers
      *
-     * @param \AIStats\\Sdk\Model\ModelProvidersInner[]|null $providers providers
+     * @param \AIStats\Sdk\Model\ModelProvidersInner[]|null $providers providers
      *
      * @return self
      */

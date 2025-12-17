@@ -158,7 +158,7 @@
 						]
 					},
 					{
-						"tab": "SDK Reference (Beta)",
+						"tab": "SDK Reference (Alpha)",
 						"icon": "package",
 						"menu": [
 							{
@@ -499,120 +499,6 @@
 											"v1/sdk-reference/ruby/models",
 											"v1/sdk-reference/ruby/generation",
 											"v1/sdk-reference/ruby/health"
-										]
-									}
-								]
-							},
-							{
-								"item": "Rust SDK",
-								"groups": [
-									{
-										"group": "Introduction",
-										"pages": [
-											"v1/sdk-reference/rust/overview",
-											"v1/sdk-reference/rust/installation"
-										]
-									},
-									{
-										"group": "Text",
-										"pages": [
-											"v1/sdk-reference/rust/responses",
-											"v1/sdk-reference/rust/chat-completions"
-										]
-									},
-									{
-										"group": "Image",
-										"pages": [
-											"v1/sdk-reference/rust/images-generations",
-											"v1/sdk-reference/rust/images-edits"
-										]
-									},
-									{
-										"group": "Audio",
-										"pages": [
-											"v1/sdk-reference/rust/audio-speech",
-											"v1/sdk-reference/rust/audio-transcriptions",
-											"v1/sdk-reference/rust/audio-translations"
-										]
-									},
-									{
-										"group": "Video",
-										"pages": [
-											"v1/sdk-reference/rust/video-generation"
-										]
-									},
-									{
-										"group": "Specialised",
-										"pages": [
-											"v1/sdk-reference/rust/embeddings",
-											"v1/sdk-reference/rust/moderations",
-											"v1/sdk-reference/rust/batches",
-											"v1/sdk-reference/rust/files"
-										]
-									},
-									{
-										"group": "Admin",
-										"pages": [
-											"v1/sdk-reference/rust/models",
-											"v1/sdk-reference/rust/generation",
-											"v1/sdk-reference/rust/health"
-										]
-									}
-								]
-							},
-							{
-								"item": "C++ SDK",
-								"groups": [
-									{
-										"group": "Introduction",
-										"pages": [
-											"v1/sdk-reference/cpp/overview",
-											"v1/sdk-reference/cpp/installation"
-										]
-									},
-									{
-										"group": "Text",
-										"pages": [
-											"v1/sdk-reference/cpp/responses",
-											"v1/sdk-reference/cpp/chat-completions"
-										]
-									},
-									{
-										"group": "Image",
-										"pages": [
-											"v1/sdk-reference/cpp/images-generations",
-											"v1/sdk-reference/cpp/images-edits"
-										]
-									},
-									{
-										"group": "Audio",
-										"pages": [
-											"v1/sdk-reference/cpp/audio-speech",
-											"v1/sdk-reference/cpp/audio-transcriptions",
-											"v1/sdk-reference/cpp/audio-translations"
-										]
-									},
-									{
-										"group": "Video",
-										"pages": [
-											"v1/sdk-reference/cpp/video-generation"
-										]
-									},
-									{
-										"group": "Specialised",
-										"pages": [
-											"v1/sdk-reference/cpp/embeddings",
-											"v1/sdk-reference/cpp/moderations",
-											"v1/sdk-reference/cpp/batches",
-											"v1/sdk-reference/cpp/files"
-										]
-									},
-									{
-										"group": "Admin",
-										"pages": [
-											"v1/sdk-reference/cpp/models",
-											"v1/sdk-reference/cpp/generation",
-											"v1/sdk-reference/cpp/health"
 										]
 									}
 								]

@@ -20,7 +20,6 @@ import {
     ImageModerationInputToJSON,
 } from './ImageModerationInput';
 import type { TextModerationInput } from './TextModerationInput';
-import {
     instanceOfTextModerationInput,
     TextModerationInputFromJSON,
     TextModerationInputFromJSONTyped,

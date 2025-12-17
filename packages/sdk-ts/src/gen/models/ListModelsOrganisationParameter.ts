@@ -19,8 +19,6 @@ import {
     OrganisationIdFromJSONTyped,
     OrganisationIdToJSON,
 } from './OrganisationId';
-import type { OrganisationId } from './OrganisationId';
-import {
     instanceOfOrganisationId,
     OrganisationIdFromJSON,
     OrganisationIdFromJSONTyped,

@@ -119,7 +119,6 @@ Class | Method | HTTP request | Description
  - [AIStatsSdk::BenchmarkId](docs/BenchmarkId.md)
  - [AIStatsSdk::ChatChoice](docs/ChatChoice.md)
  - [AIStatsSdk::ChatCompletionsRequest](docs/ChatCompletionsRequest.md)
- - [AIStatsSdk::ChatCompletionsRequestReasoning](docs/ChatCompletionsRequestReasoning.md)
  - [AIStatsSdk::ChatCompletionsRequestResponseFormat](docs/ChatCompletionsRequestResponseFormat.md)
  - [AIStatsSdk::ChatCompletionsRequestResponseFormatOneOf](docs/ChatCompletionsRequestResponseFormatOneOf.md)
  - [AIStatsSdk::ChatCompletionsRequestToolChoice](docs/ChatCompletionsRequestToolChoice.md)

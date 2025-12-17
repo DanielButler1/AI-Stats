@@ -21,7 +21,6 @@ import {
     UsageToJSONTyped,
 } from './Usage';
 import type { ChatChoice } from './ChatChoice';
-import {
     ChatChoiceFromJSON,
     ChatChoiceFromJSONTyped,
     ChatChoiceToJSON,

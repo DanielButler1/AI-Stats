@@ -39,7 +39,6 @@ __all__ = [
     "BenchmarkId",
     "ChatChoice",
     "ChatCompletionsRequest",
-    "ChatCompletionsRequestReasoning",
     "ChatCompletionsRequestResponseFormat",
     "ChatCompletionsRequestResponseFormatOneOf",
     "ChatCompletionsRequestToolChoice",
@@ -127,7 +126,6 @@ from ai_stats_generated.models.batch_response import BatchResponse as BatchRespo
 from ai_stats_generated.models.benchmark_id import BenchmarkId as BenchmarkId
 from ai_stats_generated.models.chat_choice import ChatChoice as ChatChoice
 from ai_stats_generated.models.chat_completions_request import ChatCompletionsRequest as ChatCompletionsRequest
-from ai_stats_generated.models.chat_completions_request_reasoning import ChatCompletionsRequestReasoning as ChatCompletionsRequestReasoning
 from ai_stats_generated.models.chat_completions_request_response_format import ChatCompletionsRequestResponseFormat as ChatCompletionsRequestResponseFormat
 from ai_stats_generated.models.chat_completions_request_response_format_one_of import ChatCompletionsRequestResponseFormatOneOf as ChatCompletionsRequestResponseFormatOneOf
 from ai_stats_generated.models.chat_completions_request_tool_choice import ChatCompletionsRequestToolChoice as ChatCompletionsRequestToolChoice

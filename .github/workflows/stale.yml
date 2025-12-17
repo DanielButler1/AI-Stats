@@ -1,0 +1,47 @@
+name: Label stale Issues & PRs
+
+on:
+    schedule:
+        - cron: "0 2 * * *" # 02:00 UTC daily
+    workflow_dispatch:
+
+concurrency:
+    group: stale-labels
+    cancel-in-progress: false
+
+permissions:
+    actions: write
+    issues: write
+    pull-requests: write
+
+jobs:
+    stale:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Mark stale
+              uses: actions/stale@v10
+              with:
+                  repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+                  # --- When to mark stale (inactivity) ---
+                  days-before-issue-stale: 30
+                  days-before-pr-stale: 30
+
+                  # --- Label only (never auto-close) ---
+                  days-before-issue-close: -1
+                  days-before-pr-close: -1
+
+                  # --- Labels to apply ---
+                  stale-issue-label: "status/stale"
+                  stale-pr-label: "status/stale"
+
+                  # --- No bot comments ---
+                  stale-issue-message: ""
+                  stale-pr-message: ""
+
+                  # --- Common exemptions (tweak to your label taxonomy) ---
+                  exempt-issue-labels: "pinned,security,keep-open,do-not-stale"
+                  exempt-pr-labels: "keep-open,do-not-stale,wip,work-in-progress"
+
+                  # --- Keep API usage sane on busy repos ---
+                  operations-per-run: 400

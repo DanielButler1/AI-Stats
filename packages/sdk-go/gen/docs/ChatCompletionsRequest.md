@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Model** | **string** |  | 
 **System** | Pointer to **string** |  | [optional] 
 **Messages** | [**[]ChatMessage**](ChatMessage.md) |  | 
-**Reasoning** | Pointer to [**ChatCompletionsRequestReasoning**](ChatCompletionsRequestReasoning.md) |  | [optional] 
+**Reasoning** | Pointer to [**ReasoningConfig**](ReasoningConfig.md) |  | [optional] 
 **FrequencyPenalty** | Pointer to **float32** |  | [optional] 
 **LogitBias** | Pointer to **map[string]float32** |  | [optional] 
 **MaxOutputTokens** | Pointer to **int32** |  | [optional] 
@@ -115,20 +115,20 @@ SetMessages sets Messages field to given value.
 
 ### GetReasoning
 
-`func (o *ChatCompletionsRequest) GetReasoning() ChatCompletionsRequestReasoning`
+`func (o *ChatCompletionsRequest) GetReasoning() ReasoningConfig`
 
 GetReasoning returns the Reasoning field if non-nil, zero value otherwise.
 
 ### GetReasoningOk
 
-`func (o *ChatCompletionsRequest) GetReasoningOk() (*ChatCompletionsRequestReasoning, bool)`
+`func (o *ChatCompletionsRequest) GetReasoningOk() (*ReasoningConfig, bool)`
 
 GetReasoningOk returns a tuple with the Reasoning field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReasoning
 
-`func (o *ChatCompletionsRequest) SetReasoning(v ChatCompletionsRequestReasoning)`
+`func (o *ChatCompletionsRequest) SetReasoning(v ReasoningConfig)`
 
 SetReasoning sets Reasoning field to given value.
 

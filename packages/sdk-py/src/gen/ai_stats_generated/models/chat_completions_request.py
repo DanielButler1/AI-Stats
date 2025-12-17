@@ -20,11 +20,11 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
-from ai_stats_generated.models.chat_completions_request_reasoning import ChatCompletionsRequestReasoning
 from ai_stats_generated.models.chat_completions_request_response_format import ChatCompletionsRequestResponseFormat
 from ai_stats_generated.models.chat_completions_request_tool_choice import ChatCompletionsRequestToolChoice
 from ai_stats_generated.models.chat_completions_request_tools_inner import ChatCompletionsRequestToolsInner
 from ai_stats_generated.models.chat_message import ChatMessage
+from ai_stats_generated.models.reasoning_config import ReasoningConfig
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -35,7 +35,7 @@ class ChatCompletionsRequest(BaseModel):
     model: StrictStr
     system: Optional[StrictStr] = None
     messages: Annotated[List[ChatMessage], Field(min_length=1)]
-    reasoning: Optional[ChatCompletionsRequestReasoning] = None
+    reasoning: Optional[ReasoningConfig] = None
     frequency_penalty: Optional[Union[Annotated[float, Field(le=2, strict=True, ge=-2)], Annotated[int, Field(le=2, strict=True, ge=-2)]]] = None
     logit_bias: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = None
     max_output_tokens: Optional[Annotated[int, Field(strict=True, ge=1)]] = None
@@ -145,7 +145,7 @@ class ChatCompletionsRequest(BaseModel):
             "model": obj.get("model"),
             "system": obj.get("system"),
             "messages": [ChatMessage.from_dict(_item) for _item in obj["messages"]] if obj.get("messages") is not None else None,
-            "reasoning": ChatCompletionsRequestReasoning.from_dict(obj["reasoning"]) if obj.get("reasoning") is not None else None,
+            "reasoning": ReasoningConfig.from_dict(obj["reasoning"]) if obj.get("reasoning") is not None else None,
             "frequency_penalty": obj.get("frequency_penalty"),
             "logit_bias": obj.get("logit_bias"),
             "max_output_tokens": obj.get("max_output_tokens"),

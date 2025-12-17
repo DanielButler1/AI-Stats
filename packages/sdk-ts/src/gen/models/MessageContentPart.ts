@@ -20,28 +20,24 @@ import {
     AudioContentPartToJSON,
 } from './AudioContentPart';
 import type { ImageContentPart } from './ImageContentPart';
-import {
     instanceOfImageContentPart,
     ImageContentPartFromJSON,
     ImageContentPartFromJSONTyped,
     ImageContentPartToJSON,
 } from './ImageContentPart';
 import type { TextContentPart } from './TextContentPart';
-import {
     instanceOfTextContentPart,
     TextContentPartFromJSON,
     TextContentPartFromJSONTyped,
     TextContentPartToJSON,
 } from './TextContentPart';
 import type { ToolCallContentPart } from './ToolCallContentPart';
-import {
     instanceOfToolCallContentPart,
     ToolCallContentPartFromJSON,
     ToolCallContentPartFromJSONTyped,
     ToolCallContentPartToJSON,
 } from './ToolCallContentPart';
 import type { VideoContentPart } from './VideoContentPart';
-import {
     instanceOfVideoContentPart,
     VideoContentPartFromJSON,
     VideoContentPartFromJSONTyped,

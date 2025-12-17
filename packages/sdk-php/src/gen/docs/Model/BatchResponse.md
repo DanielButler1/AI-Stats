@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **expired_at** | **int** |  | [optional]
 **cancelling_at** | **int** |  | [optional]
 **cancelled_at** | **int** |  | [optional]
-**request_counts** | [**\AIStats\\Sdk\Model\BatchRequestCounts**](BatchRequestCounts.md) |  | [optional]
+**request_counts** | [**\AIStats\Sdk\Model\BatchRequestCounts**](BatchRequestCounts.md) |  | [optional]
 **metadata** | **object** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

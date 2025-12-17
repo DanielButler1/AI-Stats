@@ -21,14 +21,12 @@ import {
     ChatCompletionsRequestToolChoiceToJSONTyped,
 } from './ChatCompletionsRequestToolChoice';
 import type { ResponsesRequestReasoning } from './ResponsesRequestReasoning';
-import {
     ResponsesRequestReasoningFromJSON,
     ResponsesRequestReasoningFromJSONTyped,
     ResponsesRequestReasoningToJSON,
     ResponsesRequestReasoningToJSONTyped,
 } from './ResponsesRequestReasoning';
 import type { ResponsesRequestPrompt } from './ResponsesRequestPrompt';
-import {
     ResponsesRequestPromptFromJSON,
     ResponsesRequestPromptFromJSONTyped,
     ResponsesRequestPromptToJSON,

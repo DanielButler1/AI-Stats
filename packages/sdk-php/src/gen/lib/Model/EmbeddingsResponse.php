@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * EmbeddingsResponse Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class EmbeddingsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'object' => 'string',
-        'data' => '\AIStats\\Sdk\Model\Embedding[]',
+        'data' => '\AIStats\Sdk\Model\Embedding[]',
         'model' => 'string',
-        'usage' => '\AIStats\\Sdk\Model\Usage'
+        'usage' => '\AIStats\Sdk\Model\Usage'
     ];
 
     /**
@@ -340,7 +340,7 @@ class EmbeddingsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets data
      *
-     * @return \AIStats\\Sdk\Model\Embedding[]|null
+     * @return \AIStats\Sdk\Model\Embedding[]|null
      */
     public function getData()
     {
@@ -350,7 +350,7 @@ class EmbeddingsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets data
      *
-     * @param \AIStats\\Sdk\Model\Embedding[]|null $data data
+     * @param \AIStats\Sdk\Model\Embedding[]|null $data data
      *
      * @return self
      */
@@ -394,7 +394,7 @@ class EmbeddingsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets usage
      *
-     * @return \AIStats\\Sdk\Model\Usage|null
+     * @return \AIStats\Sdk\Model\Usage|null
      */
     public function getUsage()
     {
@@ -404,7 +404,7 @@ class EmbeddingsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets usage
      *
-     * @param \AIStats\\Sdk\Model\Usage|null $usage usage
+     * @param \AIStats\Sdk\Model\Usage|null $usage usage
      *
      * @return self
      */

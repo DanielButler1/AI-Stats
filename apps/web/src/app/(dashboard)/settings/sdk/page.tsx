@@ -28,14 +28,6 @@ const SDKS: Sdk[] = [
 		supported: true,
 	},
 	{
-		name: "C++ SDK",
-		packageName: "@ai-stats/cpp-sdk",
-		installCommand: "Coming soon",
-		logoId: "cpp",
-		managerLink: "https://conan.io/",
-		supported: false,
-	},
-	{
 		name: "C# SDK",
 		packageName: "@ai-stats/csharp-sdk",
 		installCommand: "Coming soon",
@@ -75,14 +67,6 @@ const SDKS: Sdk[] = [
 		managerLink: "https://rubygems.org/",
 		supported: false,
 	},
-	{
-		name: "Rust SDK",
-		packageName: "@ai-stats/rust-sdk",
-		installCommand: "Coming soon",
-		logoId: "rust",
-		managerLink: "https://crates.io/",
-		supported: false,
-	},
 ];
 
 export const metadata: Metadata = {
@@ -105,7 +89,7 @@ export default function SettingsSdkPage() {
 					<p className="text-base text-zinc-600 dark:text-zinc-300">
 						TypeScript and Python SDKs are ready to install today.
 						We&apos;re also planning for C++, C#, Go, Java, PHP,
-						Ruby, and Rust so every team can build with their
+						and Ruby so every team can build with their
 						preferred language.
 					</p>
 				</div>

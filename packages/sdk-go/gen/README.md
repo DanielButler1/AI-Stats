@@ -113,7 +113,6 @@ Class | Method | HTTP request | Description
  - [BenchmarkId](docs/BenchmarkId.md)
  - [ChatChoice](docs/ChatChoice.md)
  - [ChatCompletionsRequest](docs/ChatCompletionsRequest.md)
- - [ChatCompletionsRequestReasoning](docs/ChatCompletionsRequestReasoning.md)
  - [ChatCompletionsRequestResponseFormat](docs/ChatCompletionsRequestResponseFormat.md)
  - [ChatCompletionsRequestResponseFormatOneOf](docs/ChatCompletionsRequestResponseFormatOneOf.md)
  - [ChatCompletionsRequestToolChoice](docs/ChatCompletionsRequestToolChoice.md)

@@ -2,7 +2,7 @@
   "model_id": "microsoft/phi-4-reasoning-2025-04-30",
   "organisation_id": "microsoft",
   "name": "Phi 4 Reasoning",
-  "status": "Available",
+  "status": null,
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2025-04-30T00:00:00",

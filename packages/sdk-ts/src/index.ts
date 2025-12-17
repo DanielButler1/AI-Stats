@@ -1,42 +1,41 @@
-import {
-  Configuration,
-  CompletionsApi,
-  ImagesApi,
-  ModerationsApi,
-  VideoApi,
-  AnalyticsApi,
-  AudioApi,
-  ResponsesApi,
-  BatchApi,
-  FilesApi,
-  ModelId,
-} from "./gen";
-import { ModelsApi } from "./gen/apis/ModelsApi";
+import { Configuration, DefaultApi, ModelId } from "./gen/index.js";
 import type {
   ChatCompletionsRequest,
   ChatCompletionsResponse,
-  ImageGenerationRequest,
-  ImageGenerationResponse,
-  ModerationRequest,
-  ModerationResponse,
+  ImagesGenerationRequest as ImageGenerationRequest,
+  ImagesGenerationResponse as ImageGenerationResponse,
+  ModerationsRequest as ModerationRequest,
+  ModerationsResponse as ModerationResponse,
   VideoGenerationRequest,
   VideoGenerationResponse,
-  ModerationsPostRequest,
   ChatMessage,
-  ModelListResponse,
   ResponsesRequest,
   ResponsesResponse,
   AudioSpeechRequest,
-  AudioTranscriptionRequest,
   AudioTranscriptionResponse,
-  AudioTranslationRequest,
   BatchRequest,
   BatchResponse,
-  FileObject,
-  FileListResponse,
-  HealthzGet200Response,
+  FileResponse as FileObject,
+  ListFilesResponse as FileListResponse,
+  Healthz200Response as HealthzGet200Response,
+  ListModels200Response as ModelListResponse,
+  AudioTranslationResponse,
 } from "./gen";
-import type { FilesPostRequest } from "./gen/apis/FilesApi";
+import type {
+  CreateBatchRequest,
+  CreateImageRequest,
+  CreateImageEditRequest,
+  UploadFileRequest,
+  CreateTranscriptionRequest,
+  CreateTranslationRequest,
+  CreateEmbeddingRequest,
+  ListModelsRequest,
+  RetrieveBatchRequest,
+  RetrieveFileRequest,
+} from "./gen/apis/DefaultApi";
+
+type AudioTranscriptionRequest = CreateTranscriptionRequest;
+type AudioTranslationRequest = CreateTranslationRequest;
 
 type Options = {
   apiKey: string;
@@ -76,19 +75,23 @@ export type {
   ModerationResponse,
   VideoGenerationRequest,
   VideoGenerationResponse,
+  ModelListResponse,
+  ResponsesRequest,
+  ResponsesResponse,
+  AudioSpeechRequest,
+  AudioTranscriptionRequest,
+  AudioTranscriptionResponse,
+  AudioTranslationRequest,
+  AudioTranslationResponse,
+  BatchRequest,
+  BatchResponse,
+  FileObject,
+  FileListResponse,
+  HealthzGet200Response,
 };
 
 export class AIStats {
-  private readonly chatApi: CompletionsApi;
-  private readonly imagesApi: ImagesApi;
-  private readonly moderationsApi: ModerationsApi;
-  private readonly videoApi: VideoApi;
-  private readonly modelsApi: ModelsApi;
-  private readonly analyticsApi: AnalyticsApi;
-  private readonly audioApi: AudioApi;
-  private readonly responsesApi: ResponsesApi;
-  private readonly batchApi: BatchApi;
-  private readonly filesApi: FilesApi;
+  private readonly api: DefaultApi;
   private readonly basePath: string;
   private readonly fetchImpl: typeof fetch;
   private readonly headers: Record<string, string>;
@@ -116,16 +119,7 @@ export class AIStats {
       },
     });
 
-    this.chatApi = new CompletionsApi(configuration);
-    this.imagesApi = new ImagesApi(configuration);
-    this.moderationsApi = new ModerationsApi(configuration);
-    this.videoApi = new VideoApi(configuration);
-    this.modelsApi = new ModelsApi(configuration);
-    this.analyticsApi = new AnalyticsApi(configuration);
-    this.audioApi = new AudioApi(configuration);
-    this.responsesApi = new ResponsesApi(configuration);
-    this.batchApi = new BatchApi(configuration);
-    this.filesApi = new FilesApi(configuration);
+    this.api = new DefaultApi(configuration);
   }
 
   async generateText(req: ChatCompletionsParams): Promise<ChatCompletionsResponse> {
@@ -134,30 +128,51 @@ export class AIStats {
       throw new Error(`Unknown model id "${model}". Import and use a value from MODEL_IDS for autocomplete.`);
     }
 
-    const response = await this.chatApi.createChatCompletion({
-      chatCompletionsRequest: { ...rest, model, messages: messages.map(normalizeMessage) },
-    });
-    return response;
+    const normalizedMessages = messages.map(normalizeMessage);
+    const payload = { ...rest, model, messages: normalizedMessages };
+
+    try {
+      const response = await this.api.createChatCompletionRaw({
+        chatCompletionsRequest: payload,
+      });
+      const cloned = response.raw.clone();
+      const responseBody = await cloned.json().catch(() => undefined);
+      const value = await response.value();
+      return value;
+    } catch (err) {
+      throw err;
+    }
   }
 
   async *streamText(req: ChatCompletionsParams): AsyncGenerator<string> {
-    const body = JSON.stringify({ ...req, stream: true, messages: req.messages.map(normalizeMessage) });
-    const res = await this.fetchImpl(`${this.basePath}/chat/completions`, {
-      method: "POST",
-      headers: {
-        ...this.headers,
-        "Content-Type": "application/json",
-      },
-      body,
-    });
-    if (!res.ok || !res.body) {
-      const text = await res.text();
-      throw new Error(`Stream request failed: ${res.status} ${res.statusText} - ${text}`);
-    }
-    const reader = res.body.getReader();
+    const normalizedMessages = req.messages.map(normalizeMessage);
+    const payload = { ...req, stream: true, messages: normalizedMessages };
+
+    let eventCount = 0;
+    let status: number | undefined;
+    let responseHeaders: Record<string, string> | undefined;
+    const body = JSON.stringify(payload);
+    let reader: ReadableStreamDefaultReader<Uint8Array> | null = null;
     const decoder = new TextDecoder();
     let buffer = "";
+
     try {
+      const res = await this.fetchImpl(`${this.basePath}/chat/completions`, {
+        method: "POST",
+        headers: {
+          ...this.headers,
+          "Content-Type": "application/json",
+        },
+        body,
+      });
+      status = res.status;
+      responseHeaders = headersToRecord(res.headers);
+      if (!res.ok || !res.body) {
+        const text = await res.text();
+        throw new Error(`Stream request failed: ${res.status} ${res.statusText} - ${text}`);
+      }
+
+      reader = res.body.getReader();
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
@@ -167,110 +182,126 @@ export class AIStats {
           const line = buffer.slice(0, idx).trim();
           buffer = buffer.slice(idx + 1);
           if (!line) continue;
+          eventCount += 1;
           yield line;
         }
       }
       if (buffer.trim()) {
+        eventCount += 1;
         yield buffer.trim();
       }
+    } catch (err) {
+      throw err;
     } finally {
-      reader.releaseLock();
+      if (reader) {
+        reader.releaseLock();
+      }
     }
   }
 
   generateImage(req: ImageGenerationRequest) {
-    return this.imagesApi.imagesGenerationsPost({ imageGenerationRequest: req });
+    return this.api.createImage({ imagesGenerationRequest: req } satisfies CreateImageRequest);
   }
 
   generateImageEdit(req: ImageGenerationRequest) {
-    return this.imagesApi.imagesEditsPost({ imagesEditRequest: req as any });
+    return this.api.createImageEdit({ ...(req as any) } satisfies CreateImageEditRequest);
   }
 
   async generateEmbedding(body: Record<string, unknown>): Promise<any> {
-    const res = await this.fetchImpl(`${this.basePath}/embeddings`, {
-      method: "POST",
-      headers: { ...this.headers, "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    if (!res.ok) {
-      const text = await res.text();
-      throw new Error(`Embedding failed: ${res.status} ${res.statusText} - ${text}`);
-    }
-    return res.json();
+    return this.api.createEmbedding({ embeddingsRequest: body as any } satisfies CreateEmbeddingRequest);
   }
 
   generateModeration(req: ModerationRequest): Promise<ModerationResponse> {
-    const payload: ModerationsPostRequest = { moderationRequest: req };
-    return this.moderationsApi.moderationsPost(payload);
+    return this.api.createModeration({ moderationsRequest: req });
   }
 
   generateVideo(req: VideoGenerationRequest): Promise<VideoGenerationResponse> {
-    return this.videoApi.videoGenerationPost({ videoGenerationRequest: req });
+    return this.api.createVideo({ videoGenerationRequest: req });
   }
 
-  async generateTranscription(body: Record<string, unknown>): Promise<any> {
-    const request: AudioTranscriptionRequest = body as AudioTranscriptionRequest;
-    return this.audioApi.audioTranscriptionsPost({ audioTranscriptionRequest: request });
+  async generateTranscription(body: AudioTranscriptionRequest): Promise<AudioTranscriptionResponse> {
+    return this.api.createTranscription(body);
   }
 
-  async generateSpeech(body: Record<string, unknown>): Promise<any> {
-    const request: AudioSpeechRequest = body as AudioSpeechRequest;
-    return this.audioApi.audioSpeechPost({ audioSpeechRequest: request });
+  async generateSpeech(body: AudioSpeechRequest): Promise<Blob> {
+    return this.api.createSpeech({ audioSpeechRequest: body });
   }
 
-  async generateTranslation(body: Record<string, unknown>): Promise<AudioTranscriptionResponse> {
-    const request: AudioTranslationRequest = body as AudioTranslationRequest;
-    return this.audioApi.audioTranslationsPost({ audioTranslationRequest: request });
+  async generateTranslation(body: AudioTranslationRequest): Promise<AudioTranslationResponse> {
+    return this.api.createTranslation(body);
   }
 
-  generateResponse(req: ResponsesRequest): Promise<ResponsesResponse> {
-    return this.responsesApi.createResponse({ responsesRequest: req });
+  async generateResponse(req: ResponsesRequest): Promise<ResponsesResponse> {
+    try {
+      const response = await this.api.createResponseRaw({ responsesRequest: req });
+      const cloned = response.raw.clone();
+      const responseBody = await cloned.json().catch(() => undefined);
+      const value = await response.value();
+      return value;
+    } catch (err) {
+      throw err;
+    }
   }
 
   async *streamResponse(req: ResponsesRequest): AsyncGenerator<string> {
-    const body = JSON.stringify({ ...req, stream: true });
-    const res = await this.fetchImpl(`${this.basePath}/responses`, {
-      method: "POST",
-      headers: { ...this.headers, "Content-Type": "application/json" },
-      body,
-    });
-    if (!res.ok || !res.body) {
-      const text = await res.text();
-      throw new Error(`Stream request failed: ${res.status} ${res.statusText} - ${text}`);
+    const payload = { ...req, stream: true };
+    const body = JSON.stringify(payload);
+
+    let status: number | undefined;
+    let responseHeaders: Record<string, string> | undefined;
+    let eventCount = 0;
+
+    try {
+      const res = await this.fetchImpl(`${this.basePath}/responses`, {
+        method: "POST",
+        headers: { ...this.headers, "Content-Type": "application/json" },
+        body,
+      });
+      status = res.status;
+      responseHeaders = headersToRecord(res.headers);
+      if (!res.ok || !res.body) {
+        const text = await res.text();
+        throw new Error(`Stream request failed: ${res.status} ${res.statusText} - ${text}`);
+      }
+      for await (const line of readSseLines(res)) {
+        eventCount += 1;
+        yield line;
+      }
+    } catch (err) {
+      throw err;
     }
-    yield* readSseLines(res);
   }
 
   createBatch(req: BatchRequest): Promise<BatchResponse> {
-    return this.batchApi.batchesPost({ batchRequest: req });
+    return this.api.createBatch({ batchRequest: req } as CreateBatchRequest);
   }
 
   getBatch(batchId: string): Promise<BatchResponse> {
-    return this.batchApi.batchesBatchIdGet({ batchId });
+    return this.api.retrieveBatch({ batchId } as RetrieveBatchRequest);
   }
 
   listFiles(): Promise<FileListResponse> {
-    return this.filesApi.filesGet();
+    return this.api.listFiles();
   }
 
   getFile(fileId: string): Promise<FileObject> {
-    return this.filesApi.filesFileIdGet({ fileId });
+    return this.api.retrieveFile({ fileId } as RetrieveFileRequest);
   }
 
   /**
    * Upload a file using multipart/form-data. Accepts a File/Blob/BufferSource in the `file` field.
    */
-  uploadFile(params: Omit<FilesPostRequest, "file"> & { file: Blob | File | BufferSource | string }): Promise<FileObject> {
+  uploadFile(params: Omit<UploadFileRequest, "file"> & { file: Blob | File | BufferSource | string }): Promise<FileObject> {
     const { purpose, file } = params;
-    return this.filesApi.filesPost({ purpose: purpose as any, file: file as any });
+    return this.api.uploadFile({ purpose: purpose as any, file: file as any } as UploadFileRequest);
   }
 
-  getModels(params: Parameters<ModelsApi["modelsGet"]>[0] = {}): Promise<ModelListResponse> {
-    return this.modelsApi.modelsGet(params);
+  getModels(params: ListModelsRequest = {}): Promise<ModelListResponse> {
+    return this.api.listModels(params);
   }
 
   getHealth(): Promise<HealthzGet200Response> {
-    return this.analyticsApi.healthzGet();
+    return this.api.healthz();
   }
 
   // GET /v1/generation?id=...
@@ -288,6 +319,15 @@ export class AIStats {
 
 function normalizeMessage(msg: ChatMessageInput): ChatMessage {
   return msg as unknown as ChatMessage;
+}
+
+function headersToRecord(headers?: Headers): Record<string, string> {
+  if (!headers) return {};
+  const result: Record<string, string> = {};
+  headers.forEach((value, key) => {
+    result[key] = value;
+  });
+  return result;
 }
 
 async function* readSseLines(res: Response): AsyncGenerator<string> {

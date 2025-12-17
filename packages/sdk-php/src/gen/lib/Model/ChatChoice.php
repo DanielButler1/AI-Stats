@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ChatChoice Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class ChatChoice implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'index' => 'int',
-        'message' => '\AIStats\\Sdk\Model\ChatMessage',
+        'message' => '\AIStats\Sdk\Model\ChatMessage',
         'finish_reason' => 'string'
     ];
 
@@ -361,7 +361,7 @@ class ChatChoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets message
      *
-     * @return \AIStats\\Sdk\Model\ChatMessage|null
+     * @return \AIStats\Sdk\Model\ChatMessage|null
      */
     public function getMessage()
     {
@@ -371,7 +371,7 @@ class ChatChoice implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets message
      *
-     * @param \AIStats\\Sdk\Model\ChatMessage|null $message message
+     * @param \AIStats\Sdk\Model\ChatMessage|null $message message
      *
      * @return self
      */

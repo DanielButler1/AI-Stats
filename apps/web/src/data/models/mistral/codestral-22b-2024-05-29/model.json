@@ -2,7 +2,7 @@
   "model_id": "mistral/codestral-22b-2024-05-29",
   "organisation_id": "mistral",
   "name": "Codestral 22B",
-  "status": "Available",
+  "status": null,
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2024-05-29T00:00:00",

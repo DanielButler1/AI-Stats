@@ -11,7 +11,6 @@ export * from './BatchResponse';
 export * from './BenchmarkId';
 export * from './ChatChoice';
 export * from './ChatCompletionsRequest';
-export * from './ChatCompletionsRequestReasoning';
 export * from './ChatCompletionsRequestResponseFormat';
 export * from './ChatCompletionsRequestResponseFormatOneOf';
 export * from './ChatCompletionsRequestToolChoice';

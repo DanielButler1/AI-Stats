@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **limit** | **int** |  | [optional]
 **offset** | **int** |  | [optional]
 **total** | **int** |  | [optional]
-**models** | [**\AIStats\\Sdk\Model\Model[]**](Model.md) |  | [optional]
+**models** | [**\AIStats\Sdk\Model\Model[]**](Model.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

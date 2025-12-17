@@ -197,7 +197,7 @@ describe 'DefaultApi' do
   # Retrieve a specific generation by ID.
   # @param id The ID of the generation
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [GenerationResponse]
   describe 'get_generation test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -231,7 +231,7 @@ describe 'DefaultApi' do
   # Returns a list of available models.
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :endpoints Filter by endpoints
-  # @option opts [Array<String>] :organisation Filter by organisation
+  # @option opts [ListModelsOrganisationParameter] :organisation Filter by organisation
   # @option opts [Array<String>] :input_types Filter by input types
   # @option opts [Array<String>] :output_types Filter by output types
   # @option opts [Array<String>] :params Filter by params

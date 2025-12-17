@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ToolCallContentPart Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class ToolCallContentPart implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'type' => 'string',
         'id' => 'string',
-        'function' => '\AIStats\\Sdk\Model\ToolCallContentPartFunction'
+        'function' => '\AIStats\Sdk\Model\ToolCallContentPartFunction'
     ];
 
     /**
@@ -401,7 +401,7 @@ class ToolCallContentPart implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets function
      *
-     * @return \AIStats\\Sdk\Model\ToolCallContentPartFunction
+     * @return \AIStats\Sdk\Model\ToolCallContentPartFunction
      */
     public function getFunction()
     {
@@ -411,7 +411,7 @@ class ToolCallContentPart implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets function
      *
-     * @param \AIStats\\Sdk\Model\ToolCallContentPartFunction $function function
+     * @param \AIStats\Sdk\Model\ToolCallContentPartFunction $function function
      *
      * @return self
      */

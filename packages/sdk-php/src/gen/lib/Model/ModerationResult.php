@@ -5,7 +5,7 @@
  * PHP version 8.1
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace AIStats\\Sdk\Model;
+namespace AIStats\Sdk\Model;
 
 use \ArrayAccess;
-use \AIStats\\Sdk\ObjectSerializer;
+use \AIStats\Sdk\ObjectSerializer;
 
 /**
  * ModerationResult Class Doc Comment
  *
  * @category Class
- * @package  AIStats\\Sdk
+ * @package  AIStats\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,8 +58,8 @@ class ModerationResult implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'flagged' => 'bool',
-        'categories' => '\AIStats\\Sdk\Model\ModerationCategories',
-        'category_scores' => '\AIStats\\Sdk\Model\ModerationCategoryScores'
+        'categories' => '\AIStats\Sdk\Model\ModerationCategories',
+        'category_scores' => '\AIStats\Sdk\Model\ModerationCategoryScores'
     ];
 
     /**
@@ -333,7 +333,7 @@ class ModerationResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets categories
      *
-     * @return \AIStats\\Sdk\Model\ModerationCategories|null
+     * @return \AIStats\Sdk\Model\ModerationCategories|null
      */
     public function getCategories()
     {
@@ -343,7 +343,7 @@ class ModerationResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets categories
      *
-     * @param \AIStats\\Sdk\Model\ModerationCategories|null $categories categories
+     * @param \AIStats\Sdk\Model\ModerationCategories|null $categories categories
      *
      * @return self
      */
@@ -360,7 +360,7 @@ class ModerationResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets category_scores
      *
-     * @return \AIStats\\Sdk\Model\ModerationCategoryScores|null
+     * @return \AIStats\Sdk\Model\ModerationCategoryScores|null
      */
     public function getCategoryScores()
     {
@@ -370,7 +370,7 @@ class ModerationResult implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets category_scores
      *
-     * @param \AIStats\\Sdk\Model\ModerationCategoryScores|null $category_scores category_scores
+     * @param \AIStats\Sdk\Model\ModerationCategoryScores|null $category_scores category_scores
      *
      * @return self
      */
