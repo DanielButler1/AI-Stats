@@ -1,6 +1,7 @@
 {
   "organisations": [
     "ai21",
+    "allenai",
     "amazon",
     "anthropic",
     "baidu",
@@ -26,6 +27,7 @@
     "qwen",
     "suno",
     "x-ai",
+    "xiaomi",
     "z-ai"
   ],
   "models": {
@@ -37,6 +39,17 @@
       "ai21/jamba-mini-1-6-2025-03-06",
       "ai21/jamba-mini-1-7-2025-07-03",
       "ai21/jamba-reasoning-3b-2025-10-08"
+    ],
+    "allenai": [
+      "allenai/bolmo-1b-2025-12-15",
+      "allenai/bolmo-7b-2025-12-15",
+      "allenai/molmo-2-4b-2025-12-16",
+      "allenai/molmo-2-8b-2025-12-16",
+      "allenai/olmo-3-1-32b-instruct-2025-12-12",
+      "allenai/olmo-3-1-32b-think-2025-12-12",
+      "allenai/olmo-3-32b-think-2025-11-20",
+      "allenai/olmo-3-7b-instruct-2025-11-20",
+      "allenai/olmo-3-7b-think-2025-11-20"
     ],
     "amazon": [
       "amazon/nova-2-lite-2025-12-02",
@@ -470,6 +483,7 @@
       "openai/babbage-002",
       "openai/babbage-2020-06-11",
       "openai/chatgpt-4o",
+      "openai/chatgpt-image-latest-2025-12-16",
       "openai/code-cushman-001",
       "openai/code-cushman-002",
       "openai/code-davinci-001",
@@ -552,6 +566,7 @@
       "openai/gpt-audio-mini-2025-10-06",
       "openai/gpt-audio-mini-2025-12-15",
       "openai/gpt-image-1",
+      "openai/gpt-image-1-5-2025-12-16",
       "openai/gpt-image-1-mini-2025-10-06",
       "openai/gpt-oss-120b-2025-08-05",
       "openai/gpt-oss-20b-2025-08-05",
@@ -656,6 +671,9 @@
       "x-ai/grok-4-fast-reasoning-2025-09-20",
       "x-ai/grok-4-heavy-2025-07-10",
       "x-ai/grok-code-fast-1-2025-08-28"
+    ],
+    "xiaomi": [
+      "xiaomi/mimo-v2-flash-2025-12-16"
     ],
     "z-ai": [
       "z-ai/glm-4-1v-9b",
@@ -1046,6 +1064,8 @@
     "openai:openai-dall-e-3-2023-10-19:image.generations",
     "openai:openai-gpt-image-1:image.generations",
     "openai:openai-gpt-image-1-mini-2025-10-06:image.generations",
+    "openai:openai-chatgpt-image-latest-2025-12-16:images.edits",
+    "openai:openai-gpt-image-1-5-2025-12-16:images.generations",
     "openai:openai-omni-moderation-2024-09-26:moderations",
     "openai:openai-gpt-4o-mini-realtime-preview:realtime",
     "openai:openai-gpt-4o-mini-transcribe:realtime",

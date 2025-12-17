@@ -16,9 +16,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
-	fetchMaintenanceSettings,
 	fetchSignupsSettings,
-	setMaintenanceMode,
 	setSignupsEnabled,
 } from "./actions";
 import {
@@ -33,16 +31,12 @@ import {
 
 interface SystemSettings {
 	signupsEnabled: boolean;
-	maintenanceMode: boolean;
-	maintenanceMessage: string;
 	lastUpdated: string;
 }
 
 export function InternalClient() {
 	const [settings, setSettings] = useState<SystemSettings>({
 		signupsEnabled: true,
-		maintenanceMode: false,
-		maintenanceMessage: "",
 		lastUpdated: new Date().toISOString(),
 	});
 	const [loading, setLoading] = useState(true);
@@ -52,51 +46,36 @@ export function InternalClient() {
 		text: string;
 	} | null>(null);
 
-	// Load current settings
-	useEffect(() => {
-		const loadSettings = async () => {
-			try {
-				const [signupData, maintenanceData] = await Promise.all([
-					fetchSignupsSettings(),
-					fetchMaintenanceSettings(),
-				]);
+		// Load current settings
+		useEffect(() => {
+			const loadSettings = async () => {
+				try {
+					const signupData = await fetchSignupsSettings();
 
-				const lastUpdated = new Date(
-					Math.max(
-						new Date(signupData.lastUpdated).getTime(),
-						new Date(maintenanceData.lastUpdated).getTime()
-					)
-				).toISOString();
+					setSettings({
+						signupsEnabled: signupData.enabled,
+						lastUpdated: signupData.lastUpdated,
+					});
 
-				setSettings({
-					signupsEnabled: signupData.enabled,
-					maintenanceMode: maintenanceData.enabled,
-					maintenanceMessage: maintenanceData.message || "",
-					lastUpdated,
-				});
-
-				const warnings = [signupData.warning, maintenanceData.warning]
-					.filter(Boolean)
-					.join(" ");
-				if (warnings) {
+					if (signupData.warning) {
+						setMessage({
+							type: "error",
+							text: signupData.warning,
+						});
+					}
+				} catch (error) {
+					console.error("Failed to load settings:", error);
 					setMessage({
 						type: "error",
-						text: warnings,
+						text: "Failed to load current settings",
 					});
+				} finally {
+					setLoading(false);
 				}
-			} catch (error) {
-				console.error("Failed to load settings:", error);
-				setMessage({
-					type: "error",
-					text: "Failed to load current settings",
-				});
-			} finally {
-				setLoading(false);
-			}
-		};
+			};
 
-		loadSettings();
-	}, []);
+			loadSettings();
+		}, []);
 
 	const updateSetting = async (
 		key: keyof SystemSettings,
@@ -125,37 +104,6 @@ export function InternalClient() {
 					type: "success",
 					text: result.message || `User signups ${value ? "enabled" : "disabled"} successfully`,
 				});
-			} else if (key === "maintenanceMode") {
-				const result = await setMaintenanceMode({
-					enabled: value as boolean,
-					message: settings.maintenanceMessage,
-				});
-
-				if (!result.ok) {
-					throw new Error(
-						result.message || "Failed to update maintenance mode"
-					);
-				}
-
-				setSettings((prev) => ({
-					...prev,
-					maintenanceMode: result.enabled ?? (value as boolean),
-					maintenanceMessage: result.maintenanceMessage || "",
-					lastUpdated: result.lastUpdated || new Date().toISOString(),
-				}));
-
-				setMessage({
-					type: "success",
-					text:
-						result.message ||
-						`Maintenance mode ${value ? "enabled" : "disabled"} successfully`,
-				});
-			} else if (key === "maintenanceMessage") {
-				// Update message locally, will be saved when maintenance mode is toggled
-				setSettings((prev) => ({
-					...prev,
-					maintenanceMessage: value as string,
-				}));
 			}
 		} catch (error) {
 			console.error(`Failed to update ${key}:`, error);
@@ -164,11 +112,7 @@ export function InternalClient() {
 				text:
 					error instanceof Error
 						? error.message
-						: `Failed to update ${
-								key === "signupsEnabled"
-									? "user signups"
-									: "maintenance mode"
-						  }`,
+						: "Failed to update user signups",
 			});
 		} finally {
 			setSaving(false);
@@ -235,28 +179,7 @@ export function InternalClient() {
 						</Badge>
 					</div>
 
-					<div className="flex items-center justify-between">
-						<div className="flex items-center gap-2">
-							<Settings className="h-4 w-4" />
-							<span>Maintenance Mode</span>
-						</div>
-						<Badge
-							variant={
-								settings.maintenanceMode
-									? "destructive"
-									: "default"
-							}
-						>
-							{settings.maintenanceMode ? "Active" : "Inactive"}
-						</Badge>
-					</div>
 
-					{settings.maintenanceMode &&
-						settings.maintenanceMessage && (
-							<div className="ml-6 text-sm text-muted-foreground">
-								Message: &quot;{settings.maintenanceMessage}&quot;
-							</div>
-						)}
 
 					<Separator />
 
@@ -325,78 +248,7 @@ export function InternalClient() {
 				</CardContent>
 			</Card>
 
-			{/* System Maintenance */}
-			<Card>
-				<CardHeader>
-					<CardTitle className="flex items-center gap-2">
-						<Database className="h-5 w-5" />
-						System Maintenance
-					</CardTitle>
-					<CardDescription>
-						Maintenance and system-wide settings
-					</CardDescription>
-				</CardHeader>
-				<CardContent className="space-y-6">
-					<div className="flex items-center justify-between">
-						<div className="space-y-0.5">
-							<Label
-								htmlFor="maintenance-toggle"
-								className="text-base"
-							>
-								Maintenance Mode
-							</Label>
-							<p className="text-sm text-muted-foreground">
-								When enabled, the system shows a maintenance
-								page to all users except admins.
-							</p>
-						</div>
-						<Switch
-							id="maintenance-toggle"
-							checked={settings.maintenanceMode}
-							onCheckedChange={(checked) =>
-								updateSetting("maintenanceMode", checked)
-							}
-							disabled={saving}
-						/>
-					</div>
 
-					<div className="space-y-2">
-						<Label
-							htmlFor="maintenance-message"
-							className="text-base"
-						>
-							Maintenance Message
-						</Label>
-						<Textarea
-							id="maintenance-message"
-							placeholder="Enter a message to display during maintenance..."
-							value={settings.maintenanceMessage}
-							onChange={(e) =>
-								updateSetting(
-									"maintenanceMessage",
-									e.target.value
-								)
-							}
-							disabled={saving}
-							rows={3}
-						/>
-						<p className="text-sm text-muted-foreground">
-							This message will be shown to users when maintenance
-							mode is active.
-						</p>
-					</div>
-
-					{settings.maintenanceMode && (
-						<Alert className="border-red-200 bg-red-50">
-							<AlertTriangle className="h-4 w-4" />
-							<AlertDescription className="text-red-800">
-								Maintenance mode is active. Only administrators
-								can access the system.
-							</AlertDescription>
-						</Alert>
-					)}
-				</CardContent>
-			</Card>
 
 			{/* Save Status */}
 			{saving && (

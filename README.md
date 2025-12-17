@@ -14,10 +14,10 @@ AI Stats is a monorepo made up of several apps and packages:
 | Path                       | Description                                                             |
 | -------------------------- | ----------------------------------------------------------------------- |
 | [`apps/web`](./apps/web)   | Public website - explore, compare, and visualise models.                |
-| [`apps/api`](./apps/api)   | Gateway API (Beta) - a unified layer that routes to multiple providers. |
+| [`apps/api`](./apps/api)   | Gateway API (Alpha) - a unified layer that routes to multiple providers. |
 | [`apps/docs`](./apps/docs) | Documentation site - reference, guides, and concepts.                   |
 
-### Packages (Beta)
+### Packages (Alpha)
 
 | Path                                   | Description                                |
 | -------------------------------------- | ------------------------------------------ |

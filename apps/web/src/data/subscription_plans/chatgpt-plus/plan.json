@@ -199,6 +199,12 @@
       "model_info": null,
       "rate_limit": null,
       "other_info": "Legacy Model"
+    },
+    {
+      "model_id": "openai/chatgpt-image-latest-2025-12-16",
+      "model_info": null,
+      "rate_limit": null,
+      "other_info": null
     }
   ]
 }
