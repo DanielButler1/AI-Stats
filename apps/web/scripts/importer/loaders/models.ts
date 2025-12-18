@@ -186,58 +186,73 @@ export async function loadModels(tracker: ChangeTracker) {
         if (!changedModels.has(m.model_id)) continue;
         const model_id = m.model_id;
 
-        // LINKS
-        const linkRows = (m.links ?? []).map(l => ({ model_id, platform: l.platform, url: l.url }));
+        // LINKS (dedupe by platform to avoid upsert conflicts)
+        const rawLinkRows = (m.links ?? []).map(l => ({ model_id, platform: l.platform, url: l.url }));
+        const linkMap = new Map<string, { model_id: string; platform: string; url: string }>();
+        for (const r of rawLinkRows) {
+            // keep the last occurrence for a given platform
+            linkMap.set(r.platform, r);
+        }
+        const linkRows = Array.from(linkMap.values());
+
         if (isDryRun()) {
             for (const r of linkRows) logWrite("public.data_model_links", "UPSERT", r, { onConflict: "model_id,platform" });
+            if (linkRows.length === 0) logWrite("public.data_model_links", "PRUNE", { model_id });
         } else {
-            // if (linkRows.length) {
-            assertOk(
-                await supa.from("data_model_links").upsert(linkRows, { onConflict: "model_id,platform" }),
-                "upsert data_model_links"
-            );
-            const platforms = [...new Set(linkRows.map(l => l.platform))];
-            assertOk(
-                await supa
-                    .from("data_model_links")
-                    .delete()
-                    .eq("model_id", model_id)
-                    .not("platform", "in", toInList(platforms)),
-                "prune data_model_links"
-            );
-            // } else {
-            //     // No links in source → delete all existing for this model
-            //     assertOk(await supa.from("data_model_links").delete().eq("model_id", model_id), "prune all links");
-            // }
+            if (linkRows.length) {
+                assertOk(
+                    await supa.from("data_model_links").upsert(linkRows, { onConflict: "model_id,platform" }),
+                    "upsert data_model_links"
+                );
+                const platforms = [...new Set(linkRows.map(l => l.platform))];
+                assertOk(
+                    await supa
+                        .from("data_model_links")
+                        .delete()
+                        .eq("model_id", model_id)
+                        .not("platform", "in", toInList(platforms)),
+                    "prune data_model_links"
+                );
+            } else {
+                // No links in source → delete all existing for this model
+                assertOk(await supa.from("data_model_links").delete().eq("model_id", model_id), "prune all links");
+            }
         }
 
         // DETAILS
-        const detailRows = (m.details ?? []).map(d => ({
+        const rawDetailRows = (m.details ?? []).map(d => ({
             model_id,
             detail_name: d.name,
             detail_value: String(d.value),
         }));
+        const detailMap = new Map<string, { model_id: string; detail_name: string; detail_value: string }>();
+        for (const r of rawDetailRows) {
+            // keep last occurrence per detail_name
+            detailMap.set(r.detail_name, r);
+        }
+        const detailRows = Array.from(detailMap.values());
+
         if (isDryRun()) {
-            for (const r of detailRows)
-                logWrite("public.data_model_details", "UPSERT", r, { onConflict: "model_id,detail_name" });
+            for (const r of detailRows) logWrite("public.data_model_details", "UPSERT", r, { onConflict: "model_id,detail_name" });
+            if (detailRows.length === 0) logWrite("public.data_model_details", "PRUNE", { model_id });
         } else {
-            // if (detailRows.length) {
-            assertOk(
-                await supa.from("data_model_details").upsert(detailRows, { onConflict: "model_id,detail_name" }),
-                "upsert data_model_details"
-            );
-            const names = [...new Set(detailRows.map(d => d.detail_name))];
-            assertOk(
-                await supa
-                    .from("data_model_details")
-                    .delete()
-                    .eq("model_id", model_id)
-                    .not("detail_name", "in", toInList(names)),
-                "prune data_model_details"
-            );
-            // } else {
-            //     assertOk(await supa.from("data_model_details").delete().eq("model_id", model_id), "prune all details");
-            // }
+            if (detailRows.length) {
+                assertOk(
+                    await supa.from("data_model_details").upsert(detailRows, { onConflict: "model_id,detail_name" }),
+                    "upsert data_model_details"
+                );
+                const names = [...new Set(detailRows.map(d => d.detail_name))];
+                assertOk(
+                    await supa
+                        .from("data_model_details")
+                        .delete()
+                        .eq("model_id", model_id)
+                        .not("detail_name", "in", toInList(names)),
+                    "prune data_model_details"
+                );
+            } else {
+                assertOk(await supa.from("data_model_details").delete().eq("model_id", model_id), "prune all details");
+            }
         }
 
         // -------- BENCHMARKS (supports true duplicates safely) --------

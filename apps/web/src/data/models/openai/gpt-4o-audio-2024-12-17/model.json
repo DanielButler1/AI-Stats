@@ -12,7 +12,12 @@
   "input_types": "text,audio",
   "output_types": "text,audio",
   "family_id": "openai/gpt-4o",
-  "links": [],
+  "links": [
+    {
+      "platform": "api_reference",
+      "url": "https://platform.openai.com/docs/models/gpt-4o-audio-preview?snapshot=gpt-4o-audio-preview-2024-12-17"
+    }
+  ],
   "details": [],
   "benchmarks": []
 }

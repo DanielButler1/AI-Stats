@@ -19,7 +19,7 @@ export type ChangeResult = {
     current: FileRecord;
 };
 
-const DEFAULT_STATE_PATH = process.env.IMPORT_STATE_PATH
+export const DEFAULT_STATE_PATH = process.env.IMPORT_STATE_PATH
     ? resolve(process.cwd(), process.env.IMPORT_STATE_PATH)
     // Keep importer state alongside the data itself so different DATA_ROOTs don't collide.
     : resolve(DATA_ROOT, ".import-state.json");
@@ -29,7 +29,7 @@ function normalizePath(p: string) {
     return rel.split(sep).join("/");
 }
 
-async function loadPersistedState(statePath: string): Promise<PersistedState> {
+export async function loadPersistedState(statePath: string): Promise<PersistedState> {
     try {
         const raw = await fs.readFile(statePath, "utf-8");
         const parsed = JSON.parse(raw);

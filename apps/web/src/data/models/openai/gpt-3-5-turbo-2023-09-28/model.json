@@ -12,7 +12,12 @@
   "input_types": "text",
   "output_types": "text",
   "family_id": "openai/gpt-3",
-  "links": [],
+  "links": [
+    {
+      "platform": "api_reference",
+      "url": "https://platform.openai.com/docs/models/gpt-3-5-turbo"
+    }
+  ],
   "details": [],
   "benchmarks": []
 }

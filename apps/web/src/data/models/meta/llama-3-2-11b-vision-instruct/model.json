@@ -12,7 +12,20 @@
   "input_types": null,
   "output_types": null,
   "family_id": "meta/llama-3-0",
-  "links": [],
+  "links": [
+    {
+      "platform": "api_reference",
+      "url": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct"
+    },
+    {
+      "platform": "announcement",
+      "url": "https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/"
+    },
+    {
+      "platform": "repository",
+      "url": "https://github.com/facebookresearch/llama"
+    }
+  ],
   "details": [],
   "benchmarks": []
 }

@@ -1,6 +1,7 @@
 import "dotenv/config";
 import { isDryRun } from "./supa";
 import { ChangeTracker } from "./state";
+import { cleanDeleted } from "./cleanup";
 import { loadModels } from "./loaders/models";
 import { loadPricing } from "./loaders/pricing";
 import { loadAliases } from "./loaders/aliases";
@@ -35,6 +36,7 @@ const tasks: Record<string, (tracker: ChangeTracker) => Promise<void>> = {
 };
 
 async function main() {
+    await cleanDeleted();
     const tracker = await ChangeTracker.init();
 
     const section = (process.argv.find(a => a.startsWith("--section="))?.split("=")[1]) || "all";

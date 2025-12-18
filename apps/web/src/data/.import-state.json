@@ -56,7 +56,7 @@
       }
     },
     "src/data/organisations/essential-ai/organisation.json": {
-      "hash": "1191836ffadd89eb3c9177e5826513e5",
+      "hash": "b6442160f5a6d083ec0802018af774b1",
       "meta": {
         "organisation_id": "essential-ai"
       }
@@ -200,7 +200,7 @@
       }
     },
     "src/data/benchmarks/aime-2025/benchmark.json": {
-      "hash": "0ad0ad6db2a129a23f9c9ce715033ac2",
+      "hash": "57f2ded4f9c3c7c217befdf5481c8281",
       "meta": {
         "benchmark_id": "aime-2025"
       }
@@ -212,13 +212,13 @@
       }
     },
     "src/data/benchmarks/arc-agi-1/benchmark.json": {
-      "hash": "f17d7a3561f0b96d6823d82b90654028",
+      "hash": "0723b3de5d6c3372f3e853ba7463764e",
       "meta": {
         "benchmark_id": "arc-agi-1"
       }
     },
     "src/data/benchmarks/arc-agi-2/benchmark.json": {
-      "hash": "9068c6be58aec223f6bd9a4af3e096df",
+      "hash": "8cf687b11aa5c97825435ba4d2210d36",
       "meta": {
         "benchmark_id": "arc-agi-2"
       }
@@ -284,7 +284,7 @@
       }
     },
     "src/data/benchmarks/charxiv-reasoning/benchmark.json": {
-      "hash": "535fbf4a8d50322c95050f996b0a150b",
+      "hash": "03ac6f8c123b45fa8d4008a94ebe9de7",
       "meta": {
         "benchmark_id": "charxiv-reasoning"
       }
@@ -386,7 +386,7 @@
       }
     },
     "src/data/benchmarks/frontier-math/benchmark.json": {
-      "hash": "9a30b5782c0f352a3912c6d9644ab27a",
+      "hash": "8cdf8f6d89da9906542a4a3c12b6a046",
       "meta": {
         "benchmark_id": "frontier-math"
       }
@@ -398,7 +398,7 @@
       }
     },
     "src/data/benchmarks/global-pica/benchmark.json": {
-      "hash": "d3054cc4341b7948dc0b3bd7046095eb",
+      "hash": "4d6d86cdb2f61e3ad3933e9d8dea08c2",
       "meta": {
         "benchmark_id": "global-pica"
       }
@@ -410,7 +410,7 @@
       }
     },
     "src/data/benchmarks/gpqa-diamond/benchmark.json": {
-      "hash": "43262e73deb0316d8d9461d824d5c7ef",
+      "hash": "378f58bc0d7ac41534406e460efae433",
       "meta": {
         "benchmark_id": "gpqa-diamond"
       }
@@ -452,7 +452,7 @@
       }
     },
     "src/data/benchmarks/hmmt-2025/benchmark.json": {
-      "hash": "db605014f4de4cd6e602d85a5d8daa46",
+      "hash": "3dd697f2eb82a35025a11d1dd068cd13",
       "meta": {
         "benchmark_id": "hmmt-2025"
       }
@@ -464,7 +464,7 @@
       }
     },
     "src/data/benchmarks/humanitys-last-exam/benchmark.json": {
-      "hash": "0ac89f8bfb6b069f26cfb40ff7191ae1",
+      "hash": "0c0ca1638c0c0f38a0d9b0c3f692b802",
       "meta": {
         "benchmark_id": "humanitys-last-exam"
       }
@@ -518,7 +518,7 @@
       }
     },
     "src/data/benchmarks/livecodebench-pro/benchmark.json": {
-      "hash": "dca693fbfac3f38c8ae52aede2da6926",
+      "hash": "9a3314ed15bd8c644b2e10d4885e386f",
       "meta": {
         "benchmark_id": "livecodebench-pro"
       }
@@ -584,7 +584,7 @@
       }
     },
     "src/data/benchmarks/matharena-apex/benchmark.json": {
-      "hash": "73224d04cd436a1c2a781fe505bc124b",
+      "hash": "ba8a1fef8f1c5950573fdcd43c1d2412",
       "meta": {
         "benchmark_id": "matharena-apex"
       }
@@ -668,7 +668,7 @@
       }
     },
     "src/data/benchmarks/mmmu-pro/benchmark.json": {
-      "hash": "d3195a0d7333c689c37ad249719f506c",
+      "hash": "ad6f4bc8f0e50a5cdfc0085fd018f7f5",
       "meta": {
         "benchmark_id": "mmmu-pro"
       }
@@ -704,7 +704,7 @@
       }
     },
     "src/data/benchmarks/omnidocbench-1.5/benchmark.json": {
-      "hash": "c4e80a093147161c7b35b49896ed8a3d",
+      "hash": "42eb7008806e2b9151b8be8cf3e499e4",
       "meta": {
         "benchmark_id": "omnidocbench-1.5"
       }
@@ -722,13 +722,13 @@
       }
     },
     "src/data/benchmarks/openai-mrcr-8-needle-128k/benchmark.json": {
-      "hash": "eb11ed137eb5942e77ca4a7a1c376a49",
+      "hash": "9ca688e849592b099d6d1ff30fa523ce",
       "meta": {
         "benchmark_id": "openai-mrcr-8-needle-128k"
       }
     },
     "src/data/benchmarks/openai-mrcr-8-needle-1m/benchmark.json": {
-      "hash": "f895b94ed417a49f130c6ac4a1f54848",
+      "hash": "bfc58514daa4d1d8267c7c71b33674cf",
       "meta": {
         "benchmark_id": "openai-mrcr-8-needle-1m"
       }
@@ -782,7 +782,7 @@
       }
     },
     "src/data/benchmarks/screenspot-pro/benchmark.json": {
-      "hash": "d23545d0643af21dfeb26639438c5e3d",
+      "hash": "dd65ae3323c80c589be6907135985b22",
       "meta": {
         "benchmark_id": "screenspot-pro"
       }
@@ -794,13 +794,13 @@
       }
     },
     "src/data/benchmarks/simplebench/benchmark.json": {
-      "hash": "987f08848ef7ea22ca9aff5337bc570a",
+      "hash": "f87e1c03d67902f8b3cff9d617cc246d",
       "meta": {
         "benchmark_id": "simplebench"
       }
     },
     "src/data/benchmarks/simpleqa/benchmark.json": {
-      "hash": "43c22cc15ff37bc18fd06d4c41baa725",
+      "hash": "df77a137a506bd6017c871ae18f4a0cb",
       "meta": {
         "benchmark_id": "simpleqa"
       }
@@ -848,13 +848,13 @@
       }
     },
     "src/data/benchmarks/swe-bench-pro/benchmark.json": {
-      "hash": "c6d982f90bf2dd051677b8936b9369b6",
+      "hash": "56971ad246db8228867a19ef58c812d3",
       "meta": {
         "benchmark_id": "swe-bench-pro"
       }
     },
     "src/data/benchmarks/swe-lancer/benchmark.json": {
-      "hash": "2998dfdfc44ccd42a41137535e69e863",
+      "hash": "de1b475c3ee656e0aa2fe4f4b8d9c9b2",
       "meta": {
         "benchmark_id": "swe-lancer"
       }
@@ -872,7 +872,7 @@
       }
     },
     "src/data/benchmarks/tau-2-bench/benchmark.json": {
-      "hash": "104a16deb3f1cdcc26c834acb9efef87",
+      "hash": "21e69913f78a45338007077e49adbc1c",
       "meta": {
         "benchmark_id": "tau-2-bench"
       }
@@ -914,7 +914,7 @@
       }
     },
     "src/data/benchmarks/terminal-bench-2.0/benchmark.json": {
-      "hash": "9cc55b400d989ad22698e3b3fcd35dc0",
+      "hash": "a43a22aac0aefd1d1eea57c111e47165",
       "meta": {
         "benchmark_id": "terminal-bench-2.0"
       }
@@ -938,13 +938,13 @@
       }
     },
     "src/data/benchmarks/vending-bench-2/benchmark.json": {
-      "hash": "53db1d2e2f5ee696b41bb82f2fc8ae32",
+      "hash": "937dc16ec1eb979b208ec1db90bcd089",
       "meta": {
         "benchmark_id": "vending-bench-2"
       }
     },
     "src/data/benchmarks/video-mmmu/benchmark.json": {
-      "hash": "9c559ec6f115af3fcd3bc93aef5768f5",
+      "hash": "49ecb48cc1e199f3a3fbb6e7c267b644",
       "meta": {
         "benchmark_id": "video-mmmu"
       }
@@ -1298,7 +1298,7 @@
       }
     },
     "src/data/models/ai21/jamba-large-1-5-2024-08-22/model.json": {
-      "hash": "14b005dfe0e7a3cf99621291ec7c2ad4",
+      "hash": "9dc1130e0d50a7d79d3bacbd74bc1a71",
       "meta": {
         "model_id": "ai21/jamba-large-1-5-2024-08-22",
         "organisation_id": "ai21",
@@ -1306,7 +1306,7 @@
       }
     },
     "src/data/models/ai21/jamba-large-1-6-2025-03-06/model.json": {
-      "hash": "e8402915669d41aeb28c0829944970de",
+      "hash": "7e31567522d52b3e8c08a2763a94b80e",
       "meta": {
         "model_id": "ai21/jamba-large-1-6-2025-03-06",
         "organisation_id": "ai21",
@@ -1322,7 +1322,7 @@
       }
     },
     "src/data/models/ai21/jamba-mini-1-5-2024-08-22/model.json": {
-      "hash": "9b5faf2884a194f2038d694f9206c65a",
+      "hash": "502a6d848487671f3c29d2a0c1e5a5e0",
       "meta": {
         "model_id": "ai21/jamba-mini-1-5-2024-08-22",
         "organisation_id": "ai21",
@@ -1330,7 +1330,7 @@
       }
     },
     "src/data/models/ai21/jamba-mini-1-6-2025-03-06/model.json": {
-      "hash": "30fb93b839b155fc9b578cfb8004d7d7",
+      "hash": "fa4b13e6c0a89b6fa0852b693e988408",
       "meta": {
         "model_id": "ai21/jamba-mini-1-6-2025-03-06",
         "organisation_id": "ai21",
@@ -1354,7 +1354,7 @@
       }
     },
     "src/data/models/amazon/nova-2-lite-2025-12-02/model.json": {
-      "hash": "d31f0878de60020c5a4b1f0d37e02105",
+      "hash": "9e98bd303d594594bb4ac7855f4f0ff8",
       "meta": {
         "model_id": "amazon/nova-2-lite-2025-12-02",
         "organisation_id": "amazon",
@@ -1370,7 +1370,7 @@
       }
     },
     "src/data/models/amazon/nova-2-pro-2025-12-02/model.json": {
-      "hash": "f2f76e1d9dcc1159a1b45c74e7c612e1",
+      "hash": "8c900ddec3cb773299141563db42ab65",
       "meta": {
         "model_id": "amazon/nova-2-pro-2025-12-02",
         "organisation_id": "amazon",
@@ -1394,7 +1394,7 @@
       }
     },
     "src/data/models/amazon/nova-lite-1-0-2024-12-04/model.json": {
-      "hash": "0dc048909f04ba266de737f1c640a341",
+      "hash": "b8d372a5381f1ba31612b4e7cc92bfde",
       "meta": {
         "model_id": "amazon/nova-lite-1-0-2024-12-04",
         "organisation_id": "amazon",
@@ -1402,7 +1402,7 @@
       }
     },
     "src/data/models/amazon/nova-micro-1-0-2024-12-04/model.json": {
-      "hash": "6c86d498d8b51739a8ddc38c459fb08e",
+      "hash": "ecf8727185a05d4931287eaaec1d9292",
       "meta": {
         "model_id": "amazon/nova-micro-1-0-2024-12-04",
         "organisation_id": "amazon",
@@ -1418,7 +1418,7 @@
       }
     },
     "src/data/models/amazon/nova-premier-2025-04-30/model.json": {
-      "hash": "c85c57c3880ef4363cb6c1445def0a5b",
+      "hash": "553708a4dd9d22c89c57384d92628185",
       "meta": {
         "model_id": "amazon/nova-premier-2025-04-30",
         "organisation_id": "amazon",
@@ -1426,7 +1426,7 @@
       }
     },
     "src/data/models/amazon/nova-pro-1-0-2024-12-04/model.json": {
-      "hash": "2ecc7f4b1f513023db37f0f25dd9b448",
+      "hash": "4fd5372ad4af41bb2ab76c9b5b86bbcb",
       "meta": {
         "model_id": "amazon/nova-pro-1-0-2024-12-04",
         "organisation_id": "amazon",
@@ -1498,7 +1498,7 @@
       }
     },
     "src/data/models/anthropic/claude-3-5-haiku-2024-11-04/model.json": {
-      "hash": "4088b56e21d900fd4cd59b0509862c23",
+      "hash": "e511589209b4ad89aa0fb23d700905d9",
       "meta": {
         "model_id": "anthropic/claude-3-5-haiku-2024-11-04",
         "organisation_id": "anthropic",
@@ -1506,7 +1506,7 @@
       }
     },
     "src/data/models/anthropic/claude-3-5-sonnet-2024-06-21/model.json": {
-      "hash": "800f29ec35e3e848101f764f79386ac4",
+      "hash": "c7e3824ec40974ef99bdfa6b8e64c3b9",
       "meta": {
         "model_id": "anthropic/claude-3-5-sonnet-2024-06-21",
         "organisation_id": "anthropic",
@@ -1514,7 +1514,7 @@
       }
     },
     "src/data/models/anthropic/claude-3-5-sonnet-2024-10-22/model.json": {
-      "hash": "c7bf0241059ee6679a84592f55abff39",
+      "hash": "24617aead53f602b511d50895ee6d945",
       "meta": {
         "model_id": "anthropic/claude-3-5-sonnet-2024-10-22",
         "organisation_id": "anthropic",
@@ -1522,7 +1522,7 @@
       }
     },
     "src/data/models/anthropic/claude-3-7-sonnet-2025-02-24/model.json": {
-      "hash": "3f7a9a1e7b65aa7b2a9e11c960ba42e3",
+      "hash": "65cc883cdf4443b4e86c46b8951ef3bd",
       "meta": {
         "model_id": "anthropic/claude-3-7-sonnet-2025-02-24",
         "organisation_id": "anthropic",
@@ -1530,7 +1530,7 @@
       }
     },
     "src/data/models/anthropic/claude-3-haiku-2024-03-13/model.json": {
-      "hash": "2172d8fcfb4ae57e17ced53c0b9d99d8",
+      "hash": "27dc0bada1980ea549d5051fd5dda53c",
       "meta": {
         "model_id": "anthropic/claude-3-haiku-2024-03-13",
         "organisation_id": "anthropic",
@@ -1538,7 +1538,7 @@
       }
     },
     "src/data/models/anthropic/claude-3-opus-2024-03-04/model.json": {
-      "hash": "43297436742516b138d01a2d4b79885b",
+      "hash": "9ffa4c5bc2c1558eae3dbd4b679286ff",
       "meta": {
         "model_id": "anthropic/claude-3-opus-2024-03-04",
         "organisation_id": "anthropic",
@@ -1546,7 +1546,7 @@
       }
     },
     "src/data/models/anthropic/claude-3-sonnet-2024-03-04/model.json": {
-      "hash": "4823f3499a692d5cc9ef172239f59fe7",
+      "hash": "8b25c68d874be73d6e5c68bbe64b5a97",
       "meta": {
         "model_id": "anthropic/claude-3-sonnet-2024-03-04",
         "organisation_id": "anthropic",
@@ -1586,7 +1586,7 @@
       }
     },
     "src/data/models/anthropic/claude-opus-4-1-2025-08-05/model.json": {
-      "hash": "b7ba13dfddf7e316fee14999715316f9",
+      "hash": "05f8516298dfefc891cc7b096b040c9e",
       "meta": {
         "model_id": "anthropic/claude-opus-4-1-2025-08-05",
         "organisation_id": "anthropic",
@@ -1594,7 +1594,7 @@
       }
     },
     "src/data/models/anthropic/claude-opus-4-2025-05-21/model.json": {
-      "hash": "5cdf3dac576ac31473210e8a798be075",
+      "hash": "ed29470fd2bca854fec16d61b7532c52",
       "meta": {
         "model_id": "anthropic/claude-opus-4-2025-05-21",
         "organisation_id": "anthropic",
@@ -1602,7 +1602,7 @@
       }
     },
     "src/data/models/anthropic/claude-opus-4-5-2025-11-24/model.json": {
-      "hash": "0de5aba017a62a1eadda0c3478022747",
+      "hash": "e88e2c0534bc3c95a7a21a2b23af0387",
       "meta": {
         "model_id": "anthropic/claude-opus-4-5-2025-11-24",
         "organisation_id": "anthropic",
@@ -1610,7 +1610,7 @@
       }
     },
     "src/data/models/anthropic/claude-sonnet-4-2025-05-21/model.json": {
-      "hash": "0b490c4a7511fa26863373489b7b9088",
+      "hash": "d82a6b059f16361569ac35d474bd57be",
       "meta": {
         "model_id": "anthropic/claude-sonnet-4-2025-05-21",
         "organisation_id": "anthropic",
@@ -1618,7 +1618,7 @@
       }
     },
     "src/data/models/anthropic/claude-sonnet-4-5-2025-09-29/model.json": {
-      "hash": "c24bbebee94893556aa990662d3c0fa6",
+      "hash": "908380e556869b79d4f4b2e2b7588e38",
       "meta": {
         "model_id": "anthropic/claude-sonnet-4-5-2025-09-29",
         "organisation_id": "anthropic",
@@ -1802,7 +1802,7 @@
       }
     },
     "src/data/models/cohere/command-r+-2024-08-30/model.json": {
-      "hash": "02b576c03b11630163d8a86341369112",
+      "hash": "7d106bde97b55d404cb5acd393661cda",
       "meta": {
         "model_id": "cohere/command-r+-2024-08-30",
         "organisation_id": "cohere",
@@ -1946,7 +1946,7 @@
       }
     },
     "src/data/models/deepseek/deepseek-r1-2025-01-20/model.json": {
-      "hash": "4949ec5f9816cba381919467637e392b",
+      "hash": "19be2e13000d663b8c9d2dad91c621e2",
       "meta": {
         "model_id": "deepseek/deepseek-r1-2025-01-20",
         "organisation_id": "deepseek",
@@ -1954,7 +1954,7 @@
       }
     },
     "src/data/models/deepseek/deepseek-r1-2025-05-28/model.json": {
-      "hash": "842f941d6f8461065e3af4577b42d119",
+      "hash": "b2fe2dcc86044ab6b63e0d8a027843e2",
       "meta": {
         "model_id": "deepseek/deepseek-r1-2025-05-28",
         "organisation_id": "deepseek",
@@ -2034,7 +2034,7 @@
       }
     },
     "src/data/models/deepseek/deepseek-v3-2-speciale-2025-12-01/model.json": {
-      "hash": "0821d46096f9cfb731a3d4997b37ce0e",
+      "hash": "e06828590248153b56665ea38e1599b5",
       "meta": {
         "model_id": "deepseek/deepseek-v3-2-speciale-2025-12-01",
         "organisation_id": "deepseek",
@@ -2042,7 +2042,7 @@
       }
     },
     "src/data/models/deepseek/deepseek-v3-2024-12-25/model.json": {
-      "hash": "e27d1da33d9d436a33651572fe15a6a9",
+      "hash": "6aec25c4719c19820bf1c4774b9d489d",
       "meta": {
         "model_id": "deepseek/deepseek-v3-2024-12-25",
         "organisation_id": "deepseek",
@@ -2050,7 +2050,7 @@
       }
     },
     "src/data/models/deepseek/deepseek-v3-2025-03-25/model.json": {
-      "hash": "a761dc79462efe0075a4ec2613777ad8",
+      "hash": "2d7c76d45433bca94993ad14a59df156",
       "meta": {
         "model_id": "deepseek/deepseek-v3-2025-03-25",
         "organisation_id": "deepseek",
@@ -2122,7 +2122,7 @@
       }
     },
     "src/data/models/google/gemini-1-0-pro-2023-12-06/model.json": {
-      "hash": "b90308b2e3d443da4501983c827c40de",
+      "hash": "80a0e94d77433c23261e26e0f5735039",
       "meta": {
         "model_id": "google/gemini-1-0-pro-2023-12-06",
         "organisation_id": "google",
@@ -2130,7 +2130,7 @@
       }
     },
     "src/data/models/google/gemini-1-0-pro-vision-001/model.json": {
-      "hash": "990a806d5587025b4914b988ed482b65",
+      "hash": "80e18ae37b0ac5921d382887d989b5c4",
       "meta": {
         "model_id": "google/gemini-1-0-pro-vision-001",
         "organisation_id": "google",
@@ -2138,7 +2138,7 @@
       }
     },
     "src/data/models/google/gemini-1-0-ultra-2023-12-06/model.json": {
-      "hash": "db972047d037539dbbdf72e7defb344f",
+      "hash": "062b7f31271b1e49cacf8654484b073d",
       "meta": {
         "model_id": "google/gemini-1-0-ultra-2023-12-06",
         "organisation_id": "google",
@@ -2146,7 +2146,7 @@
       }
     },
     "src/data/models/google/gemini-1-5-flash-001-2024-05-23/model.json": {
-      "hash": "d63af09e11b714e5d2bd8fd0b113718a",
+      "hash": "981d84ca25202c93b24772fd74549571",
       "meta": {
         "model_id": "google/gemini-1-5-flash-001-2024-05-23",
         "organisation_id": "google",
@@ -2170,7 +2170,7 @@
       }
     },
     "src/data/models/google/gemini-1-5-flash-8b-exp-2024-08-27/model.json": {
-      "hash": "1705747e041069f444cffc83e56f22b6",
+      "hash": "4f2ec606650e151e7f1f74a1a1512913",
       "meta": {
         "model_id": "google/gemini-1-5-flash-8b-exp-2024-08-27",
         "organisation_id": "google",
@@ -2178,7 +2178,7 @@
       }
     },
     "src/data/models/google/gemini-1-5-flash-8b-exp-2024-09-24/model.json": {
-      "hash": "b3da47819addeb2bd8056dd57d8217a6",
+      "hash": "e037ceb1255b87bd89d342b125bc9ab6",
       "meta": {
         "model_id": "google/gemini-1-5-flash-8b-exp-2024-09-24",
         "organisation_id": "google",
@@ -2186,7 +2186,7 @@
       }
     },
     "src/data/models/google/gemini-1-5-pro-001-2024-05-23/model.json": {
-      "hash": "385fd7bf3e19f7cfc9445bdec6eafa19",
+      "hash": "a91c967e6d343bda46e4b80493836421",
       "meta": {
         "model_id": "google/gemini-1-5-pro-001-2024-05-23",
         "organisation_id": "google",
@@ -2194,7 +2194,7 @@
       }
     },
     "src/data/models/google/gemini-1-5-pro-002-2024-09-24/model.json": {
-      "hash": "73aa46379e5188e8b5689d3fdf16da2a",
+      "hash": "8a63d5efd12efe5ac4db8600b2b91342",
       "meta": {
         "model_id": "google/gemini-1-5-pro-002-2024-09-24",
         "organisation_id": "google",
@@ -2202,7 +2202,7 @@
       }
     },
     "src/data/models/google/gemini-1-5-pro-exp-2024-08-01/model.json": {
-      "hash": "83eccf99aa70b56d94ebeeb7765ef157",
+      "hash": "782309a35c9802f5ba8db88970117c03",
       "meta": {
         "model_id": "google/gemini-1-5-pro-exp-2024-08-01",
         "organisation_id": "google",
@@ -2210,7 +2210,7 @@
       }
     },
     "src/data/models/google/gemini-1-5-pro-exp-2024-08-27/model.json": {
-      "hash": "453040ae2263d1177b402b00e2732749",
+      "hash": "d0167e71fb5001497b850c439ea37096",
       "meta": {
         "model_id": "google/gemini-1-5-pro-exp-2024-08-27",
         "organisation_id": "google",
@@ -2218,7 +2218,7 @@
       }
     },
     "src/data/models/google/gemini-2-0-flash-2025-02-05/model.json": {
-      "hash": "04f097ec9b759b437858cbe4c2e7a401",
+      "hash": "c6a26f6790c3902a4aa72a30674f7ef8",
       "meta": {
         "model_id": "google/gemini-2-0-flash-2025-02-05",
         "organisation_id": "google",
@@ -2226,7 +2226,7 @@
       }
     },
     "src/data/models/google/gemini-2-0-flash-exp/model.json": {
-      "hash": "e68125bf2306f0e871afe0c967ca1471",
+      "hash": "6f8504f6176b888bf12fcb371858acb9",
       "meta": {
         "model_id": "google/gemini-2-0-flash-exp",
         "organisation_id": "google",
@@ -2234,7 +2234,7 @@
       }
     },
     "src/data/models/google/gemini-2-0-flash-exp-image-generation/model.json": {
-      "hash": "7a12547ae012f475cce23410a5a68cf9",
+      "hash": "7886d09e759124487fcb609c35d8bcb2",
       "meta": {
         "model_id": "google/gemini-2-0-flash-exp-image-generation",
         "organisation_id": "google",
@@ -2250,7 +2250,7 @@
       }
     },
     "src/data/models/google/gemini-2-0-flash-live-001-2025-04-09/model.json": {
-      "hash": "9af1a3136f17d28116903b52de286dc1",
+      "hash": "9ac2fc12565c9a1dcb28952aa7e02b6c",
       "meta": {
         "model_id": "google/gemini-2-0-flash-live-001-2025-04-09",
         "organisation_id": "google",
@@ -2258,7 +2258,7 @@
       }
     },
     "src/data/models/google/gemini-2-0-flash-preview-image-generation-2025-05-07/model.json": {
-      "hash": "ac162ae74a4e80269f722a4d6acba6be",
+      "hash": "d10b3f2463c67b5c3c7369779145f754",
       "meta": {
         "model_id": "google/gemini-2-0-flash-preview-image-generation-2025-05-07",
         "organisation_id": "google",
@@ -2266,7 +2266,7 @@
       }
     },
     "src/data/models/google/gemini-2-0-flash-thinking-exp-2024-12-19/model.json": {
-      "hash": "137575acfa7b4f24f840fc8d4ff5fdeb",
+      "hash": "b6404f8907c8d086e2010f7e0e58d085",
       "meta": {
         "model_id": "google/gemini-2-0-flash-thinking-exp-2024-12-19",
         "organisation_id": "google",
@@ -2274,7 +2274,7 @@
       }
     },
     "src/data/models/google/gemini-2-0-flash-thinking-exp-2025-01-21/model.json": {
-      "hash": "4075dd95c4ab73866a161b719cb5a77a",
+      "hash": "cfa035f493b33dc9699f522415cdd8c9",
       "meta": {
         "model_id": "google/gemini-2-0-flash-thinking-exp-2025-01-21",
         "organisation_id": "google",
@@ -2282,7 +2282,7 @@
       }
     },
     "src/data/models/google/gemini-2-0-pro-exp-2025-02-05/model.json": {
-      "hash": "ad158ef58c336c1ed37ff44bfb92e536",
+      "hash": "b4c4ce06290ba0ca6efa17bfb445d558",
       "meta": {
         "model_id": "google/gemini-2-0-pro-exp-2025-02-05",
         "organisation_id": "google",
@@ -2298,7 +2298,7 @@
       }
     },
     "src/data/models/google/gemini-2-5-flash-exp-native-audio-thinking-dialog/model.json": {
-      "hash": "6c5fe048389e5d59ce0dab4047c7db2c",
+      "hash": "07435b0d4deeae27d2c9dc56f96dbeb0",
       "meta": {
         "model_id": "google/gemini-2-5-flash-exp-native-audio-thinking-dialog",
         "organisation_id": "google",
@@ -2306,7 +2306,7 @@
       }
     },
     "src/data/models/google/gemini-2-5-flash-image-preview/model.json": {
-      "hash": "baaf64bfc3e82a338227100a4313b213",
+      "hash": "253471819b5042450584e558fe231bb2",
       "meta": {
         "model_id": "google/gemini-2-5-flash-image-preview",
         "organisation_id": "google",
@@ -2314,7 +2314,7 @@
       }
     },
     "src/data/models/google/gemini-2-5-flash-lite-preview-2025-06-17/model.json": {
-      "hash": "ed5ffeac67bf3786606be886fde04895",
+      "hash": "1da77f5f239b8aaad5fbcbf1d70f43d0",
       "meta": {
         "model_id": "google/gemini-2-5-flash-lite-preview-2025-06-17",
         "organisation_id": "google",
@@ -2322,7 +2322,7 @@
       }
     },
     "src/data/models/google/gemini-2-5-flash-lite-preview-2025-09-25/model.json": {
-      "hash": "2973c4b062cbb2dea4d2801ebe29b74a",
+      "hash": "5be497459e5cee871fb478b0b28bfb4f",
       "meta": {
         "model_id": "google/gemini-2-5-flash-lite-preview-2025-09-25",
         "organisation_id": "google",
@@ -2330,7 +2330,7 @@
       }
     },
     "src/data/models/google/gemini-2-5-flash-native-audio-preview/model.json": {
-      "hash": "590b5f9dce9684406cf83605a4c049a1",
+      "hash": "e0761e43f1baeb12b74bedfb2deeed51",
       "meta": {
         "model_id": "google/gemini-2-5-flash-native-audio-preview",
         "organisation_id": "google",
@@ -2338,7 +2338,7 @@
       }
     },
     "src/data/models/google/gemini-2-5-flash-preview-2025-04-17/model.json": {
-      "hash": "756e73bac96ea823e58ca92f8d1650cd",
+      "hash": "08e083fafd8ab15cd8c2d82e8678cc64",
       "meta": {
         "model_id": "google/gemini-2-5-flash-preview-2025-04-17",
         "organisation_id": "google",
@@ -2346,7 +2346,7 @@
       }
     },
     "src/data/models/google/gemini-2-5-flash-preview-2025-05-20/model.json": {
-      "hash": "36ddd88930951e0da83c40a6019a2206",
+      "hash": "5902bcc8352ea1d12a43b740934ba30e",
       "meta": {
         "model_id": "google/gemini-2-5-flash-preview-2025-05-20",
         "organisation_id": "google",
@@ -2354,7 +2354,7 @@
       }
     },
     "src/data/models/google/gemini-2-5-flash-preview-2025-09-25/model.json": {
-      "hash": "cec510e50a7fed2c4e57494dd9b6738e",
+      "hash": "5c19b350290ce1b55e25be86c5f112a9",
       "meta": {
         "model_id": "google/gemini-2-5-flash-preview-2025-09-25",
         "organisation_id": "google",
@@ -2362,7 +2362,7 @@
       }
     },
     "src/data/models/google/gemini-2-5-flash-preview-native-audio-dialog/model.json": {
-      "hash": "b6baf5b0a61534b1f3a3a266324d526e",
+      "hash": "a15a4b7b083f74ad8a2ee4cd6c2fe639",
       "meta": {
         "model_id": "google/gemini-2-5-flash-preview-native-audio-dialog",
         "organisation_id": "google",
@@ -2370,7 +2370,7 @@
       }
     },
     "src/data/models/google/gemini-2-5-flash-preview-tts/model.json": {
-      "hash": "9580c1556859120ddcabda00b760d7eb",
+      "hash": "40be4ee544bb60f3faf305caccd9ac0a",
       "meta": {
         "model_id": "google/gemini-2-5-flash-preview-tts",
         "organisation_id": "google",
@@ -2386,7 +2386,7 @@
       }
     },
     "src/data/models/google/gemini-2-5-pro-preview-2025-05-06/model.json": {
-      "hash": "3600864243fe8ddfa8f313f5ee7282ef",
+      "hash": "c6808d3c4477a245968057f58c30b92b",
       "meta": {
         "model_id": "google/gemini-2-5-pro-preview-2025-05-06",
         "organisation_id": "google",
@@ -2394,7 +2394,7 @@
       }
     },
     "src/data/models/google/gemini-2-5-pro-preview-2025-06-05/model.json": {
-      "hash": "2f9c09d6674d7cb0c72823b0ca137eaa",
+      "hash": "ba78cc50b184abf3769f3a867c1ec37c",
       "meta": {
         "model_id": "google/gemini-2-5-pro-preview-2025-06-05",
         "organisation_id": "google",
@@ -2409,30 +2409,6 @@
         "previous_model_id": null
       }
     },
-    "src/data/models/google/gemini-3-0-flash/model.json": {
-      "hash": "b51aa5bf3c92253cc411ce45af001c93",
-      "meta": {
-        "model_id": "google/gemini-3-0-flash",
-        "organisation_id": "google",
-        "previous_model_id": "google/gemini-2-5-flash-preview-2025-09-25"
-      }
-    },
-    "src/data/models/google/gemini-3-0-flash-lite/model.json": {
-      "hash": "323194728f321cae95e1c3772b8d8f64",
-      "meta": {
-        "model_id": "google/gemini-3-0-flash-lite",
-        "organisation_id": "google",
-        "previous_model_id": "google/gemini-2-5-flash-lite-preview-2025-09-25"
-      }
-    },
-    "src/data/models/google/gemini-3-0-pro-preview-2025-11-18/model.json": {
-      "hash": "67900fdd037bc77c8488a2c00705076a",
-      "meta": {
-        "model_id": "google/gemini-3-0-pro-preview-2025-11-18",
-        "organisation_id": "google",
-        "previous_model_id": "google/gemini-2-5-pro-preview-2025-06-05"
-      }
-    },
     "src/data/models/google/gemini-3-flash-image/model.json": {
       "hash": "7b75426c2a3aa3c2dd4d6d60f7b76140",
       "meta": {
@@ -2442,7 +2418,7 @@
       }
     },
     "src/data/models/google/gemini-3-pro-image-preview-2025-11-20/model.json": {
-      "hash": "72b3d9c5d265959ca46c546975aaed5a",
+      "hash": "b63a9e1e3e767e9239cb7aa38cdb6aee",
       "meta": {
         "model_id": "google/gemini-3-pro-image-preview-2025-11-20",
         "organisation_id": "google",
@@ -2450,7 +2426,7 @@
       }
     },
     "src/data/models/google/gemini-diffusion/model.json": {
-      "hash": "249597167fd864585f5b1391dfde2bcf",
+      "hash": "631c61f510eb04540c4ce787e002b379",
       "meta": {
         "model_id": "google/gemini-diffusion",
         "organisation_id": "google",
@@ -2554,7 +2530,7 @@
       }
     },
     "src/data/models/google/gemma-3-12b-2025-03-12/model.json": {
-      "hash": "d8922418576a343e3f7563b2f7239f80",
+      "hash": "0177e5a9446f07b7df58fb9238591e24",
       "meta": {
         "model_id": "google/gemma-3-12b-2025-03-12",
         "organisation_id": "google",
@@ -2562,7 +2538,7 @@
       }
     },
     "src/data/models/google/gemma-3-1b-2025-03-12/model.json": {
-      "hash": "9d6c8e593bf68e2cbec10570adf1d6f6",
+      "hash": "bf01b57fd99c61f8095d4e3c75d02d78",
       "meta": {
         "model_id": "google/gemma-3-1b-2025-03-12",
         "organisation_id": "google",
@@ -2570,7 +2546,7 @@
       }
     },
     "src/data/models/google/gemma-3-27b-2025-03-12/model.json": {
-      "hash": "e0f7c5e777d600f755e3fcfeb09347d2",
+      "hash": "18826a8cc518e8df4e25cd8429d9ac81",
       "meta": {
         "model_id": "google/gemma-3-27b-2025-03-12",
         "organisation_id": "google",
@@ -2578,7 +2554,7 @@
       }
     },
     "src/data/models/google/gemma-3-4b-2025-03-12/model.json": {
-      "hash": "8a172a16ccdabe0751283bb2123fee74",
+      "hash": "949e22b8612beb7ca280652be78f6cda",
       "meta": {
         "model_id": "google/gemma-3-4b-2025-03-12",
         "organisation_id": "google",
@@ -3218,7 +3194,7 @@
       }
     },
     "src/data/models/lg/exaone-4-0-1-2b-2025-07-15/model.json": {
-      "hash": "a5f4b9a9daf8652157a95e5a17c231a3",
+      "hash": "774c07e0cca049d53c8ba01c1e0e59ce",
       "meta": {
         "model_id": "lg/exaone-4-0-1-2b-2025-07-15",
         "organisation_id": "lg",
@@ -3226,7 +3202,7 @@
       }
     },
     "src/data/models/lg/exaone-4-0-32b-2025-07-15/model.json": {
-      "hash": "cde69e9cf4f19c200f2cf125ed6af00f",
+      "hash": "1e2ef44f8233ec6197ef8e842d2cec50",
       "meta": {
         "model_id": "lg/exaone-4-0-32b-2025-07-15",
         "organisation_id": "lg",
@@ -3282,7 +3258,7 @@
       }
     },
     "src/data/models/meta/llama-3-1-405b-instruct-2024-07-23/model.json": {
-      "hash": "82040a44b89b58f2ef5fea0e7d4d8ea6",
+      "hash": "198585aebbbdd1fb30fcfccaeef5aaf5",
       "meta": {
         "model_id": "meta/llama-3-1-405b-instruct-2024-07-23",
         "organisation_id": "meta",
@@ -3290,7 +3266,7 @@
       }
     },
     "src/data/models/meta/llama-3-1-70b-instruct-2024-07-23/model.json": {
-      "hash": "95150f1438ff83f3544530389f6dbbde",
+      "hash": "573970bf12da6f3c386d431e2c167560",
       "meta": {
         "model_id": "meta/llama-3-1-70b-instruct-2024-07-23",
         "organisation_id": "meta",
@@ -3298,7 +3274,7 @@
       }
     },
     "src/data/models/meta/llama-3-1-8b-instruct-2024-07-23/model.json": {
-      "hash": "97653f3fabe6419bab49506143fc629c",
+      "hash": "374555f11a59d3e12b98bf938eb01d2a",
       "meta": {
         "model_id": "meta/llama-3-1-8b-instruct-2024-07-23",
         "organisation_id": "meta",
@@ -3306,7 +3282,7 @@
       }
     },
     "src/data/models/meta/llama-3-2-11b-vision-instruct/model.json": {
-      "hash": "fda1eaea7196adc43790a899d8a4d30e",
+      "hash": "313e2496e42e7b499e978cf6e2947209",
       "meta": {
         "model_id": "meta/llama-3-2-11b-vision-instruct",
         "organisation_id": "meta",
@@ -3322,7 +3298,7 @@
       }
     },
     "src/data/models/meta/llama-3-2-3b-instruct-2024-09-25/model.json": {
-      "hash": "2c8d8b5d1c5dae4754b29fa2bb7bd3f5",
+      "hash": "748310556a1479852c7315f41b104b60",
       "meta": {
         "model_id": "meta/llama-3-2-3b-instruct-2024-09-25",
         "organisation_id": "meta",
@@ -3330,7 +3306,7 @@
       }
     },
     "src/data/models/meta/llama-3-2-90b-vision-instruct/model.json": {
-      "hash": "68563f4393f2101d15f36d7f264ab847",
+      "hash": "5545a9a28790ddaf7cd6de2f1892f467",
       "meta": {
         "model_id": "meta/llama-3-2-90b-vision-instruct",
         "organisation_id": "meta",
@@ -3338,7 +3314,7 @@
       }
     },
     "src/data/models/meta/llama-3-3-70b-instruct-2024-12-06/model.json": {
-      "hash": "b04c501aab7dfb78d59ba7410eb4ae84",
+      "hash": "f0734268d6c704fb8b35462e7cbc97d3",
       "meta": {
         "model_id": "meta/llama-3-3-70b-instruct-2024-12-06",
         "organisation_id": "meta",
@@ -3402,7 +3378,7 @@
       }
     },
     "src/data/models/microsoft/phi-3-5-mini-instruct-2024-08-23/model.json": {
-      "hash": "06243cc7a8b3f91f4593a567d09e1117",
+      "hash": "7ecb4a2b4ad9ef31b0c3b20b9393e317",
       "meta": {
         "model_id": "microsoft/phi-3-5-mini-instruct-2024-08-23",
         "organisation_id": "microsoft",
@@ -3410,7 +3386,7 @@
       }
     },
     "src/data/models/microsoft/phi-3-5-moe-instruct-2024-08-23/model.json": {
-      "hash": "af4ddac457c4dc5833858348304b8e7d",
+      "hash": "2c48cf04ad0de6fa6ea8680fb6f968df",
       "meta": {
         "model_id": "microsoft/phi-3-5-moe-instruct-2024-08-23",
         "organisation_id": "microsoft",
@@ -3474,7 +3450,7 @@
       }
     },
     "src/data/models/microsoft/phi-4-2024-12-12/model.json": {
-      "hash": "7682d179d32c081e4257c21ce904ddab",
+      "hash": "e5d543689caa4f5a97b4b18f6759530a",
       "meta": {
         "model_id": "microsoft/phi-4-2024-12-12",
         "organisation_id": "microsoft",
@@ -3498,7 +3474,7 @@
       }
     },
     "src/data/models/microsoft/phi-4-mini-reasoning-2025-04-30/model.json": {
-      "hash": "12013682bb30e47798b03f7da2e9d376",
+      "hash": "da5ffb66e730ba3512bebb8322c6351d",
       "meta": {
         "model_id": "microsoft/phi-4-mini-reasoning-2025-04-30",
         "organisation_id": "microsoft",
@@ -3514,7 +3490,7 @@
       }
     },
     "src/data/models/microsoft/phi-4-reasoning-2025-04-30/model.json": {
-      "hash": "3f1a3cbc73bfdc31fe669f93af310fc0",
+      "hash": "cbee8059fea3158615302d39459188cb",
       "meta": {
         "model_id": "microsoft/phi-4-reasoning-2025-04-30",
         "organisation_id": "microsoft",
@@ -3522,7 +3498,7 @@
       }
     },
     "src/data/models/microsoft/phi-4-reasoning-plus-2025-04-30/model.json": {
-      "hash": "8d9756ba0e09e247c5cbc0e6cbf6c603",
+      "hash": "6cfc003fc62490c1d0db7226b022330e",
       "meta": {
         "model_id": "microsoft/phi-4-reasoning-plus-2025-04-30",
         "organisation_id": "microsoft",
@@ -3746,7 +3722,7 @@
       }
     },
     "src/data/models/mistral/magistral-medium-2025-06-10/model.json": {
-      "hash": "a09c74761c9877df58aaa8d7f2fb451b",
+      "hash": "52593655288f64ef5ad08b77ad5770e0",
       "meta": {
         "model_id": "mistral/magistral-medium-2025-06-10",
         "organisation_id": "mistral",
@@ -3770,7 +3746,7 @@
       }
     },
     "src/data/models/mistral/magistral-small-2025-06-10/model.json": {
-      "hash": "b85ac56f1a781087f367b08dc57e5cdc",
+      "hash": "d6e367a424686ed9a32cf940fa8e35a7",
       "meta": {
         "model_id": "mistral/magistral-small-2025-06-10",
         "organisation_id": "mistral",
@@ -3810,7 +3786,7 @@
       }
     },
     "src/data/models/mistral/ministral-3-14b-2025-12-02/model.json": {
-      "hash": "18dc15fff96c5a45a74f30724ec911e9",
+      "hash": "2a2ec9f98f7b76ba288c984f1d18a8a5",
       "meta": {
         "model_id": "mistral/ministral-3-14b-2025-12-02",
         "organisation_id": "mistral",
@@ -3818,7 +3794,7 @@
       }
     },
     "src/data/models/mistral/ministral-3-3b-2025-12-02/model.json": {
-      "hash": "284ceaf47dc47c7d01ee2af91a050722",
+      "hash": "f0e34e4ac58f7b16f8cc69732a1bb9f5",
       "meta": {
         "model_id": "mistral/ministral-3-3b-2025-12-02",
         "organisation_id": "mistral",
@@ -3826,7 +3802,7 @@
       }
     },
     "src/data/models/mistral/ministral-3-8b-2025-12-02/model.json": {
-      "hash": "d0b82b611aec855b8a721e045e49fe91",
+      "hash": "659c59d148a83b2a359bb21be01f7393",
       "meta": {
         "model_id": "mistral/ministral-3-8b-2025-12-02",
         "organisation_id": "mistral",
@@ -3874,7 +3850,7 @@
       }
     },
     "src/data/models/mistral/mistral-large-2-2024-07-24/model.json": {
-      "hash": "5c1ac64842b584dea88b8754e05f5316",
+      "hash": "709dcb5dbc0f0ce87e1ec43af3a1d78c",
       "meta": {
         "model_id": "mistral/mistral-large-2-2024-07-24",
         "organisation_id": "mistral",
@@ -3906,7 +3882,7 @@
       }
     },
     "src/data/models/mistral/mistral-large-3-675b-2025-12-02/model.json": {
-      "hash": "549cf236049e46de635ba12b7d4c7e64",
+      "hash": "ae7bbc207c05401afd049adc34cfbe09",
       "meta": {
         "model_id": "mistral/mistral-large-3-675b-2025-12-02",
         "organisation_id": "mistral",
@@ -4026,7 +4002,7 @@
       }
     },
     "src/data/models/mistral/mistral-small-3-1-24b-base-2025-03-17/model.json": {
-      "hash": "c31ac9e6ca7e99cfd02d419778b027d5",
+      "hash": "8bbc71ad892b524981818ec9392686e6",
       "meta": {
         "model_id": "mistral/mistral-small-3-1-24b-base-2025-03-17",
         "organisation_id": "mistral",
@@ -4034,7 +4010,7 @@
       }
     },
     "src/data/models/mistral/mistral-small-3-1-24b-instruct-2025-03-17/model.json": {
-      "hash": "76f82ad96cf324ad67d1135b376feed1",
+      "hash": "4f90edae9ea6d654fbe327868b8531b4",
       "meta": {
         "model_id": "mistral/mistral-small-3-1-24b-instruct-2025-03-17",
         "organisation_id": "mistral",
@@ -4042,7 +4018,7 @@
       }
     },
     "src/data/models/mistral/mistral-small-3-2-2025-06-20/model.json": {
-      "hash": "9a1b72048281df289d4fc39f3b4e1d6e",
+      "hash": "e523f4a8af238b2a296af1097ae7a766",
       "meta": {
         "model_id": "mistral/mistral-small-3-2-2025-06-20",
         "organisation_id": "mistral",
@@ -4050,7 +4026,7 @@
       }
     },
     "src/data/models/mistral/mistral-small-3-24b-base-2025-01-30/model.json": {
-      "hash": "57b752a6fd98d36bf6fd30575ec62a9a",
+      "hash": "d01693bbb3225d7ba9ec77f739a85e89",
       "meta": {
         "model_id": "mistral/mistral-small-3-24b-base-2025-01-30",
         "organisation_id": "mistral",
@@ -4058,7 +4034,7 @@
       }
     },
     "src/data/models/mistral/mistral-small-3-24b-instruct-2025-01-30/model.json": {
-      "hash": "19757a1590d0deda7d2c4afdf277e6ba",
+      "hash": "ad60da1638337fe563b0936556e5fac2",
       "meta": {
         "model_id": "mistral/mistral-small-3-24b-instruct-2025-01-30",
         "organisation_id": "mistral",
@@ -4170,7 +4146,7 @@
       }
     },
     "src/data/models/moonshotai/kimi-k2-base-2025-07-11/model.json": {
-      "hash": "74fe66aca067171495e41270338715ba",
+      "hash": "d633e86855ec2e08604c73a71e64df9a",
       "meta": {
         "model_id": "moonshotai/kimi-k2-base-2025-07-11",
         "organisation_id": "moonshotai",
@@ -4186,7 +4162,7 @@
       }
     },
     "src/data/models/moonshotai/kimi-k2-instruct-2025-07-11/model.json": {
-      "hash": "515f1140ebd29f10f4e512f40d6735a0",
+      "hash": "07d49f631500d486a48d8db93164e710",
       "meta": {
         "model_id": "moonshotai/kimi-k2-instruct-2025-07-11",
         "organisation_id": "moonshotai",
@@ -4346,7 +4322,7 @@
       }
     },
     "src/data/models/nvidia/llama-3-1-nemotron-nano-8b-v1-2025-03-18/model.json": {
-      "hash": "9df405e70bfe4167748204f836a08d19",
+      "hash": "94d71dfe04396d0b062304242e4c1b63",
       "meta": {
         "model_id": "nvidia/llama-3-1-nemotron-nano-8b-v1-2025-03-18",
         "organisation_id": "nvidia",
@@ -4354,7 +4330,7 @@
       }
     },
     "src/data/models/nvidia/llama-3-1-nemotron-ultra-253b-v1-2025-04-07/model.json": {
-      "hash": "9e1d207ad725122dd7c416a75f2ef744",
+      "hash": "e0ea54a6aff51353004fb9ef5314806c",
       "meta": {
         "model_id": "nvidia/llama-3-1-nemotron-ultra-253b-v1-2025-04-07",
         "organisation_id": "nvidia",
@@ -4362,7 +4338,7 @@
       }
     },
     "src/data/models/nvidia/llama-3-3-nemotron-super-49b-v1-2025-03-18/model.json": {
-      "hash": "0cc7bc07935aa9e117b9275b88efce1e",
+      "hash": "fdc89074f7bd401dd3614a8b6df0fb7d",
       "meta": {
         "model_id": "nvidia/llama-3-3-nemotron-super-49b-v1-2025-03-18",
         "organisation_id": "nvidia",
@@ -4530,7 +4506,7 @@
       }
     },
     "src/data/models/openai/codex-mini-2025-05-16/model.json": {
-      "hash": "c28aa57a2a604272f9d7193f004bf388",
+      "hash": "d270845bfcf5896bb3415d9ade9b9a52",
       "meta": {
         "model_id": "openai/codex-mini-2025-05-16",
         "organisation_id": "openai",
@@ -4626,7 +4602,7 @@
       }
     },
     "src/data/models/openai/gpt-3-5-turbo-2023-03-21/model.json": {
-      "hash": "d186ba7da1db4226de3d408917bc6cb6",
+      "hash": "5ae4a09b4ef5d1bb982aa1bf2896fe71",
       "meta": {
         "model_id": "openai/gpt-3-5-turbo-2023-03-21",
         "organisation_id": "openai",
@@ -4634,7 +4610,7 @@
       }
     },
     "src/data/models/openai/gpt-3-5-turbo-2023-09-28/model.json": {
-      "hash": "31d4ff5ce7390f8e64e70714e246b61f",
+      "hash": "327fcb2849bf2c76ab4977bc5dc3b848",
       "meta": {
         "model_id": "openai/gpt-3-5-turbo-2023-09-28",
         "organisation_id": "openai",
@@ -4642,7 +4618,7 @@
       }
     },
     "src/data/models/openai/gpt-3-5-turbo-2023-11-06/model.json": {
-      "hash": "1c7038ae70269304b775eed837f3e74f",
+      "hash": "c007f3385756c8532dd2d2384d240c34",
       "meta": {
         "model_id": "openai/gpt-3-5-turbo-2023-11-06",
         "organisation_id": "openai",
@@ -4650,7 +4626,7 @@
       }
     },
     "src/data/models/openai/gpt-4-1-2025-04-14/model.json": {
-      "hash": "ed4ff0a978d4fe82988168208a474ef0",
+      "hash": "a6d7c598f5e1c39bc9b56d68488b574f",
       "meta": {
         "model_id": "openai/gpt-4-1-2025-04-14",
         "organisation_id": "openai",
@@ -4658,7 +4634,7 @@
       }
     },
     "src/data/models/openai/gpt-4-1-mini-2025-04-14/model.json": {
-      "hash": "c467f4d163a0f3eec068eca12529bb9b",
+      "hash": "a509cb7e98a9388fc8b9d3f4fb9a4634",
       "meta": {
         "model_id": "openai/gpt-4-1-mini-2025-04-14",
         "organisation_id": "openai",
@@ -4666,7 +4642,7 @@
       }
     },
     "src/data/models/openai/gpt-4-1-nano-2025-04-14/model.json": {
-      "hash": "c9fa95ce48435c98071003b5bf7443d7",
+      "hash": "ebfd6885f3be710c089bc0c32c889d0d",
       "meta": {
         "model_id": "openai/gpt-4-1-nano-2025-04-14",
         "organisation_id": "openai",
@@ -4674,7 +4650,7 @@
       }
     },
     "src/data/models/openai/gpt-4-2023-03-14/model.json": {
-      "hash": "356200d35dba1a357d86b3b0cb87fe75",
+      "hash": "913ac43baac7eb2a6b8744bb10aaa1f6",
       "meta": {
         "model_id": "openai/gpt-4-2023-03-14",
         "organisation_id": "openai",
@@ -4714,7 +4690,7 @@
       }
     },
     "src/data/models/openai/gpt-4-5-2025-02-27/model.json": {
-      "hash": "b5a3d6da5cd452e17809e5926d6f6805",
+      "hash": "5d3155d7464dbb680d75fed94cba6fd9",
       "meta": {
         "model_id": "openai/gpt-4-5-2025-02-27",
         "organisation_id": "openai",
@@ -4722,7 +4698,7 @@
       }
     },
     "src/data/models/openai/gpt-4-turbo-2023-03-14/model.json": {
-      "hash": "8fcdbeb8761aa380bf938cbf9e4e890e",
+      "hash": "04f2ffd7c6db6a04d2f399407535f26b",
       "meta": {
         "model_id": "openai/gpt-4-turbo-2023-03-14",
         "organisation_id": "openai",
@@ -4754,7 +4730,7 @@
       }
     },
     "src/data/models/openai/gpt-4o-2024-08-06/model.json": {
-      "hash": "44747819d459922ee7f3132ce9a752fb",
+      "hash": "339b6e09d07a4203d9522ad4c94532ce",
       "meta": {
         "model_id": "openai/gpt-4o-2024-08-06",
         "organisation_id": "openai",
@@ -4762,7 +4738,7 @@
       }
     },
     "src/data/models/openai/gpt-4o-2024-11-20/model.json": {
-      "hash": "813a35793e9bd365a1ee0252b164bd6c",
+      "hash": "293bdec9d2c447a64199d86b6125da48",
       "meta": {
         "model_id": "openai/gpt-4o-2024-11-20",
         "organisation_id": "openai",
@@ -4770,7 +4746,7 @@
       }
     },
     "src/data/models/openai/gpt-4o-audio-2024-10-01/model.json": {
-      "hash": "42679d7e58c9522d2d7ec4c52ff81604",
+      "hash": "ed69fee53b10f60164c0c1d1a2c4d0bf",
       "meta": {
         "model_id": "openai/gpt-4o-audio-2024-10-01",
         "organisation_id": "openai",
@@ -4778,7 +4754,7 @@
       }
     },
     "src/data/models/openai/gpt-4o-audio-2024-12-17/model.json": {
-      "hash": "9abb6f6fdda98ab0ea7258f3c89953f0",
+      "hash": "2bb50a6a632391216448a45200e7dae8",
       "meta": {
         "model_id": "openai/gpt-4o-audio-2024-12-17",
         "organisation_id": "openai",
@@ -4786,7 +4762,7 @@
       }
     },
     "src/data/models/openai/gpt-4o-audio-2025-06-03/model.json": {
-      "hash": "9034909d33b7d77aea3422095f5d8d25",
+      "hash": "90b710cf2d3034f18e5d62770e938e46",
       "meta": {
         "model_id": "openai/gpt-4o-audio-2025-06-03",
         "organisation_id": "openai",
@@ -4794,7 +4770,7 @@
       }
     },
     "src/data/models/openai/gpt-4o-mini-2024-07-18/model.json": {
-      "hash": "6008c4ebb54d694569cb802be5e7931f",
+      "hash": "a6f6f10dd88408ec393b36b45acdacaa",
       "meta": {
         "model_id": "openai/gpt-4o-mini-2024-07-18",
         "organisation_id": "openai",
@@ -4890,7 +4866,7 @@
       }
     },
     "src/data/models/openai/gpt-5-1-2025-11-12/model.json": {
-      "hash": "11c2bfdf4d4dd4514c46d2394c9e9347",
+      "hash": "83b6645d587c0168b424f2cdf46735b2",
       "meta": {
         "model_id": "openai/gpt-5-1-2025-11-12",
         "organisation_id": "openai",
@@ -4938,7 +4914,7 @@
       }
     },
     "src/data/models/openai/gpt-5-2025-08-07/model.json": {
-      "hash": "3e44601cfec2c531d856a67f3750681c",
+      "hash": "fca63cf80be3250058d5bd67fadaaf15",
       "meta": {
         "model_id": "openai/gpt-5-2025-08-07",
         "organisation_id": "openai",
@@ -4970,7 +4946,7 @@
       }
     },
     "src/data/models/openai/gpt-5-mini-2025-08-07/model.json": {
-      "hash": "3a598e3f234159f63ff75e6444977b4c",
+      "hash": "6f99ebf607026928548943a982cbc2d5",
       "meta": {
         "model_id": "openai/gpt-5-mini-2025-08-07",
         "organisation_id": "openai",
@@ -4978,7 +4954,7 @@
       }
     },
     "src/data/models/openai/gpt-5-nano-2025-08-07/model.json": {
-      "hash": "3e59bcd1e68a0312268fffefb800fa86",
+      "hash": "76338fd0bbb7defbe13bb5f34e306f46",
       "meta": {
         "model_id": "openai/gpt-5-nano-2025-08-07",
         "organisation_id": "openai",
@@ -5066,7 +5042,7 @@
       }
     },
     "src/data/models/openai/gpt-oss-120b-2025-08-05/model.json": {
-      "hash": "f21340db3f331b1293871a1570c066d3",
+      "hash": "b5a36174a0c0c0637d1f7c7c718d9bbf",
       "meta": {
         "model_id": "openai/gpt-oss-120b-2025-08-05",
         "organisation_id": "openai",
@@ -5074,7 +5050,7 @@
       }
     },
     "src/data/models/openai/gpt-oss-20b-2025-08-05/model.json": {
-      "hash": "ec844a8c74d4ad8744f588314ecac009",
+      "hash": "55bca68b33de31efb2c09056661794f9",
       "meta": {
         "model_id": "openai/gpt-oss-20b-2025-08-05",
         "organisation_id": "openai",
@@ -5114,7 +5090,7 @@
       }
     },
     "src/data/models/openai/o1-2024-12-17/model.json": {
-      "hash": "9595350d078877dba3088963391beff9",
+      "hash": "a750f3bd7cd34fbe1f77cbec18791d02",
       "meta": {
         "model_id": "openai/o1-2024-12-17",
         "organisation_id": "openai",
@@ -5122,7 +5098,7 @@
       }
     },
     "src/data/models/openai/o1-mini-2024-09-12/model.json": {
-      "hash": "2a6cd6997ed3910c21367e514a1ba22d",
+      "hash": "4d42d6f275dda291098b0aad22ff7ac6",
       "meta": {
         "model_id": "openai/o1-mini-2024-09-12",
         "organisation_id": "openai",
@@ -5130,7 +5106,7 @@
       }
     },
     "src/data/models/openai/o1-preview-2024-09-12/model.json": {
-      "hash": "77406b612aaaa8c08c585cfbeb210ed1",
+      "hash": "729083add9c9c412df50b3e06de500c7",
       "meta": {
         "model_id": "openai/o1-preview-2024-09-12",
         "organisation_id": "openai",
@@ -5138,7 +5114,7 @@
       }
     },
     "src/data/models/openai/o1-pro-2025-03-19/model.json": {
-      "hash": "ae04878750aaaecc1d2b7b9bbea040c0",
+      "hash": "df18a0b9990bb6ba3a3ff7a8a692fc58",
       "meta": {
         "model_id": "openai/o1-pro-2025-03-19",
         "organisation_id": "openai",
@@ -5146,7 +5122,7 @@
       }
     },
     "src/data/models/openai/o3-2025-04-16/model.json": {
-      "hash": "7506cec0b78159ec965313a20850d979",
+      "hash": "90138bf3489c4d7af3ffb64c12f7d7e8",
       "meta": {
         "model_id": "openai/o3-2025-04-16",
         "organisation_id": "openai",
@@ -5162,7 +5138,7 @@
       }
     },
     "src/data/models/openai/o3-mini-2025-01-30/model.json": {
-      "hash": "9b6f57018c3f9a2fab9df1d26c79ef1d",
+      "hash": "be9b00ec59503cc45f5cb0503ea25e9a",
       "meta": {
         "model_id": "openai/o3-mini-2025-01-30",
         "organisation_id": "openai",
@@ -5170,7 +5146,7 @@
       }
     },
     "src/data/models/openai/o3-preview/model.json": {
-      "hash": "e2c61fcfa210e02f4e18a130eca514a0",
+      "hash": "ff25015cc2f439bca3f0c89c7b1ad37b",
       "meta": {
         "model_id": "openai/o3-preview",
         "organisation_id": "openai",
@@ -5178,7 +5154,7 @@
       }
     },
     "src/data/models/openai/o3-pro-2025-06-10/model.json": {
-      "hash": "bd34335675c91769be301b8512f625b2",
+      "hash": "96cdfc38b0ec8bf097f8c3a67bae5b14",
       "meta": {
         "model_id": "openai/o3-pro-2025-06-10",
         "organisation_id": "openai",
@@ -5186,7 +5162,7 @@
       }
     },
     "src/data/models/openai/o4-mini-2025-04-16/model.json": {
-      "hash": "6dcd91ae3ed4993b08deff32c8a259a2",
+      "hash": "51e5abaea060bef5f47f1a5fa7e8a4bb",
       "meta": {
         "model_id": "openai/o4-mini-2025-04-16",
         "organisation_id": "openai",
@@ -5458,7 +5434,7 @@
       }
     },
     "src/data/models/qwen/qwen2-5-14b-instruct-2024-09-19/model.json": {
-      "hash": "b5057ec9bbcda7bb57e8c119d15435df",
+      "hash": "2a7ea3c3007fd13567d1c3376811753e",
       "meta": {
         "model_id": "qwen/qwen2-5-14b-instruct-2024-09-19",
         "organisation_id": "qwen",
@@ -5466,7 +5442,7 @@
       }
     },
     "src/data/models/qwen/qwen2-5-32b-instruct-2024-09-19/model.json": {
-      "hash": "b5d79fa8cf5e0ffcdad9b506ab4b43e1",
+      "hash": "5772f77b88d316f33a65701f8b7cadf0",
       "meta": {
         "model_id": "qwen/qwen2-5-32b-instruct-2024-09-19",
         "organisation_id": "qwen",
@@ -5474,7 +5450,7 @@
       }
     },
     "src/data/models/qwen/qwen2-5-72b-instruct-2024-09-19/model.json": {
-      "hash": "c7826ddf3c6c2d7fe079473172da986a",
+      "hash": "ac256af87a1eafabf21995b29ce3e943",
       "meta": {
         "model_id": "qwen/qwen2-5-72b-instruct-2024-09-19",
         "organisation_id": "qwen",
@@ -5482,7 +5458,7 @@
       }
     },
     "src/data/models/qwen/qwen2-5-7b-instruct-2024-09-19/model.json": {
-      "hash": "7e3742c0973b601186388e273467588b",
+      "hash": "0dac84bbc7601aff9383090fe6280fb7",
       "meta": {
         "model_id": "qwen/qwen2-5-7b-instruct-2024-09-19",
         "organisation_id": "qwen",
@@ -5506,7 +5482,7 @@
       }
     },
     "src/data/models/qwen/qwen2-5-omni-7b-2025-03-27/model.json": {
-      "hash": "0c1fa4d3f0236127c5556600ee4ebdd7",
+      "hash": "81331d743c4969340690c1adf2c60e8b",
       "meta": {
         "model_id": "qwen/qwen2-5-omni-7b-2025-03-27",
         "organisation_id": "qwen",
@@ -5514,7 +5490,7 @@
       }
     },
     "src/data/models/qwen/qwen2-5-vl-32b-instruct-2025-02-28/model.json": {
-      "hash": "d5606e072a4f6cbccb1698b480664a40",
+      "hash": "25fe3171e1b7f0c2d73558c900bbe644",
       "meta": {
         "model_id": "qwen/qwen2-5-vl-32b-instruct-2025-02-28",
         "organisation_id": "qwen",
@@ -5538,7 +5514,7 @@
       }
     },
     "src/data/models/qwen/qwen2-72b-instruct-2024-07-23/model.json": {
-      "hash": "58479f0e5d6fe0509eaffe4b9a07a263",
+      "hash": "489afe193fb3f3888e3f1990d6f8ba10",
       "meta": {
         "model_id": "qwen/qwen2-72b-instruct-2024-07-23",
         "organisation_id": "qwen",
@@ -5546,7 +5522,7 @@
       }
     },
     "src/data/models/qwen/qwen2-7b-instruct-2024-07-23/model.json": {
-      "hash": "0390af5addf32c7a40489870adf81fe4",
+      "hash": "78f57e4332c102555b8b7ecdecf24d59",
       "meta": {
         "model_id": "qwen/qwen2-7b-instruct-2024-07-23",
         "organisation_id": "qwen",
@@ -5562,7 +5538,7 @@
       }
     },
     "src/data/models/qwen/qwen3-235b-a22b-2025-04-29/model.json": {
-      "hash": "4fbe3e9a43caacd65d46a7bd7303c0c0",
+      "hash": "9463bf971d6116ac13162ce60ac1ff49",
       "meta": {
         "model_id": "qwen/qwen3-235b-a22b-2025-04-29",
         "organisation_id": "qwen",
@@ -5570,7 +5546,7 @@
       }
     },
     "src/data/models/qwen/qwen3-235b-a22b-thinking-2507-2025-07-25/model.json": {
-      "hash": "95654ed38f4dac3c7e0e8753f39f5637",
+      "hash": "fb7c553afde53083d9cacc893417c680",
       "meta": {
         "model_id": "qwen/qwen3-235b-a22b-thinking-2507-2025-07-25",
         "organisation_id": "qwen",
@@ -5578,7 +5554,7 @@
       }
     },
     "src/data/models/qwen/qwen3-30b-a3b-2025-04-29/model.json": {
-      "hash": "ac6f823c6bd460f3678d00fa0104c2c3",
+      "hash": "3b5bc7122928f35240002638896b4ffe",
       "meta": {
         "model_id": "qwen/qwen3-30b-a3b-2025-04-29",
         "organisation_id": "qwen",
@@ -5594,7 +5570,7 @@
       }
     },
     "src/data/models/qwen/qwen3-a235-a22b-instruct-2507-2025-07-21/model.json": {
-      "hash": "2641726837a9a332f47c32e8e7b154a9",
+      "hash": "ed759ec4585e3a67cc74334d4fb7fe6b",
       "meta": {
         "model_id": "qwen/qwen3-a235-a22b-instruct-2507-2025-07-21",
         "organisation_id": "qwen",
@@ -5610,7 +5586,7 @@
       }
     },
     "src/data/models/qwen/qwq-32b-2025-03-05/model.json": {
-      "hash": "3a456a4d3f41c43e2eaa790c71fceb31",
+      "hash": "1890b82c05e4260fde8fdf049b842c53",
       "meta": {
         "model_id": "qwen/qwq-32b-2025-03-05",
         "organisation_id": "qwen",
@@ -5618,7 +5594,7 @@
       }
     },
     "src/data/models/qwen/qwq-32b-preview-2024-11-28/model.json": {
-      "hash": "388bc74496f0d803ed45bb8bfdd81a4d",
+      "hash": "353e8c391efdb11bcdd411fb65153bb5",
       "meta": {
         "model_id": "qwen/qwq-32b-preview-2024-11-28",
         "organisation_id": "qwen",
@@ -5682,7 +5658,7 @@
       }
     },
     "src/data/models/x-ai/grok-1-5-2024-03-28/model.json": {
-      "hash": "0329cf414ef7f5418665ff54247c2a31",
+      "hash": "f7ee955898c4959cb07ee9b5746efb33",
       "meta": {
         "model_id": "x-ai/grok-1-5-2024-03-28",
         "organisation_id": "x-ai",
@@ -5698,7 +5674,7 @@
       }
     },
     "src/data/models/x-ai/grok-2-2024-08-13/model.json": {
-      "hash": "f8e1d33e1ddf8554f6cee8750be75a80",
+      "hash": "c239db25399af8ba8fbe6c6815616781",
       "meta": {
         "model_id": "x-ai/grok-2-2024-08-13",
         "organisation_id": "x-ai",
@@ -5714,7 +5690,7 @@
       }
     },
     "src/data/models/x-ai/grok-2-mini-2024-08-13/model.json": {
-      "hash": "6eab89fa8a291e033b61dca8226215a7",
+      "hash": "3d707f1cbc05285e388357a8aa13e799",
       "meta": {
         "model_id": "x-ai/grok-2-mini-2024-08-13",
         "organisation_id": "x-ai",
@@ -5730,7 +5706,7 @@
       }
     },
     "src/data/models/x-ai/grok-3-2025-04-18/model.json": {
-      "hash": "b701018fdc0d7243004f295e511f179d",
+      "hash": "af89c9818b88690b85a7d8cabc346959",
       "meta": {
         "model_id": "x-ai/grok-3-2025-04-18",
         "organisation_id": "x-ai",
@@ -5738,7 +5714,7 @@
       }
     },
     "src/data/models/x-ai/grok-3-beta-2025-02-19/model.json": {
-      "hash": "5a96f63ed6c034933399c2e12c673e8d",
+      "hash": "635c28768565a132feada07cec1a82a2",
       "meta": {
         "model_id": "x-ai/grok-3-beta-2025-02-19",
         "organisation_id": "x-ai",
@@ -5746,7 +5722,7 @@
       }
     },
     "src/data/models/x-ai/grok-3-mini-2025-04-18/model.json": {
-      "hash": "8c7a600d8c4632f181db8f7ffd7e90aa",
+      "hash": "395b1a1f987180c24be480b4c165cde1",
       "meta": {
         "model_id": "x-ai/grok-3-mini-2025-04-18",
         "organisation_id": "x-ai",
@@ -5754,7 +5730,7 @@
       }
     },
     "src/data/models/x-ai/grok-3-mini-beta-2025-02-19/model.json": {
-      "hash": "62022d9fed27658c53b3285ac66f0371",
+      "hash": "4a60cb4a421b02d0821d9961a50e607c",
       "meta": {
         "model_id": "x-ai/grok-3-mini-beta-2025-02-19",
         "organisation_id": "x-ai",
@@ -5762,7 +5738,7 @@
       }
     },
     "src/data/models/x-ai/grok-4-1-non-thinking-2025-11-17/model.json": {
-      "hash": "d465a7a2e50358b4890da1858f43832b",
+      "hash": "89dfd7b4a6159fa286fee0160cc38b76",
       "meta": {
         "model_id": "x-ai/grok-4-1-non-thinking-2025-11-17",
         "organisation_id": "x-ai",
@@ -5786,7 +5762,7 @@
       }
     },
     "src/data/models/x-ai/grok-4-2025-07-10/model.json": {
-      "hash": "7eda20a47da2611d93cdbaef592e587c",
+      "hash": "0d0f272d90f13023370fc99dfb98c095",
       "meta": {
         "model_id": "x-ai/grok-4-2025-07-10",
         "organisation_id": "x-ai",
@@ -5802,7 +5778,7 @@
       }
     },
     "src/data/models/x-ai/grok-4-fast-reasoning-2025-09-20/model.json": {
-      "hash": "a7c802fc685127bdc5b40ae572a39d7e",
+      "hash": "30c96ca3754a592e1c65a182eba63f26",
       "meta": {
         "model_id": "x-ai/grok-4-fast-reasoning-2025-09-20",
         "organisation_id": "x-ai",
@@ -5810,7 +5786,7 @@
       }
     },
     "src/data/models/x-ai/grok-4-heavy-2025-07-10/model.json": {
-      "hash": "d117da3f74d3d44c7ce8eae5ec6fa41d",
+      "hash": "568b58f53c3060cd958b13bb66ec2c5d",
       "meta": {
         "model_id": "x-ai/grok-4-heavy-2025-07-10",
         "organisation_id": "x-ai",
@@ -5850,7 +5826,7 @@
       }
     },
     "src/data/models/z-ai/glm-4-5/model.json": {
-      "hash": "b50319771ca5c2fd28e45d6803529dbe",
+      "hash": "62d427c48d665d2e017c19af2b8ed1ec",
       "meta": {
         "model_id": "z-ai/glm-4-5",
         "organisation_id": "z-ai",
@@ -5874,7 +5850,7 @@
       }
     },
     "src/data/models/z-ai/glm-4-6-2025-09-30/model.json": {
-      "hash": "ca3566a75102cdca81734a9f88a9fcef",
+      "hash": "700cfcf3aa9e28468ccedf8c851c1021",
       "meta": {
         "model_id": "z-ai/glm-4-6-2025-09-30",
         "organisation_id": "z-ai",
@@ -5980,7 +5956,7 @@
       }
     },
     "src/data/aliases/google-gemini-3.0-pro/alias.json": {
-      "hash": "0ebc928c52615a141c4b4f99415132bd",
+      "hash": "c1207d644a378c05d403ed2c0758156a",
       "meta": {
         "alias_slug": "google/gemini-3.0-pro"
       }
@@ -6487,15 +6463,6 @@
         "endpoint": "chat.completions",
         "model_id": "google/gemini-2-5-pro-preview-2025-06-05",
         "model_key": "google-ai-studio:google/gemini-2-5-pro-preview-2025-06-05:chat.completions"
-      }
-    },
-    "src/data/pricing/google-ai-studio/chat.completions/google-gemini-3-0-pro-preview-2025-11-18/pricing.json": {
-      "hash": "134da2ded985d6f252aa5248ebced8f2",
-      "meta": {
-        "api_provider_id": "google-ai-studio",
-        "endpoint": "chat.completions",
-        "model_id": "google/gemini-3-0-pro-preview-2025-11-18",
-        "model_key": "google-ai-studio:google/gemini-3-0-pro-preview-2025-11-18:chat.completions"
       }
     },
     "src/data/pricing/google-ai-studio/chat.completions/google-gemma-3-12b-2025-03-12/pricing.json": {
@@ -7543,21 +7510,21 @@
       }
     },
     "src/data/subscription_plans/chatgpt-free/plan.json": {
-      "hash": "95e4fc01215830c11000367938fa2fd5",
+      "hash": "e10831f6cb703d05ac7050a02d83c8a0",
       "meta": {
         "plan_id": "chatgpt-free",
         "organisation_id": "openai"
       }
     },
     "src/data/subscription_plans/chatgpt-plus/plan.json": {
-      "hash": "11ea3f99fe9b41fa520f311686211335",
+      "hash": "fa7d4c0373cb1b7a9e009b73a273e2cc",
       "meta": {
         "plan_id": "chatgpt-plus",
         "organisation_id": "openai"
       }
     },
     "src/data/subscription_plans/chatgpt-pro/plan.json": {
-      "hash": "b9313b87ab32f3d51e4076ff259cdfd7",
+      "hash": "e503f592c84873c49cb41d95fc4e8908",
       "meta": {
         "plan_id": "chatgpt-pro",
         "organisation_id": "openai"
@@ -7571,21 +7538,21 @@
       }
     },
     "src/data/subscription_plans/claude-max-20x/plan.json": {
-      "hash": "22cfa39a50b7b06548e8e84f86c6f895",
+      "hash": "04c8ad6a826ebc49282320eaa11cb9c1",
       "meta": {
         "plan_id": "claude-max-20x",
         "organisation_id": "anthropic"
       }
     },
     "src/data/subscription_plans/claude-max-5x/plan.json": {
-      "hash": "1043d1839434b61a9c117d50888a5962",
+      "hash": "299f499533a5931aa54369dd96dbd888",
       "meta": {
         "plan_id": "claude-max-5x",
         "organisation_id": "anthropic"
       }
     },
     "src/data/subscription_plans/claude-pro/plan.json": {
-      "hash": "d6e91f6abaaf745eb4e5c36c914bd525",
+      "hash": "7c1395bfb876712950ffa4ac8ba5079d",
       "meta": {
         "plan_id": "claude-pro",
         "organisation_id": "anthropic"
@@ -7670,27 +7637,11 @@
         "previous_model_id": null
       }
     },
-    "src/data/models/openai/gpt-5-2/model.json": {
-      "hash": "de16c86e59b8564f9983fc807d25fb24",
-      "meta": {
-        "model_id": "openai/gpt-5-2",
-        "organisation_id": "openai",
-        "previous_model_id": null
-      }
-    },
     "src/data/models/nous/nomos-1-2025-12-09/model.json": {
       "hash": "c0a6e83de74dad7e969cce2f0b1c0747",
       "meta": {
         "model_id": "nous/nomos-1-2025-12-09",
         "organisation_id": "nous",
-        "previous_model_id": null
-      }
-    },
-    "src/data/models/openai/gpt-5-2-pro/model.json": {
-      "hash": "d26cd9374002a67c399ebdaf28455479",
-      "meta": {
-        "model_id": "openai/gpt-5-2-pro",
-        "organisation_id": "openai",
         "previous_model_id": null
       }
     },
@@ -7701,6 +7652,381 @@
         "endpoint": "chat.completions",
         "model_id": "google/gemini-2-5-flash-preview-2025-05-20",
         "model_key": "google-ai-studio:google/gemini-2-5-flash-preview-2025-05-20:chat.completions"
+      }
+    },
+    "src/data/organisations/allenai/organisation.json": {
+      "hash": "82442f4d630e1b324ea09c12078b8a51",
+      "meta": {
+        "organisation_id": "allenai"
+      }
+    },
+    "src/data/organisations/xiaomi/organisation.json": {
+      "hash": "444817c165214e0347d203806024487b",
+      "meta": {
+        "organisation_id": "xiaomi"
+      }
+    },
+    "src/data/models/allenai/bolmo-1b-2025-12-15/model.json": {
+      "hash": "b4f695646de5a8806faee828ad962c6f",
+      "meta": {
+        "model_id": "allenai/bolmo-1b-2025-12-15",
+        "organisation_id": "allenai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/allenai/bolmo-7b-2025-12-15/model.json": {
+      "hash": "4ee034fed5c1b37b7dee16ae252d72e6",
+      "meta": {
+        "model_id": "allenai/bolmo-7b-2025-12-15",
+        "organisation_id": "allenai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/allenai/molmo-2-4b-2025-12-16/model.json": {
+      "hash": "11c576173feefad5aaf4e92c2e92512d",
+      "meta": {
+        "model_id": "allenai/molmo-2-4b-2025-12-16",
+        "organisation_id": "allenai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/allenai/molmo-2-8b-2025-12-16/model.json": {
+      "hash": "4933546017cab580460764ea388ce94d",
+      "meta": {
+        "model_id": "allenai/molmo-2-8b-2025-12-16",
+        "organisation_id": "allenai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/allenai/olmo-3-1-32b-instruct-2025-12-12/model.json": {
+      "hash": "20e0c9178964578c6285552ee6468ef8",
+      "meta": {
+        "model_id": "allenai/olmo-3-1-32b-instruct-2025-12-12",
+        "organisation_id": "allenai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/allenai/olmo-3-1-32b-think-2025-12-12/model.json": {
+      "hash": "92cc08adc097d65aa682e6a021e1b151",
+      "meta": {
+        "model_id": "allenai/olmo-3-1-32b-think-2025-12-12",
+        "organisation_id": "allenai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/allenai/olmo-3-32b-think-2025-11-20/model.json": {
+      "hash": "dc1b05145d395e26950b9138738eaf1e",
+      "meta": {
+        "model_id": "allenai/olmo-3-32b-think-2025-11-20",
+        "organisation_id": "allenai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/allenai/olmo-3-7b-instruct-2025-11-20/model.json": {
+      "hash": "0e038cd013693e744a67279114bf9ab6",
+      "meta": {
+        "model_id": "allenai/olmo-3-7b-instruct-2025-11-20",
+        "organisation_id": "allenai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/allenai/olmo-3-7b-think-2025-11-20/model.json": {
+      "hash": "a62cde7f0ec5253c1a4ecf56b29585ec",
+      "meta": {
+        "model_id": "allenai/olmo-3-7b-think-2025-11-20",
+        "organisation_id": "allenai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/anthropic/claude-sonnet-4-7/model.json": {
+      "hash": "c7885613d28148d480f0db5a4aa55922",
+      "meta": {
+        "model_id": "anthropic/claude-sonnet-4-7",
+        "organisation_id": "anthropic",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/cohere/rerank-v4-0-fast-2025-12-11/model.json": {
+      "hash": "e08668bfd0df03a27ff9e051bcd4e952",
+      "meta": {
+        "model_id": "cohere/rerank-v4-0-fast-2025-12-11",
+        "organisation_id": "cohere",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/cohere/rerank-v4-0-pro-2025-12-11/model.json": {
+      "hash": "0d6019cca2809bf4b2404f4b5c34ddc7",
+      "meta": {
+        "model_id": "cohere/rerank-v4-0-pro-2025-12-11",
+        "organisation_id": "cohere",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/google/gemini-2-5-flash-preview-tts-2025-12-10/model.json": {
+      "hash": "6a0998f580b5f76ef72bc1dc3e64f1b4",
+      "meta": {
+        "model_id": "google/gemini-2-5-flash-preview-tts-2025-12-10",
+        "organisation_id": "google",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/google/gemini-2-5-pro-preview-tts-2025-12-10/model.json": {
+      "hash": "d47c6e5efe61470d514d9c2f961e4c9c",
+      "meta": {
+        "model_id": "google/gemini-2-5-pro-preview-tts-2025-12-10",
+        "organisation_id": "google",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/google/gemini-3-flash-2025-12-17/model.json": {
+      "hash": "a6845e0fec3110dce768a69b449769ce",
+      "meta": {
+        "model_id": "google/gemini-3-flash-2025-12-17",
+        "organisation_id": "google",
+        "previous_model_id": "google/gemini-2-5-flash-preview-2025-09-25"
+      }
+    },
+    "src/data/models/google/gemini-3-flash-lite/model.json": {
+      "hash": "f59125436481c04e6169002d668f5e0d",
+      "meta": {
+        "model_id": "google/gemini-3-flash-lite",
+        "organisation_id": "google",
+        "previous_model_id": "google/gemini-2-5-flash-lite-preview-2025-09-25"
+      }
+    },
+    "src/data/models/google/gemini-3-pro-preview-2025-11-18/model.json": {
+      "hash": "e7e2ef2c09dc21b6b46272bf8a739494",
+      "meta": {
+        "model_id": "google/gemini-3-pro-preview-2025-11-18",
+        "organisation_id": "google",
+        "previous_model_id": "google/gemini-2-5-pro-preview-2025-06-05"
+      }
+    },
+    "src/data/models/nvidia/nemotron-nano-3-30b-a3b-2025-12-15/model.json": {
+      "hash": "65d3e31f46d77e7ff8ab51a5f0ac1965",
+      "meta": {
+        "model_id": "nvidia/nemotron-nano-3-30b-a3b-2025-12-15",
+        "organisation_id": "nvidia",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/openai/chatgpt-image-latest-2025-12-16/model.json": {
+      "hash": "8b85a0912852b2e7edbe9c2c3f7ce071",
+      "meta": {
+        "model_id": "openai/chatgpt-image-latest-2025-12-16",
+        "organisation_id": "openai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/openai/gpt-4o-mini-transcribe-2025-12-15/model.json": {
+      "hash": "505620d264b9092b02248bb029884f30",
+      "meta": {
+        "model_id": "openai/gpt-4o-mini-transcribe-2025-12-15",
+        "organisation_id": "openai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/openai/gpt-4o-mini-tts-2025-12-15/model.json": {
+      "hash": "44a5189e3c28409c0e807fc5a18978d9",
+      "meta": {
+        "model_id": "openai/gpt-4o-mini-tts-2025-12-15",
+        "organisation_id": "openai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/openai/gpt-5-2-2025-12-11/model.json": {
+      "hash": "44747b5d10b69ff44b16abab3bc6859c",
+      "meta": {
+        "model_id": "openai/gpt-5-2-2025-12-11",
+        "organisation_id": "openai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/openai/gpt-5-2-chat-2025-12-11/model.json": {
+      "hash": "47470eb428f405d090dabd0f43f5f91e",
+      "meta": {
+        "model_id": "openai/gpt-5-2-chat-2025-12-11",
+        "organisation_id": "openai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/openai/gpt-5-2-mini/model.json": {
+      "hash": "1f9e7c10f0b209854fe099e3f4c75dc3",
+      "meta": {
+        "model_id": "openai/gpt-5-2-mini",
+        "organisation_id": "openai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/openai/gpt-5-2-pro-2025-12-11/model.json": {
+      "hash": "a53f97ea2d091f6b0c662cba18f31a24",
+      "meta": {
+        "model_id": "openai/gpt-5-2-pro-2025-12-11",
+        "organisation_id": "openai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/openai/gpt-audio-mini-2025-12-15/model.json": {
+      "hash": "e71e1c5e89e865ea7b936c0e17f32fd2",
+      "meta": {
+        "model_id": "openai/gpt-audio-mini-2025-12-15",
+        "organisation_id": "openai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/openai/gpt-image-1-5-2025-12-16/model.json": {
+      "hash": "29f51913e38e5a7a41a185f00c204f3b",
+      "meta": {
+        "model_id": "openai/gpt-image-1-5-2025-12-16",
+        "organisation_id": "openai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/openai/gpt-realtime-mini-2025-12-15/model.json": {
+      "hash": "9b085f9b25d13353c262b7618eb1ff76",
+      "meta": {
+        "model_id": "openai/gpt-realtime-mini-2025-12-15",
+        "organisation_id": "openai",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/qwen/qwen-3-omni-flash-2025-12-08/model.json": {
+      "hash": "1b1687c2cdb82e9ac47fe346820772e5",
+      "meta": {
+        "model_id": "qwen/qwen-3-omni-flash-2025-12-08",
+        "organisation_id": "qwen",
+        "previous_model_id": null
+      }
+    },
+    "src/data/models/xiaomi/mimo-v2-flash-2025-12-16/model.json": {
+      "hash": "b960e9cef4c1dba3e3d1de21620d9784",
+      "meta": {
+        "model_id": "xiaomi/mimo-v2-flash-2025-12-16",
+        "organisation_id": "xiaomi",
+        "previous_model_id": null
+      }
+    },
+    "src/data/aliases/openai-gpt-5.2/alias.json": {
+      "hash": "2679a5c5490e5c19be7f776a0aa94f84",
+      "meta": {
+        "alias_slug": "openai/gpt-5.2"
+      }
+    },
+    "src/data/pricing/google-ai-studio/chat.completions/google-gemini-3-flash-2025-12-17/pricing.json": {
+      "hash": "b2a5ac75255b70e1f5453049bcc1f5cc",
+      "meta": {
+        "api_provider_id": "google-ai-studio",
+        "endpoint": "chat.completions",
+        "model_id": "google/gemini-3-flash-2025-12-17",
+        "model_key": "google-ai-studio:google/gemini-3-flash-2025-12-17:chat.completions"
+      }
+    },
+    "src/data/pricing/google-ai-studio/chat.completions/google-gemini-3-pro-preview-2025-11-18/pricing.json": {
+      "hash": "933863622f2e4adb411d72212657f184",
+      "meta": {
+        "api_provider_id": "google-ai-studio",
+        "endpoint": "chat.completions",
+        "model_id": "google/gemini-3-pro-preview-2025-11-18",
+        "model_key": "google-ai-studio:google/gemini-3-pro-preview-2025-11-18:chat.completions"
+      }
+    },
+    "src/data/pricing/google-ai-studio/responses/google-gemini-3-flash-2025-12-17/pricing.json": {
+      "hash": "15e6b165b22281e6e8cc2b1e0e966962",
+      "meta": {
+        "api_provider_id": "google-ai-studio",
+        "endpoint": "responses",
+        "model_id": "google/gemini-3-flash-2025-12-17",
+        "model_key": "google-ai-studio:google/gemini-3-flash-2025-12-17:responses"
+      }
+    },
+    "src/data/pricing/openai/batch/openai-gpt-5-2-2025-12-11/pricing.json": {
+      "hash": "4202ae208e979dcb09b592d560e0c6cd",
+      "meta": {
+        "api_provider_id": "openai",
+        "endpoint": "batch",
+        "model_id": "openai/gpt-5-2-2025-12-11",
+        "model_key": "openai:openai/gpt-5-2-2025-12-11:batch"
+      }
+    },
+    "src/data/pricing/openai/batch/openai-gpt-5-2-pro-2025-12-11/pricing.json": {
+      "hash": "647eaa5789815944806c2a0e9484b56e",
+      "meta": {
+        "api_provider_id": "openai",
+        "endpoint": "batch",
+        "model_id": "openai/gpt-5-2-pro-2025-12-11",
+        "model_key": "openai:openai/gpt-5-2-pro-2025-12-11:batch"
+      }
+    },
+    "src/data/pricing/openai/chat.completions/openai-gpt-5-2-2025-12-11/pricing.json": {
+      "hash": "7f693067bb02de4ae19e4de372f815e0",
+      "meta": {
+        "api_provider_id": "openai",
+        "endpoint": "chat.completions",
+        "model_id": "openai/gpt-5-2-2025-12-11",
+        "model_key": "openai:openai/gpt-5-2-2025-12-11:chat.completions"
+      }
+    },
+    "src/data/pricing/openai/chat.completions/openai-gpt-5-2-chat-2025-12-11/pricing.json": {
+      "hash": "7288c8ea2f27c260fbc2a31e67773d67",
+      "meta": {
+        "api_provider_id": "openai",
+        "endpoint": "chat.completions",
+        "model_id": "openai/gpt-5-2-chat-2025-12-11",
+        "model_key": "openai:openai/gpt-5-2-chat-2025-12-11:chat.completions"
+      }
+    },
+    "src/data/pricing/openai/chat.completions/openai-gpt-5-2-pro-2025-12-11/pricing.json": {
+      "hash": "3b89d6cf6d99db2c1d1974438b352a1e",
+      "meta": {
+        "api_provider_id": "openai",
+        "endpoint": "chat.completions",
+        "model_id": "openai/gpt-5-2-pro-2025-12-11",
+        "model_key": "openai:openai/gpt-5-2-pro-2025-12-11:chat.completions"
+      }
+    },
+    "src/data/pricing/openai/images.edits/openai-chatgpt-image-latest-2025-12-16/pricing.json": {
+      "hash": "4f3b3e5b570a546e45c16051c6471557",
+      "meta": {
+        "api_provider_id": "openai",
+        "endpoint": "images.edits",
+        "model_id": "openai/chatgpt-image-latest-2025-12-16",
+        "model_key": "openai:openai/chatgpt-image-latest-2025-12-16:images.edits"
+      }
+    },
+    "src/data/pricing/openai/images.generations/openai-gpt-image-1-5-2025-12-16/pricing.json": {
+      "hash": "7db2fc32141e716d55b8363a4eec342c",
+      "meta": {
+        "api_provider_id": "openai",
+        "endpoint": "images.generations",
+        "model_id": "openai/gpt-image-1-5-2025-12-16",
+        "model_key": "openai:openai/gpt-image-1-5-2025-12-16:images.generations"
+      }
+    },
+    "src/data/pricing/openai/responses/openai-gpt-5-2-2025-12-11/pricing.json": {
+      "hash": "2d3337f9089f9dc1deffeca0d93037b2",
+      "meta": {
+        "api_provider_id": "openai",
+        "endpoint": "responses",
+        "model_id": "openai/gpt-5-2-2025-12-11",
+        "model_key": "openai:openai/gpt-5-2-2025-12-11:responses"
+      }
+    },
+    "src/data/pricing/openai/responses/openai-gpt-5-2-chat-2025-12-11/pricing.json": {
+      "hash": "753d705d21a20a20c2a26fdca4d286ad",
+      "meta": {
+        "api_provider_id": "openai",
+        "endpoint": "responses",
+        "model_id": "openai/gpt-5-2-chat-2025-12-11",
+        "model_key": "openai:openai/gpt-5-2-chat-2025-12-11:responses"
+      }
+    },
+    "src/data/pricing/openai/responses/openai-gpt-5-2-pro-2025-12-11/pricing.json": {
+      "hash": "3d8a93ea5290b818b2cedf3137b1c754",
+      "meta": {
+        "api_provider_id": "openai",
+        "endpoint": "responses",
+        "model_id": "openai/gpt-5-2-pro-2025-12-11",
+        "model_key": "openai:openai/gpt-5-2-pro-2025-12-11:responses"
       }
     }
   }
