@@ -1,10 +1,17 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { debounce, useQueryState } from "nuqs";
 import { ModelsGrid } from "./ModelsGrid";
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { Search, Grid as GridIcon, Table as TableIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+	Tooltip,
+	TooltipTrigger,
+	TooltipContent,
+} from "@/components/ui/tooltip";
 import { ModelCard } from "@/lib/fetchers/models/getAllModels";
 import { qParser, yearParser } from "@/app/(dashboard)/models/search-params";
 
@@ -21,11 +28,58 @@ export default function ModelsDisplay({
 }: ModelsDisplayProps) {
 	const [search, setSearch] = useQueryState("q", qParser);
 	const [, setYear] = useQueryState("year", yearParser);
+	const pathname = usePathname();
+	const isTable = pathname?.includes("/models/table");
 
 	return (
 		<>
 			<div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-2">
-				<h1 className="font-bold text-xl mb-2 md:mb-0">Models</h1>
+				<div className="flex items-center w-full md:w-auto">
+					<h1 className="font-bold text-xl mb-2 md:mb-0">Models</h1>
+
+					{/* Mobile: tabs next to the title (align with the Models text) */}
+					<div className="ml-2 flex items-center gap-2 md:hidden">
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<Button
+									size="sm"
+									asChild
+									variant={!isTable ? "default" : "outline"}
+									className="px-3 py-1 text-xs whitespace-nowrap rounded-full"
+								>
+									<Link href="/models" aria-label="Card view">
+										<GridIcon className="h-4 w-4" />
+									</Link>
+								</Button>
+							</TooltipTrigger>
+							<TooltipContent side="top">
+								Card view
+							</TooltipContent>
+						</Tooltip>
+
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<Button
+									size="sm"
+									asChild
+									variant={isTable ? "default" : "outline"}
+									className="px-3 py-1 text-xs whitespace-nowrap rounded-full"
+								>
+									<Link
+										href="/models/table"
+										aria-label="Table view"
+									>
+										<TableIcon className="h-4 w-4" />
+									</Link>
+								</Button>
+							</TooltipTrigger>
+							<TooltipContent side="top">
+								Table view
+							</TooltipContent>
+						</Tooltip>
+					</div>
+				</div>
+
 				<div className="relative w-full md:w-1/5">
 					<Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
 					<Input
@@ -42,25 +96,71 @@ export default function ModelsDisplay({
 				</div>
 			</div>
 
-			{years.length > 0 && (
-				<div className="mb-4 -mx-1 overflow-x-auto">
-					<div className="flex gap-2 px-1 pb-1">
-						{years.map((year) => (
-							<Button
-								key={year}
-								size="sm"
-								variant={
-									activeYear === year ? "default" : "outline"
-								}
-								onClick={() => setYear(year)}
-								className="px-3 py-1 text-xs whitespace-nowrap rounded-full"
-							>
-								{year}
-							</Button>
-						))}
+			{/* Years row with desktop-only tabs right-aligned */}
+			<div className="mb-4 -mx-1 overflow-x-auto">
+				<div className="flex items-center justify-between px-1 pb-1 gap-2">
+					<div className="flex gap-2">
+						{years.length > 0 &&
+							years.map((year) => (
+								<Button
+									key={year}
+									size="sm"
+									variant={
+										activeYear === year
+											? "default"
+											: "outline"
+									}
+									onClick={() => setYear(year)}
+									className="px-3 py-1 text-xs whitespace-nowrap rounded-full"
+								>
+									{year}
+								</Button>
+							))}
+					</div>
+
+					{/* Desktop tabs aligned to the right of the years row */}
+					<div className="hidden md:flex items-center gap-2">
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<Button
+									size="sm"
+									asChild
+									variant={!isTable ? "default" : "outline"}
+									className="px-3 py-1 text-xs whitespace-nowrap rounded-full"
+								>
+									<Link href="/models" aria-label="Card view">
+										<GridIcon className="h-4 w-4" />
+									</Link>
+								</Button>
+							</TooltipTrigger>
+							<TooltipContent side="top">
+								Card view
+							</TooltipContent>
+						</Tooltip>
+
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<Button
+									size="sm"
+									asChild
+									variant={isTable ? "default" : "outline"}
+									className="px-3 py-1 text-xs whitespace-nowrap rounded-full"
+								>
+									<Link
+										href="/models/table"
+										aria-label="Table view"
+									>
+										<TableIcon className="h-4 w-4" />
+									</Link>
+								</Button>
+							</TooltipTrigger>
+							<TooltipContent side="top">
+								Table view
+							</TooltipContent>
+						</Tooltip>
 					</div>
 				</div>
-			)}
+			</div>
 
 			<ModelsGrid filteredModels={models} />
 		</>

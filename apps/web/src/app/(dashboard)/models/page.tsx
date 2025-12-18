@@ -98,9 +98,7 @@ function getYearPagination(
 	return { years, activeYear, paginatedModels };
 }
 
-async function ModelsPageContent({
-	searchParams,
-}: ModelsPageProps) {
+async function ModelsPageContent({ searchParams }: ModelsPageProps) {
 	const { q, year } = await loadModelsSearchParams(searchParams);
 	const filteredModelsFromDb = await getModelsFiltered({ search: q });
 	const filteredModels = filterAndSortModels(filteredModelsFromDb, q);
@@ -141,6 +139,7 @@ export default function ModelsPage({ searchParams }: ModelsPageProps) {
 	return (
 		<main className="flex min-h-screen flex-col">
 			<div className="container mx-auto px-4 py-8">
+				{/* Removed old top-right "Table view" button — view tabs now live in `ModelsDisplay` */}
 				<Suspense fallback={<ModelsGridSkeleton />}>
 					<ModelsPageContent searchParams={searchParams} />
 				</Suspense>

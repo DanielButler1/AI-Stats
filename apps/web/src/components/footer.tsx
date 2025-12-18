@@ -9,6 +9,7 @@ import {
 	FileText,
 	ShieldCheck,
 	Gift,
+	Database,
 } from "lucide-react";
 import {
 	Tooltip,
@@ -29,7 +30,7 @@ const externalLinks = {
 		campaign: "footer-social",
 		content: "discord",
 	}),
-	github: withUTM("https://github.com/DanielButler1/AI-Stats", {
+	github: withUTM("https://github.com/AI-Stats/AI-Stats", {
 		campaign: "footer-social",
 		content: "github",
 	}),
@@ -226,6 +227,15 @@ export default function Footer() {
 						>
 							<Book className="h-5 w-5" />
 							<span className="text-xs">Sources</span>
+						</Link>
+						{/* Database Monitor */}
+						<Link
+							href="/monitor"
+							aria-label="Database Monitor"
+							className="flex items-center justify-center h-12 rounded-lg border border-border bg-white dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors gap-2"
+						>
+							<Database className="h-5 w-5" />
+							<span className="text-xs">DB Monitor</span>
 						</Link>
 
 						<Separator className="col-span-2 md:col-span-3" />
@@ -473,6 +483,24 @@ export default function Footer() {
 									</TooltipTrigger>
 									<TooltipContent side="top" align="center">
 										Sources
+									</TooltipContent>
+								</Tooltip>
+							</TooltipProvider>
+
+							{/* Database Monitor */}
+							<TooltipProvider delayDuration={0}>
+								<Tooltip>
+									<TooltipTrigger asChild>
+										<Link
+											href="/monitor"
+											aria-label="Database Monitor"
+											className="h-9 w-9 text-primary rounded-full border border-border flex items-center justify-center transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900 focus:outline-hidden focus:ring-2 focus:ring-primary"
+										>
+											<Database className="h-4 w-4" />
+										</Link>
+									</TooltipTrigger>
+									<TooltipContent side="top" align="center">
+										Database Monitor
 									</TooltipContent>
 								</Tooltip>
 							</TooltipProvider>

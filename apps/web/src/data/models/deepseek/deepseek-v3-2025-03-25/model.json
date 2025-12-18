@@ -90,7 +90,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://api-docs.deepseek.com/news/news250325",
-      "rank": 41
+      "rank": 40
     },
     {
       "benchmark_id": "lmarena-text",
@@ -122,7 +122,7 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html",
-      "rank": 20
+      "rank": 19
     },
     {
       "benchmark_id": "thematic-generalisation",

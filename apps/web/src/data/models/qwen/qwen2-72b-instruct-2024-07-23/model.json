@@ -58,7 +58,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/Qwen/Qwen2-72B",
-      "rank": 73
+      "rank": 72
     },
     {
       "benchmark_id": "lmarena-text",
