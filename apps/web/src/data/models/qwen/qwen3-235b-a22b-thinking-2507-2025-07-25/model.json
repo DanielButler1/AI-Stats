@@ -86,7 +86,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Thinking-2507",
-      "rank": 20
+      "rank": 19
     },
     {
       "benchmark_id": "hmmt-2025",
@@ -102,7 +102,7 @@
       "is_self_reported": true,
       "other_info": "Text Only",
       "source_link": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Thinking-2507",
-      "rank": 12
+      "rank": 11
     },
     {
       "benchmark_id": "if-eval",
@@ -190,7 +190,7 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://matharena.ai/?comp=apex--apex_2025",
-      "rank": 2
+      "rank": 1
     }
   ]
 }

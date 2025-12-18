@@ -71,7 +71,7 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard",
-      "rank": 26
+      "rank": 25
     },
     {
       "benchmark_id": "arc-agi-2",
@@ -79,7 +79,7 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://arcprize.org/leaderboard",
-      "rank": 19
+      "rank": 18
     },
     {
       "benchmark_id": "confabulations",
@@ -111,7 +111,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": null,
-      "rank": 37
+      "rank": 36
     },
     {
       "benchmark_id": "gpqa-diamond",
@@ -119,7 +119,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/",
-      "rank": 37
+      "rank": 36
     },
     {
       "benchmark_id": "lisanbench",
@@ -159,7 +159,7 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html",
-      "rank": 15
+      "rank": 14
     },
     {
       "benchmark_id": "swe-bench",
@@ -167,7 +167,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://openai.com/index/gpt-4-1/",
-      "rank": 21
+      "rank": 20
     },
     {
       "benchmark_id": "thematic-generalisation",

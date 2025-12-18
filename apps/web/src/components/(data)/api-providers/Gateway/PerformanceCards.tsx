@@ -7,7 +7,6 @@ import {
 	GaugeCircle,
 	Timer,
 	Hourglass,
-	Activity,
 } from "lucide-react";
 import { getProviderMetrics } from "@/lib/fetchers/api-providers/getProviderMetrics";
 import {
@@ -93,7 +92,7 @@ function PerformanceCard({
 	value: string;
 	delta?: string;
 	trend?: Trend | undefined;
-	icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+	icon: React.ComponentType<any>;
 	accent?: AccentKey;
 	invertDeltaColors?: boolean;
 	children: React.ReactNode;

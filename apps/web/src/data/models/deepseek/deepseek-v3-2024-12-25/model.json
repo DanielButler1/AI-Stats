@@ -82,7 +82,7 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://github.com/deepseek-ai/DeepSeek-V3",
-      "rank": 51
+      "rank": 50
     },
     {
       "benchmark_id": "lmarena-text",
@@ -106,7 +106,7 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html",
-      "rank": 30
+      "rank": 29
     },
     {
       "benchmark_id": "thematic-generalisation",

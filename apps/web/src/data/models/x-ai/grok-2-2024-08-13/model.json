@@ -58,7 +58,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://x.ai/blog/grok-2",
-      "rank": 54
+      "rank": 53
     },
     {
       "benchmark_id": "nyt-connections",
@@ -74,7 +74,7 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html",
-      "rank": 27
+      "rank": 26
     },
     {
       "benchmark_id": "thematic-generalisation",

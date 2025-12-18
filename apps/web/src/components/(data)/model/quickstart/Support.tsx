@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import type { ComponentType, SVGProps } from "react";
+import type { ComponentType } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -35,7 +35,7 @@ type Item = {
 	description: string;
 	badge?: string;
 	external?: boolean;
-	icon?: ComponentType<SVGProps<SVGSVGElement>>;
+	icon?: ComponentType<any>;
 	iconSrc?: string;
 	iconPair?: IconPair;
 	onClick?: () => void;
@@ -47,7 +47,7 @@ function BrandIcon({
 	iconPair,
 	alt,
 }: {
-	icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+	icon?: ComponentType<any>;
 	iconSrc?: string;
 	iconPair?: IconPair;
 	alt: string;

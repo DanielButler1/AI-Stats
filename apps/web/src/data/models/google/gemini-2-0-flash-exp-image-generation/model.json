@@ -8,7 +8,7 @@
   "release_date": null,
   "deprecation_date": "2025-11-11T00:00:00",
   "retirement_date": "2025-11-14T00:00:00",
-  "license": null,
+  "license": "Proprietary",
   "input_types": null,
   "output_types": null,
   "family_id": "google/gemini-2-0",

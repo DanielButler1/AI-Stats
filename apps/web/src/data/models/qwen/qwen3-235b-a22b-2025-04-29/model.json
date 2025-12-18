@@ -98,7 +98,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://qwenlm.github.io/blog/qwen3/",
-      "rank": 66
+      "rank": 65
     },
     {
       "benchmark_id": "lmarena-text",
@@ -138,7 +138,7 @@
       "is_self_reported": false,
       "other_info": null,
       "source_link": "https://simple-bench.com/index.html",
-      "rank": 16
+      "rank": 15
     },
     {
       "benchmark_id": "thematic-generalisation",

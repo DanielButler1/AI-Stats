@@ -70,7 +70,7 @@
       "is_self_reported": true,
       "other_info": "NOT confirmed by Arc-AGI",
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large",
-      "rank": 12
+      "rank": 11
     },
     {
       "benchmark_id": "csimpleqa",
@@ -86,7 +86,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large",
-      "rank": 30
+      "rank": 29
     },
     {
       "benchmark_id": "hmmt-2025",
@@ -150,7 +150,7 @@
       "is_self_reported": true,
       "other_info": null,
       "source_link": "https://pbs.twimg.com/media/GwZe3kIbEAEnbw0?format=jpg&name=large",
-      "rank": 2
+      "rank": 1
     },
     {
       "benchmark_id": "supergpqa",
