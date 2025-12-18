@@ -45,7 +45,8 @@
 		"changeset:version": "pnpm changeset version && pnpm sdk-py:sync-version",
 		"changeset:publish": "pnpm changeset publish",
 		"sdk-py:sync-version": "tsx scripts/update-pyproject-version.ts",
-		"release-from-changelogs": "tsx scripts/changesets/create-github-releases-from-changelogs.ts"
+		"release-from-changelogs": "tsx scripts/changesets/create-github-releases-from-changelogs.ts",
+		"precommit": "pnpm lint && pnpm typecheck && pnpm build && pnpm validate:data && pnpm validate:pricing && pnpm validate:gateway && pnpm openapi:lint && pnpm validate:docs && pnpm validate:web && pnpm validate:api && pnpm validate:packages && pnpm --filter @ai-stats/web test && pnpm test"
 	},
 	"devDependencies": {
 		"@changesets/changelog-github": "^0.5.1",
