@@ -38,45 +38,54 @@ export default function ModelsDisplay({
 					<h1 className="font-bold text-xl mb-2 md:mb-0">Models</h1>
 
 					{/* Mobile: tabs next to the title (align with the Models text) */}
-					<div className="ml-2 flex items-center gap-2 md:hidden">
-						<Tooltip>
-							<TooltipTrigger asChild>
-								<Button
-									size="sm"
-									asChild
-									variant={!isTable ? "default" : "outline"}
-									className="px-3 py-1 text-xs whitespace-nowrap rounded-full"
-								>
-									<Link href="/models" aria-label="Card view">
-										<GridIcon className="h-4 w-4" />
-									</Link>
-								</Button>
-							</TooltipTrigger>
-							<TooltipContent side="top">
-								Card view
-							</TooltipContent>
-						</Tooltip>
-
-						<Tooltip>
-							<TooltipTrigger asChild>
-								<Button
-									size="sm"
-									asChild
-									variant={isTable ? "default" : "outline"}
-									className="px-3 py-1 text-xs whitespace-nowrap rounded-full"
-								>
-									<Link
-										href="/models/table"
-										aria-label="Table view"
+					<div className="ml-2 md:hidden">
+						<div className="inline-flex rounded-md overflow-hidden border bg-background">
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										size="sm"
+										asChild
+										variant={
+											!isTable ? "default" : "outline"
+										}
+										className="px-3 py-1 text-xs whitespace-nowrap rounded-none"
 									>
-										<TableIcon className="h-4 w-4" />
-									</Link>
-								</Button>
-							</TooltipTrigger>
-							<TooltipContent side="top">
-								Table view
-							</TooltipContent>
-						</Tooltip>
+										<Link
+											href="/models"
+											aria-label="Card view"
+										>
+											<GridIcon className="h-4 w-4" />
+										</Link>
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent side="top">
+									Card view
+								</TooltipContent>
+							</Tooltip>
+
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										size="sm"
+										asChild
+										variant={
+											isTable ? "default" : "outline"
+										}
+										className="px-3 py-1 text-xs whitespace-nowrap rounded-none"
+									>
+										<Link
+											href="/models/table"
+											aria-label="Table view"
+										>
+											<TableIcon className="h-4 w-4" />
+										</Link>
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent side="top">
+									Table view
+								</TooltipContent>
+							</Tooltip>
+						</div>
 					</div>
 				</div>
 
@@ -119,45 +128,54 @@ export default function ModelsDisplay({
 					</div>
 
 					{/* Desktop tabs aligned to the right of the years row */}
-					<div className="hidden md:flex items-center gap-2">
-						<Tooltip>
-							<TooltipTrigger asChild>
-								<Button
-									size="sm"
-									asChild
-									variant={!isTable ? "default" : "outline"}
-									className="px-3 py-1 text-xs whitespace-nowrap rounded-full"
-								>
-									<Link href="/models" aria-label="Card view">
-										<GridIcon className="h-4 w-4" />
-									</Link>
-								</Button>
-							</TooltipTrigger>
-							<TooltipContent side="top">
-								Card view
-							</TooltipContent>
-						</Tooltip>
-
-						<Tooltip>
-							<TooltipTrigger asChild>
-								<Button
-									size="sm"
-									asChild
-									variant={isTable ? "default" : "outline"}
-									className="px-3 py-1 text-xs whitespace-nowrap rounded-full"
-								>
-									<Link
-										href="/models/table"
-										aria-label="Table view"
+					<div className="hidden md:flex items-center">
+						<div className="inline-flex rounded-md overflow-hidden border bg-background">
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										size="sm"
+										asChild
+										variant={
+											!isTable ? "default" : "outline"
+										}
+										className="px-3 py-1 text-xs whitespace-nowrap rounded-none"
 									>
-										<TableIcon className="h-4 w-4" />
-									</Link>
-								</Button>
-							</TooltipTrigger>
-							<TooltipContent side="top">
-								Table view
-							</TooltipContent>
-						</Tooltip>
+										<Link
+											href="/models"
+											aria-label="Card view"
+										>
+											<GridIcon className="h-4 w-4" />
+										</Link>
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent side="top">
+									Card view
+								</TooltipContent>
+							</Tooltip>
+
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										size="sm"
+										asChild
+										variant={
+											isTable ? "default" : "outline"
+										}
+										className="px-3 py-1 text-xs whitespace-nowrap rounded-none"
+									>
+										<Link
+											href="/models/table"
+											aria-label="Table view"
+										>
+											<TableIcon className="h-4 w-4" />
+										</Link>
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent side="top">
+									Table view
+								</TooltipContent>
+							</Tooltip>
+						</div>
 					</div>
 				</div>
 			</div>
