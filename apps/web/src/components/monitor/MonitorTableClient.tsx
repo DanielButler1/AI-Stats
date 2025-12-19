@@ -8,20 +8,10 @@ import { type MonitorModelData } from "@/lib/fetchers/models/getMonitorModels";
 
 interface MonitorTableClientProps {
 	initialModelData: MonitorModelData[];
-	allTiers: string[];
-	allEndpoints?: string[];
-	allModalities?: string[];
-	allFeatures?: string[];
-	allStatuses?: string[];
 }
 
 export function MonitorTableClient({
 	initialModelData,
-	allTiers,
-	allEndpoints,
-	allModalities,
-	allFeatures,
-	allStatuses,
 }: MonitorTableClientProps) {
 	// Convert MonitorModelData to ModelData format for the table
 	const modelData: ModelData[] = initialModelData.map((item) => ({
@@ -43,14 +33,6 @@ export function MonitorTableClient({
 	}));
 
 	return (
-		<MonitorDataTable
-			data={modelData}
-			loading={false}
-			allTiersProp={allTiers}
-			allEndpointsProp={allEndpoints}
-			allModalitiesProp={allModalities}
-			allFeaturesProp={allFeatures}
-			allStatusesProp={allStatuses}
-		/>
+		<MonitorDataTable data={modelData} loading={false} />
 	);
 }

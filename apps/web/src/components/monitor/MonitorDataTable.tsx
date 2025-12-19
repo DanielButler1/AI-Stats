@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import {
 	Table,
 	TableBody,
@@ -17,11 +17,11 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import {
-	ChevronLeft,
-	ChevronRight,
 	ArrowUpDown,
 	ArrowUp,
 	ArrowDown,
+	ChevronLeft,
+	ChevronRight,
 } from "lucide-react";
 
 import { Logo } from "@/components/Logo";
@@ -46,9 +46,8 @@ import {
 } from "lucide-react";
 
 import Link from "next/link";
-
 import { useQueryState } from "nuqs";
-import { yearParser } from "@/app/(dashboard)/models/search-params";
+
 // Icon and color mappings
 const modalityIcons = {
 	image: { input: ImageUp, output: ImageDown, color: "text-blue-600" },
@@ -117,143 +116,89 @@ export interface ModelData {
 interface MonitorDataTableProps {
 	data: ModelData[];
 	loading?: boolean;
-	allTiersProp?: string[];
-	allEndpointsProp?: string[];
-	allModalitiesProp?: string[];
-	allFeaturesProp?: string[];
-	allStatusesProp?: string[];
 }
 
 export function MonitorDataTable({
 	data,
 	loading = false,
-	allTiersProp,
-	allEndpointsProp,
-	allModalitiesProp,
-	allFeaturesProp,
-	allStatusesProp,
 }: MonitorDataTableProps) {
-	// URL state for search and filters
-	const [searchQuery, setSearchQuery] = useQueryState("search", {
+	const [searchQuery] = useQueryState("search", {
 		defaultValue: "",
 		parse: (value) => value || "",
 		serialize: (value) => value,
 	});
 
-	// Year filter (from header)
-	const [yearSelected, setYearSelected] = useQueryState("year", yearParser);
+	const [yearSelected] = useQueryState("year", {
+		defaultValue: 0,
+		parse: (value) => Number.parseInt(value || "0", 10),
+		serialize: (value) => String(value),
+	});
 
-	const [selectedInputModalities, setSelectedInputModalities] = useQueryState(
-		"inputModalities",
-		{
-			defaultValue: [],
-			parse: (value) => (value ? value.split(",") : []),
-			serialize: (value) => value.join(","),
-		}
-	);
-
-	const [selectedOutputModalities, setSelectedOutputModalities] =
-		useQueryState("outputModalities", {
-			defaultValue: [],
-			parse: (value) => (value ? value.split(",") : []),
-			serialize: (value) => value.join(","),
-		});
-
-	const [selectedFeatures, setSelectedFeatures] = useQueryState("features", {
+	const [selectedInputModalities] = useQueryState("inputModalities", {
 		defaultValue: [],
 		parse: (value) => (value ? value.split(",") : []),
 		serialize: (value) => value.join(","),
 	});
 
-	const [selectedEndpoints, setSelectedEndpoints] = useQueryState(
-		"endpoints",
-		{
-			defaultValue: [],
-			parse: (value) => (value ? value.split(",") : []),
-			serialize: (value) => value.join(","),
-		}
-	);
-
-	const [selectedStatuses, setSelectedStatuses] = useQueryState("statuses", {
+	const [selectedOutputModalities] = useQueryState("outputModalities", {
 		defaultValue: [],
 		parse: (value) => (value ? value.split(",") : []),
 		serialize: (value) => value.join(","),
 	});
 
-	const [selectedTiers, setSelectedTiers] = useQueryState("tiers", {
-		defaultValue: ["standard"], // default to standard
+	const [selectedFeatures] = useQueryState("features", {
+		defaultValue: [],
+		parse: (value) => (value ? value.split(",") : []),
+		serialize: (value) => value.join(","),
+	});
+
+	const [selectedEndpoints] = useQueryState("endpoints", {
+		defaultValue: [],
+		parse: (value) => (value ? value.split(",") : []),
+		serialize: (value) => value.join(","),
+	});
+
+	const [selectedStatuses] = useQueryState("statuses", {
+		defaultValue: [],
+		parse: (value) => (value ? value.split(",") : []),
+		serialize: (value) => value.join(","),
+	});
+
+	const [selectedTiers] = useQueryState("tiers", {
+		defaultValue: ["standard"],
 		parse: (value) => (value ? value.split(",") : ["standard"]),
 		serialize: (value) => value.join(","),
 	});
 
-	// Local state for sort (not in URL since it's less important)
-	const [sortField, setSortField] = useState<string | null>("added");
-	const [sortDirection, setSortDirection] = useState<"asc" | "desc">("desc");
+	// Sorting via URL params
+	const [sortField, setSortField] = useQueryState("sort", {
+		defaultValue: "added",
+		parse: (value) => value || "added",
+		serialize: (value) => value,
+	});
+	const [sortDirection, setSortDirection] = useQueryState("dir", {
+		defaultValue: "desc",
+		parse: (value) => (value === "asc" ? "asc" : "desc"),
+		serialize: (value) => value,
+	});
 
-	// Get unique values for filters (prefer props passed from server if available)
-	const allModalities =
-		allModalitiesProp ??
-		useMemo(() => {
-			const modalities = new Set<string>();
-			data.forEach((item) => {
-				item.inputModalities.forEach((mod) => modalities.add(mod));
-				item.outputModalities.forEach((mod) => modalities.add(mod));
-			});
-			return Array.from(modalities).sort();
-		}, [data]);
-
-	const allFeatures =
-		allFeaturesProp ??
-		useMemo(() => {
-			const features = new Set<string>();
-			data.forEach((item) => {
-				item.provider.features.forEach((feat) => features.add(feat));
-			});
-			return Array.from(features).sort();
-		}, [data]);
-
-	const allEndpoints =
-		allEndpointsProp ??
-		useMemo(() => {
-			const endpoints = new Set<string>();
-			data.forEach((item) => endpoints.add(item.endpoint));
-			return Array.from(endpoints).sort();
-		}, [data]);
-
-	const allStatuses =
-		allStatusesProp ??
-		useMemo(() => {
-			const statuses = new Set<string>();
-			data.forEach((item) => statuses.add(item.gatewayStatus));
-			return Array.from(statuses).sort();
-		}, [data]);
-
-	const computedAllTiers = useMemo(() => {
-		const tiers = new Set<string>();
-		data.forEach((item) => {
-			if (item.tier) tiers.add(item.tier);
-		});
-		return Array.from(tiers).sort();
-	}, [data]);
-
-	const allTiers = allTiersProp || computedAllTiers;
+	const [page, setPage] = useQueryState("page", {
+		defaultValue: 1,
+		parse: (value) => {
+			const parsed = Number.parseInt(value || "1", 10);
+			return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
+		},
+		serialize: (value) => String(value),
+	});
 
 	const handleSort = (field: string) => {
 		if (sortField === field) {
-			if (sortDirection === "desc") {
-				setSortDirection("asc");
-			} else {
-				setSortField(null);
-			}
+			const nextDirection = sortDirection === "desc" ? "asc" : "desc";
+			setSortDirection(nextDirection);
 		} else {
 			setSortField(field);
 			setSortDirection("desc");
 		}
-	};
-
-	const handleResetSort = () => {
-		setSortField("added");
-		setSortDirection("desc");
 	};
 
 	const getSortIcon = (field: string) => {
@@ -265,10 +210,8 @@ export function MonitorDataTable({
 		);
 	};
 
-	// Apply filters and sorting
-	const processedData = useMemo(() => {
+	const filteredSortedData = useMemo(() => {
 		const filtered = data.filter((item) => {
-			// Search filter
 			if (searchQuery) {
 				const searchLower = searchQuery.toLowerCase();
 				const matchesSearch = Object.values(item).some((value) => {
@@ -278,7 +221,6 @@ export function MonitorDataTable({
 						);
 					}
 					if (typeof value === "object" && value !== null) {
-						// Handle nested provider object
 						return Object.values(value).some((nestedValue) => {
 							if (Array.isArray(nestedValue)) {
 								return nestedValue.some((v) =>
@@ -297,7 +239,6 @@ export function MonitorDataTable({
 				if (!matchesSearch) return false;
 			}
 
-			// Year filter (filter by model.added year)
 			if (yearSelected && yearSelected > 0) {
 				const itemYear = item.added
 					? new Date(item.added).getFullYear()
@@ -305,7 +246,6 @@ export function MonitorDataTable({
 				if (itemYear !== yearSelected) return false;
 			}
 
-			// Input Modalities filter
 			if (selectedInputModalities.length > 0) {
 				const hasAllInputModalities = selectedInputModalities.every(
 					(mod) => item.inputModalities.includes(mod)
@@ -313,7 +253,6 @@ export function MonitorDataTable({
 				if (!hasAllInputModalities) return false;
 			}
 
-			// Output Modalities filter
 			if (selectedOutputModalities.length > 0) {
 				const hasAllOutputModalities = selectedOutputModalities.every(
 					(mod) => item.outputModalities.includes(mod)
@@ -321,18 +260,22 @@ export function MonitorDataTable({
 				if (!hasAllOutputModalities) return false;
 			}
 
-			// Endpoint filter
+			if (selectedFeatures.length > 0) {
+				const hasAllFeatures = selectedFeatures.every((feat) =>
+					item.provider.features.includes(feat)
+				);
+				if (!hasAllFeatures) return false;
+			}
+
 			if (selectedEndpoints.length > 0) {
 				if (!selectedEndpoints.includes(item.endpoint)) return false;
 			}
 
-			// Status filter
 			if (selectedStatuses.length > 0) {
 				if (!selectedStatuses.includes(item.gatewayStatus))
 					return false;
 			}
 
-			// Tier filter
 			if (selectedTiers.length > 0) {
 				if (!item.tier || !selectedTiers.includes(item.tier))
 					return false;
@@ -341,116 +284,139 @@ export function MonitorDataTable({
 			return true;
 		});
 
-		// Apply sorting
-		if (sortField) {
-			filtered.sort((a, b) => {
-				let aValue: any;
-				let bValue: any;
+		if (!sortField) return filtered;
 
-				// Handle date sorting (models without dates go to bottom)
-				if (sortField === "added" || sortField === "retired") {
-					const field = sortField as "added" | "retired";
-					const aHasDate = !!a[field];
-					const bHasDate = !!b[field];
+		return [...filtered].sort((a, b) => {
+			let aValue: any;
+			let bValue: any;
 
-					if (aHasDate && bHasDate) {
-						// Both have dates, compare them
-						const aValue = new Date(a[field]!).getTime();
-						const bValue = new Date(b[field]!).getTime();
-						return sortDirection === "asc"
-							? aValue - bValue
-							: bValue - aValue;
-					} else if (aHasDate && !bHasDate) {
-						// a has date, b doesn't - a comes first
-						return -1;
-					} else if (!aHasDate && bHasDate) {
-						// a doesn't have date, b does - b comes first
-						return 1;
-					} else {
-						// Neither has date - equal
-						return 0;
-					}
-				} else {
-					// Set values for other fields
-					switch (sortField) {
-						case "model":
-							aValue = a.model;
-							bValue = b.model;
-							break;
-						case "provider":
-							aValue = a.provider.name;
-							bValue = b.provider.name;
-							break;
-						case "endpoint":
-							aValue = a.endpoint;
-							bValue = b.endpoint;
-							break;
-						case "inputPrice":
-							aValue = a.provider.inputPrice;
-							bValue = b.provider.inputPrice;
-							break;
-						case "outputPrice":
-							aValue = a.provider.outputPrice;
-							bValue = b.provider.outputPrice;
-							break;
-						case "status":
-							aValue = a.gatewayStatus;
-							bValue = b.gatewayStatus;
-							break;
-						case "tier":
-							aValue = a.tier || "";
-							bValue = b.tier || "";
-							break;
-						case "context":
-							aValue = a.context;
-							bValue = b.context;
-							break;
-						case "maxOutput":
-							aValue = a.maxOutput;
-							bValue = b.maxOutput;
-							break;
-						default:
-							aValue = "";
-							bValue = "";
-					}
+			if (sortField === "added" || sortField === "retired") {
+				const field = sortField as "added" | "retired";
+				const aHasDate = !!a[field];
+				const bHasDate = !!b[field];
 
-					// Handle array sorting by joining
-					if (Array.isArray(aValue)) aValue = aValue.join(",");
-					if (Array.isArray(bValue)) bValue = bValue.join(",");
-
-					// Handle numeric sorting
-					if (
-						typeof aValue === "number" &&
-						typeof bValue === "number"
-					) {
-						return sortDirection === "asc"
-							? aValue - bValue
-							: bValue - aValue;
-					}
-
-					// Handle string sorting
-					const aStr = String(aValue).toLowerCase();
-					const bStr = String(bValue).toLowerCase();
-					if (sortDirection === "asc") {
-						return aStr.localeCompare(bStr);
-					} else {
-						return bStr.localeCompare(aStr);
-					}
+				if (aHasDate && bHasDate) {
+					const aDate = new Date(a[field]!).getTime();
+					const bDate = new Date(b[field]!).getTime();
+					return sortDirection === "asc"
+						? aDate - bDate
+						: bDate - aDate;
 				}
-			});
-		}
+				if (aHasDate && !bHasDate) return -1;
+				if (!aHasDate && bHasDate) return 1;
+				return 0;
+			}
 
-		return filtered;
+			switch (sortField) {
+				case "model":
+					aValue = a.model;
+					bValue = b.model;
+					break;
+				case "provider":
+					aValue = a.provider.name;
+					bValue = b.provider.name;
+					break;
+				case "endpoint":
+					aValue = a.endpoint;
+					bValue = b.endpoint;
+					break;
+				case "inputPrice":
+					aValue = a.provider.inputPrice;
+					bValue = b.provider.inputPrice;
+					break;
+				case "outputPrice":
+					aValue = a.provider.outputPrice;
+					bValue = b.provider.outputPrice;
+					break;
+				case "status":
+					aValue = a.gatewayStatus;
+					bValue = b.gatewayStatus;
+					break;
+				case "tier":
+					aValue = a.tier || "";
+					bValue = b.tier || "";
+					break;
+				case "context":
+					aValue = a.context;
+					bValue = b.context;
+					break;
+				case "maxOutput":
+					aValue = a.maxOutput;
+					bValue = b.maxOutput;
+					break;
+				default:
+					aValue = "";
+					bValue = "";
+			}
+
+			if (Array.isArray(aValue)) aValue = aValue.join(",");
+			if (Array.isArray(bValue)) bValue = bValue.join(",");
+
+			if (typeof aValue === "number" && typeof bValue === "number") {
+				return sortDirection === "asc"
+					? aValue - bValue
+					: bValue - aValue;
+			}
+
+			const aStr = String(aValue).toLowerCase();
+			const bStr = String(bValue).toLowerCase();
+			return sortDirection === "asc"
+				? aStr.localeCompare(bStr)
+				: bStr.localeCompare(aStr);
+		});
 	}, [
 		data,
 		searchQuery,
-		sortField,
-		sortDirection,
+		yearSelected,
 		selectedInputModalities,
 		selectedOutputModalities,
+		selectedFeatures,
 		selectedEndpoints,
 		selectedStatuses,
+		selectedTiers,
+		sortField,
+		sortDirection,
 	]);
+
+	const PAGE_SIZE = 100;
+	const totalItems = filteredSortedData.length;
+	const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+	const safePage = Math.min(page, totalPages);
+
+	const filterKey = [
+		searchQuery,
+		yearSelected,
+		selectedInputModalities.join(","),
+		selectedOutputModalities.join(","),
+		selectedFeatures.join(","),
+		selectedEndpoints.join(","),
+		selectedStatuses.join(","),
+		selectedTiers.join(","),
+		sortField,
+		sortDirection,
+	].join("|");
+	const prevFilterKey = useRef(filterKey);
+
+	useEffect(() => {
+		if (safePage !== page) {
+			setPage(safePage);
+		}
+	}, [page, safePage, setPage]);
+
+	useEffect(() => {
+		if (prevFilterKey.current !== filterKey) {
+			prevFilterKey.current = filterKey;
+			if (page !== 1) {
+				setPage(1);
+			}
+		}
+	}, [filterKey, page, setPage]);
+
+	const pageStart = (safePage - 1) * PAGE_SIZE;
+	const pageData = filteredSortedData.slice(
+		pageStart,
+		pageStart + PAGE_SIZE
+	);
 
 	// Render model cell with links for org and model
 	const renderModel = (
@@ -645,6 +611,36 @@ export function MonitorDataTable({
 	const formatDate = (dateStr: string) => {
 		return new Date(dateStr).toLocaleDateString();
 	};
+
+	const formatEndpoint = (endpoint?: string) => {
+		const trimmed = endpoint?.replace(/\uFFFD/g, "").trim();
+		return trimmed ? trimmed : "-";
+	};
+
+	const getPaginationRange = (
+		current: number,
+		total: number,
+		delta = 1
+	) => {
+		if (total <= 1) return [1];
+
+		const range: Array<number | "ellipsis"> = [];
+		const left = Math.max(2, current - delta);
+		const right = Math.min(total - 1, current + delta);
+
+		range.push(1);
+		if (left > 2) range.push("ellipsis");
+		for (let page = left; page <= right; page += 1) {
+			range.push(page);
+		}
+		if (right < total - 1) range.push("ellipsis");
+		range.push(total);
+
+		return range;
+	};
+
+	const paginationRange = getPaginationRange(safePage, totalPages, 1);
+
 	return (
 		<TooltipProvider>
 			<div className="space-y-4">
@@ -781,7 +777,7 @@ export function MonitorDataTable({
 										Loading...
 									</TableCell>
 								</TableRow>
-							) : processedData.length === 0 ? (
+							) : filteredSortedData.length === 0 ? (
 								<TableRow>
 									<TableCell
 										colSpan={14}
@@ -791,7 +787,7 @@ export function MonitorDataTable({
 									</TableCell>
 								</TableRow>
 							) : (
-								processedData.map((item) => (
+								pageData.map((item) => (
 									<TableRow key={item.id}>
 										<TableCell className="font-medium border border-gray-200">
 											{renderModel(
@@ -804,7 +800,7 @@ export function MonitorDataTable({
 											{renderProvider(item.provider)}
 										</TableCell>
 										<TableCell className="font-mono text-sm border border-gray-200">
-											{item.endpoint || "-"}
+											{formatEndpoint(item.endpoint)}
 										</TableCell>
 										<TableCell className="text-center border border-gray-200">
 											{renderStatus(item.gatewayStatus)}
@@ -864,6 +860,64 @@ export function MonitorDataTable({
 							)}
 						</TableBody>
 					</Table>
+				</div>
+
+				<div className="flex flex-wrap items-center justify-between gap-3 text-sm text-muted-foreground">
+					<div>
+						Showing {totalItems === 0 ? 0 : pageStart + 1}-
+						{Math.min(pageStart + PAGE_SIZE, totalItems)} of{" "}
+						{totalItems}
+					</div>
+					<div className="flex items-center gap-1">
+						<Button
+							variant="outline"
+							size="sm"
+							onClick={() => setPage(Math.max(1, safePage - 1))}
+							disabled={safePage <= 1}
+						>
+							<ChevronLeft className="h-4 w-4" />
+						</Button>
+						<div className="flex items-center gap-1">
+							{paginationRange.map((entry, index) => {
+								if (entry === "ellipsis") {
+									return (
+										<span
+											key={`ellipsis-${index}`}
+											className="px-2 text-muted-foreground"
+										>
+											…
+										</span>
+									);
+								}
+								const pageNumber = entry;
+								const isActive = pageNumber === safePage;
+								return (
+									<Button
+										key={pageNumber}
+										variant={
+											isActive ? "default" : "outline"
+										}
+										size="sm"
+										onClick={() => setPage(pageNumber)}
+										disabled={isActive}
+										className="h-8 w-8 px-0"
+									>
+										{pageNumber}
+									</Button>
+								);
+							})}
+						</div>
+						<Button
+							variant="outline"
+							size="sm"
+							onClick={() =>
+								setPage(Math.min(totalPages, safePage + 1))
+							}
+							disabled={safePage >= totalPages}
+						>
+							<ChevronRight className="h-4 w-4" />
+						</Button>
+					</div>
 				</div>
 			</div>
 		</TooltipProvider>

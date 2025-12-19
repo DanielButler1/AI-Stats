@@ -88,9 +88,33 @@ export interface MonitorModelData {
 	retired?: string; // When this model is retired
 }
 
-export async function getMonitorModels(): Promise<{
+export interface MonitorModelFilters {
+	search?: string;
+	inputModalities?: string[];
+	outputModalities?: string[];
+	features?: string[];
+	endpoints?: string[];
+	statuses?: Array<MonitorModelData["gatewayStatus"]>;
+	tiers?: string[];
+	year?: number;
+	sortField?: string;
+	sortDirection?: "asc" | "desc";
+}
+
+const normalizeEndpoint = (endpoint?: string | null) => {
+	const trimmed = endpoint?.replace(/\uFFFD/g, "").trim();
+	return trimmed || "";
+};
+
+export async function getMonitorModels(
+	filters: MonitorModelFilters = {}
+): Promise<{
 	models: MonitorModelData[];
 	allTiers: string[];
+	allEndpoints: string[];
+	allModalities: string[];
+	allFeatures: string[];
+	allStatuses: string[];
 }> {
 	"use cache";
 
@@ -290,6 +314,7 @@ export async function getMonitorModels(): Promise<{
 				  gatewayModel.api_provider_id
 				: "Unlinked";
 
+			const rawEndpoint = gatewayModel?.endpoint || gatewayModel?.key || "";
 			const monitorModel: MonitorModelData = {
 				id: gatewayModel
 					? `${model.model_id}-${gatewayModel.api_provider_id}-${gatewayModel.key}`
@@ -308,7 +333,7 @@ export async function getMonitorModels(): Promise<{
 						? providerFeatures
 						: [],
 				},
-				endpoint: gatewayModel?.endpoint || gatewayModel?.key || "�",
+				endpoint: normalizeEndpoint(rawEndpoint),
 				gatewayStatus: gatewayModel?.is_active_gateway ? "active" : "inactive",
 				inputModalities: gatewayModel
 					? parseModalities(gatewayModel.input_modalities)
@@ -334,16 +359,196 @@ export async function getMonitorModels(): Promise<{
 		}
 	}
 
-	const models = Array.from(modelMap.values()).sort((a, b) => {
-		if (!a.added && !b.added) return 0;
-		if (!a.added) return 1;
-		if (!b.added) return -1;
+	const allModels = Array.from(modelMap.values());
 
-		return new Date(b.added).getTime() - new Date(a.added).getTime();
+	const endpointsSet = new Set<string>();
+	const modalitiesSet = new Set<string>();
+	const featuresSet = new Set<string>();
+	const statusesSet = new Set<string>();
+
+	for (const model of allModels) {
+		const endpoint = normalizeEndpoint(model.endpoint);
+		if (endpoint) endpointsSet.add(endpoint);
+		model.inputModalities.forEach((mod) => modalitiesSet.add(mod));
+		model.outputModalities.forEach((mod) => modalitiesSet.add(mod));
+		model.provider.features.forEach((feat) => featuresSet.add(feat));
+		statusesSet.add(model.gatewayStatus);
+	}
+
+	const allEndpoints = Array.from(endpointsSet).sort();
+	const allModalities = Array.from(modalitiesSet).sort();
+	const allFeatures = Array.from(featuresSet).sort();
+	const allStatuses = Array.from(statusesSet).sort();
+
+	const normalizedFilters: Required<MonitorModelFilters> = {
+		search: filters.search?.trim() || "",
+		inputModalities: filters.inputModalities ?? [],
+		outputModalities: filters.outputModalities ?? [],
+		features: filters.features ?? [],
+		endpoints: filters.endpoints ?? [],
+		statuses: filters.statuses ?? [],
+		tiers: filters.tiers ?? [],
+		year: filters.year ?? 0,
+		sortField: filters.sortField || "added",
+		sortDirection: filters.sortDirection === "asc" ? "asc" : "desc",
+	};
+
+	const filteredModels = allModels.filter((item) => {
+		if (normalizedFilters.search) {
+			const searchLower = normalizedFilters.search.toLowerCase();
+			const matchesSearch = Object.values(item).some((value) => {
+				if (Array.isArray(value)) {
+					return value.some((v) =>
+						String(v).toLowerCase().includes(searchLower)
+					);
+				}
+				if (typeof value === "object" && value !== null) {
+					return Object.values(value).some((nestedValue) => {
+						if (Array.isArray(nestedValue)) {
+							return nestedValue.some((v) =>
+								String(v).toLowerCase().includes(searchLower)
+							);
+						}
+						return String(nestedValue)
+							.toLowerCase()
+							.includes(searchLower);
+					});
+				}
+				return String(value).toLowerCase().includes(searchLower);
+			});
+			if (!matchesSearch) return false;
+		}
+
+		if (normalizedFilters.year > 0) {
+			const itemYear = item.added
+				? new Date(item.added).getFullYear()
+				: null;
+			if (itemYear !== normalizedFilters.year) return false;
+		}
+
+		if (normalizedFilters.inputModalities.length > 0) {
+			const hasAllInputs = normalizedFilters.inputModalities.every((mod) =>
+				item.inputModalities.includes(mod)
+			);
+			if (!hasAllInputs) return false;
+		}
+
+		if (normalizedFilters.outputModalities.length > 0) {
+			const hasAllOutputs = normalizedFilters.outputModalities.every(
+				(mod) => item.outputModalities.includes(mod)
+			);
+			if (!hasAllOutputs) return false;
+		}
+
+		if (normalizedFilters.features.length > 0) {
+			const hasAllFeatures = normalizedFilters.features.every((feat) =>
+				item.provider.features.includes(feat)
+			);
+			if (!hasAllFeatures) return false;
+		}
+
+		if (normalizedFilters.endpoints.length > 0) {
+			const endpoint = normalizeEndpoint(item.endpoint);
+			if (!normalizedFilters.endpoints.includes(endpoint)) return false;
+		}
+
+		if (normalizedFilters.statuses.length > 0) {
+			if (!normalizedFilters.statuses.includes(item.gatewayStatus))
+				return false;
+		}
+
+		if (normalizedFilters.tiers.length > 0) {
+			const tier = item.tier || "standard";
+			if (!normalizedFilters.tiers.includes(tier)) return false;
+		}
+
+		return true;
+	});
+
+	const sortField = normalizedFilters.sortField;
+	const sortDirection = normalizedFilters.sortDirection;
+
+	const models = filteredModels.sort((a, b) => {
+		let aValue: any;
+		let bValue: any;
+
+		if (sortField === "added" || sortField === "retired") {
+			const field = sortField as "added" | "retired";
+			const aHasDate = !!a[field];
+			const bHasDate = !!b[field];
+
+			if (aHasDate && bHasDate) {
+				const aDate = new Date(a[field]!).getTime();
+				const bDate = new Date(b[field]!).getTime();
+				return sortDirection === "asc" ? aDate - bDate : bDate - aDate;
+			}
+			if (aHasDate && !bHasDate) return -1;
+			if (!aHasDate && bHasDate) return 1;
+			return 0;
+		}
+
+		switch (sortField) {
+			case "model":
+				aValue = a.model;
+				bValue = b.model;
+				break;
+			case "provider":
+				aValue = a.provider.name;
+				bValue = b.provider.name;
+				break;
+			case "endpoint":
+				aValue = normalizeEndpoint(a.endpoint);
+				bValue = normalizeEndpoint(b.endpoint);
+				break;
+			case "inputPrice":
+				aValue = a.provider.inputPrice;
+				bValue = b.provider.inputPrice;
+				break;
+			case "outputPrice":
+				aValue = a.provider.outputPrice;
+				bValue = b.provider.outputPrice;
+				break;
+			case "status":
+				aValue = a.gatewayStatus;
+				bValue = b.gatewayStatus;
+				break;
+			case "tier":
+				aValue = a.tier || "standard";
+				bValue = b.tier || "standard";
+				break;
+			case "context":
+				aValue = a.context;
+				bValue = b.context;
+				break;
+			case "maxOutput":
+				aValue = a.maxOutput;
+				bValue = b.maxOutput;
+				break;
+			default:
+				aValue = "";
+				bValue = "";
+		}
+
+		if (typeof aValue === "number" && typeof bValue === "number") {
+			return sortDirection === "asc" ? aValue - bValue : bValue - aValue;
+		}
+
+		const aStr = String(aValue).toLowerCase();
+		const bStr = String(bValue).toLowerCase();
+		return sortDirection === "asc"
+			? aStr.localeCompare(bStr)
+			: bStr.localeCompare(aStr);
 	});
 
 	const tiers = new Set(allTiers.length ? allTiers : []);
 	tiers.add("standard");
 
-	return { models, allTiers: Array.from(tiers).sort() };
+	return {
+		models,
+		allTiers: Array.from(tiers).sort(),
+		allEndpoints,
+		allModalities,
+		allFeatures,
+		allStatuses,
+	};
 }

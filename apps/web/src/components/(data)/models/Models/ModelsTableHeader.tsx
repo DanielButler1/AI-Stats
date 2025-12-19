@@ -90,6 +90,8 @@ export default function ModelsTableHeader({
 		parse: (value) => (value ? value.split(",") : ["standard"]),
 		serialize: (value) => value.join(","),
 	});
+	const isDefaultTiers =
+		selectedTiers.length === 1 && selectedTiers[0] === "standard";
 
 	return (
 		<>
@@ -472,9 +474,7 @@ export default function ModelsTableHeader({
 								>
 									<Filter className="h-4 w-4 mr-2" />
 									Tier
-									{selectedTiers.length > 0 &&
-										selectedTiers.length !==
-											allTiers.length && (
+									{!isDefaultTiers && (
 											<Badge
 												variant="secondary"
 												className="ml-2 h-5 px-1.5 text-xs"
@@ -534,7 +534,7 @@ export default function ModelsTableHeader({
 							selectedEndpoints.length > 0 ||
 							selectedStatuses.length > 0 ||
 							selectedFeatures.length > 0 ||
-							selectedTiers.length !== allTiers.length) && (
+							!isDefaultTiers) && (
 							<Button
 								variant="ghost"
 								size="sm"
@@ -545,7 +545,7 @@ export default function ModelsTableHeader({
 									setSelectedInputModalities([]);
 									setSelectedOutputModalities([]);
 									setSelectedFeatures([]);
-									setSelectedTiers(allTiers);
+									setSelectedTiers(["standard"]);
 								}}
 								className="h-8"
 							>

@@ -8,26 +8,14 @@ export const metadata = {
 };
 
 export default async function ModelsTablePage() {
-	const { models: modelData, allTiers } = await getMonitorModels();
-
-	// Compute lists for filters (endpoints, modalities, features, statuses)
-	const endpointsSet = new Set<string>();
-	const modalitiesSet = new Set<string>();
-	const featuresSet = new Set<string>();
-	const statusesSet = new Set<string>();
-
-	for (const m of modelData) {
-		if (m.endpoint) endpointsSet.add(m.endpoint);
-		(m.inputModalities || []).forEach((mod) => modalitiesSet.add(mod));
-		(m.outputModalities || []).forEach((mod) => modalitiesSet.add(mod));
-		(m.provider?.features || []).forEach((f) => featuresSet.add(f));
-		if (m.gatewayStatus) statusesSet.add(m.gatewayStatus);
-	}
-
-	const allEndpoints = Array.from(endpointsSet).sort();
-	const allModalities = Array.from(modalitiesSet).sort();
-	const allFeatures = Array.from(featuresSet).sort();
-	const allStatuses = Array.from(statusesSet).sort();
+	const {
+		models: modelData,
+		allTiers,
+		allEndpoints,
+		allModalities,
+		allFeatures,
+		allStatuses,
+	} = await getMonitorModels();
 
 	return (
 		<div className="mx-8 py-8">
@@ -48,14 +36,7 @@ export default async function ModelsTablePage() {
 					</div>
 				}
 			>
-				<MonitorTableClient
-					initialModelData={modelData}
-					allTiers={allTiers}
-					allEndpoints={allEndpoints}
-					allModalities={allModalities}
-					allFeatures={allFeatures}
-					allStatuses={allStatuses}
-				/>
+				<MonitorTableClient initialModelData={modelData} />
 			</Suspense>
 		</div>
 	);

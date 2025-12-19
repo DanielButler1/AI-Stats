@@ -60,14 +60,14 @@ export default function UpdateCard({
 		badges.some((b) => b.label === "Release") &&
 		(dateIso
 			? (() => {
-			const now = new Date();
-			const d = new Date(dateIso);
-			return (
-				now.getUTCFullYear() === d.getUTCFullYear() &&
-				now.getUTCMonth() === d.getUTCMonth() &&
-				now.getUTCDate() === d.getUTCDate()
-			);
-		})()
+					const now = new Date();
+					const d = new Date(dateIso);
+					return (
+						now.getUTCFullYear() === d.getUTCFullYear() &&
+						now.getUTCMonth() === d.getUTCMonth() &&
+						now.getUTCDate() === d.getUTCDate()
+					);
+			  })()
 			: false);
 
 	return (
