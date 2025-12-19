@@ -59,7 +59,15 @@ export default function UpdateCard({
 	const isTodayRelease =
 		badges.some((b) => b.label === "Release") &&
 		(dateIso
-			? new Date(dateIso).toDateString() === new Date().toDateString()
+			? (() => {
+			const now = new Date();
+			const d = new Date(dateIso);
+			return (
+				now.getUTCFullYear() === d.getUTCFullYear() &&
+				now.getUTCMonth() === d.getUTCMonth() &&
+				now.getUTCDate() === d.getUTCDate()
+			);
+		})()
 			: false);
 
 	return (

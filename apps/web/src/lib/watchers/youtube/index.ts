@@ -34,40 +34,66 @@ export type YoutubeWatcherSummary = {
 };
 
 async function fetchRecent(channelId: string, maxResults = 25, apiKey: string): Promise<YoutubeRow[]> {
-    const url = new URL("https://www.googleapis.com/youtube/v3/search");
-    url.searchParams.set("key", apiKey);
-    url.searchParams.set("part", "snippet");
-    url.searchParams.set("channelId", channelId);
-    url.searchParams.set("type", "video");
-    url.searchParams.set("order", "date");
-    url.searchParams.set("maxResults", String(Math.min(maxResults, MAX_RESULTS)));
+    const uploadsUrl = new URL("https://www.googleapis.com/youtube/v3/channels");
+    uploadsUrl.searchParams.set("key", apiKey);
+    uploadsUrl.searchParams.set("part", "contentDetails");
+    uploadsUrl.searchParams.set("id", channelId);
 
-    const response = await fetch(url, { cache: "no-store" });
-    if (!response.ok) {
-        const body = await response.text().catch(() => "");
-        throw new Error(`search.list ${channelId} -> ${response.status} ${body}`);
+    const uploadsRes = await fetch(uploadsUrl, { cache: "no-store" });
+    if (!uploadsRes.ok) {
+        const body = await uploadsRes.text().catch(() => "");
+        throw new Error(`channels.list ${channelId} -> ${uploadsRes.status} ${body}`);
     }
 
-    type YoutubeSearchItem = {
-        id?: { videoId?: string | null } | null;
-        snippet?: {
-            channelTitle?: string | null;
-            title?: string | null;
-            publishedAt?: string | null;
+    type ChannelDetails = {
+        contentDetails?: {
+            relatedPlaylists?: { uploads?: string | null } | null;
         } | null;
     };
 
-    type YoutubeSearchResponse = {
-        items?: YoutubeSearchItem[] | null;
+    type ChannelResponse = {
+        items?: ChannelDetails[] | null;
     };
 
-    const payload = (await response.json()) as YoutubeSearchResponse;
+    const channelPayload = (await uploadsRes.json()) as ChannelResponse;
+    const uploadsPlaylistId =
+        channelPayload?.items?.[0]?.contentDetails?.relatedPlaylists?.uploads ??
+        null;
+
+    if (!uploadsPlaylistId) return [];
+
+    const itemsUrl = new URL("https://www.googleapis.com/youtube/v3/playlistItems");
+    itemsUrl.searchParams.set("key", apiKey);
+    itemsUrl.searchParams.set("part", "snippet");
+    itemsUrl.searchParams.set("playlistId", uploadsPlaylistId);
+    itemsUrl.searchParams.set("maxResults", String(Math.min(maxResults, MAX_RESULTS)));
+
+    const itemsRes = await fetch(itemsUrl, { cache: "no-store" });
+    if (!itemsRes.ok) {
+        const body = await itemsRes.text().catch(() => "");
+        throw new Error(`playlistItems.list ${channelId} -> ${itemsRes.status} ${body}`);
+    }
+
+    type PlaylistItem = {
+        snippet?: {
+            title?: string | null;
+            publishedAt?: string | null;
+            channelTitle?: string | null;
+            resourceId?: { videoId?: string | null } | null;
+        } | null;
+    };
+
+    type PlaylistResponse = {
+        items?: PlaylistItem[] | null;
+    };
+
+    const payload = (await itemsRes.json()) as PlaylistResponse;
     const items = Array.isArray(payload?.items) ? payload.items : [];
 
     return items
-        .map((item: YoutubeSearchItem): YoutubeRow | null => {
-            const videoId = item?.id?.videoId ?? undefined;
+        .map((item: PlaylistItem): YoutubeRow | null => {
             const snippet = item?.snippet ?? null;
+            const videoId = snippet?.resourceId?.videoId ?? undefined;
             if (!videoId) return null;
 
             const who = snippet?.channelTitle ?? "Unknown Channel";

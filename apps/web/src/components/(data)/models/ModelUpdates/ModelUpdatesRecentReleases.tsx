@@ -30,7 +30,7 @@ export default function ModelUpdatesRecentReleases({
 	if (events.length === 0) {
 		return (
 			<div className="mb-6">
-				<h1 className="mb-2 text-xl font-bold text-black">{title}</h1>
+				<h1 className="mb-2 text-xl font-bold">{title}</h1>
 				<p className="text-sm text-zinc-500 dark:text-zinc-400">
 					{emptyMessage ?? "No updates available right now."}
 				</p>
@@ -40,7 +40,7 @@ export default function ModelUpdatesRecentReleases({
 
 	return (
 		<div className="mb-6">
-			<h1 className="mb-2 text-xl font-bold text-black">{title}</h1>
+			<h1 className="mb-2 text-xl font-bold">{title}</h1>
 			<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 				{events.map((event) => {
 					const { model } = event;

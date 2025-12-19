@@ -144,8 +144,13 @@ export default function ComparisonTable({
 													className="focus:outline-none"
 												>
 													<Logo
-														id={model.provider.provider_id}
-														alt={model.provider.name}
+														id={
+															model.provider
+																.provider_id
+														}
+														alt={
+															model.provider.name
+														}
 														width={32}
 														height={32}
 														className="h-8 w-8 rounded-full border bg-white object-contain"
@@ -156,7 +161,7 @@ export default function ComparisonTable({
 														href={`/models/${model.id}`}
 														className="group"
 													>
-														<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-medium text-black">
+														<span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full font-medium">
 															{model.name}
 														</span>
 													</Link>
