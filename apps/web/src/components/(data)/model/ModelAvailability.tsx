@@ -6,6 +6,8 @@ import {
 	ShieldCheck,
 	Activity,
 	ArrowRight,
+	Clock,
+	Archive,
 } from "lucide-react";
 import { ModelAvailabilityItem } from "@/lib/fetchers/models/getModelAvailability";
 import { SubscriptionPlan } from "@/lib/fetchers/models/getModelSubscriptionPlans";
@@ -88,8 +90,8 @@ export default async function ModelAvailability({
 					No availability information yet
 				</span>
 				<span className="text-xs font-semibold text-gray-800 dark:text-gray-300">
-					This model isn't currently listed for API or subscription
-					access.
+					This model isn&apos;t currently listed for API or
+					subscription access.
 				</span>
 			</div>
 		);
@@ -99,6 +101,36 @@ export default async function ModelAvailability({
 	const gatewayEntry = availability?.find((a) => a.is_active_gateway);
 
 	const shouldShowGatewayPromo = gatewayEntry;
+
+	// compute a single 'now' timestamp for the render
+	const now = new Date().getTime();
+
+	// helper: effective_to in the past => retired
+	const isRetiredFor = (item: ModelAvailabilityItem) => {
+		const effectiveToStr =
+			(item as any).effective_to || (item as any).effectiveTo || null;
+		if (!effectiveToStr || typeof effectiveToStr !== "string") return false;
+		const eff = new Date(effectiveToStr);
+		return !isNaN(eff.getTime()) && eff.getTime() < now;
+	};
+
+	// helper: coming soon if effective_from is in the future OR missing but we have a model entry
+	const isComingSoonFor = (item: ModelAvailabilityItem) => {
+		const effectiveFromStr =
+			(item as any).effective_from || (item as any).effectiveFrom || null;
+
+		// If effective_from is missing/null and we have a provider model slug (model exists), mark as coming soon
+		if (!effectiveFromStr || typeof effectiveFromStr !== "string") {
+			return Boolean(
+				item.provider_model_slug ||
+					item.endpoint ||
+					item.provider?.api_provider_name
+			);
+		}
+
+		const eff = new Date(effectiveFromStr);
+		return !isNaN(eff.getTime()) && eff.getTime() > now;
+	};
 
 	return (
 		<div className="w-full mx-auto space-y-4">
@@ -150,12 +182,20 @@ export default async function ModelAvailability({
 									<div className="flex items-center gap-1 rounded-full bg-muted/50 px-2 py-1">
 										{item.is_active_gateway ? (
 											<CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
+										) : isRetiredFor(item) ? (
+											<Archive className="h-3.5 w-3.5 text-slate-500" />
+										) : isComingSoonFor(item) ? (
+											<Clock className="h-3.5 w-3.5 text-amber-500" />
 										) : (
 											<XCircle className="h-3.5 w-3.5 text-red-500" />
 										)}
 										<span className="text-[0.65rem] uppercase tracking-wide text-muted-foreground">
 											{item.is_active_gateway
 												? "Active"
+												: isRetiredFor(item)
+												? "Retired"
+												: isComingSoonFor(item)
+												? "Coming Soon"
 												: "Inactive"}
 										</span>
 									</div>

@@ -12,7 +12,7 @@
   "output_modalities": [
     "image"
   ],
-  "effective_from": null,
+  "effective_from": "2023-10-19T00:00:00",
   "effective_to": "2026-05-12T00:00:00",
   "capability": {},
   "params": [],

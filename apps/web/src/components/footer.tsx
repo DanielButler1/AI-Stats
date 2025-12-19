@@ -8,7 +8,6 @@ import {
 	Hammer,
 	FileText,
 	ShieldCheck,
-	Gift,
 	Database,
 } from "lucide-react";
 import {
@@ -17,10 +16,10 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
-import Image from "next/image";
 import LastUpdated from "@/components/last-updated";
 import { Separator } from "@/components/ui/separator";
 import { withUTM } from "@/lib/utm";
+import { Logo } from "./Logo";
 
 const currentYear = new Date().getFullYear();
 const deployTime = process.env.NEXT_PUBLIC_DEPLOY_TIME ?? "";
@@ -67,8 +66,8 @@ export default function Footer() {
 							aria-label="Discord"
 							className="flex items-center justify-center h-12 rounded-lg border border-border bg-white dark:bg-zinc-950 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-colors gap-2"
 						>
-							<Image
-								src="/social/discord.svg"
+							<Logo
+								id="discord"
 								alt="Discord"
 								width={20}
 								height={20}
@@ -84,19 +83,12 @@ export default function Footer() {
 							aria-label="GitHub"
 							className="flex items-center justify-center h-12 rounded-lg border border-border bg-white dark:bg-zinc-950 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors gap-2"
 						>
-							<Image
-								src="/social/github_dark.svg"
+							<Logo
+								id="github"
 								alt="GitHub"
 								width={20}
 								height={20}
-								className="h-5 w-5 dark:block hidden"
-							/>
-							<Image
-								src="/social/github_light.svg"
-								alt="GitHub"
-								width={20}
-								height={20}
-								className="h-5 w-5 block dark:hidden"
+								className="h-5 w-5"
 							/>
 							<span className="text-xs">GitHub</span>
 						</Link>
@@ -108,8 +100,8 @@ export default function Footer() {
 							aria-label="Instagram"
 							className="flex items-center justify-center h-12 rounded-lg border border-border bg-white dark:bg-zinc-950 hover:bg-pink-100 dark:hover:bg-pink-900/40 transition-colors gap-2"
 						>
-							<Image
-								src="/social/instagram.svg"
+							<Logo
+								id="instagram"
 								alt="Instagram"
 								width={20}
 								height={20}
@@ -125,8 +117,8 @@ export default function Footer() {
 							aria-label="Reddit"
 							className="flex items-center justify-center h-12 rounded-lg border border-border bg-white dark:bg-zinc-950 hover:bg-orange-100 dark:hover:bg-orange-900/40 transition-colors gap-2"
 						>
-							<Image
-								src="/social/reddit.svg"
+							<Logo
+								id="reddit"
 								alt="Reddit"
 								width={20}
 								height={20}
@@ -142,19 +134,12 @@ export default function Footer() {
 							aria-label="X"
 							className="flex items-center justify-center h-12 rounded-lg border border-border bg-white dark:bg-zinc-950 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors gap-2"
 						>
-							<Image
-								src="/social/x_dark.svg"
-								alt="X Logo"
+							<Logo
+								id="x"
+								alt="X"
 								width={20}
 								height={20}
-								className="h-5 w-5 dark:block hidden"
-							/>
-							<Image
-								src="/social/x_light.svg"
-								alt="X Logo"
-								width={20}
-								height={20}
-								className="h-5 w-5 block dark:hidden"
+								className="h-5 w-5"
 							/>
 							<span className="text-xs">X</span>
 						</Link>
@@ -282,8 +267,8 @@ export default function Footer() {
 								aria-label="Discord"
 								className="h-9 w-9 rounded-full border border-border flex items-center justify-center transition-colors hover:bg-indigo-100 dark:hover:bg-indigo-900/40 focus:outline-hidden focus:ring-2 focus:ring-primary"
 							>
-								<Image
-									src="/social/discord.svg"
+								<Logo
+									id="discord"
 									alt="Discord"
 									width={20}
 									height={20}
@@ -297,19 +282,12 @@ export default function Footer() {
 								aria-label="GitHub"
 								className="h-9 w-9 rounded-full border border-border flex items-center justify-center transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-hidden focus:ring-2 focus:ring-primary"
 							>
-								<Image
-									src="/social/github_dark.svg"
+								<Logo
+									id="github"
 									alt="GitHub"
 									width={20}
 									height={20}
-									className="h-5 w-5 dark:block hidden"
-								/>
-								<Image
-									src="/social/github_light.svg"
-									alt="GitHub"
-									width={20}
-									height={20}
-									className="h-5 w-5 block dark:hidden"
+									className="h-5 w-5"
 								/>
 							</Link>
 							<Link
@@ -319,8 +297,8 @@ export default function Footer() {
 								aria-label="Instagram"
 								className="h-9 w-9 rounded-full border border-border flex items-center justify-center transition-colors hover:bg-pink-100 dark:hover:bg-pink-900/40 focus:outline-hidden focus:ring-2 focus:ring-primary"
 							>
-								<Image
-									src="/social/instagram.svg"
+								<Logo
+									id="instagram"
 									alt="Instagram"
 									width={20}
 									height={20}
@@ -334,8 +312,8 @@ export default function Footer() {
 								aria-label="Reddit"
 								className="h-9 w-9 rounded-full border border-border flex items-center justify-center transition-colors hover:bg-orange-100 dark:hover:bg-orange-900/40 focus:outline-hidden focus:ring-2 focus:ring-primary"
 							>
-								<Image
-									src="/social/reddit.svg"
+								<Logo
+									id="reddit"
 									alt="Reddit"
 									width={20}
 									height={20}
@@ -349,19 +327,12 @@ export default function Footer() {
 								aria-label="X"
 								className="h-9 w-9 rounded-full border border-border flex items-center justify-center transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:outline-hidden focus:ring-2 focus:ring-primary"
 							>
-								<Image
-									src="/social/x_dark.svg"
+								<Logo
+									id="x"
 									alt="X"
 									width={20}
 									height={20}
-									className="h-5 w-5 dark:block hidden"
-								/>
-								<Image
-									src="/social/x_light.svg"
-									alt="X"
-									width={20}
-									height={20}
-									className="h-5 w-5 block dark:hidden"
+									className="h-5 w-5"
 								/>
 							</Link>
 						</div>

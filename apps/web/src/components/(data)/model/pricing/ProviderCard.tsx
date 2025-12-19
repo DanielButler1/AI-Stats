@@ -4,7 +4,15 @@ import React, { useMemo } from "react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BarChart3, Settings, CheckCircle2, XCircle, Network } from "lucide-react";
+import {
+	BarChart3,
+	Settings,
+	CheckCircle2,
+	XCircle,
+	Network,
+	Clock,
+	Archive,
+} from "lucide-react";
 import {
 	Tooltip,
 	TooltipContent,
@@ -39,7 +47,38 @@ export default function ProviderCard({
 		[provider, plan]
 	);
 
-	const hasActiveGateway = provider.provider_models.some(pm => pm.is_active_gateway);
+	const hasActiveGateway = provider.provider_models.some(
+		(pm) => pm.is_active_gateway
+	);
+	const now = new Date().getTime();
+	const isRetiredFor = (item: ProviderPricing["provider_models"][number]) => {
+		const effectiveToStr = item.effective_to || null;
+		if (!effectiveToStr || typeof effectiveToStr !== "string") return false;
+		const eff = new Date(effectiveToStr);
+		return !isNaN(eff.getTime()) && eff.getTime() < now;
+	};
+	const isComingSoonFor = (
+		item: ProviderPricing["provider_models"][number]
+	) => {
+		const effectiveFromStr = item.effective_from || null;
+		if (!effectiveFromStr || typeof effectiveFromStr !== "string") {
+			return Boolean(item.provider_model_slug || item.endpoint);
+		}
+		const eff = new Date(effectiveFromStr);
+		return !isNaN(eff.getTime()) && eff.getTime() > now;
+	};
+	const isAllRetired =
+		provider.provider_models.length > 0 &&
+		provider.provider_models.every(isRetiredFor);
+	const isComingSoon = provider.provider_models.some(isComingSoonFor);
+
+	const status = hasActiveGateway
+		? "Active"
+		: isAllRetired
+			? "Retired"
+			: isComingSoon
+				? "Coming Soon"
+				: "Inactive";
 
 	// Define all possible endpoints grouped by category
 	const endpointCategories = [
@@ -84,8 +123,8 @@ export default function ProviderCard({
 	// Get gateway-supported endpoints from provider models
 	const gatewaySupportedEndpoints = new Set(
 		provider.provider_models
-			.filter(pm => pm.is_active_gateway)
-			.map(pm => pm.endpoint)
+			.filter((pm) => pm.is_active_gateway)
+			.map((pm) => pm.endpoint)
 	);
 
 	const allEmpty =
@@ -100,57 +139,44 @@ export default function ProviderCard({
 
 	if (allEmpty) return null;
 
-		return (
-			<Card className="border-slate-200">
-				<CardHeader>
-					<div className="flex items-center justify-between">
-						<div className="flex items-center gap-3">
-							<Link href={`/api-providers/${sec.providerId}`} className="group">
-								<div className="w-10 h-10 relative flex items-center justify-center rounded-xl border">
-									<div className="w-7 h-7 relative">
-										<Logo
-											id={sec.providerId}
-											alt={`${sec.providerName} logo`}
-											className="object-contain group-hover:opacity-80 transition"
-											fill
-										/>
-									</div>
+	return (
+		<Card className="border-slate-200">
+			<CardHeader>
+				<div className="flex items-center justify-between">
+					<div className="flex items-center gap-3">
+						<Link href={`/api-providers/${sec.providerId}`} className="group">
+							<div className="w-10 h-10 relative flex items-center justify-center rounded-xl border">
+								<div className="w-7 h-7 relative">
+									<Logo
+										id={sec.providerId}
+										alt={`${sec.providerName} logo`}
+										className="object-contain group-hover:opacity-80 transition"
+										fill
+									/>
 								</div>
-							</Link>
-							<Link href={`/api-providers/${sec.providerId}`} className="group">
-								<CardTitle className="text-lg group-hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
-									{sec.providerName}
-								</CardTitle>
-							</Link>
+							</div>
+						</Link>
+						<Link href={`/api-providers/${sec.providerId}`} className="group">
+							<CardTitle className="text-lg group-hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+								{sec.providerName}
+							</CardTitle>
+						</Link>
+						<div className="flex items-center gap-1 rounded-full bg-muted/50 px-2 py-1">
 							{hasActiveGateway ? (
-								<TooltipProvider>
-									<Tooltip>
-										<TooltipTrigger asChild>
-											<span>
-												<CheckCircle2 className="h-4 w-4 text-green-600" />
-											</span>
-										</TooltipTrigger>
-										<TooltipContent>
-											<p>Supported on the Gateway</p>
-										</TooltipContent>
-									</Tooltip>
-								</TooltipProvider>
+								<CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
+							) : isAllRetired ? (
+								<Archive className="h-3.5 w-3.5 text-slate-500" />
+							) : isComingSoon ? (
+								<Clock className="h-3.5 w-3.5 text-amber-500" />
 							) : (
-								<TooltipProvider>
-									<Tooltip>
-										<TooltipTrigger asChild>
-											<span>
-												<XCircle className="h-4 w-4 text-red-500" />
-											</span>
-										</TooltipTrigger>
-										<TooltipContent>
-											<p>Not supported on the Gateway</p>
-										</TooltipContent>
-									</Tooltip>
-								</TooltipProvider>
+								<XCircle className="h-3.5 w-3.5 text-red-500" />
 							)}
+							<span className="text-[0.65rem] uppercase tracking-wide text-muted-foreground">
+								{status}
+							</span>
 						</div>
-						<div className="flex items-center gap-2">
+					</div>
+					<div className="flex items-center gap-2">
 							<TooltipProvider>
 								<Tooltip>
 									<TooltipTrigger asChild>

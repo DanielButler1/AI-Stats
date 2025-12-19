@@ -51,13 +51,13 @@
   ],
   "models": [
     {
-      "model_id": "google/gemini-2-5-flash-preview-2025-05-20",
+      "model_id": "google/gemini-3-flash-2025-12-17",
       "model_info": null,
       "rate_limit": null,
       "other_info": null
     },
     {
-      "model_id": "google/gemini-2-5-pro-preview-2025-06-05",
+      "model_id": "google/gemini-3-pro-preview-2025-11-18",
       "model_info": null,
       "rate_limit": "500 Messages / Day",
       "other_info": null

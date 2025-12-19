@@ -4,13 +4,30 @@ import {
 	MonitorTimeline,
 	type ChangeHistory,
 } from "@/components/monitor/MonitorTimeline";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Monitor - Change History",
+	description:
+		"Track recent changes across models, providers, pricing, and data updates on AI Stats.",
+	keywords: [
+		"AI model changes",
+		"AI updates",
+		"AI pricing changes",
+		"AI Stats monitor",
+		"AI Stats",
+	],
+	alternates: {
+		canonical: "/monitor",
+	},
+};
 
 export const cacheLife = "hours";
 
 const getMonitorHistory = async (): Promise<ChangeHistory[]> => {
 	const filePath = path.join(
 		process.cwd(),
-		"public",
+		"src",
 		"data",
 		"monitor-history.json"
 	);

@@ -147,7 +147,7 @@ export async function loadPricing(tracker: ChangeTracker) {
                     model_key: computedKey,
                 });
 
-                const provider_model_slug = (j.provider_model_slug ?? j.model_id ?? null);
+                const provider_model_slug = (j.provider_model_slug ?? null);
                 const id = computedKey; // table requires an `id` primary key; use composed key
 
                 providerModelIds.add(id);

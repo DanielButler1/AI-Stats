@@ -29,7 +29,7 @@ export default async function ModelPricing({ modelId }: { modelId: string }) {
 					<a
 						className="text-primary underline ml-1"
 						href={withUTM(
-							"https://github.com/AI-Stats/AI-Stats-Private/issues",
+							"https://github.com/AI-Stats/AI-Stats/issues",
 							{
 								campaign: "model-pricing-feedback",
 								content: "model-pricing-component",

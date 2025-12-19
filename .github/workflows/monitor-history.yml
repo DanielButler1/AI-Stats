@@ -52,7 +52,18 @@ jobs:
 
             - name: Update monitor history
               if: steps.check-changes.outputs.changes == 'true'
-              run: pnpm exec tsx scripts/update-monitor-history.ts
+              shell: bash
+              run: |
+                  BASE="${{ github.event.before }}"
+                  HEAD="${{ github.sha }}"
+
+                  # Handle edge-case where BASE is all zeros (e.g. first push on a new branch)
+                  if [[ "$BASE" =~ ^0+$ ]]; then
+                    echo "BASE is empty/zero; falling back to HEAD only"
+                    pnpm exec tsx scripts/update-monitor-history.ts "$HEAD"
+                  else
+                    pnpm exec tsx scripts/update-monitor-history.ts "$BASE" "$HEAD"
+                  fi
 
             - name: Commit changes
               if: steps.check-changes.outputs.changes == 'true'

@@ -10,7 +10,7 @@ export function MonitorHistoryClient() {
 	const [changeHistory, setChangeHistory] = useState<ChangeHistory[]>([]);
 
 	useEffect(() => {
-		fetch("/data/monitor-history.json")
+		fetch("/api/monitor-history")
 			.then((res) => (res.ok ? res.json() : []))
 			.then(setChangeHistory)
 			.catch(() => setChangeHistory([]));

@@ -1,8 +1,9 @@
-﻿import Link from "next/link";
-import { TrendingDown, TrendingUp } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, TrendingDown, TrendingUp } from "lucide-react";
 import { Logo } from "@/components/Logo";
 // Use a module-level default for "now" so we don't call Date.now() during render.
 const DEFAULT_NOW = Date.now();
+const GITHUB_REPO = "https://github.com/AI-Stats/AI-Stats";
 
 export type ChangeHistory = {
 	id: string;
@@ -14,9 +15,13 @@ export type ChangeHistory = {
 	oldValue: any;
 	newValue: any;
 	percentChange?: number;
+	action?: "added" | "changed" | "removed";
+	commit?: string;
+	entityId?: string;
+	orgId?: string | null;
 };
 
-type ChangeKind = "added" | "deleted" | "updated";
+type ChangeKind = "added" | "removed" | "updated";
 
 type GroupedChanges = {
 	label: string;
@@ -58,10 +63,13 @@ const formatPercentChange = (change?: number) => {
 };
 
 const getKind = (change: ChangeHistory): ChangeKind => {
+	if (change.action === "added") return "added";
+	if (change.action === "removed") return "removed";
+	if (change.action === "changed") return "updated";
 	const oldNull = change.oldValue == null;
 	const newNull = change.newValue == null;
 	if (oldNull && !newNull) return "added";
-	if (!oldNull && newNull) return "deleted";
+	if (!oldNull && newNull) return "removed";
 	return "updated";
 };
 
@@ -116,17 +124,30 @@ const groupChanges = (data: ChangeHistory[], now: number): GroupedChanges[] => {
 const getHref = (change: ChangeHistory) => {
 	if (change.provider === "model") return `/models/${change.model}`;
 	if (change.provider === "organisation")
-		return `/organisations/${change.model}`;
+		return change.entityId
+			? `/organisations/${change.entityId}`
+			: `/organisations/${change.model}`;
 	if (change.provider === "api-provider")
 		return `/api-providers/${change.model}`;
 	if (change.provider === "benchmark") return `/benchmarks/${change.model}`;
+	if (change.provider === "family") {
+		return change.entityId ? `/families/${change.entityId}` : null;
+	}
+	if (change.provider === "subscription-plan") {
+		return change.entityId ? `/subscription-plans/${change.entityId}` : null;
+	}
+	if (change.provider === "alias") return null;
 	return null;
 };
 
 const getOrgId = (change: ChangeHistory) => {
 	if (change.provider === "benchmark") return null;
 	if (change.provider === "model") return change.model.split("/")[0] ?? null;
-	if (change.provider === "organisation") return change.model;
+	if (change.provider === "organisation")
+		return change.orgId ?? change.entityId ?? null;
+	if (change.provider === "family") return change.orgId ?? null;
+	if (change.provider === "subscription-plan") return change.orgId ?? null;
+	if (change.provider === "alias") return change.orgId ?? null;
 	return null;
 };
 
@@ -134,6 +155,9 @@ const renderChangeRow = (change: ChangeHistory) => {
 	const kind = getKind(change);
 	const href = getHref(change);
 	const orgId = getOrgId(change);
+	const commitUrl = change.commit
+		? `${GITHUB_REPO}/commit/${change.commit}`
+		: null;
 
 	const modelNode = href ? (
 		<Link href={href} className="hover:underline font-medium">
@@ -142,6 +166,28 @@ const renderChangeRow = (change: ChangeHistory) => {
 	) : (
 		<span className="font-medium">{change.model}</span>
 	);
+	const showFamilyLabel = change.provider === "family";
+	const planModelId =
+		change.provider === "subscription-plan" &&
+		change.field?.startsWith("models.")
+			? change.field.replace("models.", "")
+			: null;
+	const isAliasChange =
+		change.provider === "alias" && change.field === "resolved_model_id";
+	const aliasOld =
+		isAliasChange && typeof change.oldValue === "string"
+			? change.oldValue
+			: null;
+	const aliasNew =
+		isAliasChange && typeof change.newValue === "string"
+			? change.newValue
+			: null;
+	const planModelVerb =
+		change.oldValue == null && change.newValue != null
+			? "added"
+			: change.oldValue != null && change.newValue == null
+				? "removed"
+				: "updated";
 
 	const endpointBadge = change.endpoint ? (
 		<span className="inline-flex items-center rounded bg-muted px-2 py-0.5 text-xs font-medium">
@@ -152,37 +198,46 @@ const renderChangeRow = (change: ChangeHistory) => {
 	const kindColor =
 		kind === "added"
 			? "text-green-500"
-			: kind === "deleted"
+			: kind === "removed"
 			? "text-red-500"
 			: "text-sky-500";
 
 	const verb =
 		kind === "added"
 			? "created"
-			: kind === "deleted"
+			: kind === "removed"
 			? "removed"
 			: "updated";
 
-	const renderValueBadge = (val: any, emptyPlaceholder = "—") => {
+	const renderValueBadge = (val: any, emptyPlaceholder = "") => {
+		if (val === null)
+			return (
+				<span className="rounded border border-muted px-2 py-0.5 text-sm font-medium whitespace-normal break-words">
+					null
+				</span>
+			);
 		const empty =
-			val == null ||
+			val === undefined ||
 			(typeof val === "string" && val.trim() === "") ||
 			(Array.isArray(val) && val.length === 0);
 		if (empty)
 			return (
-				<span className="rounded bg-muted/20 px-2 py-0.5 text-xs text-muted-foreground whitespace-nowrap">
+				<span className="rounded border border-muted/40 px-2 py-0.5 text-sm whitespace-normal break-words">
 					{emptyPlaceholder}
 				</span>
 			);
 		return (
-			<span className="rounded bg-muted px-2 py-0.5 text-xs font-medium whitespace-nowrap">
+			<span className="rounded border border-muted px-2 py-0.5 text-sm font-medium whitespace-normal break-words">
 				{formatValue(val)}
 			</span>
 		);
 	};
 
 	return (
-		<li key={change.id} className="flex items-center gap-3">
+		<li
+			key={change.id}
+			className="flex flex-wrap items-center gap-3"
+		>
 			<div className="flex-shrink-0">
 				{orgId ? (
 					<div className="w-10 h-10 relative flex items-center justify-center rounded-xl border">
@@ -200,35 +255,74 @@ const renderChangeRow = (change: ChangeHistory) => {
 				)}
 			</div>
 
-			<div className="min-w-0 flex items-center gap-2">
+			<div className="min-w-0 flex-1 flex flex-wrap items-center gap-2">
 				{endpointBadge}
 
-				<span className="truncate text-sm">
+				<span className="text-sm break-words">
 					{endpointBadge ? (
 						<span className="sr-only">endpoint for</span>
 					) : null}
 					{endpointBadge ? (
 						<span className="text-sm">endpoint for </span>
 					) : null}
-					<span className="font-medium truncate">{modelNode}</span>
+					<span className="font-medium">{modelNode}</span>
+					{showFamilyLabel ? (
+						<span className="text-sm"> family</span>
+					) : null}
 					<span className={`${kindColor} ml-2 text-sm font-semibold`}>
 						{" "}
 						was {verb}
 					</span>
 				</span>
-			</div>
 
-			<div className="ml-4 flex items-center gap-2 text-xs text-muted-foreground whitespace-nowrap">
-				{change.field ? (
-					<span className="text-xs text-muted-foreground">
-						{change.field}:
+				{kind === "updated" || planModelId || isAliasChange ? (
+					<span className="text-muted-foreground">|</span>
+				) : null}
+
+				{(kind === "updated" || planModelId || isAliasChange) ? (
+					<span className="flex flex-wrap items-center gap-2 text-muted-foreground">
+						{renderValueBadge(
+							isAliasChange
+								? "alias"
+								: planModelId
+								? "models"
+								: change.field ?? "field"
+						)}
+						<span className="text-xs text-muted-foreground">from</span>
+						{isAliasChange
+							? renderValueBadge(aliasOld)
+							: planModelId
+							? renderValueBadge(planModelVerb === "added" ? null : planModelId)
+							: renderValueBadge(change.oldValue)}
+						<span className="text-xs text-muted-foreground">to</span>
+						{isAliasChange
+							? renderValueBadge(aliasNew)
+							: planModelId
+							? renderValueBadge(planModelVerb === "removed" ? null : planModelId)
+							: renderValueBadge(change.newValue)}
+						{!isAliasChange && !planModelId
+							? formatPercentChange(change.percentChange)
+							: null}
 					</span>
 				) : null}
-				{renderValueBadge(change.oldValue)}
-				<span className="text-muted-foreground">→</span>
-				{renderValueBadge(change.newValue)}
-				{formatPercentChange(change.percentChange)}
 			</div>
+			{commitUrl ? (
+				<a
+					href={commitUrl}
+					target="_blank"
+					rel="noreferrer"
+					className="ml-auto flex items-center"
+					aria-label={`View commit ${change.commit} on GitHub`}
+				>
+					<Logo
+						id="github"
+						alt="GitHub"
+						width={16}
+						height={16}
+						className="opacity-70 hover:opacity-100 dark:invert"
+					/>
+				</a>
+			) : null}
 		</li>
 	);
 };

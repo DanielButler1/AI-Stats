@@ -6,8 +6,13 @@
   "endpoint": "responses",
   "provider_model_slug": null,
   "is_active_gateway": false,
-  "input_modalities": [],
-  "output_modalities": [],
+  "input_modalities": [
+    "text",
+    "image"
+  ],
+  "output_modalities": [
+    "text"
+  ],
   "effective_from": null,
   "effective_to": null,
   "capability": {},

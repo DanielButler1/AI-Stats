@@ -426,6 +426,7 @@
       "mistral/mistral-small-3-24b-instruct-2025-01-30",
       "mistral/mixtral-8x22b",
       "mistral/mixtral-8x7b",
+      "mistral/ocr-3-2025-12-18",
       "mistral/open-codestral-mamba",
       "mistral/open-mistral-7b",
       "mistral/open-mistral-nemo",

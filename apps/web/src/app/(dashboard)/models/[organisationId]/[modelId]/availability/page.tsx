@@ -85,11 +85,6 @@ export default async function Page({
 	const availability = await getModelAvailabilityCached(modelId);
 	const subscriptionPlans = await getModelSubscriptionPlansCached(modelId);
 
-	console.log("Lengths:", {
-		availability: availability.length,
-		subscriptionPlans: subscriptionPlans.length,
-	});
-
 	return (
 		<ModelDetailShell modelId={modelId} tab="availability">
 			<ModelAvailability

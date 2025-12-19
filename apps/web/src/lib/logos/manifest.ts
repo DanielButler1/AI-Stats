@@ -58,6 +58,9 @@ export const logoManifest = {
 		light: "/logos/eleven-labs_light.svg",
 		dark: "/logos/eleven-labs_dark.svg",
 	},
+	essentialai: {
+		color: "/logos/essential-ai.svg",
+	},
 	google: {
 		color: "/logos/google.svg",
 	},
@@ -73,6 +76,24 @@ export const logoManifest = {
 	},
 	groq: {
 		color: "/logos/groq.svg",
+	},
+	github: {
+		light: "/social/github_light.svg",
+		dark: "/social/github_dark.svg",
+	},
+	// Social icons used in the footer
+	discord: {
+		color: "/social/discord.svg",
+	},
+	instagram: {
+		color: "/social/instagram.svg",
+	},
+	reddit: {
+		color: "/social/reddit.svg",
+	},
+	x: {
+		light: "/social/x_light.svg",
+		dark: "/social/x_dark.svg",
 	},
 	ibm: {
 		color: "/logos/ibm.svg",

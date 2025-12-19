@@ -8,8 +8,8 @@
   "is_active_gateway": false,
   "input_modalities": [],
   "output_modalities": [],
-  "effective_from": null,
-  "effective_to": null,
+  "effective_from": "2025-03-06T00:00:00",
+  "effective_to": "2025-08-03T00:00:00",
   "capability": {},
   "params": [],
   "rules": []
