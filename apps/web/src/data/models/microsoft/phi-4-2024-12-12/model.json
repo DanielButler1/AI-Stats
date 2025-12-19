@@ -2,7 +2,7 @@
   "model_id": "microsoft/phi-4-2024-12-12",
   "organisation_id": "microsoft",
   "name": "Phi 4",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2024-12-12T00:00:00",
