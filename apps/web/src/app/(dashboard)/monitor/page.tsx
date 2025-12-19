@@ -1,9 +1,10 @@
 ﻿import fs from "fs";
 import path from "path";
+import { Suspense } from "react";
 import {
-	MonitorTimeline,
+	MonitorHistoryClient,
 	type ChangeHistory,
-} from "@/components/monitor/MonitorTimeline";
+} from "@/components/monitor/MonitorHistoryClient";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 	},
 };
 
-export const cacheLife = "hours";
+export const cacheLife = "days";
 
 const getMonitorHistory = async (): Promise<ChangeHistory[]> => {
 	const filePath = path.join(
@@ -34,7 +35,10 @@ const getMonitorHistory = async (): Promise<ChangeHistory[]> => {
 
 	try {
 		const json = await fs.promises.readFile(filePath, "utf8");
-		return JSON.parse(json) as ChangeHistory[];
+		const parsed = JSON.parse(json) as
+			| ChangeHistory[]
+			| { entries?: ChangeHistory[] };
+		return Array.isArray(parsed) ? parsed : parsed.entries ?? [];
 	} catch (_) {
 		return [];
 	}
@@ -60,6 +64,33 @@ type MonitorPageProps = {
 	};
 };
 
+function MonitorHistorySkeleton() {
+	return (
+		<div className="space-y-4">
+			<div className="h-4 w-40 rounded bg-muted/40" />
+			{Array.from({ length: 6 }).map((_, index) => (
+				<div
+					key={index}
+					className="h-10 rounded border border-dashed border-muted/50 bg-muted/10"
+				/>
+			))}
+		</div>
+	);
+}
+
+async function MonitorHistorySection({
+	changeType,
+	entityFilter,
+}: {
+	changeType: "all" | "model" | "endpoint";
+	entityFilter: string;
+}) {
+	const allData = await getMonitorHistory();
+	const filteredData = filterHistory(allData, changeType, entityFilter);
+
+	return <MonitorHistoryClient data={filteredData} />;
+}
+
 export default async function MonitorPage({ searchParams }: MonitorPageProps) {
 	const params = await searchParams;
 	const typeParam = params?.type;
@@ -69,11 +100,6 @@ export default async function MonitorPage({ searchParams }: MonitorPageProps) {
 		typeParam === "model" || typeParam === "endpoint" ? typeParam : "all";
 	const entityFilter = entityParam ?? "all";
 
-	const allData = await getMonitorHistory();
-	const filteredData = filterHistory(allData, changeType, entityFilter);
-
-	const entities = Array.from(new Set(allData.map((c) => c.model))).sort();
-
 	return (
 		<div className="container mx-auto px-4 py-8 space-y-6">
 			<div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -82,7 +108,12 @@ export default async function MonitorPage({ searchParams }: MonitorPageProps) {
 				</div>
 			</div>
 
-			<MonitorTimeline data={filteredData} />
+			<Suspense fallback={<MonitorHistorySkeleton />}>
+				<MonitorHistorySection
+					changeType={changeType}
+					entityFilter={entityFilter}
+				/>
+			</Suspense>
 		</div>
 	);
 }

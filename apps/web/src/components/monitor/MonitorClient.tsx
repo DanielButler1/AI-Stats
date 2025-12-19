@@ -7,9 +7,9 @@ import {
 	type ModelData,
 } from "@/components/monitor/MonitorDataTable";
 import {
-	MonitorTimeline,
+	MonitorHistoryClient,
 	type ChangeHistory,
-} from "@/components/monitor/MonitorTimeline";
+} from "@/components/monitor/MonitorHistoryClient";
 import { type MonitorModelData } from "@/lib/fetchers/models/getMonitorModels";
 
 interface MonitorClientProps {
@@ -107,7 +107,7 @@ export function MonitorClient({ initialModelData }: MonitorClientProps) {
 			</TabsContent>
 
 			<TabsContent value="timeline" className="mt-6">
-				<MonitorTimeline data={changeHistory} />
+				<MonitorHistoryClient data={changeHistory} />
 			</TabsContent>
 		</Tabs>
 	);

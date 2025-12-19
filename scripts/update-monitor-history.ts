@@ -642,9 +642,13 @@ function listCommitsInRange(base: string, head: string): string[] {
   return out.split("\n").map((s) => s.trim()).filter(Boolean);
 }
 
-function writeHistory(entries: HistoryEntry[]) {
+function writeHistory(
+  entries: HistoryEntry[],
+  meta: { base: string; head: string; generatedAt: string; commitCount: number }
+) {
   fs.mkdirSync(path.dirname(HISTORY_FILE), { recursive: true });
-  fs.writeFileSync(HISTORY_FILE, JSON.stringify(entries, null, 2) + "\n", "utf8");
+  const payload = { meta, entries };
+  fs.writeFileSync(HISTORY_FILE, JSON.stringify(payload, null, 2) + "\n", "utf8");
 }
 
 function compareEntries(a: HistoryEntry, b: HistoryEntry): number {
@@ -715,7 +719,16 @@ function main() {
 
   entries.sort(compareEntries);
 
-  writeHistory(entries);
+  const head = b ?? a;
+  const base = b ? a : getParentCommit(a) ?? a;
+  const meta = {
+    base,
+    head,
+    generatedAt: new Date().toISOString(),
+    commitCount: commits.length,
+  };
+
+  writeHistory(entries, meta);
 
   console.log(
     `Updated monitor history for ${commits.length} commit(s). Wrote ${entries.length} entries.`
