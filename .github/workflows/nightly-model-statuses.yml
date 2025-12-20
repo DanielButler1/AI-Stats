@@ -75,36 +75,3 @@ jobs:
                   committer: ${{ steps.bot.outputs.committer }}
                   author: ${{ steps.bot.outputs.committer }}
                   signoff: true
-
-            - name: Wait for checks (all checks, not just required)
-              if: steps.cpr.outputs.pull-request-number != ''
-              env:
-                  GH_TOKEN: ${{ steps.app-token.outputs.token }}
-              run: |
-                  set -euo pipefail
-                  pr="${{ steps.cpr.outputs.pull-request-number }}"
-
-                  sleep 10
-
-                  for i in $(seq 1 30); do
-                    out="$(gh pr checks "$pr" --watch 2>&1)" && { echo "$out"; exit 0; }
-                    echo "$out"
-
-                    if echo "$out" | grep -qi "no checks reported"; then
-                      echo "Checks not attached yet; retrying ($i/30)…"
-                      sleep 5
-                      continue
-                    fi
-
-                    # Some other real failure
-                    exit 1
-                  done
-
-                  echo "Still no checks reported after retries."
-                  exit 1
-
-            - name: Merge PR (squash)
-              if: steps.cpr.outputs.pull-request-number != ''
-              env:
-                  GH_TOKEN: ${{ steps.app-token.outputs.token }}
-              run: gh pr merge "${{ steps.cpr.outputs.pull-request-number }}" --squash --delete-branch

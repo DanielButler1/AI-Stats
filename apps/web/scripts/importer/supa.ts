@@ -1,7 +1,7 @@
 import * as path from "path";
 import * as dotenv from "dotenv";
 import { createAdminClient } from "../../src/utils/supabase/admin";
-import { toInList } from "./util";
+import { chunk } from "./util";
 
 dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 
@@ -48,7 +48,24 @@ export async function pruneRowsByColumn(
         return;
     }
 
-    const list = toInList(Array.from(keep));
-    const res = await supa.from(table).delete().not(column, "in", list);
-    assertOk(res, `${ctx} (prune by ${column})`);
+    const existing: string[] = [];
+    const pageSize = 1000;
+    for (let offset = 0; ; offset += pageSize) {
+        const res = await supa.from(table).select(column).range(offset, offset + pageSize - 1);
+        const rows = assertOk(res, `${ctx} (select ${column})`) as Record<string, any>[];
+        if (!rows.length) break;
+        for (const row of rows) {
+            const value = row?.[column];
+            if (typeof value === "string") existing.push(value);
+        }
+        if (rows.length < pageSize) break;
+    }
+
+    const toDelete = existing.filter((value) => !keep.has(value));
+    if (toDelete.length === 0) return;
+
+    for (const group of chunk(toDelete, 500)) {
+        const res = await supa.from(table).delete().in(column, group);
+        assertOk(res, `${ctx} (prune by ${column})`);
+    }
 }

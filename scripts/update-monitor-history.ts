@@ -644,10 +644,13 @@ function listCommitsInRange(base: string, head: string): string[] {
 
 function writeHistory(
   entries: HistoryEntry[],
+  existingEntries: HistoryEntry[],
   meta: { base: string; head: string; generatedAt: string; commitCount: number }
 ) {
   fs.mkdirSync(path.dirname(HISTORY_FILE), { recursive: true });
-  const payload = { meta, entries };
+  const seen = new Set(existingEntries.map((entry) => entry.id));
+  const merged = [...entries, ...existingEntries.filter((entry) => !seen.has(entry.id))];
+  const payload = { meta, entries: merged };
   fs.writeFileSync(HISTORY_FILE, JSON.stringify(payload, null, 2) + "\n", "utf8");
 }
 
@@ -693,6 +696,18 @@ function compareEntries(a: HistoryEntry, b: HistoryEntry): number {
   return a.id.localeCompare(b.id);
 }
 
+function readExistingHistory(): HistoryEntry[] {
+  if (!fs.existsSync(HISTORY_FILE)) return [];
+  try {
+    const raw = fs.readFileSync(HISTORY_FILE, "utf8");
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed?.entries)) return parsed.entries as HistoryEntry[];
+    return [];
+  } catch {
+    return [];
+  }
+}
+
 function main() {
   const a = process.argv[2];
   const b = process.argv[3];
@@ -717,10 +732,18 @@ function main() {
     return;
   }
 
-  entries.sort(compareEntries);
-
   const head = b ?? a;
   const base = b ? a : getParentCommit(a) ?? a;
+  const existingEntries = readExistingHistory();
+  const existingIds = new Set(existingEntries.map((entry) => entry.id));
+  const newEntries = entries.filter((entry) => !existingIds.has(entry.id));
+
+  if (newEntries.length === 0) {
+    console.log("No new history entries to add.");
+    return;
+  }
+
+  newEntries.sort(compareEntries);
   const meta = {
     base,
     head,
@@ -728,10 +751,10 @@ function main() {
     commitCount: commits.length,
   };
 
-  writeHistory(entries, meta);
+  writeHistory(newEntries, existingEntries, meta);
 
   console.log(
-    `Updated monitor history for ${commits.length} commit(s). Wrote ${entries.length} entries.`
+    `Updated monitor history for ${commits.length} commit(s). Wrote ${newEntries.length} entries.`
   );
 }
 

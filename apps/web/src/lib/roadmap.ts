@@ -119,8 +119,8 @@ export const MILESTONES: RoadmapMilestone[] = [
     {
         key: "database-updates",
         title: "Database Updates",
-        status: "Planned",
-        due: "Dec 2025 - Jan 2026",
+        status: "Shipped",
+        shippedAt: "2025-12-19",
         description:
             "An expansion of Latest Updates - this will show all changes made to the database allowing you to see what's changing in the database.",
         icon: "BookOpen",
@@ -157,8 +157,8 @@ export const MILESTONES: RoadmapMilestone[] = [
     {
         key: "revamped-pricing-page",
         title: "Revamped Model Pricing Page",
-        status: "Planned",
-        due: "Early Dec 2025",
+        status: "Shipped",
+        shippedAt: "2025-12-12",
         description: "A revamped page for model pricing information.",
         icon: "BadgeDollarSign",
     },
@@ -180,15 +180,7 @@ export const MILESTONES: RoadmapMilestone[] = [
             "Predefined configurations and presets for common AI use cases.",
         icon: "Sparkles",
     },
-    {
-        key: "christmas-2025",
-        title: "Christmas 2025",
-        status: "Planned",
-        due: "Dec 2025",
-        description:
-            "Coming Christmas 2025 👀",
-        icon: "Sparkles",
-    },
+
 ];
 
 // ------- helpers you already use on the page -------
