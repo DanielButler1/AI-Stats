@@ -2,7 +2,7 @@
   "model_id": "mistral/mistral-small-3-1-24b-base-2025-03-17",
   "organisation_id": "mistral",
   "name": "Mistral Small 3.1 24B Base",
-  "status": null,
+  "status": "Available",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": "2025-03-17T00:00:00",
