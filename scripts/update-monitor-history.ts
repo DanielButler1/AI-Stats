@@ -501,6 +501,14 @@ type HistoryEntry = {
   file: string;
 };
 
+type HistoryMeta = {
+  base: string;
+  head: string;
+  generatedAt: string;
+  commitCount: number;
+  lastSha: string;
+};
+
 function buildEntry(
   commit: string,
   file: string,
@@ -645,7 +653,7 @@ function listCommitsInRange(base: string, head: string): string[] {
 function writeHistory(
   entries: HistoryEntry[],
   existingEntries: HistoryEntry[],
-  meta: { base: string; head: string; generatedAt: string; commitCount: number }
+  meta: HistoryMeta
 ) {
   fs.mkdirSync(path.dirname(HISTORY_FILE), { recursive: true });
   const seen = new Set(existingEntries.map((entry) => entry.id));
@@ -696,15 +704,17 @@ function compareEntries(a: HistoryEntry, b: HistoryEntry): number {
   return a.id.localeCompare(b.id);
 }
 
-function readExistingHistory(): HistoryEntry[] {
-  if (!fs.existsSync(HISTORY_FILE)) return [];
+function readExistingHistory(): { entries: HistoryEntry[]; meta?: HistoryMeta } {
+  if (!fs.existsSync(HISTORY_FILE)) return { entries: [] };
   try {
     const raw = fs.readFileSync(HISTORY_FILE, "utf8");
     const parsed = JSON.parse(raw);
-    if (Array.isArray(parsed?.entries)) return parsed.entries as HistoryEntry[];
-    return [];
+    const entries = Array.isArray(parsed?.entries)
+      ? (parsed.entries as HistoryEntry[])
+      : [];
+    return { entries, meta: parsed?.meta as HistoryMeta | undefined };
   } catch {
-    return [];
+    return { entries: [] };
   }
 }
 
@@ -734,7 +744,8 @@ function main() {
 
   const head = b ?? a;
   const base = b ? a : getParentCommit(a) ?? a;
-  const existingEntries = readExistingHistory();
+  const existingHistory = readExistingHistory();
+  const existingEntries = existingHistory.entries;
   const existingIds = new Set(existingEntries.map((entry) => entry.id));
   const newEntries = entries.filter((entry) => !existingIds.has(entry.id));
 
@@ -749,6 +760,7 @@ function main() {
     head,
     generatedAt: new Date().toISOString(),
     commitCount: commits.length,
+    lastSha: head,
   };
 
   writeHistory(newEntries, existingEntries, meta);

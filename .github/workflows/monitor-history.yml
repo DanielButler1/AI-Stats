@@ -5,9 +5,6 @@ on:
         - cron: "0 * * * *"
     workflow_dispatch:
 
-env:
-    MONITOR_HISTORY_MARKER: .github/monitor-history-last-sha.txt
-
 permissions:
     contents: read
     pull-requests: read
@@ -66,9 +63,10 @@ jobs:
               run: |
                   HEAD="$(git rev-parse HEAD)"
                   BASE=""
+                  HISTORY_FILE="apps/web/src/data/monitor-history.json"
 
-                  if [ -f "${{ env.MONITOR_HISTORY_MARKER }}" ]; then
-                    BASE="$(cat "${{ env.MONITOR_HISTORY_MARKER }}")"
+                  if [ -f "$HISTORY_FILE" ]; then
+                    BASE="$(node -e "try{const fs=require('fs');const data=JSON.parse(fs.readFileSync('${HISTORY_FILE}','utf8'));process.stdout.write(data?.meta?.lastSha ?? '')}catch{process.stdout.write('')}")"
                   fi
 
                   if [ -n "$BASE" ] && git cat-file -e "${BASE}^{commit}" 2>/dev/null; then
@@ -105,7 +103,7 @@ jobs:
               if: steps.check-changes.outputs.changes == 'true'
               shell: bash
               run: |
-                  echo "${{ steps.range.outputs.head }}" > "${{ env.MONITOR_HISTORY_MARKER }}"
+                  echo "No marker file update needed."
 
             - name: Create or update pull request
               if: steps.check-changes.outputs.changes == 'true'
