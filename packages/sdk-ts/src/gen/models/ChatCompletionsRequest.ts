@@ -21,24 +21,28 @@ import {
     ChatCompletionsRequestToolChoiceToJSONTyped,
 } from './ChatCompletionsRequestToolChoice';
 import type { ChatCompletionsRequestResponseFormat } from './ChatCompletionsRequestResponseFormat';
+import {
     ChatCompletionsRequestResponseFormatFromJSON,
     ChatCompletionsRequestResponseFormatFromJSONTyped,
     ChatCompletionsRequestResponseFormatToJSON,
     ChatCompletionsRequestResponseFormatToJSONTyped,
 } from './ChatCompletionsRequestResponseFormat';
 import type { ChatMessage } from './ChatMessage';
+import {
     ChatMessageFromJSON,
     ChatMessageFromJSONTyped,
     ChatMessageToJSON,
     ChatMessageToJSONTyped,
 } from './ChatMessage';
 import type { ChatCompletionsRequestToolsInner } from './ChatCompletionsRequestToolsInner';
+import {
     ChatCompletionsRequestToolsInnerFromJSON,
     ChatCompletionsRequestToolsInnerFromJSONTyped,
     ChatCompletionsRequestToolsInnerToJSON,
     ChatCompletionsRequestToolsInnerToJSONTyped,
 } from './ChatCompletionsRequestToolsInner';
 import type { ReasoningConfig } from './ReasoningConfig';
+import {
     ReasoningConfigFromJSON,
     ReasoningConfigFromJSONTyped,
     ReasoningConfigToJSON,
