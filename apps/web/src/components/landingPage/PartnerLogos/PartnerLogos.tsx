@@ -7,6 +7,11 @@ export const excludedProviderLogos: string[] = [
 	"scira",
 	"t3",
 	"/logos/arxiv.svg",
+	"discord",
+	"x",
+	"github",
+	"instagram",
+	"reddit",
 	"grok",
 ];
 
@@ -23,7 +28,9 @@ function getProviderLogos(): string[] {
 	const knownLogos = listKnownLogos()
 		.filter(({ id, assets }) => {
 			// Exclude logos with assets in /languages/
-			const hasLanguageAsset = Object.values(assets).some(asset => asset?.startsWith("/languages/"));
+			const hasLanguageAsset = Object.values(assets).some((asset) =>
+				asset?.startsWith("/languages/")
+			);
 			if (hasLanguageAsset) return false;
 
 			const normalisedId = normaliseDescriptor(id);
