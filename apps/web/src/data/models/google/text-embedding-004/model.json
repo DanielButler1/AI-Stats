@@ -2,7 +2,7 @@
   "model_id": "google/text-embedding-004",
   "organisation_id": "google",
   "name": "Text Embedding 004",
-  "status": "Deprecated",
+  "status": "Retired",
   "previous_model_id": null,
   "announced_date": null,
   "release_date": null,
